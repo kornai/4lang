@@ -130,7 +130,7 @@
 130 akada1lyoz V obstruct impedio blokowac1: !AGT CAUSE[lack(pass)]
 131 akar V want volo chciec1: % primitive
 132 akar V will volo chciec1: want
-133 akar V wish volo chciec1: want[gentle]
+133 akar V wish volo chciec1: gentle(!AGT want !PAT)
 134 aki G who qui/quis kto/kto1ry: person % % indexical
 135 ala1 D beneath sub pod: under
 136 ala1 D under sub pod: vertical(position), !OBL ER
@@ -570,7 +570,7 @@
 570 egyes A some nonnullus kilka: % empty definition
 571 egyesu2l U unite coniungo jednoczyc1: before[separate], after[together]
 572 egyetem N college universitas uniwersytet: university
-573 egyetem N university universitas uniwersytet: institution, higher(educate), GIVE degree
+573 egyetem N university universitas uniwersytet: institution, educate, GIVE degree
 574 egyeze1s N accordance convenientia zgodnos1c1: agree
 575 egyezik V agree consentio zgadzac1_sie1: !AGT HAS same(opinion)
 576 egyezo3 A uniform congruens jednakowy: same
@@ -610,7 +610,7 @@
 610 elenged V release dimitto wypus1cic1: !AGT CAUSE[!PAT[free]], before[keep]
 611 eles A sharp acutus ostry: HAS [<edge>,<point>], CAUSE[lack(sound/512)]
 612 eleven A lively vividus z1wawy: HAS [much(energy)], active
-613 elfelejt V forget obliviscor zapomniec1: lack(remember), before[known]
+613 elfelejt V forget obliviscor zapomniec1: lack(remember), before[know]
 614 elfog V seize comprehendo zdobyc1: catch/828
 615 elfogad V accept accipio akceptowac1: allow, !PAT[lack(good)], !AGT DECLARE[!PAT[right/1191]], receive, before[!FROM OFFER !PAT] % right/1191 FOR/2782 self
 616 elfoglalt A busy occupatus zaje1ty: active, work, NOTHAS time
@@ -713,8 +713,8 @@
 713 fa1radt A weary defessus zme1czony: human, exhausted
 714 fa1raszt V tire lasso me1czyc1: !AGT CAUSE[!PAT[exhausted]]
 715 fagy N freeze gelu mro1z: cold CAUSE, before[liquid], after[solid,<ice>]
-716 faj N race species rasa: human, group, FROM/2742 birth, human HAS physical(characteristics), human HAS characteristic(hair/3359), human HAS skin, skin HAS characteristic(colour) % HAS common(ancestry)
-717 fajta N type species typ: group, HAS common(characteristics)
+716 faj N race species rasa: human, group, FROM/2742 birth, human HAS physical(characteristic), human HAS characteristic(hair/3359), human HAS skin, skin HAS characteristic(colour) % HAS common(ancestry)
+717 fajta N type species typ: group, HAS common(characteristic)
 718 fakad U burst scato wytrysna1c1: !AGT[begin]
 719 fako1 A pale gilvus blady: white, skin
 720 fakul U fade decolour_fio bledna1c1: % after[!PAT[lack(bright), lack(loud)], after[lack(!QUA SEE !PAT)]
@@ -742,7 +742,7 @@
 742 fe1nylik V shine splendeo s1wiecic1: light/739 FROM/2742 % RA
 743 fe1reg N worm vermis robak: animal, NOTHAS bone, NOTHAS legs, soft, long
 744 fe1rfi N man vir me1z1czyzna: person, male
-745 fe1rj N husband vir/maritus ma1z1: male, married, !POSS[wife] % relational noun
+745 fe1rj N husband vir/maritus ma1z1: male, HAS wife, !POSS[wife] % relational noun
 746 fe1su3 N comb pecten grzebien1: artefact, CAUSE[hair/3359[tidy]], HAS tooth
 747 fe1szek N nest nidus gniazdo: home, bird HAS, bird BUILD, <ON tree>, egg IN/2758, young IN/2758
 748 februa1r N February mensis_Februarius luty: month, FOLLOW january, march/1563 FOLLOW
@@ -815,7 +815,7 @@
 815 fo2ld N earth terra ziemia: IN/2758 space/2509, life ON, ocean ON, island ON, HAS atmosphere
 816 fo2ld V land ager ziemia: solid, ground, area/2366 % !AGT POS = N
 817 fo3 A chief primus gl1o1wny: % no use in the first 40 results
-818 fo3 A main primus gl1o1wny: highest, rank, lead/2617
+818 fo3 A main primus gl1o1wny: ER all, rank, lead/2617
 819 fo3 N grand primus gl1o1wny: big % RA % no use in the first 40 results
 820 fo3- A capital maximus/summus gl1o1wny: important, ER !QUA , main
 821 fo3- A general maximus/summus gl1o1wny: every IN/2758
@@ -994,7 +994,7 @@
 994 hang N voice vox gl1os: sound/993, vertebrate PRODUCE
 995 hangos A loud clarud gl1os1ny: sound/993, intense
 996 hangosan D aloud clare gl1os1no: INSTRUMENT normal(voice)
-997 hangya N ant formica mro1wka: insect, MEMBER [complex,society]
+997 hangya N ant formica mro1wka: insect, MEMBER [complex,society/2285]
 998 hanyag A sloppy neglegens niestaranny: lack(neat)
 999 haragos A angry iratus zl1y: anger
 1000 harang N bell campana dzwon: hollow, metal, instrument, HAS shape[cup/395], ring/2735 % <HAS clapper>, cup_shaped
@@ -1365,7 +1365,7 @@
 1365 kive1ve G except praeter opro1cz: lack
 1366 kivon V subtract deduco odejmowac1: !AGT CAUSE[!PAT NOTIN !FROM]
 1367 kiza1r V bar excludo wyl1a1czac1: % !AGT CAUSE[lack(can/1246[!PAT IN/2758])] % there seem to be no verbal use, just a/the metal/small bar, restaurant,…
-1368 klub N club coetus klub: group, people MEMBER, HAS purpose, meet AT every(period)
+1368 klub N club coetus klub: group, people MEMBER, HAS purpose, meet AT/2744, every(period)
 1369 ko1kuszdio1 N coconut cocos kokos: fruit, large, brown, hard, HAS white (flesh), hole PART_OF, white(fluid) IN/2758 hole
 1370 ko1r N disease morbus choroba: bad(situation), organ IN/2758 % HAS symptoms
 1371 ko1rha1z N hospital valetudinarium szpital: institution, doctor IN/2758, sick IN/2758
@@ -1457,7 +1457,7 @@
 1457 ku2rt N horn cornu ro1g: instrument, MAKE sound/993, HAS material[hard] % car horn
 1458 kudarc N failure calamitas przegrana: fail
 1459 kudarcotvall U fail fallo zawodzic1: lack(succeed/2718)
-1460 kukorica N corn zea kukurydza: cultivated, cereal, grain[yellow], food
+1460 kukorica N corn zea kukurydza: AT/2744 agriculture, cereal, grain[yellow], food
 1461 kulcs N key clavis klucz: metal, instrument, turn, CAUSE open/1814, lock
 1462 kupa N bowl scyphus miska: round, wide, food IN/2758
 1463 kupa N cup poculum kubek: open/1814, contain, HAS flat(bottom), drink IN/2758
@@ -1877,7 +1877,7 @@
 1877 o3r N watchman custos straz1nik: % no xml
 1878 o3ro2l V mill molo mlec1: % no xml
 1879 o3ru2lt A crazed insanus szalony: % ?? EN = crazy
-1880 o3ru2lt A mad vesanus szalony: HAS mind[strange/881]
+1880 o3ru2lt A mad vesanus szalony: HAS mind[strange]
 1881 o3si A ancient antiquissimus staroz1ytny: AT/2744 history, far
 1882 o3sz N autumn autumnus jesien1: season/548, FOLLOW summer, winter FOLLOW, rain IN/2758, cool/1103, leave HAS colour[lack(green)] % decline % ND
 1883 o3sz N fall autumnus jesien1: autumn % ND
@@ -2048,7 +2048,7 @@
 2048 rovar N insect insectum owad: small(animal), HAS [pair[three],leg], HAS head, <HAS [pair[two],wings]> % HAS thorax, HAS abdomen
 2049 ru1g V kick calcitro kopac1: hit, INSTRUMENT foot
 2050 rugalmas A elastic elasticus elastyczny: flexible
-2051 ruha N garment vestis ubrania: cloth, ON body, human HAS body, CAUSE body[warm]
+2051 ruha N clothes vestis ubrania: cloth, ON body, human HAS body, CAUSE body[warm]
 2052 ruha N dress vestis suknia: garment % RA
 2053 ruha N garment vestis ubio1r: artefact, COVER body
 2054 s G and et/-que i:
@@ -2476,7 +2476,7 @@
 2476 u1r N gentleman dominus dz1entelmen: man/659, HAS[ proper(behaviour) ]
 2477 u1r N lord dominus pan: HAS power, <god> % ND
 2478 u1r N master dominus pan: % see 891
-2479 u1sza1s N swim natatio pl1ywanie: move, IN/2758 water, INSTRUMENT arms, INSTRUMENT legs
+2479 u1sza1s N swim natatio pl1ywanie: move, IN/2758 water, INSTRUMENT arm[<two>], INSTRUMENT legs
 2480 u1t N passage iter przejs1cie:
 2481 u1t N road via droga: way, HAS hard (surface), vehicle ON
 2482 u1t N street vicus ulica: public, road, IN/2758 town, houses AT/2744, HAS two(sides)
@@ -2742,7 +2742,7 @@
 2743 -hoz G to # #: after[AT/2744 =root]
 2744 -na1l G at # #: !PAT[place/1026]% primitive
 2745 to2rve1nyjavaslat N bill # #:
-2746 kollekcio1 N set # #: group, HAS items, together, unit, items HAS common(characteristics)
+2746 kollekcio1 N set # #: group, HAS items, together, unit, items HAS common(characteristic)
 2747 su2llyed V sink # #: move, after[!PAT[down]] % after[deep]?
 2748 ellene1re G in_spite_of # #: 
 2749 u2te1s N stroke # #: strike % csapa1s
@@ -3040,7 +3040,7 @@
 3042 utols1 A final # #: last
 3043 fo2d_alatt A underground # #: UNDER ground
 3044 u3rhajo1 N spacecraft # #: vehicle, travel IN/2758 space/2509
-3045 fe1le1nk A shy # #: nervous, situation[bad FOR/2782 !LAM], [person AT !AGT, <not(!AGT KNOW person)>]CAUSE
+3045 fe1le1nk A shy # #: nervous, situation[bad FOR/2782 !LAM], [person AT/2744 !AGT, <not(!AGT KNOW person)>]CAUSE
 3046 szendvics N sandwich # #: food, cheese BETWEEN [two(slice), bread], meat BETWEEN bread, vegetables BETWEEN bread
 3047 javaslat N proposal # #: plan, suggest, formal
 3048 Je1zus N Jesus # #: man/744, @Jesus
@@ -3283,7 +3283,7 @@
 3288 rosszu3_minu3se1gu3 A low-quality # #: HAS low(quality) % 1
 3289 hosszu1_haju1 A long-haired # #: HAS long(hair/3359) % 1
 3290 ege1szse1ges_ku2lseju3 A healthy-looking # #: SEEM healthy % 1
-3291 fe1lig_megfagyott A half-frozen # #: frozen IN/2758 % 1
+3291 fe1lig_megfagyott A half-frozen # #: ice IN/2758 % 1
 3292 szu2rke_szi2nu3 A grey-coloured # #: grey % 1
 3293 szu2rke1ske1k A grey-blue # #: grey, blue % 1
 3294 zo2ld_szi2nu3 A green-coloured # #: green % 1
