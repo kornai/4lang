@@ -130,7 +130,7 @@
 130 akada1lyoz V obstruct impedio blokowac1: !AGT CAUSE[lack(pass)]
 131 akar V want volo chciec1: % primitive
 132 akar V will volo chciec1: want
-133 akar V wish volo chciec1: gentle(!AGT want !PAT)
+133 akar V wish volo chciec1: gentle(!AGT WANT !PAT)
 134 aki G who qui/quis kto/kto1ry: person % % indexical
 135 ala1 D beneath sub pod: under
 136 ala1 D under sub pod: vertical(position), !OBL ER
