@@ -1552,7 +1552,7 @@
 1552 lo3por N gunpowder pulvis_pyrius proch: explode, powder, CAUSE bullet[move], black
 1553 lop V steal furor kras1c1: !AGT CAUSE[!PAT AT/2744 !AGT], NOTHAS !PAT, NOTHAS right/3122, !AGT NOTHAS permission
 1554 lopakodik U approach_stealthily obrepo skradac1_sie1: % no xml
-1555 lovagol U ride equito jez1dzic1_konno: travel, !AGT ON !QUA 
+1555 lovagol U ride equito jez1dzic1_konno: travel, !AGT ON <horse>, INSTRUMENT <horse>
 1556 lusta A lazy ignavus leniwy: lack(work), lack(effort)
 1557 lyuk N hole foramen dziura: empty, place/2326, IN/2758 solid
 1558 ma D today hodie dzisiej: this (day) % day, now % ND
