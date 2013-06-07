@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+# converts Pro1sze1ky code (a1, o2, ...) to iso-8859-2 encoding
+# (numbers are octal)
+# comments to <szigetva@nytud.hu> please
+
+while (<>) {
+    s/a1/\341/g;
+    s/A1/\301/g;
+    s/a2/\344/g;
+    s/A2/\304/g;
+    s/e1/\351/g;
+    s/E1/\311/g;
+    s/e2/\353/g;
+    s/E2/\313/g;
+    s/i1/\355/g;
+    s/I1/\315/g;
+    s/o1/\363/g;
+    s/O1/\323/g;
+    s/o2/\366/g;
+    s/O2/\326/g;
+    s/o3/\365/g;
+    s/O3/\325/g;
+    s/u1/\372/g;
+    s/U1/\332/g;
+    s/u2/\374/g;
+    s/U2/\334/g;
+    s/u3/\373/g;
+    s/U3/\333/g;
+    s/([AEIOUaeiou])\\1/$+1/g;
+    s/([AEOUaeou])\\2/$+2/g;
+    s/([OUou])\\3/$+3/g;
+    print;
+}
