@@ -1,0 +1,159 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{url,fullpage,booktabs,amsmath,multicol}
+\usepackage[all]{xy}
+
+\title{The syntax of the 4lang concept lexicon}
+%\author{András Kornai and Márton Makrai}
+\date{2013}
+
+\pdfinfo{%
+  /Title    ()
+  /Author   ()
+  /Creator  ()
+  /Producer ()
+  /Subject  ()
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+The 4lang a multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here we summarize its design principles (Section \ref{sec_principles}) in English, specify its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
+\section{A multilingual concept lexicon}\label{sec_principles}
+4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to fifty languages see \cite{A1cs:2013}.
+
+Entries of 4lang are concepts rather than words. Abstraction is meant in two levels: We aim to capture abstract meanings of words, so disambiguation is done only in cases of pure homonymy. On the other hand, 4lang describes conceptual meaning, so part of speech (POS) differences (\emph{go, going}) are factorized out (as attributed to syntax).
+\section{The syntax of 4lang}\label{sec_synt}
+4lang is a tab separated file with the following fields. First we list the fields of the file, than describe the definition field.
+\subsection{Fields}
+\begin{enumerate}
+ \item English form
+\item Hungarian form
+\item Polish form
+\item Latin form
+\item id
+\item membership in defining vocabulary (under construction)
+\item POS tag. This field should not be taken too seriously as we have already pointed out that POS is factorized out in 4lang. For the an explanation of the abbreviations, see table \ref{table_pos}.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{rll}
+\toprule 
+1794	& N & noun
+\\ 682	& A & adjective
+\\ 590	& V & transitive verb
+\\ 156	& G & function word
+\\ 151	& U & intransitive verb
+\\ 98	& D & adverb
+\\ 7	& \# & unknown
+\\\bottomrule
+\end{tabular}
+\end{center}
+\caption{POSs in 4lang. The first column contains the number of items with the corresponding POS.}
+\label{table_pos}
+\end{table}
+\item definition (see bellow)
+\item comment
+\end{enumerate}
+\subsection{Definitions}
+4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above) and functions (e.g.\ \texttt{MAKE}) are all \emph{concepts}.
+
+Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So we will say, $u$ is the first (resp. second) argument of $v$ whenever $u\xleftarrow{1}v$ (resp. $v\xrightarrow 2 u$).
+A graph representing the whole lexicon is built in two steps: first, every clause in definitions is translated to a graph, and then graphs are connected by \emph{unifying} nodes that have the same label and no outgoing edges.
+
+%We say thatA node representing a single clause is non-function if all its outgoing edges (if any) are labeled with $0$ and function otherwise. Clauses describing subtrees rooted at a (non-)function node will also be called (non-)branching.
+
+We give a syntax of the definitions in Table \ref{table_minisynt}. Non-terminals are listed and explained in Table \ref{table_nont} and terminals  in Table \ref{table_termin}. Next to each rewriting rule, we give a graph representing the right side of the production. In the graph part,
+\begin{table}
+\begin{center}
+\begin{tabular}{ll}
+ $D$ & definition
+\\ $ E $ & expression (clause)
+\\ $ E_f $ & expression containing a function
+\\ $ E_n  $ & expression containing \emph{n}o function
+\\ $ C_f $ & function 
+\\ $ A $ & argument 
+\\ $ C_n $ & a concept that is \emph{n}ot a function
+\end{tabular}
+\end{center}
+\caption{Non-terminal symbos}
+\label{table_nont}
+\end{table}
+\begin{table}
+\begin{center}
+\begin{tabular}{ll}
+ uppercase letters & in labels of functions
+\\ lowercase letters & in labels of concepts that are not functions
+\\ \texttt{,} (comma) & separate clauses
+\\ \texttt{[}, \texttt{]} & the formula in the bracket describes the concept before it
+\\ \texttt{(}, \texttt{)} & the concept in the parenthesis is characterized by the concept preceding the parenthesis
+\\ \texttt{'} (aphostrophe) & fills an argument slot whith no conceptual restriction
+\\ \texttt{!} & start deep cases, see Section \ref{sec_extraword}
+\\ \texttt{=root} &
+\\ \texttt{@} & start link to encyclopedy, where non-linguistic knowledge is stored
+\\ \texttt{<} \texttt{>}& information in the brackets are only default and is easy to override
+\end{tabular}
+\end{center}
+\caption{Terminal symbos}
+\label{table_termin}
+\end{table}
+\begin{itemize}
+ \item for any nonterminal $X$, $g(X)$ denotes the graph representing the yield of $X$ (which is a single node in the case of $C_f$ and $C_n$),
+ \item $d$ denotes a node labeled with the definiendum (the word that is defined),
+ \item $X^{(i)}$ is an instance of the nonterminal $X$.
+\end{itemize}
+\begin{table}
+\begin{center}
+\begin{tabular}{cc}
+\\ $ D \rightarrow C\mid C\texttt{,} D $ & $g(C)\quad g(D)$ (an unconnected graph)
+\\ $ E \rightarrow E_n \mid E_f $
+\\ $ E \rightarrow C_n \texttt{(} E_f \texttt{)}  $ & $\xymatrix{g(E_f)\ar^0[d]\\g(C_n)}$
+\\ $ E_f  \rightarrow A C_f $ & $\xymatrix{&g(C_f)\ar^1[dl]\ar^2[dr]\\g(A)&&d}$
+\\ $ E_f  \rightarrow C_f A $ & $\xymatrix{&g(C_f)\ar^1[dl]\ar^2[dr]\\d&&g(A)}$
+\\ $ E_f  \rightarrow A^{(1)} C_f A^{(2)} $ & $\xymatrix{&g(C_f)\ar^1[dl]\ar^2[dr]\\g(A^{(1)})&&g(A^{(2)})}$
+\\ $ E_f  \rightarrow C_f \texttt{'}$ &  $\xymatrix{&g(C_f)\ar^1[dl]\\d}$
+\\ $ E_f  \rightarrow \texttt{'}C_f $ & $\xymatrix{g(C_f)\ar^2[dr]\\&d}$
+\\ $ E_f  \rightarrow E_n  $% kell ez?
+\\ $ E_n   \rightarrow C_n $ 
+\\ $ E_n   \rightarrow C_n \texttt{[} D \texttt{]} $ & $\xymatrix{g(C_n)\ar^0[d]\\g(D)}$
+\\ $ E_n   \rightarrow C_n^{(1)} \texttt{(} C_n^{(2)} \texttt{)} $ & $\xymatrix{g(C_n^{(2)})\ar^0[d]\\g(C_n^{(1)})}$
+\\ $ A  \rightarrow E_n  $ & $\xymatrix{}$
+\\ $ A  \rightarrow \texttt{[} D \texttt{]} $ & $\xymatrix{}$
+\\ $ C_n  \rightarrow \texttt{!AGT} \mid \texttt{!PAT} \mid \texttt{!QUA} \mid \texttt{!POSS}$ \\ $\mid \texttt{!OBL} \mid \texttt{!DAT} \mid \texttt{!LAM} \mid \texttt{!FROM} \mid \texttt{!TO}$
+\\ $ C_n  \rightarrow \texttt{=root} $ & $\xymatrix{}$
+\\ $ C_n  \rightarrow \texttt{@}External\_url $ & $\xymatrix{}$
+\\ $ E \rightarrow \texttt{<} C\texttt{>} $ & $\xymatrix{}$
+\\ $ A  \rightarrow \texttt{<} A \texttt{>} $ & $\xymatrix{}$
+\\ $ C_n  \rightarrow \texttt{<} C_n \texttt{>} $ & $\xymatrix{}$
+\end{tabular}
+\end{center}
+\caption{}
+\label{table_minisynt}
+\end{table}
+
+\begin{tabular}{llllll}
+mouse	 & ege1r	 & mus mysz	 & 551	 & N	 & rodent, HAS long(tail)
+\end{tabular}
+definition \texttt{rodent, HAS long(tail)} consists of two clauses, \texttt{rodent} and \texttt{HAS long(tail)}.
+\subsection{Extra-word nodes}\label{sec_extraword}
+This section describes nodes of the graph, that are for functionality leaving the word level e.g.\ compositional derivation (\texttt{=root}) and deep cases that capture surface arguments. The first is examplified by the derivation suffix \emph{-able} whose definition is \texttt{can/1246['=ROOT]}%TODO
+%\begin{table}
+\begin{center}
+\begin{tabular}{lll}
+\\ & 453	& \texttt{!AGT}
+\\ & 354	& \texttt{!PAT}
+\\ & 172	& \texttt{!QUA}
+\\ & 65	& \texttt{!POSS}
+\\ & 57	& \texttt{!OBL}
+\\ & 32	& \texttt{!DAT}
+\\ & 13	& \texttt{!LAM}
+\\ & 12	& \texttt{!FROM}
+\\ & 5	& \texttt{!TO}
+\end{tabular}
+\end{center}
+%\caption{Deep cases}
+%\end{table}
+\bibliographystyle{apalike}
+\bibliography{ml.bib}
+\end{document}
