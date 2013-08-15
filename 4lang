@@ -35,10 +35,10 @@
 -ous	-as	-osus	-iwy	7		G		=root % HAS?
 -ry	-sa1g	-monius	N/A	49		G		
 -ship	-sa1g	-ia	-os1c1	50		G	=root	
--th	-ad	-imus	-ty	4		G	part, [=root(part)] IN/2758 [whole], before[divide]	
+-th	-ad	-imus	-ty	4		G	part, [=root(part)] IN/2758 whole, before[divide]	
 -th	-adik	-imus	-ty	5		G	position, IN/2758 sequence	
 -ure	-sa1g	-tura	-os1c1	51		G		function, office % legislature, prefecture
--ward	-fele1	versus	na	19		G	after[AT/2744 !OBL]	
+-ward	-fele1	versus	na	19		G	after[AT/2744 =root]	
 -wards	-fele1	versus	na	20		G	-ward	
 -work	-bo1l	N/A	-any	15		G		
 -y	-as	-ulus	-ity	8		G	=root 	derivation with sound change (shine)
@@ -307,7 +307,7 @@ activity	teve1kenyse1g	industria	czynnos1c1	2383	u	N	act
 actor	szi1ne1sz	actor	aktor	2208		N	profession, IN/2758 [<theatre>,<film>], play 	% ill-formed
 actual	mostani	hic	obecny	1727		A	exist, now	
 adapt	alkalmazkodik	accommodo	zaadaptowac1	156		U	after[suitable] 	HUN EN mismatch in arg struct
-add	o2sszead	addo	dodawac1	1859	u	V	!AGT CAUSE[!PAT IN/2758 !OBL] 	HUN: (hozza1)ad
+add	o2sszead	addo	dodawac1	1859	u	V	!AGT CAUSE[!PAT IN/2758 !TO] 	HUN: (hozza1)ad
 added	hozza1adott	adjectus	dodany	3404	u	N		
 addition	o2sszeada1s	additio	dodatek	1860		N	CAUSE[!OBL[ER !QUA ]]	
 address	ci1m	domicilium/inscriptio	adres	370		N	description, place/1026, <person> HAS, <person> AT/2744 place/1026, written	
@@ -531,7 +531,7 @@ bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hairy( body ), STING othe
 been	van	fui	byl1	3414	u	N		
 beer	so2r	cervisia	piwo	2109		N		
 before	ele1	ad	przed	598	u	D		after[!OBL BEHIND] % figure and ground
-before	elo3tt	ante	przed	2768	u	P		primitive
+before	elo3tt	ante	przed	2768	u	G		primitive
 beg	ko2nyo2ro2g	supplico	bl1agac1	1383		V	ask, !AGT WANT pity	
 begin	kezd	incipio	zaczynac1	1312	u	V	after[!PAT]	
 behave	viselkedik	me_gero	zachowywac1	2638	u	U	do	
@@ -835,7 +835,7 @@ comparison	o2sszehasonli1ta1s	comparatio	poro1wnanie	1863		N	compare
 compass	ta1jolo1	acus_magnetica	kompas	2273		N		
 compete	versenyez	contendo	rywalizowac1	2608		U	goal PART_OF, victory PART_OF, opponent PART_OF	
 competition	verseny	certamen	konkurs	3430	u	N		
-complain	panaszkodik	queror	skarz1yc1_sie1	1937		V	express[situation[bad FOR/2782 !AGT]]	
+complain	panaszkodik	queror	skarz1yc1_sie1	1937		V	express, !PAT[situation[bad FOR/2782 !AGT]]	
 complete	teljes	totus	kompletny	2345	u	A	HAS parts[all]	
 complex	o2sszetett	#	#	3341		A	HAS many(part), difficult, group 	difficult to understand
 complicated	bonyolult	#	#	3032		V	difficult	
@@ -968,7 +968,7 @@ dark	so2te1t	obscurus	ciemny	2110	u	A	lack( light/739 ) 	NOTCOP, anto?
 dark-blue	so2te1tke1k	#	#	3311		A	dark, blue 	1
 dark-coloured	so2te1t_szi2nu3	#	#	3310		A	HAS dark(colour) 	1
 date	da1tum	dies	data	441		N	information, day PART_OF, month PART_OF, year PART_OF	
-date	ered	orior	datowac1_sie1	674		U		!OBL[origin,time], time IN/2758 past
+date	ered	orior	datowac1_sie1	674		U		!FROM[origin,time], time IN/2758 past
 daughter	la1nya	filia	co1rka	1475		N	female, offspring, !POSS[parent], HAS parent 	relational
 day	nap	dies	dzien1	1754	u	N	period, week HAS, month HAS, HAS hours, sun ON sky, work AT/2744	
 dead	holt	mortuus	niez1ywy	1076	u	A	lack(live), before[live]	
@@ -1010,7 +1010,7 @@ depend	fu2gg	pendeo	zalez1ec1	866		U	!AGT NEED !PAT[support], !PAT[situation], !
 dependent	fu2ggo3	pendens	zalez1ny	868		N	depend	
 depth	alj	fundus	gl1e1bokos1c1	152		N		see 2756
 depth	me1lyse1g	#	#	2754		N	distance, FROM/2742 top, TO/2743 bottom	
-derive	ered	orior	wywodzic1_sie1	675		U	!AGT HAS origin[!OBL] 	no longman in the first 20 results. to remove?
+derive	ered	orior	wywodzic1_sie1	675		U	!AGT HAS origin[!FROM] 	no longman in the first 20 results. to remove?
 derive	levezet	derivo	wywodzic1	1542		V		no xml
 descend	lemegy	descendo	opadac1	1532		U	sink/2747 	go?
 describe	lei1r	describo	opisywac1	1526		V	communicate, !AGT GIVE information, information ABOUT !PAT	
@@ -1140,7 +1140,7 @@ eject	kidob	eicio	wyrzucac1	1328		V	!AGT CAUSE[!PAT[out]], INSTRUMENT force
 elastic	rugalmas	elasticus	elastyczny	2050		A	flexible	
 elbow	ko2nyo2k	cubitus	l1okiec1	1382		N	joint, bend/975, PART_OF arm	
 elder	ido3sebb	maior	starszy	1122		A	wise, old, person 	ND
-eldest	legido3sebb	maximus	najstarszy	1514		A	old(!LAM ER all), MEMBER !QUA, person	
+eldest	legido3sebb	maximus	najstarszy	1514		A	old( ER all), MEMBER !QUA, person	
 elect	va1laszt	creo/lego	wybierac1	2547		V	!AGT CHOOSE !PAT[person], after[!PAT AT/2744 official]	
 electric	villamos	electricus	elektryczny	2632		A	INSTRUMENT electricity	
 electrical	villamos	electricus	elektryczny	2633		A	electric	
@@ -1658,7 +1658,7 @@ important	fontos	gravis	waz1ny	853		A	cause, HAS value
 impressive	lenyu3go2zo3	#	#	2808		A	!QUA ADMIRE, good	
 improve	javi1t	emendo	doskonalic1	1177		U	after[!PAT[better]]	
 in	-ba	in	do	10	u	G	after[IN/2758 =root]	
-in	-ban	in	w	2758	u	G	=root CONTAIN !LAM, !LAM AT/2744 =root	
+in	-ban	in	w	2758	u	G	=root CONTAIN, AT/2744 =root	
 in-	nem	in-	nie-	1776		G	lack	
 in_order_to	hogy	#	#	2738		#	!AGT HAS purpose[!PAT] 	deep cases need to be corrected
 in_spite_of	ellene1re	#	#	2748		G		
@@ -1714,7 +1714,7 @@ introduce	bevezet	introduco	wprowadzic1	282		V	present, AT/2744 first(time)
 introduction	bevezete1s	introductio	wprowadzenie	283		N	introduce	
 invent	kitala1l	invenio	wynalez1c1	1360		V	plan, !AGT MAKE new(idea)	
 invitation	meghi1va1s	invitatio	zaproszenie	1629		N	invite	
-invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !OBL]]	
+invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !TO]]	
 involve	#	#	#	2790		V	!PAT PART_OF !AGT	
 inwards	befele1	intro	wewna1trz	252		G	after[IN/2758 !QUA ]	
 ir-	nem	ir-	nie-	1777		G		
@@ -1866,7 +1866,7 @@ lively	eleven	vividus	z1wawy	612		A	HAS [much(energy)], active
 liver	ma1j	hepar	wa1droba	2819	u	N	organ, red, brown, animal HAS	
 living	kereset	victus	z2yja1cy	3492	u	N		
 lizard	gyi1k	stellio	jaszczurka	3493	u	N		
-load	terhel	onero	l1adowac1	2356		V	!AGT CAUSE [!PAT[lot/3394] IN/2758 !OBL[container]]	
+load	terhel	onero	l1adowac1	2356		V	!AGT CAUSE [!PAT[lot/3394] IN/2758 !TO[container]]	!PAT !TO -- !INS !PAT variation
 loaf	cipo1	panicellus	bochen	376		N	bread, whole	
 local	helyi	localis	lokalny	1032		A	AT/2744 place/1026	
 lock	za1r	claustrum	zamek	2667		N	CAUSE[not[!PAT[open/1814]]]	
@@ -1967,7 +1967,7 @@ medium	ko2zepes	#	#	2717		A	size 	2011.04.19
 meet	tala1lkozik	convenio	spotykac1	2296	u	V	!AGT MAKE direct(contact) 	!AGT [!AGT] IN/2758 [contact], !PAT IN/2758 [contact] % ND
 meeting	tala1lkoza1s	occursus	spotkania	2295	u	N		
 megabyte	megabyte	#	#	3172		N	@megabyte	
-melt	olvad	liquesco	topic1_sie1	1907		V	!PAT[material], heat CAUSE !LAM, before[material[solid]], after[material[liquid]]	
+melt	olvad	liquesco	topic1_sie1	1907		V	!PAT[material], heat CAUSE, before[material[solid]], after[material[liquid]]	
 member	tag	membrum/socius	czl1onek	2293		N	person, !POSS[group], person IN/2758 group	
 memory	emle1kezet	memoria	pamie1c1	666		N	information, human HAS, ABOUT past 	Longman if an experience… is etched on your memory…, you cannot forget it
 mend	foltoz	resarcio	cerowac1	843		V	repair	
@@ -2475,7 +2475,7 @@ purple-red	lila-piros	#	#	3231		A	purple, red 	2
 purpose	ce1l	propositum	cel	365	u	N	!QUA WANT	
 pursue	u3z	sequor	gonic1	2514		V	follow, !AGT WANT[catch/828]	
 push	tol	promoveo	pchac1	2424	u	V	move, !AGT CAUSE[!PAT[away]]	
-put	tesz	pono	kl1as1c1	2374	u	V	!AGT CAUSE[!PAT AT/2744 !OBL], !AGT MOVE !PAT, !PAT[object]	
+put	tesz	pono	kl1as1c1	2374	u	V	!AGT CAUSE[!PAT AT/2744 !TO], !AGT MOVE !PAT, !PAT[object]	
 quake	reng	tremo	trza1s1c1	2016		A	shake	
 quality	mino3se1g	qualitas	jakos1c1	1699	u	N	!POSS[good], characteristic 	inherent
 quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, !QUA COUNT, <large>	
@@ -2560,7 +2560,7 @@ remains	maradva1ny	reliquum	szcza1tki	1598		N		see remain
 remark	megjegyez	commemoro	zaznaczac1	1631		U	!AGT SAY[!AGT THINK !PAT] 	comment, casually
 remember	emle1kezik	memini	pamie1tac1	667		V	!PAT IN/2758 mind, !AGT HAS mind	
 remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT[remember]]	
-remove	elta1voli1t	aufero	usuna1c1	650	u	V	!AGT CAUSE[!PAT NOTAT !OBL]	
+remove	elta1voli1t	aufero	usuna1c1	650	u	V	!AGT CAUSE[!PAT NOTAT !FROM]	
 rent	be1rel	conduco	wynaja1c1	241		V	exchange, !FROM HAS !PAT, !FROM LET/971[!PAT AT/2744 !AGT], !AGT CAUSE[!FROM HAS money]	
 repair	megjavi1t	emendo	naprawiac1	1630		V	!AGT CAUSE[!PAT[perfect]], before[damage]	
 repeat	isme1tel	repeto	powtarzac1	1157		V	before[do], do	
@@ -2697,7 +2697,7 @@ see	la1t	video	widziec1	1476	u	U	perceive, INSTRUMENT eye
 seed	mag	semen	nasienie	1577	u	N	PART_OF plant, PRODUCE other(pant)	
 seek	keres	quaero	poszukiwac1	1298		V	search	
 seek_aid	segi1tse1get_ke1r	imploro	prosic1_o_pomoc	2073		V		
-seem	tu3nik	pareo	wydawac1_sie1	2451		V	!QUA SEE, !DAT THINK [!AGT IS_A !OBL]	
+seem	tu3nik	pareo	wydawac1_sie1	2451		V	!QUA SEE, !DAT THINK [!AGT IS_A !PAT]	
 seize	elfog	comprehendo	zdobyc1	614		V	catch/828	
 self	o2nmaga	ipse	sam	1851		N	!PAT[!AGT] 	cases refer to arguments of the verb
 sell	elad	vendo	sprzedac1	595	u	V	!AGT CAUSE[!DAT HAS !PAT], !DAT CAUSE[!AGT HAS <money>]	
@@ -2943,7 +2943,7 @@ state	a1llam	res_publica	pan1stwo	76	u	N	decide ABOUT self, land, political(unit
 state	a1llapot	condicio	stan	77	u	N	situation	
 statement	kijelente1s	expositio	stwierdzenie	2802	u	N	!QUA SAY, formal	
 station	a1lloma1s	mansio	stacja	80	u	N	stop AT/2744 	RG
-stay	marad	maneo	zostawac1	1596	u	U	remain, before[!AGT AT/2744 !OBL], after[!AGT AT/2744 !OBL]	
+stay	marad	maneo	zostawac1	1596	u	U	remain, before[!AGT AT/2744 !AT], after[!AGT AT/2744 !AT]	
 steady	biztos	firmus	pewny	304	u	A	lack(change)	
 steal	lop	furor	kras1c1	1553	u	V	!AGT CAUSE[!PAT AT/2744 !AGT], NOTHAS !PAT, NOTHAS right/3122, !AGT NOTHAS permission	
 steam	go3z	vapor	para	900		N	fluid, IN/2758 air, water	
