@@ -20,11 +20,11 @@
 
 \begin{document}
 \maketitle
-The 4lang a multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here we summarize its design principles (Section \ref{sec_principles}) in English, specify its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
+The 4lang a multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here we summarize its design principles (Section \ref{sec_principles}), specify its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
 \section{A multilingual concept lexicon}\label{sec_principles}
-4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to fifty languages see \cite{A1cs:2013}.
+4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to fourty languages see \cite{Acs:2013}.
 
-Entries of 4lang are concepts rather than words. Abstraction is meant in two levels: We aim to capture abstract meanings of words, so disambiguation is done only in cases of pure homonymy. On the other hand, 4lang describes conceptual meaning, so part of speech (POS) differences (\emph{go, going}) are factorized out (as attributed to syntax).
+Entries of 4lang are concepts that are more abstract than words in two aspects: We aim to capture abstract meanings of words, so disambiguation is done only in cases of pure homonymy. On the other hand, 4lang describes conceptual meaning, so part of speech (POS) differences (\emph{go, going}) are factorized out (as attributed to syntax).
 \section{The syntax of 4lang}\label{sec_synt}
 4lang is a tab separated file with the following fields. First we list the fields of the file, than describe the definition field.
 \subsection{Fields}
@@ -57,45 +57,45 @@ Entries of 4lang are concepts rather than words. Abstraction is meant in two lev
 \item comment
 \end{enumerate}
 \subsection{Definitions}
-4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above) and functions (e.g.\ \texttt{MAKE}) are all \emph{concepts}.
+4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pretheoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above) and functions (e.g.\ \texttt{MAKE}) are all \emph{concepts}.
 
-Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So we will say, $u$ is the first (resp. second) argument of $v$ whenever $u\xleftarrow{1}v$ (resp. $v\xrightarrow 2 u$).
+Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So we will say that $u$ is the first (resp.\ second) argument of $v$ whenever $u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$).
 A graph representing the whole lexicon is built in two steps: first, every clause in definitions is translated to a graph, and then graphs are connected by \emph{unifying} nodes that have the same label and no outgoing edges.
 
 %We say thatA node representing a single clause is non-function if all its outgoing edges (if any) are labeled with $0$ and function otherwise. Clauses describing subtrees rooted at a (non-)function node will also be called (non-)branching.
 
-We give a syntax of the definitions in Table \ref{table_minisynt}. Non-terminals are listed and explained in Table \ref{table_nont} and terminals  in Table \ref{table_termin}. Next to each rewriting rule, we give a graph representing the right side of the production. In the graph part,
+We give the syntax of the definitions in Table \ref{table_minisynt}. Non-terminals are listed and explained in Table \ref{table_nont} and terminals  in Table \ref{table_termin}. Next to each rewriting rule, we give a graph representing the right side of the production. In the graph part,
 \begin{table}
 \begin{center}
 \begin{tabular}{ll}
  $D$ & definition
 \\ $ E $ & expression (clause)
-\\ $ E_f $ & expression containing a function
-\\ $ E_n  $ & expression containing \emph{n}o function
-\\ $ C_f $ & function 
+\\ $ E_f $ & expression containing a \emph function
+\\ $ E_n  $ & expression containing \emph no function
+\\ $ C_f $ & function
 \\ $ A $ & argument 
-\\ $ C_n $ & a concept that is \emph{n}ot a function
+\\ $ C_n $ & a concept that is \emph not a function
 \end{tabular}
 \end{center}
-\caption{Non-terminal symbos}
+\caption{Non-terminal symbols}
 \label{table_nont}
 \end{table}
 \begin{table}
 \begin{center}
 \begin{tabular}{ll}
- uppercase letters & in labels of functions
-\\ lowercase letters & in labels of concepts that are not functions
-\\ \texttt{,} (comma) & separate clauses
+ uppercase letters & in function names
+\\ lowercase letters & in names of concepts that are not functions
+\\ \texttt{,} (comma) & separates clauses
 \\ \texttt{[}, \texttt{]} & the formula in the bracket describes the concept before it
-\\ \texttt{(}, \texttt{)} & the concept in the parenthesis is characterized by the concept preceding the parenthesis
-\\ \texttt{'} (aphostrophe) & fills an argument slot whith no conceptual restriction
-\\ \texttt{!} & start deep cases, see Section \ref{sec_extraword}
-\\ \texttt{=root} &
-\\ \texttt{@} & start link to encyclopedy, where non-linguistic knowledge is stored
-\\ \texttt{<} \texttt{>}& information in the brackets are only default and is easy to override
+\\ \texttt{(}, \texttt{)} & the concept in the parenthesis is characterized by the concept preceding the \\ & parenthesis
+\\ \texttt{'} (apostrophe) & fills an argument slot with no conceptual restriction
+\\ \texttt{!} & starts deep cases, see Section \ref{sec_extraword}
+\\ \texttt{=root} & see Section \ref{sec_extraword}
+\\ \texttt{@} & starts a link to encyclopedia, where non-linguistic knowledge is stored
+\\ \texttt{<} \texttt{>}& information in angled brackets are only default and is easy to override
 \end{tabular}
 \end{center}
-\caption{Terminal symbos}
+\caption{Terminal symbols}
 \label{table_termin}
 \end{table}
 \begin{itemize}
@@ -103,10 +103,13 @@ We give a syntax of the definitions in Table \ref{table_minisynt}. Non-terminals
  \item $d$ denotes a node labeled with the definiendum (the word that is defined),
  \item $X^{(i)}$ is an instance of the nonterminal $X$.
 \end{itemize}
-\begin{table}
+Right sides of the last two derivations are regular expressions: $C_n$ and $C_f$ basically rewrite to a lowercase and an uppercase string respectively. \texttt{-} is used in names of affixes (e.g.\ \texttt{-able}), and \texttt{\_} is used in names of some functions, e.g.\ \texttt{PART\_OF}. The optional number at the end, separated by \texttt{/}, serves disambiguation. E.g.\ \texttt{light/739}.
+means concept number 739 (the opposite of `dark(ness)`) while \texttt{light/1381} means concept number 1381, the opposite of `heavy`.
+ \begin{table}
 \begin{center}
+{\small
 \begin{tabular}{cc}
-\\ $ D \rightarrow C\mid C\texttt{,} D $ & $g(C)\quad g(D)$ (an unconnected graph)
+\\ $ D \rightarrow C\mid C\texttt{,} D $ & $\xymatrix{&d\ar^0[dl]\ar^0[dr]\\g(C)&&g(D)}$
 \\ $ E \rightarrow E_n \mid E_f $
 \\ $ E \rightarrow C_n \texttt{(} E_f \texttt{)}  $ & $\xymatrix{g(E_f)\ar^0[d]\\g(C_n)}$
 \\ $ E_f  \rightarrow A C_f $ & $\xymatrix{&g(C_f)\ar^1[dl]\ar^2[dr]\\g(A)&&d}$
@@ -126,34 +129,69 @@ We give a syntax of the definitions in Table \ref{table_minisynt}. Non-terminals
 \\ $ E \rightarrow \texttt{<} C\texttt{>} $ & $\xymatrix{}$
 \\ $ A  \rightarrow \texttt{<} A \texttt{>} $ & $\xymatrix{}$
 \\ $ C_n  \rightarrow \texttt{<} C_n \texttt{>} $ & $\xymatrix{}$
+\\ $ C_n \rightarrow$ \texttt{[a-z-]+(/[0-9]+)}
+\\ $ C_f \rightarrow$ \texttt{[A-Z\_]+(/[0-9]+)}
 \end{tabular}
+}
 \end{center}
-\caption{}
+\caption{The syntax of the definitions}
 \label{table_minisynt}
 \end{table}
 
-\begin{tabular}{llllll}
-mouse	 & ege1r	 & mus mysz	 & 551	 & N	 & rodent, HAS long(tail)
-\end{tabular}
-definition \texttt{rodent, HAS long(tail)} consists of two clauses, \texttt{rodent} and \texttt{HAS long(tail)}.
+We conclude this chapter by giving an exmaple line of 4lang with the graph representing it:
+
+\begin{verbatim}
+mouse	 ege1r	 mus	mysz	 551	 N	 rodent, HAS long(tail)
+\end{verbatim}
+\xymatrix{&\texttt{mouse}\ar^0[dl]\ar@{->}@/^/^0[dr]\\\texttt{rodent}&&\texttt{HAS}\ar@{->}@/^/^1[ul]\ar^2[dr]\\&&&\texttt{tail}\ar^0[d]\\&&&\texttt{long}}
 \subsection{Extra-word nodes}\label{sec_extraword}
-This section describes nodes of the graph, that are for functionality leaving the word level e.g.\ compositional derivation (\texttt{=root}) and deep cases that capture surface arguments. The first is examplified by the derivation suffix \emph{-able} whose definition is \texttt{can/1246['=ROOT]}%TODO
-%\begin{table}
+This section describes nodes of the graph, that are for functionality leaving the word level: \texttt{=root}, that serves compositional derivation and deep cases, that capture surface arguments.
+
+4lang contains bound morphemes i.e.\ morphemes that can form a word only together with some other morpheme. The morpheme in a multi-morpheme word that has conceptual meaning will be called a root, and others will be called affixes. Definitions of affixes specify how the representation of the whole has to be built from the representation of the root. The graph representing the root is denoted by \texttt{=root} in definitions of affixes. The reader could note that the same grammatical relation can be experred by an affix in some language and by a free form in some other, e.g.\ the English word \emph{my} translates to the Hungarian affix \emph{-m}. % TODO
+
+Deep cases serve for building the representation of a verb together with its arguments (including optional ones). Names and explanation of deep cases is given in Table \ref{table_deep}.
+Obliques include objects of words that are not verbs (e..g\ prepositional objects) and quirky case marked objects. % to against defend véd
+\emph{Relational nouns} e.g.\ \emph{(somebody's) opinion, occasion (for something)} are similar to prepositions in that they have two arguments: a thinker and its opinion or an occasion and a goal.\footnote{Here we mean underived nouns. Nominalized verbs are not distinguished from the verbs they are derived from} Arguments of relational nouns (the thinker in this case) are represented by \texttt{!POSS} or \texttt{!OBL}. To give an insight to the distinction, the remainder of this section comments on relational nouns in English and Hungarian, as definitions in 4lang are primarily based on meanings of English and Hungarian words. Most {relational nouns} are possessed by their argument both in English and Hungarian. 
+\begin{quote}
+ \begin{tabular}{lll}
+  a &fa &töve
+ \\the &tree &base$\langle\textsc{POSS}\rangle$
+ \end{tabular}
+ 
+ `the base of the tree'
+\end{quote}
+In these cases we refer to the related word (\emph{tree} in the example) by \texttt{!POSS}. Note that the possessor in unmarked in Hungarian.
+ 
+About one tenth of the examples behave differently: in Hungarian, the relational noun is in the sublative (possessive remains an option in some cases) and in English it is preceded by \emph{for}. Hungarian and English exceptions do not exactly coincide.
+\begin{quote}
+ \begin{tabular}{llll}
+  kitűnő		& alkalom	& a & mártíromságra
+ \\ excellent	& occasion 	& the & martyrdom$\langle\textsc{SUB}\rangle$
+ \end{tabular}
+ 
+ `excellent occasion for martyrdom'
+\end{quote}
+These nouns (\emph{occasion, condition, reason, need}) have in common that the related word is goal of the definiendum in some sense.
+
+\begin{table}
 \begin{center}
 \begin{tabular}{lll}
-\\ & 453	& \texttt{!AGT}
-\\ & 354	& \texttt{!PAT}
-\\ & 172	& \texttt{!QUA}
-\\ & 65	& \texttt{!POSS}
-\\ & 57	& \texttt{!OBL}
-\\ & 32	& \texttt{!DAT}
-\\ & 13	& \texttt{!LAM}
-\\ & 12	& \texttt{!FROM}
-\\ & 5	& \texttt{!TO}
+\\ 453	& \texttt{!AGT} & agent
+\\ 354	& \texttt{!PAT} & patient
+\\ 172	& \texttt{!QUA} & %TODO
+\\ 65	& \texttt{!POSS} & used with some relational nouns
+\\ 57	& \texttt{!OBL} & oblique, explained in the text
+\\ 32	& \texttt{!DAT} & dative\footnotemark
+\\ 13	& \texttt{!LAM} & definiendum % TODO
+\\ 12	& \texttt{!FROM} & source of action
+\\ 5	& \texttt{!TO}	& target of action
 \end{tabular}
+\footnotetext{{We mean the semantic role by \cite{Fillmore:1968}, that Glottopedia describes as an animate being that is conscious of being affected by the state or event expressed by the verb.}}
 \end{center}
-%\caption{Deep cases}
-%\end{table}
+\caption{Deep cases}
+\label{table_deep}
+\end{table}
+\section{The defining vocabulary}\label{sec_dv}%TODO
 \bibliographystyle{apalike}
 \bibliography{ml.bib}
 \end{document}
