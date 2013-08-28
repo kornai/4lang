@@ -5,8 +5,8 @@
 \usepackage{url,fullpage,booktabs,amsmath,multicol}
 \usepackage[all]{xy}
 
-\title{The syntax of the 4lang concept lexicon}
-%\author{András Kornai and Márton Makrai}
+\title{The syntax of 4lang concept lexicon}
+%\author{Judit Ács, András Kornai, and Márton Makrai}
 \date{2013}
 
 \pdfinfo{%
@@ -20,11 +20,11 @@
 
 \begin{document}
 \maketitle
-The 4lang a multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here we summarize its design principles (Section \ref{sec_principles}), specify its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
+4lang multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here we summarize its design principles (Section \ref{sec_principles}), specify its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
 \section{A multilingual concept lexicon}\label{sec_principles}
-4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to fourty languages see \cite{Acs:2013}.
+4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to forty languages see \cite{Acs:2013}.
 
-Entries of 4lang are concepts that are more abstract than words in two aspects: We aim to capture abstract meanings of words, so disambiguation is done only in cases of pure homonymy. On the other hand, 4lang describes conceptual meaning, so part of speech (POS) differences (\emph{go, going}) are factorized out (as attributed to syntax).
+Entries of 4lang are concepts that are more abstract than words in two aspects: We aim to capture abstract meanings, so disambiguation is done only in cases of pure homonymy. On the other hand, 4lang describes conceptual meaning, so part of speech (POS) differences (\emph{go, going}) are factorized out (as attributed to syntax).
 \section{The syntax of 4lang}\label{sec_synt}
 4lang is a tab separated file with the following fields. First we list the fields of the file, than describe the definition field.
 \subsection{Fields}
@@ -56,10 +56,11 @@ Entries of 4lang are concepts that are more abstract than words in two aspects: 
 \item definition (see bellow)
 \item comment
 \end{enumerate}
+Accented characters in word forms (which are common in Hungarian and Polish) are encoded using Prószéky Codes (\url{nyelvor.c3.hu/special/prokod.pdf}).
 \subsection{Definitions}
-4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pretheoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above) and functions (e.g.\ \texttt{MAKE}) are all \emph{concepts}.
+4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above), functions (e.g.\ \texttt{MAKE}), and their arguments (e.g.\ \texttt{cow}, \texttt{milk}) are all \emph{concepts}.
 
-Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So we will say that $u$ is the first (resp.\ second) argument of $v$ whenever $u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$).
+Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So $u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$) is equivalent to $u$ being the first (resp.\ second) argument of $v$.
 A graph representing the whole lexicon is built in two steps: first, every clause in definitions is translated to a graph, and then graphs are connected by \emph{unifying} nodes that have the same label and no outgoing edges.
 
 %We say thatA node representing a single clause is non-function if all its outgoing edges (if any) are labeled with $0$ and function otherwise. Clauses describing subtrees rooted at a (non-)function node will also be called (non-)branching.
@@ -103,13 +104,13 @@ We give the syntax of the definitions in Table \ref{table_minisynt}. Non-termina
  \item $d$ denotes a node labeled with the definiendum (the word that is defined),
  \item $X^{(i)}$ is an instance of the nonterminal $X$.
 \end{itemize}
-Right sides of the last two derivations are regular expressions: $C_n$ and $C_f$ basically rewrite to a lowercase and an uppercase string respectively. \texttt{-} is used in names of affixes (e.g.\ \texttt{-able}), and \texttt{\_} is used in names of some functions, e.g.\ \texttt{PART\_OF}. The optional number at the end, separated by \texttt{/}, serves disambiguation. E.g.\ \texttt{light/739}.
+Right sides of the first and the last two derivations are regular expressions. $D$ rewrites to one or more $C$s delimited by comma. $C_n$ and $C_f$ basically rewrite to a lowercase and an uppercase string respectively. Hyphen (\texttt{-}) is used in names of affixes (e.g.\ \texttt{-able}), and underscore (\texttt{\_}) is used in names of some functions, e.g.\ \texttt{PART\_OF}. The optional number at the end, separated by \texttt{/}, serves disambiguation. E.g.\ \texttt{light/739}.
 means concept number 739 (the opposite of `dark(ness)`) while \texttt{light/1381} means concept number 1381, the opposite of `heavy`.
  \begin{table}
 \begin{center}
 {\small
 \begin{tabular}{cc}
-\\ $ D \rightarrow C\mid C\texttt{,} D $ & $\xymatrix{&d\ar^0[dl]\ar^0[dr]\\g(C)&&g(D)}$
+\\ $ D \rightarrow C^\texttt{*}$ & $\xymatrix{&d\ar^0[dl]\ar^0[dr]\\g(C)&\dots&g(C)}$
 \\ $ E \rightarrow E_n \mid E_f $
 \\ $ E \rightarrow C_n \texttt{(} E_f \texttt{)}  $ & $\xymatrix{g(E_f)\ar^0[d]\\g(C_n)}$
 \\ $ E_f  \rightarrow A C_f $ & $\xymatrix{&g(C_f)\ar^1[dl]\ar^2[dr]\\g(A)&&d}$
@@ -138,20 +139,21 @@ means concept number 739 (the opposite of `dark(ness)`) while \texttt{light/1381
 \label{table_minisynt}
 \end{table}
 
-We conclude this chapter by giving an exmaple line of 4lang with the graph representing it:
+We conclude this chapter by giving an example line of 4lang with the graph representing it:
 
 \begin{verbatim}
 mouse	 ege1r	 mus	mysz	 551	 N	 rodent, HAS long(tail)
 \end{verbatim}
 \xymatrix{&\texttt{mouse}\ar^0[dl]\ar@{->}@/^/^0[dr]\\\texttt{rodent}&&\texttt{HAS}\ar@{->}@/^/^1[ul]\ar^2[dr]\\&&&\texttt{tail}\ar^0[d]\\&&&\texttt{long}}
 \subsection{Extra-word nodes}\label{sec_extraword}
-This section describes nodes of the graph, that are for functionality leaving the word level: \texttt{=root}, that serves compositional derivation and deep cases, that capture surface arguments.
+This section describes nodes of the graph, that are for functionality leaving the level of word stems: \texttt{=root}, that serves compositional derivation and deep cases, that capture surface arguments of predicates.
 
-4lang contains bound morphemes i.e.\ morphemes that can form a word only together with some other morpheme. The morpheme in a multi-morpheme word that has conceptual meaning will be called a root, and others will be called affixes. Definitions of affixes specify how the representation of the whole has to be built from the representation of the root. The graph representing the root is denoted by \texttt{=root} in definitions of affixes. The reader could note that the same grammatical relation can be experred by an affix in some language and by a free form in some other, e.g.\ the English word \emph{my} translates to the Hungarian affix \emph{-m}. % TODO
+4lang contains bound morphemes i.e.\ morphemes that can form a word only together with some other morpheme. The morpheme in a multi-morpheme word that has conceptual meaning will be called a root, and others will be called affixes. Definitions of affixes specify how the representation of the whole word has to be built from the representation of the root. The graph representing the root is denoted by \texttt{=root} in definitions of affixes. The reader could note that the same grammatical relation can be expressed by an affix in some language and by a free form in some other, e.g.\ the English word \emph{my} translates to the Hungarian affix \emph{-m}. % TODO
 
 Deep cases serve for building the representation of a verb together with its arguments (including optional ones). Names and explanation of deep cases is given in Table \ref{table_deep}.
-Obliques include objects of words that are not verbs (e..g\ prepositional objects) and quirky case marked objects. % to against defend véd
-\emph{Relational nouns} e.g.\ \emph{(somebody's) opinion, occasion (for something)} are similar to prepositions in that they have two arguments: a thinker and its opinion or an occasion and a goal.\footnote{Here we mean underived nouns. Nominalized verbs are not distinguished from the verbs they are derived from} Arguments of relational nouns (the thinker in this case) are represented by \texttt{!POSS} or \texttt{!OBL}. To give an insight to the distinction, the remainder of this section comments on relational nouns in English and Hungarian, as definitions in 4lang are primarily based on meanings of English and Hungarian words. Most {relational nouns} are possessed by their argument both in English and Hungarian. 
+Agents and patients are relatively straightforward, relational nouns will be explained later in this section. Obliques include objects of words that are not verbs (e..g\ prepositional objects) and quirky case marked objects. {{Dative means the semantic role by \cite{Fillmore:1968}, that Glottopedia describes as an animate being that is conscious of being affected by the state or event expressed by the verb.}}% to against defend véd
+
+Now we turn to \emph{relational nouns} e.g.\ \emph{(somebody's) opinion, occasion (for something)} that have two semantic arguments: a thinker and its opinion or an occasion and a goal.\footnote{Here we mean underived nouns. Nominalized verbs are not distinguished from the verbs they are derived from} Arguments of relational nouns (the thinker in this case) are represented by \texttt{!POSS} or \texttt{!OBL}. To give an insight to the distinction, the remainder of this section comments on relational nouns in English and Hungarian, as definitions in 4lang are primarily based on meanings of English and Hungarian words. Most {relational nouns} are possessed by their argument both in English and Hungarian. 
 \begin{quote}
  \begin{tabular}{lll}
   a &fa &töve
@@ -171,7 +173,7 @@ About one tenth of the examples behave differently: in Hungarian, the relational
  
  `excellent occasion for martyrdom'
 \end{quote}
-These nouns (\emph{occasion, condition, reason, need}) have in common that the related word is goal of the definiendum in some sense.
+These nouns (\emph{occasion, condition, reason, need}) have in common that the related word is goal of the definiendum in some sense. In these cases we use \texttt{!OBL}.
 
 \begin{table}
 \begin{center}
@@ -180,18 +182,45 @@ These nouns (\emph{occasion, condition, reason, need}) have in common that the r
 \\ 354	& \texttt{!PAT} & patient
 \\ 172	& \texttt{!QUA} & %TODO
 \\ 65	& \texttt{!POSS} & used with some relational nouns
-\\ 57	& \texttt{!OBL} & oblique, explained in the text
-\\ 32	& \texttt{!DAT} & dative\footnotemark
+\\ 57	& \texttt{!OBL} & oblique, see the explanation in the text
+\\ 32	& \texttt{!DAT} & dative, see the explanation in the text
 \\ 13	& \texttt{!LAM} & definiendum % TODO
 \\ 12	& \texttt{!FROM} & source of action
 \\ 5	& \texttt{!TO}	& target of action
 \end{tabular}
-\footnotetext{{We mean the semantic role by \cite{Fillmore:1968}, that Glottopedia describes as an animate being that is conscious of being affected by the state or event expressed by the verb.}}
+
 \end{center}
 \caption{Deep cases}
 \label{table_deep}
 \end{table}
-\section{The defining vocabulary}\label{sec_dv}%TODO
+\section{The defining vocabulary}\label{sec_dv}% TODO goal and overview of the section
+Dictionaries aim to define words with simples ones. Some monolingual dictionaries use a defining vocabulary (DV) for organizing this purpose. In definitions, only words belonging to the DV are allowed to be used, or at least every word has to be reduced to the DV by iteratively replacing non-DV words with their definitions. So it is enough if the reader (or the computer) knows the words in the DV. The smaller the DV the better. We note that a list of word forms is not enough: the lexicographer has to specify which sense a word is allowed to be used in, and definitions should not include set phrases (unless the set phrase as a whole is listed in the DV).
+
+The DV of any machine readable dictionary can be determined by automatic means, whether or not the dictionary was created with an DV in mind. We propose two methods.
+
+The first method is based on the concept that words appearing more frequently in definitions are more basic in some intuitive sense. We take as a starting point the set of all words appearing in any definition, and eliminate words by replacing them with all the words in their definitions. If eliminations where the definition contains a word that was eliminated earlier are forbidden, the process will terminate. When no more words can be eliminated, the resulting set is a DV that is minimal with respect to inclusion. The result slightly depends on the order of the word eliminations. We used the intuition that frequent defining words are more basic, and start elimination with the least frequent words and progress in ascending order.
+
+The other approach grasps the dictionary as a directed graph: nodes are words (headwords and defining words as well), and there is an edge from the node representing \emph{steel} to \emph{metal} if \emph{metal} appears in the definition of \emph{steel}. Two nodes are \emph{strongly connected} if there is a path from them to each other. Strong connectivity is an equivalence relation whose classes are called \emph{strongly connected components}. We computed the strongly connected components of the Longman Dictionary \cite{Bullon:2003}. Some lexicon items has been removed during preprocessing so we have 50624 nodes. A histogram of component sizes can be found in table \ref{table_compon}. The exact numbers depend on the subtleties of preprocessing (e.g.\ treatment of non-alphanumeric characters and named entities, stemming (inflection and derivation as well)), but the picture is robust.
+\begin{table}
+ \begin{center}
+  \begin{tabular}{rr}
+   \toprule
+   \# of comps & comp size
+   \\\midrule
+   \\  47161	& 1
+   \\  24	& 2
+   \\  3	& 3
+   \\  1        & 3406
+   \\ \bottomrule
+  \end{tabular}
+  \caption{Sizes of strongly connected components in Longman}
+  \label{table_compon}
+ \end{center}
+\end{table}
+A great majority (93\%) of the words are singletons, which means that they are not used in any definition. Again a great majority (98\%) of the remainder form a great component, and there are some components with two or three elements. The great component (possibly together with the 2--3 element ones that do not significantly increase size) is suitable as a DV that is not necessarily minimal. To kind of reductions are possible, one is based on breaking cycles, the other is finding a variant of vertex cover. Given a directed graph with vertices $V$, we will say that a node $v\in V$ is covered by set of nodes $C\subseteq V$ iff eighter $v\in C$ or all the out-neighbours of $v$ are covered by $C$ (the definition is recursive). We call $C$ a \emph{strong vertex cover} iff it covers all nodes $v\in V$.
+
+%TODO megkeresni az összes kört
+% Some cycles consist of synonyms (\emph{badminton -- shuttlecock}) or stem and affixed form (
 \bibliographystyle{apalike}
 \bibliography{ml.bib}
 \end{document}
