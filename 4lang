@@ -2024,7 +2024,7 @@ monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, RULE country
 money	pe1nz	pecunia	pienia1dze	1952	u	N	!QUA EXCHANGE, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N		
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[legs[two]], HAS[hands[two]], HAS tail, active, climb, play 	clever? strupid?, friendly? % naive theo: monkey IMITATE
-month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve(!LAM) IN/2758 year	
+month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve, PART_OF year	
 moon	hold	luna	ksie1z1yc	1074		N	ON sky, AT/2744 night, move AROUND earth	
 moral	erko2lcs	mos	moralnos1c1	681		N		I suggest removing this line. See 682 and 2306
 moral	tanulsa1g	documentum	moral1	2306		N	story TEACH	
@@ -2212,7 +2212,7 @@ outdoor	ku2lso3	externus	na_zewna1trz	1455		A	NOTIN building
 outdoors	kinn	foris	na_zewna1trz	1347		D	outdoor, can/1246[animal SEE sky]	
 outer	ku2lso3	exterior	zewne1trzny	1456		A	out	
 outside	kinn	foris	na_zewna1trz	1348		D	out	
-over	a1t	trans	przez	99	u	A	move, HAS horizontal(position), !LAM ER !OBL	
+over	a1t	trans	przez	99	u	A	move, HAS horizontal(position),  ER !OBL	
 overcome	legyo3z	evinco	pokonac1	1521		V	defeat	
 overflow	tu1lfolyik	exundo	przelewac1	2438		V		
 overpower	legyo3z	opprimo	pokonac1	1522		V	defeat, !AGT IN/2758 conflict, !AGT HAS force, !PAT HAS other(force), force ER other(force)	
@@ -2646,7 +2646,7 @@ rustle	susog	susurro	szeles1cic1	2136		U
 s-shaped	S_alaku1	#	#	3258		A	HAS shape[bend/1112[two]] 	1
 sad	szomoru1	miserabilis	smutny	2248		A	emotion, lack(happy) 	anto
 safe	biztos	tutus	bezpieczny	303		A	lack(danger), protect, not[!QUA HARM]	
-sail	hajo1zik	#	#	2991		V	travel, !LAM ON water	
+sail	hajo1zik	#	#	2991		V	travel,  ON water	
 sail	vitorla	velum	z1agiel	2650		N		see 3015
 salad	sala1ta	acetarium	sal1atka	3550	u	N		
 salary	fizete1s	#	#	3062		N	pay/237, organization CAUSE[!POSS HAS], !POSS[work] AT/2744 organization, AT/2744 every(month)	
@@ -2723,14 +2723,14 @@ settle	eldo2nt	decerno	ustalac1	597		V	after[!PAT[sure]]
 seven	he1t	#	#	2996		A	number, FOLLOW six	
 several	sok	multus	kilka	2116		A	many	
 severe	szigoru1	gravis	surowy	2213	u	A	CAUSE suffer 	komoly
-sew	varr	#	#	3000		V	!LAM INSTRUMENT needle, INSTRUMENT thread, !AGT CAUSE[cloth[fix]] 	make or repair or fasten
+sew	varr	#	#	3000		V	 INSTRUMENT needle, INSTRUMENT thread, !AGT CAUSE[cloth[fix]] 	make or repair or fasten
 sew	varr	suo	szyc1	2588		V		
 sex	nem	sexus	pl1ec1	1780		N	male IS_A, female IS_A	
 sexual	nemi	sexualis	seksualny	1784		A	sex 	derivation
 shade	a1rnyalat	umbra	odcien1	90		N	colour HAS, slight(different), slight(dark)	
 shadow	a1rny	umbra	cien1	89		N	dark (shape), object CAUSE 	RG
 shake	reng	tremo	trza1s1c1	2017		U	move, direction[change], lack(stable), lack(deliberate) 	!AGT NOTCOP
-shall	fog	N/A	N/A	830		V	!LAM IN/2758 future	
+shall	fog	N/A	N/A	830		V	!REL IN/2758 future	
 shame	sze1gyen	turpitudo	wstyd	2161		N	bad, [BREAK[ norm ]] CAUSE	
 shape	alak	figura	ksztal1t	142	u	N	form 	geometrical
 share	osztozik	divido	dzielic1	1922		U	person HAS thing, other(person) HAS thing	
@@ -2766,7 +2766,7 @@ show_through	a1tla1tszik	transluceo	przes1witywac1	103		U		no Longman
 shrink	o2sszemegy	in_angustum_cogor	kurczyc1_sie1	1865		V	after[!PAT[small]], natural CAUSE	
 shut	beza1r	occludo	zamkna1c1	286		V	!AGT CAUSE[!PAT[shut/2668]]	
 shut	za1rt	clausus	zamykac1	2668		A	lack(open/1814)	
-shy	fe1le1nk	#	#	3045		A	nervous, situation[bad FOR/2782 !LAM], [person AT/2744 !AGT, <not(!AGT KNOW person)>]CAUSE	
+shy	fe1le1nk	#	#	3045		A	nervous, IN/2757 situation[bad FOR/2782 !LAM], [person AT/2744 !AGT, <not(!AGT KNOW person)>]CAUSE	
 sick	beteg	aeger	chory	274		A	ill, <after[vomit]>	
 side	oldal	latus	strona	1903	u	N	part, <two>, NEXT_TO centre, oppose, object HAS	
 sideways	oldalt	ex_obliquo	z_boku	1904		D	direction, side AT/2744 	AT/2744 side?
@@ -3129,7 +3129,7 @@ third	harmad	tertia_pars	trzecia	1005		N	part, [three(part)] IN/2758 [whole], be
 third	harmadik	tertius	trzeci	1006		A	-th/5, FOLLOW second/1569 	fourth FOLLOW
 thirst	szomj	sitis	pragnienie	2246		N	NEED drink	
 thirsty	szomjas	sitiens	spragniony	2247		A	FEEL[thirst]	
-this	ez	hic/haec/hoc	ten/to/ta	706	u	N	now, near, before[speak ABOUT !LAM] 	indexical
+this	ez	hic/haec/hoc	ten/to/ta	706	u	N	now, near, before[speak ABOUT] 	indexical
 this	ilyen	hic	ten	1137	u	A		indexical
 thorough	alapos	subtilis	dokl1adny	149		A	[every(detail)] IN/2758	
 those	azok	illi	tamci	190		N	more 	% indexical
