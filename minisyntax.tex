@@ -21,9 +21,9 @@
 
 \begin{document}
 \maketitle
-<<<<<<< HEAD
 \section*{Introduction}
     4lang multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here, after summarizing its design principles, we specify                        its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
+
 4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to forty languages see \cite{Acs:2013}.
 
 Entries of 4lang are concepts that are more abstract than words in two
@@ -203,7 +203,27 @@ section. Obliques include objects of words that are not verbs
 (e..g\ prepositional objects) and quirky case marked objects. {{Dative means
     the semantic role by \cite{Fillmore:1968}, that Glottopedia describes as
     an animate being that is conscious of being affected by the state or event
-    expressed by the verb.}} {\color{red} Ez i1gy nagyon rossz terminolo1gia, 
+    expressed by the verb.}}
+
+% \subsubsection{Redundancy between deep cases and binary predicates}
+% There are cases, when the deep case of an argument is to some extensiont predictable from the formula.
+% \begin{table}[h]
+% \begin{center}
+% \begin{tabular}{rll}
+% \toprule 
+% 9\%	& $C$ \texttt{HAS} & $C=\texttt{!AGT}$
+% \\ 46\%	& \texttt{CAUSE[$C_n1C_fC_n2$]} & $C_n1=\texttt{!PAT}$
+% \\ 
+% \\\bottomrule
+% \end{tabular}
+% \end{center}
+% \caption{Typical deep cases expressing deep arguments. E.g.\ }
+% \label{table_pos}
+% \end{table}
+% 
+%  Some grammar formalisms i.e\. Lexical Mapping Theory in Lexical Functional Grammar \cite{} %TODO
+% factor out this redundancy.
+ {\color{red} Ez i1gy nagyon rossz terminolo1gia, 
 egyse1gesi1teni kell mielo3tt kiadjuk a kezu2nkbo3l.} 
 % to against defend véd
 
@@ -296,18 +316,17 @@ definition of \emph{steel}. Two nodes are \emph{strongly connected} if there
 is a path from them to each other. Strong connectivity is an equivalence
 relation whose classes are called \emph{strongly connected components}. We
 computed the strongly connected components of the Longman Dictionary of
-Contemporary English. 
-%\cite{Bullon:2003}. 
+Contemporary English(LDOCE). (The original version of LDOCE was created using a DV as we describe here \cite{Boguraev:1989}. The version we have access to is \cite{Bullon:2003}.)
 
 Some lexicon items have been removed during preprocessing 
 {\color{red}
 - nem betűket tartalmazó szavak, illetve named entity-k eldobódnak
 
 - punctuation remove - mindent leszedünk, ami a string.punctuation-be tartozik
-KIVÉVE a kötőjelet és az aposztrofot -> 1. jelölt
+KIVÉVE a kötőjelet és az aposztrofot $\rightarrow$ 1. jelölt
 
 - remove apostrof - minden aposztrofot törlünk KIVÉVE, ami s, t, ll, m, re
-vagy nt előtt áll (I'm, don't stb. miatt) -> 2. jelölt
+vagy nt előtt áll (I'm, don't stb. miatt) $\rightarrow$ 2. jelölt
 
 - Gábor készített ocamorph-fal és kézzel egy összerendelést, amit megvizsgálok
 és ha van találat, akkor az is a jelöltek közé kerül
