@@ -2166,7 +2166,7 @@ offspring	uto1d	#	#	3346		N	child
 often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN	
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid	
 old	o2reg	senex	stary	1854	u	A	HAS time, time SINCE/1839 birth, time ER	
-old-fashioned	re1gimo1di	#	#	3008		A	lack(modern), before[!LAM[good]]	
+old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]
 on	-n	super	na	33	u	G	TOUCH =root, HAS vertical(position), position ER other(position), =root HAS position 	SUE
 once	egykor	olim	dawno	580		D	IN/2758 past	
 once	egyszer	#	#	2766		#	AT/2744 one(time)	
@@ -2366,7 +2366,7 @@ positive	poziti1v	positivus	pozytywny	3529	u	N
 possess	birtokol	possideo	posiadac1	297		V	!AGT HAS !PAT 	if the parser permits, HAS will be enough
 possessions	birtok	possessio	mienie	295		N	property, valuable	
 possibility	leheto3se1g	potestas	moz1liwos1c1	1524		N	possible	
-possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	can/1246[!LAM]	
+possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	'LET	can/1246[!LAM]	
 post	a1lla1s	locus/munus	stanowisko	75	u	N		See 2742 and 2743
 post	po1zna	asser	sl1up	2740	u	N	artefact, solid, upright, AT/2744 ground, <wood> 	SUPPORT ' 
 post	posta	cursorium	poczta	2741	u	N	mail	
