@@ -1,13 +1,14 @@
 \documentclass[a4paper,10pt]{article}
 %\documentclass[a4paper,10pt]{scrartcl}
 
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Polish
 \usepackage{url,fullpage,booktabs,amsmath,multicol}
 \usepackage[all]{xy}
-\usepackage{color}
+\usepackage{color,multicol}
 
 \title{The syntax of the 4lang concept lexicon}
-%\author{Judit Ács, András Kornai, Márton Makrai, and Dávid Nemeskey}
+\author{Judit Ács, András Kornai, Márton Makrai, Dávid Nemeskey, and Gábor Recski}
 \date{2013}
 
 \pdfinfo{%
@@ -46,13 +47,44 @@ out (as more properly belonging to syntax).
 \item comment
 \end{enumerate}
 Accented characters in word forms (which are common in Hungarian and Polish)
-are encoded using Prószéky Codes (\url{nyelvor.c3.hu/special/prokod.pdf}). 
-{\color{red} Ez i1gy nem igaz, Pro1sze1ky-logika1ju1 ko1dok, de pl. az
-  a1thu1zott $l$ az na1lunk {\it l1} nem pedig {\it l32} mint abban a 
-ta1bla1zatban amit beide1zel.}
+are encoded using Prószéky Codes, see Table \ref{table_proszeky}.
 
-
-
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{rl}
+\toprule 
+\\\multicolumn{2}{c}{Hungarian}
+\\\midrule
+\\ a1 & á
+\\ e1 & é
+\\ i1 & í
+\\ o1 & ó
+\\ o2 & ö
+\\ o3 & ő
+\\ u1 & ú
+\\ u2 & ü
+\\ u3 & ű
+\\\bottomrule
+\end{tabular}
+\begin{tabular}{cc}
+\toprule
+\\\multicolumn{2}{c}{Polish}
+\\\midrule
+\\ a1	& ą
+\\ c1	& ć
+\\ e1	& ę
+\\ l1	& ł
+\\ n1	& ń
+\\ o1	& ó
+\\ s1	& ś
+\\ z1	& ź
+\\ z2	& ż
+\\\bottomrule
+\end{tabular}
+\end{center}
+\caption{Prószéky Codes of accented Hungarian and Polish characters}
+\label{table_proszeky}
+\end{table}
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{rll}
@@ -73,7 +105,7 @@ ta1bla1zatban amit beide1zel.}
 
 
 \subsection{Definitions}
-4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above), functions (e.g.\ \texttt{MAKE}), and their arguments (e.g.\ \texttt{cow}, \texttt{milk}) are all \emph{concepts}.
+4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}\footnote{The only way we encode the linguistic distinction between attribution and prediction proper is that \emph{mouse is rodent} is predicated about the canonical representative of `mouse' (meaning that mice as such are rodents), while \emph{tail is long} is predicated about some instances of `tail' e.g.\ that of the canonical `mouse'.}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above), functions (e.g.\ \texttt{MAKE}), and their arguments (e.g.\ \texttt{cow}, \texttt{milk}) are all \emph{concepts}.
 
 Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So $u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$) is equivalent to $u$ being the first (resp.\ second) argument of $v$.
 A graph representing the whole lexicon is built in two steps: first, every clause in definitions is translated to a graph, and then graphs are connected by \emph{unifying} nodes that have the same label and no outgoing edges.
@@ -97,7 +129,10 @@ A graph representing the whole lexicon is built in two steps: first, every claus
 \end{table}
 
 
-We give the syntax of the definitions in Table \ref{table_minisynt}. Non-terminals are listed and explained in Table \ref{table_nont} and terminals  in Table \ref{table_termin}. Next to each rewriting rule, we give a graph representing the right side of the production. In the graph part,
+We give the syntax of the definitions in Table \ref{table_minisynt}. Non-terminals are listed and explained in Table \ref{table_nont} and terminals  in Table \ref{table_termin}. Next to each rewriting rule, we give a graph representing the right side of the production. 
+ {\color{red} Relation to TAGs TIGs TSGs? See e.g. Swanson
+  et al in ACL13, Yamangil and Shieber ACL13, Hunter and Dyer MOL13}
+In the graph part,
 
 \begin{table}[h]
 \begin{center}
@@ -109,7 +144,7 @@ We give the syntax of the definitions in Table \ref{table_minisynt}. Non-termina
 \\ \texttt{(}\ldots \texttt{)} & the concept in the parenthesis is characterized by the concept preceding the \\ & parenthesis
 \\ \texttt{'} (apostrophe) & fills an argument slot with no conceptual restriction
 \\ \texttt{!} & starts deep cases, see Section \ref{sec_extraword}
-\\ \texttt{=root} & see Section \ref{sec_extraword}
+%\\ \texttt{=root} & see Section \ref{sec_extraword}
 \\ \texttt{@} & starts a link to encyclopedia, where non-linguistic knowledge is stored
 \\ \texttt{<} \texttt{>}& information in angled brackets are only defaults and are easy to override
 \end{tabular}
@@ -135,7 +170,7 @@ We give the syntax of the definitions in Table \ref{table_minisynt}. Non-termina
 \\ $ E_n   \rightarrow C_n^{(1)} \texttt{(} C_n^{(2)} \texttt{)} $ & $\xymatrix{g(C_n^{(2)})\ar^0[d]\\g(C_n^{(1)})}$
 \\ $ A  \rightarrow E_n  $ & $\xymatrix{}$
 \\ $ A  \rightarrow \texttt{[} D \texttt{]} $ & $\xymatrix{}$
-\\ $ C_n  \rightarrow \texttt{!AGT} \mid \texttt{!PAT} \mid \texttt{!QUA} \mid \texttt{!POSS}$ \\ $\mid \texttt{!OBL} \mid \texttt{!DAT} \mid \texttt{!LAM} \mid \texttt{!FROM} \mid \texttt{!TO}$
+\\ $ C_n  \rightarrow \texttt{!AGT} \mid \texttt{!PAT} \mid \texttt{!POSS}$ \\ $\mid \texttt{!OBL} \mid \texttt{!DAT} \mid \texttt{!FROM} \mid \texttt{!TO}$
 \\ $ C_n  \rightarrow \texttt{=root} $ & $\xymatrix{}$
 \\ $ C_n  \rightarrow \texttt{@}External\_url $ & $\xymatrix{}$
 \\ $ E \rightarrow \texttt{<} C\texttt{>} $ & $\xymatrix{}$
@@ -160,8 +195,7 @@ expressions. $D$ rewrites to one or more $C$s delimited by comma. $C_n$ and
 $C_f$ basically rewrite to a lowercase and an uppercase string
 respectively. Hyphen (\texttt{-}) is used in names of affixes
 (e.g.\ \texttt{-able}), and underscore (\texttt{\_}) is used in names of some
-functions, e.g.\ \texttt{PART\_OF}.{\color{red} E1s mi van a whitespace-t 
-tartalmazo1 dolgokkal, e.g. {\it call up} `telephone'?}
+functions, e.g.\ \texttt{PART\_OF} and multiword phrases (e.g.\ \emph{call up} `telephone'.
  The optional number at the end, separated
 by \texttt{/}, serves disambiguation. E.g.\ \texttt{light/739}.  means concept
 number 739 (the opposite of `dark(ness)') while \texttt{light/1381} means
@@ -173,37 +207,40 @@ We conclude this chapter by giving an example line of 4lang with the graph repre
 mouse	 ege1r	 mus	mysz	 551	 N	 rodent, HAS long(tail)
 \end{verbatim}
 \xymatrix{&\texttt{mouse}\ar^0[dl]\ar@{->}@/^/^0[dr]\\\texttt{rodent}&&\texttt{HAS}\ar@{->}@/^/^1[ul]\ar^2[dr]\\&&&\texttt{tail}\ar^0[d]\\&&&\texttt{long}}
-
-{\color{red}Nem jo1, hogy az attribu1cio1 (tail is long, van olyan amikor
-  igaz, van amikor nem) e1s a predika1cio1 (mouse is rodent, mindig igaz) 
-teljesen ugyanu1gy van jelo2lve.}
-
 \subsection{Extra-word nodes}\label{sec_extraword}
 Here we describe those nodes of the graph that are outside the level of word
-stems: \texttt{=root}, used in compositional derivations, and deep cases,
-which capture surface arguments of predicates.
+stems: compositional affixation, adposition and deep cases.% The later capture surface arguments of predicates.
 
 4lang contains bound morphemes i.e.\ morphemes that can form a word only
 together with some other morpheme. The morpheme in a multi-morpheme word that
-has conceptual meaning will be called a root, and others will be called
-affixes. Definitions of affixes specify how the representation of the whole
+has conceptual meaning will be called a \emph{root}, and others will be called
+\emph{affixes}. Definitions of affixes specify how the representation of the whole
 word has to be built from the representation of the root. The graph
-representing the root is denoted by \texttt{=root} in definitions of
-affixes. The reader could note that the same grammatical relation can be
+representing the root is denoted by \texttt{!REL} in definitions of
+affixes. In definitions of adpositions, the adpositional object is also represented by \texttt{!REL}. The cause for this uniform treatment of roots of affixes and objects of adpositions is that the same semantic relation can be
 expressed by an affix in some language and by a free form in some other,
 e.g.\ the English word \emph{my} translates to the Hungarian affix
-\emph{-m}. {\color{red} Example? Relation to TAGs TIGs TSGs? See e.g. Swanson
-  et al in ACL13, Yamangil and Shieber ACL13, Hunter and Dyer MOL13}
+\emph{-m} as in the following example:
+\begin{quote}
+\begin{tabular}{lll}
+    az & (én) & egerem
+\\ the & PRON$\langle\text{1stSg}\rangle$ & mouse-POSS$\langle \text{1stSg}\rangle$
+\end{tabular} 
 
-Deep cases serve for building the representation of a verb together with its
+`my mouse'
+\end{quote}
+
+\emph{Deep cases} serve for building the representation of a verb together with its
 arguments (including optional ones). Names and explanation of deep cases are
 given in Table \ref{table_deep}.  Agents and patients are relatively
 straightforward, relational nouns will be explained later in this
-section. Obliques include objects of words that are not verbs
-(e..g\ prepositional objects) and quirky case marked objects. {{Dative means
+section. Obliques, quirky case marked objects. %TODO
+{{Dative means
     the semantic role by \cite{Fillmore:1968}, that Glottopedia describes as
     an animate being that is conscious of being affected by the state or event
     expressed by the verb.}}
+ {\color{red} Ez i1gy nagyon rossz terminolo1gia, 
+egyse1gesi1teni kell mielo3tt kiadjuk a kezu2nkbo3l.} 
 
 % \subsubsection{Redundancy between deep cases and binary predicates}
 % There are cases, when the deep case of an argument is to some extensiont predictable from the formula.
@@ -223,8 +260,6 @@ section. Obliques include objects of words that are not verbs
 % 
 %  Some grammar formalisms i.e\. Lexical Mapping Theory in Lexical Functional Grammar \cite{} %TODO
 % factor out this redundancy.
- {\color{red} Ez i1gy nagyon rossz terminolo1gia, 
-egyse1gesi1teni kell mielo3tt kiadjuk a kezu2nkbo3l.} 
 % to against defend véd
 
 Now we turn to \emph{relational nouns} e.g.\ \emph{(somebody's) opinion,
@@ -245,9 +280,7 @@ relational nouns in English and Hungarian, languages where most {relational
  `the base of the tree'
 \end{quote}
 In these cases we refer to the related word (\emph{tree} in the example) by
-\texttt{!POSS}. Note that the possessor in unmarked in Hungarian. {\color{red}
-  Egyargumentumuakat egyse1gesi1teni, nem igaz, hogy kell ku2lo2n !POSS e1s
-  HAS is}
+\texttt{!POSS}. Note that the possessor in unmarked in Hungarian.
  
 About ten percent of the examples behave differently: in Hungarian, the
 relational noun is in the sublative (possessive remains an option in some
@@ -266,25 +299,21 @@ These nouns (\emph{occasion, condition, reason, need}) have in common that the r
 \begin{table}
 \begin{center}
 \begin{tabular}{lll}
-\\ 453	& \texttt{!AGT} & agent
-\\ 354	& \texttt{!PAT} & patient
-\\ 172	& \texttt{!QUA} & %TODO
-\\ 65	& \texttt{!POSS} & used with some relational nouns
-\\ 57	& \texttt{!OBL} & oblique, see the explanation in the text
-\\ 32	& \texttt{!DAT} & dative, see the explanation in the text
-\\ 13	& \texttt{!LAM} & definiendum % TODO
-\\ 12	& \texttt{!FROM} & source of action
-\\ 5	& \texttt{!TO}	& target of action
+\\ 454	& \texttt{!AGT}	& agent
+\\ 356	& \texttt{!PAT}	& patient
+\\ 65	& \texttt{!POSS}& used with some relational nouns
+\\ 33	& \texttt{!DAT}	& dative, see the explanation in the text
+\\ 32	& \texttt{!REL} & root or adpositional object
+\\ 16	& \texttt{!TO}	& target of action
+\\ 14	& \texttt{!FROM}& source of action
+\\ 6	& \texttt{!OBL} & oblique, quirky case marked argument
+\\ 3	& \texttt{!AT}	& location of action
 \end{tabular}
 
 \end{center}
 \caption{Deep cases}
 \label{table_deep}
 \end{table}
-
-{\color{red} Lista e1s terminolo1gia kiforratlan, QUA e1s LAM nincs
-  diszkuta1lva, leheto3leg meg is szu2ntetju2k o3ket.}
-
 \section{The defining vocabulary}\label{sec_dv}% TODO goal and overview of the section
 Dictionaries aim at defining words with simpler ones. Some monolingual
 dictionaries use a defining vocabulary (DV) for this purpose. In definitions,
@@ -314,30 +343,23 @@ words (headwords and defining words as well), and there is an edge from the
 node representing \emph{steel} to \emph{metal} if \emph{metal} appears in the
 definition of \emph{steel}. Two nodes are \emph{strongly connected} if there
 is a path from them to each other. Strong connectivity is an equivalence
-relation whose classes are called \emph{strongly connected components}. We
+relation whose classes are called \emph{strongly connected components}. 
+
+We
 computed the strongly connected components of the Longman Dictionary of
 Contemporary English(LDOCE). (The original version of LDOCE was created using a DV as we describe here \cite{Boguraev:1989}. The version we have access to is \cite{Bullon:2003}.)
+In the remainder of this paragraph we report how word forms in the definitions were mapped to defined words (headwords). We checked the following modifications of the word form in this order to find the corresponding headword:
+%preprocessing of definitions after which there are 50624
+\begin{enumerate}
+ \item Named entities and words containing non-letters have been discarded.
+ \item the string obtained by removing puctuation (Python's string.punctuation except for hyphen and apostrophe)
+ \item the string obtained by removing apostrophes expect for those preceeding \emph{s, t, ll, m, re} or \emph{nt} e.g.\emph{John\textbf{'}s}
+ \item stem of the word provided by ocamorph \cite{ocamorph} of hand mapping
+ \item the string obtained by optionally removing every hyphen from the beginning or the end
+ \item optionally removing or replacing with space every string-internal hyphen
+\end{enumerate}
 
-Some lexicon items have been removed during preprocessing 
-{\color{red}
-- nem betűket tartalmazó szavak, illetve named entity-k eldobódnak
-
-- punctuation remove - mindent leszedünk, ami a string.punctuation-be tartozik
-KIVÉVE a kötőjelet és az aposztrofot $\rightarrow$ 1. jelölt
-
-- remove apostrof - minden aposztrofot törlünk KIVÉVE, ami s, t, ll, m, re
-vagy nt előtt áll (I'm, don't stb. miatt) $\rightarrow$ 2. jelölt
-
-- Gábor készített ocamorph-fal és kézzel egy összerendelést, amit megvizsgálok
-és ha van találat, akkor az is a jelöltek közé kerül
-
-- ha kötőjellel kezdődik vagy végződik, akkor a jelöltek közé kerül kötőjellel
-és nélküle
-
-- ha van benne kötőjel, akkor bekerül kötőjellel, anélkül és egybeírva is
-}
-
-so we have 50624
+After preprocessing, we have 50624
 nodes. A histogram of component sizes can be found in table
 \ref{table_compon}. The exact numbers depend on the subtleties of
 preprocessing (e.g.\ treatment of non-alphanumeric characters and named
@@ -374,9 +396,14 @@ $C\subseteq V$ iff either $v\in C$ or all the out-neighbors of $v$ are covered
 by $C$ (the definition is recursive). We call $C$ a \emph{strong vertex cover}
 iff it covers all nodes in $V$. {\color{red} Ez a vertex cover me1g csak az
   e1tva1gy felkelte1se1hez elegendo3, itt sok minden kell me1g.}
-
 %TODO megkeresni az összes kört
 % Some cycles consist of synonyms (\emph{badminton -- shuttlecock}) or stem and affixed form (
+\section*{Acknowledgement}
+Judit Ács preprocessing of Longman,
+András Kornai advision,
+Márton Makrai,
+Dávid Nemeskey design of definition syntax,
+Gábor Recski preprocessing of Longman
 \bibliographystyle{apalike}
 \bibliography{ml}
 \end{document}
