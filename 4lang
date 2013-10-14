@@ -1712,7 +1712,7 @@ interrupt	megszaki1t	interrumpo	przeszkadzac1	1645		V	!AGT CAUSE[pause IN/2758]
 into	-ba	in	do	11	u	G	in/10	
 introduce	bevezet	introduco	wprowadzic1	282		V	present, AT/2744 first(time)	
 introduction	bevezete1s	introductio	wprowadzenie	283		N	introduce	
-invent	kitala1l	invenio	wynalez1c1	1360		V	plan, !AGT MAKE new(idea)	
+invent	kitala1l	invenio	wynalez1c1	1360		V	make, !PAT[plan, idea], !AGT[think]
 invitation	meghi1va1s	invitatio	zaproszenie	1629		N	invite	
 invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !TO]]	
 involve	#	#	#	2790		V	!PAT PART_OF !AGT	
@@ -2227,7 +2227,7 @@ package	csomag	arca	paczka	3002	u	N	' COVER, ' SEND
 packet	csomag	fascis	paczka	427		N	object, unit, ' COVER	
 page	lap	pagina	strona	1491	u	N	surface, paper HAS, write ON, IN/2758 <book>	
 pain	ki1n	cruciatus	bo1l	1318		N	bad, sensation, injury CAUSE	
-paint	fest	pingo	malowac1	795		V	!AGT CAUSE[liquid COVER surface, picture ON surface], liquid HAS colour, decorate, INSTRUMENT brush	
+paint	fest	pingo	malowac1	795		V	!AGT CAUSE[!PAT[liquid] COVER surface, !PAT[picture] ON surface], liquid HAS colour, decorate, INSTRUMENT brush	
 painter	festo3	pictor	malarz	796		N	person, paint	
 painting	festme1ny	pictura	obraz	3523	u	N		
 pair	pa1r	bini	para	1929		N	two, similar	
@@ -2790,7 +2790,7 @@ simple	egyszeru3	simplex	prosty	584	u	A	HAS few(part), normal, NOTHAS ornament 	
 since	mert	enim	jako_z1e	1677		G	because	
 since	o1ta	abhinc	od	1839		G	FROM/1838 !REL, UNTIL now	
 sincere	o3szinte	sincerus	szczery	1884		A	real, lack(pretend)	
-sing	e1nekel	cano	s1piewac1	511	u	V	!AGT MAKE song, MAKE music, INSTRUMENT throat	
+sing	e1nekel	cano	s1piewac1	511	u	V	!AGT[animal], !PAT[song], make, INSTRUMENT throat	
 single	egyedu2li	solus	jedyny	562	u	N	one, lack(other) 	other[exist[lack]]?
 singular	egyes	singularis	jedyny	569		A	one	
 sink	nyelo3	depressio	tona1c1	1806		N	pipe AT/2744, furniture, IN/2758 <kitchen>, water IN/2758, wash INSTRUMENT 	HUN lefolyo1
