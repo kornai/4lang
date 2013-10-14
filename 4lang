@@ -628,7 +628,7 @@ brave	ba1tor	fortis	odwaz1ny	213	u	A	confident, AT/2744 bad[<danger>], active 	N
 bread	kenye1r	panis	chleb	1292	u	N	food, FROM/2742 flour, bake MAKE	
 bread-like	kenye1r-szeru3	#	#	3316		A	food, FROM/2742 flour, bake MAKE 	1
 breadth	sze1lesse1g	latitudo	szerokos1c1	2167		N		
-break	to2r	frango	l1amac1	2411	u	V	!AGT[object], !PAT[rigid], after[separate,!AGT HAS pieces], sudden, violent 	!PAT is used but there is an intransitive use as well
+break	to2r	frango	l1amac1	2411	u	V	!PAT[object], !PAT[rigid], after[separate,!PAT HAS pieces], sudden, violent 	!PAT is used but there is an intransitive use as well
 breakfast	reggeli	ientaculum	s1niadanie	2003		N	first(meal), IN/2758 morning	
 breast	mell	mamma	piers1	1656		N	two, organ, ON chest, woman HAS	
 breath	le1legzet	spiritus	oddech	1500		N	animal MOVE air, air IN/2758 lung, air[out] 	% [animal INHALE] OR [animal EXHALE]
@@ -2559,7 +2559,7 @@ remain	marad	maneo	zostawac1	1595		U	lack( change ) 	!AGT NOTPRED
 remains	maradva1ny	reliquum	szcza1tki	1598		N		see remain
 remark	megjegyez	commemoro	zaznaczac1	1631		U	!AGT SAY[!AGT THINK !PAT] 	comment, casually
 remember	emle1kezik	memini	pamie1tac1	667		V	!PAT IN/2758 mind, !AGT HAS mind	
-remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT[remember]]	
+remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT REMEMBER !TO]
 remove	elta1voli1t	aufero	usuna1c1	650	u	V	!AGT CAUSE[!PAT NOTAT !FROM]	
 rent	be1rel	conduco	wynaja1c1	241		V	exchange, !FROM HAS !PAT, !FROM LET/971[!PAT AT/2744 !AGT], !AGT CAUSE[!FROM HAS money]	
 repair	megjavi1t	emendo	naprawiac1	1630		V	!AGT CAUSE[!PAT[perfect]], before[damage]	
@@ -3071,7 +3071,7 @@ taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue 	RA
 tax	ado1	tributum	podatek	116		N	money, government GET/1223, persons GIVE, businesses GIVE	
 taxi	taxi	taximetrum	takso1wka	2319		N	car, service, person[drive,professional] PART_OF, pay/812 AT/2744	
 tea	tea	thea	herbata	2331		N	drink, before[dry(leaf)], hot(water)	
-teach	tani1t	doceo	uczyc1	2302		V	!AGT GIVE knowledge	
+teach	tani1t	doceo	uczyc1	2302		V	!AGT CAUSE[!DAT KNOW !PAT]  Chafe (1970)
 team	csapat	manus	druz1yna	386		N	group	
 tear	te1p	scindo	rozrywac1	2325	u	V	pull, after[!PAT HAS pieces], INSTRUMENT force	
 tears	ko2nny	lacrima	l1zy	1379		N	liquid, FROM/2742 eye, drop, salt IN/2758, ON cheeks, <emotion> CAUSE	
