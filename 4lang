@@ -609,7 +609,7 @@ both	mindke1t	uterque	oboje	1697		A	two, all
 bottle	u2veg	lagoena	butelka	2506	u	N	contain, HAS narrow(top), liquid IN/2758, HAS material[<glass>,<plastic>]	
 bottle-shaped	palack_alaku1	#	#	3216		A	HAS bottle(shape) 	4
 bottom	fene1k	fundus	dno	787		N	part, position[vertical], !POSS ER	
-bound	ko2tve		skok	3418	u	N		
+bound	ko2tve	#	skok	3418	u	N		
 bow	hajol	flecto	#	2698	u	V	greet, INSTRUMENT bend/975(body), !AGT HAS body	
 bow	i1j	arcus	l1uk	1108	u	N	weapon, shot INSTRUMENT, arrow 	RA
 bow	meghajol	flecto	kl1aniac1_sie1	2700	u	V	bow/2698	
@@ -2541,7 +2541,7 @@ regard	tart_vminek	arbitor	uwaz1ac1_za	2312		V	!AGT THINK[!PAT[!DAT]]
 regard	tekint	specto	uwaz1ac1	2340		V	regard/2312	
 regular	szaba1lyos	ordinatus	zwykl1y	2147	u	A	CONFORM rule	
 regular-shaped	szaba1lyos_alaku1	#	#	3270		A	HAS regular(shape) 	1
-regularly	rendszeresen		regularnie	3543	u	N		
+regularly	rendszeresen	#	regularnie	3543	u	N		
 rejoice	u2nnepel	otior	obchodzic1	2498		U	feeling, joy	
 relate	kapcsolatos	#	#	2796		V	!AGT AT/2744 relation	
 related	rokon	propinquus	spokrewniony	2036		A	join 	HUN: o2sszefu2ggo3
@@ -2646,7 +2646,7 @@ rustle	susog	susurro	szeles1cic1	2136		U
 s-shaped	S_alaku1	#	#	3258		A	HAS shape[bend/1112[two]] 	1
 sad	szomoru1	miserabilis	smutny	2248		A	emotion, lack(happy) 	anto
 safe	biztos	tutus	bezpieczny	303		A	lack(danger), protect, not[' HARM]	
-sail	hajo1zik	#	#	2991		V	travel,  ON water	
+sail	hajo1zik	#	#	2991		V	travel, ON water	
 sail	vitorla	velum	z1agiel	2650		N		see 3015
 salad	sala1ta	acetarium	sal1atka	3550	u	N		
 salary	fizete1s	#	#	3062		N	pay/237, organization CAUSE[!POSS HAS], !POSS[work] AT/2744 organization, AT/2744 every(month)	
@@ -3071,7 +3071,7 @@ taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue 	RA
 tax	ado1	tributum	podatek	116		N	money, government GET/1223, persons GIVE, businesses GIVE	
 taxi	taxi	taximetrum	takso1wka	2319		N	car, service, person[drive,professional] PART_OF, pay/812 AT/2744	
 tea	tea	thea	herbata	2331		N	drink, before[dry(leaf)], hot(water)	
-teach	tani1t	doceo	uczyc1	2302		V	!AGT CAUSE[!DAT KNOW !PAT]  Chafe (1970)
+teach	tani1t	doceo	uczyc1	2302		V	!AGT CAUSE[!DAT KNOW !PAT]	Chafe (1970)
 team	csapat	manus	druz1yna	386		N	group	
 tear	te1p	scindo	rozrywac1	2325	u	V	pull, after[!PAT HAS pieces], INSTRUMENT force	
 tears	ko2nny	lacrima	l1zy	1379		N	liquid, FROM/2742 eye, drop, salt IN/2758, ON cheeks, <emotion> CAUSE	
