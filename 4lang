@@ -1712,7 +1712,7 @@ interrupt	megszaki1t	interrumpo	przeszkadzac1	1645		V	!AGT CAUSE[pause IN/2758]
 into	-ba	in	do	11	u	G	in/10	
 introduce	bevezet	introduco	wprowadzic1	282		V	present, AT/2744 first(time)	
 introduction	bevezete1s	introductio	wprowadzenie	283		N	introduce	
-invent	kitala1l	invenio	wynalez1c1	1360		V	make, !PAT[plan, idea], !AGT[think]
+invent	kitala1l	invenio	wynalez1c1	1360		V	make, !PAT[plan, idea], !AGT[think]	
 invitation	meghi1va1s	invitatio	zaproszenie	1629		N	invite	
 invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !TO]]	
 involve	#	#	#	2790		V	!PAT PART_OF !AGT	
@@ -2144,7 +2144,7 @@ object	ta1rgy	corpus	przedmiot	2705	u	N	thing, <HAS colour>, HAS shape, HAS weig
 observe	betart	conservo	przestrzegac1	272		V		no Longman use
 obstruct	akada1lyoz	impedio	blokowac1	130		V	!AGT CAUSE[lack(pass)]	
 obtain	kap	adipiscor	zal1atwic1	1224		V	get/1223	
-occasion	alkalom	occasio	okazja	157	u	N	time, !TO AT/2744
+occasion	alkalom	occasio	okazja	157	u	N	time, !TO AT/2744	
 ocean	o1cea1n	oceanus	ocean	1829		N	salt IN/2758, water, COVER earth	
 octopus	polip	polypus	os1miornica	3517	u	N		
 odd	ku2lo2no2s	mirus	dziwny	1453		A	common[lack] 	NOTCOP, anto? unary lack % Longman strange
@@ -2166,7 +2166,7 @@ offspring	uto1d	#	#	3346		N	child
 often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN	
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid	
 old	o2reg	senex	stary	1854	u	A	HAS time, time SINCE/1839 birth, time ER	
-old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]
+old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]	
 on	-n	super	na	33	u	G	TOUCH !REL, HAS vertical(position), position ER other(position), =root HAS position 	SUE
 once	egykor	olim	dawno	580		D	IN/2758 past	
 once	egyszer	#	#	2766		#	AT/2744 one(time)	
@@ -2366,7 +2366,7 @@ positive	poziti1v	positivus	pozytywny	3529	u	N
 possess	birtokol	possideo	posiadac1	297		V	!AGT HAS !PAT 	if the parser permits, HAS will be enough
 possessions	birtok	possessio	mienie	295		N	property, valuable	
 possibility	leheto3se1g	potestas	moz1liwos1c1	1524		N	possible	
-possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	'LET	can/1246[!LAM]	
+possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	'LET	can/1246[!LAM]
 post	a1lla1s	locus/munus	stanowisko	75	u	N		See 2742 and 2743
 post	po1zna	asser	sl1up	2740	u	N	artefact, solid, upright, AT/2744 ground, <wood> 	SUPPORT ' 
 post	posta	cursorium	poczta	2741	u	N	mail	
@@ -2559,7 +2559,7 @@ remain	marad	maneo	zostawac1	1595		U	lack( change ) 	!AGT NOTPRED
 remains	maradva1ny	reliquum	szcza1tki	1598		N		see remain
 remark	megjegyez	commemoro	zaznaczac1	1631		U	!AGT SAY[!AGT THINK !PAT] 	comment, casually
 remember	emle1kezik	memini	pamie1tac1	667		V	!PAT IN/2758 mind, !AGT HAS mind	
-remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT REMEMBER !TO]
+remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT REMEMBER !TO]	
 remove	elta1voli1t	aufero	usuna1c1	650	u	V	!AGT CAUSE[!PAT NOTAT !FROM]	
 rent	be1rel	conduco	wynaja1c1	241		V	exchange, !FROM HAS !PAT, !FROM LET/971[!PAT AT/2744 !AGT], !AGT CAUSE[!FROM HAS money]	
 repair	megjavi1t	emendo	naprawiac1	1630		V	!AGT CAUSE[!PAT[perfect]], before[damage]	
@@ -3015,7 +3015,7 @@ succeed	ko2vet	succedo	odnies1c1_sukces	1401		V	before[WANT thing], !AGT CAUSE t
 succeed	sikerrel_ja1r	#	#	2718		V	after[aim[real]], !AGT HAS aim	
 success	siker	#	#	2969		N	real, good, before[desire], lack(failure)	
 such	ilyen	talis	taki	1136	u	A		indexical
-such_as	u1gymint	#	#	2966		#	!REL IS_A
+such_as	u1gymint	#	#	2966		#	!REL IS_A	
 suck	szopik	sugo	ssac1	2250		V	!AGT CAUSE[!PAT[fluid] IN/2758 mouth], !AGT HAS mouth, mouth SURROUND thing, pull 	vacuum
 suck_in	beszi1v	sugo	wessac1	271		V	suck	
 sudden	hirtelen	subitus	nagl1y	1061		A	lack(warn), before[lack( ' KNOW)]	
@@ -3090,7 +3090,7 @@ temporary	ideiglenes	#	#	3020		A	short AT/2744 future
 ten	ti1z	#	#	2999		A	number, FOLLOW nine	
 ten-pound	tizfontos	#	#	3118		A	ten(pound)	
 tend	tart_vmihez	tendo	zmierzac1	2311		V		
-tendency	tendendcia	#	#	2987		N	likely[!TO]
+tendency	tendendcia	#	#	2987		N	likely[!TO]	
 tender	gyenge1d	mollis	delikatny	929		A	love	
 tennis	tenisz	lusus_pilae_reticulo_fusae	tenis	2351	u	N	game, INSTRUMENT ball, person[two, <play>] IN/2758, ON rectangular(court/2515), net AT/2744 court/2515 	or two pairs of players % INSTRUMENT rackets
 tense	feszu2lt	suspensus	spie1ty	797	u	A		
