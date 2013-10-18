@@ -1299,7 +1299,7 @@ feeling	e1rze1s	sensus	uczcia	533	u	N	mental, other CAUSE, joy IS_A, sorrow IS_A
 fellow	ta1rs	socius	kompan	2283		N		no Longman use
 female	no3	femina	samica	1794	u	N	sex	
 feminine	no3i	femininus	z2en1ski	3463	u	N		
-fence	keri1te1s	saepes	ogrodzenie	1304		N	structure, border, AROUND <garden>, HAS more(post/2741)	
+fence	keri1te1s	saepes	ogrodzenie	1304		N	structure, border, AROUND <garden>, HAS more(post/2740)	
 fence	vi1v	battuo	N/A	2621		V		
 fever	la1z	febris	gora1czka	1483		N	lack(normal), body HAS high (temperature)	
 few	keve1s	paucus	kilka	1308		A	amount, ' ER	
@@ -2366,7 +2366,7 @@ positive	poziti1v	positivus	pozytywny	3529	u	N
 possess	birtokol	possideo	posiadac1	297		V	!AGT HAS !PAT 	if the parser permits, HAS will be enough
 possessions	birtok	possessio	mienie	295		N	property, valuable	
 possibility	leheto3se1g	potestas	moz1liwos1c1	1524		N	possible	
-possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	'LET	can/1246[!LAM]
+possible	lehetse1ges	possibilis	moz1liwy	1525	u	A	'LET/971	can/1246[!LAM]
 post	a1lla1s	locus/munus	stanowisko	75	u	N		See 2742 and 2743
 post	po1zna	asser	sl1up	2740	u	N	artefact, solid, upright, AT/2744 ground, <wood> 	SUPPORT ' 
 post	posta	cursorium	poczta	2741	u	N	mail	
