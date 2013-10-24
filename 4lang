@@ -1361,7 +1361,7 @@ for	-ig	tenus	przez	27	u	G
 for	-ig	adhoc	do	2826	u	G	AT/2744 !REL[time]	
 for	-nak	NA	dla	2825	u	G	after[!REL[good] ER]	
 for	miatt	propter	przez	2782	u	#		primitive
-forbid	megtilt	veto	zabraniac1	1650		V	!AGT CAUSE[!DAT[!AGT NOTHAS permission]]	
+forbid	megtilt	veto	zabraniac1	1650		V	!AGT CAUSE[!DAT NOTHAS permission]	
 forbidding	zord	durus	ostra	2683		A		
 force	ero3	vis	sil1a	683	u	N	power	
 fore-	elo3-	pro-/prae-	przed	641		G	AT/2744 time, !REL ER time 	probelmatic unification, ?
