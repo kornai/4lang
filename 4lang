@@ -1173,7 +1173,7 @@ enjoy	e1lvez	fruor	cieszyc1_sie1	508		V	!PAT CAUSE[!AGT HAS pleasure]
 enough	ele1g	satis	wystarczy	599	u	A	quantity, satisfy	
 enquire	nyomoz	investigo	dowiadywac1_sie1	1820		V		no xml
 enter	bele1p	intro	wejs1c1	258	u	V	go, after[!AGT IN/2758 !PAT]	
-entertain	szo1rakoztat	#	#	3023		V	!AGT CAUSE[!ACC HAS pleasure]	
+entertain	szo1rakoztat	#	#	3023		V	!AGT CAUSE[!PAT HAS pleasure]	
 entertainment	szo1rakoza1s	#	#	3356		N	FOR/2782 pleasure	HUN alter mulat
 entrance	beja1rat	porta	wejs1cie	256		N	place/1026, [<person>[enter]] THROUGH, <door>	
 envelop	bebori1t	velo	okryc1	242		V	cover	fully % ZsA
@@ -2227,7 +2227,7 @@ package	csomag	arca	paczka	3002	u	N	' COVER, ' SEND
 packet	csomag	fascis	paczka	427		N	object, unit, ' COVER	
 page	lap	pagina	strona	1491	u	N	surface, paper HAS, write ON, IN/2758 <book>	
 pain	ki1n	cruciatus	bo1l	1318		N	bad, sensation, injury CAUSE	
-paint	fest	pingo	malowac1	795		V	!AGT CAUSE[!PAT[liquid] COVER surface, !PAT[picture] ON surface], liquid HAS colour, decorate, INSTRUMENT brush	
+paint	fest	pingo	malowac1	795		V	!AGT CAUSE[!PAT[liquid] COVER surface, !PAT[picture] ON surface], liquid HAS colour, decorate, INSTRUMENT brush	German streichen/bemalen vs malen
 painter	festo3	pictor	malarz	796		N	person, paint	
 painting	festme1ny	pictura	obraz	3523	u	N		
 pair	pa1r	bini	para	1929		N	two, similar	
@@ -2559,7 +2559,7 @@ remain	marad	maneo	zostawac1	1595		U	lack( change )	!AGT NOTPRED
 remains	maradva1ny	reliquum	szcza1tki	1598		N		see remain
 remark	megjegyez	commemoro	zaznaczac1	1631		U	!AGT SAY[!AGT THINK !PAT]	comment, casually
 remember	emle1kezik	memini	pamie1tac1	667		V	!PAT IN/2758 mind, !AGT HAS mind	
-remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT REMEMBER !TO]	
+remind	emle1keztet	admoneo	przypomniec1	668		V	!AGT CAUSE[!PAT REMEMBER !TO]	Chafe (1970)
 remove	elta1voli1t	aufero	usuna1c1	650	u	V	!AGT CAUSE[!PAT NOTAT !FROM]	
 rent	be1rel	conduco	wynaja1c1	241		V	exchange, !FROM HAS !PAT, !FROM LET/971[!PAT AT/2744 !AGT], !AGT CAUSE[!FROM HAS money]	
 repair	megjavi1t	emendo	naprawiac1	1630		V	!AGT CAUSE[!PAT[perfect]], before[damage]	
@@ -2752,7 +2752,7 @@ shirt	ing	camisia	koszula	1142	u	N	garment, AT/2744 trunk/2759, HAS collar, HAS 
 shit	szar	stercus	go1wno	2159		N		
 shock	sokk	collisio	szok	2117	u	N	surprise, bad, sudden	
 shoe	cipo3	calceus	but	377	u	N	COVER foot, human HAS foot	HAS sole, HAS heel
-shoot	lo3	emitto	strzelac1	1551	u	V	!AGT USE gun, !AGT CAUSE[bullet AT/2744 !PAT]	
+shoot	lo3	emitto	strzelac1	1551	u	V	!AGT USE gun, !AGT CAUSE[bullet AT/2744 !TO]	
 shop	bolt	taberna	sklep	329	u	N	building, sale IN/2758	
 shore	part	litus	brzeg	1947		N	land, NEXT_TO water	
 short	ro2vid	brevis	kro1tki	2029	u	A	size[horizontal,small], lack(long)	
