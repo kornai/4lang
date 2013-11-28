@@ -293,7 +293,7 @@ accordance	egyeze1s	convenientia	zgodnos1c1	574		N	agree
 according	szerint	secundum	wedl1ug	2201		D	!REL DETERMINE	
 account	besza1molo1	#	#	2695		N	story	
 account	sza1mla	ratio	rachunek	2139		N		
-accustom	hozza1szoktat	assuefacio	przyzwyczajac1	1090		V	after[!TO[familiar,habit]]	
+accustom	hozza1szoktat	assuefacio	przyzwyczajac1	1090		V	after[!TO[familiar,habit]]	gewöhnen an ACC
 ache	fa1j	dolet	bolec1	711		U	sensation, bad, <physical>	
 achieve	ele1r	#	#	2787		V	!AGT HAS success, complete	
 acid	sav	acidum	kwas	2064	u	N	substance, <burn>, HAS taste[sharp,sour], lack(kind)	
@@ -309,7 +309,7 @@ actual	mostani	hic	obecny	1727		A	exist, now
 adapt	alkalmazkodik	accommodo	zaadaptowac1	156		U	after[suitable] 	HUN EN mismatch in arg struct
 add	o2sszead	addo	dodawac1	1859	u	V	!AGT CAUSE[!PAT IN/2758 !TO] 	HUN: (hozza1)ad
 added	hozza1adott	adjectus	dodany	3404	u	N		
-addition	o2sszeada1s	additio	dodatek	1860		N	CAUSE[!TO[ER ' ]]	
+addition	o2sszeada1s	additio	dodatek	1860		N	CAUSE[!TO[ER ' ]]	zusätzlich zu
 address	ci1m	domicilium/inscriptio	adres	370		N	description, place/1026, <person> HAS, <person> AT/2744 place/1026, written	
 adherent	hi1vo3	#	#	3351		N	person, MEMBER ' , group HAS idea	
 adjective	melle1kne1v	nomen_adiectivum	przymiotnik	1659		N	word	
@@ -602,7 +602,7 @@ book	ko2nyv	liber	ksia1z1ka	1384	u	N	text IN/2758, HAS pages, HAS cover, ' READ
 boot	csizma	caliga	but	413		N	COVER foot, COVER leg	
 border	hata1r	confinium	granica	1011		N	official, line, SEPARATE <two(country)> 	RA
 bore	fu1r	perforo	wiercic1	865		V	!AGT CAUSE[hole IN/2758 !PAT], INSTRUMENT roll 	<drill>
-bore	untat	#	#	2697		V	!AGT CAUSE !PAT[weary/713], INSTRUMENT dull	
+bore	untat	#	#	2697		V	!AGT CAUSE !PAT[weary/713], dull	
 born	szu2letik	nascor	rodzic1_sie1	2265		V	after[!AGT[live, <child>]], before[!AGT IN/2758 mother]	
 borrow	ko2lcso2no2z	mutuor	poz1yczac1	1375		V	!FROM HAS !PAT, !FROM LET/971[!PAT AT/2744 !AGT]	
 both	mindke1t	uterque	oboje	1697		A	two, all	
@@ -1173,7 +1173,7 @@ enjoy	e1lvez	fruor	cieszyc1_sie1	508		V	!PAT CAUSE[!AGT HAS pleasure]
 enough	ele1g	satis	wystarczy	599	u	A	quantity, satisfy	
 enquire	nyomoz	investigo	dowiadywac1_sie1	1820		V		no xml
 enter	bele1p	intro	wejs1c1	258	u	V	go, after[!AGT IN/2758 !PAT]	
-entertain	szo1rakoztat	#	#	3023		V	!AGT GIVE pleasure	
+entertain	szo1rakoztat	#	#	3023		V	!AGT CAUSE[!ACC HAS pleasure]	
 entertainment	szo1rakoza1s	#	#	3356		N	FOR/2782 pleasure 	HUN alter mulat
 entrance	beja1rat	porta	wejs1cie	256		N	place/1026, [<person>[enter]] THROUGH, <door>	
 envelop	bebori1t	velo	okryc1	242		V	cover 	fully % ZsA
@@ -1214,7 +1214,7 @@ exchange	csere	mutatio	wymiana	405	u	N	before[!PAT[<good> AT/2744 person]], afte
 excite	izgat	excito	podniecac1	1167		V	!PAT[person], !AGT CAUSE[!PAT HAS strong (feeling)]	
 excited	izgatott	#	zainteresowany	3593	u	A		
 excuse	megbocsa1t	ignosco	wybaczac1	1619		V	!AGT FORGIVE 	Longman use excuse me
-excuse	mentse1g	#	#	2708		N	EXPLAIN bad, FOR/2782[!AGT FORGIVE bad] 	!AGT is a verbal case here
+excuse	mentse1g	#	#	2708		N	EXPLAIN bad, FOR/2782['FORGIVE bad] 	!AGT is a verbal case here
 exercise	edz	exerceo	c1wiczyc1	550	u	V		see 920
 exercise	gyakorol	exerceo	c1wiczyc1	920	u	V	repeat, develop/758, !AGT IMPROVE skill, <sport>	
 exhausted	kimeru2lt	exhaustus	wyczerpany	1343		A	[ ' USE]CAUSE, NOTHAS resource[<energy>]	
@@ -1714,7 +1714,7 @@ introduce	bevezet	introduco	wprowadzic1	282		V	present, AT/2744 first(time)
 introduction	bevezete1s	introductio	wprowadzenie	283		N	introduce	
 invent	kitala1l	invenio	wynalez1c1	1360		V	make, !PAT[plan, idea], !AGT[think]	
 invitation	meghi1va1s	invitatio	zaproszenie	1629		N	invite	
-invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !TO]]	
+invite	meghi1v	invito	zapraszac1	1628	u	V	!AGT SAY[!AGT WANT[!PAT AT/2744 !TO]]	einladen zu
 involve	#	#	#	2790		V	!PAT PART_OF !AGT	
 inwards	befele1	intro	wewna1trz	252		G	after[IN/2758 ' ]	
 ir-	nem	ir-	nie-	1777		G		
@@ -1733,7 +1733,7 @@ jelly	zsele1	quilon	galareta	2687	u	N
 jewel	e1kko3	gemma	klejnot	501		N	precious, stone, artefact	
 jewellery	e1kszer	ornamentum	biz1uteria	502		N	small, person WEAR, decorate, ring/402 IS_A 	necklace IS_A
 job	munka	negotium	zawo1d	1738		A	regular (activity), person GET/1223 pay/237	
-join	csatlakozik	comitor	dol1a1czyc1	392	u	V	before[separate], after[together, !PAT MEMBER !TO, !PAT PART_OF !TO]	
+join	csatlakozik	comitor	dol1a1czyc1	392	u	V	before[separate], after[together, !PAT MEMBER !TO, !PAT PART_OF !TO]	beitreten DAT
 joint	izu2let	articulus	staw	1169		N	part, join AT/2744	
 joke	vicc	facetiae	z1art	2623		N	story, CAUSE laughter 	HAS punch_line 
 journey	utaza1s	iter	podro1z1	2535		N	travel	
@@ -2006,13 +2006,13 @@ mis-	fe1lre-	oblique/non_recte	z1le	736		G		fail % bad, lack
 miserable	siralmas	miserabilis	z1al1osny	2105		A	lack(happy) 	NOTCOP
 miserly	fukar	avarus	ska1py	879		N	quantity, small, bad 	no use
 miss	kisasszony	dominula	panna	1358		N	miss/1357	
-miss	ne1lku2lo2z	#	#	2720		V	!AGT HAS feeling, !AGT NOTHAS !PAT	
+miss	ne1lku2lo2z	#	#	2720		V	!AGT HAS bad(feeling), !AGT NOTHAS !PAT	
 mist	ko2d	nebula	mgl1a	1372		N	steam IN/2758 air, outside, weather	
 mistake	hiba	error	bl1a1d	1051		N	person CAUSE bad	
 mix	kever	misceo	mieszac1	1309	u	V	!PAT[<liquid>], before[!PAT[separate(material)]], !AGT CAUSE[!PAT[single(substance)]]	
 mixture	elegy	mixtio	mieszanka	607		N	compound	
 mock	a1l-	adulterinus/falsus	fal1szywy	69		G	SIMILAR !AGT, lack(!AGT), false	
-mock	gu1nyol	#	#	2965		V	!AGT CAUSE[!PAT SEEM stupid], laugh	
+mock	gu1nyol	#	#	2965		V	!AGT CAUSE[!PAT SEEM stupid, laugh]	
 model	minta	exemplum	przykl1ad	1703		N	object, represent 	a model of someone ' s head, shoulders, and upper chest, usually made of stone or metal
 model	modell	exemplum	przykl1ad	1713		A		see 1703
 modern	mai	hodiernus	nowoczesny	1587	u	A		see 1714
@@ -2475,7 +2475,7 @@ purple-red	lila-piros	#	#	3231		A	purple, red 	2
 purpose	ce1l	propositum	cel	365	u	N	' WANT	
 pursue	u3z	sequor	gonic1	2514		V	follow, !AGT WANT[catch/828]	
 push	tol	promoveo	pchac1	2424	u	V	move, !AGT CAUSE[!PAT[away]]	
-put	tesz	pono	kl1as1c1	2374	u	V	!AGT CAUSE[!PAT AT/2744 !TO], !AGT MOVE !PAT, !PAT[object]	
+put	tesz	pono	kl1as1c1	2374	u	V	!AGT CAUSE[!PAT AT/2744 !TO], !AGT MOVE !PAT, !PAT[object]	setzt etwas irgendwohin
 quake	reng	tremo	trza1s1c1	2016		A	shake	
 quality	mino3se1g	qualitas	jakos1c1	1699	u	N	!POSS[good], characteristic 	inherent
 quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, ' COUNT, <large>	
@@ -2574,10 +2574,10 @@ reproduce	szaporodik	#	#	3138		U	!AGT MEMBER race, !AGT MAKE live, live AT/2744 
 republic	ko2zta1rsasa1g	res_publica_libera	republika	1418		N	political, system, country, NOTHAS monarch, HAS president, ELECT representatives, representatives HAS power	
 request	ke1r	rogo	z1a1dac1	1251	u	V	!AGT EXPRESS[!AGT WANT[!AGT HAS !PAT]]	
 rescue	kiment	eripio	ratowac1	1342		V	!AGT CAUSE[!PAT[free], !PAT NOTIN danger]	
-resemble	hasonli1t	#	#	3397		V	!AGT HAS property, !PAT HAS property	
+resemble	hasonli1t	#	#	3397		V	!AGT HAS property, !PAT HAS property	ähneln DAT
 resign	felmond	renuntio	zrezygnowac1	779		V	!AGT CAUSE[!AGT NOTHAS job], official	
 resort	folyamodik	recurro	odwol1ywac1_sie1	845		V		apply % -hOz = allative
-resource	ero3forra1s	#	#	3348		N	work INSTRUMENT, !POSS HAS	
+resource	ero3forra1s	#	#	3348		N	work INSTRUMENT	
 respect	tisztel	observo	szanowac1	2392	u	V	feeling, quality CAUSE, !PAT HAS quality	
 respectful	tiszteletteljes	observantissimus	godny	2395		A	respect	
 responsibility	felelo3sse1g	pietas	odpowiedzialnos1c1	3545	u	N		
