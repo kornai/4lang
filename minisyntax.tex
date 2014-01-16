@@ -23,9 +23,15 @@
 \begin{document}
 \maketitle
 \section*{Introduction}
-    4lang multilingual concept lexicon is hosted at \url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013} in Hungarian. Here, after summarizing its design principles, we specify                        its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary (Section \ref{sec_dv}).
+4lang multilingual concept lexicon is hosted at
+\url{hlt.sztaki.hu/resources/4lang/} and was introduced in \cite{Kornai:2013}
+in Hungarian. Here, after summarizing its design principles, we specify
+its syntax (Section \ref{sec_synt}) and discuss the defining vocabulary
+(Section \ref{sec_dv}).
 
-4lang is a multilingual concept lexicon. The original resource contains word forms for concepts in four languages (hence the name), English, Hungarian, Polish, and Latin. For an extension to forty languages see \cite{Acs:2013}.
+4lang is a multilingual concept lexicon. The original resource contains word
+forms for concepts in four languages (hence the name), English, Hungarian,
+Polish, and Latin. For an extension to forty languages see \cite{Acs:2013}.
 
 Entries of 4lang are concepts that are more abstract than words in two
 aspects: We aim to capture abstract meanings, so disambiguation is done only
@@ -33,7 +39,8 @@ in cases of pure homonymy. On the other hand, 4lang describes conceptual
 meaning, so part of speech (POS) differences (\emph{go, going}) are factored
 out (as more properly belonging to syntax).
 \section{The syntax of 4lang}\label{sec_synt}
-4lang is a tab separated file with the following fields. First we list the fields of the file, than describe the definition field.
+4lang is a tab separated file with the following fields. First we list the
+fields of the file, than describe the definition field.
 \subsection{Fields}
 \begin{enumerate}
  \item English form
@@ -105,10 +112,34 @@ are encoded using Prószéky Codes, see Table \ref{table_proszeky}.
 
 
 \subsection{Definitions}
-4lang contains two kinds of relations between words. Assertions like \emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic notations) will be called \emph{predication}\footnote{The only way we encode the linguistic distinction between attribution and prediction proper is that \emph{mouse is rodent} is predicated about the canonical representative of `mouse' (meaning that mice as such are rodents), while \emph{tail is long} is predicated about some instances of `tail' e.g.\ that of the canonical `mouse'.}. In most cases, predication is similar to \texttt{IS\_A} in knowledge representation. The other kind of relation is between \emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first argument} of the function \texttt{MAKE}, and \texttt{milk} is its \emph{second} argument. Not only verbs can be predicates. When the predicate is a (transitive) verb, the first argument is usually an agent and a second is a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent} above), functions (e.g.\ \texttt{MAKE}), and their arguments (e.g.\ \texttt{cow}, \texttt{milk}) are all \emph{concepts}.
+4lang contains two kinds of relations between words. Assertions like
+\emph{mouse is rodent} or \emph{tail is long} (these are pre-theoretic
+notations) will be called \emph{predication}\footnote{The only way we encode
+the linguistic distinction between attribution and prediction proper is that
+\emph{mouse is rodent} is predicated about the canonical representative of
+`mouse' (meaning that mice as such are rodents), while \emph{tail is long} is
+predicated about some instances of `tail' e.g.\ that of the canonical
+`mouse'.}. In most cases, predication is similar to \texttt{IS\_A} in
+knowledge representation. The other kind of relation is between
+\emph{functions} and \emph{arguments}: In \emph{cow makes milk} (represented
+by the clause \texttt{cow MAKE milk}), \texttt{cow} is the \emph{first
+argument} of the function \texttt{MAKE}, and \texttt{milk} is its
+\emph{second} argument. Not only verbs can be predicates. When the predicate
+is a (transitive) verb, the first argument is usually an agent and a second is
+a patient. Members of predication (e.g.\ \texttt{mouse} and \texttt{rodent}
+above), functions (e.g.\ \texttt{MAKE}), and their arguments (e.g.\
+\texttt{cow}, \texttt{milk}) are all \emph{concepts}.
 
-Definitions can be interpreted in terms of graphs as well. In graph notation, 4lang is a directed graph whose nodes are labeled with concepts and edges are labeled with $0$, $1$ or $2$. The examples above are represented by $\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and $\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So $u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$) is equivalent to $u$ being the first (resp.\ second) argument of $v$.
-A graph representing the whole lexicon is built in two steps: first, every clause in definitions is translated to a graph, and then graphs are connected by \emph{unifying} nodes that have the same label and no outgoing edges.
+Definitions can be interpreted in terms of graphs as well. In graph notation,
+4lang is a directed graph whose nodes are labeled with concepts and edges are
+labeled with $0$, $1$ or $2$. The examples above are represented by
+$\texttt{mouse}\xrightarrow{0}\texttt{rodent}$ and
+$\texttt{cow}\xleftarrow{1}\texttt{MAKE}\xrightarrow{2}\texttt{milk}$. So
+$u\xleftarrow{1}v$ (resp.\ $v\xrightarrow 2 u$) is equivalent to $u$ being the
+first (resp.\ second) argument of $v$.
+A graph representing the whole lexicon is built in two steps: first, every
+clause in definitions is translated to a graph, and then graphs are connected
+by \emph{unifying} nodes that have the same label and no outgoing edges.
 
 %We say thatA node representing a single clause is non-function if all its outgoing edges (if any) are labeled with $0$ and function otherwise. Clauses describing subtrees rooted at a (non-)function node will also be called (non-)branching.
 
@@ -189,19 +220,20 @@ In the graph part,
  \item for any nonterminal $X$, $g(X)$ denotes the graph representing the yield of $X$ (which is a single node in the case of $C_f$ and $C_n$),
  \item $d$ denotes a node labeled with the definiendum (the word that is defined),
  \item $X^{(i)}$ is an instance of the nonterminal $X$.
-\end{itemize}
-Right sides of the first and the last two derivations are regular
-expressions. $D$ rewrites to one or more $C$s delimited by comma. $C_n$ and
-$C_f$ basically rewrite to a lowercase and an uppercase string
-respectively. Hyphen (\texttt{-}) is used in names of affixes
-(e.g.\ \texttt{-able}), and underscore (\texttt{\_}) is used in names of some
-functions, e.g.\ \texttt{PART\_OF} and multiword phrases (e.g.\ \emph{call up} `telephone'.
- The optional number at the end, separated
-by \texttt{/}, serves disambiguation. E.g.\ \texttt{light/739}.  means concept
-number 739 (the opposite of `dark(ness)') while \texttt{light/1381} means
-concept number 1381, the opposite of `heavy'.
+\end{itemize} 
+Right sides of the first and the last two derivations are regular expressions.
+$D$ rewrites to one or more $C$s delimited by comma.  $C_n$ and $C_f$
+basically rewrite to a lowercase and an uppercase string respectively. Hyphen
+(\texttt{-}) is used in names of affixes (e.g.\ \texttt{-able}), and
+underscore (\texttt{\_}) is used in names of some functions, e.g.\
+\texttt{PART\_OF} and multiword phrases (e.g.\ \emph{call up} `telephone').
+The optional number at the end, separated by \texttt{/}, serves
+disambiguation. E.g.\ \texttt{light/739}.  means concept number 739 (the
+opposite of `dark(ness)') while \texttt{light/1381} means concept number 1381,
+the opposite of `heavy'.
 
-We conclude this chapter by giving an example line of 4lang with the graph representing it:
+We conclude this chapter by giving an example line of 4lang with the graph
+representing it:
 
 \begin{verbatim}
 mouse	 ege1r	 mus	mysz	 551	 N	 rodent, HAS long(tail)
@@ -243,7 +275,8 @@ section. Obliques, quirky case marked objects. %TODO
 egyse1gesi1teni kell mielo3tt kiadjuk a kezu2nkbo3l.} 
 
 % \subsubsection{Redundancy between deep cases and binary predicates}
-% There are cases, when the deep case of an argument is to some extensiont predictable from the formula.
+% There are cases, when the deep case of an argument is to some extensiont
+% predictable from the formula.
 % \begin{table}[h]
 % \begin{center}
 % \begin{tabular}{rll}
@@ -301,10 +334,13 @@ These nouns (\emph{occasion, condition, reason, need}) have in common that the r
 \begin{tabular}{lll}
 \\ 454	& \texttt{!AGT}	& agent
 \\ 356	& \texttt{!PAT}	& patient
-\\ 65	& \texttt{!POSS}& used with some relational nouns
+\\ 65	& \texttt{!POSS}& used with some relational nouns %TODO !GEN
 \\ 33	& \texttt{!DAT}	& dative, see the explanation in the text
 \\ 32	& \texttt{!REL} & root or adpositional object
-\\ 16	& \texttt{!TO}	& target of action
+\\ 16	& \texttt{!TO}	& target of action % TODO	% abstract goal:	able, accustom, ready, remind
+							% relational non-verb:		law, occasion, sensitive, similar, skill, tendency
+							% OK:				add, addition, invite, join, load, put
+							% misc:				include
 \\ 14	& \texttt{!FROM}& source of action
 \\ 6	& \texttt{!OBL} & oblique, quirky case marked argument
 \\ 3	& \texttt{!AT}	& location of action
@@ -345,10 +381,13 @@ definition of \emph{steel}. Two nodes are \emph{strongly connected} if there
 is a path from them to each other. Strong connectivity is an equivalence
 relation whose classes are called \emph{strongly connected components}. 
 
-We
-computed the strongly connected components of the Longman Dictionary of
-Contemporary English(LDOCE). (The original version of LDOCE was created using a DV as we describe here \cite{Boguraev:1989}. The version we have access to is \cite{Bullon:2003}.)
-In the remainder of this paragraph we report how word forms in the definitions were mapped to defined words (headwords). We checked the following modifications of the word form in this order to find the corresponding headword:
+We computed the strongly connected components of the Longman Dictionary of
+Contemporary English(LDOCE). (The original version of LDOCE was created using
+a DV as we describe here \cite{Boguraev:1989}. The version we have access to
+is \cite{Bullon:2003}.) In the remainder of this paragraph we report how word
+forms in the definitions were mapped to defined words (headwords). We checked
+the following modifications of the word form in this order to find the
+corresponding headword:
 %preprocessing of definitions after which there are 50624
 \begin{enumerate}
  \item Named entities and words containing non-letters have been discarded.
