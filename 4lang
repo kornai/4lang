@@ -1292,8 +1292,8 @@ fear	fe1lelem	timor	strach	734		N
 feast	lakoma	convivium	uczta	1488		N	meal, before[invite], large, many(people) AT/2744, entertainment	
 feather	toll	penna	pio1ro	2427		N	soft, AT/2744 bird	RA
 feature	vona1s	differentia	cecha	3017	u	N	' NOTICE, important, typical, CAUSE[recognize]	
-feed	abrak	farrago	karma	111		N	animal EAT	
-feed	ta1pla1l	alo	karmic1	2280		V		
+feed	abrak	farrago	karma	111		N		
+feed	ta1pla1l	alo	karmic1	2280		V	=AGT CAUSE [=PAT EAT =INS]	
 feel	e1rez	sentio	czuc1	521	u	V	=PAT AT/2744 body, =PAT IN/2758 mind, =AGT HAS body, =AGT HAS mind	
 feeling	e1rze1s	sensus	uczcia	533	u	N	mental, other CAUSE, joy IS_A, sorrow IS_A, fear IS_A, anger IS_A	spontaneous
 fellow	ta1rs	socius	kompan	2283		N		no Longman use
@@ -1636,7 +1636,7 @@ hungry	e1hes	esuriens	gl1odny	498		A	hunger
 hunt	vada1szik	venor	polowac1	2566		V	=AGT WANT[=AGT CATCH/828 =PAT[animal]]	
 hurl	haji1t	iacio	rzucac1	973		V	throw, =AGT CAUSE[=PAT HAS great(speed)]	
 hurry	siet	propero	spieszyc1_sie1	2098		U	rush	
-hurt	ba1nt	laedo	ranic1	200	u	V	offend	
+hurt	ba1nt	laedo	ranic1	200	u	V	CAUSE [ache(=PAT)], offend	
 husband	fe1rj	vir/maritus	ma1z1	745		N	male, HAS wife, =POSS[wife]	relational noun
 hut	bo1de1	pergula	chata	308		N	building[small, simple], [<one>(room/2235)] IN/2758	
 ice	je1g	glacies	lo1d	1178	u	N	water, cold, hard	
