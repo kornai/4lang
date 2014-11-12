@@ -572,7 +572,7 @@ bite	falat	frustum	kawal1ek	722	u	N	' BITE/1001
 bite	harap	mordeo	gryz1c1	1001	u	V	cut, INSTRUMENT <tooth>	
 bitter	keseru3	amarus	goz1ki	1306	u	A	taste, sharp, coffee IS_A, poison IS_A	
 bitter-tasting	keseru3_i2zu3	#	#	3243		A	HAS bitter(taste)	2
-black	fekete	niger	czarny	761	u	A	dark, death	NOTHAS colour ?
+black	fekete	niger	czarny	761	u	A	colour, dark, death	NOTHAS colour ?
 blade	penge	lamina	ostrze	1954		N	CUT object, HAS edge, flat, <sword> HAS	
 blame	hiba1ztat	incuso	winic1	1052		V	think[=AGT[ responsible ]]	
 bleed	ve1rzik	sanguino	krwawic1	2600		U	blood FROM/2742	
