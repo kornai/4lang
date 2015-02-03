@@ -1,0 +1,142 @@
+#Mapping of Stanford Dependency relations to 4lang edges.
+#
+#The line "rel TAB i,j" means the dependency relation rel(x,y) should convert
+#to an arrow of color i pointing from x to y and an arrow of color j pointing
+#from y to x. "-" means no arrow, "?" means undecided or ambiguous.
+#
+#Further TAB separated fields may specify binary relations that should hold
+#between x and y, the order can be reversed with "!". E.g. HAS will trigger
+#x HAS y, !HAS will trigger Y HAS X
+
+acomp	0,-
+advcl	?,-
+advmod	0,-
+agent	1,-
+amod	0,-
+appos	0,0
+aux	0,1
+auxpass	0,1
+
+cc	-,-
+#each coordinated element appears in its own relations
+
+ccomp	?,1
+complm	0,0
+
+conj_and	-,-
+#each coordinated element appears in its own relations
+
+cop	-,-
+#but will be necessary to disambiguate nsubj and csubj
+
+csubj	1,?
+#1,0 for copular sentences, 1,- otherwise (just like with nsubj)
+
+csubjpass	2,-
+dep	0,-
+
+det	?,?
+#Articles will probably trigger some direct action and not have their own nodes
+#in the graph
+
+dobj	2,-
+
+expl	-,-
+#We shouldn't have to do anything extra here if our theory is perfect, right?
+
+iobj	?,?
+#I guess we deny that these really exist.
+
+mark	0,2
+
+mwe	-,-
+#We should handle each of these uniquely
+
+neg	-,-
+#This'll trigger whatever it is that we'll do for negation
+
+nn	-,-
+# "there is no intelligent noun compund analysis. This is likely to be fixed
+# once the Penn Treebank represents the branching structure of NPs"
+# Until then, this should trigger our own noun compound analysis
+# Until we have that, do nothing
+
+npadvmod	0,-
+
+nsubj	1,?
+# 1,0 for copular sentences, 1,- otherwise (just like with csubj)
+
+nsubjpass	2,-
+num	0,-
+
+number	?,?
+#Wouldn't load this on the machine framework
+
+parataxis	?,?
+#need to see more examples first, might be handled at the sentence tokenization
+#level
+
+#partmod	?,?
+#(obsoleted by vmod)
+#This should be two relations based on the role of the first element
+# "Truffles picked during the spring are tasty"	
+# partmod(truffles, picked)	-,2
+# "Bill tried to shoot demonstrating his incompetence
+# partmod(shoot, demonstrating) 0,1
+
+pcomp	2,-
+pobj	2,-
+
+poss	-,-	HAS
+#x HAS y
+
+possessive	-,-
+
+preconj	-,-
+predet	-,-
+#These two can trigger something once we have quantification...
+
+#This'll be horribly wrong in some cases, e.g. "bread stays soft for several days"
+prep_for	-,-	FOR
+prep_from	-,-	from
+
+prep_in	-,-	IN
+prep_of	-,-	!HAS
+
+#we don't really have this, but I didn't know what to do. Perhaps "not" and IN combined somehow, but we don't have the syntax for it, plus we don't know how negation works
+
+prep_out_of	-,-	NOTIN
+prep_with	-,-	INSTRUMENT
+prepc_without	-,-	LACK
+
+prt	2,-
+punct	-,-
+
+#purpcl	-,-
+#(obsoleted by advcl)
+#Maybe y CAUSE x, or do we have something standard for GOAL?
+
+quantmod	-,-
+#No quantification yet...
+
+rcmod	-,-
+#relations expressed by a relative clause will also appear explicitly
+
+ref	-,-
+
+root	-,-
+#tells us what the predicate is
+
+tmod	-,-	AT
+#x AT y
+
+xcomp	2,-
+
+xsubj	1,-
+
+
+
+
+
+
+
