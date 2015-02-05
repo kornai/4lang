@@ -16,8 +16,11 @@ class DictionaryPreprocessor():
             (u'/', u'_PER_'), (u'\?', u'Q'), (u'\.', u'P'), (u'\(', u'_LRB_'),
             (u'\)', u'_RRB_')]]
     def_replacement_pairs = [
-        (re.compile(patt, re.UNICODE), repl) for patt, repl in [
-            (u'([^,]) etc', u'\\1, etc')]]  # comma before etc.
+        (re.compile(patt, re.UNICODE), repl, flags) for patt, repl, flags in [
+            (u'([^,]) etc', u'\\1, etc', ()),  # comma before etc.
+            (u'someone who is ', u'', ('person',)),  # delete "someone who is "
+            (u'someone who ', u'', ('person',)),  # delete "someone who "
+        ]]
 
     @staticmethod
     def clean_headword(word):
@@ -47,18 +50,24 @@ class DictionaryPreprocessor():
         return word
 
     def preprocess_definition(self, orig_definition, word):
+        all_flags = set()
         definition = self.sent_detector.tokenize(orig_definition)[0]
-        for pattern, replacement in DictionaryPreprocessor.def_replacement_pairs:  # nopep8
+        for pattern, replacement, flags in DictionaryPreprocessor.def_replacement_pairs:  # nopep8
+            if pattern.search(definition):
+                all_flags |= set(flags)
             definition = pattern.sub(replacement, definition)
 
-        return definition
+        return definition, all_flags
 
     def preprocess(self, orig_word, orig_definition):
+        all_flags = set()
         if self.to_filter(orig_word, orig_definition):
             return None, None
         word = self.preprocess_word(orig_word, orig_definition)
-        definition = self.preprocess_definition(orig_definition, word)
-        return word, definition
+        definition, def_flags = self.preprocess_definition(
+            orig_definition, word)
+        all_flags |= def_flags
+        return word, definition, all_flags
 
     def to_filter(self, word, definition):
         if ' ' in word and not self.cfg.getboolean(
@@ -69,14 +78,22 @@ class DictionaryPreprocessor():
             return True
         return False
 
-    def print_definition(self, word, definition, index, out_dir):
+    def print_def_and_flags(self, word, definition, flags, index, out_dir):
         if index == 0:
-            filename = u"{0}.sen".format(word)
+            indexed_word = u"{0}".format(word)
         else:
-            filename = u"{0}_{1}.sen".format(word, index)
+            indexed_word = u"{0}_{1}".format(word, index)
+        def_filename = u"{0}.sen".format(indexed_word)
+        flags_filename = u"{0}.flags".format(indexed_word)
 
-        file_obj = open(os.path.join(out_dir, filename.encode("utf-8")), 'w')
-        file_obj.write("{}\n".format(definition.encode("utf-8")))
+        def_file_obj = open(
+            os.path.join(out_dir, def_filename.encode("utf-8")), 'w')
+        def_file_obj.write("{}\n".format(definition.encode("utf-8")))
+
+        flags_file_obj = open(
+            os.path.join(out_dir, flags_filename.encode("utf-8")), 'w')
+        for flag in flags:
+            flags_file_obj.write("{}\n".format(flag.encode("utf-8")))
 
     def process_all(self):
         input_file = self.cfg.get('data', 'input_file')
@@ -85,13 +102,14 @@ class DictionaryPreprocessor():
             raw_word, raw_definition = self.read_line(line)
             if raw_word is None:
                 continue
-            word, definition = self.preprocess(raw_word, raw_definition)
+            word, definition, flags = self.preprocess(raw_word, raw_definition)
             if word is None:
                 continue
             index = self.word_counter[word]
             if index > 0 and self.cfg.getboolean('filter', 'first_only'):
                 continue
-            self.print_definition(word, definition, index, output_dir)
+            self.print_def_and_flags(
+                word, definition, flags, index, output_dir)
 
 def main():
     logging.basicConfig(
