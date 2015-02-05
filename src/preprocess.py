@@ -5,18 +5,24 @@ import os
 import re
 import sys
 
+from unidecode import unidecode
+
 from hunmisc.xstring.encoding import encode_to_proszeky
 import nltk.data
 
 class DictionaryPreprocessor():
-    word_replacement_pairs = [(re.compile(patt), repl) for patt, repl in [
-        ('/', '_PER_'), ('\?', 'Q'), ('\.', 'P')]]
-    def_replacement_pairs = [(re.compile(patt), repl) for patt, repl in [
-        ('([^,]) etc', '\1, etc')]]  # comma before etc.
+    word_replacement_pairs = [
+        (re.compile(patt, re.UNICODE), repl) for patt, repl in [
+            (u'/', u'_PER_'), (u'\?', u'Q'), (u'\.', u'P'), (u'\(', u'_LRB_'),
+            (u'\)', u'_RRB_')]]
+    def_replacement_pairs = [
+        (re.compile(patt, re.UNICODE), repl) for patt, repl in [
+            (u'([^,]) etc', u'\\1, etc')]]  # comma before etc.
 
     @staticmethod
     def clean_headword(word):
         clean = encode_to_proszeky(word)
+        clean = unidecode(clean)
         for pattern, replacement in DictionaryPreprocessor.word_replacement_pairs:  # nopep8
             clean = pattern.sub(replacement, clean)
         return clean
