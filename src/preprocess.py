@@ -62,7 +62,7 @@ class DictionaryPreprocessor():
     def preprocess(self, orig_word, orig_definition):
         all_flags = set()
         if self.to_filter(orig_word, orig_definition):
-            return None, None
+            return None, None, None
         word = self.preprocess_word(orig_word, orig_definition)
         definition, def_flags = self.preprocess_definition(
             orig_definition, word)
