@@ -4,13 +4,7 @@ import sys
 import threading
 import time
 
-def batches(l, n):
-    """ Yield successive n-sized chunks from l.
-    (source: http://stackoverflow.com/questions/312443/
-    how-do-you-split-a-list-into-evenly-sized-chunks-in-python
-    """
-    for i in xrange(0, len(l), n):
-        yield l[i:i+n]
+from utils import batches, ensure_dir
 
 class StanfordWrapper():
     stanford_dir = "/home/recski/projects/stanford_dp/stanford-parser-full-2014-08-27/"  # nopep8
@@ -57,6 +51,7 @@ class StanfordWrapper():
     def parse_all_files(self, in_dir, out_dir, no_threads=1,
                         files_per_batch=1000):
         file_list = [os.path.join(in_dir, fn) for fn in os.listdir(in_dir)]
+        file_list = filter(lambda fn: fn.endswith('.sen'), file_list)
         files_per_thread = (len(file_list) / no_threads) + 1
         self.thread_states = {}
         for i, batch in enumerate(batches(file_list, files_per_thread)):
@@ -81,6 +76,7 @@ def main():
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
     in_dir, out_dir = sys.argv[1:3]
+    map(ensure_dir, (in_dir, out_dir))
     no_threads = int(sys.argv[3])
     stanford_wrapper = StanfordWrapper()
     stanford_wrapper.parse_all_files(in_dir, out_dir, no_threads=no_threads)
