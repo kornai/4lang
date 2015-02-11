@@ -82,7 +82,7 @@ class LongmanParser():
 
     @staticmethod
     def parse_file(fn):
-        return LongmanParser.parse_xml(open(fn).read())
+        return LongmanParser.parse_xml(open(fn).read().decode('utf-8'))
 
     @staticmethod
     def print_defs(longman_obj):
