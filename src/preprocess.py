@@ -106,6 +106,7 @@ class DictionaryPreprocessor():
             if word is None:
                 continue
             index = self.word_counter[word]
+            self.word_counter[word] += 1
             if index > 0 and self.cfg.getboolean('filter', 'first_only'):
                 continue
             self.print_def_and_flags(
