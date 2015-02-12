@@ -1,9 +1,12 @@
 from ConfigParser import ConfigParser
 import json
 import logging
+import os
 import sys
 import threading
 import time
+
+from pymachine.wrapper import Wrapper as MachineWrapper
 
 from stanford_wrapper import StanfordWrapper
 from entry_preprocessor import EntryPreprocessor
@@ -12,9 +15,13 @@ from utils import batches
 
 class DictTo4lang():
     def __init__(self, cfg_file):
+        cfg_dir = os.path.dirname(cfg_file)
+        default_cfg_file = os.path.join(cfg_dir, 'default.cfg')
+        machine_cfg_file = os.path.join(cfg_dir, 'machine.cfg')
         self.cfg = ConfigParser()
-        self.cfg.read(cfg_file)
+        self.cfg.read([default_cfg_file, cfg_file])
         self.longman_parser = LongmanParser()
+        self.machine_wrapper = MachineWrapper(machine_cfg_file)
 
     def parse_dict(self):
         input_file = self.cfg.get('data', 'input_file')
@@ -40,6 +47,7 @@ class DictTo4lang():
         self.thread_states[i] = True
 
     def run(self, no_threads=1):
+        logging.info('parsing xml...')
         self.parse_dict()
         entries = self.dictionary['entries']
         entries_per_thread = (len(entries) / no_threads) + 1
@@ -63,8 +71,16 @@ class DictTo4lang():
                 logging.info("some threads failed")
             break
 
-    def print_dict(self, stream=sys.stdout):
-        json.dump(self.dictionary, stream)
+    def print_4lang_graph(self, word):
+        pass
+
+    def print_dict(self, stream=None):
+        if stream is None:
+            output_fn = self.cfg.get('data', 'output_file')
+            with open(output_fn, 'w') as out:
+                json.dump(self.dictionary, out)
+        else:
+            json.dump(self.dictionary, stream)
 
 def main():
     logging.basicConfig(
@@ -76,6 +92,7 @@ def main():
     dict_to_4lang = DictTo4lang(cfg_file)
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
+    dict_to_4lang.print_4lang_graph('aardvark')
 
 if __name__ == '__main__':
     main()
