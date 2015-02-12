@@ -36,7 +36,7 @@ class EntryPreprocessor():
 
     def preprocess_word(self, orig_word, orig_definition=None):
         word = EntryPreprocessor.clean_headword(orig_word)
-        return word, []
+        return word, set()
 
     def preprocess_definition(self, orig_definition, word):
         all_flags = set()
@@ -48,16 +48,18 @@ class EntryPreprocessor():
                 all_flags |= set(flags)
             definition = pattern.sub(replacement, definition)
 
-        return definition, list(all_flags)
+        return definition, all_flags
 
     def preprocess_entry(self, entry):
         entry['to_filter'] = self.to_filter(entry['hw'])
         if entry['to_filter']:
             return entry
         entry['hw'], entry['word_flags'] = self.preprocess_word(entry['hw'])
+        entry['word_flags'] = sorted(list(entry['word_flags']))
         for sense in entry['senses']:
             sense['definition'], sense['flags'] = self.preprocess_definition(
                 sense['definition'], entry['hw'])
+            sense['flags'] = sorted(list(sense['flags']))
 
         return entry
 
