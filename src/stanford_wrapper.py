@@ -18,17 +18,23 @@ class StanfordWrapper():
             # need to add a period so the Stanford Parser knows where
             # sentence boundaries are. There should be a smarter way...
             sen_file.write(
-                u"{0}.\n".format(sen['sen'].strip('.')).encode('utf-8'))
+                u"{0}\n".format(sen['sen']).encode('utf-8'))
 
         return sen_file.name
+
+    def get_command(self, input_file_name):
+        return 'java -mx150m -cp "{0}/*:" \
+            edu.stanford.nlp.parser.lexparser.LexicalizedParser \
+            -outputFormat "typedDependencies" -sentences newline \
+            edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz {1}'.format(
+            self.stanford_dir, input_file_name)
 
     def parse_sentences(self, sentences, token=""):
         """sentences should be a list of dictionaries, each with a "sen" key
         whose value will be parsed and a "deps" key whose value is a list for
         collecting dependencies"""
         input_file_name = self.create_input_file(sentences, token)
-        command = "{0}/lexparser_dep.sh {1}".format(
-            self.stanford_dir, input_file_name)
+        command = self.get_command(input_file_name)
 
         sens_parsed = 0
 
