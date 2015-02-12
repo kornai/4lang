@@ -23,7 +23,7 @@ class StanfordWrapper():
         return sen_file.name
 
     def get_command(self, input_file_name):
-        return 'java -mx150m -cp "{0}/*:" \
+        return 'java -mx1500m -cp "{0}/*:" \
             edu.stanford.nlp.parser.lexparser.LexicalizedParser \
             -outputFormat "typedDependencies" -sentences newline \
             edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz {1}'.format(
