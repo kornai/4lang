@@ -24,6 +24,7 @@ ccomp	?,1
 complm	0,0
 
 conj_and	-,-
+conj_or	-,-
 #each coordinated element appears in its own relations
 
 cop	-,-
@@ -87,7 +88,7 @@ parataxis	?,?
 pcomp	2,-
 pobj	2,-
 
-poss	-,-	HAS
+poss	-,-	!HAS
 #x HAS y
 
 possessive	-,-
@@ -101,6 +102,8 @@ prep_for	-,-	FOR
 prep_from	-,-	from
 
 prep_in	-,-	IN
+
+#wrong in many cases: in charge of, one of two, group of people (?)
 prep_of	-,-	!HAS
 
 #we don't really have this, but I didn't know what to do. Perhaps "not" and IN combined somehow, but we don't have the syntax for it, plus we don't know how negation works
@@ -109,7 +112,7 @@ prep_out_of	-,-	NOTIN
 prep_with	-,-	INSTRUMENT
 prepc_without	-,-	LACK
 
-prt	2,-
+prt	0,-
 punct	-,-
 
 #purpcl	-,-
