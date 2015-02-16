@@ -42,6 +42,8 @@ class LongmanParser():
 
     @staticmethod
     def remove_extra_whitespace(text):
+        if text is None:
+            return None
         return " ".join(text.split())
 
     @staticmethod
@@ -68,7 +70,8 @@ class LongmanParser():
         return {
             "hw": LongmanParser.remove_extra_whitespace(
                 LongmanParser.get_section("HWD", entry_text)),
-            "pos": LongmanParser.get_section("POS", entry_text),
+            "pos": LongmanParser.remove_extra_whitespace(
+                LongmanParser.get_section("POS", entry_text)),
             "senses": map(
                 LongmanParser.parse_sense,
                 LongmanParser.iter_sections("Sense", entry_text)),
