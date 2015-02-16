@@ -14,8 +14,8 @@ advmod	0,-
 agent	1,-
 amod	0,-
 appos	0,0
-aux	0,1
-auxpass	0,1
+aux	-,-
+auxpass	-,-
 
 cc	-,-
 #each coordinated element appears in its own relations
@@ -23,7 +23,10 @@ cc	-,-
 ccomp	?,1
 complm	0,0
 
+conj	-,-
 conj_and	-,-
+conj_but	-,-
+conj_negcc	-,-
 conj_or	-,-
 #each coordinated element appears in its own relations
 
@@ -79,11 +82,6 @@ parataxis	?,?
 
 #partmod	?,?
 #(obsoleted by vmod)
-#This should be two relations based on the role of the first element
-# "Truffles picked during the spring are tasty"	
-# partmod(truffles, picked)	-,2
-# "Bill tried to shoot demonstrating his incompetence
-# partmod(shoot, demonstrating) 0,1
 
 pcomp	2,-
 pobj	2,-
@@ -97,19 +95,42 @@ preconj	-,-
 predet	-,-
 #These two can trigger something once we have quantification...
 
+prep	-,-
+prep_about	-,-
+prep_after	-,-	AFTER
+prep_around	-,-
+prep_as	-,-
+prep_between	-,-
+prep_by	-,-
+prep_during	-,-
+
 #This'll be horribly wrong in some cases, e.g. "bread stays soft for several days"
 prep_for	-,-	FOR
 prep_from	-,-	from
 
 prep_in	-,-	IN
+prep_into	-,-
+
+prep_like	-,-
 
 #wrong in many cases: in charge of, one of two, group of people (?)
 prep_of	-,-	!HAS
 
+prep_on	-,-
+
 #we don't really have this, but I didn't know what to do. Perhaps "not" and IN combined somehow, but we don't have the syntax for it, plus we don't know how negation works
 
 prep_out_of	-,-	NOTIN
+prep_such_as	-,-
+prep_than	-,-
+prep_to	-,-
 prep_with	-,-	INSTRUMENT
+
+prepc_as	-,-
+prepc_by	-,-
+prepc_for	-,-
+prepc_of	-,-
+prepc_in	-,-	IN
 prepc_without	-,-	LACK
 
 prt	0,-
@@ -132,6 +153,14 @@ root	-,-
 
 tmod	-,-	AT
 #x AT y
+
+vmod	?,?
+#This should be two relations based on the role of the first element
+# "Truffles picked during the spring are tasty"	
+# partmod(truffles, picked)	-,2
+# "Bill tried to shoot demonstrating his incompetence
+# partmod(shoot, demonstrating) 0,1
+
 
 xcomp	2,-
 
