@@ -21,6 +21,7 @@ class DictTo4lang():
         self.cfg = ConfigParser()
         self.cfg.read([default_cfg_file, cfg_file])
         self.tmp_dir = self.cfg.get('data', 'tmp_dir')
+        self.graph_dir = self.cfg.get('data', 'graph_dir')
         self.longman_parser = LongmanParser()
         self.machine_wrapper = None
 
@@ -84,12 +85,16 @@ class DictTo4lang():
                 logging.info("some threads failed")
             break
 
+    def print_4lang_graphs(self):
+        for word in self.word_index:
+            self.print_4lang_graph(word)
+
     def print_4lang_graph(self, word):
         deps = self.word_index[word]['senses'][0]['definition']['deps']
         machine = self.machine_wrapper.get_dep_definition(word, deps)
         graph = MachineGraph.create_from_machines([machine])
         with open(os.path.join(
-                self.tmp_dir, u"{0}.dot".format(word)), 'w') as dot_obj:
+                self.graph_dir, u"{0}.dot".format(word)), 'w') as dot_obj:
             dot_obj.write(graph.to_dot().encode('utf-8'))
 
     def print_dict(self, stream=None):
@@ -111,7 +116,8 @@ def main():
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
     dict_to_4lang.load_machines()
-    dict_to_4lang.print_4lang_graph('aardvark')
+    dict_to_4lang.print_4lang_graphs()
+    #dict_to_4lang.print_4lang_graph('aardvark')
 
 if __name__ == '__main__':
     main()
