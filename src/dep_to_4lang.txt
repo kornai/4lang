@@ -112,6 +112,7 @@ prep_in	-,-	IN
 prep_into	-,-
 
 prep_like	-,-
+prep_next_to	-,-
 
 #wrong in many cases: in charge of, one of two, group of people (?)
 prep_of	-,-	!HAS
@@ -121,16 +122,20 @@ prep_on	-,-
 #we don't really have this, but I didn't know what to do. Perhaps "not" and IN combined somehow, but we don't have the syntax for it, plus we don't know how negation works
 
 prep_out_of	-,-	NOTIN
+prep_over	-,-
 prep_such_as	-,-
 prep_than	-,-
 prep_to	-,-
 prep_with	-,-	INSTRUMENT
+prep_within	-,-
 
+prepc_about	-,-
 prepc_as	-,-
 prepc_by	-,-
 prepc_for	-,-
 prepc_of	-,-
 prepc_in	-,-	IN
+prepc_with	-,-
 prepc_without	-,-	LACK
 
 prt	0,-
