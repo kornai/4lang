@@ -52,7 +52,7 @@ class EntryPreprocessor():
 
     def preprocess_entry(self, entry):
         if self.cfg.getboolean('filter', 'first_only'):
-            entry['senses'] = [entry['senses'][0]]
+            entry['senses'] = entry['senses'][:1]
         entry['to_filter'] = self.to_filter(entry['hw'])
         if entry['to_filter']:
             return entry
