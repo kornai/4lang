@@ -14,8 +14,8 @@ advmod	0,-
 agent	1,-
 amod	0,-
 appos	0,0
-aux	0,1
-auxpass	0,1
+aux	-,-
+auxpass	-,-
 
 cc	-,-
 #each coordinated element appears in its own relations
@@ -23,8 +23,18 @@ cc	-,-
 ccomp	?,1
 complm	0,0
 
+conj	-,-
 conj_and	-,-
+conj_as	-,-
+conj_but	-,-
+conj_in	-,-
+conj_less	-,-
+conj_negcc	-,-
+conj_nor	-,-
+conj_or	-,-
 #each coordinated element appears in its own relations
+conj_so	-,-
+conj_whether	-,-
 
 cop	-,-
 #but will be necessary to disambiguate nsubj and csubj
@@ -38,6 +48,8 @@ dep	0,-
 det	?,?
 #Articles will probably trigger some direct action and not have their own nodes
 #in the graph
+
+discourse	-,-
 
 dobj	2,-
 
@@ -78,16 +90,11 @@ parataxis	?,?
 
 #partmod	?,?
 #(obsoleted by vmod)
-#This should be two relations based on the role of the first element
-# "Truffles picked during the spring are tasty"	
-# partmod(truffles, picked)	-,2
-# "Bill tried to shoot demonstrating his incompetence
-# partmod(shoot, demonstrating) 0,1
 
 pcomp	2,-
 pobj	2,-
 
-poss	-,-	HAS
+poss	-,-	!HAS
 #x HAS y
 
 possessive	-,-
@@ -96,20 +103,55 @@ preconj	-,-
 predet	-,-
 #These two can trigger something once we have quantification...
 
+prep	-,-
+prep_about	-,-
+prep_after	-,-	AFTER
+prep_around	-,-
+prep_as	-,-
+prep_between	-,-
+prep_by	-,-
+prep_during	-,-
+
 #This'll be horribly wrong in some cases, e.g. "bread stays soft for several days"
 prep_for	-,-	FOR
 prep_from	-,-	from
 
 prep_in	-,-	IN
+prep_into	-,-
+
+prep_like	-,-
+prep_next_to	-,-
+
+#wrong in many cases: in charge of, one of two, group of people (?)
 prep_of	-,-	!HAS
+
+prep_on	-,-
 
 #we don't really have this, but I didn't know what to do. Perhaps "not" and IN combined somehow, but we don't have the syntax for it, plus we don't know how negation works
 
+#This is just a few of the prep(c)s, the rest are listed at the end of the file
+
+prep_at	-,-
 prep_out_of	-,-	NOTIN
+prep_over	-,-
+prep_such_as	-,-
+prep_than	-,-
+prep_to	-,-
+prep_towards	-,-
 prep_with	-,-	INSTRUMENT
+prep_within	-,-
+
+prepc_about	-,-
+prepc_as	-,-
+prepc_by	-,-
+prepc_for	-,-
+prepc_from	-,-
+prepc_of	-,-
+prepc_in	-,-	IN
+prepc_with	-,-
 prepc_without	-,-	LACK
 
-prt	2,-
+prt	0,-
 punct	-,-
 
 #purpcl	-,-
@@ -130,13 +172,117 @@ root	-,-
 tmod	-,-	AT
 #x AT y
 
+vmod	?,?
+#This should be two relations based on the role of the first element
+# "Truffles picked during the spring are tasty"	
+# partmod(truffles, picked)	-,2
+# "Bill tried to shoot demonstrating his incompetence
+# partmod(shoot, demonstrating) 0,1
+
+
 xcomp	2,-
 
 xsubj	1,-
 
 
-
-
-
-
-
+prep_above	-,-
+prep_across	-,-
+prep_against	-,-
+prep_ahead_of	-,-
+prep_along	-,-
+prep_among	-,-
+prep_apart_from	-,-
+prep_as_for	-,-
+prep_away_from	-,-
+prep_based_on	-,-
+prep_because	-,-
+prep_because_of	-,-
+prep_before	-,-
+prep_behind	-,-
+prep_below	-,-
+prep_beneath	-,-
+prep_beside	-,-
+prep_beyond	-,-
+prep_but	-,-
+prep_by_means_of	-,-
+prep_close_to	-,-
+prep_deserving	-,-
+prep_down	-,-
+prep_except	-,-
+prep_except_for	-,-
+prep_expressing	-,-
+prep_far_from	-,-
+prep_followed_by	-,-
+prep_following	-,-
+prep_if	-,-
+prep_in_addition_to	-,-
+prep_in_front_of	-,-
+prep_in_spite_of	-,-
+prep_including	-,-
+prep_inside	-,-
+prep_instead_of	-,-
+prep_involving	-,-
+prep_near	-,-
+prep_near_to	-,-
+prep_nearest	-,-
+prep_off	-,-
+prep_on_top_of	-,-
+prep_onto	-,-
+prep_opposite	-,-
+prep_out	-,-
+prep_outside	-,-
+prep_past	-,-
+prep_per	-,-
+prep_pro	-,-
+prep_showing	-,-
+prep_since	-,-
+prep_someone	-,-
+prep_that	-,-
+prep_through	-,-
+prep_together_with	-,-
+prep_under	-,-
+prep_until	-,-
+prep_up	-,-
+prep_upon	-,-
+prep_using	-,-
+prep_veiled	-,-
+prep_while	-,-
+prep_without	-,-
+prep_worth	-,-
+prepc_according_to	-,-
+prepc_after	-,-
+prepc_against	-,-
+prepc_along	-,-
+prepc_around	-,-
+prepc_as_of	-,-
+prepc_at	-,-
+prepc_away_from	-,-
+prepc_based_on	-,-
+prepc_because_of	-,-
+prepc_before	-,-
+prepc_compared_to	-,-
+prepc_compared_with	-,-
+prepc_during	-,-
+prepc_except_for	-,-
+prepc_far_from	-,-
+prepc_in_addition_to	-,-
+prepc_in_spite_of	-,-
+prepc_including	-,-
+prepc_inside	-,-
+prepc_instead_of	-,-
+prepc_into	-,-
+prepc_like	-,-
+prepc_on	-,-
+prepc_onto	-,-
+prepc_out_of	-,-
+prepc_outside	-,-
+prepc_over	-,-
+prepc_such_as	-,-
+prepc_than	-,-
+prepc_through	-,-
+prepc_to	-,-
+prepc_together_with	-,-
+prepc_towards	-,-
+prepc_until	-,-
+prepc_up	-,-
+prepc_while	-,-

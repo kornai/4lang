@@ -42,15 +42,18 @@ class LongmanParser():
 
     @staticmethod
     def remove_extra_whitespace(text):
+        if text is None:
+            return None
         return " ".join(text.split())
 
     @staticmethod
     def clean_definition(definition):
         if definition is None:
             return definition
-        for tag in ("TEXT", "NonDV", "REFHWD", "FULLFORM"):
+        for tag in ("TEXT", "NonDV", "REFHWD", "FULLFORM", "PRON",
+                    "PronCodes"):
             definition = LongmanParser.remove_tags(tag, definition)
-        for tag in ("REFSENSENUM",):
+        for tag in ("REFSENSENUM", "REFHOMNUM", "GLOSS"):
             definition = LongmanParser.remove_sections(tag, definition)
         definition = LongmanParser.remove_extra_whitespace(definition)
         definition = LongmanParser.add_suffixes(definition)
@@ -68,7 +71,8 @@ class LongmanParser():
         return {
             "hw": LongmanParser.remove_extra_whitespace(
                 LongmanParser.get_section("HWD", entry_text)),
-            "pos": LongmanParser.get_section("POS", entry_text),
+            "pos": LongmanParser.remove_extra_whitespace(
+                LongmanParser.get_section("POS", entry_text)),
             "senses": map(
                 LongmanParser.parse_sense,
                 LongmanParser.iter_sections("Sense", entry_text)),
@@ -82,7 +86,7 @@ class LongmanParser():
 
     @staticmethod
     def parse_file(fn):
-        return LongmanParser.parse_xml(open(fn).read())
+        return LongmanParser.parse_xml(open(fn).read().decode('utf-8'))
 
     @staticmethod
     def print_defs(longman_obj):
