@@ -214,6 +214,7 @@ prep_expressing	-,-
 prep_far_from	-,-
 prep_followed_by	-,-
 prep_following	-,-
+prep_half-baked	-,-
 prep_if	-,-
 prep_in_addition_to	-,-
 prep_in_front_of	-,-
