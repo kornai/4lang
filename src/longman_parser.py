@@ -50,9 +50,10 @@ class LongmanParser():
     def clean_definition(definition):
         if definition is None:
             return definition
-        for tag in ("TEXT", "NonDV", "REFHWD", "FULLFORM"):
+        for tag in ("TEXT", "NonDV", "REFHWD", "FULLFORM", "PRON",
+                    "PronCodes"):
             definition = LongmanParser.remove_tags(tag, definition)
-        for tag in ("REFSENSENUM", "GLOSS"):
+        for tag in ("REFSENSENUM", "REFHOMNUM", "GLOSS"):
             definition = LongmanParser.remove_sections(tag, definition)
         definition = LongmanParser.remove_extra_whitespace(definition)
         definition = LongmanParser.add_suffixes(definition)
