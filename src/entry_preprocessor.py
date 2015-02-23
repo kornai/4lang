@@ -19,6 +19,7 @@ class EntryPreprocessor():
             (u'([^,]) etc', u'\\1, etc', ()),  # comma before etc.
             (u'someone who is ', u'', ('person',)),  # delete "someone who is "
             (u'someone who ', u'', ('person',)),  # delete "someone who "
+            (u'=', u'', ()),  # delete "="
         ]]
 
     @staticmethod
