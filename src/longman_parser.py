@@ -97,5 +97,5 @@ class LongmanParser():
 
 
 if __name__ == "__main__":
-    #LongmanParser.print_defs(LongmanParser.parse_file(sys.argv[1]))
-    json.dump(LongmanParser.parse_file(sys.argv[1]), sys.stdout)
+    LongmanParser.print_defs(LongmanParser.parse_file(sys.argv[1]))
+    #json.dump(LongmanParser.parse_file(sys.argv[1]), sys.stdout)
