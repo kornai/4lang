@@ -51,7 +51,7 @@ class LongmanParser():
         if definition is None:
             return definition
         for tag in ("TEXT", "NonDV", "REFHWD", "FULLFORM", "PRON",
-                    "PronCodes"):
+                    "PronCodes", "ABBR"):
             definition = LongmanParser.remove_tags(tag, definition)
         for tag in ("REFSENSENUM", "REFHOMNUM", "GLOSS"):
             definition = LongmanParser.remove_sections(tag, definition)
@@ -92,9 +92,10 @@ class LongmanParser():
     def print_defs(longman_obj):
         for entry in longman_obj['entries']:
             for sense in entry['senses']:
-                print "{0}\t{1}".format(entry['hw'], sense['definition'])
+                print u"{0}\t{1}".format(
+                    entry['hw'], sense['definition']).encode("utf-8")
 
 
 if __name__ == "__main__":
-    #LongmanParser.print_defs(LongmanParser.parse_file(sys.argv[1]))
-    json.dump(LongmanParser.parse_file(sys.argv[1]), sys.stdout)
+    LongmanParser.print_defs(LongmanParser.parse_file(sys.argv[1]))
+    #json.dump(LongmanParser.parse_file(sys.argv[1]), sys.stdout)

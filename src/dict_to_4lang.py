@@ -1,3 +1,4 @@
+from __future__ import with_statement
 from ConfigParser import ConfigParser
 import json
 import logging
@@ -5,9 +6,6 @@ import os
 import sys
 import threading
 import time
-
-from pymachine.wrapper import Wrapper as MachineWrapper
-from pymachine.utils import MachineGraph
 
 from stanford_wrapper import StanfordWrapper
 from entry_preprocessor import EntryPreprocessor
@@ -26,6 +24,8 @@ class DictTo4lang():
         self.machine_wrapper = None
 
     def load_machines(self):
+        from pymachine.wrapper import Wrapper as MachineWrapper
+
         machine_cfg_file = os.path.join(self.cfg_dir, 'machine.cfg')
         self.machine_wrapper = MachineWrapper(machine_cfg_file)
 
@@ -90,6 +90,7 @@ class DictTo4lang():
             self.print_4lang_graph(word)
 
     def print_4lang_graph(self, word):
+        from pymachine.utils import MachineGraph
         deps = self.word_index[word]['senses'][0]['definition']['deps']
         machine = self.machine_wrapper.get_dep_definition(word, deps)
         graph = MachineGraph.create_from_machines([machine])
@@ -115,8 +116,8 @@ def main():
     dict_to_4lang = DictTo4lang(cfg_file)
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
-    dict_to_4lang.load_machines()
-    dict_to_4lang.print_4lang_graphs()
+    #dict_to_4lang.load_machines()
+    #dict_to_4lang.print_4lang_graphs()
     #dict_to_4lang.print_4lang_graph('aardvark')
 
 if __name__ == '__main__':
