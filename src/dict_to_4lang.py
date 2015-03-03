@@ -7,6 +7,7 @@ import os
 import sys
 import threading
 import time
+import traceback
 
 from stanford_wrapper import StanfordWrapper
 from entry_preprocessor import EntryPreprocessor
@@ -38,8 +39,18 @@ class DictTo4lang():
 
     def process_entries(self, words):
         entry_preprocessor = EntryPreprocessor(self.cfg)
+        words_to_process = []
+        for word in words:
+            preprocessed_word = entry_preprocessor.preprocess_word(word)[0]
+            if preprocessed_word != word:
+                #TODO we assume that word preprocessing will never map to
+                #existing headwords, which would now result in those entries
+                #getting overwritten
+                self.dictionary[preprocessed_word] = self.dictionary.pop(word)
+            words_to_process.append(preprocessed_word)
+
         entries = map(entry_preprocessor.preprocess_entry,
-                      (self.dictionary[word] for word in words))
+                      (self.dictionary[word] for word in words_to_process))
 
         stanford_wrapper = StanfordWrapper(self.cfg)
         entries = stanford_wrapper.parse_sentences(entries)
@@ -76,6 +87,7 @@ class DictTo4lang():
             self.process_entries(words)
         except:
             self.thread_states[i] = False
+            traceback.print_exc()
         else:
             self.thread_states[i] = True
 
