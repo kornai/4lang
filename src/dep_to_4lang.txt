@@ -261,6 +261,7 @@ prepc_away_from	-,-
 prepc_based_on	-,-
 prepc_because_of	-,-
 prepc_before	-,-
+prepc_but	-,-
 prepc_compared_to	-,-
 prepc_compared_with	-,-
 prepc_during	-,-
