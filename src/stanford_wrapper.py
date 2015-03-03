@@ -1,13 +1,37 @@
-
+import json
+import logging
 import os
+import subprocess
 from tempfile import NamedTemporaryFile
 
 from utils import ensure_dir
 
 class StanfordWrapper():
+
+    class ParserError(Exception):
+        pass
+
     def __init__(self, cfg):
         self.cfg = cfg
-        self.stanford_dir = self.cfg.get('stanford', 'stanford_dir')
+        self.get_paths()
+
+    def get_paths(self):
+        stanford_dir = self.cfg.get('stanford', 'dir')
+        parser_fn = self.cfg.get('stanford', 'parser')
+        model_fn = self.cfg.get('stanford', 'model')
+        self.parser_path = os.path.join(stanford_dir, parser_fn)
+        self.model_path = os.path.join(stanford_dir, model_fn)
+        if not (os.path.exists(self.parser_path) and
+                os.path.exists(self.model_path)):
+            raise Exception("cannot find parser and model files!")
+
+        self.jython_path = self.cfg.get('stanford', 'jython')
+        if not os.path.exists(self.jython_path):
+            raise Exception("cannot find jython executable!")
+
+        self.jython_module = os.path.join(
+            os.path.dirname(__file__), "stanford_parser.py")
+
         self.tmp_dir = self.cfg.get('data', 'tmp_dir')
         ensure_dir(self.tmp_dir)
 
@@ -22,32 +46,45 @@ class StanfordWrapper():
 
         return sen_file.name
 
-    def get_command(self, input_file_name):
-        return 'java -mx1500m -cp "{0}/*:" \
-            edu.stanford.nlp.parser.lexparser.LexicalizedParser \
-            -outputFormat "typedDependencies" -sentences newline \
-            edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz {1}'.format(
-            self.stanford_dir, input_file_name)
+    def run_parser(self, in_file, out_file):
+        return_code = subprocess.call([
+            self.jython_path, self.jython_module, self.parser_path,
+            self.model_path, in_file, out_file])
+        return return_code == 0
 
-    def parse_sentences(self, sentences, token=""):
+    def parse_sentences_old(self, sentences):
         """sentences should be a list of dictionaries, each with a "sen" key
-        whose value will be parsed and a "deps" key whose value is a list for
-        collecting dependencies"""
-        input_file_name = self.create_input_file(sentences, token)
-        command = self.get_command(input_file_name)
+        whose value will be parsed, a "deps" key whose value is a list for
+        collecting dependencies, and a "pos" key that may map to constraints on
+        the parse"""
+        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
+            json.dump(sentences, in_file)
+            in_file_name = in_file.name
+        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as out_file:
+            success = self.run_parser(in_file_name, out_file.name)
+            if not success:
+                logging.critical(
+                    "jython returned non-zero exit code, aborting")
+                raise StanfordWrapper.ParserError()
+            parsed_sentences = json.load(out_file)
+        sentences.update(parsed_sentences)
+        return True
 
-        sens_parsed = 0
+    def parse_sentences(self, entries):
+        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
+            json.dump(entries, in_file)
+            in_file_name = in_file.name
 
-        for out_line in os.popen(command):
-            if out_line == '\n':
-                sens_parsed += 1
-                continue
+        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as out_file:
+            out_file_name = out_file.name
+            success = self.run_parser(in_file_name, out_file_name)
 
-            sentences[sens_parsed]['deps'].append(out_line.strip())
+        if not success:
+            logging.critical(
+                "jython returned non-zero exit code, aborting")
+            raise StanfordWrapper.ParserError()
 
-        if len(sentences) - sens_parsed not in (0, 1):
-            raise Exception(
-                "# of input and output sentences don't match" +
-                "({0} vs {1})".format(len(sentences), sens_parsed))
+        with open(out_file_name) as out_file:
+            new_entries = json.load(out_file)
 
-        os.remove(input_file_name)
+        return new_entries

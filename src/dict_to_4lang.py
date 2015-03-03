@@ -1,5 +1,6 @@
 from __future__ import with_statement
 from ConfigParser import ConfigParser
+#from collections import defaultdict
 import json
 import logging
 import os
@@ -31,44 +32,63 @@ class DictTo4lang():
 
     def parse_dict(self):
         input_file = self.cfg.get('data', 'input_file')
-        self.dictionary = self.longman_parser.parse_file(input_file)
+        entries = self.longman_parser.parse_file(input_file)['entries']
+        self.dictionary = dict(
+            ((entry['hw'], entry) for entry in entries))
 
-    def process_entries(self, entries):
+    def process_entries(self, words):
         entry_preprocessor = EntryPreprocessor(self.cfg)
-        to_parse = []
+        entries = map(entry_preprocessor.preprocess_entry,
+                      (self.dictionary[word] for word in words))
+
+        stanford_wrapper = StanfordWrapper(self.cfg)
+        entries = stanford_wrapper.parse_sentences(entries)
+
+        """
+        to_parse = defaultdict(list)
         for i in range(len(entries)):
             entries[i] = entry_preprocessor.preprocess_entry(entries[i])
+
             if entries[i]['to_filter']:
                 continue
+            word = entries[i]['hw']
             for sense in entries[i]['senses']:
-                sense['definition'] = {"sen": sense['definition'], "deps": []}
+                sense['definition'] = {
+                    "sen": sense['definition'],
+                    "pos": entries[i]["pos"],
+                    "deps": []}
                 if not sense['definition']['sen'] is None:
                     to_parse.append(sense['definition'])
 
         stanford_wrapper = StanfordWrapper(self.cfg)
         stanford_wrapper.parse_sentences(to_parse)
 
-        #this is supposed to be thread-safe as long as no two entries have the
-        #same headword field, which should be a requirement on the dictionary
-        #format, or on the dictionary parser output in the worst case.
-        self.word_index.update(
+        #this is OK as long as no two entries have the same headword field,
+        #which should be a requirement on the dictionary parser output anyway
+        """
+
+        self.dictionary.update(
             ((entry['hw'], entry)
                 for entry in entries if not entry['to_filter']))
 
-    def process_entries_thread(self, i, entries):
-        self.process_entries(entries)
-        self.thread_states[i] = True
+    def process_entries_thread(self, i, words):
+        try:
+            self.process_entries(words)
+        except:
+            self.thread_states[i] = False
+        else:
+            self.thread_states[i] = True
 
     def run(self, no_threads=1):
         logging.info('parsing xml...')
         self.parse_dict()
-        entries = self.dictionary['entries']
-        entries_per_thread = (len(entries) / no_threads) + 1
+        entries_per_thread = (len(self.dictionary) / no_threads) + 1
         self.thread_states = {}
-        self.word_index = {}
         # may turn out to be less then "no_threads" with small input
         started_threads = 0
-        for i, batch in enumerate(batches(entries, entries_per_thread)):
+        for i, batch in enumerate(batches(self.dictionary.keys(),
+                                  entries_per_thread)):
+
             t = threading.Thread(
                 target=self.process_entries_thread, args=(i, batch))
             t.start()
@@ -86,12 +106,12 @@ class DictTo4lang():
             break
 
     def print_4lang_graphs(self):
-        for word in self.word_index:
+        for word in self.dictionary:
             self.print_4lang_graph(word)
 
     def print_4lang_graph(self, word):
         from pymachine.utils import MachineGraph
-        deps = self.word_index[word]['senses'][0]['definition']['deps']
+        deps = self.dictionary[word]['senses'][0]['definition']['deps']
         machine = self.machine_wrapper.get_dep_definition(word, deps)
         graph = MachineGraph.create_from_machines([machine])
         with open(os.path.join(

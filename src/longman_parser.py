@@ -44,7 +44,7 @@ class LongmanParser():
     def remove_extra_whitespace(text):
         if text is None:
             return None
-        return " ".join(text.split())
+        return " ".join(text.split()).strip()
 
     @staticmethod
     def clean_definition(definition):
