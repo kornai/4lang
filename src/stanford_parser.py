@@ -1,10 +1,13 @@
 import json
+import logging
 import math
 import os
 import sys
 from tempfile import NamedTemporaryFile
 
 sys.path.append(sys.argv[1])
+sys.path.append(
+    "/home/recski/projects/stanford_dp/stanford-parser-full-2015-01-30/ejml-0.23.jar")  # nopep8
 
 from edu.stanford.nlp.process import Morphology, PTBTokenizer, WordTokenFactory
 from edu.stanford.nlp.parser.common import ParserConstraint
@@ -101,13 +104,18 @@ class StanfordParser:
             json.dump(entries, out)
 
 def test():
+    logging.warning("running test, not main!")
     parser = StanfordParser(sys.argv[2])
+
+    dv_model = parser.lp.reranker.getModel()
+    print dv_model
 
     sentence = 'the size of a radio wave used to broadcast a radio signal'
     pos = 'n'
-    parse, _, dependencies = parser.parse_with_constraints(
+    parse, gs, dependencies = parser.parse_with_constraints(
         sentence, StanfordParser.get_constraints(sentence, pos))
 
+    print type(parse), type(gs)
     print parse.pennPrint()
     print "\n".join(map(str, dependencies))
 
@@ -118,3 +126,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #test()
