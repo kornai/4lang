@@ -86,11 +86,11 @@ class StanfordParser:
                 if c % 100 == 0:
                     log_file.write("parsed {0} entries\n".format(c))
                     log_file.flush()
-                pos = entry['pos']
                 for sense in entry['senses']:
                     sentence = sense['definition']
                     if sentence is None:
                         continue
+                    pos = sense['pos']
                     constraints = StanfordParser.get_constraints(sentence, pos)
                     parse, _, dependencies = self.parse_with_constraints(
                         sentence, constraints)
