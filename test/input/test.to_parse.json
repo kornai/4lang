@@ -1,0 +1,175 @@
+[
+    {
+        "hw": "Canadian", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "from Canada", 
+                "flags": [
+                    "person"
+                ], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "basketry", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "baskets or other objects made by weaving together thin dried branches", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "aardvark", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "a large animal from southern Africa that has a very long nose and eats small insects", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "headquarters", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "the main building or offices used by a large company or organization", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "cent", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "1/100th of the standard unit of money in some countries.", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "botanist", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "to make scientific studies of wild plants", 
+                "flags": [
+                    "person"
+                ], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "abbess", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "a woman who is in charge of a convent", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "strip", 
+        "pos": "v", 
+        "senses": [
+            {
+                "definition": "to take off your clothes or take off someone else's clothes", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "wavelength", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "the size of a radio wave used to broadcast a radio signal", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "buckskin", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "strong soft leather made from the skin of a deer or goat", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "acctP", 
+        "pos": null, 
+        "senses": [
+            {
+                "definition": "the written abbreviation of", 
+                "flags": [], 
+                "full_form": "     account     "
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "grenade", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "a small bomb that can be thrown by hand or fired from a gun", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }, 
+    {
+        "hw": "Filofax", 
+        "pos": "n", 
+        "senses": [
+            {
+                "definition": "a small book for writing addresses, things you must do, etc, which has pages you can add or remove", 
+                "flags": [], 
+                "full_form": null
+            }
+        ], 
+        "to_filter": false, 
+        "word_flags": []
+    }
+]
