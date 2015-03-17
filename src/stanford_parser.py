@@ -69,14 +69,37 @@ class StanfordParser:
             prob = math.e ** candidate_tree.score()
             yield prob, parse
 
+    def parse(self, sentence):
+        return self.parse_with_constraints(sentence, None)
+
     def parse_with_constraints(self, sentence, constraints):
         query = self.lp.parserQuery()
-        query.setConstraints(constraints)
+        if constraints is not None:
+            query.setConstraints(constraints)
         query.parse(self.tokenize(sentence))
         parse = query.getBestParse()
         gs = self.get_grammatical_structure(parse)
         dependencies = gs.typedDependenciesCollapsed()
         return parse, gs, dependencies
+
+    def parse_sens(self, in_file, out_file):
+        with open(in_file) as in_obj:
+            sens = json.load(in_obj)
+        parsed_sens = []
+        with NamedTemporaryFile(dir="/tmp", delete=False) as log_file:
+            for c, sentence in enumerate(sens):
+                if c % 100 == 0:
+                    log_file.write("parsed {0} sentences\n".format(c))
+                    log_file.flush()
+                parse, _, dependencies = self.parse(sentence)
+
+                dep_strings = map(unicode, dependencies)
+                parsed_sens.append({
+                    'sen': sentence,
+                    'deps': dep_strings})
+
+        with open(out_file, 'w') as out:
+            json.dump(parsed_sens, out)
 
     def parse_definitions(self, in_file, out_file):
         with open(in_file) as in_obj:
@@ -122,7 +145,10 @@ def test():
 def main():
     parser_file, in_file, out_file = sys.argv[2:5]
     parser = StanfordParser(parser_file)
-    parser.parse_definitions(in_file, out_file)
+    if int(sys.argv[5]):
+        parser.parse_definitions(in_file, out_file)
+    else:
+        parser.parse_sens(in_file, out_file)
 
 if __name__ == "__main__":
     main()

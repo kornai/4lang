@@ -46,10 +46,10 @@ class StanfordWrapper():
 
         return sen_file.name
 
-    def run_parser(self, in_file, out_file):
+    def run_parser(self, in_file, out_file, definitions):
         return_code = subprocess.call([
             self.jython_path, self.jython_module, self.parser_path,
-            self.model_path, in_file, out_file])
+            self.model_path, in_file, out_file, str(int(definitions))])
         return return_code == 0
 
     def parse_sentences_old(self, sentences):
@@ -70,14 +70,14 @@ class StanfordWrapper():
         sentences.update(parsed_sentences)
         return True
 
-    def parse_sentences(self, entries):
+    def parse_sentences(self, entries, definitions=False):
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
             json.dump(entries, in_file)
             in_file_name = in_file.name
 
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as out_file:
             out_file_name = out_file.name
-            success = self.run_parser(in_file_name, out_file_name)
+            success = self.run_parser(in_file_name, out_file_name, definitions)
 
         if not success:
             logging.critical(
