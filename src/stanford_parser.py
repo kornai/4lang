@@ -73,30 +73,38 @@ class StanfordParser:
         return self.parse_with_constraints(sentence, None)
 
     def parse_with_constraints(self, sentence, constraints):
+        #logging.debug("getting query...")
         query = self.lp.parserQuery()
         if constraints is not None:
             query.setConstraints(constraints)
-        query.parse(self.tokenize(sentence))
+        #logging.debug("tokenizing...")
+        toks = self.tokenize(sentence)
+        #logging.debug("running parse...")
+        query.parse(toks)
+        #logging.debug("getting best...")
         parse = query.getBestParse()
+        #logging.debug("getting gs...")
         gs = self.get_grammatical_structure(parse)
         dependencies = gs.typedDependenciesCollapsed()
         return parse, gs, dependencies
 
-    def parse_sens(self, in_file, out_file):
+    def parse_sens(self, in_file, out_file, log=False):
+        logging.debug("reading input...")
         with open(in_file) as in_obj:
             sens = json.load(in_obj)
         parsed_sens = []
-        with NamedTemporaryFile(dir="/tmp", delete=False) as log_file:
-            for c, sentence in enumerate(sens):
-                if c % 100 == 0:
-                    log_file.write("parsed {0} sentences\n".format(c))
-                    log_file.flush()
-                parse, _, dependencies = self.parse(sentence)
+        if log:
+            log_file = NamedTemporaryFile(dir="/tmp", delete=False)
+        for c, sentence in enumerate(sens):
+            if log and c % 100 == 0:
+                log_file.write("parsed {0} sentences\n".format(c))
+                log_file.flush()
+            parse, _, dependencies = self.parse(sentence)
 
-                dep_strings = map(unicode, dependencies)
-                parsed_sens.append({
-                    'sen': sentence,
-                    'deps': dep_strings})
+            dep_strings = map(unicode, dependencies)
+            parsed_sens.append({
+                'sen': sentence,
+                'deps': dep_strings})
 
         with open(out_file, 'w') as out:
             json.dump(parsed_sens, out)
@@ -143,9 +151,14 @@ def test():
     print "\n".join(map(str, dependencies))
 
 def main():
-    parser_file, in_file, out_file = sys.argv[2:5]
+    parser_file, in_file, out_file, is_defs, loglevel = sys.argv[2:7]
+    logging.basicConfig(
+        level=int(loglevel),
+        format="%(asctime)s : " +
+        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+    logging.debug("initializing parser...")
     parser = StanfordParser(parser_file)
-    if int(sys.argv[5]):
+    if int(is_defs):
         parser.parse_definitions(in_file, out_file)
     else:
         parser.parse_sens(in_file, out_file)
