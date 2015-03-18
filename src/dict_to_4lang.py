@@ -55,7 +55,8 @@ class DictTo4lang():
                       (self.raw_dict[word] for word in words))
 
         stanford_wrapper = StanfordWrapper(self.cfg)
-        entries = stanford_wrapper.parse_sentences(entries)
+        entries = stanford_wrapper.parse_sentences(
+            entries, definitions=True)
 
         for entry in entries:
             if entry['to_filter']:
