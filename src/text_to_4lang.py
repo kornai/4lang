@@ -26,14 +26,16 @@ class TextTo4lang():
         logging.info("loading machine wrapper...")
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
         machine_cfg_file = os.path.join(self.cfg_dir, 'machine.cfg')
-        machine_wrapper = MachineWrapper(machine_cfg_file)
+        wrapper = MachineWrapper(machine_cfg_file)
         logging.info("processing sentences...")
         for i, sen in enumerate(parsed_sens):
-            machine = machine_wrapper.get_dep_definition(
-                "sen_{0}".format(i), sen['deps'])
-            graph = MachineGraph.create_from_machines([machine])
-            f = open('graphs/sens/sen_{0}.dot'.format(i), 'w')
-            f.write(graph.to_dot().encode('utf-8'))
+            with open('test/sens/sen_{0}.dep'.format(i), 'w') as f:
+                f.write("\n".join(sen['deps']))
+            words_to_machines = wrapper.get_machines_from_deps(sen['deps'])
+            graph = MachineGraph.create_from_machines(
+                words_to_machines.values())
+            with open('test/sens/graphs/sen_{0}.dot'.format(i), 'w') as f:
+                f.write(graph.to_dot().encode('utf-8'))
         logging.info("done, processed {0} sentences".format(i+1))
 
 if __name__ == "__main__":
