@@ -7,7 +7,7 @@ import sys
 
 assert json  # silence pyflakes
 
-class LongmanParser():
+class XMLParser():
 
     @staticmethod
     def section_pattern(tag):
@@ -21,20 +21,22 @@ class LongmanParser():
 
     @staticmethod
     def iter_sections(tag, text):
-        return LongmanParser.section_pattern(tag).findall(text)
+        return XMLParser.section_pattern(tag).findall(text)
 
     @staticmethod
     def get_section(tag, text):
-        match_obj = LongmanParser.section_pattern(tag).search(text)
+        match_obj = XMLParser.section_pattern(tag).search(text)
         return None if match_obj is None else match_obj.group(1)
 
     @staticmethod
     def remove_sections(tag, text):
-        return LongmanParser.section_pattern(tag).sub("", text)
+        return XMLParser.section_pattern(tag).sub("", text)
 
     @staticmethod
     def remove_tags(tag, text):
-        return LongmanParser.tag_pattern(tag).sub("", text)
+        return XMLParser.tag_pattern(tag).sub("", text)
+
+class LongmanParser(XMLParser):
 
     @staticmethod
     def add_suffixes(text):

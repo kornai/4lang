@@ -20,8 +20,8 @@ class StanfordWrapper():
 
     def __init__(self, cfg, is_server=False):
         self.cfg = cfg
-        self.server_url = self.cfg.get('stanford', 'url')
-        if is_server or self.server_url is None:
+        remote = self.cfg.getboolean('stanford', 'remote')
+        if is_server or not remote:
             self.get_stanford_paths()
             if is_server:
                 #used as server
@@ -33,6 +33,7 @@ class StanfordWrapper():
                 self.parse_sentences = self.parse_sentences_local
         else:
             #used as client
+            self.server_url = self.cfg.get('stanford', 'url')
             self.parse_sentences = self.parse_sentences_remote
 
     def get_stanford_paths(self):
