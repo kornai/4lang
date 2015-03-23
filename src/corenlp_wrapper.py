@@ -33,12 +33,14 @@ class Parser(XMLParser):
 
     @staticmethod
     def parse_corefs(corefs):
+        parsed_corefs = []
         for coref in Parser.iter_sections("coreference", corefs):
             repr_mention = Parser.repr_mention_regex.search(coref).group(1)
             mentions = Parser.iter_sections('mention', coref)
             repr_word, sen_no = Parser.parse_mention(repr_mention)
             other_words = map(Parser.parse_mention, mentions)
-            return (repr_word, sen_no), other_words
+            parsed_corefs.append(((repr_word, sen_no), other_words))
+        return parsed_corefs
 
     @staticmethod
     def parse_sen(sen):
@@ -87,9 +89,9 @@ class CoreNLPWrapper():
         logging.debug("reading output...")
         out_file_name = "{0}.xml".format(in_file_name.split('/')[-1])
         with open(out_file_name) as out_file:
-            parsed_sens, coref = Parser.parse_all(out_file)
+            parsed_sens, corefs = Parser.parse_all(out_file)
 
-        return parsed_sens, coref
+        return parsed_sens, corefs
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
@@ -99,7 +101,7 @@ def test():
     wrapper = CoreNLPWrapper(cfg)
     parsed_sens, corefs = wrapper.parse_sentences(
         [line.strip() for line in open('data/mrhug_story.sens').readlines()])
-    #print 'parsed_sens:', parsed_sens
+    print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 
 if __name__ == '__main__':
