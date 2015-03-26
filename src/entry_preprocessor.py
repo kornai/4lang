@@ -17,6 +17,8 @@ class EntryPreprocessor():
     def_replacement_pairs = [
         (re.compile(patt, re.UNICODE), repl, flags) for patt, repl, flags in [
             (u'([^,]) etc', u'\\1, etc', ()),  # comma before etc.
+            (u'someone or something that is ', u'', ()),
+            (u'someone or something that ', u'', ()),
             (u'someone who is ', u'', ('person',)),
             (u'someone who ', u'', ('person',)),
             (u'someone whose job is ', u'', ('person',)),

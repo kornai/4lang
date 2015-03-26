@@ -10,10 +10,11 @@ import threading
 import time
 import traceback
 
-from stanford_wrapper import StanfordWrapper
+from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
 from longman_parser import LongmanParser
-from utils import batches
+from stanford_wrapper import StanfordWrapper
+from utils import batches, ensure_dir
 
 class DictTo4lang():
     def __init__(self, cfg_file):
@@ -23,15 +24,17 @@ class DictTo4lang():
         self.cfg = ConfigParser()
         self.cfg.read([default_cfg_file, cfg_file])
         self.tmp_dir = self.cfg.get('data', 'tmp_dir')
+        ensure_dir(self.tmp_dir)
         self.graph_dir = self.cfg.get('data', 'graph_dir')
+        ensure_dir(self.graph_dir)
         self.longman_parser = LongmanParser()
         self.machine_wrapper = None
 
     def load_machines(self):
         from pymachine.wrapper import Wrapper as MachineWrapper
-
         machine_cfg_file = os.path.join(self.cfg_dir, 'machine.cfg')
-        self.machine_wrapper = MachineWrapper(machine_cfg_file)
+        self.machine_wrapper = MachineWrapper(
+            machine_cfg_file, include_longman=False)
 
     def parse_dict(self):
         input_file = self.cfg.get('data', 'input_file')
@@ -58,15 +61,22 @@ class DictTo4lang():
         entries = stanford_wrapper.parse_sentences(
             entries, definitions=True)
 
+        dependency_processor = DependencyProcessor(self.cfg)
+
         for entry in entries:
             if entry['to_filter']:
                 continue
-
             word = entry['hw']
             if word in self.dictionary:
                 raise Exception(
                     "entries with identical headwords: {0}".format(
                         entry, self.dictionary[word]))
+            for sense in entry['senses']:
+                definition = sense['definition']
+                if definition is None:
+                    continue
+                definition['deps'] = dependency_processor.process_dependencies(
+                    definition['deps'])
 
             self.dictionary[word] = entry
 
@@ -136,9 +146,8 @@ def main():
     dict_to_4lang = DictTo4lang(cfg_file)
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
-    #dict_to_4lang.load_machines()
-    #dict_to_4lang.print_4lang_graphs()
-    #dict_to_4lang.print_4lang_graph('aardvark')
+    dict_to_4lang.load_machines()
+    dict_to_4lang.print_4lang_graphs()
 
 if __name__ == '__main__':
     main()

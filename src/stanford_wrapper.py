@@ -61,7 +61,7 @@ class StanfordWrapper():
         command = [
             'java', '-mx1500m', '-cp', '{0}/*:'.format(self.stanford_dir),
             'edu.stanford.nlp.parser.lexparser.LexicalizedParser',
-            '-outputFormat', 'typedDependencies',
+            '-outputFormat', 'collapsedDependencies',
             '-sentences', 'newline',
             'edu/stanford/nlp/models/lexparser/{0}'.format(self.model_fn),
             '-']
