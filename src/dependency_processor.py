@@ -27,6 +27,10 @@ class Dependencies():
         for triple in deps:
             self.add(triple)
 
+    def remove(self, (dep, word1, word2)):
+        self.index[word1][0][dep].remove(word2)
+        self.index[word2][1][dep].remove(word1)
+
     def add(self, (dep, word1, word2)):
         self.index[word1][0][dep].add(word2)
         self.index[word2][1][dep].add(word1)
@@ -47,6 +51,7 @@ class DependencyProcessor():
         self.cfg = cfg
 
     def process_copulars(self, deps):
+        # rcmod(x, is), prep_P(is, y) -> prep_P(x, y)
         copulars = [(word, w_id) for word, w_id in deps.index.iterkeys()
                     if word in DependencyProcessor.copulars]
         new_deps = []
@@ -63,7 +68,16 @@ class DependencyProcessor():
             deps.add(new_dep)
         return deps
 
+    def remove_copulars(self, deps):
+        for dep, word1, word2 in deps.get_dep_list():
+            if (word1[0] in DependencyProcessor.copulars or
+                    word2[0] in DependencyProcessor.copulars):
+                deps.remove((dep, word1, word2))
+
+        return deps
+
     def process_dependencies(self, dep_strings):
         deps = Dependencies.create_from_strings(dep_strings)
         deps = self.process_copulars(deps)
+        deps = self.remove_copulars(deps)
         return deps.get_dep_list()
