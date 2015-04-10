@@ -1,13 +1,30 @@
 ## 4lang
-Concept dictionary using Eilenberg machines
 
-## Dict-to-4lang
-A pipeline that processes entries in monolingual dictionaries builds 4lang-style definitions for each headword
+This repository provides
+    - the `4lang` concept dictionary, which contains manually written concept definitions
+    - the `text_to_4lang` module, which creates concept graph representations from running text
+    - the `dict_to_4lang` module, which builds more of these definitions from human-readable dictionaries
 
-Currently only the preprocessing is performed by this module, the actual machines are created by the [pymachine](https://github.com/kornai/pymachine) module
 
-To process the Longman Dictionary of Contemporary English (LDOCE).
-This command will build a JSON-format representation of the preprocessed entries:
-  `python src/dict_to_4lang.py conf/longman_firsts.cfg n`
+### Dependencies
 
-where n is the number of threads to be used and the config file contains the location of input and output files. The file `conf/default.cfg` should contain the path to an installation of the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download)
+Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines (just clone it to your machine and run `python setup.py install`) and the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, the `text_to_4lang.py requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
+
+After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the configuration file used to run the `4lang` tools so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
+
+### Usage
+
+Both tools can be configured by editing a copy of [conf/default.cfg](conf/default.cfg) and running
+
+```
+python src/dict_to_4lang.py MY_CONFIG_FILE
+```
+to build `4lang`-style definitions from a monolingual dictionary such as Wiktionary or Longman
+
+```
+cat INPUT_FILE | python src/text_to_4lang.py MY_CONFIG_FILE
+```
+to create concept graphs from running English text
+
+
+### The config file
