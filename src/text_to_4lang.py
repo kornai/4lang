@@ -1,4 +1,3 @@
-from ConfigParser import ConfigParser
 import logging
 import os
 import sys
@@ -7,16 +6,14 @@ from pymachine.utils import MachineGraph
 from pymachine.wrapper import Wrapper as MachineWrapper
 
 from corenlp_wrapper import CoreNLPWrapper
+from utils import get_cfg
 
 __LOGLEVEL__ = 'DEBUG'
 __MACHINE_LOGLEVEL__ = 'INFO'
 
 class TextTo4lang():
-    def __init__(self, cfg_file):
-        self.cfg_dir = os.path.dirname(cfg_file)
-        default_cfg_file = os.path.join(self.cfg_dir, 'default.cfg')
-        self.cfg = ConfigParser()
-        self.cfg.read([default_cfg_file, cfg_file])
+    def __init__(self, cfg):
+        self.cfg = cfg
 
     def process(self, stream, max_sens=None):
         sens = [line.strip() for line in stream]
@@ -50,11 +47,9 @@ if __name__ == "__main__":
         level=__LOGLEVEL__,
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
-    if len(sys.argv) > 1:
-        text_to_4lang = TextTo4lang(sys.argv[1])
-    else:
-        logging.warning('no cfg file specified, using conf/default.cfg')
-        text_to_4lang = TextTo4lang('conf/default.cfg')
+    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    cfg = get_cfg(cfg_file)
+    text_to_4lang = TextTo4lang(cfg)
 
     max_sens = int(sys.argv[2]) if len(sys.argv) > 2 else None
     text_to_4lang.process(sys.stdin, max_sens)

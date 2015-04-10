@@ -83,10 +83,8 @@ class CoreNLPWrapper():
             in_file.write('\n'.join(sens))
             in_file_name = in_file.name
 
-        logging.debug("running parser...")
         assert self.run_parser(in_file_name)
 
-        logging.debug("reading output...")
         out_file_name = "{0}.xml".format(in_file_name.split('/')[-1])
         with open(out_file_name) as out_file:
             parsed_sens, corefs = Parser.parse_all(out_file)
