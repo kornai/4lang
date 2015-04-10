@@ -18,10 +18,6 @@ class TextTo4lang():
         self.cfg = ConfigParser()
         self.cfg.read([default_cfg_file, cfg_file])
 
-    def get_coref_pairs(corefs):
-        pass
-        #return [[phrase.split()[head_index] for phrase,
-
     def process(self, stream, max_sens=None):
         sens = [line.strip() for line in stream]
 
