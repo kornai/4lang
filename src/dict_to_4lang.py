@@ -7,6 +7,7 @@ import threading
 import time
 import traceback
 
+from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
 from longman_parser import LongmanParser
@@ -25,7 +26,7 @@ class DictTo4lang():
         self.machine_wrapper = None
 
     def parse_dict(self):
-        input_file = self.cfg.get('data', 'input_file')
+        input_file = self.cfg.get('dict', 'input_file')
         self.raw_dict = defaultdict(dict)
         for entry in self.longman_parser.parse_file(input_file):
             self.unify(self.raw_dict[entry['hw']], entry)
@@ -105,7 +106,7 @@ class DictTo4lang():
 
     def print_dict(self, stream=None):
         if stream is None:
-            output_fn = self.cfg.get('data', 'output_file')
+            output_fn = self.cfg.get('dict', 'output_file')
             with open(output_fn, 'w') as out:
                 json.dump(self.dictionary, out)
         else:
@@ -119,9 +120,15 @@ def main():
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     no_threads = int(sys.argv[2]) if len(sys.argv) > 2 else 1
     cfg = get_cfg(cfg_file)
+
     dict_to_4lang = DictTo4lang(cfg)
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
+
+    dep_to_4lang = DepTo4lang(cfg)
+    dep_to_4lang.dep_to_4lang()
+    dep_to_4lang.print_graphs()
+
 
 if __name__ == '__main__':
     main()
