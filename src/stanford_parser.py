@@ -5,9 +5,9 @@ import os
 import sys
 from tempfile import NamedTemporaryFile
 
-sys.path.append(sys.argv[1])
-sys.path.append(
-    "/home/recski/projects/stanford_dp/stanford-parser-full-2015-01-30/ejml-0.23.jar")  # nopep8
+parser = sys.argv[1]
+sys.path.append(parser)
+sys.path.append(os.path.join(os.path.dirname(parser), 'ejml-0.23.jar'))
 
 from edu.stanford.nlp.process import Morphology, PTBTokenizer, WordTokenFactory
 from edu.stanford.nlp.parser.common import ParserConstraint
@@ -73,17 +73,17 @@ class StanfordParser:
         return self.parse_with_constraints(sentence, None)
 
     def parse_with_constraints(self, sentence, constraints):
-        #logging.debug("getting query...")
+        # logging.debug("getting query...")
         query = self.lp.parserQuery()
         if constraints is not None:
             query.setConstraints(constraints)
-        #logging.debug("tokenizing...")
+        # logging.debug("tokenizing...")
         toks = self.tokenize(sentence)
-        #logging.debug("running parse...")
+        # logging.debug("running parse...")
         query.parse(toks)
-        #logging.debug("getting best...")
+        # logging.debug("getting best...")
         parse = query.getBestParse()
-        #logging.debug("getting gs...")
+        # logging.debug("getting gs...")
         gs = self.get_grammatical_structure(parse)
         dependencies = gs.typedDependenciesCollapsed()
         return parse, gs, dependencies
@@ -121,10 +121,14 @@ class StanfordParser:
                     sentence = sense['definition']
                     if sentence is None:
                         continue
+                    # sentence += '.'  # fixes some parses and ruins others
                     pos = sense['pos']
                     constraints = StanfordParser.get_constraints(sentence, pos)
+                    # logging.info('sen: {0}, constraints: {1}'.format(
+                    #    sentence, constraints))
                     parse, _, dependencies = self.parse_with_constraints(
                         sentence, constraints)
+                    # logging.info('parse: {0}'.format(parse.pennPrint()))
 
                     dep_strings = map(unicode, dependencies)
                     sense['definition'] = {
@@ -138,10 +142,12 @@ def test():
     logging.warning("running test, not main!")
     parser = StanfordParser(sys.argv[2])
 
-    dv_model = parser.lp.reranker.getModel()
-    print dv_model
+    # dv_model = parser.lp.reranker.getModel()
+    # print dv_model
 
-    sentence = 'the size of a radio wave used to broadcast a radio signal'
+    # sentence = 'the size of a radio wave used to broadcast a radio signal'
+    sentence = 'a man whose job is to persuade people to buy his company\'s \
+        products.'
     pos = 'n'
     parse, gs, dependencies = parser.parse_with_constraints(
         sentence, StanfordParser.get_constraints(sentence, pos))
@@ -165,4 +171,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #test()
+    # test()
