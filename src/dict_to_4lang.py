@@ -1,10 +1,7 @@
 from __future__ import with_statement
 from collections import defaultdict
-from ConfigParser import ConfigParser
-#from collections import defaultdict
 import json
 import logging
-import os
 import sys
 import threading
 import time
@@ -14,27 +11,18 @@ from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
 from longman_parser import LongmanParser
 from stanford_wrapper import StanfordWrapper
-from utils import batches, ensure_dir
+from utils import batches, ensure_dir, get_cfg
 
 class DictTo4lang():
-    def __init__(self, cfg_file):
+    def __init__(self, cfg):
         self.dictionary = {}
-        self.cfg_dir = os.path.dirname(cfg_file)
-        default_cfg_file = os.path.join(self.cfg_dir, 'default.cfg')
-        self.cfg = ConfigParser()
-        self.cfg.read([default_cfg_file, cfg_file])
+        self.cfg = cfg
         self.tmp_dir = self.cfg.get('data', 'tmp_dir')
         ensure_dir(self.tmp_dir)
-        self.graph_dir = self.cfg.get('data', 'graph_dir')
+        self.graph_dir = self.cfg.get('machine', 'graph_dir')
         ensure_dir(self.graph_dir)
         self.longman_parser = LongmanParser()
         self.machine_wrapper = None
-
-    def load_machines(self):
-        from pymachine.wrapper import Wrapper as MachineWrapper
-        machine_cfg_file = os.path.join(self.cfg_dir, 'machine.cfg')
-        self.machine_wrapper = MachineWrapper(
-            machine_cfg_file, include_longman=False)
 
     def parse_dict(self):
         input_file = self.cfg.get('data', 'input_file')
@@ -115,19 +103,6 @@ class DictTo4lang():
                 logging.info("some threads failed")
             break
 
-    def print_4lang_graphs(self):
-        for word in self.dictionary:
-            self.print_4lang_graph(word)
-
-    def print_4lang_graph(self, word):
-        from pymachine.utils import MachineGraph
-        deps = self.dictionary[word]['senses'][0]['definition']['deps']
-        machine = self.machine_wrapper.get_dep_definition(word, deps)
-        graph = MachineGraph.create_from_machines([machine])
-        with open(os.path.join(
-                self.graph_dir, u"{0}.dot".format(word)), 'w') as dot_obj:
-            dot_obj.write(graph.to_dot().encode('utf-8'))
-
     def print_dict(self, stream=None):
         if stream is None:
             output_fn = self.cfg.get('data', 'output_file')
@@ -141,13 +116,12 @@ def main():
         level=logging.INFO,
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
-    cfg_file = sys.argv[1]
-    no_threads = int(sys.argv[2])
-    dict_to_4lang = DictTo4lang(cfg_file)
+    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    no_threads = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+    cfg = get_cfg(cfg_file)
+    dict_to_4lang = DictTo4lang(cfg)
     dict_to_4lang.run(no_threads)
     dict_to_4lang.print_dict()
-    dict_to_4lang.load_machines()
-    dict_to_4lang.print_4lang_graphs()
 
 if __name__ == '__main__':
     main()
