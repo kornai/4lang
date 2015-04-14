@@ -127,6 +127,7 @@ def main():
 
     dep_to_4lang = DepTo4lang(cfg)
     dep_to_4lang.dep_to_4lang()
+    dep_to_4lang.save_machines()
     dep_to_4lang.print_graphs()
 
 

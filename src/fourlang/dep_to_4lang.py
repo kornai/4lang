@@ -78,8 +78,8 @@ class DepTo4lang():
             self.cfg.get('machine', 'graph_dir'))
 
     def save_machines(self):
-        out_fn = self.cfg.get("machine", "longman_definitions")
-        logging.info('saving machines to {1}...'.format(out_fn))
+        out_fn = self.cfg.get("machine", "ext_definitions")
+        logging.info('saving machines to {0}...'.format(out_fn))
         with open(out_fn, 'w') as out_file:
             cPickle.dump(self.words_to_machines, out_file)
         logging.info('done!')
@@ -244,6 +244,7 @@ def main():
     cfg = get_cfg(cfg_file)
     dep_to_4lang = DepTo4lang(cfg)
     dep_to_4lang.dep_to_4lang()
+    dep_to_4lang.save_machines()
     dep_to_4lang.print_graphs()
 
 if __name__ == "__main__":

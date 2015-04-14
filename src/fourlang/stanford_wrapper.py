@@ -24,15 +24,15 @@ class StanfordWrapper():
         if is_server or not remote:
             self.get_stanford_paths()
             if is_server:
-                #used as server
+                # used as server
                 self.start_parser()
                 self.parse_sentences = self.parse_sentences_server
             else:
-                #standalone, using jython
+                # standalone, using jython
                 self.get_jython_paths()
                 self.parse_sentences = self.parse_sentences_local
         else:
-            #used as client
+            # used as client
             self.server_url = self.cfg.get('stanford', 'url')
             self.parse_sentences = self.parse_sentences_remote
 
@@ -76,27 +76,27 @@ class StanfordWrapper():
         parsed_sens = []
         for c, sentence in enumerate(sens):
             parsed_sens.append({'sen': sentence, 'deps': []})
-            #logging.info('writing to stdin...')
+            # logging.info('writing to stdin...')
             self.parser_process.stdin.write(sentence+'\n')
             self.parser_process.stdin.flush()
-            #logging.info('reading from stdout...')
+            # logging.info('reading from stdout...')
             line = self.parser_process.stdout.readline().strip()
             while line:
-                #logging.info('read this: {0}'.format(repr(line)))
+                # logging.info('read this: {0}'.format(repr(line)))
                 if line == '':
                     break
                 parsed_sens[-1]['deps'].append(line.strip())
                 line = self.parser_process.stdout.readline().strip()
 
-        #logging.info('returning parsed sens')
+        # logging.info('returning parsed sens')
         return parsed_sens
 
     def create_input_file(self, sentences, token):
         sen_file = NamedTemporaryFile(
             dir=self.tmp_dir, prefix=token, delete=False)
         for sen in sentences:
-            # need to add a period so the Stanford Parser knows where
-            # sentence boundaries are. There should be a smarter way...
+            #  need to add a period so the Stanford Parser knows where
+            #  sentence boundaries are. There should be a smarter way...
             sen_file.write(
                 u"{0}\n".format(sen['sen']).encode('utf-8'))
 
@@ -135,14 +135,14 @@ class StanfordWrapper():
         return json.loads(req.text)
 
     def parse_sentences_local(self, entries, definitions=False):
-        logging.debug("dumping input...")
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
             json.dump(entries, in_file)
             in_file_name = in_file.name
+        logging.info("dumped input to {0}".format(in_file_name))
 
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as out_file:
             out_file_name = out_file.name
-            logging.debug("running parser...")
+            logging.info("writing parses to {0}".format(out_file_name))
             success = self.run_parser(in_file_name, out_file_name, definitions)
 
         if not success:
@@ -175,10 +175,10 @@ if __name__ == '__main__':
     @app.route("/")
     def hello():
         sens = request.get_json()
-        #logging.info('got this: {0}'.format(sens))
+        # logging.info('got this: {0}'.format(sens))
         parsed_sens = wrapper.parse_sentences(sens)
-        #logging.info('returning response...')
-        #logging.info('returning this: {0}'.format(parsed_sens))
+        # logging.info('returning response...')
+        # logging.info('returning this: {0}'.format(parsed_sens))
         return Response(json.dumps(parsed_sens), mimetype='application/json')
 
     app.run()
