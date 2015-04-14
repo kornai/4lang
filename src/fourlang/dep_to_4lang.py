@@ -2,6 +2,7 @@ from collections import defaultdict
 import cPickle
 import json
 import logging
+import os
 import re
 import sys
 import traceback
@@ -12,7 +13,7 @@ from pymachine.machine import Machine
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
 from lemmatizer import Lemmatizer
-from utils import get_cfg, print_4lang_graphs
+from utils import ensure_dir, get_cfg, print_4lang_graphs
 
 class DepTo4lang():
 
@@ -20,6 +21,8 @@ class DepTo4lang():
 
     def __init__(self, cfg):
         self.cfg = cfg
+        self.out_fn = self.cfg.get("machine", "ext_definitions")
+        ensure_dir(os.path.dirname(self.out_fn))
         dep_map_fn = cfg.get("deps", "dep_map")
         self.read_dep_map(dep_map_fn)
         self.lemmatizer = Lemmatizer(cfg)
@@ -78,9 +81,8 @@ class DepTo4lang():
             self.cfg.get('machine', 'graph_dir'))
 
     def save_machines(self):
-        out_fn = self.cfg.get("machine", "ext_definitions")
-        logging.info('saving machines to {0}...'.format(out_fn))
-        with open(out_fn, 'w') as out_file:
+        logging.info('saving machines to {0}...'.format(self.out_fn))
+        with open(self.out_fn, 'w') as out_file:
             cPickle.dump(self.words_to_machines, out_file)
         logging.info('done!')
 
