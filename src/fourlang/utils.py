@@ -4,7 +4,7 @@ import os
 from pymachine.utils import MachineGraph
 def ensure_dir(path):
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
 
 def batches(l, n):
     """ Yield successive n-sized chunks from l.
