@@ -2,6 +2,7 @@ from __future__ import with_statement
 from collections import defaultdict
 import json
 import logging
+import os
 import sys
 import threading
 import time
@@ -18,6 +19,8 @@ class DictTo4lang():
     def __init__(self, cfg):
         self.dictionary = {}
         self.cfg = cfg
+        self.output_fn = self.cfg.get('dict', 'output_file')
+        ensure_dir(os.path.dirname(self.output_fn))
         self.tmp_dir = self.cfg.get('data', 'tmp_dir')
         ensure_dir(self.tmp_dir)
         self.graph_dir = self.cfg.get('machine', 'graph_dir')
@@ -106,8 +109,7 @@ class DictTo4lang():
 
     def print_dict(self, stream=None):
         if stream is None:
-            output_fn = self.cfg.get('dict', 'output_file')
-            with open(output_fn, 'w') as out:
+            with open(self.output_fn, 'w') as out:
                 json.dump(self.dictionary, out)
         else:
             json.dump(self.dictionary, stream)
