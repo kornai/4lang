@@ -1,5 +1,4 @@
 from collections import defaultdict
-import logging
 import re
 
 class Dependencies():
@@ -64,7 +63,7 @@ class DependencyProcessor():
                                 (dep, word3, word2)
                                 for word3 in deps.index[cop][1]['rcmod']]
         for new_dep in new_deps:
-            logging.info('adding new dep: {0}'.format(new_dep))
+            # logging.info('adding new dep: {0}'.format(new_dep))
             deps.add(new_dep)
         return deps
 
