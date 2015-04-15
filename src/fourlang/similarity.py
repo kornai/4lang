@@ -14,6 +14,7 @@ from lemmatizer import Lemmatizer
 
 class WordSimilarity():
     def __init__(self, cfg):
+        self.batch = cfg.getboolean('similarity_machine', 'batch')
         self.cfg = cfg
         self.lemmatizer = Lemmatizer(cfg)
         self.machine_wrapper = MachineWrapper(cfg)
@@ -22,7 +23,7 @@ class WordSimilarity():
         self.stopwords = set(nltk_stopwords.words('english'))
 
     def log(self, string):
-        if not self.wrapper.batch:
+        if not self.batch:
             logging.info(string)
 
     def get_links_nodes(self, machine, use_cache=True):
@@ -191,7 +192,7 @@ class WordSimilarity():
                         fallback=lambda a, b, c, d: None):
         self.log(u'words: {0}, {1}'.format(word1, word2))
         lemma1, lemma2 = [self.lemmatizer.lemmatize(
-            word, defined=self.wrapper.definitions, stem_first=True)
+            word, defined=self.machine_wrapper.definitions, stem_first=True)
             for word in (word1, word2)]
         self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
         if lemma1 is None or lemma2 is None:
@@ -207,8 +208,8 @@ class WordSimilarity():
             return 1
         self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
 
-        machines1 = self.wrapper.definitions[lemma1]
-        machines2 = self.wrapper.definitions[lemma2]
+        machines1 = self.machine_wrapper.definitions[lemma1]
+        machines2 = self.machine_wrapper.definitions[lemma2]
 
         pairs_by_sim = sorted([
             (self.machine_similarity(machine1, machine2, sim_type),
@@ -216,13 +217,6 @@ class WordSimilarity():
             for machine1 in machines1 for machine2 in machines2], reverse=True)
 
         sim, (machine1, machine2) = pairs_by_sim[0]
-
-        draw_graphs = True  # use with caution
-        if draw_graphs and not self.wrapper.batch:
-            graph = MachineGraph.create_from_machines(
-                [machine1, machine2])  # , max_depth=1)
-            f = open('graphs/{0}_{1}.dot'.format(lemma1, lemma2), 'w')
-            f.write(graph.to_dot().encode('utf-8'))
 
         sim = sim if sim >= 0 else 0
         self.lemma_sim_cache[(lemma1, lemma2)] = sim

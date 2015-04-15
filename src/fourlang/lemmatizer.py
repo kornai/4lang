@@ -35,7 +35,7 @@ class Lemmatizer():
             stemmed_word = stem(word)
             if debug:
                 tried.append(stemmed_word)
-            stemmed_lemma = self.get_lemma(
+            stemmed_lemma = self.lemmatize(
                 stemmed_word, defined=defined, stem_first=False)
             if stemmed_lemma is not None:
                 self.tok2lemma[word] = stemmed_lemma
