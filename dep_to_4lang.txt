@@ -27,10 +27,12 @@ conj	-,-
 conj_and	-,-
 conj_as	-,-
 conj_but	-,-
+conj_if	-,-
 conj_in	-,-
 conj_less	-,-
 conj_negcc	-,-
 conj_nor	-,-
+conj_of	-,-
 conj_or	-,-
 #each coordinated element appears in its own relations
 conj_so	-,-
@@ -131,9 +133,14 @@ prep_on	-,-
 
 #This is just a few of the prep(c)s, the rest are listed at the end of the file
 
+prep_according_to	-,-
 prep_at	-,-
+prep_compared_with	-,-
+prep_containing	-,-
 prep_out_of	-,-	NOTIN
+prep_outside_of	-,-
 prep_over	-,-
+prep_starting	-,-
 prep_such_as	-,-
 prep_than	-,-
 prep_to	-,-
@@ -143,11 +150,17 @@ prep_within	-,-
 
 prepc_about	-,-
 prepc_as	-,-
+prepc_as_for	-,-
 prepc_by	-,-
 prepc_for	-,-
 prepc_from	-,-
+prepc_next_to	-,-
 prepc_of	-,-
+prepc_out	-,-
 prepc_in	-,-	IN
+prepc_since	-,-
+prepc_smooth	-,-
+prepc_whether	-,-
 prepc_with	-,-
 prepc_without	-,-	LACK
 

@@ -37,6 +37,11 @@ class DepTo4lang():
             self.dependencies[dep.name] = dep
 
     def apply_dep(self, dep_str, machine1, machine2, lexicon=None):
+        if dep_str not in self.dependencies:
+            logging.warning(
+                'skipping dependency not in dep_to_4lang map: {0}'.format(
+                    dep_str))
+            return False  # not that anyone cares
         self.dependencies[dep_str].apply(machine1, machine2, lexicon)
 
     def dep_to_4lang(self):
@@ -209,7 +214,9 @@ class Dependency():
         edge1, edge2 = map(lambda s: int(s) if s not in ('-', '?') else None,
                            edges.split(','))
 
-        if dep.startswith('prep_') and rel is None:
+        if (dep.startswith('prep_') or
+                dep.startswith('prepc_')) and rel is None:
+            logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split('_', 1)[1].upper()
 
         return Dependency(dep, Dependency.get_standard_operators(
