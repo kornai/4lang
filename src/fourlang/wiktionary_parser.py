@@ -6,6 +6,7 @@ from xml_parser import XMLParser
 
 class WiktParser(XMLParser):
 
+    defs_section_regex = re.compile("^#.*?^=", re.M | re.S)
     def_regex = re.compile("^#([^:\*].*)", re.M)
     double_curly_regex = re.compile("{{.*?}}")
 
@@ -17,14 +18,25 @@ class WiktParser(XMLParser):
     def parse_definition(definition):
         d = definition.strip()
         d = WiktParser.double_curly_regex.sub('', d)
+        d = d.replace("[[", "")
+        d = d.replace("]]", "")
         return d
+
+    @staticmethod
+    def get_definitions(page):
+        defs_section = WiktParser.defs_section_regex.search(page)
+        if defs_section is None:
+            return []
+        raw_definitions = WiktParser.def_regex.findall(defs_section.group())
+        parsed_definitions = map(WiktParser.parse_definition, raw_definitions)
+        kept_definitions = filter(None, parsed_definitions)
+        return kept_definitions
 
     @staticmethod
     def parse_page(page):
         headword = WiktParser.get_section('title', page)
-        raw_definitions = WiktParser.def_regex.findall(page)
-        parsed_definitions = map(WiktParser.parse_definition, raw_definitions)
-        return {"headword": headword, "definitions": parsed_definitions}
+        definitions = WiktParser.get_definitions(page)
+        return {"headword": headword, "definitions": definitions}
 
     @staticmethod
     def parse_xml(xml):
