@@ -45,3 +45,18 @@ to create concept graphs from running English text
 
 
 ### The config file
+
+### Contact
+This repository is maintained by Gábor Recski. Questions, suggestions, bug reports, etc. are very welcome and can be sent by email to recski at mokk bme hu.
+
+### Publications
+If you use the `4lang` module, please cite:
+
+```
+@unpublished{Kornai:2015a,
+author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and Katalin Pajkossy and G\'abor Recski",
+title = "Competence in Lexical Semantics",
+year = 2015,
+note = "{T}o appear in Proc. *SEM-2015"
+}
+```
