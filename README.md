@@ -8,9 +8,13 @@ This repository provides
 
 ### Dependencies
 
-Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines (just clone it to your machine and run `python setup.py install`) and the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, the `text_to_4lang.py requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
+Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines (just clone it to your machine and run `python setup.py install`). All other dependencies are for building 4lang graphs, so in case you only want to use the graphs we provide (e.g. to provide the machine similarity component of our [Semeval STS system](https://github.com/juditacs/semeval/)), you can skip the rest of this section and continue to [download pre-compiled graphs](#Downloading-pre-compiled-graphs).
+
+For parsing dictionary definitions, `4lang` requires the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, `text_to_4lang.py` requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
 
 After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the configuration file used to run the `4lang` tools so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
+
+### Downloading pre-compiled graphs
 
 ### Usage
 
