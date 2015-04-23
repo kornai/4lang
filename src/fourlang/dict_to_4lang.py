@@ -12,6 +12,7 @@ from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
 from longman_parser import LongmanParser
+from wiktionary_parser import WiktParser
 from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
 
@@ -25,13 +26,22 @@ class DictTo4lang():
         ensure_dir(self.tmp_dir)
         self.graph_dir = self.cfg.get('machine', 'graph_dir')
         ensure_dir(self.graph_dir)
-        self.longman_parser = LongmanParser()
+        self.get_parser()
         self.machine_wrapper = None
+
+    def get_parser(self):
+        input_type = self.cfg.get('dict', 'input_type')
+        if input_type == 'wiktionary':
+            self.parser = WiktParser()
+        elif input_type == 'longman':
+            self.parser = LongmanParser()
+        else:
+            raise Exception('unknown input format: {0}'.format(input_type))
 
     def parse_dict(self):
         input_file = self.cfg.get('dict', 'input_file')
         self.raw_dict = defaultdict(dict)
-        for entry in self.longman_parser.parse_file(input_file):
+        for entry in self.parser.parse_file(input_file):
             self.unify(self.raw_dict[entry['hw']], entry)
 
     def unify(self, entry1, entry2):

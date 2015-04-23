@@ -22,6 +22,10 @@ class WiktParser(XMLParser):
         return WiktParser.iter_sections('page', text)
 
     @staticmethod
+    def get_pos(section):
+        return 'n'
+
+    @staticmethod
     def parse_definition(definition):
         d = definition.strip()
         d = WiktParser.html_parser.unescape(d)
@@ -48,10 +52,21 @@ class WiktParser(XMLParser):
         headword = WiktParser.get_section('title', page)
         if ":" in headword:
             return None
+
+        defs_section = WiktParser.defs_section_regex.search(page)
+        pos = WiktParser.get_pos(defs_section)
         definitions = WiktParser.get_definitions(page)
+
         if not definitions:
             return None
-        return {"headword": headword, "definitions": definitions}
+
+        return {
+            "hw": headword,
+            "senses": [{
+                "full_form": headword,
+                "pos": pos,
+                "definition": definition}
+                for definition in definitions]}
 
     @staticmethod
     def parse_xml(xml):
