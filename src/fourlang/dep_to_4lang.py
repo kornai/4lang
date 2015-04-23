@@ -216,7 +216,7 @@ class Dependency():
 
         if (dep.startswith('prep_') or
                 dep.startswith('prepc_')) and rel is None:
-            logging.info('adding new rel from: {0}'.format(dep))
+            # logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split('_', 1)[1].upper()
 
         return Dependency(dep, Dependency.get_standard_operators(
