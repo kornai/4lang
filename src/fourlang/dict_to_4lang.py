@@ -113,9 +113,9 @@ class DictTo4lang():
             elif all(self.thread_states.values()):
                 logging.info(
                     "{0} threads finished successfully".format(no_threads))
+                break
             else:
-                logging.info("some threads failed")
-            break
+                raise Exception("some threads failed")
 
     def print_dict(self, stream=None):
         if stream is None:

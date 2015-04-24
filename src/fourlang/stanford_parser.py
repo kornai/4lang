@@ -126,11 +126,16 @@ class StanfordParser:
                     constraints = StanfordParser.get_constraints(sentence, pos)
                     # logging.info('sen: {0}, constraints: {1}'.format(
                     #    sentence, constraints))
-                    parse, _, dependencies = self.parse_with_constraints(
-                        sentence, constraints)
-                    # logging.info('parse: {0}'.format(parse.pennPrint()))
+                    try:
+                        parse, _, dependencies = self.parse_with_constraints(
+                            sentence, constraints)
+                    except:
+                        logging.error(
+                            u'parse failed on sentence: {0}'.format(sentence))
+                        dep_strings = []
+                    else:
+                        dep_strings = map(unicode, dependencies)
 
-                    dep_strings = map(unicode, dependencies)
                     sense['definition'] = {
                         'sen': sentence,
                         'deps': dep_strings}

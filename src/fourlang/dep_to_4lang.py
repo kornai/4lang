@@ -36,13 +36,13 @@ class DepTo4lang():
             dep = Dependency.create_from_line(l)
             self.dependencies[dep.name] = dep
 
-    def apply_dep(self, dep_str, machine1, machine2, lexicon=None):
+    def apply_dep(self, dep_str, machine1, machine2):
         if dep_str not in self.dependencies:
             logging.warning(
                 'skipping dependency not in dep_to_4lang map: {0}'.format(
                     dep_str))
             return False  # not that anyone cares
-        self.dependencies[dep_str].apply(machine1, machine2, lexicon)
+        self.dependencies[dep_str].apply(machine1, machine2)
 
     def dep_to_4lang(self):
         dict_fn = self.cfg.get("dict", "output_file")
@@ -107,6 +107,8 @@ class DepTo4lang():
             return None
         root_word, root_id = root_deps[0][2]
         root_lemma = self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
+        root_lemma = root_word if not root_lemma else root_lemma
+
         word2machine = self.get_machines_from_parsed_deps(deps)
 
         root_machine = word2machine[root_lemma]
@@ -135,48 +137,46 @@ class DepTo4lang():
         word2machine = {}
 
         for i, deps in enumerate(dep_lists):
-            for dep, (word1, id1), (word2, id2) in deps:
-                # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
-                c_word1 = coref_index[word1].get(i, word1)
-                c_word2 = coref_index[word2].get(i, word2)
-                if c_word1 != word1:
-                    logging.warning(
-                        "unifying '{0}' with canonical '{1}'".format(
-                            word1, c_word1))
-                if c_word2 != word2:
-                    logging.warning(
-                        "unifying '{0}' with canonical '{1}'".format(
-                            word2, c_word2))
+            try:
+                for dep, (word1, id1), (word2, id2) in deps:
+                    # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
+                    c_word1 = coref_index[word1].get(i, word1)
+                    c_word2 = coref_index[word2].get(i, word2)
+                    if c_word1 != word1:
+                        logging.warning(
+                            "unifying '{0}' with canonical '{1}'".format(
+                                word1, c_word1))
+                    if c_word2 != word2:
+                        logging.warning(
+                            "unifying '{0}' with canonical '{1}'".format(
+                                word2, c_word2))
 
-                # logging.info('cw1: {0}, cw2: {1}'.format(c_word1, c_word2))
-                lemma1 = self.lemmatizer.lemmatize(c_word1)
-                lemma2 = self.lemmatizer.lemmatize(c_word2)
+                    # logging.info(
+                    #    'cw1: {0}, cw2: {1}'.format(c_word1, c_word2))
+                    lemma1 = self.lemmatizer.lemmatize(c_word1)
+                    lemma2 = self.lemmatizer.lemmatize(c_word2)
 
-                lemma1 = c_word1 if lemma1 is None else lemma1
-                lemma2 = c_word2 if lemma2 is None else lemma2
+                    lemma1 = c_word1 if not lemma1 else lemma1
+                    lemma2 = c_word2 if not lemma2 else lemma2
 
-                # TODO
-                lemma1 = lemma1.replace('/', '_PER_')
-                lemma2 = lemma2.replace('/', '_PER_')
+                    # TODO
+                    lemma1 = lemma1.replace('/', '_PER_')
+                    lemma2 = lemma2.replace('/', '_PER_')
 
-                # logging.info(
-                #     'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
-                machine1, machine2 = self._add_dependency(
-                    dep, (lemma1, id1), (lemma2, id2), lexicon)
+                    # logging.info(
+                    #     'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
+                    machine1, machine2 = self._add_dependency(
+                        dep, (lemma1, id1), (lemma2, id2), lexicon)
 
-                word2machine[lemma1] = machine1
-                word2machine[lemma2] = machine2
+                    word2machine[lemma1] = machine1
+                    word2machine[lemma2] = machine2
+            except:
+                logging.error("failure on dep: {0}({1}, {2})".format(
+                    dep, word1, word2))
+                traceback.print_exc()
+                raise Exception("adding dependencies failed")
 
         return word2machine
-
-    def add_dependency(self, string):
-        # e.g. nsubjpass(pushed-7, salesman-5)
-        logging.debug('processing dependency: {}'.format(string))
-        dep, (word1, id1), (word2, id2) = DepTo4lang.parse_dependency(string)
-        lemma1 = self.lemmatizer.lemmatize(word1)
-        lemma2 = self.lemmatizer.lemmatize(word2)
-        self._add_dependency(dep, (lemma1, id1), (lemma2, id2),
-                             use_lexicon=True, activate_machines=True)
 
     def _add_dependency(self, dep, (word1, id1), (word2, id2), lexicon):
         """Given a triplet from Stanford Dep.: D(w1,w2), we create and activate
@@ -186,7 +186,7 @@ class DepTo4lang():
         #     'adding dependency {0}({1}, {2})'.format(dep, word1, word2))
         machine1, machine2 = map(lexicon.get_machine, (word1, word2))
 
-        self.apply_dep(dep, machine1, machine2, lexicon)
+        self.apply_dep(dep, machine1, machine2)
         return machine1, machine2
 
 
@@ -232,17 +232,12 @@ class Dependency():
         if rel:
             operators.append(
                 AppendToNewBinaryOperator(rel, 0, 1, reverse=reverse))
-            # operators.append(
-            #    AppendToBinaryFromLexiconOperator(rel, 0, 1, reverse=reverse))
 
         return operators
 
-    def apply(self, machine1, machine2, lexicon=None):
+    def apply(self, machine1, machine2):
         for operator in self.operators:
-            if isinstance(operator, AppendToBinaryFromLexiconOperator):
-                operator.act((machine1, machine2), lexicon)
-            else:
-                operator.act((machine1, machine2))
+            operator.act((machine1, machine2))
 
 def main():
     logging.basicConfig(
