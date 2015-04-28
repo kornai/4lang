@@ -14,6 +14,13 @@ def batches(l, n):
     for i in xrange(0, len(l), n):
         yield l[i:i+n]
 
+def print_text_graph(words_to_machines, graph_dir):
+    graph = MachineGraph.create_from_machines(
+        words_to_machines.values())
+    fn = os.path.join(graph_dir, 'text.dot')
+    with open(fn, 'w') as f:
+        f.write(graph.to_dot().encode('utf-8'))
+
 def print_4lang_graphs(words_to_machines, graph_dir):
     for word, machine in words_to_machines.iteritems():
         print_4lang_graph(word, machine, graph_dir)

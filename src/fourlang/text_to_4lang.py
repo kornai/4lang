@@ -2,11 +2,9 @@ import logging
 import os
 import sys
 
-from pymachine.utils import MachineGraph
-from pymachine.wrapper import Wrapper as MachineWrapper
-
 from corenlp_wrapper import CoreNLPWrapper
-from utils import get_cfg
+from dep_to_4lang import DepTo4lang
+from utils import ensure_dir, get_cfg, print_text_graph
 
 __LOGLEVEL__ = 'DEBUG'
 __MACHINE_LOGLEVEL__ = 'INFO'
@@ -14,42 +12,54 @@ __MACHINE_LOGLEVEL__ = 'INFO'
 class TextTo4lang():
     def __init__(self, cfg):
         self.cfg = cfg
+        self.deps_dir = self.cfg.get('data', 'deps_dir')
+        ensure_dir(self.deps_dir)
 
-    def process(self, stream, max_sens=None):
-        sens = [line.strip() for line in stream]
+    def print_deps(self, parsed_sens):
+        for i, deps in enumerate(parsed_sens):
+            fn = os.path.join(self.deps_dir, 'sen_{0}.dep'.format(i))
+            with open(fn, 'w') as f:
+                f.write(
+                    "\n".join(["{0}({1}, {2})".format(*dep) for dep in deps]))
 
+    def process(self, sens, print_deps=False):
         logging.info("running parser...")
         corenlp_wrapper = CoreNLPWrapper(self.cfg)
         parsed_sens, corefs = corenlp_wrapper.parse_sentences(sens)
+        logging.info("parsed {0} sentences".format(len(parsed_sens)))
+        if print_deps:
+            self.print_deps(parsed_sens)
 
-        logging.info("loading machine wrapper...")
+        logging.info("loading dep_to_4lang...")
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
-        machine_cfg_file = os.path.join(self.cfg_dir, 'machine.cfg')
-        wrapper = MachineWrapper(machine_cfg_file)
+        dep_to_4lang = DepTo4lang(self.cfg)
 
         logging.info("processing sentences...")
-        for i, deps in enumerate(parsed_sens):
-            if max_sens is not None and i >= max_sens:
-                break
-            with open('test/sens/sen_{0}.dep'.format(i), 'w') as f:
-                f.write(
-                    "\n".join(["{0}({1}, {2})".format(*dep) for dep in deps]))
-        words_to_machines = wrapper.get_machines_from_deps_and_corefs(
-            parsed_sens[:max_sens], corefs)
-        graph = MachineGraph.create_from_machines(
-            words_to_machines.values())
-        with open('test/sens/graphs/all_sens.dot'.format(i), 'w') as f:
-            f.write(graph.to_dot().encode('utf-8'))
-        logging.info("done, processed {0} sentences".format(i+1))
+        words_to_machines = dep_to_4lang.get_machines_from_deps_and_corefs(
+            parsed_sens, corefs)
 
-if __name__ == "__main__":
+        logging.info("done, processed {0} sentences".format(len(parsed_sens)))
+
+        return words_to_machines
+
+def main():
     logging.basicConfig(
         level=__LOGLEVEL__,
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    max_sens = int(sys.argv[2]) if len(sys.argv) > 2 else None
+
     cfg = get_cfg(cfg_file)
     text_to_4lang = TextTo4lang(cfg)
 
-    max_sens = int(sys.argv[2]) if len(sys.argv) > 2 else None
-    text_to_4lang.process(sys.stdin, max_sens)
+    input_fn = cfg.get('data', 'input_sens')
+    sens = [line.strip() for line in open(input_fn)]
+    if max_sens is not None:
+        sens = sens[:max_sens]
+
+    words_to_machines = text_to_4lang.process(sens, print_deps=True)
+    print_text_graph(words_to_machines, cfg.get('machine', 'graph_dir'))
+
+if __name__ == "__main__":
+    main()
