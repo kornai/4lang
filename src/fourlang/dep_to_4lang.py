@@ -103,7 +103,7 @@ class DepTo4lang():
         root_deps = filter(lambda d: d[0] == 'root', deps)
         if len(root_deps) != 1:
             logging.warning(
-                'no unique root dependency, skipping word "{0}"'.format(word))
+                u'no unique root dependency, skipping word "{0}"'.format(word))
             return None
         root_word, root_id = root_deps[0][2]
         root_lemma = self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')

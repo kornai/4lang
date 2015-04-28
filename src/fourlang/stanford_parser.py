@@ -130,8 +130,9 @@ class StanfordParser:
                         parse, _, dependencies = self.parse_with_constraints(
                             sentence, constraints)
                     except:
-                        logging.error(
-                            u'parse failed on sentence: {0}'.format(sentence))
+                        sys.stderr.write(
+                            u'parse failed on sentence: {0}'.format(
+                                sentence).encode('utf-8'))
                         dep_strings = []
                     else:
                         dep_strings = map(unicode, dependencies)

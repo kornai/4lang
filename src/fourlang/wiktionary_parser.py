@@ -10,14 +10,14 @@ class WiktParser(XMLParser):
     html_parser = HTMLParser()
 
     header_regex = re.compile("^=+([^=]*?)=+$", re.M)
-    lang_section_regex = re.compile('^==English==$.*', re.M | re.S)
+    lang_section_regex = re.compile('==English==$.*', re.M | re.S)
     defs_section_regex = re.compile("^=+[^=$]*?=+$[^=]*?^#.*?^=", re.M | re.S)
     def_regex = re.compile("^#([^#:\*].*)", re.M)
     double_curly_regex = re.compile("{{.*?}}")
     replacements = [(re.compile(pattern), subst) for pattern, subst in [
         ("\[\[(.*?)\|(.*?)\]\]", "\\2")]]
     patterns_to_remove = [re.compile(pattern) for pattern in [
-        "\[\[", "\]\]", "''", "''"]]
+        "\[\[", "\]\]", "<ref>.*</ref>", "''", "''"]]
 
     pos_name_map = {  # entries with categories not listed shall be omitted
         'noun': 'n', 'proper noun': 'n', 'verb': 'v', 'adjective': 'adj',
@@ -41,12 +41,18 @@ class WiktParser(XMLParser):
     @staticmethod
     def parse_definition(definition):
         d = definition.strip()
+        # semi-colons usually separate two definitions on the same line
+        d = d.split(';')[0]
         d = WiktParser.html_parser.unescape(d)
         d = WiktParser.double_curly_regex.sub('', d)
         for pattern, subst in WiktParser.replacements:
             d = pattern.sub(subst, d)
         for pattern in WiktParser.patterns_to_remove:
             d = pattern.sub("", d)
+
+        # if a definition is longer than 300 characters, that's probably a bug
+        # and it will cause memory errors when parsing
+        d = d[:300]
 
         return d.strip()
 

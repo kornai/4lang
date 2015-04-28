@@ -7,13 +7,13 @@ from unidecode import unidecode
 from hunmisc.xstring.encoding import encode_to_proszeky
 import nltk.data
 
-assert logging  # silence pyflakes
+assert logging, unidecode  # silence pyflakes
 
 class EntryPreprocessor():
     word_replacement_pairs = [
         (re.compile(patt, re.UNICODE), repl) for patt, repl in [
-            (u'/', u'_PER_'), (u'\?', u'Q'), (u'\.', u'P'), (u'\(', u'_LRB_'),
-            (u'\)', u'_RRB_')]]
+            (u'/', u'_PER_'), (u'\?', u'_Q_'), (u'\.', u'_P_'),
+            (u'\(', u'_LRB_'), (u'\)', u'_RRB_')]]
     def_replacement_pairs = [
         (re.compile(patt, re.UNICODE), repl, flags) for patt, repl, flags in [
             (u'([^,]) etc', u'\\1, etc', ()),  # comma before etc.
@@ -29,7 +29,7 @@ class EntryPreprocessor():
     @staticmethod
     def clean_headword(word):
         clean = encode_to_proszeky(word)
-        clean = unidecode(clean)
+        # clean = unidecode(clean)  #will map different words together!
         for pattern, replacement in EntryPreprocessor.word_replacement_pairs:  # nopep8
             clean = pattern.sub(replacement, clean)
         return clean

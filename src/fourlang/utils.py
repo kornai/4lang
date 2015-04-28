@@ -20,7 +20,7 @@ def print_4lang_graphs(words_to_machines, graph_dir):
 
 def print_4lang_graph(word, machine, graph_dir):
     graph = MachineGraph.create_from_machines([machine])
-    fn = os.path.join(graph_dir, u"{0}.dot".format(word))
+    fn = os.path.join(graph_dir, u"{0}.dot".format(word)).encode('utf-8')
     with open(fn, 'w') as dot_obj:
         dot_obj.write(graph.to_dot().encode('utf-8'))
 

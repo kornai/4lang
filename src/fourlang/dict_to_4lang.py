@@ -69,10 +69,6 @@ class DictTo4lang():
             if entry['to_filter']:
                 continue
             word = entry['hw']
-            if word in self.dictionary:
-                raise Exception(
-                    "entries with identical headwords: {0}".format(
-                        entry, self.dictionary[word]))
             for sense in entry['senses']:
                 definition = sense['definition']
                 if definition is None:
@@ -80,7 +76,14 @@ class DictTo4lang():
                 definition['deps'] = dependency_processor.process_dependencies(
                     definition['deps'])
 
-            self.dictionary[word] = entry
+            if word in self.dictionary:
+                logging.warning(
+                    "entries with identical headwords:\n{0}\n{1}".format(
+                        entry, self.dictionary[word]))
+
+                self.unify(self.dictionary[word], entry)
+            else:
+                self.dictionary[word] = entry
 
     def process_entries_thread(self, i, words):
         try:

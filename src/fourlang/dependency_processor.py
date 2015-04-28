@@ -2,7 +2,7 @@ from collections import defaultdict
 import re
 
 class Dependencies():
-    dep_regex = re.compile("([a-z_-]*)\((.*?)-([0-9]*)'*, (.*?)-([0-9]*)'*\)")
+    dep_regex = re.compile("(.*?)\((.*?)-([0-9]*)'*, (.*?)-([0-9]*)'*\)")
 
     @staticmethod
     def parse_dependency(string):
