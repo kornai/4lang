@@ -1,0 +1,50 @@
+<test-set>
+    <topic t_id="0" t_name="Entrance Exam">
+        <reading-test r_id="1">
+            <doc d_id="1">
+
+                The white-haired old man was sitting in his favorite chair, holding a thick book and rubbing his tired eyes. When his nineteen-year-old granddaughter, Valerie, came into the room, he looked up and smiled. His eyes instantly brightened with happiness to see her. &quot;Hi, Grandpa. What are you reading?&quot; she asked, pulling up a chair beside him. &quot;Oh, it's a book on the architecture of Spain. But I'm not really reading. Mostly I am just falling asleep over the pictures,&quot; he said, laughing. &quot;Are you finished packing your bags yet?&quot; he asked. The following morning Valerie and two of her friends were flying to Europe for a two-week holiday. &quot;Almost. I need to travel light, you see, so I can buy lots of new dresses and shoes in Paris and Barcelona.&quot; They both laughed because Valerie was not actually interested in fashion at all. She loved foreign languages, music, art, good food, and many other things - but not shopping for clothes. &quot;Have the three of you finally decided what you want to do on your trip?&quot; Valerie thought for a moment and then replied, &quot;Well, Naomi really wants to see the Eiffel Tower and we all want to visit the Louvre Museum. Mika and I want to see the wonderful buildings in Barcelona, too. But, basically, we still don't have much of a plan. Do you have any suggestions? You've been to Europe so many times.&quot; Valerie's grandfather paused, and then replied slowly, &quot;You know, sometimes it may be best not to have a detailed plan. I remember when your grandmother and I first went to Barcelona. We went to museums or concerts every day. We saw bullfights and soccer matches. We ate wonderful food and met many interesting people. But one of my greatest memories from that trip was completely unexpected.&quot; Grandpa paused again, and then said, &quot;We had come especially to see the famous works of art, but one day just for a change we went to the zoo. And there I met someone who had a great effect on me.&quot; &quot;His name was Snowflake,&quot; he continued, &quot;and he was a gorilla, a very special albino gorilla, with white fur and pink skin. When only three years old, Snowflake was captured in the forests of Africa and then brought to the zoo. Because of his rare color he had become quite famous. Many people lined up to see him behind a glass wall in the exhibit hall.&quot; &quot;In fact,&quot; Grandpa said, &quot;I did not think he was real when I first saw him. When I moved closer, though, he turned slowly toward me and calmly looked directly into my eyes. For the first time ever, I felt intelligence and awareness in the eyes of another species. It made an impression on me that I will never forget.&quot; &quot;So, what did you do?&quot; Valerie asked. &quot;Actually, Snowflake was the one who did something. As we gazed into each other's eyes, the 140-kilogram gorilla suddenly slapped his hand flat against the glass wall, making a loud, forceful sound that made all the people in the room cry out in surprise. Snowflake seemed rather pleased with our reaction, turning away casually and snacking on some leaves.&quot; &quot;So, he surprised you. He had a sense of humor, it seems,&quot; Valerie said. &quot;But isn't it sad for such a wonderful animal to live in a cage?&quot; &quot;Yes, maybe,&quot; Grandpa replied. &quot;But in the wild so many gorillas are killed by hunters or disease that it is difficult to say which way of life is better. And Snowflake did live a long life for a gorilla, about forty years, which is equivalent to eighty years for a human.&quot; &quot;So, he's dead now?&quot; Valerie asked. &quot;Yes, he died of skin cancer in 2003. He had very pale skin, of course, so sunlight was very dangerous for him. It was a painful end, but I believe he had some happy memories, too. You know, he had three mates, several 'children,' and 22 'grandchildren,' so that must have been nice.&quot; Grandpa smiled at Valerie and said, &quot;Anyway, maybe it's best not to plan everything. All kinds of wonderful, unexpected encounters may be waiting for you on your trip.&quot; A week or so later, Grandpa heard from Valerie and her friends. They were having a wonderful time, enjoying many new activities. They even made an unscheduled trip to the Barcelona Zoo, where they saw one of Snowflake's grandchildren. This baby gorilla didn't have white fur, but he did have bright, intelligent eyes which Valerie said she would never forget.
+            </doc>
+            <question q_id="1">
+                <q_str>Why did Valerie and Grandpa laugh?</q_str>
+
+                <answer a_id="1">Valerie had not finished her preparation.</answer>
+                <answer a_id="2">Valerie had too many things in her suitcase.</answer>
+                <answer a_id="3">They both knew that what Valerie said was not true.</answer>
+                <answer a_id="4">They both understood that Valerie had very little money.</answer>
+            </question>
+            <question q_id="2">
+                <q_str>What valuable advice did Grandpa give about Valerie's travel plan?</q_str>
+
+                <answer a_id="1">Go to the zoo.</answer>
+                <answer a_id="2">Travel light.</answer>
+                <answer a_id="3">Eat authentic dishes.</answer>
+                <answer a_id="4">Don't plan everything.</answer>
+            </question>
+            <question q_id="3">
+                <q_str>What unexpected experience did Grandpa describe from his first trip to Barcelona?</q_str>
+
+                <answer a_id="1">Meeting many strange people.</answer>
+                <answer a_id="2">Viewing various shocking works of art.</answer>
+                <answer a_id="3">Enjoying very spicy Spanish food.</answer>
+                <answer a_id="4">Encountering an unusual gorilla.</answer>
+            </question>
+            <question q_id="4">
+                <q_str>Why was Snowflake a popular exhibit at the zoo?</q_str>
+
+                <answer a_id="1">He had a unique name.</answer>
+                <answer a_id="2">He was an unusual color.</answer>
+                <answer a_id="3">He played many different tricks.</answer>
+                <answer a_id="4">He was kept behind a glass wall.</answer>
+            </question>
+            <question q_id="5">
+                <q_str>According to Grandpa, what is one serious danger for gorillas in Africa?</q_str>
+
+                <answer a_id="1">There is a high risk of getting skin cancer.</answer>
+                <answer a_id="2">Air pollution causes damage to their health.</answer>
+                <answer a_id="3">They are threatened by human violence.</answer>
+                <answer a_id="4">Lions and other animals commonly attack them.</answer>
+            </question>
+        </reading-test>
+    </topic>
+</test-set>
