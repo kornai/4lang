@@ -31,6 +31,13 @@ To use `4lang` from our [Semeval STS system](https://github.com/juditacs/semeval
 
 #### Dict_to_4lang and Text_to_4lang
 
+To run each module on small test datasets, simply run
+
+```
+python src/dict_to_4lang.py
+python src/text_to_4lang.py
+```
+
 Both tools can be configured by editing a copy of [conf/default.cfg](conf/default.cfg) and running
 
 ```
