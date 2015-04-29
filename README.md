@@ -54,7 +54,7 @@ If you use the `4lang` module, please cite:
 
 ```
 @unpublished{Kornai:2015a,
-author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and Katalin Pajkossy and G\'abor Recski",
+author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and D\'avid Nemeskey and Katalin Pajkossy and G\'abor Recski",
 title = "Competence in Lexical Semantics",
 year = 2015,
 note = "{T}o appear in Proc. *SEM-2015"
