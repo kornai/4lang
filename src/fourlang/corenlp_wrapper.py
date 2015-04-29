@@ -71,9 +71,10 @@ class CoreNLPWrapper():
         ensure_dir(self.tmp_dir)
 
     def run_parser(self, in_file_name):
-        return_code = subprocess.call([
-            'java', '-cp', self.classpath, '-Xmx2g',
-            self.class_name, '-file', in_file_name])
+        to_run = ['java', '-cp', self.classpath, '-Xmx2g', self.class_name,
+                  '-file', in_file_name]
+        logging.debug('running this: {0}'.format(' '.join(to_run)))
+        return_code = subprocess.call(to_run)
 
         return return_code == 0
 
@@ -98,7 +99,8 @@ def test():
 
     wrapper = CoreNLPWrapper(cfg)
     parsed_sens, corefs = wrapper.parse_sentences(
-        [line.strip() for line in open('data/mrhug_story.sens').readlines()])
+        [line.strip()
+         for line in open('test/input/mrhug_story.sens').readlines()])
     print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 

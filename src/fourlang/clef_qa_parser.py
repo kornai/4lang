@@ -23,9 +23,9 @@ class QAParser(XMLParser):
         questions = []
         for q_id, q_str, q_body in QAParser.question_regex.findall(r_body):
             answers = [
-                {"id": int(a_id), "answer": a_str.strip()}
+                {"id": int(a_id), "text": a_str.strip()}
                 for a_id, a_str in QAParser.answer_regex.findall(q_body)]
-            questions.append({"id": int(q_id), "q_text": q_str.strip(),
+            questions.append({"id": int(q_id), "text": q_str.strip(),
                               "answers": answers})
         return questions
 

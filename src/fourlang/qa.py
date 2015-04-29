@@ -4,6 +4,7 @@ import sys
 import nltk.data
 
 from clef_qa_parser import QAParser
+from similarity import WordSimilarity
 from text_to_4lang import TextTo4lang
 from utils import get_cfg
 
@@ -16,9 +17,29 @@ class QuestionAnswerer:
         nltk.download('punkt', quiet=True)
         self.sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
         self.text_to_4lang = TextTo4lang(cfg)
+        self.word_similarity = WordSimilarity(cfg)
+
+    def score_answer(self, answer, model):
+        known_words = set(answer.keys()) & set(model.keys())
+        score = 0
+        for word in known_words:
+            w_sim = self.word_similarity.machine_similarity(
+                answer[word], model[word], 'default')
+            score += w_sim
+
+        return score / float(len(known_words))
 
     def answer_question(self, question, model):
-        return 'No idea yet'
+        logging.info('processing question: {0}...'.format(question['text']))
+        question['machines'] = self.text_to_4lang.process(question['text'])
+        for answer in question['answers']:
+            logging.info('processing answer: {0}...'.format(answer['text']))
+            answer['machines'] = self.text_to_4lang.process(answer['text'])
+            answer['score'] = self.score_answer(answer['machines'], model)
+            logging.info('score: {0}...'.format(answer['score']))
+
+        top_answer = sorted(question['answers'], key=lambda a: -a['score'])[0]
+        return top_answer
 
     def run(self):
         logging.info('running QA...')
@@ -31,7 +52,6 @@ class QuestionAnswerer:
 
             model = self.text_to_4lang.process(sens)
 
-            logging.info('processing questions...')
             for question in entry['questions']:
                 answer = self.answer_question(question, model)
                 print answer
