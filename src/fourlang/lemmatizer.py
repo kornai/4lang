@@ -72,15 +72,21 @@ class Lemmatizer():
 
     def get_analyzer(self):
         hunmorph_path = self.cfg.get('lemmatizer', 'hunmorph_path')
-        ocamorph = Ocamorph(
-            os.path.join(hunmorph_path, "ocamorph"),
-            os.path.join(hunmorph_path, "morphdb_en.bin"))
+        ocamorph_fn = os.path.join(hunmorph_path, "ocamorph")
+        morphdb_model_fn = os.path.join(hunmorph_path, "morphdb_en.bin")
+        hundisambig_fn = os.path.join(hunmorph_path, "hundisambig")
+        hunpos_model_fn = os.path.join(hunmorph_path, "en_wsj.model")
+
+        logging.warning('loading hunmorph...')
+        for fn in (ocamorph_fn, morphdb_model_fn, hundisambig_fn,
+                   hunpos_model_fn):
+            if not os.path.exists(fn):
+                raise Exception("can't find hunmorph resource: {0}".format(fn))
+
+        ocamorph = Ocamorph(ocamorph_fn, morphdb_model_fn)
         ocamorph_analyzer = OcamorphAnalyzer(ocamorph)
-        morph_analyzer = MorphAnalyzer(
-            ocamorph,
-            Hundisambig(
-                os.path.join(hunmorph_path, "hundisambig"),
-                os.path.join(hunmorph_path, "en_wsj.model")))
+        hundisambig = Hundisambig(hundisambig_fn, hunpos_model_fn)
+        morph_analyzer = MorphAnalyzer(ocamorph, hundisambig)
 
         return morph_analyzer, ocamorph_analyzer
 

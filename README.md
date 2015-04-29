@@ -12,9 +12,9 @@ This repository provides
 Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines (just clone it to your machine and run `python setup.py install`).
 
 #### hunmorph
-For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). If they don't work on your system, you may have to download and recompile `hunmorph` and/or the model it uses following the instructions [here](http://mokk.bme.hu/en/resources/hunmorph/). This process is quite error-prone, but please [reach out](#Contact) to us and we'll be happy to help you!
+For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). If they don't work on your system, you may have to download and recompile `hunmorph` and/or the model it uses following the instructions [here](http://mokk.bme.hu/en/resources/hunmorph/). This process is quite error-prone, but please [reach out](#contact) to us and we'll be happy to help you!
 
-__NOTE__: All remaining dependencies are required only for building 4lang graphs, so in case you only want to use the graphs we provide (e.g. for the machine similarity component of our [Semeval STS system](https://github.com/juditacs/semeval/)), you can skip the rest of this section and continue to [download pre-compiled graphs](#Downloading-pre-compiled-graphs).
+__NOTE__: All remaining dependencies are required only for building 4lang graphs, so in case you only want to use the graphs we provide (e.g. for the machine similarity component of our [Semeval STS system](https://github.com/juditacs/semeval/)), you can skip the rest of this section and continue to [download pre-compiled graphs](#downloading-pre-compiled-graphs).
 
 #### Stanford Parser, CoreNLP, jython
 For parsing dictionary definitions, `4lang` requires the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, `text_to_4lang.py` requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
@@ -30,6 +30,13 @@ We provide [serialized machine graphs](http://people.mokk.bme.hu/~recski/4lang/m
 To use `4lang` from our [Semeval STS system](https://github.com/juditacs/semeval/) you just need to edit the `4langpath` and `hunmorph_path` attributes in your semeval config file so that they point to your 4lang directory and the downloaded `hunmorph` binaries, respectively.
 
 #### Dict_to_4lang and Text_to_4lang
+
+To run each module on small test datasets, simply run
+
+```
+python src/dict_to_4lang.py
+python src/text_to_4lang.py
+```
 
 Both tools can be configured by editing a copy of [conf/default.cfg](conf/default.cfg) and running
 
@@ -54,7 +61,7 @@ If you use the `4lang` module, please cite:
 
 ```
 @unpublished{Kornai:2015a,
-author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and Katalin Pajkossy and G\'abor Recski",
+author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and D\'avid Nemeskey and Katalin Pajkossy and G\'abor Recski",
 title = "Competence in Lexical Semantics",
 year = 2015,
 note = "{T}o appear in Proc. *SEM-2015"
