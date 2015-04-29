@@ -2,3 +2,9 @@
 *.pyc
 *.swp
 data
+test
+input
+
+build
+dist
+*egg-info

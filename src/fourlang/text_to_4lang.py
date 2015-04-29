@@ -59,7 +59,8 @@ def main():
         sens = sens[:max_sens]
 
     words_to_machines = text_to_4lang.process(sens, print_deps=True)
-    print_text_graph(words_to_machines, cfg.get('machine', 'graph_dir'))
+    fn = print_text_graph(words_to_machines, cfg.get('machine', 'graph_dir'))
+    logging.info('wrote graph to {0}'.format(fn))
 
 if __name__ == "__main__":
     main()

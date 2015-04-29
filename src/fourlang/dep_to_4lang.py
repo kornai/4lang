@@ -142,6 +142,8 @@ class DepTo4lang():
                     # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
+
+                    """
                     if c_word1 != word1:
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
@@ -150,6 +152,7 @@ class DepTo4lang():
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
                                 word2, c_word2))
+                    """
 
                     # logging.info(
                     #    'cw1: {0}, cw2: {1}'.format(c_word1, c_word2))
