@@ -140,6 +140,8 @@ class DepTo4lang():
             try:
                 for dep, (word1, id1), (word2, id2) in deps:
                     # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
+                    if 'ROOT' in (word1, word2):
+                        continue
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 

@@ -28,7 +28,7 @@ class WordSimilarity():
 
     def log(self, string):
         if not self.batch:
-            logging.info(string)
+            logging.debug(string)
 
     def get_links_nodes(self, machine, use_cache=True):
         if use_cache and machine in self.links_nodes_cache:
@@ -227,35 +227,30 @@ class WordSimilarity():
         self.lemma_sim_cache[(lemma2, lemma1)] = sim
         return sim
 
-class SentenceSimilarity():
-    def __init__(self, machine_wrapper):
-        self.wrapper = machine_wrapper
-        self.word_sim = WordSimilarity(machine_wrapper)
+class GraphSimilarity():
+    @staticmethod
+    def supported_score(graph, context_graph):
+        zero_count, zero_supported, bin_count, bin_supported = 0, 0, 0, 0
+        evidence = []
+        binaries = defaultdict(set)
+        for edge in graph.edges:
+            logging.info('testing edge: {0}'.format(edge))
+            if edge[2] == 0:
+                zero_count += 1
+                if edge in context_graph.edges_by_color[0]:
+                    evidence.append(edge)
+                    zero_supported += 1
+            else:
+                binaries[edge[0]].add(edge)
 
-    def process_line(self, line, parser, sen_filter, fallback_sim):
-        fields = line.decode('latin1').strip().split('\t')
-        sen1, sen2, tags1, tags2 = parser(fields)
-        sen1 = sen_filter([{"token": sen1[i], "pos": pos, "ner": ner}
-                          for i, (pos, ner) in enumerate(tags1)])
-        sen2 = sen_filter([{"token": sen2[i], "pos": pos, "ner": ner}
-                          for i, (pos, ner) in enumerate(tags2)])
+        for binary, edges in binaries.iteritems():
+            bin_count += 1
+            if all(edge in context_graph.edges for edge in edges):
+                evidence.append(edges)
+                bin_supported += 1
 
-        sim = self.sentence_similarity(sen1, sen2, fallback=fallback_sim)
-        print sim
-
-    def directional_sen_similarity(self, sen1, sen2, fallback):
-        return average((
-            my_max((self.word_sim.word_similarity(
-                word1['token'], word2['token'], -1, -1,
-                fallback=fallback)
-                for word2 in sen2))
-            for word1 in sen1))
-
-    def sentence_similarity(self, sen1, sen2, fallback=lambda a, b, c, d: 0.0):
-        return harmonic_mean((
-            self.directional_sen_similarity(sen1, sen2, fallback),
-            self.directional_sen_similarity(sen2, sen1, fallback)))
-
+        return (zero_supported + bin_supported) / float(
+            zero_count + bin_count), evidence
 
 class SimComparer():
     def __init__(self, cfg_file, batch=True):

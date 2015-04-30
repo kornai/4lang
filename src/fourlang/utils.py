@@ -14,10 +14,10 @@ def batches(l, n):
     for i in xrange(0, len(l), n):
         yield l[i:i+n]
 
-def print_text_graph(words_to_machines, graph_dir):
+def print_text_graph(words_to_machines, graph_dir, fn='text'):
     graph = MachineGraph.create_from_machines(
         words_to_machines.values())
-    fn = os.path.join(graph_dir, 'text.dot')
+    fn = os.path.join(graph_dir, '{0}.dot'.format(fn))
     with open(fn, 'w') as f:
         f.write(graph.to_dot().encode('utf-8'))
     return fn

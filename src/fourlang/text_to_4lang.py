@@ -14,31 +14,35 @@ class TextTo4lang():
         self.cfg = cfg
         self.deps_dir = self.cfg.get('data', 'deps_dir')
         ensure_dir(self.deps_dir)
+        self.corenlp_wrapper = CoreNLPWrapper(self.cfg)
 
-    def print_deps(self, parsed_sens):
+    def print_deps(self, parsed_sens, dep_dir=None, fn=None):
         for i, deps in enumerate(parsed_sens):
-            fn = os.path.join(self.deps_dir, 'sen_{0}.dep'.format(i))
-            with open(fn, 'w') as f:
+            if fn is None:
+                out_fn = os.path.join(dep_dir, "{0}.dep".format(i))
+            else:
+                out_fn = os.path.join(dep_dir, "{0}_{1}.dep".format(fn, i))
+            with open(out_fn, 'w') as f:
                 f.write(
                     "\n".join(["{0}({1}, {2})".format(*dep) for dep in deps]))
 
-    def process(self, sens, print_deps=False):
-        logging.info("running parser...")
-        corenlp_wrapper = CoreNLPWrapper(self.cfg)
-        parsed_sens, corefs = corenlp_wrapper.parse_sentences(sens)
-        logging.info("parsed {0} sentences".format(len(parsed_sens)))
-        if print_deps:
-            self.print_deps(parsed_sens)
+    def process(self, text, dep_dir=None, fn=None):
+        # logging.info("running parser...")
+        parsed_sens, corefs = self.corenlp_wrapper.parse_text(text)
+        # logging.info("parsed {0} sentences".format(len(parsed_sens)))
+        if dep_dir is not None:
+            self.print_deps(parsed_sens, dep_dir, fn)
 
-        logging.info("loading dep_to_4lang...")
+        # logging.info("loading dep_to_4lang...")
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
         dep_to_4lang = DepTo4lang(self.cfg)
 
-        logging.info("processing sentences...")
+        # logging.info("processing sentences...")
         words_to_machines = dep_to_4lang.get_machines_from_deps_and_corefs(
             parsed_sens, corefs)
 
-        logging.info("done, processed {0} sentences".format(len(parsed_sens)))
+        # logging.info(
+        #      "done, processed {0} sentences".format(len(parsed_sens)))
 
         return words_to_machines
 
@@ -58,7 +62,8 @@ def main():
     if max_sens is not None:
         sens = sens[:max_sens]
 
-    words_to_machines = text_to_4lang.process(sens, print_deps=True)
+    words_to_machines = text_to_4lang.process(
+        sens, dep_dir=text_to_4lang.deps_dir)
     fn = print_text_graph(words_to_machines, cfg.get('machine', 'graph_dir'))
     logging.info('wrote graph to {0}'.format(fn))
 
