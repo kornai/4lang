@@ -111,7 +111,14 @@ class DepTo4lang():
 
         word2machine = self.get_machines_from_parsed_deps(deps)
 
-        root_machine = word2machine[root_lemma]
+        try:
+            root_machine = word2machine[root_lemma]
+        except:
+            logging.error(
+                "can't find machine for root lemma: '{0}'".format(root_lemma))
+            logging.error("word2machine: {0}".format(word2machine))
+            logging.error("deps: {0}".format(deps))
+            raise Exception()
         word_machine = word2machine.get(word, Machine(word, ConceptControl()))
         word_machine.append(root_machine, 0)
         return word_machine
@@ -140,8 +147,6 @@ class DepTo4lang():
             try:
                 for dep, (word1, id1), (word2, id2) in deps:
                     # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
-                    if 'ROOT' in (word1, word2):
-                        continue
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
@@ -170,6 +175,10 @@ class DepTo4lang():
 
                     # logging.info(
                     #     'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
+                    if dep == 'root':
+                        if lemma2 not in word2machine:
+                            word2machine[lemma2] = lexicon.get_machine(lemma2)
+                        continue
                     machine1, machine2 = self._add_dependency(
                         dep, (lemma1, id1), (lemma2, id2), lexicon)
 

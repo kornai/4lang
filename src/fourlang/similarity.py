@@ -1,6 +1,7 @@
 from collections import defaultdict
 from ConfigParser import ConfigParser, NoSectionError
 import logging
+import sys
 
 from gensim.models import Word2Vec
 from nltk.corpus import stopwords as nltk_stopwords
@@ -11,6 +12,8 @@ from pymachine.wrapper import Wrapper as MachineWrapper
 assert jaccard, min_jaccard  # silence pyflakes
 
 from lemmatizer import Lemmatizer
+from text_to_4lang import TextTo4lang
+from utils import ensure_dir, get_cfg, print_text_graph
 
 class WordSimilarity():
     def __init__(self, cfg):
@@ -229,15 +232,26 @@ class WordSimilarity():
 
 class GraphSimilarity():
     @staticmethod
+    def graph_similarity(graph1, graph2):
+        sim1, ev1 = GraphSimilarity.supported_score(graph1, graph2)
+        sim2, ev2 = GraphSimilarity.supported_score(graph2, graph1)
+        if sim1 + sim2 > 0:
+            pass
+            # logging.info('evidence sets: {0}, {1}'.format(ev2, ev2))
+        return harmonic_mean((sim1, sim2))
+
+    @staticmethod
     def supported_score(graph, context_graph):
         zero_count, zero_supported, bin_count, bin_supported = 0, 0, 0, 0
         evidence = []
         binaries = defaultdict(set)
+        # logging.info('context edges: {0}'.format(context_graph.edges))
         for edge in graph.edges:
-            logging.info('testing edge: {0}'.format(edge))
+            # logging.info('testing edge: {0}'.format(edge))
             if edge[2] == 0:
                 zero_count += 1
-                if edge in context_graph.edges_by_color[0]:
+                if edge in context_graph.edges:
+                    # logging.info('supported 0-edge: {0}'.format(edge))
                     evidence.append(edge)
                     zero_supported += 1
             else:
@@ -246,8 +260,13 @@ class GraphSimilarity():
         for binary, edges in binaries.iteritems():
             bin_count += 1
             if all(edge in context_graph.edges for edge in edges):
+                # logging.info('supported binary: {0}'.format(edges))
                 evidence.append(edges)
                 bin_supported += 1
+
+        if zero_count + bin_count == 0:
+            logging.warning("nothing to support: {0}".format(graph))
+            return 0.0, []
 
         return (zero_supported + bin_supported) / float(
             zero_count + bin_count), evidence
@@ -361,18 +380,43 @@ class SimComparer():
         print "compared {0} distance pairs.".format(len(sims))
         print "Pearson-correlation: {0}".format(pearson)
 
-def main():
-        logging.basicConfig(
-            level=logging.INFO,
-            format="%(asctime)s : " +
-            "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+def main_compare(cfg):
+    comparer = SimComparer(cfg)
+    comparer.get_sims()
+    comparer.compare()
 
-        import sys
-        config_file = sys.argv[1]
-        batch = bool(int(sys.argv[2]))
-        comparer = SimComparer(config_file, batch=batch)
-        comparer.get_sims()
-        comparer.compare()
+def main_sen_sim(cfg):
+    graph_dir = cfg.get("sim", "graph_dir")
+    dep_dir = cfg.get("sim", "deps_dir")
+    ensure_dir(graph_dir)
+    ensure_dir(dep_dir)
+
+    text_to_4lang = TextTo4lang(cfg)
+    for i, line in enumerate(sys.stdin):
+        preprocessed_line = line.strip().lower()
+        sen1, sen2 = preprocessed_line.split('\t')
+        machines1 = text_to_4lang.process(
+            sen1, dep_dir=dep_dir, fn="{0}a".format(i))
+        machines2 = text_to_4lang.process(
+            sen2, dep_dir=dep_dir, fn="{0}b".format(i))
+
+        print_text_graph(machines1, graph_dir, fn="{0}a".format(i))
+        print_text_graph(machines2, graph_dir, fn="{0}b".format(i))
+
+        graph1, graph2 = map(
+            MachineGraph.create_from_machines,
+            (machines1.values(), machines2.values()))
+        print GraphSimilarity.graph_similarity(graph1, graph2)
+
+def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s : " +
+        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+
+    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    cfg = get_cfg(cfg_file)
+    main_sen_sim(cfg)
 
 if __name__ == '__main__':
     main()

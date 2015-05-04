@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 import sys
 
 from corenlp_wrapper import CoreNLPWrapper
@@ -10,11 +11,20 @@ __LOGLEVEL__ = 'DEBUG'
 __MACHINE_LOGLEVEL__ = 'INFO'
 
 class TextTo4lang():
+    square_regex = re.compile("\[.*?\]")
+
     def __init__(self, cfg):
         self.cfg = cfg
         self.deps_dir = self.cfg.get('data', 'deps_dir')
         ensure_dir(self.deps_dir)
         self.corenlp_wrapper = CoreNLPWrapper(self.cfg)
+
+    @staticmethod
+    def preprocess_text(text):
+        t = text.strip()
+        t = TextTo4lang.square_regex.sub('', t)
+        t = t.replace("=", "_eq_")
+        return t.strip()
 
     def print_deps(self, parsed_sens, dep_dir=None, fn=None):
         for i, deps in enumerate(parsed_sens):
@@ -28,17 +38,18 @@ class TextTo4lang():
 
     def process(self, text, dep_dir=None, fn=None):
         # logging.info("running parser...")
-        parsed_sens, corefs = self.corenlp_wrapper.parse_text(text)
+        preproc_text = TextTo4lang.preprocess_text(text)
+        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text)
         # logging.info("parsed {0} sentences".format(len(parsed_sens)))
         if dep_dir is not None:
             self.print_deps(parsed_sens, dep_dir, fn)
 
         # logging.info("loading dep_to_4lang...")
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
-        dep_to_4lang = DepTo4lang(self.cfg)
 
         # logging.info("processing sentences...")
-        words_to_machines = dep_to_4lang.get_machines_from_deps_and_corefs(
+        dep_to_4lang = DepTo4lang(self.cfg)
+        words_to_machines = dep_to_4lang.get_machines_from_deps_and_corefs(  # nopep8
             parsed_sens, corefs)
 
         # logging.info(

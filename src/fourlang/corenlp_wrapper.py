@@ -43,7 +43,10 @@ class Parser(XMLParser):
 
     @staticmethod
     def parse_sen(sen):
-        deps_string = Parser.basic_deps_regex.search(sen).group(1)
+        deps_match = Parser.basic_deps_regex.search(sen)
+        if deps_match is None:
+            return []
+        deps_string = deps_match.group(1)
         return [(dep, (word1, id1), (word2, id2))
                 for dep, id1, word1, id2, word2 in Parser.dep_regex.findall(
                     deps_string)]
