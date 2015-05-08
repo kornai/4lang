@@ -53,10 +53,11 @@ class Parser(XMLParser):
 
     @staticmethod
     def parse_corenlp_output(output):
+        cl_output = output.decode('utf-8').replace(u"\xa0", u" ")
         parsed_sens = [Parser.parse_sen(sen)
-                       for sen in Parser.sen_regex.findall(output)]
+                       for sen in Parser.sen_regex.findall(cl_output)]
 
-        corefs_match = Parser.all_corefs_regex.search(output)
+        corefs_match = Parser.all_corefs_regex.search(cl_output)
         if corefs_match is None:
             corefs = []
         else:
@@ -72,7 +73,7 @@ class CoreNLPWrapper():
         self.socket.connect("tcp://localhost:5900")
 
     def parse_text(self, text):
-        self.socket.send("process {0}".format(text))
+        self.socket.send("process {0}".format(text.encode('utf-8')))
         output = self.socket.recv()
         return Parser.parse_corenlp_output(output)
 
