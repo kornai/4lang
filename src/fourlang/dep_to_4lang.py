@@ -99,28 +99,48 @@ class DepTo4lang():
         dep, word1, id1, word2, id2 = dep_match.groups()
         return dep, (word1, id1), (word2, id2)
 
-    def get_dep_definition(self, word, deps):
+    def get_root_lemmas(self, deps):
         root_deps = filter(lambda d: d[0] == 'root', deps)
-        if len(root_deps) != 1:
-            logging.warning(
-                u'no unique root dependency, skipping word "{0}"'.format(word))
+        if not root_deps:
             return None
-        root_word, root_id = root_deps[0][2]
-        root_lemma = self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
-        root_lemma = root_word if not root_lemma else root_lemma
+        root_words = [root_dep[2][0] for root_dep in root_deps]
+        # logging.info('root words: {0}'.format(root_words))
+        root_lemmas = [
+            self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
+            for root_word in root_words]
+
+        # logging.info('root lemmas1: {0}'.format(root_lemmas))
+
+        root_lemmas = [
+            root_words[i] if not root_lemma else root_lemma
+            for i, root_lemma in enumerate(root_lemmas)]
+
+        # logging.info('root lemmas2: {0}'.format(root_lemmas))
+
+        return root_lemmas
+
+    def get_dep_definition(self, word, deps):
+        # logging.info('deps: {0}'.format(deps))
+        root_lemmas = self.get_root_lemmas(deps)
+        if not root_lemmas:
+            logging.warning(
+                u'no root dependency, skipping word "{0}"'.format(word))
 
         word2machine = self.get_machines_from_parsed_deps(deps)
 
-        try:
-            root_machine = word2machine[root_lemma]
-        except:
+        root_machines = filter(None, [word2machine[lemma]
+                                      for lemma in root_lemmas])
+        if not root_machines:
             logging.error(
-                "can't find machine for root lemma: '{0}'".format(root_lemma))
+                "can't find machines for root lemmas: '{0}'".format(
+                    root_lemmas))
             logging.error("word2machine: {0}".format(word2machine))
             logging.error("deps: {0}".format(deps))
             raise Exception()
+
         word_machine = word2machine.get(word, Machine(word, ConceptControl()))
-        word_machine.append(root_machine, 0)
+        for root_machine in root_machines:
+            word_machine.append(root_machine, 0)
         return word_machine
 
     def get_machines_from_deps(self, dep_strings):
@@ -146,23 +166,23 @@ class DepTo4lang():
         for i, deps in enumerate(dep_lists):
             try:
                 for dep, (word1, id1), (word2, id2) in deps:
-                    # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
+                    # logging.info('dep: {0}, w1: {1}, w2: {2}'.format(
+                    #     repr(dep), repr(word1), repr(word2)))
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
-                    """
-                    if c_word1 != word1:
-                        logging.warning(
-                            "unifying '{0}' with canonical '{1}'".format(
-                                word1, c_word1))
-                    if c_word2 != word2:
-                        logging.warning(
-                            "unifying '{0}' with canonical '{1}'".format(
-                                word2, c_word2))
-                    """
+                    # if c_word1 != word1:
+                    #     logging.warning(
+                    #         "unifying '{0}' with canonical '{1}'".format(
+                    #             word1, c_word1))
+                    # if c_word2 != word2:
+                    #     logging.warning(
+                    #         "unifying '{0}' with canonical '{1}'".format(
+                    #             word2, c_word2))
 
                     # logging.info(
-                    #    'cw1: {0}, cw2: {1}'.format(c_word1, c_word2))
+                    #     'cw1: {0}, cw2: {1}'.format(
+                    #         repr(c_word1), repr(c_word2)))
                     lemma1 = self.lemmatizer.lemmatize(c_word1)
                     lemma2 = self.lemmatizer.lemmatize(c_word2)
 
@@ -174,7 +194,8 @@ class DepTo4lang():
                     lemma2 = lemma2.replace('/', '_PER_')
 
                     # logging.info(
-                    #     'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
+                    #     'lemma1: {0}, lemma2: {1}'.format(
+                    #         repr(lemma1), repr(lemma2)))
                     if dep == 'root':
                         if lemma2 not in word2machine:
                             word2machine[lemma2] = lexicon.get_machine(lemma2)
