@@ -31,6 +31,7 @@ class DictTo4lang():
 
     def get_parser(self):
         input_type = self.cfg.get('dict', 'input_type')
+        logging.info('input type: {0}'.format(input_type))
         if input_type == 'wiktionary':
             self.parser = WiktParser()
         elif input_type == 'longman':
