@@ -23,8 +23,13 @@ class TextTo4lang():
     def preprocess_text(text):
         t = text.strip()
         t = TextTo4lang.square_regex.sub('', t)
-        t = t.replace("=", "_eq_")
-        return t.strip()
+        t = t.replace(u"=", u"_eq_")
+        t = t.replace(u"\xc2\xa0", u" ")
+        t = t.replace(u"\xa0", u" ")
+        t = t.strip()
+        if t != text:
+            logging.info(u"{0} -> {1}".format(text, t))
+        return t
 
     def print_deps(self, parsed_sens, dep_dir=None, fn=None):
         for i, deps in enumerate(parsed_sens):
@@ -39,6 +44,7 @@ class TextTo4lang():
     def process(self, text, dep_dir=None, fn=None):
         # logging.info("running parser...")
         preproc_text = TextTo4lang.preprocess_text(text)
+        # logging.info('preproc text: {0}'.format(repr(preproc_text)))
         parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text)
         # logging.info("parsed {0} sentences".format(len(parsed_sens)))
         if dep_dir is not None:
@@ -69,12 +75,12 @@ def main():
     text_to_4lang = TextTo4lang(cfg)
 
     input_fn = cfg.get('data', 'input_sens')
-    sens = [line.strip() for line in open(input_fn)]
+    sens = [line.decode('utf-8').strip() for line in open(input_fn)]
     if max_sens is not None:
         sens = sens[:max_sens]
 
     words_to_machines = text_to_4lang.process(
-        sens, dep_dir=text_to_4lang.deps_dir)
+        "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
     fn = print_text_graph(words_to_machines, cfg.get('machine', 'graph_dir'))
     logging.info('wrote graph to {0}'.format(fn))
 
