@@ -175,7 +175,7 @@ quantmod	-,-
 #No quantification yet...
 
 rcmod	-,-
-#relations expressed by a relative clause will also appear explicitly
+# cannot be handled uniformly, we handle these in dependency_processor
 
 ref	-,-
 
