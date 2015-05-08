@@ -393,7 +393,7 @@ def main_sen_sim(cfg):
 
     text_to_4lang = TextTo4lang(cfg)
     for i, line in enumerate(sys.stdin):
-        preprocessed_line = line.strip().lower()
+        preprocessed_line = line.decode('utf-8').strip().lower()
         sen1, sen2 = preprocessed_line.split('\t')
         machines1 = text_to_4lang.process(
             sen1, dep_dir=dep_dir, fn="{0}a".format(i))
