@@ -408,6 +408,8 @@ def main_sen_sim(cfg):
             (machines1.values(), machines2.values()))
         print GraphSimilarity.graph_similarity(graph1, graph2)
 
+    text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
+
 def main():
     logging.basicConfig(
         level=logging.INFO,
@@ -419,4 +421,6 @@ def main():
     main_sen_sim(cfg)
 
 if __name__ == '__main__':
-    main()
+    import cProfile
+    cProfile.run('main()')
+    # main()

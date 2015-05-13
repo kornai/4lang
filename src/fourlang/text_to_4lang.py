@@ -18,6 +18,7 @@ class TextTo4lang():
         self.deps_dir = self.cfg.get('data', 'deps_dir')
         ensure_dir(self.deps_dir)
         self.corenlp_wrapper = CoreNLPWrapper(self.cfg)
+        self.dep_to_4lang = DepTo4lang(self.cfg)
 
     @staticmethod
     def preprocess_text(text):
@@ -54,8 +55,7 @@ class TextTo4lang():
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
 
         # logging.info("processing sentences...")
-        dep_to_4lang = DepTo4lang(self.cfg)
-        words_to_machines = dep_to_4lang.get_machines_from_deps_and_corefs(  # nopep8
+        words_to_machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(  # nopep8
             parsed_sens, corefs)
 
         # logging.info(
