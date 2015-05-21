@@ -233,6 +233,10 @@ class WordSimilarity():
 class GraphSimilarity():
     @staticmethod
     def graph_similarity(graph1, graph2):
+        return jaccard(graph1.edges, graph2.edges)
+
+    @staticmethod
+    def old_graph_similarity(graph1, graph2):
         sim1, ev1 = GraphSimilarity.supported_score(graph1, graph2)
         sim2, ev2 = GraphSimilarity.supported_score(graph2, graph1)
         if sim1 + sim2 > 0:
@@ -242,6 +246,12 @@ class GraphSimilarity():
 
     @staticmethod
     def supported_score(graph, context_graph):
+        edge_count = len(graph.edges)
+        supported = graph.edges.intersection(context_graph.edges)
+        return len(supported) / float(edge_count), supported
+
+    @staticmethod
+    def old_supported_score(graph, context_graph):
         zero_count, zero_supported, bin_count, bin_supported = 0, 0, 0, 0
         evidence = []
         binaries = defaultdict(set)
@@ -408,7 +418,7 @@ def main_sen_sim(cfg):
             (machines1.values(), machines2.values()))
         print GraphSimilarity.graph_similarity(graph1, graph2)
 
-    text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
+    # text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
 
 def main():
     logging.basicConfig(
@@ -421,6 +431,6 @@ def main():
     main_sen_sim(cfg)
 
 if __name__ == '__main__':
-    import cProfile
-    cProfile.run('main()')
-    # main()
+    # import cProfile
+    # cProfile.run('main()')
+    main()
