@@ -22,9 +22,9 @@ def print_text_graph(words_to_machines, graph_dir, fn='text'):
         f.write(graph.to_dot().encode('utf-8'))
     return fn
 
-def print_4lang_graphs(words_to_machines, graph_dir):
-    for word, machine in words_to_machines.iteritems():
-        print_4lang_graph(word, machine, graph_dir)
+def print_4lang_graphs(lexicon, graph_dir):
+    for word, machine_set in lexicon.iteritems():
+        print_4lang_graph(word, next(iter(machine_set)), graph_dir)
 
 def print_4lang_graph(word, machine, graph_dir):
     graph = MachineGraph.create_from_machines([machine])

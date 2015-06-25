@@ -5,7 +5,10 @@ import sys
 
 from corenlp_wrapper import CoreNLPWrapper
 from dep_to_4lang import DepTo4lang
+from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_text_graph
+
+assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
 __LOGLEVEL__ = 'DEBUG'
 __MACHINE_LOGLEVEL__ = 'INFO'
@@ -29,7 +32,7 @@ class TextTo4lang():
         t = t.replace(u"\xa0", u" ")
         t = t.strip()
         if t != text:
-            logging.info(u"{0} -> {1}".format(text, t))
+            logging.debug(u"{0} -> {1}".format(text, t))
         return t
 
     def print_deps(self, parsed_sens, dep_dir=None, fn=None):

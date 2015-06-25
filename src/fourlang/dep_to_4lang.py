@@ -1,5 +1,4 @@
 from collections import defaultdict
-import cPickle
 import json
 import logging
 import os
@@ -8,11 +7,11 @@ import sys
 import traceback
 
 from pymachine.control import ConceptControl
-from pymachine.lexicon import Lexicon
 from pymachine.machine import Machine
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
 from lemmatizer import Lemmatizer
+from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_4lang_graphs
 
 class DepTo4lang():
@@ -26,6 +25,8 @@ class DepTo4lang():
         dep_map_fn = cfg.get("deps", "dep_map")
         self.read_dep_map(dep_map_fn)
         self.lemmatizer = Lemmatizer(cfg)
+        self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
+        self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
 
     def read_dep_map(self, dep_map_fn):
         self.dependencies = {}
@@ -48,7 +49,6 @@ class DepTo4lang():
         dict_fn = self.cfg.get("dict", "output_file")
         logging.info('reading dependencies from {0}...'.format(dict_fn))
         longman = json.load(open(dict_fn))
-        self.words_to_machines = {}
         for c, (word, entry) in enumerate(longman.iteritems()):
             if c % 1000 == 0:
                 logging.info("added {0}...".format(c))
@@ -69,7 +69,8 @@ class DepTo4lang():
                 machine = self.get_dep_definition(word, deps)
                 if machine is None:
                     continue
-                self.words_to_machines[word] = machine
+                # logging.info('{0}. adding {1}: {2}'.format(c, word, machine))
+                self.lexicon.add(word, machine)
             except Exception:
                 logging.error(
                     u'skipping "{0}" because of an exception:'.format(
@@ -78,18 +79,15 @@ class DepTo4lang():
                 traceback.print_exc()
                 continue
 
-        logging.info('done!')
+        logging.info('added {0}, done!'.format(c))
 
     def print_graphs(self):
         print_4lang_graphs(
-            self.words_to_machines,
+            self.lexicon.ext_lexicon,
             self.cfg.get('machine', 'graph_dir'))
 
     def save_machines(self):
-        logging.info('saving machines to {0}...'.format(self.out_fn))
-        with open(self.out_fn, 'w') as out_file:
-            cPickle.dump(self.words_to_machines, out_file)
-        logging.info('done!')
+        self.lexicon.save_to_binary(self.out_fn)
 
     @staticmethod
     def parse_dependency(string):
@@ -160,7 +158,6 @@ class DepTo4lang():
 
         # logging.info('coref index: {0}'.format(coref_index))
 
-        lexicon = Lexicon()
         word2machine = {}
 
         for i, deps in enumerate(dep_lists):
@@ -171,20 +168,21 @@ class DepTo4lang():
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
-                    # if c_word1 != word1:
-                    #     logging.warning(
-                    #         "unifying '{0}' with canonical '{1}'".format(
-                    #             word1, c_word1))
-                    # if c_word2 != word2:
-                    #     logging.warning(
-                    #         "unifying '{0}' with canonical '{1}'".format(
-                    #             word2, c_word2))
+                    if c_word1 != word1:
+                        logging.warning(
+                            "unifying '{0}' with canonical '{1}'".format(
+                                word1, c_word1))
+                    if c_word2 != word2:
+                        logging.warning(
+                            "unifying '{0}' with canonical '{1}'".format(
+                                word2, c_word2))
 
                     # logging.info(
                     #     'cw1: {0}, cw2: {1}'.format(
                     #         repr(c_word1), repr(c_word2)))
-                    lemma1 = self.lemmatizer.lemmatize(c_word1)
-                    lemma2 = self.lemmatizer.lemmatize(c_word2)
+                    lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
+                        w, defined=self.lexicon.get_words()),
+                        (c_word1, c_word2))
 
                     lemma1 = c_word1 if not lemma1 else lemma1
                     lemma2 = c_word2 if not lemma2 else lemma2
@@ -198,10 +196,11 @@ class DepTo4lang():
                     #         repr(lemma1), repr(lemma2)))
                     if dep == 'root':
                         if lemma2 not in word2machine:
-                            word2machine[lemma2] = lexicon.get_machine(lemma2)
+                            word2machine[lemma2] = self.lexicon.get_machine(
+                                lemma2)
                         continue
                     machine1, machine2 = self._add_dependency(
-                        dep, (lemma1, id1), (lemma2, id2), lexicon)
+                        dep, (lemma1, id1), (lemma2, id2))
 
                     word2machine[lemma1] = machine1
                     word2machine[lemma2] = machine2
@@ -213,13 +212,13 @@ class DepTo4lang():
 
         return word2machine
 
-    def _add_dependency(self, dep, (word1, id1), (word2, id2), lexicon):
+    def _add_dependency(self, dep, (word1, id1), (word2, id2)):
         """Given a triplet from Stanford Dep.: D(w1,w2), we create and activate
         machines for w1 and w2, then run all operators associated with D on the
         sequence of the new machines (m1, m2)"""
         # logging.info(
         #     'adding dependency {0}({1}, {2})'.format(dep, word1, word2))
-        machine1, machine2 = map(lexicon.get_machine, (word1, word2))
+        machine1, machine2 = map(self.lexicon.get_machine, (word1, word2))
 
         self.apply_dep(dep, machine1, machine2)
         return machine1, machine2
@@ -233,7 +232,7 @@ class Dependency():
     @staticmethod
     def create_from_line(line):
         rel, reverse = None, False
-        logging.debug('parsing line: {}'.format(line))
+        # logging.debug('parsing line: {}'.format(line))
         fields = line.split('\t')
         if len(fields) == 2:
             dep, edges = fields

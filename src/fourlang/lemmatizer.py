@@ -1,8 +1,11 @@
 import logging
 import os
+import sys
 
 from hunmisc.utils.huntool_wrapper import Hundisambig, Ocamorph, OcamorphAnalyzer, MorphAnalyzer  # nopep8
 from stemming.porter2 import stem as porter_stem
+
+from utils import get_cfg
 
 class Lemmatizer():
 
@@ -61,6 +64,10 @@ class Lemmatizer():
             if cand in defined:
                 return cand
 
+        # last resort is the porter stem:
+        if stem in defined:
+            return stem
+
         # if that doesn't work either, we return None
         return None
 
@@ -116,11 +123,16 @@ class Lemmatizer():
         logging.info('done!')
 
 def main():
-    pass
-
-if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    cfg = get_cfg(cfg_file)
+    lemmatizer = Lemmatizer(cfg)
+    while True:
+        word = raw_input('> ')
+        print lemmatizer.lemmatize(word)
+
+if __name__ == "__main__":
     main()
