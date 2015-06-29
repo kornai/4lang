@@ -12,7 +12,7 @@ This repository provides
 Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines, just clone it to your machine and run setup.py:
 
 ```
-git clone git@github.com:kornai/pymachine.git
+git clone https://github.com/kornai/pymachine.git
 cd pymachine
 python setup.py install
 ```
