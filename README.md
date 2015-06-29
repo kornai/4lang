@@ -25,7 +25,7 @@ __NOTE__: All remaining dependencies are required only for building 4lang graphs
 #### Stanford Parser, CoreNLP, jython
 For parsing dictionary definitions, `4lang` requires the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, `text_to_4lang.py` requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
 
-After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the configuration file used to run the `4lang` tools so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
+After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the default configuration file `conf/default.cfg` so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
 
 ### Downloading pre-compiled graphs
 We provide [serialized machine graphs](http://people.mokk.bme.hu/~recski/4lang/machines.tgz) built from `4lang` definitions as well as from the English Wiktionary (using the `dict_to_4lang` module). Unpacking this archive in your `4lang` directory will place them in the `data/machines` directory, which is the default location for compiled machine graphs.
