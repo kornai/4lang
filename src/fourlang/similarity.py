@@ -1,5 +1,5 @@
 from collections import defaultdict
-from ConfigParser import ConfigParser
+from ConfigParser import ConfigParser, NoSectionError
 import logging
 
 from gensim.models import Word2Vec
@@ -14,7 +14,11 @@ from lemmatizer import Lemmatizer
 
 class WordSimilarity():
     def __init__(self, cfg):
-        self.batch = cfg.getboolean('similarity_machine', 'batch')
+        try:
+            self.batch = cfg.getboolean('similarity_machine', 'batch')
+        except NoSectionError:
+            self.batch = False
+
         self.cfg = cfg
         self.lemmatizer = Lemmatizer(cfg)
         self.machine_wrapper = MachineWrapper(cfg)

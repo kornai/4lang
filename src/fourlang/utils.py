@@ -20,6 +20,7 @@ def print_text_graph(words_to_machines, graph_dir):
     fn = os.path.join(graph_dir, 'text.dot')
     with open(fn, 'w') as f:
         f.write(graph.to_dot().encode('utf-8'))
+    return fn
 
 def print_4lang_graphs(words_to_machines, graph_dir):
     for word, machine in words_to_machines.iteritems():

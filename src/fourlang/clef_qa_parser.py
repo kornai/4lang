@@ -23,9 +23,9 @@ class QAParser(XMLParser):
         questions = []
         for q_id, q_str, q_body in QAParser.question_regex.findall(r_body):
             answers = [
-                {"id": int(a_id), "answer": a_str.strip()}
+                {"id": int(a_id), "text": a_str.strip()}
                 for a_id, a_str in QAParser.answer_regex.findall(q_body)]
-            questions.append({"id": int(q_id), "question": q_str.strip(),
+            questions.append({"id": int(q_id), "text": q_str.strip(),
                               "answers": answers})
         return questions
 
@@ -35,7 +35,7 @@ class QAParser(XMLParser):
             for r_id, r_body in QAParser.test_regex.findall(t_body):
                 docs = [
                     {"id": int(d_id),
-                     "doc": QAParser.html_parser.unescape(d_body).strip()}
+                     "text": QAParser.html_parser.unescape(d_body).strip()}
                     for d_id, d_body in QAParser.doc_regex.findall(r_body)]
                 questions = QAParser.get_questions(r_body)
                 yield {'t_id': int(t_id), 't_name': t_name, 'r_id': int(r_id),
