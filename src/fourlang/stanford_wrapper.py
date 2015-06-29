@@ -61,7 +61,7 @@ class StanfordWrapper():
         command = [
             'java', '-mx1500m', '-cp', '{0}/*:'.format(self.stanford_dir),
             'edu.stanford.nlp.parser.lexparser.LexicalizedParser',
-            '-outputFormat', 'collapsedDependencies',
+            '-outputFormat', 'typedDependenciesCollapsed',
             '-sentences', 'newline',
             'edu/stanford/nlp/models/lexparser/{0}'.format(self.model_fn),
             '-']
@@ -156,20 +156,8 @@ class StanfordWrapper():
 
         return new_entries
 
-if __name__ == '__main__':
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s : " +
-        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
-
+def main_flask(wrapper):
     from flask import Flask, request, Response
-
-    cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
-    cfg = ConfigParser()
-    cfg.read([cfg_file])
-
-    wrapper = StanfordWrapper(cfg, is_server=True)
-
     app = Flask(__name__)
 
     @app.route("/")
@@ -182,3 +170,33 @@ if __name__ == '__main__':
         return Response(json.dumps(parsed_sens), mimetype='application/json')
 
     app.run()
+
+def test(wrapper):
+    entries = [{
+        "hw": "wombat",
+        "senses": [{
+            "definition": "an Australian animal like a small bear whose babies\
+                live in a pocket of skin on its body",
+            "pos": "n",
+            "flags": []}]}]
+
+    parsed_entries = wrapper.parse_sentences(
+        entries, definitions=True)
+    print parsed_entries
+
+def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s : " +
+        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+
+    cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
+    cfg = ConfigParser()
+    cfg.read([cfg_file])
+
+    wrapper = StanfordWrapper(cfg)
+    test(wrapper)
+
+
+if __name__ == '__main__':
+    main()
