@@ -36,6 +36,8 @@ class EntryPreprocessor():
 
     def __init__(self, cfg):
         self.cfg = cfg
+        for package in ('stopwords', 'punkt'):
+            nltk.download(package, quiet=True)
         self.sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
         self.word_counter = defaultdict(int)
 
