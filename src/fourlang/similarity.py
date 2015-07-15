@@ -12,6 +12,7 @@ from pymachine.wrapper import Wrapper as MachineWrapper
 assert jaccard, min_jaccard  # silence pyflakes
 
 from lemmatizer import Lemmatizer
+from lexicon import Lexicon
 from text_to_4lang import TextTo4lang
 from utils import ensure_dir, get_cfg, print_text_graph
 
@@ -24,14 +25,16 @@ class WordSimilarity():
 
         self.cfg = cfg
         self.lemmatizer = Lemmatizer(cfg)
-        self.machine_wrapper = MachineWrapper(cfg)
+        self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
+        self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
+        self.defined_words = self.lexicon.get_words()
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
 
     def log(self, string):
         if not self.batch:
-            logging.debug(string)
+            logging.info(string)
 
     def get_links_nodes(self, machine, use_cache=True):
         if use_cache and machine in self.links_nodes_cache:
@@ -170,8 +173,8 @@ class WordSimilarity():
             elif (not exclude_nodes) and (self.contains(nodes1, machine2) or
                                           self.contains(nodes2, machine1)):
                 sim = max(sim, 0.25)
-        self.log('links1: {0}, links2: {1}'.format(links1, links2))
-        self.log('nodes1: {0}, nodes2: {1}'.format(nodes1, nodes2))
+        # self.log('links1: {0}, links2: {1}'.format(links1, links2))
+        # self.log('nodes1: {0}, nodes2: {1}'.format(nodes1, nodes2))
         if True:
             pn1, pn2 = machine1.printname(), machine2.printname()
             if pn1 in links2 or pn2 in links1:
@@ -197,15 +200,14 @@ class WordSimilarity():
 
     def word_similarity(self, word1, word2, pos1, pos2, sim_type='default',
                         fallback=lambda a, b, c, d: None):
-        self.log(u'words: {0}, {1}'.format(word1, word2))
+        # self.log(u'words: {0}, {1}'.format(word1, word2))
         lemma1, lemma2 = [self.lemmatizer.lemmatize(
-            word, defined=self.machine_wrapper.definitions, stem_first=True)
+            word, defined=self.defined_words, stem_first=True)
             for word in (word1, word2)]
-        self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
+        # self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
         if lemma1 is None or lemma2 is None:
             return fallback(word1, word2, pos1, pos2)
         sim = self.lemma_similarity(lemma1, lemma2, sim_type)
-        self.log(u"S({0}, {1}) = {2}".format(word1, word2, sim))
         return sim
 
     def lemma_similarity(self, lemma1, lemma2, sim_type):
@@ -213,17 +215,13 @@ class WordSimilarity():
             return self.lemma_sim_cache[(lemma1, lemma2)]
         elif lemma1 == lemma2:
             return 1
-        self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
+        # self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
 
-        machines1 = self.machine_wrapper.definitions[lemma1]
-        machines2 = self.machine_wrapper.definitions[lemma2]
+        machine1, machine2 = map(self.lexicon.get_machine, (lemma1, lemma2))
 
-        pairs_by_sim = sorted([
-            (self.machine_similarity(machine1, machine2, sim_type),
-             (machine1, machine2))
-            for machine1 in machines1 for machine2 in machines2], reverse=True)
+        sim = self.machine_similarity(machine1, machine2, sim_type)
 
-        sim, (machine1, machine2) = pairs_by_sim[0]
+        self.log(u"S({0}, {1}) = {2}".format(lemma1, lemma2, sim))
 
         sim = sim if sim >= 0 else 0
         self.lemma_sim_cache[(lemma1, lemma2)] = sim

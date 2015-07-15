@@ -77,7 +77,9 @@ class LongmanParser(XMLParser):
 
     @staticmethod
     def print_defs(longman_obj):
-        for entry in longman_obj['entries']:
+        for entry in longman_obj:
+            print entry
+            continue
             for sense in entry['senses']:
                 print u"{0}\t{1}".format(
                     entry['hw'], sense['definition']).encode("utf-8")

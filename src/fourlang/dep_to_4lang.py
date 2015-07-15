@@ -6,8 +6,6 @@ import re
 import sys
 import traceback
 
-from pymachine.control import ConceptControl
-from pymachine.machine import Machine
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
 from lemmatizer import Lemmatizer
@@ -39,7 +37,7 @@ class DepTo4lang():
 
     def apply_dep(self, dep_str, machine1, machine2):
         if dep_str not in self.dependencies:
-            logging.warning(
+            logging.debug(
                 'skipping dependency not in dep_to_4lang map: {0}'.format(
                     dep_str))
             return False  # not that anyone cares
@@ -69,14 +67,19 @@ class DepTo4lang():
                 machine = self.get_dep_definition(word, deps)
                 if machine is None:
                     continue
-                # logging.info('{0}. adding {1}: {2}'.format(c, word, machine))
+
+                # logging.info('adding: {0}'.format(word))
+                # logging.info('ext_lex_keys: {0}'.format(
+                    # self.lexicon.ext_lexicon.keys()))
                 self.lexicon.add(word, machine)
             except Exception:
-                logging.error(
-                    u'skipping "{0}" because of an exception:'.format(
-                        word))
-                logging.info("entry: {0}".format(entry))
+                logging.error(u"exception caused by: '{0}'".format(word))
+                # logging.error(
+                #     u'skipping "{0}" because of an exception:'.format(
+                #         word))
+                # logging.info("entry: {0}".format(entry))
                 traceback.print_exc()
+                sys.exit(-1)
                 continue
 
         logging.info('added {0}, done!'.format(c))
@@ -123,20 +126,13 @@ class DepTo4lang():
         if not root_lemmas:
             logging.warning(
                 u'no root dependency, skipping word "{0}"'.format(word))
+            return None
 
         word2machine = self.get_machines_from_parsed_deps(deps)
 
-        root_machines = filter(None, [word2machine[lemma]
-                                      for lemma in root_lemmas])
-        if not root_machines:
-            logging.error(
-                "can't find machines for root lemmas: '{0}'".format(
-                    root_lemmas))
-            logging.error("word2machine: {0}".format(word2machine))
-            logging.error("deps: {0}".format(deps))
-            raise Exception()
+        root_machines = map(word2machine.get, root_lemmas)
 
-        word_machine = word2machine.get(word, Machine(word, ConceptControl()))
+        word_machine = self.lexicon.get_machine(word)
         for root_machine in root_machines:
             word_machine.append(root_machine, 0)
         return word_machine
@@ -194,16 +190,15 @@ class DepTo4lang():
                     # logging.info(
                     #     'lemma1: {0}, lemma2: {1}'.format(
                     #         repr(lemma1), repr(lemma2)))
-                    if dep == 'root':
-                        if lemma2 not in word2machine:
-                            word2machine[lemma2] = self.lexicon.get_machine(
-                                lemma2)
-                        continue
-                    machine1, machine2 = self._add_dependency(
-                        dep, (lemma1, id1), (lemma2, id2))
 
-                    word2machine[lemma1] = machine1
-                    word2machine[lemma2] = machine2
+                    for lemma in (lemma1, lemma2):
+                        if lemma not in word2machine:
+                            word2machine[lemma] = self.lexicon.get_new_machine(
+                                lemma)
+
+                    self.apply_dep(
+                        dep, word2machine[lemma1], word2machine[lemma2])
+
             except:
                 logging.error("failure on dep: {0}({1}, {2})".format(
                     dep, word1, word2))
@@ -211,18 +206,6 @@ class DepTo4lang():
                 raise Exception("adding dependencies failed")
 
         return word2machine
-
-    def _add_dependency(self, dep, (word1, id1), (word2, id2)):
-        """Given a triplet from Stanford Dep.: D(w1,w2), we create and activate
-        machines for w1 and w2, then run all operators associated with D on the
-        sequence of the new machines (m1, m2)"""
-        # logging.info(
-        #     'adding dependency {0}({1}, {2})'.format(dep, word1, word2))
-        machine1, machine2 = map(self.lexicon.get_machine, (word1, word2))
-
-        self.apply_dep(dep, machine1, machine2)
-        return machine1, machine2
-
 
 class Dependency():
     def __init__(self, name, operators=[]):
