@@ -6,7 +6,7 @@ import sys
 from pymachine.definition_parser import read as read_defs
 from pymachine.machine import Machine
 from pymachine.control import ConceptControl
-# from pymachine.utils import MachineGraph
+from pymachine.utils import MachineGraph
 
 from utils import get_cfg
 
@@ -55,44 +55,31 @@ class Lexicon():
         """builds the lexicon from dumps created by Lexicon.dump_machines"""
         lexicon = Lexicon(cfg)
         lexicon.primitives = primitives
-        for word, dumped_machine in machines_dump.iteritems():
-            machine = lexicon.get_machine(word, allow_new_base=True)
-            lexicon.add_children_from_dump(machine, dumped_machine)
+        for word, dumped_def_graph in machines_dump.iteritems():
+            lexicon.get_machine(word, allow_new_base=True)
+            lexicon.add_def_graph(dumped_def_graph)
 
-        for word, dumped_machine in ext_machines_dump.iteritems():
-            machine = lexicon.get_machine(word, allow_new_ext=True)
-            lexicon.add_children_from_dump(machine, dumped_machine)
+        for word, dumped_def_graph in ext_machines_dump.iteritems():
+            lexicon.get_machine(word, allow_new_ext=True)
+            lexicon.add_def_graph(dumped_def_graph)
 
         return lexicon
 
-    def add_children_from_dump(self, machine, (printname, partitions), depth=0,
-                               allow_new_base=False, allow_new_ext=False):
-        for i, partition in enumerate(partitions):
-            # print "{0}{1}".format("    "*depth, printname)
-            # for part in partitions:
-                # print "{0}{1}".format("    "*(depth+1), printname)
-            for child_name, child_partitions in partition:
-                child_pn = child_name.split('_')[0]
-                if allow_new_base or allow_new_ext:
-                    # these would be cases of expanding while loading
-                    child_machine = self.get_machine(
-                        child_pn, allow_new_base, allow_new_ext)
-                else:
-                    child_machine = self.get_new_machine(child_pn)
-
-                self.add_children_from_dump(
-                    child_machine, (child_pn, child_partitions), depth+1,
-                    allow_new_base, allow_new_ext)
-                machine.append(child_machine, i)
+    def add_def_graph(self, dumped_def_graph, allow_new_base=False,
+                      allow_new_ext=False):
+        graph = MachineGraph.from_dict(dumped_def_graph)
+        for node1, adjacency in graph.adjacency_iter():
+            machine1 = self.get_machine(node1.split('_')[0])
+            for node2, edges in adjacency.iteritems():
+                machine2 = self.get_machine(node2.split('_')[0])
+                for i, attributes in edges.iteritems():
+                    part_index = attributes['color']
+                    machine1.append(machine2, part_index)
 
     @staticmethod
-    def dump_machine(machine, seen=set()):
-        name = machine.unique_name()
-        seen.add(name)
-        return name, [
-            [Lexicon.dump_machine(child, seen)
-             for child in partition if child.unique_name() not in seen]
-            for partition in machine.partitions]
+    def dump_definition_graph(machine, seen=set()):
+        graph = MachineGraph.create_from_machines([machine])
+        return graph.to_dict()
 
     @staticmethod
     def dump_machines(machines):
@@ -108,7 +95,7 @@ class Lexicon():
             # logging.info('dumping this: {0}'.format(
             #     MachineGraph.create_from_machines([machine]).to_dot()))
 
-            dump[word] = Lexicon.dump_machine(machine)
+            dump[word] = Lexicon.dump_definition_graph(machine)
         return dump
 
     @staticmethod

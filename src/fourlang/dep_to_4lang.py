@@ -82,7 +82,7 @@ class DepTo4lang():
                 sys.exit(-1)
                 continue
 
-        logging.info('added {0}, done!'.format(c))
+        logging.info('added {0}, done!'.format(c + 1))
 
     def print_graphs(self):
         print_4lang_graphs(
