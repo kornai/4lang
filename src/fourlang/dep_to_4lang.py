@@ -132,7 +132,7 @@ class DepTo4lang():
 
         root_machines = map(word2machine.get, root_lemmas)
 
-        word_machine = self.lexicon.get_machine(word)
+        word_machine = self.lexicon.get_new_machine(word)
         for root_machine in root_machines:
             word_machine.append(root_machine, 0)
         return word_machine

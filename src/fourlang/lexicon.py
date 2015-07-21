@@ -57,21 +57,29 @@ class Lexicon():
         lexicon.primitives = primitives
         for word, dumped_def_graph in machines_dump.iteritems():
             lexicon.get_machine(word, allow_new_base=True)
-            lexicon.add_def_graph(dumped_def_graph)
+            lexicon.add_def_graph(word, dumped_def_graph)
 
         for word, dumped_def_graph in ext_machines_dump.iteritems():
             lexicon.get_machine(word, allow_new_ext=True)
-            lexicon.add_def_graph(dumped_def_graph)
+            lexicon.add_def_graph(word, dumped_def_graph)
 
         return lexicon
 
-    def add_def_graph(self, dumped_def_graph, allow_new_base=False,
+    def add_def_graph(self, word, dumped_def_graph, allow_new_base=False,
                       allow_new_ext=False):
+        node2machine = {}
         graph = MachineGraph.from_dict(dumped_def_graph)
+        for node in graph.nodes_iter():
+            pn = node.split('_')[0]
+            if pn == word:
+                node2machine[node] = self.get_machine(pn)
+            else:
+                node2machine[node] = self.get_new_machine(pn)
+
         for node1, adjacency in graph.adjacency_iter():
-            machine1 = self.get_machine(node1.split('_')[0])
+            machine1 = node2machine[node1]
             for node2, edges in adjacency.iteritems():
-                machine2 = self.get_machine(node2.split('_')[0])
+                machine2 = node2machine[node2]
                 for i, attributes in edges.iteritems():
                     part_index = attributes['color']
                     machine1.append(machine2, part_index)
