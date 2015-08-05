@@ -1,6 +1,8 @@
 from collections import defaultdict
 from ConfigParser import ConfigParser, NoSectionError
 import logging
+import math
+import sys
 
 from gensim.models import Word2Vec
 from nltk.corpus import stopwords as nltk_stopwords
@@ -11,6 +13,9 @@ from pymachine.wrapper import Wrapper as MachineWrapper
 assert jaccard, min_jaccard  # silence pyflakes
 
 from lemmatizer import Lemmatizer
+from lexicon import Lexicon
+from text_to_4lang import TextTo4lang
+from utils import ensure_dir, get_cfg, print_text_graph, print_4lang_graph
 
 class WordSimilarity():
     def __init__(self, cfg):
@@ -20,8 +25,15 @@ class WordSimilarity():
             self.batch = False
 
         self.cfg = cfg
+        try:
+            self.graph_dir = cfg.get("sim", "graph_dir")
+            ensure_dir(self.graph_dir)
+        except:
+            pass
         self.lemmatizer = Lemmatizer(cfg)
-        self.machine_wrapper = MachineWrapper(cfg)
+        self.lexicon_fn = self.cfg.get("machine", "ext_definitions")
+        self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
+        self.defined_words = self.lexicon.get_words()
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
@@ -34,17 +46,13 @@ class WordSimilarity():
         if use_cache and machine in self.links_nodes_cache:
             return self.links_nodes_cache[machine]
         self.seen_for_links = set()
-        links = set()
-        nodes = set()
-        for link, node in self._get_links_nodes(machine, depth=0):
-            if link is not None:
-                links.add(link)
-            if node is not None:
-                nodes.add(node)
+        links = set(self.get_links(machine, depth=0))
+        nodes = set(MachineTraverser.get_nodes(machine))
+
         self.links_nodes_cache[machine] = (links, nodes)
         return links, nodes
 
-    def _get_links_nodes(self, machine, depth):
+    def get_links(self, machine, depth):
         if machine in self.seen_for_links or depth > 5:
             return
         self.seen_for_links.add(machine)
@@ -52,18 +60,15 @@ class WordSimilarity():
             name = hypernym.printname()
             if name == '=AGT' or not name.isupper():
                 # if depth == 0 and name not in ("lack", "to"):  # TMP!!!
-                yield name, None
+                yield name
 
-            for link, node in self._get_links_nodes(hypernym, depth=depth+1):
-                yield link, node
+            for link in self.get_links(hypernym, depth=depth+1):
+                yield link
 
-        for link, node in self.get_binary_links_nodes(machine):
-            yield link, node
+        for link in self.get_binary_links(machine):
+            yield link
 
-        for node in MachineTraverser.get_nodes(machine):
-            yield None, node
-
-    def get_binary_links_nodes(self, machine):
+    def get_binary_links(self, machine):
         for parent, partition in machine.parents:
             parent_pn = parent.printname()
             # if not parent_pn.isupper() or partition == 0:
@@ -73,19 +78,14 @@ class WordSimilarity():
             elif partition == 1:
                 links = set([(parent_pn, other.printname())
                             for other in parent.partitions[2]])
-                nodes = [m.printname() for m in parent.partitions[2]]
             elif partition == 2:
                 links = set([(other.printname(), parent_pn)
                             for other in parent.partitions[1]])
-                nodes = [m.printname() for m in parent.partitions[1]]
             else:
                 raise Exception(
                     'machine {0} has more than 3 partitions!'.format(machine))
-
             for link in links:
-                yield link, None
-            for node in nodes:
-                yield None, node
+                yield link
 
     def link_similarity(self, links1, links2):
         pass
@@ -194,15 +194,20 @@ class WordSimilarity():
 
     def word_similarity(self, word1, word2, pos1, pos2, sim_type='default',
                         fallback=lambda a, b, c, d: None):
-        self.log(u'words: {0}, {1}'.format(word1, word2))
+        # self.log(u'words: {0}, {1}'.format(word1, word2))
         lemma1, lemma2 = [self.lemmatizer.lemmatize(
-            word, defined=self.machine_wrapper.definitions, stem_first=True)
+            word, defined=self.defined_words, stem_first=True)
             for word in (word1, word2)]
-        self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
+        # self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
         if lemma1 is None or lemma2 is None:
+            if lemma1 is None:
+                logging.warning("OOV: {0}".format(word1))
+            if lemma2 is None:
+                logging.warning("OOV: {0}".format(word2))
             return fallback(word1, word2, pos1, pos2)
         sim = self.lemma_similarity(lemma1, lemma2, sim_type)
-        self.log(u"S({0}, {1}) = {2}".format(word1, word2, sim))
+        if sim > 0:
+            self.log(u"S({0}, {1}) = {2}".format(lemma1, lemma2, sim))
         return sim
 
     def lemma_similarity(self, lemma1, lemma2, sim_type):
@@ -210,52 +215,70 @@ class WordSimilarity():
             return self.lemma_sim_cache[(lemma1, lemma2)]
         elif lemma1 == lemma2:
             return 1
-        self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
+        # self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
 
-        machines1 = self.machine_wrapper.definitions[lemma1]
-        machines2 = self.machine_wrapper.definitions[lemma2]
+        machine1, machine2 = map(self.lexicon.get_machine, (lemma1, lemma2))
 
-        pairs_by_sim = sorted([
-            (self.machine_similarity(machine1, machine2, sim_type),
-             (machine1, machine2))
-            for machine1 in machines1 for machine2 in machines2], reverse=True)
-
-        sim, (machine1, machine2) = pairs_by_sim[0]
+        if True:
+            for w, m in ((lemma1, machine1), (lemma2, machine2)):
+                print_4lang_graph(w, m, self.graph_dir)
+        sim = self.machine_similarity(machine1, machine2, sim_type)
 
         sim = sim if sim >= 0 else 0
         self.lemma_sim_cache[(lemma1, lemma2)] = sim
         self.lemma_sim_cache[(lemma2, lemma1)] = sim
         return sim
 
-class SentenceSimilarity():
-    def __init__(self, machine_wrapper):
-        self.wrapper = machine_wrapper
-        self.word_sim = WordSimilarity(machine_wrapper)
+class GraphSimilarity():
+    @staticmethod
+    def graph_similarity(graph1, graph2):
+        return jaccard(graph1.edges, graph2.edges)
 
-    def process_line(self, line, parser, sen_filter, fallback_sim):
-        fields = line.decode('latin1').strip().split('\t')
-        sen1, sen2, tags1, tags2 = parser(fields)
-        sen1 = sen_filter([{"token": sen1[i], "pos": pos, "ner": ner}
-                          for i, (pos, ner) in enumerate(tags1)])
-        sen2 = sen_filter([{"token": sen2[i], "pos": pos, "ner": ner}
-                          for i, (pos, ner) in enumerate(tags2)])
+    @staticmethod
+    def old_graph_similarity(graph1, graph2):
+        sim1, ev1 = GraphSimilarity.supported_score(graph1, graph2)
+        sim2, ev2 = GraphSimilarity.supported_score(graph2, graph1)
+        if sim1 + sim2 > 0:
+            pass
+            # logging.info('evidence sets: {0}, {1}'.format(ev2, ev2))
+        return harmonic_mean((sim1, sim2))
 
-        sim = self.sentence_similarity(sen1, sen2, fallback=fallback_sim)
-        print sim
+    @staticmethod
+    def supported_score(graph, context_graph):
+        edge_count = len(graph.edges)
+        supported = graph.edges.intersection(context_graph.edges)
+        return len(supported) / float(edge_count), supported
 
-    def directional_sen_similarity(self, sen1, sen2, fallback):
-        return average((
-            my_max((self.word_sim.word_similarity(
-                word1['token'], word2['token'], -1, -1,
-                fallback=fallback)
-                for word2 in sen2))
-            for word1 in sen1))
+    @staticmethod
+    def old_supported_score(graph, context_graph):
+        zero_count, zero_supported, bin_count, bin_supported = 0, 0, 0, 0
+        evidence = []
+        binaries = defaultdict(set)
+        # logging.info('context edges: {0}'.format(context_graph.edges))
+        for edge in graph.edges:
+            # logging.info('testing edge: {0}'.format(edge))
+            if edge[2] == 0:
+                zero_count += 1
+                if edge in context_graph.edges:
+                    # logging.info('supported 0-edge: {0}'.format(edge))
+                    evidence.append(edge)
+                    zero_supported += 1
+            else:
+                binaries[edge[0]].add(edge)
 
-    def sentence_similarity(self, sen1, sen2, fallback=lambda a, b, c, d: 0.0):
-        return harmonic_mean((
-            self.directional_sen_similarity(sen1, sen2, fallback),
-            self.directional_sen_similarity(sen2, sen1, fallback)))
+        for binary, edges in binaries.iteritems():
+            bin_count += 1
+            if all(edge in context_graph.edges for edge in edges):
+                # logging.info('supported binary: {0}'.format(edges))
+                evidence.append(edges)
+                bin_supported += 1
 
+        if zero_count + bin_count == 0:
+            logging.warning("nothing to support: {0}".format(graph))
+            return 0.0, []
+
+        return (zero_supported + bin_supported) / float(
+            zero_count + bin_count), evidence
 
 class SimComparer():
     def __init__(self, cfg_file, batch=True):
@@ -366,18 +389,79 @@ class SimComparer():
         print "compared {0} distance pairs.".format(len(sims))
         print "Pearson-correlation: {0}".format(pearson)
 
-def main():
-        logging.basicConfig(
-            level=logging.INFO,
-            format="%(asctime)s : " +
-            "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+def main_compare(cfg):
+    comparer = SimComparer(cfg)
+    comparer.get_sims()
+    comparer.compare()
 
-        import sys
-        config_file = sys.argv[1]
-        batch = bool(int(sys.argv[2]))
-        comparer = SimComparer(config_file, batch=batch)
-        comparer.get_sims()
-        comparer.compare()
+def main_sen_sim(cfg):
+    graph_dir = cfg.get("sim", "graph_dir")
+    dep_dir = cfg.get("sim", "deps_dir")
+    ensure_dir(graph_dir)
+    ensure_dir(dep_dir)
+
+    text_to_4lang = TextTo4lang(cfg)
+    for i, line in enumerate(sys.stdin):
+        preprocessed_line = line.decode('utf-8').strip().lower()
+        sen1, sen2 = preprocessed_line.split('\t')
+        machines1 = text_to_4lang.process(
+            sen1, dep_dir=dep_dir, fn="{0}a".format(i))
+        machines2 = text_to_4lang.process(
+            sen2, dep_dir=dep_dir, fn="{0}b".format(i))
+
+        print_text_graph(machines1, graph_dir, fn="{0}a".format(i))
+        print_text_graph(machines2, graph_dir, fn="{0}b".format(i))
+
+        graph1, graph2 = map(
+            MachineGraph.create_from_machines,
+            (machines1.values(), machines2.values()))
+        print GraphSimilarity.graph_similarity(graph1, graph2)
+
+    # text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
+
+
+def get_test_pairs(fn):
+    pairs = {}
+    for line in open(fn):
+        w1, w2, sim_str = line.decode('utf-8').strip().split('\t')
+        pairs[(w1, w2)] = float(sim_str) / 10
+    return pairs
+
+def main_word_test(cfg):
+    from scipy.stats.stats import pearsonr
+    word_sim = WordSimilarity(cfg)
+    test_pairs = get_test_pairs(cfg.get('sim', 'word_test_data'))
+    sims, gold_sims = [], []
+    for (w1, w2), gold_sim in test_pairs.iteritems():
+        sim = word_sim.word_similarity(w1, w2, 'foo', 'foo')  # dummy POS-tags
+        if sim is None:
+            continue
+        gold_sims.append(gold_sim)
+        sims.append(sim)
+        print "{0}\t{1}\t{2}\t{3}\t{4}".format(
+            w1, w2, gold_sim, sim, math.fabs(sim-gold_sim))
+
+    print "Pearson: {0}".format(pearsonr(gold_sims, sims))
+
+def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s : " +
+        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+
+    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+    cfg = get_cfg(cfg_file)
+    sim_type = cfg.get('sim', 'similarity_type')
+    if sim_type == 'sentence':
+        main_sen_sim(cfg)
+    elif sim_type == 'word':
+        raise Exception("main function for word sim not implemented yet")
+    elif sim_type == 'word_test':
+        main_word_test(cfg)
+    else:
+        raise Exception('unknown similarity type: {0}'.format(sim_type))
 
 if __name__ == '__main__':
+    # import cProfile
+    # cProfile.run('main()')
     main()

@@ -11,10 +11,13 @@ import traceback
 from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
+from lexicon import Lexicon
 from longman_parser import LongmanParser
 from wiktionary_parser import WiktParser
 from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
+
+assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
 class DictTo4lang():
     def __init__(self, cfg):
@@ -31,6 +34,7 @@ class DictTo4lang():
 
     def get_parser(self):
         input_type = self.cfg.get('dict', 'input_type')
+        logging.info('input type: {0}'.format(input_type))
         if input_type == 'wiktionary':
             self.parser = WiktParser()
         elif input_type == 'longman':

@@ -1,5 +1,4 @@
 from collections import defaultdict
-import cPickle
 import json
 import logging
 import os
@@ -7,12 +6,10 @@ import re
 import sys
 import traceback
 
-from pymachine.control import ConceptControl
-from pymachine.lexicon import Lexicon
-from pymachine.machine import Machine
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
 from lemmatizer import Lemmatizer
+from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_4lang_graphs
 
 class DepTo4lang():
@@ -26,6 +23,8 @@ class DepTo4lang():
         dep_map_fn = cfg.get("deps", "dep_map")
         self.read_dep_map(dep_map_fn)
         self.lemmatizer = Lemmatizer(cfg)
+        self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
+        self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
 
     def read_dep_map(self, dep_map_fn):
         self.dependencies = {}
@@ -38,7 +37,7 @@ class DepTo4lang():
 
     def apply_dep(self, dep_str, machine1, machine2):
         if dep_str not in self.dependencies:
-            logging.warning(
+            logging.debug(
                 'skipping dependency not in dep_to_4lang map: {0}'.format(
                     dep_str))
             return False  # not that anyone cares
@@ -48,7 +47,6 @@ class DepTo4lang():
         dict_fn = self.cfg.get("dict", "output_file")
         logging.info('reading dependencies from {0}...'.format(dict_fn))
         longman = json.load(open(dict_fn))
-        self.words_to_machines = {}
         for c, (word, entry) in enumerate(longman.iteritems()):
             if c % 1000 == 0:
                 logging.info("added {0}...".format(c))
@@ -69,27 +67,30 @@ class DepTo4lang():
                 machine = self.get_dep_definition(word, deps)
                 if machine is None:
                     continue
-                self.words_to_machines[word] = machine
+
+                # logging.info('adding: {0}'.format(word))
+                # logging.info('ext_lex_keys: {0}'.format(
+                    # self.lexicon.ext_lexicon.keys()))
+                self.lexicon.add(word, machine)
             except Exception:
-                logging.error(
-                    u'skipping "{0}" because of an exception:'.format(
-                        word))
-                logging.info("entry: {0}".format(entry))
+                logging.error(u"exception caused by: '{0}'".format(word))
+                # logging.error(
+                #     u'skipping "{0}" because of an exception:'.format(
+                #         word))
+                # logging.info("entry: {0}".format(entry))
                 traceback.print_exc()
+                sys.exit(-1)
                 continue
 
-        logging.info('done!')
+        logging.info('added {0}, done!'.format(c + 1))
 
     def print_graphs(self):
         print_4lang_graphs(
-            self.words_to_machines,
+            self.lexicon.ext_lexicon,
             self.cfg.get('machine', 'graph_dir'))
 
     def save_machines(self):
-        logging.info('saving machines to {0}...'.format(self.out_fn))
-        with open(self.out_fn, 'w') as out_file:
-            cPickle.dump(self.words_to_machines, out_file)
-        logging.info('done!')
+        self.lexicon.save_to_binary(self.out_fn)
 
     @staticmethod
     def parse_dependency(string):
@@ -99,21 +100,41 @@ class DepTo4lang():
         dep, word1, id1, word2, id2 = dep_match.groups()
         return dep, (word1, id1), (word2, id2)
 
-    def get_dep_definition(self, word, deps):
+    def get_root_lemmas(self, deps):
         root_deps = filter(lambda d: d[0] == 'root', deps)
-        if len(root_deps) != 1:
-            logging.warning(
-                u'no unique root dependency, skipping word "{0}"'.format(word))
+        if not root_deps:
             return None
-        root_word, root_id = root_deps[0][2]
-        root_lemma = self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
-        root_lemma = root_word if not root_lemma else root_lemma
+        root_words = [root_dep[2][0] for root_dep in root_deps]
+        # logging.info('root words: {0}'.format(root_words))
+        root_lemmas = [
+            self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
+            for root_word in root_words]
+
+        # logging.info('root lemmas1: {0}'.format(root_lemmas))
+
+        root_lemmas = [
+            root_words[i] if not root_lemma else root_lemma
+            for i, root_lemma in enumerate(root_lemmas)]
+
+        # logging.info('root lemmas2: {0}'.format(root_lemmas))
+
+        return root_lemmas
+
+    def get_dep_definition(self, word, deps):
+        # logging.info('deps: {0}'.format(deps))
+        root_lemmas = self.get_root_lemmas(deps)
+        if not root_lemmas:
+            logging.warning(
+                u'no root dependency, skipping word "{0}"'.format(word))
+            return None
 
         word2machine = self.get_machines_from_parsed_deps(deps)
 
-        root_machine = word2machine[root_lemma]
-        word_machine = word2machine.get(word, Machine(word, ConceptControl()))
-        word_machine.append(root_machine, 0)
+        root_machines = map(word2machine.get, root_lemmas)
+
+        word_machine = self.lexicon.get_new_machine(word)
+        for root_machine in root_machines:
+            word_machine.append(root_machine, 0)
         return word_machine
 
     def get_machines_from_deps(self, dep_strings):
@@ -133,17 +154,16 @@ class DepTo4lang():
 
         # logging.info('coref index: {0}'.format(coref_index))
 
-        lexicon = Lexicon()
         word2machine = {}
 
         for i, deps in enumerate(dep_lists):
             try:
                 for dep, (word1, id1), (word2, id2) in deps:
-                    # logging.info('w1: {0}, w2: {1}'.format(word1, word2))
+                    # logging.info('dep: {0}, w1: {1}, w2: {2}'.format(
+                    #     repr(dep), repr(word1), repr(word2)))
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
-                    """
                     if c_word1 != word1:
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
@@ -152,12 +172,13 @@ class DepTo4lang():
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
                                 word2, c_word2))
-                    """
 
                     # logging.info(
-                    #    'cw1: {0}, cw2: {1}'.format(c_word1, c_word2))
-                    lemma1 = self.lemmatizer.lemmatize(c_word1)
-                    lemma2 = self.lemmatizer.lemmatize(c_word2)
+                    #     'cw1: {0}, cw2: {1}'.format(
+                    #         repr(c_word1), repr(c_word2)))
+                    lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
+                        w, defined=self.lexicon.get_words()),
+                        (c_word1, c_word2))
 
                     lemma1 = c_word1 if not lemma1 else lemma1
                     lemma2 = c_word2 if not lemma2 else lemma2
@@ -167,12 +188,17 @@ class DepTo4lang():
                     lemma2 = lemma2.replace('/', '_PER_')
 
                     # logging.info(
-                    #     'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
-                    machine1, machine2 = self._add_dependency(
-                        dep, (lemma1, id1), (lemma2, id2), lexicon)
+                    #     'lemma1: {0}, lemma2: {1}'.format(
+                    #         repr(lemma1), repr(lemma2)))
 
-                    word2machine[lemma1] = machine1
-                    word2machine[lemma2] = machine2
+                    for lemma in (lemma1, lemma2):
+                        if lemma not in word2machine:
+                            word2machine[lemma] = self.lexicon.get_new_machine(
+                                lemma)
+
+                    self.apply_dep(
+                        dep, word2machine[lemma1], word2machine[lemma2])
+
             except:
                 logging.error("failure on dep: {0}({1}, {2})".format(
                     dep, word1, word2))
@@ -180,18 +206,6 @@ class DepTo4lang():
                 raise Exception("adding dependencies failed")
 
         return word2machine
-
-    def _add_dependency(self, dep, (word1, id1), (word2, id2), lexicon):
-        """Given a triplet from Stanford Dep.: D(w1,w2), we create and activate
-        machines for w1 and w2, then run all operators associated with D on the
-        sequence of the new machines (m1, m2)"""
-        # logging.info(
-        #     'adding dependency {0}({1}, {2})'.format(dep, word1, word2))
-        machine1, machine2 = map(lexicon.get_machine, (word1, word2))
-
-        self.apply_dep(dep, machine1, machine2)
-        return machine1, machine2
-
 
 class Dependency():
     def __init__(self, name, operators=[]):
@@ -201,7 +215,7 @@ class Dependency():
     @staticmethod
     def create_from_line(line):
         rel, reverse = None, False
-        logging.debug('parsing line: {}'.format(line))
+        # logging.debug('parsing line: {}'.format(line))
         fields = line.split('\t')
         if len(fields) == 2:
             dep, edges = fields

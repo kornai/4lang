@@ -20,9 +20,6 @@ auxpass	-,-
 cc	-,-
 #each coordinated element appears in its own relations
 
-ccomp	?,1
-complm	0,0
-
 conj	-,-
 conj_and	-,-
 conj_as	-,-
@@ -60,8 +57,6 @@ expl	-,-
 
 iobj	?,?
 #I guess we deny that these really exist.
-
-mark	0,2
 
 mwe	-,-
 #We should handle each of these uniquely
@@ -175,7 +170,7 @@ quantmod	-,-
 #No quantification yet...
 
 rcmod	-,-
-#relations expressed by a relative clause will also appear explicitly
+# cannot be handled uniformly, we handle these in dependency_processor
 
 ref	-,-
 

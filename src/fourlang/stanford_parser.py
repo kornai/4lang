@@ -85,7 +85,8 @@ class StanfordParser:
         parse = query.getBestParse()
         # logging.debug("getting gs...")
         gs = self.get_grammatical_structure(parse)
-        dependencies = gs.typedDependenciesCollapsed()
+        # dependencies = gs.typedDependenciesCollapsed()
+        dependencies = gs.typedDependenciesCCprocessed()
         return parse, gs, dependencies
 
     def parse_sens(self, in_file, out_file, log=False):

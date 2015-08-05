@@ -14,20 +14,20 @@ def batches(l, n):
     for i in xrange(0, len(l), n):
         yield l[i:i+n]
 
-def print_text_graph(words_to_machines, graph_dir):
+def print_text_graph(words_to_machines, graph_dir, fn='text'):
     graph = MachineGraph.create_from_machines(
         words_to_machines.values())
-    fn = os.path.join(graph_dir, 'text.dot')
+    fn = os.path.join(graph_dir, '{0}.dot'.format(fn))
     with open(fn, 'w') as f:
         f.write(graph.to_dot().encode('utf-8'))
     return fn
 
-def print_4lang_graphs(words_to_machines, graph_dir):
-    for word, machine in words_to_machines.iteritems():
-        print_4lang_graph(word, machine, graph_dir)
+def print_4lang_graphs(lexicon, graph_dir):
+    for word, machine_set in lexicon.iteritems():
+        print_4lang_graph(word, next(iter(machine_set)), graph_dir)
 
-def print_4lang_graph(word, machine, graph_dir):
-    graph = MachineGraph.create_from_machines([machine])
+def print_4lang_graph(word, machine, graph_dir, max_depth=3):
+    graph = MachineGraph.create_from_machines([machine], max_depth=max_depth)
     fn = os.path.join(graph_dir, u"{0}.dot".format(word)).encode('utf-8')
     with open(fn, 'w') as dot_obj:
         dot_obj.write(graph.to_dot().encode('utf-8'))

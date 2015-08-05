@@ -20,7 +20,7 @@ class XMLParser():
     def get_section(tag, text):
         match_obj = XMLParser.section_pattern(tag).search(text)
         return None if match_obj is None else match_obj.group(1)
-    
+
     @staticmethod
     def remove_sections(tag, text):
         return XMLParser.section_pattern(tag).sub("", text)
@@ -28,8 +28,11 @@ class XMLParser():
     @staticmethod
     def remove_tags(tag, text):
         return XMLParser.tag_pattern(tag).sub("", text)
-    
+
+    @staticmethod
+    def parse_xml(data):
+        raise NotImplementedError
+
     @classmethod
     def parse_file(cls, fn):
         return cls.parse_xml(open(fn).read().decode('utf-8'))
-
