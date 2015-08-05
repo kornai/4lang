@@ -9,6 +9,7 @@ import nltk.data
 
 assert logging, unidecode  # silence pyflakes
 
+
 class EntryPreprocessor():
     word_replacement_pairs = [
         (re.compile(patt, re.UNICODE), repl) for patt, repl in [
