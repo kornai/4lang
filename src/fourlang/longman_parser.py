@@ -43,6 +43,7 @@ class LongmanParser(XMLParser):
 
     @staticmethod
     def get_headword(entry_text):
+        """Return the first group of "HWD" in entry_text"""
         return LongmanParser.remove_extra_whitespace(
             LongmanParser.get_section("HWD", entry_text))
 
@@ -53,6 +54,7 @@ class LongmanParser(XMLParser):
 
     @staticmethod
     def parse_entry(entry_text):
+        """ """
         entry = {
             "hw": LongmanParser.get_headword(entry_text),
             "senses": map(
@@ -72,14 +74,14 @@ class LongmanParser(XMLParser):
 
     @staticmethod
     def parse_xml(xml_text):
+        """Give items of generator of "Entry" strings in xml_text to
+        'parse_entry' method one by one."""
         for raw_entry in LongmanParser.iter_sections("Entry", xml_text):
             yield LongmanParser.parse_entry(raw_entry)
 
     @staticmethod
     def print_defs(longman_obj):
         for entry in longman_obj:
-            print entry
-            continue
             for sense in entry['senses']:
                 print u"{0}\t{1}".format(
                     entry['hw'], sense['definition']).encode("utf-8")
