@@ -27,11 +27,11 @@ class WordSimilarity():
         self.cfg = cfg
         try:
             self.graph_dir = cfg.get("sim", "graph_dir")
-            ensure_dir(self.graph_dir)
         except:
-            pass
+            self.graph_dir = cfg.get("similarity_machine", "graph_dir")
+        ensure_dir(self.graph_dir)
         self.lemmatizer = Lemmatizer(cfg)
-        self.lexicon_fn = self.cfg.get("machine", "ext_definitions")
+        self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
         self.defined_words = self.lexicon.get_words()
         self.lemma_sim_cache = {}
