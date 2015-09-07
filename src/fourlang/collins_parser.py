@@ -26,10 +26,10 @@ class CollinsParser():
        for section in re.split('#[hH]', CollinsParser.get_text(input_file)):
            yield CollinsParser.parse_entry(section)
 
-   @staticmethod
-   def pattern_obj(pattern):
+#   @staticmethod
+#   def pattern_obj(pattern):
 #       print "pattern_obj returns: " + str(type(re.compile(pattern, re.S)))
-       return re.compile(pattern, re.S)
+#       return re.compile(pattern, re.S)
 
    @staticmethod
    def get_text(input_file):
@@ -52,6 +52,8 @@ class CollinsParser():
        entry = re.sub('\n', ' ', entry)
        for pattern in ['#\+', '@\.', '\?!']:
            entry = re.sub(pattern, "", entry)
+       for pattern in ['@n']:
+           entry = re.sub(pattern, " ", entry)
        return {'hw': CollinsParser.get_hw(entry),
            'senses': CollinsParser.get_senses(entry)}
 
