@@ -63,7 +63,7 @@ class DictTo4lang():
         entries = map(entry_preprocessor.preprocess_entry,
                       (self.raw_dict[word] for word in words))
 
-        stanford_wrapper = StanfordWrapper(self.cfg)
+        stanford_wrapper = StanfordWrapper(self.cfg)  # if...
         entries = stanford_wrapper.parse_sentences(
             entries, definitions=True)
 
