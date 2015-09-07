@@ -16,8 +16,11 @@ from longman_parser import LongmanParser
 from wiktionary_parser import WiktParser
 from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
+from collins_parser import CollinsParser
+from nszt_parser import NSzTParser
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
+
 
 class DictTo4lang():
     def __init__(self, cfg):
@@ -29,16 +32,24 @@ class DictTo4lang():
         ensure_dir(self.tmp_dir)
         self.graph_dir = self.cfg.get('machine', 'graph_dir')
         ensure_dir(self.graph_dir)
-        self.get_parser()
+        self.get_parser_and_lang()
         self.machine_wrapper = None
 
-    def get_parser(self):
+    def get_parser_and_lang(self):
         input_type = self.cfg.get('dict', 'input_type')
         logging.info('input type: {0}'.format(input_type))
         if input_type == 'wiktionary':
             self.parser = WiktParser()
+            self.lang = 'eng'
         elif input_type == 'longman':
             self.parser = LongmanParser()
+            self.lang = 'eng'
+        elif input_type == 'collins':
+            self.parser = CollinsParser()
+            self.lang = 'eng'
+        elif input_type == 'nszt':
+            self.parser = NSzTParser()
+            self.lang = 'hun'
         else:
             raise Exception('unknown input format: {0}'.format(input_type))
 
@@ -130,6 +141,7 @@ class DictTo4lang():
                 json.dump(self.dictionary, out)
         else:
             json.dump(self.dictionary, stream)
+
 
 def main():
     logging.basicConfig(

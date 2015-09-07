@@ -7,7 +7,7 @@ import re
 import textwrap
 
 
-class MagyarParser():
+class NSzTParser():
     @staticmethod
     def print_definitions(definitions):
 #       with open('magyar_out.json', 'w') as out:
@@ -48,26 +48,26 @@ class MagyarParser():
         for entry in re.finditer('<entry.+?<lemma>.+?</lemma>.*?</entry',
             # avoid entries with empty lemmas
             open(input_file).read().decode('utf-8').strip()):
-                yield MagyarParser.parse_entry(entry.group(0))
+                yield NSzTParser.parse_entry(entry.group(0))
 
 
     @staticmethod
     def parse_entry(entry):
 #       print 'type of entry: ' + str(type(entry))
 #        if entry[:6] == '<entry':
-#            entry_dict = {'hw': MagyarParser.get_hw(entry),
-#                          'senses': MagyarParser.get_senses(entry)}
+#            entry_dict = {'hw': NSzTParser.get_hw(entry),
+#                          'senses': NSzTParser.get_senses(entry)}
 #        else:
 #            entry_dict = None
 #        if entry[:8] == '<entryxr':
-#            entry_dict['redirect'] = MagyarParser.get_xr(entry)
+#            entry_dict['redirect'] = NSzTParser.get_xr(entry)
 #        return entry_dict
 
-        entry_dict = {'hw': MagyarParser.get_hw(entry)}
+        entry_dict = {'hw': NSzTParser.get_hw(entry)}
         if entry[:8] == '<entryxr':
-            entry_dict['redirect'] = MagyarParser.get_xr(entry)
+            entry_dict['redirect'] = NSzTParser.get_xr(entry)
         else:
-            entry_dict['senses'] = MagyarParser.get_senses(entry)
+            entry_dict['senses'] = NSzTParser.get_senses(entry)
 # xr?
         return entry_dict
 
@@ -81,9 +81,9 @@ class MagyarParser():
 
     @staticmethod
     def get_senses(entry):
-        hw = MagyarParser.get_hw(entry)
+        hw = NSzTParser.get_hw(entry)
         if hw[0] == '-' or hw[-1] == '-':  # elotag/utotag
-            return [{'definition': MagyarParser.clean_definition(re.search(
+            return [{'definition': NSzTParser.clean_definition(re.search(
                 '<def>(.+?)</def>', entry).group(1))}]
 
         raw_sense_list = re.findall(
@@ -92,9 +92,9 @@ class MagyarParser():
         for sense in raw_sense_list:
             if sense != '<same/>':
                 modified_sense_list.append(
-                    {'definition': MagyarParser.clean_definition(sense)})
+                    {'definition': NSzTParser.clean_definition(sense)})
                 if '<tr>' in sense:
-                    modified_sense_list[-1]['latin'] = MagyarParser.get_latin(
+                    modified_sense_list[-1]['latin'] = NSzTParser.get_latin(
                         sense)
         return modified_sense_list
 
@@ -147,4 +147,4 @@ class MagyarParser():
 
 if __name__ == "__main__":
     for input_file in sys.argv[1:]:
-        MagyarParser.print_definitions(MagyarParser.parse_file(input_file))
+        NSzTParser.print_definitions(NSzTParser.parse_file(input_file))
