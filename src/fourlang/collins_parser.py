@@ -54,8 +54,7 @@ class CollinsParser():
         for pattern in ['#\+', '@\.', '\?!']:
             entry = re.sub(pattern, "", entry)
         return {'hw': CollinsParser.get_hw(entry),
-            'senses': CollinsParser.get_senses(entry),
-            'pos': CollinsParser.get_pos(entry)}
+            'senses': CollinsParser.get_senses(entry)}
 
     @staticmethod
     def get_pos(entry):
@@ -91,7 +90,8 @@ class CollinsParser():
 
     @staticmethod
     def get_mono_sense(description):
-        return [{'definition': description}]
+        return [{'definition': description,
+                 'pos': CollinsParser.get_pos(description)}]
 
     @staticmethod
     def get_multiple_senses(description):
@@ -104,7 +104,9 @@ class CollinsParser():
                     if '#' not in re.findall('#5', sense)[-1]:  # ellenorizni
                          lst.append(re.findall('#5', sense)[-1])
             else:
-                lst.append({'definition': sense})
+                lst.append({'definition': sense,
+                            'pos': CollinsParser.get_pos(description)})
+                # every sense gets pos of first sense!
             is_first = False
         return lst
 
