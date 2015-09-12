@@ -2,7 +2,6 @@ from tempfile import NamedTemporaryFile
 import json
 import subprocess
 import os
-from ConfigParser import ConfigParser
 from utils import ensure_dir
 
 
@@ -31,12 +30,24 @@ class MagyarlancWrapper():
         else:
             print 'magyarlanc nem ok'
 
-        with open(out_file_name) as out_file:
-            new_entries = json.load(out_file)
+#        with open(out_file_name) as out_file:
+#            new_entries = json.load(out_file)
+
+        new_entries = self.parse_output(out_file_name)
 
         os.chdir('..')
 
         return new_entries
+
+    def parse_output(self, out_file_name):
+        lst = []
+        with open(out_file_name) as out_file:
+            for line in out_file.readlines():
+                if line.strip():  # if not empty
+#                    print line
+#                    print str(line.split())
+                    lst.append({'hw': line.split()[1]})
+        return lst
 
     def run_magyarlanc(self, in_file, out_file):
         return_code = subprocess.call([
@@ -44,6 +55,3 @@ class MagyarlancWrapper():
             '-mode', 'depparse', '-input', in_file,
             '-output', out_file, '-encoding', 'ISO-8859-2'])
         return return_code == 0
-
-    def main():
-        pass
