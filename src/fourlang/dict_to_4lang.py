@@ -18,7 +18,7 @@ from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
 from collins_parser import CollinsParser
 from nszt_parser import NSzTParser
-from magyarlanc_wrapper import MagyarlancWrapper
+from magyarlanc_wrapper import Magyarlanc
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
@@ -80,7 +80,7 @@ class DictTo4lang():
             entries = stanford_wrapper.parse_sentences(
                 entries, definitions=True)
         elif self.lang == 'hun':
-            magyarlanc_wrapper = MagyarlancWrapper(self.cfg)
+            magyarlanc_wrapper = Magyarlanc(self.cfg)
             entries = magyarlanc_wrapper.parse_sentences(entries)
         else:
             print 'incorrect lang'
