@@ -12,8 +12,10 @@ class CollinsParser():
             print
             print section['hw']
  #           print "section: " + str(section)
-            print textwrap.fill(section['pos'], initial_indent='    ')
+#            print textwrap.fill(section['pos'], initial_indent='    ')
             for sense in section['senses']:
+                print textwrap.fill(sense['pos'], initial_indent='    ',
+                    subsequent_indent='        ')
                 print textwrap.fill(sense['definition'], initial_indent='    ',
                     subsequent_indent='        ')
             print
@@ -50,8 +52,11 @@ class CollinsParser():
         if entry == " ":
             return None
         entry = re.sub('@=', '-', entry)
-        entry = re.sub('\n', ' ', entry)
-        for pattern in ['#\+', '@\.', '\?!']:
+#        entry = re.sub('\n', ' ', entry)
+        for pattern in ['\n', '@n']:
+            entry = re.sub(pattern, " ", entry)
+        for pattern in ['#\+', '@\.', '\?!', '#5\(.*?\)', '#5\[.*?\]',
+                        'or #3[^ ]+']:  # '#3' another spelling
             entry = re.sub(pattern, "", entry)
         return {'hw': CollinsParser.get_hw(entry),
             'senses': CollinsParser.get_senses(entry)}
@@ -91,7 +96,16 @@ class CollinsParser():
     @staticmethod
     def get_mono_sense(description):
         return [{'definition': description,
-                 'pos': CollinsParser.get_pos(description)}]
+#                 'pos': CollinsParser.get_pos(description)}]
+                 'pos': CollinsParser.get_pos_from_sense(description)}]
+
+    @staticmethod
+    def get_pos_from_sense(sense):
+        pos = re.search('#6(n).', sense)
+        if pos:
+            return pos.group(1)
+        else:
+            return 'unknown'
 
     @staticmethod
     def get_multiple_senses(description):
@@ -103,9 +117,12 @@ class CollinsParser():
                 if '#5' in sense:
                     if '#' not in re.findall('#5', sense)[-1]:  # ellenorizni
                          lst.append(re.findall('#5', sense)[-1])
+                else:
+                    lst.append(sense)
             else:
                 lst.append({'definition': sense,
-                            'pos': CollinsParser.get_pos(description)})
+#                            'pos': CollinsParser.get_pos(description)})
+                            'pos': CollinsParser.get_pos_from_sense(sense)})
                 # every sense gets pos of first sense!
             is_first = False
         return lst

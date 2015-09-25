@@ -37,7 +37,7 @@ class DepTo4lang():
 
     def apply_dep(self, dep_str, machine1, machine2):
         if dep_str not in self.dependencies:
-            logging.debug(
+            logging.warning(
                 'skipping dependency not in dep_to_4lang map: {0}'.format(
                     dep_str))
             return False  # not that anyone cares

@@ -95,8 +95,10 @@ class DictTo4lang():
                 definition = sense['definition']
                 if definition is None:
                     continue
+#                print 'printing deps' + str(definition['deps'])
                 definition['deps'] = dependency_processor.process_dependencies(
                     definition['deps'])
+                print definition['deps']
 
             if word in self.dictionary:
                 logging.warning(
