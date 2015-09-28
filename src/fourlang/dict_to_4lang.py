@@ -58,6 +58,8 @@ class DictTo4lang():
         input_file = self.cfg.get('dict', 'input_file')
         self.raw_dict = defaultdict(dict)
         for entry in self.parser.parse_file(input_file):
+            if 'senses' not in entry:
+                continue  # todo
             self.unify(self.raw_dict[entry['hw']], entry)
 
     def unify(self, entry1, entry2):
@@ -68,6 +70,8 @@ class DictTo4lang():
                 "cannot unify entries with different headwords: " +
                 "{0} vs. {1}".format(entry1['hw'], entry2['hw']))
 
+        # print 'entry1: ' + repr(entry1)
+        # print 'entry2: ' + repr(entry2)
         entry1['senses'] += entry2['senses']
 
     def process_entries(self, words):
@@ -95,10 +99,10 @@ class DictTo4lang():
                 definition = sense['definition']
                 if definition is None:
                     continue
-#                print 'printing deps' + str(definition['deps'])
+                # print 'printing deps' + str(definition['deps'])
                 definition['deps'] = dependency_processor.process_dependencies(
                     definition['deps'])
-                print definition['deps']
+                # print definition['deps']
 
             if word in self.dictionary:
                 logging.warning(

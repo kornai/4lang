@@ -72,14 +72,16 @@ class CollinsParser():
 
     @staticmethod
     def get_hw(entry):
+#        print 'entry: ' + entry
         return re.search('(.+?)#[56]', entry, re.S).group(1)
 
     @staticmethod
     def get_senses(entry):
  #       print 'Entry: ' + entry + '.'
-        description = re.search('#[56](.+)', entry, re.S).group(1)
+#        description = re.search('#[56](.+)', entry, re.S).group(1)
+        description = entry
  #       print 'Description: ' + description + '.'
-        if '@n#1$D' in description:  # check multiple senses for word
+        if '#1$D' in description:  # check multiple senses for word
             return CollinsParser.del_pronunciation(
                 CollinsParser.get_multiple_senses(description))
         else:
@@ -95,36 +97,59 @@ class CollinsParser():
 
     @staticmethod
     def get_mono_sense(description):
-        return [{'definition': description,
-#                 'pos': CollinsParser.get_pos(description)}]
-                 'pos': CollinsParser.get_pos_from_sense(description)}]
+        def_and_pos = CollinsParser.separate_def_and_pos(description)
+        definition = def_and_pos[1]
+        pos = def_and_pos[0]
+        return [{'definition': definition,
+                 'pos': pos}]
+#        return [{'definition': description,
+##                 'pos': CollinsParser.get_pos(description)}]
+#                 'pos': CollinsParser.get_pos_from_sense(description)}]
 
     @staticmethod
-    def get_pos_from_sense(sense):
-        pos = re.search('#6(n).', sense)
-        if pos:
-            return pos.group(1)
+    def separate_def_and_pos(description):
+        pos_and_def = re.search('#6(n|abbrev|interj)\.(.+)', description)
+        if pos_and_def:
+            return (pos_and_def.group(1), pos_and_def.group(2))
         else:
-            return 'unknown'
+            return ('unknown', description)
+
+
+#    @staticmethod
+#    def get_pos_from_sense(sense):
+#        pos = re.search('#6(n|abbrev).', sense)
+#        if pos:
+#            return pos.group(1)
+#        else:
+#            return 'unknown'
 
     @staticmethod
     def get_multiple_senses(description):
+#        lst = []
+#        is_first = True
+#        for sense in unicode.split(description, '#1$D'):
+#            if is_first:
+# #               print 'Sense: ' + sense + '.'
+#                if '#5' in sense:
+#                    if '#' not in re.findall('#5', sense)[-1]:  # ellenorizni
+#                         lst.append(re.findall('#5', sense)[-1])
+#                else:
+#                    lst.append(sense)
+#            else:
+#                lst.append({'definition': sense,
+##                            'pos': CollinsParser.get_pos(description)})
+#                            'pos': CollinsParser.get_pos_from_sense(sense)})
+#                # every sense gets pos of first sense!
+#            is_first = False
+#        return lst
+
         lst = []
-        is_first = True
-        for sense in unicode.split(description, '@n#1$D'):
-            if is_first:
- #               print 'Sense: ' + sense + '.'
-                if '#5' in sense:
-                    if '#' not in re.findall('#5', sense)[-1]:  # ellenorizni
-                         lst.append(re.findall('#5', sense)[-1])
-                else:
-                    lst.append(sense)
-            else:
-                lst.append({'definition': sense,
-#                            'pos': CollinsParser.get_pos(description)})
-                            'pos': CollinsParser.get_pos_from_sense(sense)})
-                # every sense gets pos of first sense!
-            is_first = False
+        for sense in unicode.split(description, '#1$D'):
+            def_and_pos = CollinsParser.separate_def_and_pos(sense)
+            definition = def_and_pos[1]
+            pos = def_and_pos[0]
+            lst.append({'definition': definition,
+                     'pos': pos})
         return lst
 
 
