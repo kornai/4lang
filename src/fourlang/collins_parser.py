@@ -82,6 +82,7 @@ class CollinsParser():
         description = entry
  #       print 'Description: ' + description + '.'
         if '#1$D' in description:  # check multiple senses for word
+#            print 'detected multiple senses in: ' + description
             return CollinsParser.del_pronunciation(
                 CollinsParser.get_multiple_senses(description))
         else:
@@ -93,6 +94,7 @@ class CollinsParser():
         for sense in lst_of_senses:
             if sense['definition'][0] == '(':
                 re.sub('\(.*?\)', '', sense['definition'], count=1)
+#        print 'without pronunciation: ' + repr(lst_of_senses)
         return lst_of_senses
 
     @staticmethod
@@ -108,10 +110,13 @@ class CollinsParser():
 
     @staticmethod
     def separate_def_and_pos(description):
-        pos_and_def = re.search('#6(n|abbrev|interj)\.(.+)', description)
+#        print 'searching hw in: ' + description
+        pos_and_def = re.search('#6(n|abbrev|interj)\.(.*)', description)
         if pos_and_def:
+#            print 'hw found: ' + pos_and_def.group(1)
             return (pos_and_def.group(1), pos_and_def.group(2))
         else:
+#            print 'hw not found'
             return ('unknown', description)
 
 
@@ -144,12 +149,14 @@ class CollinsParser():
 #        return lst
 
         lst = []
-        for sense in unicode.split(description, '#1$D'):
+        for sense in unicode.split(description, '#1$D'):  # todo: sense without #5 is not sense
+#            print 'next sense: ' + sense
             def_and_pos = CollinsParser.separate_def_and_pos(sense)
             definition = def_and_pos[1]
             pos = def_and_pos[0]
             lst.append({'definition': definition,
                      'pos': pos})
+#        print 'list of senses: ' + repr(lst)
         return lst
 
 
