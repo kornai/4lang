@@ -269,9 +269,7 @@ class Dependency():
         return True
 
     def apply(self, msd1, msd2, machine1, machine2):
-        # logging.info('trying: {0}'.format(self.name))
         if self.match(msd1, msd2):
-            # logging.info('applying: {0}'.format(self.name))
             for operator in self.operators:
                 operator.act((machine1, machine2))
 

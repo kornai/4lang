@@ -8,7 +8,6 @@
 #between x and y, the order can be reversed with "!". E.g. HAS will trigger
 #x HAS y, !HAS will trigger Y HAS X
 
-#magyarlanc dependencies for Hungarian
 att	0,-
 
 subj	1,0

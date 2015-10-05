@@ -14,6 +14,7 @@ class Magyarlanc():
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
             for e in entries:
                 definition = e['senses'][0]['definition']
+                definition = definition.replace('i. e.', 'i.e.')  # TODO
                 in_file.write(u"{0}\n".format(definition).encode('utf-8'))
                 in_file_name = in_file.name
         logging.info("dumped input to {0}".format(in_file_name))

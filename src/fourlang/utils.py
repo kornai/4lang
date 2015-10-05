@@ -26,7 +26,7 @@ def print_4lang_graphs(lexicon, graph_dir):
     for word, machine_set in lexicon.iteritems():
         print_4lang_graph(word, next(iter(machine_set)), graph_dir)
 
-def print_4lang_graph(word, machine, graph_dir, max_depth=3):
+def print_4lang_graph(word, machine, graph_dir, max_depth=None):
     graph = MachineGraph.create_from_machines([machine], max_depth=max_depth)
     fn = os.path.join(graph_dir, u"{0}.dot".format(word)).encode('utf-8')
     with open(fn, 'w') as dot_obj:
