@@ -18,6 +18,7 @@ class DepTo4lang():
 
     def __init__(self, cfg):
         self.cfg = cfg
+        self.lang = self.cfg.get("deps", "lang")
         self.out_fn = self.cfg.get("machine", "ext_definitions")
         ensure_dir(os.path.dirname(self.out_fn))
         dep_map_fn = cfg.get("deps", "dep_map")
@@ -27,21 +28,25 @@ class DepTo4lang():
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
 
     def read_dep_map(self, dep_map_fn):
-        self.dependencies = {}
+        self.dependencies = defaultdict(list)
         for line in file(dep_map_fn):
             l = line.strip()
             if not l or l.startswith('#'):
                 continue
             dep = Dependency.create_from_line(l)
-            self.dependencies[dep.name] = dep
+            self.dependencies[dep.name].append(dep)
 
-    def apply_dep(self, dep_str, machine1, machine2):
-        if dep_str not in self.dependencies:
+    def apply_dep(self, dep, machine1, machine2):
+        dep_type = dep['type']
+        msd1 = dep['gov'].get('msd')
+        msd2 = dep['dep'].get('msd')
+        if dep_type not in self.dependencies:
             logging.warning(
                 'skipping dependency not in dep_to_4lang map: {0}'.format(
-                    dep_str))
+                    dep_type))
             return False  # not that anyone cares
-        self.dependencies[dep_str].apply(machine1, machine2)
+        for dep in self.dependencies[dep_type]:
+            dep.apply(msd1, msd2, machine1, machine2)
 
     def dep_to_4lang(self):
         dict_fn = self.cfg.get("dict", "output_file")
@@ -101,27 +106,28 @@ class DepTo4lang():
         return dep, (word1, id1), (word2, id2)
 
     def get_root_lemmas(self, deps):
-        root_deps = filter(lambda d: d[0] == 'root', deps)
-        if not root_deps:
-            return None
-        root_words = [root_dep[2][0] for root_dep in root_deps]
-        # logging.info('root words: {0}'.format(root_words))
-        root_lemmas = [
-            self.lemmatizer.lemmatize(root_word).replace('/', '_PER_')
-            for root_word in root_words]
+        return [d['dep']['lemma'] for d in deps if d['type'] == 'root']
 
-        # logging.info('root lemmas1: {0}'.format(root_lemmas))
-
-        root_lemmas = [
-            root_words[i] if not root_lemma else root_lemma
-            for i, root_lemma in enumerate(root_lemmas)]
-
-        # logging.info('root lemmas2: {0}'.format(root_lemmas))
-
-        return root_lemmas
+    def convert_old_deps(self, deps):
+        new_deps = []
+        for dep, (word1, id1), (word2, id2) in deps:
+            lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
+                w, defined=self.lexicon.get_words()) or w, (word1, word2))
+            lemma1
+            new_deps.append({
+                "type": dep,
+                "gov": {
+                    "id": id1, "word": word1, "msd": None, "lemma": lemma1},
+                "dep": {
+                    "id": id2, "word": word2, "msd": None, "lemma": lemma2}
+            })
+        return new_deps
 
     def get_dep_definition(self, word, deps):
         # logging.info('deps: {0}'.format(deps))
+        if self.lang == 'en':
+            deps = self.convert_old_deps(deps)
+
         root_lemmas = self.get_root_lemmas(deps)
         if not root_lemmas:
             logging.warning(
@@ -137,11 +143,6 @@ class DepTo4lang():
             word_machine.append(root_machine, 0)
         return word_machine
 
-    def get_machines_from_deps(self, dep_strings):
-        # deprecated, use get_machines_from_deps_and_corefs
-        deps = map(DepTo4lang.parse_dependency, dep_strings)
-        return self.get_machines_from_parsed_deps(deps)
-
     def get_machines_from_parsed_deps(self, deps):
         # deprecated, use get_machines_from_deps_and_corefs
         return self.get_machines_from_deps_and_corefs([deps], [])
@@ -155,10 +156,17 @@ class DepTo4lang():
         # logging.info('coref index: {0}'.format(coref_index))
 
         word2machine = {}
+        word2lemma = {}
+        for deps in dep_lists:
+            for dep in deps:
+                for t in (dep['gov'], dep['dep']):
+                    word2lemma[t['word']] = t['lemma']
 
         for i, deps in enumerate(dep_lists):
             try:
-                for dep, (word1, id1), (word2, id2) in deps:
+                for dep in deps:
+                    word1 = dep['gov']['word']
+                    word2 = dep['dep']['word']
                     # logging.info('dep: {0}, w1: {1}, w2: {2}'.format(
                     #     repr(dep), repr(word1), repr(word2)))
                     c_word1 = coref_index[word1].get(i, word1)
@@ -176,12 +184,7 @@ class DepTo4lang():
                     # logging.info(
                     #     'cw1: {0}, cw2: {1}'.format(
                     #         repr(c_word1), repr(c_word2)))
-                    lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
-                        w, defined=self.lexicon.get_words()),
-                        (c_word1, c_word2))
-
-                    lemma1 = c_word1 if not lemma1 else lemma1
-                    lemma2 = c_word2 if not lemma2 else lemma2
+                    lemma1, lemma2 = map(word2lemma.get, (c_word1, c_word2))
 
                     # TODO
                     lemma1 = lemma1.replace('/', '_PER_')
@@ -200,7 +203,7 @@ class DepTo4lang():
                         dep, word2machine[lemma1], word2machine[lemma2])
 
             except:
-                logging.error("failure on dep: {0}({1}, {2})".format(
+                logging.error(u"failure on dep: {0}({1}, {2})".format(
                     dep, word1, word2))
                 traceback.print_exc()
                 raise Exception("adding dependencies failed")
@@ -208,8 +211,10 @@ class DepTo4lang():
         return word2machine
 
 class Dependency():
-    def __init__(self, name, operators=[]):
+    def __init__(self, name, patt1, patt2, operators=[]):
         self.name = name
+        self.patt1 = re.compile(patt1) if patt1 else None
+        self.patt2 = re.compile(patt2) if patt2 else None
         self.operators = operators
 
     @staticmethod
@@ -228,6 +233,11 @@ class Dependency():
             raise Exception('lines must have 2 or 3 fields: {}'.format(
                 fields))
 
+        if ',' in dep:
+            dep, patt1, patt2 = dep.split(',')
+        else:
+            patt1, patt2 = None, None
+
         edge1, edge2 = map(lambda s: int(s) if s not in ('-', '?') else None,
                            edges.split(','))
 
@@ -236,7 +246,7 @@ class Dependency():
             # logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split('_', 1)[1].upper()
 
-        return Dependency(dep, Dependency.get_standard_operators(
+        return Dependency(dep, patt1, patt2, Dependency.get_standard_operators(
             edge1, edge2, rel, reverse))
 
     @staticmethod
@@ -252,9 +262,18 @@ class Dependency():
 
         return operators
 
-    def apply(self, machine1, machine2):
-        for operator in self.operators:
-            operator.act((machine1, machine2))
+    def match(self, msd1, msd2):
+        for patt, msd in ((self.patt1, msd1), (self.patt2, msd2)):
+            if patt is not None and not patt.match(msd):
+                return False
+        return True
+
+    def apply(self, msd1, msd2, machine1, machine2):
+        # logging.info('trying: {0}'.format(self.name))
+        if self.match(msd1, msd2):
+            # logging.info('applying: {0}'.format(self.name))
+            for operator in self.operators:
+                operator.act((machine1, machine2))
 
 def main():
     logging.basicConfig(
