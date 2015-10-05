@@ -2,6 +2,7 @@ import subprocess
 from tempfile import NamedTemporaryFile
 import logging
 import sys
+import traceback
 
 class Magyarlanc():
     def __init__(self, cfg):
@@ -68,7 +69,12 @@ class Magyarlanc():
         curr_lines = []
         for line in open(out_file_name):
             if line == '\n':
-                self.add_deps(entries[count], curr_lines)  # nopep8
+                try:
+                    self.add_deps(entries[count], curr_lines)  # nopep8
+                except:
+                    logging.error(u"failed with: {0}".format(curr_lines))
+                    traceback.print_exc()
+                    sys.exit(-1)
                 curr_lines = []
                 count += 1
             else:

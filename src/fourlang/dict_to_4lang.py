@@ -58,7 +58,7 @@ class DictTo4lang():
         input_file = self.cfg.get('dict', 'input_file')
         self.raw_dict = defaultdict(dict)
         for entry in self.parser.parse_file(input_file):
-            if 'senses' not in entry:
+            if 'senses' not in entry or entry['senses'] == []:
                 continue  # todo
             self.unify(self.raw_dict[entry['hw']], entry)
 

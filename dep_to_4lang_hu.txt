@@ -13,7 +13,8 @@ att	0,-
 
 subj	1,0
 obj	2,-
-obl	0,0
+
+obl,.*,N..s.*	-,-	IN
 
 coord	0,0
 conj	0,0
