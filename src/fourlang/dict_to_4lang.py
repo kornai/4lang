@@ -16,8 +16,12 @@ from longman_parser import LongmanParser
 from wiktionary_parser import WiktParser
 from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
+from collins_parser import CollinsParser
+from nszt_parser import NSzTParser
+from magyarlanc_wrapper import Magyarlanc
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
+
 
 class DictTo4lang():
     def __init__(self, cfg):
@@ -29,16 +33,24 @@ class DictTo4lang():
         ensure_dir(self.tmp_dir)
         self.graph_dir = self.cfg.get('machine', 'graph_dir')
         ensure_dir(self.graph_dir)
-        self.get_parser()
+        self.get_parser_and_lang()
         self.machine_wrapper = None
 
-    def get_parser(self):
+    def get_parser_and_lang(self):
         input_type = self.cfg.get('dict', 'input_type')
         logging.info('input type: {0}'.format(input_type))
         if input_type == 'wiktionary':
             self.parser = WiktParser()
+            self.lang = 'eng'
         elif input_type == 'longman':
             self.parser = LongmanParser()
+            self.lang = 'eng'
+        elif input_type == 'collins':
+            self.parser = CollinsParser()
+            self.lang = 'eng'
+        elif input_type == 'nszt':
+            self.parser = NSzTParser()
+            self.lang = 'hun'
         else:
             raise Exception('unknown input format: {0}'.format(input_type))
 
@@ -46,6 +58,8 @@ class DictTo4lang():
         input_file = self.cfg.get('dict', 'input_file')
         self.raw_dict = defaultdict(dict)
         for entry in self.parser.parse_file(input_file):
+            if 'senses' not in entry:
+                continue  # todo
             self.unify(self.raw_dict[entry['hw']], entry)
 
     def unify(self, entry1, entry2):
@@ -56,6 +70,8 @@ class DictTo4lang():
                 "cannot unify entries with different headwords: " +
                 "{0} vs. {1}".format(entry1['hw'], entry2['hw']))
 
+        # print 'entry1: ' + repr(entry1)
+        # print 'entry2: ' + repr(entry2)
         entry1['senses'] += entry2['senses']
 
     def process_entries(self, words):
@@ -63,9 +79,15 @@ class DictTo4lang():
         entries = map(entry_preprocessor.preprocess_entry,
                       (self.raw_dict[word] for word in words))
 
-        stanford_wrapper = StanfordWrapper(self.cfg)
-        entries = stanford_wrapper.parse_sentences(
-            entries, definitions=True)
+        if self.lang == 'eng':
+            stanford_wrapper = StanfordWrapper(self.cfg)
+            entries = stanford_wrapper.parse_sentences(
+                entries, definitions=True)
+        elif self.lang == 'hun':
+            magyarlanc_wrapper = Magyarlanc(self.cfg)
+            entries = magyarlanc_wrapper.parse_sentences(entries)
+        else:
+            print 'incorrect lang'
 
         dependency_processor = DependencyProcessor(self.cfg)
 
@@ -77,8 +99,10 @@ class DictTo4lang():
                 definition = sense['definition']
                 if definition is None:
                     continue
+                # print 'printing deps' + str(definition['deps'])
                 definition['deps'] = dependency_processor.process_dependencies(
                     definition['deps'])
+                # print definition['deps']
 
             if word in self.dictionary:
                 logging.warning(
@@ -130,6 +154,7 @@ class DictTo4lang():
                 json.dump(self.dictionary, out)
         else:
             json.dump(self.dictionary, stream)
+
 
 def main():
     logging.basicConfig(
