@@ -1,4 +1,4 @@
-#Mapping of Stanford Dependency relations to 4lang edges.
+#Mapping of Stanford dependency relations to 4lang edges.
 #
 #The line "rel TAB i,j" means the dependency relation rel(x,y) should convert
 #to an arrow of color i pointing from x to y and an arrow of color j pointing

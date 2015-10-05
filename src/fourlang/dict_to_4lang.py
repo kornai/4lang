@@ -100,8 +100,9 @@ class DictTo4lang():
                 if definition is None:
                     continue
                 # print 'printing deps' + str(definition['deps'])
-                definition['deps'] = dependency_processor.process_dependencies(
-                    definition['deps'])
+                if self.lang == 'eng':
+                    definition['deps'] = dependency_processor.process_string_dependencies(  # nopep8
+                        definition['deps'])
                 # print definition['deps']
 
             if word in self.dictionary:

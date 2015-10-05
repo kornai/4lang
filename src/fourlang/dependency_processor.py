@@ -126,8 +126,11 @@ class DependencyProcessor():
 
         return deps
 
-    def process_dependencies(self, dep_strings):
-        deps = Dependencies.create_from_strings(dep_strings)
+    def process_string_dependencies(self, dep_strings):
+        return self.process_dependencies(
+            Dependencies.create_from_strings(dep_strings))
+
+    def process_dependencies(self, deps):
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)

@@ -1,0 +1,19 @@
+#Mapping of magyarlanc dependency relations to 4lang edges.
+#
+#The line "rel TAB i,j" means the dependency relation rel(x,y) should convert
+#to an arrow of color i pointing from x to y and an arrow of color j pointing
+#from y to x. "-" means no arrow, "?" means undecided or ambiguous.
+#
+#Further TAB separated fields may specify binary relations that should hold
+#between x and y, the order can be reversed with "!". E.g. HAS will trigger
+#x HAS y, !HAS will trigger Y HAS X
+
+#magyarlanc dependencies for Hungarian
+att	0,-
+
+subj	1,0
+obj	2,-
+obl	0,0
+
+coord	0,0
+conj	0,0
