@@ -8,6 +8,7 @@ import traceback
 
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
+from dependency_processor import DependencyProcessor
 from lemmatizer import Lemmatizer
 from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_4lang_graphs
@@ -21,8 +22,10 @@ class DepTo4lang():
         self.lang = self.cfg.get("deps", "lang")
         self.out_fn = self.cfg.get("machine", "ext_definitions")
         ensure_dir(os.path.dirname(self.out_fn))
+        self.dependency_processor = DependencyProcessor(self.cfg)
         dep_map_fn = cfg.get("deps", "dep_map")
         self.read_dep_map(dep_map_fn)
+        self.undefined = set()
         self.lemmatizer = Lemmatizer(cfg)
         self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
@@ -41,9 +44,11 @@ class DepTo4lang():
         msd1 = dep['gov'].get('msd')
         msd2 = dep['dep'].get('msd')
         if dep_type not in self.dependencies:
-            logging.warning(
-                'skipping dependency not in dep_to_4lang map: {0}'.format(
-                    dep_type))
+            if dep_type not in self.undefined:
+                self.undefined.add(dep_type)
+                logging.warning(
+                    'skipping dependency not in dep_to_4lang map: {0}'.format(
+                        dep_type))
             return False  # not that anyone cares
         for dep in self.dependencies[dep_type]:
             dep.apply(msd1, msd2, machine1, machine2)
@@ -65,7 +70,8 @@ class DepTo4lang():
                 definition = entry['senses'][0]['definition']
                 if definition is None:
                     continue
-                deps = definition['deps']
+                deps = self.dependency_processor.process_dependencies(
+                    definition['deps'])
                 if not deps:
                     #  TODO see previous comment
                     continue
@@ -124,7 +130,6 @@ class DepTo4lang():
         return new_deps
 
     def get_dep_definition(self, word, deps):
-        # logging.info('deps: {0}'.format(deps))
         if self.lang == 'en':
             deps = self.convert_old_deps(deps)
 
@@ -264,7 +269,7 @@ class Dependency():
 
     def match(self, msd1, msd2):
         for patt, msd in ((self.patt1, msd1), (self.patt2, msd2)):
-            if patt is not None and not patt.match(msd):
+            if patt is not None and msd is not None and patt.match(msd):
                 return False
         return True
 
