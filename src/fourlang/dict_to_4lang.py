@@ -17,6 +17,7 @@ from wiktionary_parser import WiktParser
 from stanford_wrapper import StanfordWrapper
 from utils import batches, ensure_dir, get_cfg
 from collins_parser import CollinsParser
+from eksz_parser import EkszParser
 from nszt_parser import NSzTParser
 from magyarlanc_wrapper import Magyarlanc
 
@@ -48,6 +49,9 @@ class DictTo4lang():
         elif input_type == 'collins':
             self.parser = CollinsParser()
             self.lang = 'eng'
+        elif input_type == 'eksz':
+            self.parser = EkszParser()
+            self.lang = 'hun'
         elif input_type == 'nszt':
             self.parser = NSzTParser()
             self.lang = 'hun'
@@ -100,10 +104,8 @@ class DictTo4lang():
                 if definition is None:
                     continue
                 # print 'printing deps' + str(definition['deps'])
-                if self.lang == 'eng':
-                    definition['deps'] = dependency_processor.process_string_dependencies(  # nopep8
-                        definition['deps'])
-                # print definition['deps']
+                definition['deps'] = dependency_processor.process_dependencies(
+                    definition['deps'])
 
             if word in self.dictionary:
                 logging.warning(
