@@ -9,7 +9,6 @@ import time
 import traceback
 
 from dep_to_4lang import DepTo4lang
-from dependency_processor import DependencyProcessor
 from entry_preprocessor import EntryPreprocessor
 from lexicon import Lexicon
 from longman_parser import LongmanParser
@@ -93,8 +92,6 @@ class DictTo4lang():
         else:
             print 'incorrect lang'
 
-        dependency_processor = DependencyProcessor(self.cfg)
-
         for entry in entries:
             if entry['to_filter']:
                 continue
@@ -103,9 +100,6 @@ class DictTo4lang():
                 definition = sense['definition']
                 if definition is None:
                     continue
-                # print 'printing deps' + str(definition['deps'])
-                definition['deps'] = dependency_processor.process_dependencies(
-                    definition['deps'])
 
             if word in self.dictionary:
                 logging.warning(
