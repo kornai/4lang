@@ -159,6 +159,5 @@ class CollinsParser():
 #        print 'list of senses: ' + repr(lst)
         return lst
 
-
 if __name__ == "__main__":
     CollinsParser.print_definitions(CollinsParser.parse_file(sys.argv[1]))
