@@ -1,3 +1,4 @@
+import logging
 import sys
 import re
 import textwrap
@@ -27,7 +28,10 @@ class CollinsParser():
  #            print line
  #            yield MagyarParser.parse_entry(line)
         for section in re.split('#[hH]', CollinsParser.get_text(input_file)):
-            yield CollinsParser.parse_entry(section)
+            try:
+                yield CollinsParser.parse_entry(section)
+            except:
+                logging.warning("parse failed on section: {0}".format(section))
 
     @staticmethod
     def pattern_obj(pattern):
@@ -73,7 +77,7 @@ class CollinsParser():
     @staticmethod
     def get_hw(entry):
 #        print 'entry: ' + entry
-        return re.search('(.+?)#[56]', entry, re.S).group(1)
+        return re.search('(.+?)#[56]', entry, re.S).group(1).strip()
 
     @staticmethod
     def get_senses(entry):
@@ -101,6 +105,8 @@ class CollinsParser():
     def get_mono_sense(description):
         def_and_pos = CollinsParser.separate_def_and_pos(description)
         definition = def_and_pos[1]
+        if not definition:
+            return []
         pos = def_and_pos[0]
         return [{'definition': definition,
                  'pos': pos}]
@@ -114,11 +120,17 @@ class CollinsParser():
         pos_and_def = re.search('#6(n|abbrev|interj)\.(.*)', description)
         if pos_and_def:
 #            print 'hw found: ' + pos_and_def.group(1)
-            return (pos_and_def.group(1), pos_and_def.group(2))
+            pos, definition = pos_and_def.group(1), pos_and_def.group(2)
         else:
 #            print 'hw not found'
-            return ('unknown', description)
+            pos, definition = 'unknown', description
 
+        definition = definition.strip('.,').strip().replace('#5', '').strip(
+            '.')
+        definition = re.sub('^#6[^ ]*', '', definition).strip()
+        definition = re.sub(' #.*', '', definition).strip()
+        definition = re.sub('#1a.', '', definition).strip()
+        return pos, definition
 
 #    @staticmethod
 #    def get_pos_from_sense(sense):
@@ -153,6 +165,8 @@ class CollinsParser():
 #            print 'next sense: ' + sense
             def_and_pos = CollinsParser.separate_def_and_pos(sense)
             definition = def_and_pos[1]
+            if not definition:
+                continue
             pos = def_and_pos[0]
             lst.append({'definition': definition,
                      'pos': pos})
