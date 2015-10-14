@@ -22,6 +22,7 @@ from magyarlanc_wrapper import Magyarlanc
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
+ONE_BY_ONE = False  # run threads after one another (to avoid memory issues)
 
 class DictTo4lang():
     def __init__(self, cfg):
@@ -122,16 +123,27 @@ class DictTo4lang():
     def run(self, no_threads=1):
         logging.info('parsing xml...')
         self.parse_dict()
+        # print "\n".join(["\n".join(["{0}\t{1}".format(
+        #                       w, d['definition']) for d in s['senses']])
+        #                  for w, s in self.raw_dict.items()])
+        # print self.raw_dict
+        # sys.exit(-1)
         entries_per_thread = (len(self.raw_dict) / no_threads) + 1
         self.thread_states = {}
         # may turn out to be less then "no_threads" with small input
         started_threads = 0
+        if ONE_BY_ONE:
+            logging.warning('running threads one by one!')
         for i, batch in enumerate(batches(self.raw_dict.keys(),
                                   entries_per_thread)):
 
-            t = threading.Thread(
-                target=self.process_entries_thread, args=(i, batch))
-            t.start()
+            if ONE_BY_ONE:
+                logging.warning('running batch #{0}'.format(i))
+                self.process_entries_thread(i, batch)
+            else:
+                t = threading.Thread(
+                    target=self.process_entries_thread, args=(i, batch))
+                t.start()
             started_threads += 1
         logging.info("started {0} threads".format(started_threads))
         while True:
