@@ -70,7 +70,7 @@ class Lexicon():
         node2machine = {}
         graph = MachineGraph.from_dict(dumped_def_graph)
         for node in graph.nodes_iter():
-            pn = node.split('_')[0]
+            pn = "_".join(node.split('_')[:-1])
             if pn == word:
                 node2machine[node] = self.get_machine(pn)
             else:
