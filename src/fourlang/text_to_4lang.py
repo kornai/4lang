@@ -71,7 +71,12 @@ class TextTo4lang():
         #      "done, processed {0} sentences".format(len(parsed_sens)))
 
         return words_to_machines
-
+    @staticmethod
+    def delete_connection(m1,m2):
+        for part in range(len(m1.partitions)):
+            if len(m1.partitions[part])>0 and m1.partitions[part][0]==m2:
+                m1.remove(m2,part)
+    
     def expand(self, words_to_machines, stopwords = []):
         if len(stopwords) == 0:
             stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
@@ -82,13 +87,14 @@ class TextTo4lang():
                 definition=self.dep_to_4lang.lexicon.get_machine(lemma)
                 if len(definition.children())==1 and len(definition.parents) ==0:
                     def_head = next(iter(definition.children()))
-                    #print type(def_head)
                     parents = machine.parents
                     children = machine.children()
-                    for p in parents:
+                    for p in list(parents):
+                        TextTo4lang.delete_connection(p[0], machine)
                         p[0].append(def_head, 1)
                     for ch in children:
                         def_head.append(ch[0], 1)
+                    TextTo4lang.delete_connection(definition, def_head)
         return
 
 def main():
