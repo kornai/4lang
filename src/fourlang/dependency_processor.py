@@ -68,14 +68,48 @@ class Dependencies():
             else:
                 pass
 
+
+class NewDependencies():
+    def __init__(self, deps):
+        self.deps = deps
+        self.indexed = False
+        self.index()
+
+    def index(self):
+        self.tok_index = defaultdict(lambda: [None, [], []])
+        self.dep_index = defaultdict(list)
+        for d in self.deps:
+            self.tok_index[d['gov']['id']][0] = d['gov']
+            self.tok_index[d['dep']['id']][0] = d['dep']
+            self.tok_index[d['gov']['id']][1].append(d)
+            self.tok_index[d['dep']['id']][2].append(d)
+            self.dep_index[d['type']].append(d)
+
+        self.indexed = True
+
+    def add(self, d_type, gov, dep):
+        self.deps.append({"type": d_type, "gov": gov, "dep": dep})
+        self.indexed = False
+
+    def remove_tok(self, i):
+        self.deps = [
+            d for d in self.deps
+            if d['gov']['id'] != i and d['dep']['id'] != i]
+        self.indexed = False
+
+    def remove_type(self, d_type):
+        self.deps = [d for d in self.deps if d['type'] != d_type]
+        self.indexed = False
+
 class DependencyProcessor():
     copulars = set([
         "'s", 'are', 'be', 'been', 'being', 'is', 's', 'was', 'were'])
 
     def __init__(self, cfg):
         self.cfg = cfg
+        self.lang = self.cfg.get("deps", "lang")
 
-    def process_coordination(self, deps):
+    def process_coordination_stanford(self, deps):
         for word1, word_deps in deepcopy(deps.index.items()):
             for i in (0, 1):
                 for dep, words in word_deps[i].iteritems():
@@ -126,12 +160,92 @@ class DependencyProcessor():
 
         return deps
 
-    def process_dependencies(self, dep_strings):
+    def process_conjunction_magyarlanc(self, deps):
+        # get 'hogy' dependants of conj relations
+        conjs = set((
+            d['dep']['id']
+            for d in deps.dep_index['conj'] if d['dep']['lemma'] == 'hogy'))
+        # then for each of these:
+        for conj in conjs:
+            govs = [
+                d['gov']
+                for d in deps.tok_index[conj][2] if d['type'] == 'conj']
+            for dep in deps.tok_index[conj][1]:
+                for gov in govs:
+                    deps.add(dep['type'], gov, dep['dep'])
+
+            deps.remove_tok(conj)
+        deps.index()
+        return deps
+
+    def process_coordination_magyarlanc(self, deps):
+        # get governors of coord relations
+        govs = set((d['gov']['id'] for d in deps.dep_index['coord']))
+        # then for each of these:
+        for gov in govs:
+            # get dep-neighbours of each of these
+            coord = [d['dep']['id'] for d in deps.tok_index[gov][1]]
+            coord += [d['gov']['id'] for d in deps.tok_index[gov][2]]
+            # and unify their relations
+            # logging.info('unifying these:')
+            # for c in coord:
+            #     logging.info(u"{0}".format(
+            #         deps.tok_index[c][0]['word']))
+            gov_tok = deps.tok_index['gov'][0]
+            if gov_tok is None or gov_tok['msd'][0] != 'C':
+                # if the gov is not a conjunction, then it must take part
+                # in the unification
+                coord.append(gov)
+            else:
+                # otherwise it should be removed
+                deps.remove_tok(gov)
+
+            deps = self.unify_dependencies(
+                coord, deps, exclude=set(['att', 'coord', 'punct']))
+
+        # we reindex in the end only!
+        deps.index()
+        return deps
+
+    def unify_dependencies(self, tokens, deps, exclude):
+        for tok1 in tokens:
+            for tok2 in tokens:
+                if tok2 == tok1:
+                    continue
+                for dep in deps.tok_index[tok1][1]:
+                    if dep['type'] in exclude:
+                        continue
+                    # logging.info('copying: {0}'.format(dep))
+                    deps.add(dep['type'], deps.tok_index[tok2][0], dep['dep'])
+                for dep in deps.tok_index[tok1][2]:
+                    if dep['type'] in exclude:
+                        continue
+                    # logging.info('copying: {0}'.format(dep))
+                    deps.add(dep['type'], dep['gov'], deps.tok_index[tok2][0])
+        return deps
+
+    def process_dependencies(self, deps):
+        if self.lang == 'en':
+            return self.process_stanford_dependencies(deps)
+        elif self.lang == 'hu':
+            return self.process_magyarlanc_dependencies(deps)
+        else:
+            raise Exception('unsupported language: {0}'.format(self.lang))
+
+    def process_magyarlanc_dependencies(self, deps):
+        deps = NewDependencies(deps)
+        deps.remove_type('punct')
+        deps.index()
+        deps = self.process_conjunction_magyarlanc(deps)
+        deps = self.process_coordination_magyarlanc(deps)
+        return deps.deps
+
+    def process_stanford_dependencies(self, dep_strings):
         deps = Dependencies.create_from_strings(dep_strings)
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)
         # deps = self.process_coordinated_root(deps)
-        deps = self.process_coordination(deps)
+        deps = self.process_coordination_stanford(deps)
 
         return deps.get_dep_list()
