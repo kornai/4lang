@@ -2,9 +2,10 @@ import logging
 import os
 import re
 import sys
+import pdb
 
 from corenlp_wrapper import CoreNLPWrapper
-from dep_to_4lang import DepTo4lang
+from dep_to_4lang import DepTo4lang, Dependency
 from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_text_graph
 
@@ -18,6 +19,7 @@ class TextTo4lang():
 
     def __init__(self, cfg):
         self.cfg = cfg
+        self.lang = self.cfg.get("deps", "lang")
         self.deps_dir = self.cfg.get('data', 'deps_dir')
         ensure_dir(self.deps_dir)
         self.corenlp_wrapper = CoreNLPWrapper(self.cfg)
@@ -49,7 +51,8 @@ class TextTo4lang():
         # logging.info("running parser...")
         preproc_text = TextTo4lang.preprocess_text(text)
         # logging.info('preproc text: {0}'.format(repr(preproc_text)))
-        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text)
+        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text) 
+        
         # logging.info("parsed {0} sentences".format(len(parsed_sens)))
         if dep_dir is not None:
             self.print_deps(parsed_sens, dep_dir, fn)
@@ -58,6 +61,9 @@ class TextTo4lang():
         logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
 
         # logging.info("processing sentences...")
+        if self.lang == 'en':
+            parsed_sens = map(
+                self.dep_to_4lang.convert_old_deps, parsed_sens)
         words_to_machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(  # nopep8
             parsed_sens, corefs)
 
@@ -65,6 +71,25 @@ class TextTo4lang():
         #      "done, processed {0} sentences".format(len(parsed_sens)))
 
         return words_to_machines
+
+    def expand(self, words_to_machines, stopwords = []):
+        if len(stopwords) == 0:
+            stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
+        known_words=self.dep_to_4lang.lexicon.get_words()
+        for lemma, machine in words_to_machines.iteritems():
+            if lemma in known_words and lemma not in stopwords:
+                # sys.stderr.write(lemma + "\t")
+                definition=self.dep_to_4lang.lexicon.get_machine(lemma)
+                if len(definition.children())==1 and len(definition.parents) ==0:
+                    def_head = next(iter(definition.children()))
+                    #print type(def_head)
+                    parents = machine.parents
+                    children = machine.children()
+                    for p in parents:
+                        p[0].append(def_head, 1)
+                    for ch in children:
+                        def_head.append(ch[0], 1)
+        return
 
 def main():
     logging.basicConfig(
@@ -84,10 +109,12 @@ def main():
 
     words_to_machines = text_to_4lang.process(
         "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
+    text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
+    
     graph_dir = cfg.get('machine', 'graph_dir')
     ensure_dir(graph_dir)
     fn = print_text_graph(words_to_machines, graph_dir)
     logging.info('wrote graph to {0}'.format(fn))
-
+    
 if __name__ == "__main__":
     main()
