@@ -2,9 +2,10 @@ import logging
 import os
 import re
 import sys
+import pdb
 
 from corenlp_wrapper import CoreNLPWrapper
-from dep_to_4lang import DepTo4lang
+from dep_to_4lang import DepTo4lang, Dependency
 from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_text_graph
 
@@ -50,7 +51,8 @@ class TextTo4lang():
         # logging.info("running parser...")
         preproc_text = TextTo4lang.preprocess_text(text)
         # logging.info('preproc text: {0}'.format(repr(preproc_text)))
-        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text)
+        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text) 
+        
         # logging.info("parsed {0} sentences".format(len(parsed_sens)))
         if dep_dir is not None:
             self.print_deps(parsed_sens, dep_dir, fn)
@@ -69,6 +71,34 @@ class TextTo4lang():
         #      "done, processed {0} sentences".format(len(parsed_sens)))
 
         return words_to_machines
+    @staticmethod
+    def delete_connection(m1,m2):
+        for part in range(len(m1.partitions)):
+            if len(m1.partitions[part])>0 and m1.partitions[part][0]==m2:
+                m1.remove(m2,part)
+                return part
+        return None
+    
+    def expand(self, words_to_machines, stopwords = []):
+        if len(stopwords) == 0:
+            stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
+        known_words=self.dep_to_4lang.lexicon.get_words()
+        for lemma, machine in words_to_machines.iteritems():
+            if lemma in known_words and lemma not in stopwords:
+                # sys.stderr.write(lemma + "\t")
+                definition=self.dep_to_4lang.lexicon.get_machine(lemma)
+                if len(definition.children())==1 and len(definition.parents) ==0:
+                    def_head = next(iter(definition.children()))
+                    parents = machine.parents
+                    for p in list(parents):
+                        part = TextTo4lang.delete_connection(p[0], machine)
+                        p[0].append(def_head, part)
+                    
+                    for part in range(len(machine.partitions)):
+                        for ch in machine.partitions[part]:
+                            def_head.append(ch[0], part)
+                    TextTo4lang.delete_connection(definition, def_head)
+        return
 
 def main():
     logging.basicConfig(
@@ -88,10 +118,13 @@ def main():
 
     words_to_machines = text_to_4lang.process(
         "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
+    if len(sys.argv) > 3 and sys.argv[3]=="expand":
+        text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
+    
     graph_dir = cfg.get('machine', 'graph_dir')
     ensure_dir(graph_dir)
     fn = print_text_graph(words_to_machines, graph_dir)
     logging.info('wrote graph to {0}'.format(fn))
-
+    
 if __name__ == "__main__":
     main()
