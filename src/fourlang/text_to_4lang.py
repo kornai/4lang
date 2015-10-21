@@ -76,6 +76,8 @@ class TextTo4lang():
         for part in range(len(m1.partitions)):
             if len(m1.partitions[part])>0 and m1.partitions[part][0]==m2:
                 m1.remove(m2,part)
+                return part
+        return None
     
     def expand(self, words_to_machines, stopwords = []):
         if len(stopwords) == 0:
@@ -90,8 +92,8 @@ class TextTo4lang():
                     parents = machine.parents
                     children = machine.children()
                     for p in list(parents):
-                        TextTo4lang.delete_connection(p[0], machine)
-                        p[0].append(def_head, 1)
+                        part = TextTo4lang.delete_connection(p[0], machine)
+                        p[0].append(def_head, part)
                     for ch in children:
                         def_head.append(ch[0], 1)
                     TextTo4lang.delete_connection(definition, def_head)
@@ -115,7 +117,8 @@ def main():
 
     words_to_machines = text_to_4lang.process(
         "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
-    text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
+    if len(sys.argv) > 3 and sys.argv[3]=="expand":
+        text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
     
     graph_dir = cfg.get('machine', 'graph_dir')
     ensure_dir(graph_dir)
