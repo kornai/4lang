@@ -90,12 +90,13 @@ class TextTo4lang():
                 if len(definition.children())==1 and len(definition.parents) ==0:
                     def_head = next(iter(definition.children()))
                     parents = machine.parents
-                    children = machine.children()
                     for p in list(parents):
                         part = TextTo4lang.delete_connection(p[0], machine)
                         p[0].append(def_head, part)
-                    for ch in children:
-                        def_head.append(ch[0], 1)
+                    
+                    for part in range(len(machine.partitions)):
+                        for ch in machine.partitions[part]:
+                            def_head.append(ch[0], part)
                     TextTo4lang.delete_connection(definition, def_head)
         return
 
