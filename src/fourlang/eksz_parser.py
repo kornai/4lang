@@ -31,11 +31,16 @@ class EkszParser(XMLParser):
         (u"sz.-ban", u"sz\xe1zadban"),
         (u"sz.-beli", u"sz\xe1zadbeli"),
         (u"sz.-i", u"sz\xe1zadi"),
+        (u"sz.-nak", u"sz\xe1zadnak"),
         (u"sz\xf3haszn-\xe1ban", u"sz\xf3haszn\xe1lat\xe1ban"),
         (u" (Na2SO4.10H2O)", u""),
-        (u" (CaSO4.2iH2O)", u""),
+        (u" (CaSO4.2H2O)", u""),
         (u" MgSO4.7H2O", u""),
+        (u"J\xfan.-", u"J\xfanius"),
+        (u"j\xfan.-", u"j\xfanius"),
+        (u"szept.-", u"szeptember"),
         (u"dec. ", u"december "),
+        (u"h.:", u"hogy:"),
     ]
 
     @staticmethod
