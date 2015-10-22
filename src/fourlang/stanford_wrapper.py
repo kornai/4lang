@@ -171,8 +171,24 @@ def main_flask(wrapper):
 
     app.run()
 
+TEST_DATA = [
+    ("rawhide", "leather that is in its natural state", "n"),
+    ("playback", "the playback of a tape that you have recorded is when you play it on a machine in order to watch or listen to it", "n"),  # nopep8
+    ("playhouse", "a theatre - used in the name of theatres", "n"),
+    ("extent", "used to say how true something is or how great an effect or change is", "n"),  # nopep8
+    ("indigenous", "indigenous people or things have always been in the place where they are, rather than being brought there from somewhere else", "n"),  # nopep8
+    ("off-street", "places for parking that are not on public streets", "n"),
+    ("half-caste", "a very offensive word for someone whose parents are of different races.", "n"),  # nopep8
+    ("concordant", "being in agreement or having the same regular pattern", "n"),  # nopep8
+    ("groundsman", "a man whose job is to take care of a large garden or sports field", "n")  # nopep8
+]
 def test(wrapper):
-    entries = [{
+
+    entries = [{"hw": w,
+                "senses": [{
+                    "definition": d, "pos": "a" if n else 'a', "flags": []}]}
+               for w, d, n in TEST_DATA]
+    entries += [{
         "hw": "wombat",
         "senses": [{
             "definition": "an Australian animal like a small bear whose babies\
@@ -182,7 +198,7 @@ def test(wrapper):
 
     parsed_entries = wrapper.parse_sentences(
         entries, definitions=True)
-    print parsed_entries
+    print json.dumps(parsed_entries)
 
 def main():
     logging.basicConfig(

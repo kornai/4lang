@@ -62,7 +62,9 @@ class Magyarlanc():
 
     def parse_sentences(self, entries):
         in_file_name = self.dump_input(entries)
+        logging.info('parser input: {0}'.format(in_file_name))
         out_file_name = self.run_parser(in_file_name)
+        logging.info('parser output: {0}'.format(out_file_name))
         if out_file_name is None:
             logging.error('parser failed')
             sys.exit(-1)
@@ -73,6 +75,8 @@ class Magyarlanc():
                 try:
                     self.add_deps(entries[count], curr_lines)  # nopep8
                 except:
+                    logging.error("count: {0}".format(count))
+                    logging.error("last entry: {0}".format(entries[count-1]))
                     logging.error(u"failed with: {0}".format(curr_lines))
                     traceback.print_exc()
                     sys.exit(-1)

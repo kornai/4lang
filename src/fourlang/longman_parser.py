@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Module for reading Longman XML and producing JSON output
 
+from collections import defaultdict
 import json
 import re
 import sys
@@ -86,6 +87,17 @@ class LongmanParser(XMLParser):
                 print u"{0}\t{1}".format(
                     entry['hw'], sense['definition']).encode("utf-8")
 
+    @staticmethod
+    def print_sorted_defs(longman_obj):
+        index = defaultdict(list)
+        for e in longman_obj:
+            index[e['hw']].append(e)
+        for hw in sorted(index.iterkeys()):
+            for entry in index[hw]:
+                for sense in entry['senses']:
+                    print u"{0}\t{1}".format(
+                        hw, sense['definition']).encode("utf-8")
+
 
 if __name__ == "__main__":
-    LongmanParser.print_defs(LongmanParser.parse_file(sys.argv[1]))
+    LongmanParser.print_sorted_defs(LongmanParser.parse_file(sys.argv[1]))
