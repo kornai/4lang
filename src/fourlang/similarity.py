@@ -18,22 +18,25 @@ from text_to_4lang import TextTo4lang
 from utils import ensure_dir, get_cfg, print_text_graph, print_4lang_graph
 
 class WordSimilarity():
-    def __init__(self, cfg):
+    sim_types = set([
+        'links_jaccard', 'nodes_jaccard', 'links_contain', 'nodes_contain',
+        '0-connected', 'entities_jaccard'
+    ])
+
+    def __init__(self, cfg, cfg_section='word_sim'):
         try:
-            self.batch = cfg.getboolean('similarity_machine', 'batch')
+            self.batch = cfg.getboolean(cfg_section, 'batch')
         except NoSectionError:
             self.batch = False
 
         self.cfg = cfg
-        try:
-            self.graph_dir = cfg.get("sim", "graph_dir")
-        except:
-            self.graph_dir = cfg.get("similarity_machine", "graph_dir")
+        self.graph_dir = cfg.get(cfg_section, "graph_dir")
         ensure_dir(self.graph_dir)
         self.lemmatizer = Lemmatizer(cfg)
-        self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
+        self.lexicon_fn = self.cfg.get(cfg_section, "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
         self.defined_words = self.lexicon.get_words()
+        self.word_sim_cache = {}
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
@@ -41,6 +44,83 @@ class WordSimilarity():
     def log(self, string):
         if not self.batch:
             logging.info(string)
+
+    def uniform_similarities(self, s):
+        return dict(((sim_type, s) for sim_type in WordSimilarity.sim_types))
+
+    def zero_similarities(self):
+        return self.uniform_similarities(0.0)
+
+    def one_similarities(self):
+        return self.uniform_similarities(1.0)
+
+    def sim_type_to_function(self, sim_type):
+        return lambda w1, w2: self.word_similarities(w1, w2)[sim_type]
+
+    def machine_similarities(self, machine1, machine2):
+        pn1, pn2 = machine1.printname(), machine2.printname()
+        self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
+        sims = self.zero_similarities()
+        links1, nodes1 = self.get_links_nodes(machine1)
+        links2, nodes2 = self.get_links_nodes(machine2)
+        self.log('links1: {0}, links2: {1}'.format(links1, links2))
+        self.log('nodes1: {0}, nodes2: {1}'.format(nodes1, nodes2))
+        if (self.contains(links1, machine2) or
+                self.contains(links2, machine1)):
+            sims['links_contain'] = 1
+
+        if (self.contains(nodes1, machine2) or
+                self.contains(nodes2, machine1)):
+            sims['nodes_contain'] = 1
+
+        pn1, pn2 = machine1.printname(), machine2.printname()
+        if pn1 in links2 or pn2 in links1:
+            sims['0-connected'] = 1
+
+        entities1 = filter(lambda l: "@" in l, links1)
+        entities2 = filter(lambda l: "@" in l, links2)
+        sims['entities_jaccard'] = jaccard(entities1, entities2)
+
+        sims['links_jaccard'] = jaccard(links1, links2)
+        sims['nodes_jaccard'] = jaccard(nodes1, nodes2)
+
+        return sims
+
+    def lemma_similarities(self, lemma1, lemma2):
+        if (lemma1, lemma2) in self.lemma_sim_cache:
+            return self.lemma_sim_cache[(lemma1, lemma2)]
+
+        if lemma1 == lemma2:
+            lemma_sims = self.one_similarities()
+
+        machine1, machine2 = map(self.lexicon.get_machine, (lemma1, lemma2))
+
+        if True:
+            for w, m in ((lemma1, machine1), (lemma2, machine2)):
+                print_4lang_graph(w, m, self.graph_dir)
+        lemma_sims = self.machine_similarities(machine1, machine2)
+        self.lemma_sim_cache[(lemma1, lemma2)] = lemma_sims
+        self.lemma_sim_cache[(lemma2, lemma1)] = lemma_sims
+        return lemma_sims
+
+    def word_similarities(self, word1, word2):
+        if (word1, word2) in self.word_sim_cache:
+            return self.word_sim_cache[(word1, word2)]
+        lemma1, lemma2 = [self.lemmatizer.lemmatize(
+            word, defined=self.defined_words, stem_first=True)
+            for word in (word1, word2)]
+        # self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
+        if lemma1 is None or lemma2 is None:
+            if lemma1 is None:
+                logging.debug("OOV: {0}".format(word1))
+            if lemma2 is None:
+                logging.debug("OOV: {0}".format(word2))
+            word_sims = self.zero_similarities()
+        else:
+            word_sims = self.lemma_similarities(lemma1, lemma2)
+        self.word_sim_cache[(word1, word2)] = word_sims
+        self.word_sim_cache[(word2, word1)] = word_sims
+        return word_sims
 
     def get_links_nodes(self, machine, use_cache=True):
         if use_cache and machine in self.links_nodes_cache:
@@ -87,9 +167,6 @@ class WordSimilarity():
             for link in links:
                 yield link
 
-    def link_similarity(self, links1, links2):
-        pass
-
     def contains(self, links, machine):
         pn = machine.printname()
         for link in links:
@@ -98,136 +175,6 @@ class WordSimilarity():
                 return True
         else:
             return False
-
-    def machine_similarity(self, machine1, machine2, sim_type):
-        pn1, pn2 = machine1.printname(), machine2.printname()
-        self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
-        if sim_type == 'default':
-            # sim = harmonic_mean((
-            #     self._all_pairs_similarity(machine1, machine2),
-            #     self._links_and_nodes_similarity(machine1, machine2)))
-            sim = self._links_and_nodes_similarity(machine1, machine2)
-            #                                      exclude_nodes=True)  # TMP!!
-        elif sim_type == 'all_pairs':
-            sim = self._all_pairs_similarity(machine1, machine2)
-        elif sim_type == 'links_and_nodes':
-            sim = self._links_and_nodes_similarity(machine1, machine2)
-        elif sim_type == 'strict_links_and_nodes':
-            sim = self._links_and_nodes_similarity(machine1, machine2,
-                                                   no_contain_score=True)
-        elif sim_type == 'links':
-            sim = self._links_and_nodes_similarity(machine1, machine2,
-                                                   exclude_nodes=True)
-        elif sim_type == 'strict_links':
-            sim = self._links_and_nodes_similarity(machine1, machine2,
-                                                   exclude_nodes=True,
-                                                   no_contain_score=True)
-        else:
-            raise Exception("unknown similarity type: {0}".format(sim_type))
-        return sim
-
-    def _all_pairs_similarity(self, machine1, machine2):
-        words1 = set(MachineTraverser.get_nodes(machine1,
-                                                exclude_words=self.stopwords))
-        words2 = set(MachineTraverser.get_nodes(machine2,
-                                                exclude_words=self.stopwords))
-        pair_sims_by_word = defaultdict(dict)
-        for word1 in words1:
-            for word2 in words2:
-                sim = self.word_similarity(word1, word2, -1, -1,
-                                           sim_type="strict_links_and_nodes")
-                pair_sims_by_word[word1][word2] = sim if sim else 0.0
-                pair_sims_by_word[word2][word1] = sim if sim else 0.0
-
-        max_sims_by_word = dict((
-            (word, my_max(pair_sims_by_word[word].itervalues()))
-            for word in words1 | words2))
-
-        sim = average((average((max_sims_by_word[w] for w in words1)),
-                       average((max_sims_by_word[w] for w in words2))))
-        # sim = max((my_max((max_sims_by_word[w] for w in words1)),
-        #            my_max((max_sims_by_word[w] for w in words2))))
-        if sim:
-            self.log(
-                "{0} - {1} all_pairs similarity: {2} based on: {3}".format(
-                    machine1.printname(), machine2.printname(), sim,
-                    pair_sims_by_word))
-        return sim
-
-    def _links_and_nodes_similarity(self, machine1, machine2,
-                                    exclude_nodes=False,
-                                    no_contain_score=False):
-        sim = 0
-        links1, nodes1 = self.get_links_nodes(machine1)
-        links2, nodes2 = self.get_links_nodes(machine2)
-        if not no_contain_score:
-            if (self.contains(links1, machine2) or
-                    self.contains(links2, machine1)):
-                sim = max(sim, 0.35)
-            elif (not exclude_nodes) and (self.contains(nodes1, machine2) or
-                                          self.contains(nodes2, machine1)):
-                sim = max(sim, 0.25)
-        self.log('links1: {0}, links2: {1}'.format(links1, links2))
-        self.log('nodes1: {0}, nodes2: {1}'.format(nodes1, nodes2))
-        if True:
-            pn1, pn2 = machine1.printname(), machine2.printname()
-            if pn1 in links2 or pn2 in links1:
-                self.log(
-                    "{0} and {1} connected by 0-path, returning 1".format(
-                        pn1, pn2))
-                return 1
-        entities1 = filter(lambda l: "@" in l, links1)
-        entities2 = filter(lambda l: "@" in l, links2)
-        if entities1 or entities2:
-            sim = max(sim, jaccard(entities1, entities2))
-        else:
-            sim = max(sim, jaccard(links1, links2))
-            if not exclude_nodes:
-                node_sim = jaccard(nodes1, nodes2)
-                if node_sim > sim:
-                    self.log(
-                        'picking node sim ({0}) over link sim ({1})'.format(
-                            node_sim, sim))
-                    sim = node_sim
-
-        return sim
-
-    def word_similarity(self, word1, word2, pos1, pos2, sim_type='default',
-                        fallback=lambda a, b, c, d: None):
-        # self.log(u'words: {0}, {1}'.format(word1, word2))
-        lemma1, lemma2 = [self.lemmatizer.lemmatize(
-            word, defined=self.defined_words, stem_first=True)
-            for word in (word1, word2)]
-        # self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
-        if lemma1 is None or lemma2 is None:
-            if lemma1 is None:
-                logging.warning("OOV: {0}".format(word1))
-            if lemma2 is None:
-                logging.warning("OOV: {0}".format(word2))
-            return fallback(word1, word2, pos1, pos2)
-        sim = self.lemma_similarity(lemma1, lemma2, sim_type)
-        if sim > 0:
-            self.log(u"S({0}, {1}) = {2}".format(lemma1, lemma2, sim))
-        return sim
-
-    def lemma_similarity(self, lemma1, lemma2, sim_type):
-        if (lemma1, lemma2) in self.lemma_sim_cache:
-            return self.lemma_sim_cache[(lemma1, lemma2)]
-        elif lemma1 == lemma2:
-            return 1
-        # self.log(u'lemma1: {0}, lemma2: {1}'.format(lemma1, lemma2))
-
-        machine1, machine2 = map(self.lexicon.get_machine, (lemma1, lemma2))
-
-        if True:
-            for w, m in ((lemma1, machine1), (lemma2, machine2)):
-                print_4lang_graph(w, m, self.graph_dir)
-        sim = self.machine_similarity(machine1, machine2, sim_type)
-
-        sim = sim if sim >= 0 else 0
-        self.lemma_sim_cache[(lemma1, lemma2)] = sim
-        self.lemma_sim_cache[(lemma2, lemma1)] = sim
-        return sim
 
 class GraphSimilarity():
     @staticmethod
