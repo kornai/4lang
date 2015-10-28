@@ -95,7 +95,7 @@ class WordSimilarity():
 
         machine1, machine2 = map(self.lexicon.get_machine, (lemma1, lemma2))
 
-        if True:
+        if False:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
                 print_4lang_graph(w, m, self.graph_dir)
         lemma_sims = self.machine_similarities(machine1, machine2)
