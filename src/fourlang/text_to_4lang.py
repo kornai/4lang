@@ -2,7 +2,6 @@ import logging
 import os
 import re
 import sys
-import pdb
 
 from corenlp_wrapper import CoreNLPWrapper
 from dep_to_4lang import DepTo4lang, Dependency
@@ -74,9 +73,10 @@ class TextTo4lang():
     @staticmethod
     def delete_connection(m1,m2):
         for part in range(len(m1.partitions)):
-            if len(m1.partitions[part])>0 and m1.partitions[part][0]==m2:
+            if m2 in m1.partitions[part]:
                 m1.remove(m2,part)
                 return part
+        #ipdb.set_trace()
         return None
     
     def expand(self, words_to_machines, stopwords = []):
@@ -96,7 +96,7 @@ class TextTo4lang():
                     
                     for part in range(len(machine.partitions)):
                         for ch in machine.partitions[part]:
-                            def_head.append(ch[0], part)
+                            def_head.append(ch, part)
                     TextTo4lang.delete_connection(definition, def_head)
         return
 
