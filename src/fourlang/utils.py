@@ -36,8 +36,11 @@ def print_4lang_graph(word, machine, graph_dir, max_depth=None):
 
 def get_cfg(cfg_file=None):
     cfg_files = ['conf/default.cfg']
+    not_found = [fn for fn in cfg_files if not os.path.exists(fn)]
     if cfg_file is not None:
         cfg_files.append(cfg_file)
+    if not_found:
+        raise Exception("cfg file(s) not found: {0}".format(not_found))
     cfg = ConfigParser()
     cfg.read(cfg_files)
     return cfg
