@@ -20,7 +20,7 @@ class DepTo4lang():
     def __init__(self, cfg):
         self.cfg = cfg
         self.lang = self.cfg.get("deps", "lang")
-        self.out_fn = self.cfg.get("machine", "ext_definitions")
+        self.out_fn = self.cfg.get("machine", "definitions_binary_out")
         ensure_dir(os.path.dirname(self.out_fn))
         self.dependency_processor = DependencyProcessor(self.cfg)
         dep_map_fn = cfg.get("deps", "dep_map")
