@@ -7,35 +7,25 @@ import textwrap
 class CollinsParser():
     @staticmethod
     def print_definitions(definitions):
- #       print definitions
+        """Print CollinsParser's output in human readable form."""
         for section in definitions:
- #           print 'start'
             print
             print section['hw']
- #           print "section: " + str(section)
-#            print textwrap.fill(section['pos'], initial_indent='    ')
-            for sense in section['senses']:
-                print textwrap.fill(sense['pos'], initial_indent='    ',
-                    subsequent_indent='        ')
-                print textwrap.fill(sense['definition'], initial_indent='    ',
-                    subsequent_indent='        ')
-            print
- #           print 'end'
+#            for sense in section['senses']:
+#                print textwrap.fill(sense['pos'], initial_indent='    ',
+#                    subsequent_indent='        ')
+#                print textwrap.fill(sense['definition'], initial_indent='    ',
+#                    subsequent_indent='        ')
+#            print
 
     @staticmethod
     def parse_file(input_file):
- #       for line in iter(open(input_file)):
- #            print line
- #            yield MagyarParser.parse_entry(line)
         for section in re.split('#[hH]', CollinsParser.get_text(input_file)):
-            # try:
+            # sections are separated by #h or #H marks
             yield CollinsParser.parse_entry(section)
-            # except:
-            #     logging.warning("parse failed on section: {0}".format(section))
 
     @staticmethod
     def pattern_obj(pattern):
- #       print "pattern_obj returns: " + str(type(re.compile(pattern, re.S)))
         return re.compile(pattern, re.S)
 
     @staticmethod
@@ -48,15 +38,11 @@ class CollinsParser():
 
     @staticmethod
     def parse_entry(entry):
- #       return entry
- #       return re.sub(
- #           CollinsParser.multiple_patterns(['#+', '@.', '?!']),
- #           "",
- #           entry)
+        """Delete unnecessary marks
+        and return entry in appropriate format."""
         if entry == " ":
             return None
         entry = re.sub('@=', '-', entry)
-#        entry = re.sub('\n', ' ', entry)
         for pattern in ['\n', '@n']:
             entry = re.sub(pattern, " ", entry)
         alternate_forms = CollinsParser.get_alternate_forms(entry)
@@ -85,18 +71,15 @@ class CollinsParser():
 
     @staticmethod
     def get_hw(entry):
-#        print 'entry: ' + entry
+        """Return headword."""
         return re.search('(.+?)#[56]', entry, re.S).group(1).replace(
             '#4', '').strip()
 
     @staticmethod
     def get_senses(entry):
- #       print 'Entry: ' + entry + '.'
-#        description = re.search('#[56](.+)', entry, re.S).group(1)
+        """Return sense(s)."""
         description = entry
- #       print 'Description: ' + description + '.'
         if '#1$D' in description:  # check multiple senses for word
-#            print 'detected multiple senses in: ' + description
             return CollinsParser.del_pronunciation(
                 CollinsParser.get_multiple_senses(description))
         else:
@@ -105,14 +88,15 @@ class CollinsParser():
 
     @staticmethod
     def del_pronunciation(lst_of_senses):
+        """Return list of senses without pronunciation."""
         for sense in lst_of_senses:
             if sense['definition'][0] == '(':
                 re.sub('\(.*?\)', '', sense['definition'], count=1)
-#        print 'without pronunciation: ' + repr(lst_of_senses)
         return lst_of_senses
 
     @staticmethod
     def get_mono_sense(description):
+        """Return list with one dictionary for the single sense."""
         def_and_pos = CollinsParser.separate_def_and_pos(description)
         definition = def_and_pos[1]
         if not definition:
@@ -156,6 +140,7 @@ class CollinsParser():
 
     @staticmethod
     def get_multiple_senses(description):
+
 #        lst = []
 #        is_first = True
 #        for sense in unicode.split(description, '#1$D'):
