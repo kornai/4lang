@@ -6,6 +6,7 @@ import sys
 from corenlp_wrapper import CoreNLPWrapper
 from dep_to_4lang import DepTo4lang, Dependency
 from lexicon import Lexicon
+from magyarlanc_wrapper import Magyarlanc
 from utils import ensure_dir, get_cfg, print_text_graph
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
@@ -21,7 +22,10 @@ class TextTo4lang():
         self.lang = self.cfg.get("deps", "lang")
         self.deps_dir = self.cfg.get('data', 'deps_dir')
         ensure_dir(self.deps_dir)
-        self.corenlp_wrapper = CoreNLPWrapper(self.cfg)
+        if self.lang == 'en':
+            self.parser_wrapper = CoreNLPWrapper(self.cfg)
+        elif self.lang == 'hu':
+            self.parser_wrapper = Magyarlanc(self.cfg)
         self.dep_to_4lang = DepTo4lang(self.cfg)
 
     @staticmethod
@@ -50,8 +54,8 @@ class TextTo4lang():
         # logging.info("running parser...")
         preproc_text = TextTo4lang.preprocess_text(text)
         # logging.info('preproc text: {0}'.format(repr(preproc_text)))
-        parsed_sens, corefs = self.corenlp_wrapper.parse_text(preproc_text) 
-        
+        parsed_sens, corefs = self.parser_wrapper.parse_text(preproc_text)
+
         # logging.info("parsed {0} sentences".format(len(parsed_sens)))
         if dep_dir is not None:
             self.print_deps(parsed_sens, dep_dir, fn)
@@ -78,7 +82,7 @@ class TextTo4lang():
                 return part
         #ipdb.set_trace()
         return None
-    
+
     def expand(self, words_to_machines, stopwords = []):
         if len(stopwords) == 0:
             stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
@@ -93,7 +97,7 @@ class TextTo4lang():
                     for p in list(parents):
                         part = TextTo4lang.delete_connection(p[0], machine)
                         p[0].append(def_head, part)
-                    
+
                     for part in range(len(machine.partitions)):
                         for ch in machine.partitions[part]:
                             def_head.append(ch, part)
@@ -120,11 +124,11 @@ def main():
         "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
     if len(sys.argv) > 3 and sys.argv[3]=="expand":
         text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
-    
+
     graph_dir = cfg.get('machine', 'graph_dir')
     ensure_dir(graph_dir)
     fn = print_text_graph(words_to_machines, graph_dir)
     logging.info('wrote graph to {0}'.format(fn))
-    
+
 if __name__ == "__main__":
     main()

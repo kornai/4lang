@@ -89,7 +89,7 @@ class DictTo4lang():
                 entries, definitions=True)
         elif self.lang == 'hun':
             magyarlanc_wrapper = Magyarlanc(self.cfg)
-            entries = magyarlanc_wrapper.parse_sentences(entries)
+            entries = magyarlanc_wrapper.parse_entries(entries)
         else:
             print 'incorrect lang'
 

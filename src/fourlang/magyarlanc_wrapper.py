@@ -9,7 +9,7 @@ class Magyarlanc():
         self.path = cfg.get('magyarlanc', 'path')
         self.tmp_dir = cfg.get('data', 'tmp_dir')
 
-    def dump_input(self, entries):
+    def dump_entries(self, entries):
         logging.info('dumping to file...')
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
             for e in entries:
@@ -17,6 +17,15 @@ class Magyarlanc():
                 definition = definition.replace('i. e.', 'i.e.')  # TODO
                 in_file.write(u"{0}\n".format(definition).encode('utf-8'))
                 in_file_name = in_file.name
+        logging.info("dumped input to {0}".format(in_file_name))
+        return in_file_name
+
+    def dump_text(self, text):
+        logging.info('dumping to file...')
+        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
+            t = text.replace('i. e.', 'i.e.')  # TODO
+            in_file.write(t.encode('utf-8'))
+            in_file_name = in_file.name
         logging.info("dumped input to {0}".format(in_file_name))
         return in_file_name
 
@@ -60,8 +69,26 @@ class Magyarlanc():
             "sen": entry['senses'][0]['definition'],
             "deps": self.parse_lines(lines)}
 
-    def parse_sentences(self, entries):
-        in_file_name = self.dump_input(entries)
+    def parse_text(self, text):
+        in_file_name = self.dump_text(text)
+        raw_parses = self.parse_file(in_file_name)
+        return self.parse_magyarlanc_output(raw_parses)
+
+    def parse_entries(self, entries):
+        in_file_name = self.dump_entries(entries)
+        raw_parses = self.parse_file(in_file_name)
+        for count, parse in enumerate(raw_parses):
+            try:
+                self.add_deps(entries[count], parse)
+            except:
+                logging.error("count: {0}".format(count))
+                logging.error("last entry: {0}".format(entries[count-1]))
+                logging.error(u"failed with: {0}".format(parse))
+                traceback.print_exc()
+                sys.exit(-1)
+        return entries
+
+    def parse_file(self, in_file_name):
         logging.info('parser input: {0}'.format(in_file_name))
         out_file_name = self.run_parser(in_file_name)
         logging.info('parser output: {0}'.format(out_file_name))
@@ -72,19 +99,11 @@ class Magyarlanc():
         curr_lines = []
         for line in open(out_file_name):
             if line == '\n':
-                try:
-                    self.add_deps(entries[count], curr_lines)  # nopep8
-                except:
-                    logging.error("count: {0}".format(count))
-                    logging.error("last entry: {0}".format(entries[count-1]))
-                    logging.error(u"failed with: {0}".format(curr_lines))
-                    traceback.print_exc()
-                    sys.exit(-1)
+                yield curr_lines
                 curr_lines = []
                 count += 1
             else:
                 curr_lines.append(line.decode('utf-8'))
-        return entries
 
 
 def test():
