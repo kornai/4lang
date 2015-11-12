@@ -46,9 +46,9 @@ class DepTo4lang():
         if dep_type not in self.dependencies:
             if dep_type not in self.undefined:
                 self.undefined.add(dep_type)
-                logging.warning(
-                    'skipping dependency not in dep_to_4lang map: {0}'.format(
-                        dep_type))
+                # logging.warning(
+                #    'skipping dependency not in dep_to_4lang map: {0}'.format(
+                #        dep_type))
             return False  # not that anyone cares
         for dep in self.dependencies[dep_type]:
             dep.apply(msd1, msd2, machine1, machine2)
@@ -177,6 +177,7 @@ class DepTo4lang():
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
+                    """
                     if c_word1 != word1:
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
@@ -185,6 +186,7 @@ class DepTo4lang():
                         logging.warning(
                             "unifying '{0}' with canonical '{1}'".format(
                                 word2, c_word2))
+                    """
 
                     # logging.info(
                     #     'cw1: {0}, cw2: {1}'.format(

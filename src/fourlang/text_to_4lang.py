@@ -1,10 +1,11 @@
+import json
 import logging
 import os
 import re
 import sys
 
 from corenlp_wrapper import CoreNLPWrapper
-from dep_to_4lang import DepTo4lang, Dependency
+from dep_to_4lang import DepTo4lang
 from lexicon import Lexicon
 from magyarlanc_wrapper import Magyarlanc
 from utils import ensure_dir, get_cfg, print_text_graph
@@ -20,8 +21,10 @@ class TextTo4lang():
     def __init__(self, cfg):
         self.cfg = cfg
         self.lang = self.cfg.get("deps", "lang")
-        self.deps_dir = self.cfg.get('data', 'deps_dir')
-        ensure_dir(self.deps_dir)
+        self.deps_dir = self.cfg.get('text', 'deps_dir')
+        # self.machines_dir = self.cfg.get('text', 'machines_dir')
+        self.graphs_dir = cfg.get('text', 'graph_dir')
+        map(ensure_dir, (self.deps_dir, self.graphs_dir))  # self.machines_dir
         if self.lang == 'en':
             self.parser_wrapper = CoreNLPWrapper(self.cfg)
         elif self.lang == 'hu':
@@ -36,8 +39,8 @@ class TextTo4lang():
         t = t.replace(u"\xc2\xa0", u" ")
         t = t.replace(u"\xa0", u" ")
         t = t.strip()
-        if t != text:
-            logging.debug(u"{0} -> {1}".format(text, t))
+        # if t != text:
+        #   logging.debug(u"{0} -> {1}".format(text, t))
         return t
 
     def print_deps(self, parsed_sens, dep_dir=None, fn=None):
@@ -50,48 +53,89 @@ class TextTo4lang():
                 f.write(
                     "\n".join(["{0}({1}, {2})".format(*dep) for dep in deps]))
 
-    def process(self, text, dep_dir=None, fn=None):
-        # logging.info("running parser...")
-        preproc_text = TextTo4lang.preprocess_text(text)
-        # logging.info('preproc text: {0}'.format(repr(preproc_text)))
-        parsed_sens, corefs = self.parser_wrapper.parse_text(preproc_text)
+    def process(self):
+        input_path = self.cfg.get('text', 'input_sens')
+        if os.path.isdir(input_path):
+            file_names = [
+                os.path.join(input_path, fn) for fn in os.listdir(input_path)]
+        else:
+            file_names = [input_path]
+        logging.info('will process {0} file(s)'.format(len(file_names)))
+        map(self.process_file, file_names)
 
-        # logging.info("parsed {0} sentences".format(len(parsed_sens)))
-        if dep_dir is not None:
-            self.print_deps(parsed_sens, dep_dir, fn)
+    def process_file(self, fn):
+        base_fn = os.path.basename(fn)
+        deps_fn = os.path.join(self.deps_dir, "{0}.deps".format(base_fn))
+        # machines_fn = os.path.join(
+        #     self.machines_dir, "{0}.machines".format(base_fn))
+        if not os.path.exists(deps_fn):
+            self.parse_file(fn, deps_fn)
 
-        # logging.info("loading dep_to_4lang...")
-        logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
+        # TODO also support dumping machines to file
+        # logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
 
+        if not self.cfg.getboolean('text', 'parse_only'):
+            self.process_deps(deps_fn)
+
+    def parse_file(self, fn, out_fn):
+        logging.info("parsing file: {0}".format(fn))
+        count = 0
+        with open(out_fn, 'w') as out_f:
+            for line in open(fn):
+                if not line:
+                    continue
+                preproc_sen = TextTo4lang.preprocess_text(
+                    line.strip().decode('utf-8'))
+                deps, corefs = self.parser_wrapper.parse_text(preproc_sen)
+                count += len(deps)
+                out_f.write("{0}\n".format(json.dumps({
+                    "sen": preproc_sen,
+                    "deps": deps,
+                    "corefs": corefs})))
+        logging.info("parsed {0} sentences".format(count))
+
+    def process_deps(self, fn):
+        sen_machines = []
+        for c, line in enumerate(open(fn)):
+            sen = json.loads(line)
+            deps, corefs = sen['deps'], sen['corefs']
         # logging.info("processing sentences...")
-        if self.lang == 'en':
-            parsed_sens = map(
-                self.dep_to_4lang.convert_old_deps, parsed_sens)
-        words_to_machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(  # nopep8
-            parsed_sens, corefs)
+            if self.lang == 'en':
+                deps = map(self.dep_to_4lang.convert_old_deps, deps)
 
-        # logging.info(
-        #      "done, processed {0} sentences".format(len(parsed_sens)))
+            machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
+                deps, corefs)
+            if self.cfg.getboolean('text', 'expand'):
+                self.expand(
+                    machines,
+                    set(self.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))  # nopep8
 
-        return words_to_machines
+            if self.cfg.getboolean('text', 'print_graphs'):
+                fn = print_text_graph(machines, self.graphs_dir, fn=c)
+
+            sen_machines.append(machines)
+
+        return sen_machines
+
     @staticmethod
-    def delete_connection(m1,m2):
+    def delete_connection(m1, m2):
         for part in range(len(m1.partitions)):
             if m2 in m1.partitions[part]:
-                m1.remove(m2,part)
+                m1.remove(m2, part)
                 return part
-        #ipdb.set_trace()
+        # ipdb.set_trace()
         return None
 
-    def expand(self, words_to_machines, stopwords = []):
+    def expand(self, words_to_machines, stopwords=[]):
         if len(stopwords) == 0:
             stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
-        known_words=self.dep_to_4lang.lexicon.get_words()
+        known_words = self.dep_to_4lang.lexicon.get_words()
         for lemma, machine in words_to_machines.iteritems():
             if lemma in known_words and lemma not in stopwords:
                 # sys.stderr.write(lemma + "\t")
-                definition=self.dep_to_4lang.lexicon.get_machine(lemma)
-                if len(definition.children())==1 and len(definition.parents) ==0:
+                definition = self.dep_to_4lang.lexicon.get_machine(lemma)
+                if (len(definition.children()) == 1 and
+                        len(definition.parents) == 0):
                     def_head = next(iter(definition.children()))
                     parents = machine.parents
                     for p in list(parents):
@@ -110,25 +154,11 @@ def main():
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
-    max_sens = int(sys.argv[2]) if len(sys.argv) > 2 else None
 
     cfg = get_cfg(cfg_file)
     text_to_4lang = TextTo4lang(cfg)
+    text_to_4lang.process()
 
-    input_fn = cfg.get('data', 'input_sens')
-    sens = [line.decode('utf-8').strip() for line in open(input_fn)]
-    if max_sens is not None:
-        sens = sens[:max_sens]
-
-    words_to_machines = text_to_4lang.process(
-        "\n".join(sens), dep_dir=text_to_4lang.deps_dir)
-    if len(sys.argv) > 3 and sys.argv[3]=="expand":
-        text_to_4lang.expand(words_to_machines, set(text_to_4lang.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))
-
-    graph_dir = cfg.get('machine', 'graph_dir')
-    ensure_dir(graph_dir)
-    fn = print_text_graph(words_to_machines, graph_dir)
-    logging.info('wrote graph to {0}'.format(fn))
 
 if __name__ == "__main__":
     main()
