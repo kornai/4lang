@@ -144,7 +144,9 @@ class DepTo4lang():
         root_machines = map(word2machine.get, root_lemmas)
 
         word_machine = self.lexicon.get_new_machine(word)
+
         for root_machine in root_machines:
+            word_machine.unify(root_machine)
             word_machine.append(root_machine, 0)
         return word_machine
 
@@ -194,8 +196,8 @@ class DepTo4lang():
                     lemma1, lemma2 = map(word2lemma.get, (c_word1, c_word2))
 
                     # TODO
-                    lemma1 = lemma1.replace('/', '_PER_')
-                    lemma2 = lemma2.replace('/', '_PER_')
+                    # lemma1 = lemma1.replace('/', '_PER_')
+                    # lemma2 = lemma2.replace('/', '_PER_')
 
                     # logging.info(
                     #     'lemma1: {0}, lemma2: {1}'.format(
