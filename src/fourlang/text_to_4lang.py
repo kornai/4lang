@@ -12,7 +12,7 @@ from utils import ensure_dir, get_cfg, print_text_graph
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
-__LOGLEVEL__ = 'DEBUG'
+__LOGLEVEL__ = 'INFO'
 __MACHINE_LOGLEVEL__ = 'INFO'
 
 class TextTo4lang():
@@ -23,7 +23,7 @@ class TextTo4lang():
         self.lang = self.cfg.get("deps", "lang")
         self.deps_dir = self.cfg.get('text', 'deps_dir')
         # self.machines_dir = self.cfg.get('text', 'machines_dir')
-        self.graphs_dir = cfg.get('text', 'graph_dir')
+        self.graphs_dir = cfg.get('machine', 'graph_dir')
         map(ensure_dir, (self.deps_dir, self.graphs_dir))  # self.machines_dir
         if self.lang == 'en':
             self.parser_wrapper = CoreNLPWrapper(self.cfg)
@@ -70,6 +70,8 @@ class TextTo4lang():
         #     self.machines_dir, "{0}.machines".format(base_fn))
         if not os.path.exists(deps_fn):
             self.parse_file(fn, deps_fn)
+        else:
+            logging.info('file exists: {0}, not parsing'.format(deps_fn))
 
         # TODO also support dumping machines to file
         # logging.getLogger().setLevel(__MACHINE_LOGLEVEL__)
@@ -99,7 +101,7 @@ class TextTo4lang():
         for c, line in enumerate(open(fn)):
             sen = json.loads(line)
             deps, corefs = sen['deps'], sen['corefs']
-        # logging.info("processing sentences...")
+            # logging.info("processing sentences...")
             if self.lang == 'en':
                 deps = map(self.dep_to_4lang.convert_old_deps, deps)
 

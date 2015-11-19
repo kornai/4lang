@@ -16,6 +16,6 @@ obj	2,-
 obl,.*,N...2.*	-,-	IN
 obl,.*,N...p.*	-,-	IN
 obl,.*,N...m.*	-,-	AT
-
+obl,.*,N...t.*	-,-	TO
 
 pred	0,0

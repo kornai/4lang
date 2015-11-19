@@ -46,9 +46,9 @@ class DepTo4lang():
         if dep_type not in self.dependencies:
             if dep_type not in self.undefined:
                 self.undefined.add(dep_type)
-                # logging.warning(
-                #    'skipping dependency not in dep_to_4lang map: {0}'.format(
-                #        dep_type))
+                logging.warning(
+                    'skipping dependency not in dep_to_4lang map: {0}'.format(
+                        dep_type))
             return False  # not that anyone cares
         for dep in self.dependencies[dep_type]:
             dep.apply(msd1, msd2, machine1, machine2)
@@ -273,12 +273,15 @@ class Dependency():
 
     def match(self, msd1, msd2):
         for patt, msd in ((self.patt1, msd1), (self.patt2, msd2)):
-            if patt is not None and msd is not None and patt.match(msd):
+            if patt is not None and msd is not None and not patt.match(msd):
                 return False
         return True
 
     def apply(self, msd1, msd2, machine1, machine2):
+        logging.debug(
+            'trying {0} on {1} and {2}...'.format(self.name, msd1, msd2))
         if self.match(msd1, msd2):
+            logging.debug('MATCH!')
             for operator in self.operators:
                 operator.act((machine1, machine2))
 

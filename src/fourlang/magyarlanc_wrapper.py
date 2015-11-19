@@ -72,7 +72,8 @@ class Magyarlanc():
     def parse_text(self, text):
         in_file_name = self.dump_text(text)
         raw_parses = self.parse_file(in_file_name)
-        return self.parse_magyarlanc_output(raw_parses)
+        deps = map(self.parse_lines, raw_parses)
+        return deps, []
 
     def parse_entries(self, entries):
         in_file_name = self.dump_entries(entries)
