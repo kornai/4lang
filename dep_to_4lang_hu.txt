@@ -10,18 +10,24 @@
 
 att	0,-
 
+mode	0,-
+
 subj	1,0
 obj	2,-
 
 obl,.*,N...2.*	-,-	IN
-obl,.*,N...p.*	-,-	IN
 obl,.*,N...m.*	-,-	AT
 obl,.*,N...t.*	-,-	TO
+obl,.*,N...p.*	-,-	ON
 obl,.*,N...s.*	-,-	ON
+dat	-,-	FOR
+obl,.*,N...c.*	-,-	FOR
 
 pred	0,0
 
+from	-,-	FROM
 tfrom	-,-	since
+locy	-,-	AT
 tlocy	-,-	AT
 to	-,-	TO
 tto	-,-	until
