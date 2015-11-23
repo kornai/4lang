@@ -17,5 +17,11 @@ obl,.*,N...2.*	-,-	IN
 obl,.*,N...p.*	-,-	IN
 obl,.*,N...m.*	-,-	AT
 obl,.*,N...t.*	-,-	TO
+obl,.*,N...s.*	-,-	ON
 
 pred	0,0
+
+tfrom	-,-	since
+tlocy	-,-	AT
+to	-,-	TO
+tto	-,-	until

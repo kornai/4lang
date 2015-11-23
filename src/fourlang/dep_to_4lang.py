@@ -141,7 +141,12 @@ class DepTo4lang():
 
         word2machine = self.get_machines_from_parsed_deps(deps)
 
-        root_machines = map(word2machine.get, root_lemmas)
+        root_machines = filter(None, map(word2machine.get, root_lemmas))
+        if not root_machines:
+            logging.info("failed to find root machine")
+            logging.info('root lemmas: {0}'.format(root_lemmas))
+            logging.info('word2machine: {0}'.format(word2machine))
+            sys.exit(-1)
 
         word_machine = self.lexicon.get_new_machine(word)
 

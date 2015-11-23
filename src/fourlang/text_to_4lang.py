@@ -81,41 +81,41 @@ class TextTo4lang():
 
     def parse_file(self, fn, out_fn):
         logging.info("parsing file: {0}".format(fn))
-        count = 0
+        preproc_sens = []
+        for line in open(fn):
+            if not line:
+                continue
+            preproc_sens.append(TextTo4lang.preprocess_text(
+                line.strip().decode('utf-8')))
+        deps, corefs = self.parser_wrapper.parse_text("\n".join(preproc_sens))
         with open(out_fn, 'w') as out_f:
-            for line in open(fn):
-                if not line:
-                    continue
-                preproc_sen = TextTo4lang.preprocess_text(
-                    line.strip().decode('utf-8'))
-                deps, corefs = self.parser_wrapper.parse_text(preproc_sen)
-                count += len(deps)
-                out_f.write("{0}\n".format(json.dumps({
-                    "sen": preproc_sen,
-                    "deps": deps,
-                    "corefs": corefs})))
-        logging.info("parsed {0} sentences".format(count))
+            out_f.write("{0}\n".format(json.dumps({
+                "deps": deps,
+                "corefs": corefs})))
+        logging.info("parsed {0} sentences".format(len(deps)))
 
     def process_deps(self, fn):
         sen_machines = []
-        for c, line in enumerate(open(fn)):
-            sen = json.loads(line)
-            deps, corefs = sen['deps'], sen['corefs']
-            # logging.info("processing sentences...")
+        c = 0
+        for line in open(fn):
+            data = json.loads(line)
+            deps, corefs = data['deps'], data['corefs']
             if self.lang == 'en':
                 deps = map(self.dep_to_4lang.convert_old_deps, deps)
+            for sen_deps in deps:
+                # logging.info("processing sentences...")
+                machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
+                    [sen_deps], corefs)
+                if self.cfg.getboolean('text', 'expand'):
+                    self.expand(
+                        machines,
+                        set(self.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))  # nopep8
 
-            machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
-                deps, corefs)
-            if self.cfg.getboolean('text', 'expand'):
-                self.expand(
-                    machines,
-                    set(self.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))  # nopep8
+                if self.cfg.getboolean('text', 'print_graphs'):
+                    fn = print_text_graph(machines, self.graphs_dir, fn=c)
 
-            if self.cfg.getboolean('text', 'print_graphs'):
-                fn = print_text_graph(machines, self.graphs_dir, fn=c)
-
-            sen_machines.append(machines)
+                sen_machines.append(machines)
+                c += 1
 
         return sen_machines
 
@@ -134,8 +134,9 @@ class TextTo4lang():
         known_words = self.dep_to_4lang.lexicon.get_words()
         for lemma, machine in words_to_machines.iteritems():
             if lemma in known_words and lemma not in stopwords:
-                # sys.stderr.write(lemma + "\t")
                 definition = self.dep_to_4lang.lexicon.get_machine(lemma)
+                machine.unify(definition)
+                """
                 if (len(definition.children()) == 1 and
                         len(definition.parents) == 0):
                     def_head = next(iter(definition.children()))
@@ -148,6 +149,7 @@ class TextTo4lang():
                         for ch in machine.partitions[part]:
                             def_head.append(ch, part)
                     TextTo4lang.delete_connection(definition, def_head)
+                """
         return
 
 def main():

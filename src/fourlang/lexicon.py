@@ -21,7 +21,9 @@ class Lexicon():
         primitives = set(
             [line.decode('utf-8').strip() for line in open(primitive_fn)])
         logging.info('parsing 4lang definitions...')
-        definitions = read_defs(file(fn), plural_fn, 0, three_parts=True)
+        pn_index = 1 if cfg.get("deps", "lang") == 'hu' else 0
+        definitions = read_defs(
+            file(fn), plural_fn, pn_index, three_parts=True)
         logging.info('parsed {0} entries, done!'.format(len(definitions)))
         lexicon = Lexicon.create_from_dict(definitions, primitives, cfg)
         return lexicon
