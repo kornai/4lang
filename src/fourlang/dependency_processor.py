@@ -161,20 +161,42 @@ class DependencyProcessor():
         return deps
 
     def process_conjunction_magyarlanc(self, deps):
+        # for all conj(x, hogy), for all D(hogy, y) create D(x, y)
         # get 'hogy' dependants of conj relations
         conjs = set((
             d['dep']['id']
             for d in deps.dep_index['conj'] if d['dep']['lemma'] == 'hogy'))
         # then for each of these:
         for conj in conjs:
+            # get all their governors
             govs = [
                 d['gov']
                 for d in deps.tok_index[conj][2] if d['type'] == 'conj']
+            # then for all dependents of hogy,
             for dep in deps.tok_index[conj][1]:
+                # copy each dependency to each governor
                 for gov in govs:
                     deps.add(dep['type'], gov, dep['dep'])
 
             deps.remove_tok(conj)
+        deps.index()
+        return deps
+
+    def process_copulars_magyarlanc(self, deps):
+        # mapping all pairs of the form nsubj(x, c) and pred(c, y)
+        # (such that c is a copular verb) to the relation subj(x, y)
+        pred_gov_cop_ids = [
+            d['gov']['id'] for d in deps.dep_index['pred']
+            if d['gov']['lemma'] == 'van']
+        for gov_id in pred_gov_cop_ids:
+            subj_deps = [d['dep'] for d in deps.tok_index[gov_id][1]]
+            for subj in subj_deps:
+                preds = [
+                    d['dep'] for d in deps.tok_index[gov_id][1]
+                    if d['type'] == 'pred']
+                for pred in preds:
+                    deps.add("subj", subj, pred)
+            deps.remove_tok(gov_id)
         deps.index()
         return deps
 
@@ -237,6 +259,7 @@ class DependencyProcessor():
         deps.remove_type('punct')
         deps.index()
         deps = self.process_conjunction_magyarlanc(deps)
+        deps = self.process_copulars_magyarlanc(deps)
         deps = self.process_coordination_magyarlanc(deps)
         return deps.deps
 

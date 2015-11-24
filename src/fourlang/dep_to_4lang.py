@@ -70,8 +70,7 @@ class DepTo4lang():
                 definition = entry['senses'][0]['definition']
                 if definition is None:
                     continue
-                deps = self.dependency_processor.process_dependencies(
-                    definition['deps'])
+                deps = definition['deps']
                 if not deps:
                     #  TODO see previous comment
                     continue
@@ -160,6 +159,8 @@ class DepTo4lang():
         return self.get_machines_from_deps_and_corefs([deps], [])
 
     def get_machines_from_deps_and_corefs(self, dep_lists, corefs):
+        dep_lists = map(
+            self.dependency_processor.process_dependencies, dep_lists)
         coref_index = defaultdict(dict)
         for (word, sen_no), mentions in corefs:
             for m_word, m_sen_no in mentions:

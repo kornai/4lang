@@ -38,7 +38,7 @@ conj_whether	-,-
 cop	-,-
 #but will be necessary to disambiguate nsubj and csubj
 
-csubj	1,?
+csubj	1,0
 #1,0 for copular sentences, 1,- otherwise (just like with nsubj)
 
 csubjpass	2,-
@@ -72,7 +72,7 @@ nn	-,-
 
 npadvmod	0,-
 
-nsubj	1,?
+nsubj	1,0
 # 1,0 for copular sentences, 1,- otherwise (just like with csubj)
 
 nsubjpass	2,-
