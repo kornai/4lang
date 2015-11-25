@@ -205,7 +205,6 @@ class DependencyProcessor():
     def process_coordination_magyarlanc(self, deps):
         # get governors of coord relations
         govs = set((d['gov']['id'] for d in deps.dep_index['coord']))
-        print 'govs:', govs
         # then for each of these:
         for gov in govs:
             # get dep-neighbours of each of these
@@ -231,7 +230,6 @@ class DependencyProcessor():
                 # otherwise it should be removed
                 deps.remove_tok(gov)
 
-            print 'coord:', [deps.tok_index[c][0]['lemma'] for c in coord]
             deps = self.unify_dependencies(
                 coord, deps, exclude=set(['coord', 'punct']))
 
