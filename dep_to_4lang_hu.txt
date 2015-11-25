@@ -16,14 +16,18 @@ subj	1,0
 obj	2,-
 
 obl,.*,N...2.*	-,-	IN
+obl,.*,N...x.*	-,-	IN
+obl,.*,N...i.*	-,-	INSTRUMENT
+obl,.*,N...3.*	-,-	AT
 obl,.*,N...m.*	-,-	AT
 obl,.*,N...t.*	-,-	TO
+obl,.*,N...9.*	-,-	TO
 obl,.*,N...p.*	-,-	ON
 obl,.*,N...s.*	-,-	ON
-dat	-,-	FOR
 obl,.*,N...c.*	-,-	FOR
-
-pred	0,0
+obl,.*,N...e.*	-,-	FROM
+obl,.*,N...b.*	-,-	FROM
+obl,.*,N...h.*	-,-	FROM
 
 from	-,-	FROM
 tfrom	-,-	since

@@ -161,11 +161,13 @@ class DependencyProcessor():
         return deps
 
     def process_conjunction_magyarlanc(self, deps):
-        # for all conj(x, hogy), for all D(hogy, y) create D(x, y)
-        # get 'hogy' dependants of conj relations
+        # for all conj(x, conj), for all D(conj, y) create D(x, y)
+        # where conj in (hogy, de)
+        # get conj dependants of conj relations
         conjs = set((
             d['dep']['id']
-            for d in deps.dep_index['conj'] if d['dep']['lemma'] == 'hogy'))
+            for d in deps.dep_index['conj']
+            if d['dep']['lemma'] in ('hogy', 'de')))
         # then for each of these:
         for conj in conjs:
             # get all their governors
@@ -203,11 +205,18 @@ class DependencyProcessor():
     def process_coordination_magyarlanc(self, deps):
         # get governors of coord relations
         govs = set((d['gov']['id'] for d in deps.dep_index['coord']))
+        print 'govs:', govs
         # then for each of these:
         for gov in govs:
             # get dep-neighbours of each of these
-            coord = [d['dep']['id'] for d in deps.tok_index[gov][1]]
-            coord += [d['gov']['id'] for d in deps.tok_index[gov][2]]
+            coord = [
+                d['dep']['id'] for d in deps.tok_index[gov][1]
+                if d['type'] in ('coord', 'conj')]
+            # print 'coord:', [deps.tok_index[c][0]['lemma'] for c in coord]
+            coord += [
+                d['gov']['id'] for d in deps.tok_index[gov][2]
+                if d['type'] in ('coord', 'conj')]
+            # print 'coord:', [deps.tok_index[c][0]['lemma'] for c in coord]
             # and unify their relations
             # logging.info('unifying these:')
             # for c in coord:
@@ -222,8 +231,9 @@ class DependencyProcessor():
                 # otherwise it should be removed
                 deps.remove_tok(gov)
 
+            print 'coord:', [deps.tok_index[c][0]['lemma'] for c in coord]
             deps = self.unify_dependencies(
-                coord, deps, exclude=set(['att', 'coord', 'punct']))
+                coord, deps, exclude=set(['coord', 'punct']))
 
         # we reindex in the end only!
         deps.index()
