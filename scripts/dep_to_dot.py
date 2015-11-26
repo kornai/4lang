@@ -21,9 +21,15 @@ def dep_to_dot(deps, fn):
 
 def main():
     data = json.load(open(sys.argv[1]))
-    i = 0 if len(sys.argv) == 3 else int(sys.argv[3])
-    sen = data['deps'][i]
-    dep_to_dot(sen, sys.argv[2])
+    if 'deps' in data:
+        i = 0 if len(sys.argv) == 3 else int(sys.argv[3])
+        sen = data['deps'][i]
+        dep_to_dot(sen, sys.argv[2])
+    else:
+        for word, entry in data.iteritems():
+            sen = entry['senses'][0]['definition']['deps']
+            fn = "{0}/{1}.dot".format(sys.argv[2], word)
+            dep_to_dot(sen, fn)
 
 if __name__ == "__main__":
     main()
