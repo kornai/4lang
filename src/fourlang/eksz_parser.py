@@ -19,11 +19,20 @@ class EkszParser(XMLParser):
         (u"bp.-i", u"budapesti"),
         (u"vonatk.", u"vonatkoz\xf3"),
         (u"vki", u"valaki"),
+        (u"Vki", u"Valaki"),
         (u"vmi", u"valami"),
-        (u"kapcs.", u"kapcsolatos"),
-        (u"haszn.", u"haszn\xe1lt"),
+        (u"Vmi", u"Valami"),
+        (u"vhol", u"valahol"),
+        (u"Vhol", u"Valahol"),
+        (u"vhonnan", u"valahonnan"),
+        (u"Vhonnan", u"Valahonnan"),
         (u"vmely", u"valamely"),
+        (u"Vmely", u"Valamely"),
         (u"vmilyen", u"valamilyen"),
+        (u"Vmilyen", u"Valamilyen"),
+        (u"kapcs.", u"kapcsolatos"),
+        (u"kif-", u"kifejez\xe9s"),
+        (u"haszn.", u"haszn\xe1lt"),
         (u".,", u";"),
         (u".;", u";"),
         (u"..", u"."),
@@ -98,6 +107,10 @@ class EkszParser(XMLParser):
                 curr_senses = []
 
             curr_senses.append({"definition": definition})
+        yield {
+            "hw": curr_hw,
+            "pos": curr_pos if curr_pos is not None else pos,
+            "senses": curr_senses}
 
     @staticmethod
     def parse_xml(xml_text):
