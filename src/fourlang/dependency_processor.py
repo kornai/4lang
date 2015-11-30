@@ -25,6 +25,7 @@ class Dependencies():
 
     def index_dependencies(self, deps):
         self.index = defaultdict(lambda: (defaultdict(set), defaultdict(set)))
+        deps = [(dep, tuple(w1), tuple(w2)) for dep, w1, w2 in deps]
         for triple in deps:
             self.add(triple)
 
@@ -272,7 +273,8 @@ class DependencyProcessor():
         return deps.deps
 
     def process_stanford_dependencies(self, dep_strings):
-        deps = Dependencies.create_from_strings(dep_strings)
+        deps = Dependencies(dep_strings)
+        # deps = Dependencies.create_from_strings(dep_strings)
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)

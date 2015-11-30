@@ -29,6 +29,7 @@ class DepTo4lang():
         self.lemmatizer = Lemmatizer(cfg)
         self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
+        self.word2lemma = {}
 
     def read_dep_map(self, dep_map_fn):
         self.dependencies = defaultdict(list)
@@ -118,7 +119,7 @@ class DepTo4lang():
         for dep, (word1, id1), (word2, id2) in deps:
             lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
                 w, defined=self.lexicon.get_words()) or w, (word1, word2))
-            lemma1
+            # print 'l1:', lemma1, 'l2:', lemma2
             new_deps.append({
                 "type": dep,
                 "gov": {
@@ -161,6 +162,8 @@ class DepTo4lang():
     def get_machines_from_deps_and_corefs(self, dep_lists, corefs):
         dep_lists = map(
             self.dependency_processor.process_dependencies, dep_lists)
+        if self.lang == 'en':
+            dep_lists = map(self.convert_old_deps, dep_lists)
         coref_index = defaultdict(dict)
         for (word, sen_no), mentions in corefs:
             for m_word, m_sen_no in mentions:
@@ -169,11 +172,10 @@ class DepTo4lang():
         # logging.info('coref index: {0}'.format(coref_index))
 
         word2machine = {}
-        word2lemma = {}
         for deps in dep_lists:
             for dep in deps:
                 for t in (dep['gov'], dep['dep']):
-                    word2lemma[t['word']] = t['lemma']
+                    self.word2lemma[t['word']] = t['lemma']
 
         for i, deps in enumerate(dep_lists):
             try:
@@ -195,11 +197,8 @@ class DepTo4lang():
                             "unifying '{0}' with canonical '{1}'".format(
                                 word2, c_word2))
                     """
-
-                    # logging.info(
-                    #     'cw1: {0}, cw2: {1}'.format(
-                    #         repr(c_word1), repr(c_word2)))
-                    lemma1, lemma2 = map(word2lemma.get, (c_word1, c_word2))
+                    lemma1 = self.word2lemma[c_word1]
+                    lemma2 = self.word2lemma[c_word2]
 
                     # TODO
                     # lemma1 = lemma1.replace('/', '_PER_')

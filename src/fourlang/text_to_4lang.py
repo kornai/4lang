@@ -23,7 +23,7 @@ class TextTo4lang():
         self.lang = self.cfg.get("deps", "lang")
         self.deps_dir = self.cfg.get('text', 'deps_dir')
         # self.machines_dir = self.cfg.get('text', 'machines_dir')
-        self.graphs_dir = cfg.get('machine', 'graph_dir')
+        self.graphs_dir = cfg.get('text', 'graph_dir')
         map(ensure_dir, (self.deps_dir, self.graphs_dir))  # self.machines_dir
         if self.lang == 'en':
             self.parser_wrapper = CoreNLPWrapper(self.cfg)
@@ -100,8 +100,6 @@ class TextTo4lang():
         for line in open(fn):
             data = json.loads(line)
             deps, corefs = data['deps'], data['corefs']
-            if self.lang == 'en':
-                deps = map(self.dep_to_4lang.convert_old_deps, deps)
             for sen_deps in deps:
                 # logging.info("processing sentences...")
                 machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
@@ -162,7 +160,6 @@ def main():
     cfg = get_cfg(cfg_file)
     text_to_4lang = TextTo4lang(cfg)
     text_to_4lang.process()
-
 
 if __name__ == "__main__":
     main()
