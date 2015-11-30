@@ -35,9 +35,12 @@ class XMLParser():
         """Remove (tag) tags from text."""
         return XMLParser.tag_pattern(tag).sub("", text)
 
+    @staticmethod
+    def parse_xml(data):
+        raise NotImplementedError
+
     @classmethod
     def parse_file(cls, fn):
         """Open, read and decode the input file,
         then give it to the main parser class' 'parse_xml' method."""
         return cls.parse_xml(open(fn).read().decode('utf-8'))
-

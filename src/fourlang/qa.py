@@ -1,42 +1,62 @@
 import logging
 import sys
 
-import nltk.data
+from pymachine.utils import MachineGraph
 
 from clef_qa_parser import QAParser
-from similarity import WordSimilarity
+from similarity import GraphSimilarity, WordSimilarity
 from text_to_4lang import TextTo4lang
-from utils import get_cfg
+from utils import ensure_dir, get_cfg, print_text_graph
 
 __LOGLEVEL__ = 'INFO'
 
 class QuestionAnswerer:
     def __init__(self, cfg):
         self.cfg = cfg
-
-        nltk.download('punkt', quiet=True)
-        self.sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
         self.text_to_4lang = TextTo4lang(cfg)
+        self.graph_dir = self.cfg.get("qa", "graph_dir")
+        self.dep_dir = self.cfg.get("qa", "deps_dir")
+        ensure_dir(self.graph_dir)
+        ensure_dir(self.dep_dir)
         self.word_similarity = WordSimilarity(cfg)
 
-    def score_answer(self, answer, model):
-        known_words = set(answer.keys()) & set(model.keys())
-        score = 0
-        for word in known_words:
-            w_sim = self.word_similarity.machine_similarity(
-                answer[word], model[word], 'default')
-            score += w_sim
+    def score_answer(self, answer, model, model_graph):
+        answer_graph = MachineGraph.create_from_machines(
+            answer['machines'].values())
+        answer['score'], answer['evidence'] = GraphSimilarity.supported_score(
+            answer_graph, model_graph)
 
-        return score / float(len(known_words))
+    def old_score_answer(self, answer, model):
+        machines = answer['machines']
+        known_words = set(machines.keys()) & set(model.keys())
+        answer['evidence'] = []
+        word_sims = dict((
+            (word, self.word_similarity.machine_similarity(
+                machines[word], model[word], 'default'))
+            for word in known_words))
 
-    def answer_question(self, question, model):
+        answer['score'] = sum(word_sims.values()) / float(len(machines))
+        answer['evidence'] = sorted(
+            [(score, word) for word, score in word_sims.iteritems() if score],
+            reverse=True)
+
+    def answer_question(self, question, model, model_graph):
         logging.info('processing question: {0}...'.format(question['text']))
-        question['machines'] = self.text_to_4lang.process(question['text'])
+        question['machines'] = self.text_to_4lang.process(
+            question['text'], dep_dir=self.dep_dir,
+            fn="q{0}".format(question['id']))
+
         for answer in question['answers']:
             logging.info('processing answer: {0}...'.format(answer['text']))
-            answer['machines'] = self.text_to_4lang.process(answer['text'])
-            answer['score'] = self.score_answer(answer['machines'], model)
-            logging.info('score: {0}...'.format(answer['score']))
+            answer['machines'] = self.text_to_4lang.process(
+                answer['text'], dep_dir=self.dep_dir,
+                fn="q{0}a{1}".format(question['id'], answer['id']))
+            print_text_graph(
+                answer['machines'], self.graph_dir, fn="q{0}a{1}".format(
+                    question['id'], answer['id']))
+            self.score_answer(answer, model, model_graph)
+            logging.info('score: {0}, evidence: {1}'.format(
+                answer['score'], answer['evidence']))
 
         top_answer = sorted(question['answers'], key=lambda a: -a['score'])[0]
         return top_answer
@@ -46,15 +66,14 @@ class QuestionAnswerer:
         input_file = self.cfg.get('qa', 'input_file')
         for entry in QAParser.parse_file(input_file):
             logging.info('processing text...')
-            sens = []
-            for doc in entry['docs']:
-                sens += self.sent_detector.tokenize(doc['text'])
-
-            model = self.text_to_4lang.process(sens)
-
+            all_text = "\n".join([doc['text'] for doc in entry['docs']])
+            model = self.text_to_4lang.process(
+                all_text, dep_dir=self.dep_dir, fn='text')
+            print_text_graph(model, self.graph_dir)
+            model_graph = MachineGraph.create_from_machines(model.values())
             for question in entry['questions']:
-                answer = self.answer_question(question, model)
-                print answer
+                answer = self.answer_question(question, model, model_graph)
+                print answer['text']
 
     def answer_questions(self):
         for question in self.questions:
