@@ -105,9 +105,7 @@ class TextTo4lang():
                 machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
                     [sen_deps], corefs)
                 if self.cfg.getboolean('text', 'expand'):
-                    self.expand(
-                        machines,
-                        set(self.dep_to_4lang.lexicon.lexicon.keys()) | set(["the"]))  # nopep8
+                    self.dep_to_4lang.lexicon.expand(machines)
 
                 if self.cfg.getboolean('text', 'print_graphs'):
                     fn = print_text_graph(machines, self.graphs_dir, fn=c)
@@ -126,29 +124,6 @@ class TextTo4lang():
         # ipdb.set_trace()
         return None
 
-    def expand(self, words_to_machines, stopwords=[]):
-        if len(stopwords) == 0:
-            stopwords = set(self.dep_to_4lang.lexicon.lexicon.keys())
-        known_words = self.dep_to_4lang.lexicon.get_words()
-        for lemma, machine in words_to_machines.iteritems():
-            if lemma in known_words and lemma not in stopwords:
-                definition = self.dep_to_4lang.lexicon.get_machine(lemma)
-                machine.unify(definition)
-                """
-                if (len(definition.children()) == 1 and
-                        len(definition.parents) == 0):
-                    def_head = next(iter(definition.children()))
-                    parents = machine.parents
-                    for p in list(parents):
-                        part = TextTo4lang.delete_connection(p[0], machine)
-                        p[0].append(def_head, part)
-
-                    for part in range(len(machine.partitions)):
-                        for ch in machine.partitions[part]:
-                            def_head.append(ch, part)
-                    TextTo4lang.delete_connection(definition, def_head)
-                """
-        return
 
 def main():
     logging.basicConfig(

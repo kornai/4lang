@@ -3,6 +3,7 @@ import json
 import logging
 import sys
 
+from nltk.corpus import stopwords as nltk_stopwords
 from pymachine.definition_parser import read as read_defs
 from pymachine.machine import Machine
 from pymachine.control import ConceptControl
@@ -76,6 +77,9 @@ class Lexicon():
             if pn == word:
                 node2machine[node] = self.get_machine(pn)
             else:
+                if not pn:
+                    logging.warning("empty pn in node: {0}, word: {1}".format(
+                        node, word))
                 node2machine[node] = self.get_new_machine(pn)
 
         for node1, adjacency in graph.adjacency_iter():
@@ -183,8 +187,16 @@ class Lexicon():
 
             return next(iter(machines))
 
-    def expand():
-        pass
+    def expand(self, words_to_machines, stopwords=[]):
+        if len(stopwords) == 0:
+            stopwords = set(nltk_stopwords.words('english'))
+            stopwords.add('as')  # TODO
+            # stopwords = set(self.lexicon.keys())  # TODO ez majd nem kell
+        known_words = self.get_words()
+        for lemma, machine in words_to_machines.iteritems():
+            if lemma in known_words and lemma not in stopwords:
+                definition = self.get_machine(lemma)
+                machine.unify(definition)
 
 if __name__ == "__main__":
     logging.basicConfig(
