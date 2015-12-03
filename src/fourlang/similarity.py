@@ -40,6 +40,7 @@ class WordSimilarity():
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
+        self.expand = cfg.getboolean(cfg_section, "expand")
 
     def log(self, string):
         if not self.batch:
@@ -60,6 +61,9 @@ class WordSimilarity():
     def machine_similarities(self, machine1, machine2):
         pn1, pn2 = machine1.printname(), machine2.printname()
         self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
+        if self.expand:
+            self.lexicon.expand(machine1)
+            self.lexicon.expand(machine2)
         sims = self.zero_similarities()
         links1, nodes1 = self.get_links_nodes(machine1)
         links2, nodes2 = self.get_links_nodes(machine2)
