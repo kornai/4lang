@@ -152,6 +152,7 @@ prepc_from	-,-
 prepc_next_to	-,-
 prepc_of	-,-
 prepc_out	-,-
+prepc_regardless_of	-,-	regardless
 prepc_in	-,-	IN
 prepc_since	-,-
 prepc_smooth	-,-

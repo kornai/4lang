@@ -136,11 +136,19 @@ class DependencyProcessor():
         return deps
 
     def process_copulars(self, deps):
+        # nsubj(is, x), prep_P(is, y) -> prep_P(x, y)
         # rcmod(x, is), prep_P(is, y) -> prep_P(x, y)
         copulars = [(word, w_id) for word, w_id in deps.index.iterkeys()
                     if word in DependencyProcessor.copulars]
         new_deps = []
         for cop in copulars:
+            if 'nsubj' in deps.index[cop][0]:
+                for dep, words in deps.index[cop][0].iteritems():
+                    if dep.startswith('prep_'):
+                        for word2 in words:
+                            new_deps += [
+                                (dep, word3, word2)
+                                for word3 in deps.index[cop][0]['nsubj']]
             if 'rcmod' in deps.index[cop][1]:
                 for dep, words in deps.index[cop][0].iteritems():
                     if dep.startswith('prep_'):

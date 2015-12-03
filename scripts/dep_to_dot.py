@@ -1,18 +1,25 @@
 import json
 import sys
 
+from pymachine.machine import Machine
+
 HEADER = u"digraph finite_state_machine {\n\tdpi=100;\n\trankdir=LR;\n"
 EXCLUDE = ("punct")
 
 def dep_to_dot(deps, fn):
-    edges = [
-        (d['dep']['lemma'], d['type'], d['gov']['lemma']) for d in deps
-        if d['type'] not in EXCLUDE]
+    try:
+        edges = [
+            (d['dep']['lemma'], d['type'], d['gov']['lemma']) for d in deps
+            if d['type'] not in EXCLUDE]
+    except:
+        edges = [(d[1][0], d[0], d[2][0]) for d in deps if d[0] not in EXCLUDE]
     words = set([e[0] for e in edges] + [e[2] for e in edges])
     lines = []
     for word in words:
-        lines.append(u'\t{0} [shape=rectangle, label="{0}"];'.format(word))
-    for dep, dtype, gov in edges:
+        lines.append(u'\t{0} [shape=rectangle, label="{0}"];'.format(
+            Machine.d_clean(word)))
+    for edge in edges:
+        dep, dtype, gov = map(Machine.d_clean, edge)
         lines.append(u'\t{0} -> {1} [label="{2}"];'.format(dep, gov, dtype))
     with open(fn, 'w') as f:
         f.write(HEADER.encode("utf-8"))
