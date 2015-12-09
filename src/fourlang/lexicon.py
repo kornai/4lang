@@ -71,11 +71,6 @@ class Lexicon():
 
         return lexicon
 
-    def known_words(self):
-        if self._known_words is None:
-            self._known_words = self.get_words()
-        return self._known_words
-
     def add_def_graph(self, word, word_machine, dumped_def_graph,
                       allow_new_base=False, allow_new_ext=False):
         node2machine = {}
@@ -86,7 +81,7 @@ class Lexicon():
                 node2machine[node] = word_machine
             else:
                 if not pn:
-                    logging.warning("empty pn in node: {0}, word: {1}".format(
+                    logging.warning(u"empty pn in node: {0}, word: {1}".format(
                         node, word))
                 node2machine[node] = self.get_new_machine(pn)
 
@@ -132,9 +127,15 @@ class Lexicon():
         self.lexicon = {}
         self.ext_lexicon = {}
         self.oov_lexicon = {}
+        self._known_words = None
 
     def get_words(self):
         return set(self.lexicon.keys()).union(set(self.ext_lexicon.keys()))
+
+    def known_words(self):
+        if self._known_words is None:
+            self._known_words = self.get_words()
+        return self._known_words
 
     def add(self, printname, machine, external=True, oov=False):
         if printname in self.oov_lexicon:
@@ -204,24 +205,23 @@ class Lexicon():
         for lemma, machine in words_to_machines.iteritems():
             if lemma in self.known_words() and lemma not in stopwords:
 
-                definition = self.get_machine(lemma)
-
                 # deepcopy so that the version in the lexicon keeps its links
-                machine.unify(copy.deepcopy(definition))
+                definition = copy.deepcopy(self.get_machine(lemma))
 
-                if False:  # work in progress
-                    case_machines = [
-                        m for m in MachineTraverser.get_nodes(
-                            definition, names_only=False, keep_upper=True)
-                        if m.printname().startswith('=')]
+                case_machines = [
+                    m for m in MachineTraverser.get_nodes(
+                        definition, names_only=False, keep_upper=True)
+                    if m.printname().startswith('=')]
 
-                    for cm in case_machines:
-                        if cm.printname() == "=AGT":
-                            if machine.partitions[1]:
-                                machine.partitions[1][0].unify(cm)
-                        if cm.printname() == "=PAT":
-                            if machine.partitions[2]:
-                                machine.partitions[2][0].unify(cm)
+                machine.unify(definition, exclude_0_case=True)
+
+                for cm in case_machines:
+                    if cm.printname() == "=AGT":
+                        if machine.partitions[1]:
+                            machine.partitions[1][0].unify(cm)
+                    if cm.printname() == "=PAT":
+                        if machine.partitions[2]:
+                            machine.partitions[2][0].unify(cm)
 
 
 if __name__ == "__main__":
