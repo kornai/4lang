@@ -62,8 +62,7 @@ class WordSimilarity():
         pn1, pn2 = machine1.printname(), machine2.printname()
         self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
         if self.expand:
-            self.lexicon.expand(machine1)
-            self.lexicon.expand(machine2)
+            self.lexicon.expand({pn1: machine1, pn2: machine2})
         sims = self.zero_similarities()
         links1, nodes1 = self.get_links_nodes(machine1)
         links2, nodes2 = self.get_links_nodes(machine2)

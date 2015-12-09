@@ -8,7 +8,7 @@ from nltk.corpus import stopwords as nltk_stopwords
 from pymachine.definition_parser import read as read_defs
 from pymachine.machine import Machine
 from pymachine.control import ConceptControl
-from pymachine.utils import MachineGraph
+from pymachine.utils import MachineGraph, MachineTraverser
 
 from utils import get_cfg
 
@@ -70,6 +70,11 @@ class Lexicon():
             lexicon.add(word, new_machine, external=True)
 
         return lexicon
+
+    def known_words(self):
+        if self._known_words is None:
+            self._known_words = self.get_words()
+        return self._known_words
 
     def add_def_graph(self, word, word_machine, dumped_def_graph,
                       allow_new_base=False, allow_new_ext=False):
@@ -196,12 +201,27 @@ class Lexicon():
             stopwords.add('as')  # TODO
             stopwords.add('root')  # TODO
             # stopwords = set(self.lexicon.keys())  # TODO ez majd nem kell
-        known_words = self.get_words()
         for lemma, machine in words_to_machines.iteritems():
-            if lemma in known_words and lemma not in stopwords:
+            if lemma in self.known_words() and lemma not in stopwords:
+
+                definition = self.get_machine(lemma)
+
                 # deepcopy so that the version in the lexicon keeps its links
-                definition = copy.deepcopy(self.get_machine(lemma))
-                machine.unify(definition)
+                machine.unify(copy.deepcopy(definition))
+
+                if False:  # work in progress
+                    case_machines = [
+                        m for m in MachineTraverser.get_nodes(
+                            definition, names_only=False, keep_upper=True)
+                        if m.printname().startswith('=')]
+
+                    for cm in case_machines:
+                        if cm.printname() == "=AGT":
+                            if machine.partitions[1]:
+                                machine.partitions[1][0].unify(cm)
+                        if cm.printname() == "=PAT":
+                            if machine.partitions[2]:
+                                machine.partitions[2][0].unify(cm)
 
 
 if __name__ == "__main__":
