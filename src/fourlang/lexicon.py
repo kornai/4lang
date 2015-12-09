@@ -1,3 +1,4 @@
+import copy
 import cPickle
 import json
 import logging
@@ -59,23 +60,25 @@ class Lexicon():
         lexicon = Lexicon(cfg)
         lexicon.primitives = primitives
         for word, dumped_def_graph in machines_dump.iteritems():
-            lexicon.get_machine(word, allow_new_base=True)
-            lexicon.add_def_graph(word, dumped_def_graph)
+            new_machine = Machine(word, ConceptControl())
+            lexicon.add_def_graph(word, new_machine, dumped_def_graph)
+            lexicon.add(word, new_machine, external=False)
 
         for word, dumped_def_graph in ext_machines_dump.iteritems():
-            lexicon.get_machine(word, allow_new_ext=True)
-            lexicon.add_def_graph(word, dumped_def_graph)
+            new_machine = Machine(word, ConceptControl())
+            lexicon.add_def_graph(word, new_machine, dumped_def_graph)
+            lexicon.add(word, new_machine, external=True)
 
         return lexicon
 
-    def add_def_graph(self, word, dumped_def_graph, allow_new_base=False,
-                      allow_new_ext=False):
+    def add_def_graph(self, word, word_machine, dumped_def_graph,
+                      allow_new_base=False, allow_new_ext=False):
         node2machine = {}
         graph = MachineGraph.from_dict(dumped_def_graph)
         for node in graph.nodes_iter():
             pn = "_".join(node.split('_')[:-1])
             if pn == word:
-                node2machine[node] = self.get_machine(pn)
+                node2machine[node] = word_machine
             else:
                 if not pn:
                     logging.warning("empty pn in node: {0}, word: {1}".format(
@@ -191,12 +194,15 @@ class Lexicon():
         if len(stopwords) == 0:
             stopwords = set(nltk_stopwords.words('english'))
             stopwords.add('as')  # TODO
+            stopwords.add('root')  # TODO
             # stopwords = set(self.lexicon.keys())  # TODO ez majd nem kell
         known_words = self.get_words()
         for lemma, machine in words_to_machines.iteritems():
             if lemma in known_words and lemma not in stopwords:
-                definition = self.get_machine(lemma)
+                # deepcopy so that the version in the lexicon keeps its links
+                definition = copy.deepcopy(self.get_machine(lemma))
                 machine.unify(definition)
+
 
 if __name__ == "__main__":
     logging.basicConfig(
