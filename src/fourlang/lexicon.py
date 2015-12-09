@@ -128,6 +128,10 @@ class Lexicon():
         self.ext_lexicon = {}
         self.oov_lexicon = {}
         self._known_words = None
+        self.expanded = set()
+        self.stopwords = set(nltk_stopwords.words('english'))
+        self.stopwords.add('as')  # TODO
+        self.stopwords.add('root')  # TODO
 
     def get_words(self):
         return set(self.lexicon.keys()).union(set(self.ext_lexicon.keys()))
@@ -198,12 +202,11 @@ class Lexicon():
 
     def expand(self, words_to_machines, stopwords=[]):
         if len(stopwords) == 0:
-            stopwords = set(nltk_stopwords.words('english'))
-            stopwords.add('as')  # TODO
-            stopwords.add('root')  # TODO
-            # stopwords = set(self.lexicon.keys())  # TODO ez majd nem kell
+            stopwords = self.stopwords
         for lemma, machine in words_to_machines.iteritems():
-            if lemma in self.known_words() and lemma not in stopwords:
+            if (
+                    lemma not in self.expanded and lemma in self.known_words()
+                    and lemma not in stopwords):
 
                 # deepcopy so that the version in the lexicon keeps its links
                 definition = copy.deepcopy(self.get_machine(lemma))
@@ -223,6 +226,7 @@ class Lexicon():
                         if machine.partitions[2]:
                             machine.partitions[2][0].unify(cm)
 
+                self.expanded.add(lemma)
 
 if __name__ == "__main__":
     logging.basicConfig(
