@@ -129,6 +129,7 @@ class Lexicon():
         self.oov_lexicon = {}
         self._known_words = None
         self.expanded = set()
+        self.expanded_lexicon = {}
         self.stopwords = set(nltk_stopwords.words('english'))
         self.stopwords.add('as')  # TODO
         self.stopwords.add('root')  # TODO
@@ -158,6 +159,16 @@ class Lexicon():
     def get_new_machine(self, printname):
         """returns a new machine without adding it to any lexicon"""
         return Machine(printname, ConceptControl())
+
+    def get_expanded_definition(self, printname):
+        machine = self.expanded_lexicon.get(printname)
+        if machine is not None:
+            return machine
+
+        machine = copy.deepcopy(self.get_machine(printname))
+        self.expand_definition(machine)
+        self.expanded_lexicon[printname] = machine
+        return machine
 
     def get_machine(self, printname, allow_new_base=False,
                     allow_new_ext=False):
@@ -200,13 +211,21 @@ class Lexicon():
 
             return next(iter(machines))
 
-    def expand(self, words_to_machines, stopwords=[]):
+    def expand_definition(self, machine, stopwords=[]):
+        def_machines = dict(
+            [(pn, m) for pn, m in [
+                (m2.printname(), m2) for m2 in MachineTraverser.get_nodes(
+                    machine, names_only=False, keep_upper=False)]
+             if pn != machine.printname()])
+        self.expand(def_machines, stopwords=stopwords)
+
+    def expand(self, words_to_machines, stopwords=[], cached=False):
         if len(stopwords) == 0:
             stopwords = self.stopwords
         for lemma, machine in words_to_machines.iteritems():
             if (
-                    lemma not in self.expanded and lemma in self.known_words()
-                    and lemma not in stopwords):
+                    (not cached or lemma not in self.expanded) and
+                    lemma in self.known_words() and lemma not in stopwords):
 
                 # deepcopy so that the version in the lexicon keeps its links
                 definition = copy.deepcopy(self.get_machine(lemma))
