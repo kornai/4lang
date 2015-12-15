@@ -961,7 +961,7 @@ damage	se1ru2le1s	vulnus	zniszczenie	2066	u	N		see 1209
 dance	ta1nc	saltatio	taniec	2278	u	N	move, HAS rhythm, <INSTRUMENT music>	
 danger	vesze1ly	periculum	niebezpieczen1stwo	2610		N	can/1246[harm]	
 dare	mer	audeo	waz1yc1_sie1	1670		V		
-dare	mere1szel	audeo	waz1yc1_sie1	1672		V	brave, try	
+dare	mere1szel	audeo	waz1yc1_sie1	1672		V	=AGT[brave], =PAT	
 daring	mere1sz	audax	odwaz1ny	1671		A	bold	no xml
 daring	mersz	animus	odwga	1675		N	bold	no xml
 dark	so2te1t	obscurus	ciemny	2110	u	A	lack( light/739 )	NOTCOP, anto?
