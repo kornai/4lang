@@ -46,3 +46,913 @@
    	   <Entry>    <Head>     <HWD>     fro     </HWD>     <HYPHENATION>     fro     </HYPHENATION>     <PronCodes>      <PRON>      frəʊ      </PRON>      <AMEVARPRON>      froʊ      </AMEVARPRON>     </PronCodes>     <POS>     adv     </POS>    </Head>    <Sense>     <Crossref>      <Crossrefto>       <REFHWD>       to and fro       </REFHWD>      </Crossrefto>     </Crossref>    </Sense>   </Entry>
    	   <Entry>    <Head>     <HWD>     code     </HWD>     <HYPHENATION>     code     </HYPHENATION>     <HOMNUM>     1     </HOMNUM>     <FREQ>     S2     </FREQ>     <FREQ>     W2     </FREQ>     <PronCodes>      <PRON>      kəʊd      </PRON>      <AMEVARPRON>      koʊd      </AMEVARPRON>     </PronCodes>     <POS>     n     </POS>    </Head>    <Sense>     <SIGNPOST>     laws/behaviour     </SIGNPOST>     <ACTIV>     BEHAVIOUR     </ACTIV>     <ACTIV>     RULE/REGULATION     </ACTIV>     <GRAM>     C     </GRAM>     <DEF>     a set of rules, laws, or principles that tell people how to behave     </DEF>     <EXAMPLE>      <TEXT>      The Torah is the basis for all the Jewish laws and their      </TEXT>      <COLLOINEXA>      moral code      </COLLOINEXA>      <TEXT>      .      </TEXT>     </EXAMPLE>     <EXAMPLE>     Each state in the US has a different criminal and civil code.     </EXAMPLE>     <EXAMPLE>      <TEXT>      The judge ruled that there had been no      </TEXT>      <COLLOINEXA>      breach      </COLLOINEXA>      <TEXT>      of the      </TEXT>      <COLLOINEXA>      code      </COLLOINEXA>      <TEXT>      .      </TEXT>     </EXAMPLE>     <EXAMPLE>      <TEXT>      There were plans to introduce a      </TEXT>      <COLLOINEXA>      dress code      </COLLOINEXA>      <GLOSS>      rules about what to wear      </GLOSS>      <TEXT>      for civil servants.      </TEXT>     </EXAMPLE>     <ColloExa>      <COLLO>      code of conduct/behaviour/ethics      </COLLO>      <EXAMPLE>       <TEXT>       the       </TEXT>       <COLLOINEXA>       strict code of conduct       </COLLOINEXA>       <TEXT>       that is so much a part of karate       </TEXT>      </EXAMPLE>     </ColloExa>     <ColloExa>      <COLLO>      code of practice      </COLLO>      <GLOSS>      a set of rules that people in a particular business or profession agree to obey      </GLOSS>      <EXAMPLE>       <TEXT>       The Textile Services Association has       </TEXT>       <COLLOINEXA>       drawn up a code of practice       </COLLOINEXA>       <TEXT>       endorsed by the Office of Fair Trading.       </TEXT>      </EXAMPLE>     </ColloExa>     <Crossref>      <Crossrefto>       <REFHWD>       Highway Code       </REFHWD>      </Crossrefto>      <Crossrefto>       <REFHWD>       penal code       </REFHWD>      </Crossrefto>     </Crossref>    </Sense>    <Sense>     <SIGNPOST>     secret message     </SIGNPOST>     <ACTIV>     SECRET MESSAGE     </ACTIV>     <ACTIV>     SECRET     </ACTIV>     <GRAM>     C,U     </GRAM>     <DEF>     a system of words, letters, or symbols that you use instead of ordinary writing, so that the information can only be understood by someone else who knows the system     </DEF>     <GramExa>      <PROPFORM>      in code      </PROPFORM>      <EXAMPLE>      All reports must be sent in code.      </EXAMPLE>     </GramExa>     <ColloExa>      <COLLO>      break/crack a code      </COLLO>      <GLOSS>      manage to understand a code      </GLOSS>      <EXAMPLE>      They didn't realise that we'd broken their secret code.      </EXAMPLE>     </ColloExa>    </Sense>    <Sense>     <SIGNPOST>     symbols giving information     </SIGNPOST>     <ACTIV>     SIGNS GIVING INFORMATION     </ACTIV>     <FIELD>     TCM     </FIELD>     <GRAM>     C     </GRAM>     <DEF>     a set of numbers, letters, or symbols that shows what something is or gives information about it     </DEF>     <EXAMPLE>     Goods that you order must have a product code.     </EXAMPLE>     <EXAMPLE>      <TEXT>      Every item found on the archaeological dig is given a      </TEXT>      <COLLOINEXA>      code number      </COLLOINEXA>      <TEXT>      .      </TEXT>     </EXAMPLE>     <Crossref>      <Crossrefto>       <REFHWD>       bar code       </REFHWD>      </Crossrefto>      <Crossrefto>       <REFHWD>       genetic code       </REFHWD>      </Crossrefto>      <Crossrefto>       <REFHWD>       postcode       </REFHWD>      </Crossrefto>      <Crossrefto>       <REFHWD>       zip code       </REFHWD>      </Crossrefto>     </Crossref>    </Sense>    <Sense>     <SIGNPOST>     telephones     </SIGNPOST>     <ACTIV>     TELEPHONES     </ACTIV>     <Variant>      <LINKWORD>      also      </LINKWORD>      <LEXVAR>      dialling code      </LEXVAR>     </Variant>     <Variant>      <LINKWORD>      ,      </LINKWORD>      <LEXVAR>      STD code      </LEXVAR>     </Variant>     <GEO>     BrE     </GEO>     <FIELD>     TCT     </FIELD>     <GRAM>     C     </GRAM>     <DEF>     the group of numbers that comes before a telephone number when you are calling from a different area     </DEF>     <AMEQUIV>     area code     </AMEQUIV>     <EXAMPLE>     What's the code for Aberdeen?     </EXAMPLE>    </Sense>    <Sense>     <SIGNPOST>     computers     </SIGNPOST>     <ACTIV>     COMPUTERS     </ACTIV>     <FIELD>     TD     </FIELD>     <GRAM>     C,U     </GRAM>     <DEF>     a set of instructions that tell a computer what to do     </DEF>     <Crossref>      <Crossrefto>       <REFHWD>       machine code       </REFHWD>      </Crossrefto>      <Crossrefto>       <REFHWD>       source code       </REFHWD>      </Crossrefto>     </Crossref>    </Sense>    <Sense>     <SIGNPOST>     sounds/signals     </SIGNPOST>     <GRAM>     C     </GRAM>     <ACTIV>     SOUNDS/SIGNALS     </ACTIV>     <ACTIV>     SYSTEM     </ACTIV>     <DEF>     a system of sounds or signals that represent words or letters when they are sent by machine     </DEF>    </Sense>    <Tail>     <Crossref>      <Crossrefto>       <REFHWD>       Morse code       </REFHWD>      </Crossrefto>     </Crossref>    </Tail>   </Entry>
    	   <Entry>    <Head>     <HWD>     code     </HWD>     <HYPHENATION>     code     </HYPHENATION>     <HOMNUM>     2     </HOMNUM>     <POS>     v     </POS>     <GRAM>     T usually passive     </GRAM>    </Head>    <Sense>     <ACTIV>     CALL/DESCRIBE AS     </ACTIV>     <DEF>     to put a set of numbers, letters, or symbols on something to show what it is or give information about it     </DEF>     <EXAMPLE>     Each path is coded to show the level of difficulty.     </EXAMPLE>    </Sense>    <Sense>     <ACTIV>     SECRET     </ACTIV>     <DEF>     to put a message into code so that it is secret     </DEF>    </Sense>   </Entry>
+   	   <Entry>    <Head>     <HWD>     casualty     </HWD>     <HYPHENATION>     cas‧u‧al‧ty     </HYPHENATION>     <PronCodes>      <PRON>      ˈkæʒuəlti      </PRON>     </PronCodes>     <POS>     n     </POS>     <Inflections>      <PLURALFORM>      casualties      </PLURALFORM>     </Inflections>    </Head>    <Sense>     <GRAM>     C     </GRAM>     <ACTIV>     INJURE     </ACTIV>     <DEF>     someone who is hurt or killed in an accident or war     </DEF>     <EXAMPLE>      <TEXT>      Our aim is to reduce      </TEXT>      <COLLOINEXA>      road casualties      </COLLOINEXA>      <TEXT>      .      </TEXT>     </EXAMPLE>     <EXAMPLE>      <TEXT>      thousands of      </TEXT>      <COLLOINEXA>      civilian casualties      </COLLOINEXA>      <GLOSS>      people who are not soldiers who are injured or killed      </GLOSS>     </EXAMPLE>     <ColloExa>      <COLLO>      cause/inflict casualties      </COLLO>      <EXAMPLE>       <TEXT>       The rebels claim to have inflicted       </TEXT>       <COLLOINEXA>       heavy casualties       </COLLOINEXA>       <TEXT>       .       </TEXT>      </EXAMPLE>     </ColloExa>    </Sense>    <Sense>     <ACTIV>     SUFFER     </ACTIV>     <GRAM>     singular     </GRAM>     <DEF>     someone or something that suffers as a result of a particular event or situation     </DEF>     <GramExa>      <PROPFORMPREP>      casualty of      </PROPFORMPREP>      <EXAMPLE>      The Safer City Project is the latest casualty of financial cutbacks.      </EXAMPLE>     </GramExa>    </Sense>    <Sense>     <GRAM>     U     </GRAM>     <Variant>      <LINKWORD>      also      </LINKWORD>      <ORTHVAR>      Casualty      </ORTHVAR>     </Variant>     <GEO>     BrE     </GEO>     <FIELD>     MH     </FIELD>     <DEF>     the part of a hospital that people are taken to when they are hurt in an accident or suddenly become ill     </DEF>     <AMEQUIV>     Emergency Room     </AMEQUIV>     <GramExa>      <PROPFORM>      in casualty      </PROPFORM>      <EXAMPLE>      Rosemary ended up in casualty last night.      </EXAMPLE>     </GramExa>    </Sense>   </Entry>
+   	   <Entry>    <Head>     <HWD>     client     </HWD>     <HYPHENATION>     cli‧ent     </HYPHENATION>     <FREQ>     S3     </FREQ>     <FREQ>     W1     </FREQ>     <PronCodes>      <PRON>      ˈklaɪənt      </PRON>     </PronCodes>     <POS>     n     </POS>     <GRAM>     C     </GRAM>    </Head>    <Sense>     <ACTIV>     BUY     </ACTIV>     <DEF>     someone who gets services or advice from a professional person, company, or organization     </DEF>     <SYN>     customer     </SYN>     <EXAMPLE>     a meeting with an important client     </EXAMPLE>    </Sense>    <Sense>     <NEW>     new sense     </NEW>     <REGISTERLAB>     technical     </REGISTERLAB>     <DEF>      <TEXT>      a computer on a      </TEXT>      <NonDV>       <REFHWD>       network       </REFHWD>      </NonDV>      <TEXT>      that receives information from a      </TEXT>      <NonDV>       <REFHWD>       server       </REFHWD>       <GLOSS>       large powerful computer       </GLOSS>      </NonDV>     </DEF>    </Sense>   </Entry>
+<LDOCE4>
+
+  <Entry>
+   <Head>
+    <HWD>
+    A
+    </HWD>
+    <ALPHASORT>
+    A1
+    </ALPHASORT>
+    <HYPHENATION>
+    A
+    </HYPHENATION>
+    <HOMNUM>
+    1
+    </HOMNUM>
+    <Variant>
+     <ORTHVAR>
+     a
+     </ORTHVAR>
+    </Variant>
+    <PronCodes>
+     <PRON>
+     eɪ
+     </PRON>
+    </PronCodes>
+    <POS>
+    n
+    </POS>
+    <Inflections>
+     <PLURALFORM>
+     A's
+     </PLURALFORM>
+     <PLURALFORM>
+     a's
+     </PLURALFORM>
+    </Inflections>
+   </Head>
+   <Sense>
+    <COMMENT>
+    Done as a set.
+    </COMMENT>
+    <GRAM>
+    C,U
+    </GRAM>
+    <FIELD>
+    SLA
+    </FIELD>
+    <DEF>
+    the first letter of the English alphabet
+    </DEF>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <GRAM>
+    C,U
+    </GRAM>
+    <DEF>
+     <TEXT>
+     the sixth note in the musical
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      scale
+      </REFHWD>
+     </NonDV>
+     <TEXT>
+     of C
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      major
+      </REFHWD>
+     </NonDV>
+     <TEXT>
+     or the musical
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      key
+      </REFHWD>
+     </NonDV>
+     <TEXT>
+     based on this note
+     </TEXT>
+    </DEF>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <GRAM>
+    C
+    </GRAM>
+    <DEF>
+    the highest mark that a student can get in an examination or for a piece of work
+    </DEF>
+    <EXAMPLE>
+    I got an A in French.
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     Julia got
+     </TEXT>
+     <COLLOINEXA>
+     straight As
+     </COLLOINEXA>
+     <GLOSS>
+     all A's
+     </GLOSS>
+     <TEXT>
+     in high school.
+     </TEXT>
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <LEXUNIT>
+    an A student
+    </LEXUNIT>
+    <GEO>
+    AmE
+    </GEO>
+    <DEF>
+    someone who regularly gets the best marks possible for their work in school or college
+    </DEF>
+   </Sense>
+   <Sense>
+    <NEW>
+    new sense
+    </NEW>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <GRAM>
+    U
+    </GRAM>
+    <DEF>
+    used to refer in a short way to one of two different things or people. You can call the second one B
+    </DEF>
+    <EXAMPLE>
+    A demands £500, B offers £100.
+    </EXAMPLE>
+    <Crossref>
+     <LEXUNIT>
+     plan A
+     </LEXUNIT>
+     <Crossrefto>
+      <REFHWD>
+      plan
+      </REFHWD>
+      <REFHOMNUM>
+      1
+      </REFHOMNUM>
+      <REFSENSENUM>
+      5
+      </REFSENSENUM>
+     </Crossrefto>
+    </Crossref>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <LEXUNIT>
+    from A to B
+    </LEXUNIT>
+    <DEF>
+    from one place to another
+    </DEF>
+    <ColloExa>
+     <COLLO>
+     get/go from A to B
+     </COLLO>
+     <EXAMPLE>
+     Hiring a car was the best way to get from A to B.
+     </EXAMPLE>
+    </ColloExa>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <LEXUNIT>
+    from A to Z
+    </LEXUNIT>
+    <DEF>
+    describing, including, or knowing everything about a subject
+    </DEF>
+    <EXAMPLE>
+    the history of 20th century art from A to Z
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <NEW>
+    new sense
+    </NEW>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <LEXUNIT>
+    A34, A40 etc
+    </LEXUNIT>
+    <DEF>
+     <TEXT>
+     the name of a road in Britain that is smaller than a
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      motorway
+      </REFHWD>
+     </NonDV>
+     <TEXT>
+     , but larger than a
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      B-road
+      </REFHWD>
+     </NonDV>
+    </DEF>
+    <Crossref>
+     <Crossrefto>
+      <REFHWD>
+      A-road
+      </REFHWD>
+     </Crossrefto>
+    </Crossref>
+   </Sense>
+   <Sense>
+    <COMMENT>
+    Done as a set
+    </COMMENT>
+    <GRAM>
+    U
+    </GRAM>
+    <DEF>
+    a common type of blood
+    </DEF>
+   </Sense>
+   <Tail>
+    <Crossref>
+     <Crossrefto>
+      <REFHWD>
+      A level
+      </REFHWD>
+     </Crossrefto>
+    </Crossref>
+   </Tail>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    A
+    </HWD>
+    <ALPHASORT>
+    A2
+    </ALPHASORT>
+    <HYPHENATION>
+    A
+    </HYPHENATION>
+    <HOMNUM>
+    2
+    </HOMNUM>
+   </Head>
+   <Sense>
+    <COMMENT>
+    Done as a set/Abbreviations check done
+    </COMMENT>
+    <FIELD>
+    TPE
+    </FIELD>
+    <DEF>
+     <TEXT>
+     the written abbreviation of
+     </TEXT>
+     <FULLFORM>
+     amp
+     </FULLFORM>
+     <TEXT>
+     or amps
+     </TEXT>
+    </DEF>
+   </Sense>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    a
+    </HWD>
+    <ALPHASORT>
+    A3
+    </ALPHASORT>
+    <HYPHENATION>
+    a
+    </HYPHENATION>
+    <FREQ>
+    S1
+    </FREQ>
+    <FREQ>
+    W1
+    </FREQ>
+    <PronCodes>
+     <PRON>
+     ə
+     </PRON>
+     <STRONG>
+     strong
+     </STRONG>
+     <PRON>
+     eɪ
+     </PRON>
+    </PronCodes>
+    <Variant>
+     <LINKWORD>
+     also
+     </LINKWORD>
+     <LEXVAR>
+     an
+     </LEXVAR>
+    </Variant>
+    <POS>
+    indefinite article
+    </POS>
+    <POS>
+    determiner
+    </POS>
+   </Head>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used to show that you are talking about someone or something that has not been mentioned before, or that your listener does not know about
+    </DEF>
+    <EXAMPLE>
+    We have a problem.
+    </EXAMPLE>
+    <EXAMPLE>
+    There was a hole in the fence.
+    </EXAMPLE>
+    <EXAMPLE>
+    Suddenly they heard a loud bang.
+    </EXAMPLE>
+    <Crossref>
+     <Crossrefto>
+      <REFHWD>
+      the
+      </REFHWD>
+      <REFHOMNUM>
+      1
+      </REFHOMNUM>
+     </Crossrefto>
+    </Crossref>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used to show that you are referring to a general type of person or thing and not a specific person or thing
+    </DEF>
+    <EXAMPLE>
+    Would you like a sandwich?
+    </EXAMPLE>
+    <EXAMPLE>
+    I want to train to be an engineer.
+    </EXAMPLE>
+    <EXAMPLE>
+    He's a really nice man.
+    </EXAMPLE>
+    <EXAMPLE>
+    Take a look at this.
+    </EXAMPLE>
+    <EXAMPLE>
+    It needs a good clean.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before someone's family name to show that they belong to that family
+    </DEF>
+    <EXAMPLE>
+    One of his daughters had married a Rothschild.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    one
+    </DEF>
+    <EXAMPLE>
+    a thousand pounds
+    </EXAMPLE>
+    <EXAMPLE>
+    a dozen eggs
+    </EXAMPLE>
+    <EXAMPLE>
+    You'll have to wait an hour or two.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used in some phrases that say how much of something there is
+    </DEF>
+    <EXAMPLE>
+     <TEXT>
+     There were
+     </TEXT>
+     <COLLOINEXA>
+     a lot
+     </COLLOINEXA>
+     <TEXT>
+     of people at the party.
+     </TEXT>
+    </EXAMPLE>
+    <EXAMPLE>
+     <COLLOINEXA>
+     A few
+     </COLLOINEXA>
+     <TEXT>
+     weeks from now I'll be in Venice.
+     </TEXT>
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     You have caused
+     </TEXT>
+     <COLLOINEXA>
+     a great deal
+     </COLLOINEXA>
+     <TEXT>
+     of trouble.
+     </TEXT>
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used to mean 'each' when stating prices, rates, or speeds
+    </DEF>
+    <EXAMPLE>
+    I get paid once a month.
+    </EXAMPLE>
+    <EXAMPLE>
+    The eggs cost $2 a dozen.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before singular nouns to mean all things of a particular type
+    </DEF>
+    <EXAMPLE>
+     <TEXT>
+     A square has four sides
+     </TEXT>
+     <GLOSS>
+     all squares have four sides
+     </GLOSS>
+     <TEXT>
+     .
+     </TEXT>
+    </EXAMPLE>
+    <EXAMPLE>
+    A child needs love and affection.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used once before two nouns that are mentioned together very often
+    </DEF>
+    <EXAMPLE>
+    I'll fetch you a cup and saucer.
+    </EXAMPLE>
+    <EXAMPLE>
+    Does everyone have a knife and fork?
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before the -ing forms of verbs when they are used as nouns referring to an action, event, or sound
+    </DEF>
+    <EXAMPLE>
+    There was a beating of wings overhead.
+    </EXAMPLE>
+    <EXAMPLE>
+    Bernice became aware of a humming that seemed to come from all around her.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+     <TEXT>
+     used before nouns that are usually
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      uncountable
+      </REFHWD>
+     </NonDV>
+     <TEXT>
+     when other information about the quality, feeling etc is added by an adjective, phrase, or
+     </TEXT>
+     <NonDV>
+      <REFHWD>
+      clause
+      </REFHWD>
+     </NonDV>
+    </DEF>
+    <EXAMPLE>
+    Candidates must have a good knowledge of chemistry.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before the name of a substance, food etc to refer to a particular type of it
+    </DEF>
+    <EXAMPLE>
+    Use a good cheese to make the sauce.
+    </EXAMPLE>
+    <EXAMPLE>
+    plants that grow well in a rich moist soil
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <DEF>
+    used before the name of a drink to refer to a cup or glass of that drink
+    </DEF>
+    <EXAMPLE>
+    Can I get you a coffee?
+    </EXAMPLE>
+    <EXAMPLE>
+    Renwick went to the bar and ordered a beer.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before the name of a famous artist to refer to a painting by that artist
+    </DEF>
+    <EXAMPLE>
+    an early Rembrandt
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before a name to mean someone or something that has the same qualities as that person or thing
+    </DEF>
+    <EXAMPLE>
+    She was hailed as a new Marilyn Monroe.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before someone's name when you do not know who they are
+    </DEF>
+    <EXAMPLE>
+    There is a Mr Tom Wilkins on the phone.
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    used before the names of days, months, seasons, and events in the year to refer to a particular one
+    </DEF>
+    <EXAMPLE>
+    We arrived in England on a cold wet Sunday in 1963.
+    </EXAMPLE>
+    <EXAMPLE>
+    I can't remember a Christmas like it.
+    </EXAMPLE>
+   </Sense>
+   <Tail>
+    <UseNote>
+     <UsePara>
+      <UB>
+      WORD CHOICE: a, an 
+      </UB>
+     </UsePara>
+     <UsePara>
+      <TEXT>
+      Before a word beginning with a vowel sound, use 
+      </TEXT>
+      <UB>
+      an
+      </UB>
+      <UEXA>
+      an elephant 
+      </UEXA>
+      <UEXA>
+       an umbrella 
+      </UEXA>
+      <UEXA>
+       an obvious mistake
+      </UEXA>
+     </UsePara>
+     <UsePara>
+      <UB>
+      !! 
+      </UB>
+      <TEXT>
+      Use 
+      </TEXT>
+      <UB>
+      an
+      </UB>
+      <TEXT>
+      before an 'h' that is not pronounced
+      </TEXT>
+      <UEXA>
+      an hour later
+      </UEXA>
+      <UEXA>
+      an honest explanation
+      </UEXA>
+     </UsePara>
+     <UsePara>
+      <UB>
+      !! 
+      </UB>
+      <TEXT>
+      Use 
+      </TEXT>
+      <UB>
+      a
+      </UB>
+      <TEXT>
+      before a 'u' that is pronounced like 'you'
+      </TEXT>
+      <UEXA>
+      a university 
+      </UEXA>
+      <UEXA>
+       a unique opportunity
+      </UEXA>
+     </UsePara>
+     <UsePara>
+      <UB>
+      !! 
+      </UB>
+      <TEXT>
+      Use 
+      </TEXT>
+      <UB>
+      an
+      </UB>
+      <TEXT>
+      before an abbreviation that is pronounced with a vowel sound at the start
+      </TEXT>
+      <UEXA>
+      an SOS call
+      </UEXA>
+      <UEXA>
+      an MP3 file
+      </UEXA>
+     </UsePara>
+    </UseNote>
+   </Tail>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    a-
+    </HWD>
+    <ALPHASORT>
+    A5
+    </ALPHASORT>
+    <HYPHENATION>
+    a-
+    </HYPHENATION>
+    <HOMNUM>
+    1
+    </HOMNUM>
+    <PronCodes>
+     <PRON>
+     ə
+     </PRON>
+    </PronCodes>
+    <POS>
+    prefix
+    </POS>
+   </Head>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    in a particular condition or way
+    </DEF>
+    <EXAMPLE>
+    aloud
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     alive
+     </TEXT>
+     <GLOSS>
+     living
+     </GLOSS>
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     with nerves all a-tingle
+     </TEXT>
+     <GLOSS>
+     tingling
+     </GLOSS>
+    </EXAMPLE>
+   </Sense>
+   <Sense>
+    <REGISTERLAB>
+    old use
+    </REGISTERLAB>
+    <DEF>
+    in, to, at, or on something
+    </DEF>
+    <EXAMPLE>
+     <TEXT>
+     abed
+     </TEXT>
+     <GLOSS>
+     in bed
+     </GLOSS>
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     afar
+     </TEXT>
+     <GLOSS>
+     far away
+     </GLOSS>
+    </EXAMPLE>
+   </Sense>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    a-
+    </HWD>
+    <ALPHASORT>
+    A6
+    </ALPHASORT>
+    <HYPHENATION>
+    a-
+    </HYPHENATION>
+    <HOMNUM>
+    2
+    </HOMNUM>
+    <PronCodes>
+     <PRON>
+     eɪ, æ, ə
+     </PRON>
+    </PronCodes>
+    <POS>
+    prefix
+    </POS>
+   </Head>
+   <Sense>
+    <FIELD>
+    XX
+    </FIELD>
+    <DEF>
+    not or without
+    </DEF>
+    <EXAMPLE>
+     <TEXT>
+     amoral
+     </TEXT>
+     <GLOSS>
+     not moral
+     </GLOSS>
+    </EXAMPLE>
+    <EXAMPLE>
+     <TEXT>
+     atypically
+     </TEXT>
+     <GLOSS>
+     not typically
+     </GLOSS>
+    </EXAMPLE>
+   </Sense>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    A AND E
+    </HWD>
+    <ALPHASORT>
+    A4
+    </ALPHASORT>
+    <COMMENT>
+    This 'and' should perhaps be an ampersand, but when I tried putting an ampersand in from CharacterMap, the Editor didn't like it.
+    </COMMENT>
+    <HYPHENATION>
+    A AND E
+    </HYPHENATION>
+    <NEW>
+    new entry
+    </NEW>
+    <PronCodes>
+     <PRON>
+     ˌeɪ ənd ˈiː
+     </PRON>
+    </PronCodes>
+    <POS>
+    n
+    </POS>
+    <GRAM>
+    U
+    </GRAM>
+    <GEO>
+    BrE
+    </GEO>
+   </Head>
+   <Sense>
+    <FULLFORM>
+    Accident and Emergency
+    </FULLFORM>
+    <DEF>
+    the part of a hospital where people who are injured or who need urgent treatment are brought
+    </DEF>
+   </Sense>
+  </Entry>
+ 
+	
+  <Entry>
+   <Head>
+    <HWD>
+    A-1
+    </HWD>
+    <ALPHASORT>
+    A7
+    </ALPHASORT>
+    <HYPHENATION>
+    A-1
+    </HYPHENATION>
+    <PronCodes>
+     <PRON>
+     ˌeɪ ˈwʌn
+     </PRON>
+    </PronCodes>
+    <POS>
+    adj
+    </POS>
+    <REGISTERLAB>
+    old-fashioned
+    </REGISTERLAB>
+   </Head>
+   <Sense>
+    <ACTIV>
+    GOOD/EXCELLENT
+    </ACTIV>
+    <DEF>
+    very good or completely healthy
+    </DEF>
+    <EXAMPLE>
+    Everything about the resort was A-1.
+    </EXAMPLE>
+   </Sense>
+  </Entry>

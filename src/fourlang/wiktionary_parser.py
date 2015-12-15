@@ -25,7 +25,8 @@ class WiktParser(XMLParser):
         'abbreviation': 'n', 'numeral': 'num', 'interjection': 'interj',
         'definitions': 'n',  # this means the POS is unknown
         'preposition': 'prp', 'conjunction': 'conj', 'acronym': 'n',
-        'cardinal numeral': 'num', 'cardinal number': 'num', 'number': 'num'}
+        'cardinal numeral': 'num', 'cardinal number': 'num', 'number': 'num',
+        'article': 'art', 'particle': 'part', 'determiner': 'det', }
 
     @staticmethod
     def get_pages(text):
@@ -35,6 +36,7 @@ class WiktParser(XMLParser):
     def get_pos(section):
         header = WiktParser.header_regex.match(section).group(1).lower()
         if header not in WiktParser.pos_name_map:
+            # sys.stderr.write(header+'\n')
             return False
         return WiktParser.pos_name_map[header]
 
@@ -78,7 +80,6 @@ class WiktParser(XMLParser):
 
         if defs_section is None:
             return None
-
         pos = WiktParser.get_pos(defs_section.group())
         if pos is False:
             return None

@@ -1,18 +1,17 @@
 from ConfigParser import ConfigParser
 import logging
 import re
-import subprocess
 import sys
-from tempfile import NamedTemporaryFile
+
+import zmq
 
 from longman_parser import XMLParser
-from utils import ensure_dir
 
 class Parser(XMLParser):
     sen_regex = re.compile(
         '<sentence id="[0-9]*">(.*?)</sentence>', re.S)
     basic_deps_regex = re.compile(
-        '<dependencies type="basic-dependencies">(.*?)</dependencies>', re.S)
+        '<dependencies type="collapsed-ccprocessed-dependencies">(.*?)</dependencies>', re.S)  # nopep8
     all_corefs_regex = re.compile(
         '<coreference>(.*)</coreference>', re.S)  # greedy star, has to be
     dep_regex = re.compile(
@@ -44,53 +43,42 @@ class Parser(XMLParser):
 
     @staticmethod
     def parse_sen(sen):
-        deps_string = Parser.basic_deps_regex.search(sen).group(1)
+        deps_match = Parser.basic_deps_regex.search(sen)
+        if deps_match is None:
+            return []
+        deps_string = deps_match.group(1)
         return [(dep, (word1, id1), (word2, id2))
                 for dep, id1, word1, id2, word2 in Parser.dep_regex.findall(
                     deps_string)]
 
     @staticmethod
-    def parse_all(stream):
-        output = stream.read()  # TODO
+    def parse_corenlp_output(output):
+        cl_output = output.decode('utf-8').replace(u"\xa0", u" ")
         parsed_sens = [Parser.parse_sen(sen)
-                       for sen in Parser.sen_regex.findall(output)]
-        corefs = Parser.parse_corefs(
-            Parser.all_corefs_regex.search(output).group(1))
+                       for sen in Parser.sen_regex.findall(cl_output)]
+
+        corefs_match = Parser.all_corefs_regex.search(cl_output)
+        if corefs_match is None:
+            corefs = []
+        else:
+            corefs = Parser.parse_corefs(corefs_match.group(1))
         return parsed_sens, corefs
 
 class CoreNLPWrapper():
 
     def __init__(self, cfg, is_server=False):
         self.cfg = cfg
-        self.get_paths()
+        zmq_context = zmq.Context()
+        self.socket = zmq_context.socket(zmq.REQ)
+        self.socket.connect("tcp://localhost:5900")
 
-    def get_paths(self):
-        self.class_name = self.cfg.get('corenlp', 'class_name')
-        self.classpath = self.cfg.get('corenlp', 'classpath')
-        self.tmp_dir = self.cfg.get('data', 'tmp_dir')
-        ensure_dir(self.tmp_dir)
+    def parse_text(self, text):
+        self.socket.send("process {0}".format(text.encode('utf-8')))
+        output = self.socket.recv()
+        return Parser.parse_corenlp_output(output)
 
-    def run_parser(self, in_file_name):
-        to_run = ['java', '-cp', self.classpath, '-Xmx2g', self.class_name,
-                  '-file', in_file_name]
-        logging.debug('running this: {0}'.format(' '.join(to_run)))
-        return_code = subprocess.call(to_run)
-
-        return return_code == 0
-
-    def parse_sentences(self, sens, definitions=False):
-        logging.debug("dumping input...")
-        with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as in_file:
-            in_file.write('\n'.join(sens))
-            in_file_name = in_file.name
-
-        assert self.run_parser(in_file_name)
-
-        out_file_name = "{0}.xml".format(in_file_name.split('/')[-1])
-        with open(out_file_name) as out_file:
-            parsed_sens, corefs = Parser.parse_all(out_file)
-
-        return parsed_sens, corefs
+    def parse_sentences(self, sens):
+        return self.parse_text("\n".join(sens))
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
@@ -98,9 +86,8 @@ def test():
     cfg.read([cfg_file])
 
     wrapper = CoreNLPWrapper(cfg)
-    parsed_sens, corefs = wrapper.parse_sentences(
-        [line.strip()
-         for line in open('test/input/mrhug_story.sens').readlines()])
+    parsed_sens, corefs = wrapper.parse_text(
+        open('test/input/mrhug_story.sens').read())
     print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 

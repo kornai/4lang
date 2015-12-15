@@ -85,7 +85,8 @@ class StanfordParser:
         parse = query.getBestParse()
         # logging.debug("getting gs...")
         gs = self.get_grammatical_structure(parse)
-        dependencies = gs.typedDependenciesCollapsed()
+        # dependencies = gs.typedDependenciesCollapsed()
+        dependencies = gs.typedDependenciesCCprocessed()
         return parse, gs, dependencies
 
     def parse_sens(self, in_file, out_file, log=False):
@@ -111,9 +112,15 @@ class StanfordParser:
 
     def parse_definitions(self, in_file, out_file):
         with open(in_file) as in_obj:
+            logging.info("loading input...")
             entries = json.load(in_obj)
+            logging.info("done!")
         with NamedTemporaryFile(dir="/tmp", delete=False) as log_file:
+            logging.info('logging to {0}'.format(log_file.name))
             for c, entry in enumerate(entries):
+                # log_file.write(
+                #     'entry: {0}\n'.format(entry['hw']).encode('utf-8'))
+                # log_file.flush()
                 if c % 100 == 0:
                     log_file.write("parsed {0} entries\n".format(c))
                     log_file.flush()
@@ -124,8 +131,6 @@ class StanfordParser:
                     # sentence += '.'  # fixes some parses and ruins others
                     pos = sense['pos']
                     constraints = StanfordParser.get_constraints(sentence, pos)
-                    # logging.info('sen: {0}, constraints: {1}'.format(
-                    #    sentence, constraints))
                     try:
                         parse, _, dependencies = self.parse_with_constraints(
                             sentence, constraints)
@@ -168,8 +173,9 @@ def main():
         level=int(loglevel),
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
-    logging.debug("initializing parser...")
+    logging.info("initializing parser...")
     parser = StanfordParser(parser_file)
+    logging.info("done!")
     if int(is_defs):
         parser.parse_definitions(in_file, out_file)
     else:

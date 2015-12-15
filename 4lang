@@ -16,7 +16,7 @@
 -ful	-teli	-osus	-ny	56		G	HAS =REL	success- % full
 -hood	-sa1g	-ia	-os1c1	45		G		manhood, falsehood, knighthood, priesthood
 -ible	-hato1	N/A	-alny	22		G		-able
--ic	-i	-ius	-anin	24		G	=REL	as esetek to2bbse1ge1ben tu1lelemez, de photograph+ic, econom+ic
+-ic	-i	-ius	-anin	24		G	=REL	az esetek to2bbse1ge1ben tu1lelemez, de photograph+ic, econom+ic
 -ical	-i	-icus	-anin	25		G		
 -ing	-a1s	-endi	-anie	2		G	=REL	
 -ion	-at	-tio	-cja	9		G	=REL	
@@ -293,7 +293,7 @@ accordance	egyeze1s	convenientia	zgodnos1c1	574		N	agree
 according	szerint	secundum	wedl1ug	2201		D	=REL DETERMINE	
 account	besza1molo1	#	#	2695		N	story	
 account	sza1mla	ratio	rachunek	2139		N		
-accustom	hozza1szoktat	assuefacio	przyzwyczajac1	1090		V =TO[habit,familiar[after]]	gewöhnen an ACC
+accustom	hozza1szoktat	assuefacio	przyzwyczajac1	1090		V	=TO[habit,familiar[after]]	gewöhnen an ACC
 ache	fa1j	dolet	bolec1	711		U	sensation, bad, <physical>	
 achieve	ele1r	#	#	2787		V	=AGT HAS success, complete	
 acid	sav	acidum	kwas	2064	u	N	substance, <burn>, HAS taste[sharp,sour], lack(kind)	
@@ -475,7 +475,7 @@ back	vissza	retro	zpowrotem	2639	u	D	after(AT/2744 place/1026), before(AT/2744 p
 background	ha1tte1r	recessus	tl1o	962		N	SURROUND =POSS	relational noun
 backside	far	posticus	tyl1	726		N	bottom	
 backward	maradi	exoletus	staros1wiecki	1597		A		see 2775
-backwards	ha1tra	retro	do_tyl1u	961		G	after(lack(front)), HAS direction[opposite]	
+backwards	ha1tra	retro	do_tyl1u	961		G	front[after, lack], HAS direction[opposite]	
 bacteria	bakte1rium	bacterium	bakteria	220		N		the plural of 221
 bacterium	bakte1rium	bacterium	bakteria	221		N	live, small, <CAUSE ill>, lack(visible)	
 bad	rossz	malus	zl1y	2043	u	A	lack( good)	anto
@@ -694,7 +694,7 @@ card	ka1rtya	charta	karta	1211	u	N	flat, rectangular, stiff, paper
 card	lap	pagina	karta	1490	u	N		
 cardboard	karton	charta_spissa	karton	1234		N	paper, thick/2752, rigid	material?
 care	a1pol	curo	piele1gnowac1	82	u	V	help, =PAT[sick]	
-care	gond	diligentia	opieka	903	u	N	WANT[good FOR/2782 =PAT] THINK[=PAT[important]], help
+care	gond	diligentia	opieka	903	u	N	WANT[good FOR/2782 =PAT], THINK[=PAT[important]], help	
 careful	o1vatos	cautus	ostroz2ny	3427	u	N		
 caretaker	gondnok	provisor	opiekun	906		N	person, job, FOR/2782 place/1026	
 carnivorous	ragadozo1	#	#	2731		N	animal, EAT meat	ND
@@ -961,7 +961,7 @@ damage	se1ru2le1s	vulnus	zniszczenie	2066	u	N		see 1209
 dance	ta1nc	saltatio	taniec	2278	u	N	move, HAS rhythm, <INSTRUMENT music>	
 danger	vesze1ly	periculum	niebezpieczen1stwo	2610		N	can/1246[harm]	
 dare	mer	audeo	waz1yc1_sie1	1670		V		
-dare	mere1szel	audeo	waz1yc1_sie1	1672		V	brave, try	
+dare	mere1szel	audeo	waz1yc1_sie1	1672		V	=AGT[brave], =PAT	
 daring	mere1sz	audax	odwaz1ny	1671		A	bold	no xml
 daring	mersz	animus	odwga	1675		N	bold	no xml
 dark	so2te1t	obscurus	ciemny	2110	u	A	lack( light/739 )	NOTCOP, anto?
@@ -976,9 +976,9 @@ deal	alku	pactio	interes	160	u	N	agree, <secret>, <business>
 deal	foglalkozik	contraho	zajmowac1_sie1	2776	u	V	activity	
 deal	oszt	distribuo	rozdawac1	1918	u	V		see 2779
 dear	dra1ga	carus	ukochany	484		N	person LOVE	in Longman only as a salutation
-death	hala1l	mors	s1mierc1	981		N	after(lack(life))	
+death	hala1l	mors	s1mierc1	981		N	life[after, lack]	
 debt	ado1ssa1g	aes_alienum	dl1ug	117		N	must[=POSS PAY/812]	modality
-decay	romla1s	pernicies	rozkl1ad	2041		N	material[change[slow]], after(lack(health))	
+decay	romla1s	pernicies	rozkl1ad	2041		N	material[change[slow]], health[after, lack]	
 deceive	megte1veszt	fallo	oszukiwac1	1647		V	trick/244	
 decide	do2nt	decerno	decydowac1	471	u	U	before(HAS more(possibilities)), after(=PAT)	ZsA, 
 decimal	tizes	N/A	dziesia1tkowy	2402		A		
@@ -1059,7 +1059,7 @@ disease	ko1r	morbus	choroba	1370	u	N	bad(situation), organ IN/2758	HAS symptoms
 dish	e1tel	cibus	potrawa	541		N	food, ' SERVE	
 dish	ta1l	lanx	naczynie	2275		N	open/1814, food IN/2758	
 dishonest	tisztesse1gtelen	fraudulentus	nieszczery	3445	u	N		
-dismiss	elhesseget	absterreo	odprawic1	623		V	after(lack(employ))	HUN elbocsa1t
+dismiss	elhesseget	absterreo	odprawic1	623		V	employ[after, lack]	HUN elbocsa1t
 dissolve	old	diluo	rozpuszczac1	1902		V		no xml
 distance	ta1v	distantia	odlegl1os1c1	2290	u	N	space/2327 HAS size, space/2327 BETWEEN	
 distant	messzi	longinquus	daleki	1679		A	far	
@@ -1117,7 +1117,7 @@ each	mind	quisque	kaz1dy	1693		G	all
 eager	moho1	avidus	che1tny	1716	u	A	HAS desire, lack(wait)	
 ear	fu2l	auris	ucho	870		N	organ, hear INSTRUMENT	
 early	korai	maturus	wczesny	1431		A	AT/2744 time, ER time	
-earn	keres	mereo	zarabiac1	1296	u	V	=AGT GAIN =PAT[money], b=AGT[work[efore]]	
+earn	keres	mereo	zarabiac1	1296	u	V	=AGT GAIN =PAT[money], =AGT[work[before]]	
 earth	fo2ld	terra	ziemia	815	u	N	IN/2758 space/2509, life ON, ocean ON, island ON, HAS atmosphere	
 east	kelet	oriens	wscho1d	1284		N	direction, ON earth, right/1199, map HAS right/1199(side)	
 eastern	keleti	orientalis	wschodni	1285		A	east	
@@ -1967,7 +1967,7 @@ medium	ko2zepes	#	#	2717		A	size	2011.04.19
 meet	tala1lkozik	convenio	spotykac1	2296	u	V	=AGT MAKE direct(contact)	=AGT [=AGT] IN/2758 [contact], =PAT IN/2758 [contact] % ND
 meeting	tala1lkoza1s	occursus	spotkania	2295	u	N		
 megabyte	megabyte	#	#	3172		N	@megabyte	
-melt	olvad	liquesco	topic1_sie1	1907		V	=PAT[material], heat CAUSE, bmaterial[solid[efore]], material[after(liquid)]	
+melt	olvad	liquesco	topic1_sie1	1907		V	=PAT[material], heat CAUSE, material[solid[before]], material[after(liquid)]	
 member	tag	membrum/socius	czl1onek	2293		N	person, =POSS[group], person IN/2758 group	
 memory	emle1kezet	memoria	pamie1c1	666		N	information, human HAS, ABOUT past	Longman if an experience… is etched on your memory…, you cannot forget it
 mend	foltoz	resarcio	cerowac1	843		V	repair	
@@ -2259,7 +2259,7 @@ path	o2sve1ny	semita	s1ciez1ka	1867		N	way, <narrow>, <lack(build)>
 patient	beteg	aeger	pacjent	275		N	RECEIVE medical(care/82)	
 pattern	minta	exemplum	wzo1r	1704	u	N	' SIMILAR, repeat	part?
 pause	szu2net	intermissio	przerwa	2267		N	lack(action), temporary	
-pay	be1r	pretium	pensja	237	u	N	money, b=POSS[work[efore]], after(=POSS HAS)	
+pay	be1r	pretium	pensja	237	u	N	money, =POSS[work[before]], after(=POSS HAS)	
 pay	fizet	persolvo	pl1acic1	812	u	V	=AGT CAUSE[=DAT HAS money], buy, =AGT PART_OF exchange	
 peace	be1ke	pax	poko1j	233		N	lack(war)	
 peak	csu1cs	#	#	3139		N	pointed, top	
@@ -2509,7 +2509,7 @@ rather	so3t	immo	raczej	2111		D	ER =REL
 rave	rajong	ardeo_amore	uwielbiac1	1989		U	talk, ABOUT good, =AGT ADMIRE good	
 raw	nyers	crudus	surowy	1811		A	lack( ' TREAT), lack( ' PREPARE), natural	
 re-	u1jra	re-	re-	2472		G	=REL AT/2744 past, other(=REL) AT/2744 present	
-re-released	u1jra_megjelent	#	#	3269		A	release AT/2744 past, brelease[other[efore]]	1
+re-released	u1jra_megjelent	#	#	3269		A	release AT/2744 past, release[other[before]]	1
 reach	ele1r	attingo	osie1gna1c1	604	u	V	after(=AGT AT/2744)	lack(distance)
 reach_to	odanyu1l	tendo	sie1gac1	1890		V		no xml
 react	reaga1l	reageo	reagowac1	2992	u	V	before(other)	
@@ -2604,7 +2604,7 @@ ring	cseng	tinnit	dzwonic1	2735	u	U	bell MAKE sound/993, =AGT ASK attention, <be
 ring	gyu3ru3	anulus	piers1cionek	402	u	N	metal, circle, AT/2744 finger	
 ring-shaped	gyu3ru3_alaku1	#	#	3268		A	HAS ring/402(shape)	1
 rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(<detergent> NOTAT =PAT)
-ripe	e1rett	maturus	dojrzal1y	520		A	before(enough(time)), good, < ' EAT>	develop 
+ripe	e1rett	maturus	dojrzal1y	520		A	time[before, enough], good, < ' EAT>	develop 
 rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	=PAT[stand[after]], after(=PAT AT/2744 high(position)), high ER	
 rise_against	felkel	exsurgo	powstac1	776		V		no Longman use
 risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246[after(harm])	
@@ -3070,7 +3070,7 @@ tape	szalag	taenia	wsta1z2ka	3051	u	N	artefact, information ON, narrow, plastic
 taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue	RA
 tax	ado1	tributum	podatek	116		N	money, government GET/1223, persons GIVE, businesses GIVE	
 taxi	taxi	taximetrum	takso1wka	2319		N	car, service, person[drive,professional] PART_OF, pay/812 AT/2744	
-tea	tea	thea	herbata	2331		N	drink, before(dry(leaf)), hot(water)	
+tea	tea	thea	herbata	2331		N	drink, leaf[dry[before]], hot(water)	
 teach	tani1t	doceo	uczyc1	2302		V	=AGT CAUSE[=DAT KNOW =PAT]	Chafe (1970)
 team	csapat	manus	druz1yna	386		N	group	
 tear	te1p	scindo	rozrywac1	2325	u	V	pull, after(=PAT HAS pieces), INSTRUMENT force	
@@ -3144,7 +3144,7 @@ three-sided	ha1rom-oldalu1	#	#	3220		A	HAS three(side)	3
 three-word	ha1rom_szo1bo1l_a1llo1	#	#	3119		A	three(word)	
 thrive	prospera1l	vigeo	kwitna1c1	1977		U		no xml
 throat	torok	fauces	gardl1o	2432		N	PART_OF body, pipe, IN/2758 neck, FROM/2742 mouth, TO/2743 tubes, front	
-through	a1t	per	przez	100	u	A	bAT/2744[side[efore]], =REL HAS side, IN/2758 =REL, after(AT/2744 other(side))	=REL HAS other(side)?
+through	a1t	per	przez	100	u	A	AT/2744[side[before]], =REL HAS side, IN/2758 =REL, after(AT/2744 other(side))	=REL HAS other(side)?
 throw	dob	conjectus	rzucac1	477	u	V	=AGT CAUSE[=PAT[move]], move IN/2758 air, INSTRUMENT hand, =AGT HAS hand	
 throw	ga1ncs	N/A	N/A	884	u	N		see 477
 thrust	tol	protrudo	pchac1	2425		V		no xml
@@ -3242,7 +3242,7 @@ turn	forog	versor	przekre1cac1	860	u	V	object, move, HAS axis, =AGT HAS directio
 twelve	tizenketto3	#	#	3070		A	number, FOLLOW eleven	
 twice	ke1tszer	bis	dwa_razy	1263		D	AT/2744 two(occasions)	
 twine	gally	termes	gal1a1zka	888		N		no Longman
-twist	teker	torqueo	przekre1cac1	2338		V	<thread>, turn, after(lack(straight/563)), before(long)	=AGT CAUSE[=PAT[spiral]]
+twist	teker	torqueo	przekre1cac1	2338		V	<thread>, turn, =PAT[straight/563[after, lack], before(long)]	=AGT CAUSE[=PAT[spiral]]
 two	ke1t	#	#	2967		A	number, one IN/2758, other IN/2758, FOLLOW one	
 two-wheeled	ke1tkereku3	#	#	3219		A	HAS two(wheel)	3
 two-year	ke1te1ves	#	#	3253		A	AT/2744 time, time HAS length[year[two]]	1
