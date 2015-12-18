@@ -1,4 +1,4 @@
-#Mapping of Stanford Dependency relations to 4lang edges.
+#Mapping of Stanford dependency relations to 4lang edges.
 #
 #The line "rel TAB i,j" means the dependency relation rel(x,y) should convert
 #to an arrow of color i pointing from x to y and an arrow of color j pointing
@@ -20,9 +20,6 @@ auxpass	-,-
 cc	-,-
 #each coordinated element appears in its own relations
 
-ccomp	?,1
-complm	0,0
-
 conj	-,-
 conj_and	-,-
 conj_as	-,-
@@ -41,7 +38,7 @@ conj_whether	-,-
 cop	-,-
 #but will be necessary to disambiguate nsubj and csubj
 
-csubj	1,?
+csubj	1,0
 #1,0 for copular sentences, 1,- otherwise (just like with nsubj)
 
 csubjpass	2,-
@@ -61,8 +58,6 @@ expl	-,-
 iobj	?,?
 #I guess we deny that these really exist.
 
-mark	0,2
-
 mwe	-,-
 #We should handle each of these uniquely
 
@@ -77,7 +72,7 @@ nn	-,-
 
 npadvmod	0,-
 
-nsubj	1,?
+nsubj	1,0
 # 1,0 for copular sentences, 1,- otherwise (just like with csubj)
 
 nsubjpass	2,-
@@ -157,6 +152,7 @@ prepc_from	-,-
 prepc_next_to	-,-
 prepc_of	-,-
 prepc_out	-,-
+prepc_regardless_of	-,-	regardless
 prepc_in	-,-	IN
 prepc_since	-,-
 prepc_smooth	-,-
@@ -175,7 +171,7 @@ quantmod	-,-
 #No quantification yet...
 
 rcmod	-,-
-#relations expressed by a relative clause will also appear explicitly
+# cannot be handled uniformly, we handle these in dependency_processor
 
 ref	-,-
 
