@@ -10,13 +10,15 @@ class CollinsParser():
         """Print CollinsParser's output in human readable form."""
         for section in definitions:
             print
-            print section['hw']
-#            for sense in section['senses']:
-#                print textwrap.fill(sense['pos'], initial_indent='    ',
-#                    subsequent_indent='        ')
-#                print textwrap.fill(sense['definition'], initial_indent='    ',
-#                    subsequent_indent='        ')
-#            print
+            print "hw: " + section['hw']
+            for sense in section['senses']:
+                print textwrap.fill(sense['pos'], initial_indent='    ',
+                    subsequent_indent='        ')
+                print textwrap.fill(sense['definition'], initial_indent='    ',
+                    subsequent_indent='        ')
+            print
+#            if not section['senses']:
+#                print section['hw']
 
     @staticmethod
     def parse_file(input_file):
@@ -46,9 +48,11 @@ class CollinsParser():
         for pattern in ['\n', '@n']:
             entry = re.sub(pattern, " ", entry)
         alternate_forms = CollinsParser.get_alternate_forms(entry)
-        for pattern in ['#\+', '@\.', '\?!', '#5\(.*?\)', '#5\[.*?\]',
+        for pattern in ['#\+', '@\.', '\?!',
                         'or #3[^ ]+']:  # '#3' another spelling
             entry = re.sub(pattern, "", entry)
+        for pattern in ['#5\(.*?\)', '#5\[.*?\]']:
+            entry = re.sub(pattern, '#5', entry)
         return {'hw': CollinsParser.get_hw(entry),
             'senses': CollinsParser.get_senses(entry),
             'alternate_forms': alternate_forms}
@@ -104,22 +108,17 @@ class CollinsParser():
         pos = def_and_pos[0]
         return [{'definition': definition,
                  'pos': pos}]
-#        return [{'definition': description,
-##                 'pos': CollinsParser.get_pos(description)}]
-#                 'pos': CollinsParser.get_pos_from_sense(description)}]
 
     pos_and_def_patt = re.compile(
-        '#6(n|adj|vb|tr|adv|intr|abbrev|pl|interj|prep|prefix|determiner|pron|conj|suffix)\.(.*)')  # nopep8
+        '(.*)#6(n|adj|vb|tr|adv|intr|abbrev|pl|interj|prep|prefix|determiner|pron|conj|suffix)\.(.*)')  # nopep8
 
     @staticmethod
     def separate_def_and_pos(description):
-#        print 'searching hw in: ' + description
+        """Return a tuple of pos and definition of a sense"""
         pos_and_def = CollinsParser.pos_and_def_patt.search(description)
         if pos_and_def:
-            # print 'hw found: ' + pos_and_def.group(1)
-            pos, definition = pos_and_def.group(1), pos_and_def.group(2)
+            pos, definition = pos_and_def.group(2), pos_and_def.group(1) + pos_and_def.group(3)
         else:
-            # print 'hw not found'
             pos, definition = 'unknown', description
 
         definition = definition.strip('.,').strip().replace(
@@ -130,38 +129,11 @@ class CollinsParser():
         definition = re.sub('@m.*', '', definition).strip('.').strip()
         return pos, definition
 
-#    @staticmethod
-#    def get_pos_from_sense(sense):
-#        pos = re.search('#6(n|abbrev).', sense)
-#        if pos:
-#            return pos.group(1)
-#        else:
-#            return 'unknown'
-
     @staticmethod
     def get_multiple_senses(description):
 
-#        lst = []
-#        is_first = True
-#        for sense in unicode.split(description, '#1$D'):
-#            if is_first:
-# #               print 'Sense: ' + sense + '.'
-#                if '#5' in sense:
-#                    if '#' not in re.findall('#5', sense)[-1]:  # ellenorizni
-#                         lst.append(re.findall('#5', sense)[-1])
-#                else:
-#                    lst.append(sense)
-#            else:
-#                lst.append({'definition': sense,
-##                            'pos': CollinsParser.get_pos(description)})
-#                            'pos': CollinsParser.get_pos_from_sense(sense)})
-#                # every sense gets pos of first sense!
-#            is_first = False
-#        return lst
-
         lst = []
         for sense in unicode.split(description, '#1$D'):  # todo: sense without #5 is not sense
-#            print 'next sense: ' + sense
             def_and_pos = CollinsParser.separate_def_and_pos(sense)
             definition = def_and_pos[1]
             if not definition:
@@ -169,7 +141,6 @@ class CollinsParser():
             pos = def_and_pos[0]
             lst.append({'definition': definition,
                      'pos': pos})
-#        print 'list of senses: ' + repr(lst)
         return lst
 
 if __name__ == "__main__":
