@@ -10,15 +10,13 @@ class CollinsParser():
         """Print CollinsParser's output in human readable form."""
         for section in definitions:
             print
-            print "hw: " + section['hw']
+            print section['hw']
             for sense in section['senses']:
                 print textwrap.fill(sense['pos'], initial_indent='    ',
                     subsequent_indent='        ')
                 print textwrap.fill(sense['definition'], initial_indent='    ',
                     subsequent_indent='        ')
             print
-#            if not section['senses']:
-#                print section['hw']
 
     @staticmethod
     def parse_file(input_file):
@@ -44,7 +42,10 @@ class CollinsParser():
         and return entry in appropriate format."""
         if entry == " ":
             return None
-        entry = re.sub('@=', '-', entry)
+        from_ = ['@=', '\?&', '@!', ' esp.']
+        to = ['-', '&', '!', ' especially']
+        for f, t in zip(from_, to):
+            entry = re.sub(f, t, entry)
         for pattern in ['\n', '@n']:
             entry = re.sub(pattern, " ", entry)
         alternate_forms = CollinsParser.get_alternate_forms(entry)
@@ -53,8 +54,9 @@ class CollinsParser():
             entry = re.sub(pattern, "", entry)
         for pattern in ['#5\(.*?\)', '#5\[.*?\]']:
             entry = re.sub(pattern, '#5', entry)
-        return {'hw': CollinsParser.get_hw(entry),
-            'senses': CollinsParser.get_senses(entry),
+        hw, description = CollinsParser.get_hw(entry)
+        return {'hw': hw,
+            'senses': CollinsParser.get_senses(description),
             'alternate_forms': alternate_forms}
 
     @staticmethod
@@ -76,8 +78,10 @@ class CollinsParser():
     @staticmethod
     def get_hw(entry):
         """Return headword."""
-        return re.search('(.+?)#[56]', entry, re.S).group(1).replace(
-            '#4', '').strip()
+        match = re.search('(.+?)#[56](.+)', entry, re.S)
+        hw = match.group(1).replace('#4', '').strip()
+        description = match.group(2)
+        return hw, description
 
     @staticmethod
     def get_senses(entry):
@@ -117,15 +121,16 @@ class CollinsParser():
         """Return a tuple of pos and definition of a sense"""
         pos_and_def = CollinsParser.pos_and_def_patt.search(description)
         if pos_and_def:
-            pos, definition = pos_and_def.group(2), pos_and_def.group(1) + pos_and_def.group(3)
+            pos, definition = pos_and_def.group(2), pos_and_def.group(
+                1) + pos_and_def.group(3)
         else:
             pos, definition = 'unknown', description
 
         definition = definition.strip('.,').strip().replace(
             '#5', '').replace('#4', '').strip('.')
-        definition = re.sub('^#6[^ ]*', '', definition).strip()
-        definition = re.sub(' #.*', '', definition).strip()
-        definition = re.sub('#1a.', '', definition).strip()
+        unnecessary = ['^#6[^ ]*', '#1a', '#6']
+        for patt in unnecessary:
+            definition = re.sub(patt, '', definition).strip()
         definition = re.sub('@m.*', '', definition).strip('.').strip()
         return pos, definition
 
@@ -133,12 +138,23 @@ class CollinsParser():
     def get_multiple_senses(description):
 
         lst = []
-        for sense in unicode.split(description, '#1$D'):  # todo: sense without #5 is not sense
+        def_part = ''  # This corrects unnecessary splitting
+        pos_for_multiple_senses = 'unknown'
+        for sense in unicode.split(description, '#1$D'):
+            if def_part:
+                sense = def_part + sense
             def_and_pos = CollinsParser.separate_def_and_pos(sense)
             definition = def_and_pos[1]
             if not definition:
+                def_part = sense
                 continue
+            else:
+                def_part = ''
             pos = def_and_pos[0]
+            if pos == 'unknown':
+                pos = pos_for_multiple_senses
+            else:
+                pos_for_multiple_senses = pos
             lst.append({'definition': definition,
                      'pos': pos})
         return lst
