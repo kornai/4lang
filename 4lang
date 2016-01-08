@@ -409,7 +409,7 @@ approach_stealthily	lopakodik	obrepo	skradac1_sie1	1554		U		no xml
 approve	jo1va1hagy	approbo	uznac1	1194		V	consider[=PAT[right/1191]], say[=PAT[right/1191]]	
 aquatic	vizi	#	#	2734		A	live AT/2744 water	ND
 arab	arab	#	#	2833		N	group, @Arab	
-arch	i1v	curvatura	l1uk	1111		N	structure, upper, ABOVE space/2327, support	
+arch	i1v	curvatura	l1uk	1111		N	structure, upper, vertical(ER space/2327), support	
 are	#	#	#	2783		#	more, is	hunspell problem
 area	terep	area	teren	2355	u	N	IN/2758 country	
 area	teru2let	area	teren	2366	u	N	place/2326, HAS border	
@@ -2091,7 +2091,7 @@ polish	fe1nyez	polio	polerowac1	740	u	V	=AGT CAUSE surface[smooth, shine] , =PAT
 polite	udvarias	comis	uprzejmy	2516		A	CONFORM society/2285	
 political	politikai	civilis	polityczny	1965	u	A	politics	
 politician	politikus	vir_rerum_civilium_peritus	polityk	1966		N	person, MEMBER politics	
-politics	politika	consilium	polityka	1964	u	N	science, GOVERN nation	science of governing?, ABOUT?
+politics	politika	consilium	polityka	1964	u	N	science, LEAD nation	science of governing?, ABOUT?
 pool	medence	piscina	basen	1614		N	water IN/2758, <swim> IN/2758, <play> IN/2758	
 poor	szege1ny	pauper	biedny	2177		A	NOTHAS much(money)	
 pope	pa1pa	#	#	3034		N	priest, LEAD/2617 @Catholic_Church	
@@ -2152,7 +2152,7 @@ prick	tu2ske	spina	drzazga	2445		N		no Longman use
 prickle	bo2k	pungo	kl1uc1	310		V		after(excitement), after(sensation) % no Longman
 prickly	tu2ske1s	spinosus	kolczasty	2446		A		
 pride	go3g	superbia	duma	899		N	honour[self]	self is a keyword
-priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, PERFORM ceremony, bless	preach pre1dika1l
+priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach pre1dika1l
 prime_minister	miniszterelno2k	#	#	3078		N	minister/3402, LEAD/2617 government	
 prince	herceg	dux/princeps	ksia1z1e	1035		N	male, PART_OF royal(family), son, monarch HAS son	„son” is a relational noun, „monarch” is the related entity
 principle	elv	ratio	zasada	652	u	N	basic, rule	
@@ -2910,7 +2910,7 @@ tissue	szo2vet	#	#	3395		N	material, live
 title	ci1m	appellatio	tytul1	371		N	name, <book> HAS	
 to	-ba	in	do	12	u	G	in/10	
 to	-hoz	ad	do	2743	u	G	after(AT/2744 =REL)	
-tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, ' SMOKE	
+tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, burn, FOR/2782 pleasure 	
 today	ma	hodie	dzisiej	1558		D	this (day)	day, now % ND
 toe	la1bujj	digitus_pedis	palec	1469		N	five, PART_OF foot	
 together	egyu2tt	una	razem	586	u	D	group, lack(separate)	
