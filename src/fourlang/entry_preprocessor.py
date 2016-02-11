@@ -24,6 +24,8 @@ class EntryPreprocessor():
             (u'someone who ', u'', ('person',)),
             (u'someone whose job is ', u'', ('person',)),
             (u'^someone ', u'', ('person',)),
+            (u'( *)a kind of ', u'\\1a ', ()),
+            (u'( *)a type of ', u'\\1a ', ()),
             (u'=', u'', ()),
         ]]
 
