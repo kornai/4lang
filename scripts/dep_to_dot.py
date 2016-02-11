@@ -28,19 +28,24 @@ def dep_to_dot(deps, fn):
         f.write("}\n")
 
 def main():
-    data = json.load(open(sys.argv[1]))
-    try:
-        i = int(sys.argv[3])
-    except:
-        w = sys.argv[3]
-        sen = map(
-            Dependencies.parse_dependency,
-            data[w]['senses'][0]['definition']['deps'])
-        fn = u"{0}/{1}.dot".format(sys.argv[2], w).encode('utf-8')
-        dep_to_dot(sen, fn)
+    if sys.argv[1] == '-':
+        dep_to_dot(map(
+            lambda l: Dependencies.parse_dependency(l.strip()),
+            sys.stdin.readlines()), sys.argv[2])
     else:
-        sen = data['deps'][i]
-        dep_to_dot(sen, sys.argv[2])
+        data = json.load(open(sys.argv[1]))
+        try:
+            i = int(sys.argv[3])
+        except:
+            w = sys.argv[3]
+            sen = map(
+                Dependencies.parse_dependency,
+                data[w]['senses'][0]['definition']['deps'])
+            fn = u"{0}/{1}.dot".format(sys.argv[2], w).encode('utf-8')
+            dep_to_dot(sen, fn)
+        else:
+            sen = data['deps'][i]
+            dep_to_dot(sen, sys.argv[2])
 
 if __name__ == "__main__":
     main()
