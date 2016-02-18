@@ -304,6 +304,6 @@ class DependencyProcessor():
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)
         # deps = self.process_coordinated_root(deps)
-        # deps = self.process_coordination_stanford(deps)
+        deps = self.process_coordination_stanford(deps)
 
         return NewDependencies.create_from_old_deps(deps).deps
