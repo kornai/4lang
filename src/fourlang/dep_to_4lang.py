@@ -112,34 +112,21 @@ class DepTo4lang():
         return dep, (word1, id1), (word2, id2)
 
     def get_root_lemmas(self, deps):
-        return [d['dep']['lemma'] for d in deps if d['type'] == 'root']
-
-    def convert_old_deps(self, deps):
-        new_deps = []
-        for dep, (word1, id1), (word2, id2) in deps:
-            lemma1, lemma2 = map(lambda w: self.lemmatizer.lemmatize(
-                w, defined=self.lexicon.get_words()) or w, (word1, word2))
-            # print 'l1:', lemma1, 'l2:', lemma2
-            new_deps.append({
-                "type": dep,
-                "gov": {
-                    "id": id1, "word": word1, "msd": None, "lemma": lemma1},
-                "dep": {
-                    "id": id2, "word": word2, "msd": None, "lemma": lemma2}
-            })
-        return new_deps
+        return [
+            d['dep'].setdefault(
+                'lemma', self.lemmatizer.lemmatize(d['dep']['word']))
+            for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
-        if self.lang == 'en':
-            deps = self.convert_old_deps(deps)
-
+        deps = self.dependency_processor.process_dependencies(deps)
         root_lemmas = self.get_root_lemmas(deps)
         if not root_lemmas:
             logging.warning(
                 u'no root dependency, skipping word "{0}"'.format(word))
             return None
 
-        word2machine = self.get_machines_from_parsed_deps(deps)
+        word2machine = self.get_machines_from_deps_and_corefs(
+            [deps], [], process_deps=False)
 
         root_machines = filter(None, map(word2machine.get, root_lemmas))
         if not root_machines:
@@ -155,15 +142,11 @@ class DepTo4lang():
             word_machine.append(root_machine, 0)
         return word_machine
 
-    def get_machines_from_parsed_deps(self, deps):
-        # deprecated, use get_machines_from_deps_and_corefs
-        return self.get_machines_from_deps_and_corefs([deps], [])
-
-    def get_machines_from_deps_and_corefs(self, dep_lists, corefs):
-        dep_lists = map(
-            self.dependency_processor.process_dependencies, dep_lists)
-        if self.lang == 'en':
-            dep_lists = map(self.convert_old_deps, dep_lists)
+    def get_machines_from_deps_and_corefs(
+            self, dep_lists, corefs, process_deps=True):
+        if process_deps:
+            dep_lists = map(
+                self.dependency_processor.process_dependencies, dep_lists)
         coref_index = defaultdict(dict)
         for (word, sen_no), mentions in corefs:
             for m_word, m_sen_no in mentions:
@@ -175,7 +158,8 @@ class DepTo4lang():
         for deps in dep_lists:
             for dep in deps:
                 for t in (dep['gov'], dep['dep']):
-                    self.word2lemma[t['word']] = t['lemma']
+                    self.word2lemma[t['word']] = t.setdefault(
+                        'lemma', self.lemmatizer.lemmatize(t['word']))
 
         for i, deps in enumerate(dep_lists):
             try:
