@@ -105,16 +105,8 @@ def create_uroboros(graph, mode, max_iter, freqs):
                     new_def -= set([def_w])
             graph[word] = new_def
             if word in skip and not word in graph[word]:
-                skip[word] = graph[word].copy()
                 del graph[word]
                 continue
-            # updating definition
-            new_def = graph[word].copy()
-            for def_w in graph[word]:
-                if def_w in skip:
-                    new_def |= skip[def_w]
-                    new_def -= set([def_w])
-            graph[word] = new_def
         if len(graph) == size:
             logging.info('convergion reached at iter {0}'.format(i + 1))
             break
