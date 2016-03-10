@@ -215,7 +215,7 @@ class Lexicon():
         def_machines = dict(
             [(pn, m) for pn, m in [
                 (m2.printname(), m2) for m2 in MachineTraverser.get_nodes(
-                    machine, names_only=False, keep_upper=False)]
+                    machine, names_only=False, keep_upper=True)]
              if pn != machine.printname()])
         self.expand(def_machines, stopwords=stopwords)
 
@@ -228,14 +228,29 @@ class Lexicon():
                     lemma in self.known_words() and lemma not in stopwords):
 
                 # deepcopy so that the version in the lexicon keeps its links
-                definition = copy.deepcopy(self.get_machine(lemma))
+                definition = self.get_machine(lemma)
+                copied_def = copy.deepcopy(definition)
+
+                """
+                for parent, i in list(definition.parents):
+                    copied_parent = copy.deepcopy(parent)
+                    for m in list(copied_parent.partitions[i]):
+                        if m.printname() == lemma:
+                            copied_parent.remove(m, i)
+                            break
+                    else:
+                        raise Exception()
+                        # "can't find {0} in partition {1} of {2}: {3}".format(
+                        # ))
+                    copied_parent.append(copied_def, i)
+                """
 
                 case_machines = [
                     m for m in MachineTraverser.get_nodes(
-                        definition, names_only=False, keep_upper=True)
+                        copied_def, names_only=False, keep_upper=True)
                     if m.printname().startswith('=')]
 
-                machine.unify(definition, exclude_0_case=True)
+                machine.unify(copied_def, exclude_0_case=True)
 
                 for cm in case_machines:
                     if cm.printname() == "=AGT":

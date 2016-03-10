@@ -49,6 +49,7 @@ class WordSimilarity():
 
     def uniform_similarities(self, s):
         return dict(((sim_type, s) for sim_type in WordSimilarity.sim_types))
+        # TODO return {sim_type: s for sim_type in WordSimilarity.sim_types}
 
     def zero_similarities(self):
         return self.uniform_similarities(0.0)
@@ -77,6 +78,7 @@ class WordSimilarity():
             sims['nodes_contain'] = 1
 
         pn1, pn2 = machine1.printname(), machine2.printname()
+        # TODO
         if pn1 in links2 or pn2 in links1:
             sims['0-connected'] = 1
 
@@ -103,7 +105,7 @@ class WordSimilarity():
             machine1, machine2 = map(
                 self.lexicon.get_machine, (lemma1, lemma2))
 
-        if False:
+        if not self.batch:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
                 print_4lang_graph(w, m, self.graph_dir)
         lemma_sims = self.machine_similarities(machine1, machine2)
@@ -123,6 +125,7 @@ class WordSimilarity():
                 logging.debug("OOV: {0}".format(word1))
             if lemma2 is None:
                 logging.debug("OOV: {0}".format(word2))
+            # TODO
             word_sims = self.zero_similarities()
         else:
             word_sims = self.lemma_similarities(lemma1, lemma2)
@@ -146,6 +149,7 @@ class WordSimilarity():
         self.seen_for_links.add(machine)
         for hypernym in machine.partitions[0]:
             name = hypernym.printname()
+            # TODO
             if name == '=AGT' or not name.isupper():
                 # if depth == 0 and name not in ("lack", "to"):  # TMP!!!
                 yield name
