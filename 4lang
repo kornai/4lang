@@ -527,7 +527,7 @@ beautify	sze1pi1t	exorno	upie1kszac1	2171		V	=AGT CAUSE[=PAT[beautiful]]	RA
 because	mert	quod	poniewaz1	1676		G	=REL CAUSE	
 become	vmve1_lesz	fio	stawac1_sie1	2655		U	=AGT[=PAT[after]]	
 bed	a1gy	lectus	l1o1z1ko	68		N	furniture, rest IN/2758	
-bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair, sting, <social>, PRODUCE honey, CAUSE	nectar[together], CAUSE pollen[together]	
+bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair, sting, <social>, PRODUCE honey, CAUSE nectar[together], CAUSE pollen[together]	
 been	van	fui	byl1	3414	u	N		
 beer	so2r	cervisia	piwo	2109		N		
 before	ele1	ad	przed	598	u	D		after(=REL FOLLOW) % figure and ground
@@ -591,7 +591,7 @@ blue-white	ke1kesfehe1r	#	#	3104		A	blue, white
 bluish-green	ke1keszo2ld	#	#	3319		A	green, blue	1
 bluish-purple	ke1keslila	#	#	3318		A	purple, blue	1
 board	deszka	axis	deska	456	u	N	artefact, long, flat	
-boast	ke1rked	glorior	chwalic1_sie1	1255		V	speak, proud
+boast	ke1rked	glorior	chwalic1_sie1	1255		V	speak, proud	
 boat	hajo1	navis	l1o1dz1	976	u	N	ship, small, open/1814	
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
 boil	forr	fervo	gotowac1_sie1	861		U	liquid, hot, <'COOK/825>, gas IN/2758	
@@ -729,7 +729,7 @@ chairman	elno2k	praeses	prezes	636		N	PART_OF group[<committee>], direct
 chalk	kre1ta	creta	kreda	1442		N	<white>, CAUSE[mark ON surface], <write> INSTRUMENT	<blackboard> HAS surface
 challenge	kihi1v	provoco	wyzywac1	1334		V	=AGT OFFER[=PAT[compete]], conflict	
 chance	ese1ly	potestas	szansa	691		N	probability	
-chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD) 
+chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD)	
 change	csere	mutatio	zmiana	404	u	N		see 2554 (no use in the first 20 result with -„to change”)
 change	va1ltoztat	muto	zmieniac1	2554	u	V	=PAT[different[after]]	
 character	jellem	habitus	charakter	1187	u	N	features, one HAS, <person>, moral, <strength>	
@@ -882,7 +882,7 @@ convenient	ke1nyelmes	commodus	wygodny	1241		A	satisfy	english meaning is wider
 conversation	ta1rsalga1s	sermo	rozmowa	2286		N	lack(formal), talk	HUN = besze1lgete1s
 cook	fo3l	coquitur	gotowac1_sie1	822	u	U		
 cook	fo3z	coquo	gotowac1	825	u	V	=AGT MAKE <food>, INSTRUMENT heat	
-cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, MAKE food
+cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, MAKE food	
 cool	hu3l	frigesco	chl1odzic1_sie1	1101		V	=PAT HAS temperature, after(temperature), ' ER temperature	%%
 cool	hu3vo2s	frigidus	chl1odny	1103		A	temperature, normal ER, ER cold	
 copper	re1z	cyprium	miedz1	2000		N	red, brown, metal, conduct	
@@ -1263,7 +1263,7 @@ familiar	ismero3s	notus	znajomy	1158		A	=AGT KNOW
 family	csala1d	familia	rodzina	383	u	N	group, [<two>(parents)] PART_OF, children PART_OF	
 famous	hi1res	illustris	sl1awny	1043		A	many KNOW	
 fan	legyez	ventilo	wachlowac1	1519		V		=AGT Longman uses fan in „rajongo1” sense, see 2710
-fan	rajongo1	#	#	2710		N		LIKE/3382 =POSS[famous], passionate, enthusiastic, =POSS[<actor>, <PLAY sport>]	
+fan	rajongo1	#	#	2710		N	LIKE/3382 =POSS[famous], passionate, enthusiastic, =POSS[<actor>, <PLAY sport>]	
 fancy	kedv	voluntas	zachcianka	1268		N		Longman uses fancy in the „puccos” sense (ritzy), see 2987
 fancy	puccos	#	#	2964		A		superior, quality
 far	messze	procul	daleko	1678		A	AT/2744 great(distance)	
@@ -2166,7 +2166,7 @@ often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid	
 old	o2reg	senex	stary	1854	u	A	long(time) FROM birth, old HAS birth	
 old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]	
-on	-n	super	na	33	u	G	TOUCH =REL, vertical(ER =REL)
+on	-n	super	na	33	u	G	TOUCH =REL, vertical(ER =REL)	
 once	egykor	olim	dawno	580		D	IN/2758 past	
 once	egyszer	#	#	2766		#	AT/2744 one(time)	
 one	egy	unus	jeden	559	u	N	number, lack(more), lack(divide CAUSE)	NOTCOP, anto
@@ -2218,11 +2218,11 @@ overpower	legyo3z	opprimo	pokonac1	1522		V	defeat, =AGT IN/2758 conflict, =AGT H
 owe	tartozik	debeo	byc1_winnym	2317		U	must[after(=AGT CAUSE[<money> AT/2744 =DAT])]	
 owing_to	ko2szo2nheto3en	propter	dzie1ki	1391		A	=DAT CAUSE	
 own	saja1t	proprius	wl1asny	2059	u	A	self HAS	
-ox	o2ko2r	bos	wo1l1	1844		N	male, cattle, 
+ox	o2ko2r	bos	wo1l1	1844		N	male, cattle	
 oxygen	oxige1n	oxygenum	tlen	1926		N	gas, IN/2758 air, HAS lack(colour)	
 oyster	osztriga	ostrea	ostryga	3521	u	N		
 pack	csomagol	colligo	pakowac1	429		V	wrap	
-package	csomag	arca	paczka	3002	u	N	together, after(AT other(place))		
+package	csomag	arca	paczka	3002	u	N	together, after(AT other(place))	
 packet	csomag	fascis	paczka	427		N	object, unit, ' COVER	
 page	lap	pagina	strona	1491	u	N	surface, paper HAS, write ON, IN/2758 <book>	
 pain	ki1n	cruciatus	bo1l	1318		N	bad, sensation, injury CAUSE	
