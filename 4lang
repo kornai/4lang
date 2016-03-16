@@ -2440,7 +2440,7 @@ profit	haszon	lucrum	zysk	1009		N	money, =FROM MAKE
 programme	mu3sor	programma	program	2948	u	N	action, plan, IN/2758 television	
 progress	halad	progredior	poste1powac1	2993	u	N	ER past	
 project	projekt	#	#	3036		N	plan, work, AT/2744 long(time)	
-promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT SAY[after(=AGT DO])	
+promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT SAY[after(=AGT DO)]	
 pronounce	mond	dico	wymawiac1	1718		V	speak	
 pronunciation	kiejte1s	pronuntiatio	wymowa	1329		N	manner, person MAKE word	
 proof	bizonyi1te1k	indicium	dowo1d	298		N	prove	
@@ -2592,7 +2592,7 @@ reward	jutalom	praemium	nagroda	1207		N	give, before(=PAT DO useful)	jutalmaz V
 rhythm	ritmus	#	#	3349		N	regular, repeat, pattern, AT/2744 time	
 rice	rizs	oryza	ryz1	2021		N	plant, food, IN/2758 asia	
 rich	gazdag	opulentus	bogaty	892	u	A	HAS lot/3394(money), <human>	or valuable possession %too long % RA
-rid	megszabadul	me_libero	pozbywac1_sie1	1644		V	=AGT CAUSE lack(=PAT AT/2744 =AGT[free]), =PAT[bad]	EN get_rid_of
+rid	megszabadul	me_libero	pozbywac1_sie1	1644		V	=AGT CAUSE [lack(=PAT AT/2744 =AGT[free])], =PAT[bad]	EN get_rid_of
 ride	lovagol	equito	jez1dzic1_konno	1555	u	U	travel, =AGT ON <horse>, INSTRUMENT <horse>	
 right	jo1	bonus	wl1as1ciwy	1191	u	N	CONFORM justice, lack(wrong)	
 right	jobb	dextra	prawy	1199	u	N	side, lack(left)	anto
