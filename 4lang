@@ -3427,13 +3427,8 @@ word	szo1	verbum	sl1owo	2224	u	N	HAS meaning, IN/2758 speech
 work	munka	opera	praca	1740	u	N	useful	RA
 working	dolgoza1s	laborans	pracowanie	3587	u	N		
 works	mu3vek	laborat	pracuje	3588	u	N		
-<<<<<<< HEAD
-world	vila1g	mundus	s1wiat	2628	u	N	earth, countries IN/2758	
-worm	fe1reg	vermis	robak	743		N	animal, HAS lack(bone), HAS lack(leg), soft, long	
-=======
 world	vila1g	mundus	s1wiat	2628	u	N	earth, all(country) IN/2758	
-worm	fe1reg	vermis	robak	743		N	animal, NOTHAS bone, NOTHAS leg, soft, long	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
+worm	fe1reg	vermis	robak	743		N	animal, HAS lack(bone), HAS lack(leg), soft, long	
 worry	gond	cura	zmartwienie	905		N	anxiety	
 worse	rosszabb	peior	gorszy	2045		A	bad, ER '	
 worship	ima1d	veneror	wielbic1	1139		V	respect, love, =PAT[<god>], pray, <IN/2758 building>, admire, sing, THINK[=PAT[high]]	
