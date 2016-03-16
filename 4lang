@@ -527,7 +527,7 @@ beautify	sze1pi1t	exorno	upie1kszac1	2171		V	=AGT CAUSE[=PAT[beautiful]]	RA
 because	mert	quod	poniewaz1	1676		G	=REL CAUSE	
 become	vmve1_lesz	fio	stawac1_sie1	2655		U	=AGT[=PAT[after]]	
 bed	a1gy	lectus	l1o1z1ko	68		N	furniture, rest IN/2758	
-bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair, sting, <social>, PRODUCE honey, CAUSE	nectar[together], CAUSE pollen[together]	
+bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair, sting, <social>, PRODUCE honey, CAUSE nectar[together], CAUSE pollen[together]	
 been	van	fui	byl1	3414	u	N		
 beer	so2r	cervisia	piwo	2109		N		
 before	ele1	ad	przed	598	u	D		after(=REL FOLLOW) % figure and ground
@@ -1210,7 +1210,7 @@ examine	vizsga1l	examino	badac1	2653		V	watch, WANT[=AGT KNOW more], more ABOUT 
 example	pe1lda	exemplum	przykl1ad	1950		N	pattern HAS, representative, typical	illustrate
 excellent	kitu3no3	egregius	doskonal1y	1363		A	quality, ER '	
 except	kive1ve	praeter	opro1cz	1365		G	lack	
-exchange	csere	mutatio	wymiana	405	u	N	before(=PAT[<good>] AT/2744 person], after(=PAT AT/2744 other(person))	
+exchange	csere	mutatio	wymiana	405	u	N	before(=PAT[<good>] AT/2744 person), after(=PAT AT/2744 other(person))	
 excite	izgat	excito	podniecac1	1167		V	=PAT[person], =AGT CAUSE[=PAT HAS strong (feeling)]	
 excited	izgatott	#	zainteresowany	3593	u	A		
 excuse	megbocsa1t	ignosco	wybaczac1	1619		V	=AGT FORGIVE	Longman use excuse me
@@ -1395,7 +1395,7 @@ frame	keret	forma	rama	1303	u	N	HAS parts[together], structure, GIVE shape, fix,
 framework	va1z	forma	rama	2562		N		
 free	szabad	liber	wolny	2149	u	A	control NOTAT, NOTHAS price	lack(obligation)?
 freedom	szabadsa1g	#	#	3055		N	free	-dom: 2 uses of wisdom, and nothing else
-freeze	fagy	gelu	mro1z	715		N	cold CAUSE, before(liquid), after(solid,<ice>)	
+freeze	fagy	gelu	mro1z	715		N	cold CAUSE, before(liquid), solid[after,<ice>]	
 french-canadian	francia-kanadai	#	#	3299		A	MEMBER [nation,@Canada], HAS parent, parent MEMBER @France	
 french-speaking	francia1ul_tudo1	#	#	3225		A	can/1246[speak[@France(language)]]	3
 frequent	gyakori	frequens	cze1sty	919		A	often	
@@ -1489,7 +1489,7 @@ grandmother	nagyanya	avia	babka	1747		N	mother, parent HAS, =POSS HAS parent
 grape	szo3lo3	uva	winogrona	3400	u	N	fruit, round, green	
 grasp	fog	comprehendo	chwytac1	829		V	catch/828	
 grass	fu3	gramen	trawa	877		N	plant, HAS narrow(leaves), COVER ground	
-grateful	ha1la1s	gratus	wdzie1czny	954		A	SAY[before(=DAT CAUSE good])	
+grateful	ha1la1s	gratus	wdzie1czny	954		A	SAY[before(=DAT CAUSE good)]	
 gratify	kiele1gi1t	libidinor	wynagradzac1	1330		V	satisfy	
 grave	si1r	sepulcrum	gro1b	2094	u	N	place/1026, dead(body) AT/2744, <body UNDER ground>	naive_theo: burial AT/2744, tombstone AT/2744
 grease	zsi1r	#	#	2822		N	substance, fat/3337 IS_A, oil IS_A, smooth	non-LDV, added from swadesh
@@ -1518,7 +1518,7 @@ guard	o3r	custos	straz1nik	1876		N	protect
 guess	tala1lgat	conicio	zgadywac1	2294		V	try[know], lack(sure)	
 guest	vende1g	hospes	gos1c1	2604		N	AT/2744 home, =POSS HAS home, <before(=POSS INVITE)>	RECEIVE <hospitality>
 guide	vezet	rego	prowadzic1	2616		V	=AGT CAUSE[=PAT HAS information], information ABOUT place/1026, after(=PAT AT/2744 place/1026)	
-guilt	bu3ntudat	conscientia	wina	348		N	FEEL before(=POSS DO crime)	
+guilt	bu3ntudat	conscientia	wina	348		N	FEEL [before(=POSS DO crime)]	
 guilty	bu3no2s	reus	winny	3472	u	N		
 guitar	gita1r	cithara	gitara	3473	u	N		
 gun	puska	sclopetum	bron1	1980	u	N	weapon, HAS[metal(tube)], CAUSE bullet[move]	
@@ -2223,7 +2223,7 @@ ox	o2ko2r	bos	wo1l1	1844		N	male, cattle, PULL cart, PULL plough	sterile % ND
 oxygen	oxige1n	oxygenum	tlen	1926		N	gas, IN/2758 air, NOTHAS colour	
 oyster	osztriga	ostrea	ostryga	3521	u	N		
 pack	csomagol	colligo	pakowac1	429		V	wrap	
-package	csomag	arca	paczka	3002	u	N	together, after(AT other(place))		
+package	csomag	arca	paczka	3002	u	N	together, after(AT other(place))	
 packet	csomag	fascis	paczka	427		N	object, unit, ' COVER	
 page	lap	pagina	strona	1491	u	N	surface, paper HAS, write ON, IN/2758 <book>	
 pain	ki1n	cruciatus	bo1l	1318		N	bad, sensation, injury CAUSE	
@@ -2442,7 +2442,7 @@ profit	haszon	lucrum	zysk	1009		N	money, person GAIN
 programme	mu3sor	programma	program	2948	u	N	action, ' PLAN, IN/2758 television	
 progress	halad	progredior	poste1powac1	2993	u	N	ER past	
 project	projekt	#	#	3036		N	plan, work, AT/2744 long(time)	
-promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT DECLARE[after(=AGT DO])	
+promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT DECLARE[after(=AGT DO)]	
 pronounce	mond	dico	wymawiac1	1718		V	speak	
 pronunciation	kiejte1s	pronuntiatio	wymowa	1329		N	manner, person MAKE word	
 proof	bizonyi1te1k	indicium	dowo1d	298		N	prove	
@@ -2607,7 +2607,7 @@ rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(<detergent> N
 ripe	e1rett	maturus	dojrzal1y	520		A	time[before, enough], good, < ' EAT>	develop 
 rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	=PAT[stand[after]], after(=PAT AT/2744 high(position)), high ER	
 rise_against	felkel	exsurgo	powstac1	776		V		no Longman use
-risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246[after(harm])	
+risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246[after(harm)]	
 river	folyo1	fluvius	rzeka	848		N	natural, stream, HAS water, IN/2758 valley	
 river-fish	folyami_hal	#	#	3267		A	fish, live IN/2758 river	1
 road	u1t	via	droga	2481	u	N	way, HAS hard (surface), vehicle ON	
@@ -3138,7 +3138,7 @@ thought	gondolat	cogitatum	mys1l	908	u	N	IN/2758 mind	enumerate=
 thousand	ezer	#	#	3059		N	number, ER hundred	
 thread	ce1rna	filum_lineum	nic1	366	u	N	fine(cord), <sew INSTRUMENT>, <IN/2758 cloth>	
 threat	fenyegete1s	minae	groz1ba	790		N	threaten	
-threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE pain])	
+threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE pain)]	
 three	ha1rom	#	#	2970		A	number, FOLLOW two	
 three-sided	ha1rom-oldalu1	#	#	3220		A	HAS three(side)	3
 three-word	ha1rom_szo1bo1l_a1llo1	#	#	3119		A	three(word)	
