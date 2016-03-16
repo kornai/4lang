@@ -764,7 +764,7 @@ chocolate	csokola1de1	chocolata	czekolada	426		N	food, sweet	cacao IN/2758
 choice	va1logatott	electus	wyborowy	2550		A		
 choose	va1laszt	eligo	wybierac1	2546	u	V	=AGT CAUSE[=PAT FOR =AGT]	
 church	egyha1z	ecclesia	kos1cio1l1	578	u	N	FOR/2782 worship, institution, religion HAS	ND
-cigarette	cigaretta	cigarulus	papieros	372	u	N	full(tobacco[fine]] IN/2758 tube[thin/2598,paper]), HAS consume[burn]	
+cigarette	cigaretta	cigarulus	papieros	372	u	N	full(tobacco[fine] IN/2758 tube[thin/2598,paper]), HAS consume[burn]	
 cinema	mozi	cinema	kino	1730		N	building, film IN/2758	
 circle	ko2r	circulus	kol1o	1386		N	shape, round, close/3381, curve	
 circular	kerek	rotundus	okra1gl1y	1294		A	shape, RESEMBLE circle, curve	
@@ -1217,7 +1217,7 @@ excuse	megbocsa1t	ignosco	wybaczac1	1619		V
 excuse	mentse1g	#	#	2708		N	accident CAUSE[lack(blame) AT =POSS]	
 exercise	edz	exerceo	c1wiczyc1	550	u	V		see 920
 exercise	gyakorol	exerceo	c1wiczyc1	920	u	V	repeat, develop/758, =AGT CAUSE[skill[better]], <sport>	
-exhausted	kimeru2lt	exhaustus	wyczerpany	1343		A	work CAUSE, HAS lack(resource[<energy>])	
+exhausted	kimeru2lt	exhaustus	wyczerpany	1343		A	work CAUSE, HAS resource[lack, <energy>]	
 exhilarate	u2di1t	exhilaro	ods1wierzac1	2485		V	=AGT CAUSE[=PAT[ happy ]]	=AGT CAUSE[=PAT [feel refreshed]] % no Longman use
 exist	van	exsto	byc1	2587	u	V	real	
 expect	va1r	exspecto	spodziewac1_sie1	2557	u	V	=AGT THINK[=PAT[real] AT/2744 future]	
@@ -2300,13 +2300,8 @@ pick	felvesz	tollo	podnosic1	785	u	V	=AGT CAUSE[=PAT AT/2744 =AGT], after(use)	s
 picture	ke1p	pictura	obraz	1244	u	N	image	
 piece	darab	pars	kawal1ek	449	u	N	small, IN/2758 =POSS[large]	
 pierce	szu1r	figo	przekl1uwac1	2256		V	=AGT CAUSE[hole IN/2758 =PAT], INSTRUMENT sharp	
-<<<<<<< HEAD
-pig	malac	porcus	s1winia	1591	u	N	mammal, HAS short(legs), HAS short(hair/3359), dig, <AT/2744 farm>, young	hog
-pile	halom	acervus	gromada	988		N	many IN/2758, object ON object(thing), high, collect MAKE	
-=======
 pig	malac	porcus	s1winia	1591	u	N	mammal, HAS short(leg), HAS short(hair/3359), dig, <AT/2744 farm>, young	hog
-pile	halom	acervus	gromada	988		N	many IN/2758, object ON object(thing), high, ' COLLECT	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
+pile	halom	acervus	gromada	988		N	many IN/2758, object ON object(thing), high, collect MAKE	
 pillar	oszlop	columna	filar	1917		N	vertical, support	
 pilot	pilo1ta	#	#	3025		N	CONTROL aircraft	
 pilot	vezet	moderor	pilotowac1	2618		V		
@@ -2341,17 +2336,10 @@ plenty	bo3se1g	copia	obfitos1c1	320		N	amount ER ' , good
 plenty	sok	multus	wiele	2115		A	many	
 plough	eke	aratrum	pl1ug	589		N	artefact, FOR/2782 agriculture, HAS sharp(blade), MOVE soil	
 plunge	beleveti_maga1t	se_praecipito	wskoczyc1	260		U	after(=AGT UNDER surface), <water> HAS surface	
-<<<<<<< HEAD
 plural	to2bbes	pluralis	mnogi	2405	u	A	PART_OF language, MEAN/1186 more	
-pocket	zseb	sinus	kieszen1	2685		N	bag, PART_OF garment, <money> IN/2758, <keys> IN/2758	
-poem	vers	versus	wiersz	2607	u	N	art, text, <metrical>	
-poet	ko2lto3	poeta	poeta	1378		N	MAKE poetry	
-=======
-plural	to2bbes	pluralis	mnogi	2405	u	A	IN/2758 language, MEAN/1186 more	
 pocket	zseb	sinus	kieszen1	2685		N	bag, PART_OF garment, <money> IN/2758, <key> IN/2758	
 poem	vers	versus	wiersz	2607	u	N	art, text, <metrical>, poet WRITE	
 poet	ko2lto3	poeta	poeta	1378		N	WRITE poetry	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 poetry	ko2lte1szet	poesis	poezja	1377		N	poem, whole	
 point	pont	punctum	punkt	1969	u	N	degree	
 pointed	hegyes	acutus	szpiczasty	1025		A	sharp	
@@ -2452,11 +2440,7 @@ profit	haszon	lucrum	zysk	1009		N	money, =FROM MAKE
 programme	mu3sor	programma	program	2948	u	N	action, plan, IN/2758 television	
 progress	halad	progredior	poste1powac1	2993	u	N	ER past	
 project	projekt	#	#	3036		N	plan, work, AT/2744 long(time)	
-<<<<<<< HEAD
 promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT SAY[after(=AGT DO])	
-=======
-promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT DECLARE[after(=AGT DO)]	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 pronounce	mond	dico	wymawiac1	1718		V	speak	
 pronunciation	kiejte1s	pronuntiatio	wymowa	1329		N	manner, person MAKE word	
 proof	bizonyi1te1k	indicium	dowo1d	298		N	prove	
@@ -2492,13 +2476,8 @@ push	tol	promoveo	pchac1	2424	u	V	move, =AGT CAUSE[=PAT[away]]
 put	tesz	pono	kl1as1c1	2374	u	V	=AGT CAUSE[=PAT AT/2744 =TO], =AGT MOVE =PAT, =PAT[object]	setzt etwas irgendwohin
 quake	reng	tremo	trza1s1c1	2016		A	shake	
 quality	mino3se1g	qualitas	jakos1c1	1699	u	N	=POSS[good], characteristic	inherent
-<<<<<<< HEAD
 quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, <large>	
-quantity	tartam	spatium	ilos1c1	2315		N		. do we need this?
-=======
-quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, ' COUNT, <large>	
 quantity	tartam	spatium	ilos1c1	2315		N		
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 quarrel	vita	disputatio	kl1o1tnia	2648		N	angry, argue	
 quarter	negyed	quarta_pars	c1wierc1	1770		N	part, [four(part)] IN/2758 [whole], before(divide)	
 queen	kira1lyno3	regina	kro1lowa	1353	u	N	woman, monarch	
@@ -2545,13 +2524,8 @@ recently	minap	nuper	ostatnio	1691		D	AT/2744 past, near
 recognition	felismere1s	cognitio	rozpoznanie	772		N	recognize	
 recognize	felismer	cognosco	rozpoznac1	771	u	V	=AGT KNOW[=PAT[=PAT]]	identity
 record	ro2gzi1t	describo	nagrywac1	2027	u	V	=PAT[information, permanent[after]]	
-<<<<<<< HEAD
-rectangular	ne1gyszo2gletu3	#	#	3133		A	HAS sides[four, parallel], HAS four(corner)	
-red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, RESEMBLE anger	ND
-=======
 rectangular	ne1gyszo2gletu3	#	#	3133		A	HAS side[four, parallel], HAS four(corner)	
-red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, SIMILAR anger	ND
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
+red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, RESEMBLE anger	ND
 red-brown	vo2ro2sesbarna	#	#	3111		A	red, brown	
 reddish-brown	vo2ro2sesbarna	#	#	3204		A	brown, red	8
 reddish-orange	vo2ro2sesnarancssa1rga	#	#	3271		A	orange, red	1
@@ -2595,11 +2569,7 @@ report	hi1r	nuntius	raport	1042	u	N	information, ABOUT recent(event), detail IN/
 represent	mutat	monstro	pokazywac1	1741	u	V	sign, meaning[=PAT]	
 representative	jellemzo3	proprius	reprezentatywny	1188		N	HAS authority, group HAS	HUN ke1pviselo3
 reproduce	szaporodik	#	#	3138		U	=AGT MEMBER race, =AGT MAKE live, live AT/2744 race	
-<<<<<<< HEAD
 republic	ko2zta1rsasa1g	res_publica_libera	republika	1418		N	political, system, country, HAS lack(monarch), HAS president, elect PART_OF, elect MAKE representative, representative HAS power	
-=======
-republic	ko2zta1rsasa1g	res_publica_libera	republika	1418		N	political, system, country, NOTHAS monarch, HAS president, ELECT representative, representative HAS power	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 request	ke1r	rogo	z1a1dac1	1251	u	V	=AGT EXPRESS[=AGT WANT[=AGT HAS =PAT]]	
 rescue	kiment	eripio	ratowac1	1342		V	=AGT CAUSE[=PAT[free], =PAT NOTIN danger]	
 resemble	hasonli1t	#	#	3397		V	=AGT HAS property, =PAT HAS property	ähneln DAT
@@ -2836,13 +2806,8 @@ size	me1ret	magnitudo	rozmiar	1605	u	N	dimension
 skilful	u2gyes	dexter	zdolny	2490		A	HAS skill	
 skill	ke1szse1g	facultas	umieje1tnos1c1	1262	u	N	can/1246[=POSS[=TO]], HAS practice	
 skin	bo3r	cutis	sko1ra	318	u	N	PART_OF body, cover	
-<<<<<<< HEAD
-skirt	szoknya	tunica	spo1dnica	2240		N	garment, hang, AT/2744 waist, women WEAR	
 sky	e1g	caelum	niebo	496		N	vertical(ER ground), atmosphere, animal SEE, cloud ON, sun ON, star ON	HAS shape[dome], high
-=======
 skirt	szoknya	tunica	spo1dnica	2240		N	garment, hang, AT/2744 waist, <woman> WEAR	
-sky	e1g	caelum	niebo	496		N	OVER ground, atmosphere, animal SEE, cloud ON, sun ON, star ON	HAS shape[dome], high
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 slacken	lazul	relaxor	rozluz1nic1_sie1	1497		V		no xml
 slanted	ferde	obliquus	krzywy	792		A	slope	
 slave	rabszolga	servus	niewolnik	1986		N	person, other(person) HAS	
@@ -3128,11 +3093,7 @@ tender	gyenge1d	mollis	delikatny	929		A	love
 tennis	tenisz	lusus_pilae_reticulo_fusae	tenis	2351	u	N	game, INSTRUMENT ball, person[two, <play>] IN/2758, ON rectangular(court/2515), net AT/2744 court/2515	
 tense	feszu2lt	suspensus	spie1ty	797	u	A		
 tense	igeido3	tempus	czas	3140	u	N	verb HAS	time?
-<<<<<<< HEAD
 tent	sa1tor	tabernaculum	namiot	2058		N	home, temporary, can/1246[' MOVE], HAS wall[lack(rigid),<cloth>, tense], rope PART_OF	
-=======
-tent	sa1tor	tabernaculum	namiot	2058		N	home, temporary, can/1246[' MOVE], HAS wall[lack(rigid),<cloth>], ' STRETCH	naive_theo: HAS pole, HAS rope, HAS peg, canva
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 terrible	iszonyu1	atrox	okropny	1163		A	severe	
 terrified	re1mu2lt	perterritus	przeraz1ony	1993		A	HAS great (fear)	ND
 terror	terror	vis	terror	2365		N	intense(fear)	% no Longman
@@ -3175,11 +3136,7 @@ thought	gondolat	cogitatum	mys1l	908	u	N	IN/2758 mind	enumerate=
 thousand	ezer	#	#	3059		N	number, ER hundred	
 thread	ce1rna	filum_lineum	nic1	366	u	N	fine(cord), <sew INSTRUMENT>, <IN/2758 cloth>	
 threat	fenyegete1s	minae	groz1ba	790		N	threaten	
-<<<<<<< HEAD
-threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE pain)]	
-=======
 threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE harm)]	
->>>>>>> 395a3ca8dcea1f76732e1fe67d1222a72a05c0fc
 three	ha1rom	#	#	2970		A	number, FOLLOW two	
 three-sided	ha1rom-oldalu1	#	#	3220		A	HAS three(side)	3
 three-word	ha1rom_szo1bo1l_a1llo1	#	#	3119		A	three(word)	
