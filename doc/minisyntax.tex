@@ -174,7 +174,7 @@ In the graph part,
 \\ \texttt{[}\ldots \texttt{]} & the formula in the bracket describes the concept before it
 \\ \texttt{(}\ldots \texttt{)} & the concept in the parenthesis is characterized by the concept preceding the \\ & parenthesis
 \\ \texttt{'} (apostrophe) & fills an argument slot with no conceptual restriction
-\\ \texttt{!} & starts deep cases, see Section \ref{sec_extraword}
+\\ \texttt{=} & starts deep cases, see Section \ref{sec_extraword}
 %\\ \texttt{=root} & see Section \ref{sec_extraword}
 \\ \texttt{@} & starts a link to encyclopedia, where non-linguistic knowledge is stored
 \\ \texttt{<} \texttt{>}& information in angled brackets are only defaults and are easy to override
@@ -201,7 +201,7 @@ In the graph part,
 \\ $ E_n   \rightarrow C_n^{(1)} \texttt{(} C_n^{(2)} \texttt{)} $ & $\xymatrix{g(C_n^{(2)})\ar^0[d]\\g(C_n^{(1)})}$
 \\ $ A  \rightarrow E_n  $ & $\xymatrix{}$
 \\ $ A  \rightarrow \texttt{[} D \texttt{]} $ & $\xymatrix{}$
-\\ $ C_n  \rightarrow \texttt{!AGT} \mid \texttt{!PAT} \mid \texttt{!POSS}$ \\ $\mid \texttt{!OBL} \mid \texttt{!DAT} \mid \texttt{!FROM} \mid \texttt{!TO}$
+\\ $ C_n  \rightarrow \texttt{=AGT} \mid \texttt{=PAT} \mid \texttt{=POSS}$ \\ $\mid \texttt{=OBL} \mid \texttt{=DAT} \mid \texttt{=FROM} \mid \texttt{=TO}$
 \\ $ C_n  \rightarrow \texttt{=root} $ & $\xymatrix{}$
 \\ $ C_n  \rightarrow \texttt{@}External\_url $ & $\xymatrix{}$
 \\ $ E \rightarrow \texttt{<} C\texttt{>} $ & $\xymatrix{}$
@@ -248,8 +248,8 @@ together with some other morpheme. The morpheme in a multi-morpheme word that
 has conceptual meaning will be called a \emph{root}, and others will be called
 \emph{affixes}. Definitions of affixes specify how the representation of the whole
 word has to be built from the representation of the root. The graph
-representing the root is denoted by \texttt{!REL} in definitions of
-affixes. In definitions of adpositions, the adpositional object is also represented by \texttt{!REL}. The cause for this uniform treatment of roots of affixes and objects of adpositions is that the same semantic relation can be
+representing the root is denoted by \texttt{=REL} in definitions of
+affixes. In definitions of adpositions, the adpositional object is also represented by \texttt{=REL}. The cause for this uniform treatment of roots of affixes and objects of adpositions is that the same semantic relation can be
 expressed by an affix in some language and by a free form in some other,
 e.g.\ the English word \emph{my} translates to the Hungarian affix
 \emph{-m} as in the following example:
@@ -281,8 +281,8 @@ egyse1gesi1teni kell mielo3tt kiadjuk a kezu2nkbo3l.}
 % \begin{center}
 % \begin{tabular}{rll}
 % \toprule 
-% 9\%	& $C$ \texttt{HAS} & $C=\texttt{!AGT}$
-% \\ 46\%	& \texttt{CAUSE[$C_n1C_fC_n2$]} & $C_n1=\texttt{!PAT}$
+% 9\%	& $C$ \texttt{HAS} & $C=\texttt{=AGT}$
+% \\ 46\%	& \texttt{CAUSE[$C_n1C_fC_n2$]} & $C_n1=\texttt{=PAT}$
 % \\ 
 % \\\bottomrule
 % \end{tabular}
@@ -300,7 +300,7 @@ Now we turn to \emph{relational nouns} e.g.\ \emph{(somebody's) opinion,
 its opinion, an occasion and a goal. We are using underived nouns as examples,
 because nominalizations (a rich source of relational nouns) are not
 distinguished in 4lang from the verbs they are derived from.  Arguments of
-relational nouns are represented by \texttt{!POSS} or \texttt{!OBL}. To give
+relational nouns are represented by \texttt{=POSS} or \texttt{=OBL}. To give
 an insight to the distinction, the remainder of this section comments on
 relational nouns in English and Hungarian, languages where most {relational
   nouns} are possessed by their argument.
@@ -313,7 +313,7 @@ relational nouns in English and Hungarian, languages where most {relational
  `the base of the tree'
 \end{quote}
 In these cases we refer to the related word (\emph{tree} in the example) by
-\texttt{!POSS}. Note that the possessor in unmarked in Hungarian.
+\texttt{=POSS}. Note that the possessor in unmarked in Hungarian.
  
 About ten percent of the examples behave differently: in Hungarian, the
 relational noun is in the sublative (possessive remains an option in some
@@ -327,23 +327,23 @@ exceptions do not exactly coincide.
  
  `excellent occasion for martyrdom'
 \end{quote}
-These nouns (\emph{occasion, condition, reason, need}) have in common that the related word is goal of the definiendum in some sense. In these cases we use \texttt{!OBL}.
+These nouns (\emph{occasion, condition, reason, need}) have in common that the related word is goal of the definiendum in some sense. In these cases we use \texttt{=OBL}.
 
 \begin{table}
 \begin{center}
 \begin{tabular}{lll}
-\\ 454	& \texttt{!AGT}	& agent
-\\ 356	& \texttt{!PAT}	& patient
-\\ 65	& \texttt{!POSS}& used with some relational nouns %TODO !GEN
-\\ 33	& \texttt{!DAT}	& dative, see the explanation in the text
-\\ 32	& \texttt{!REL} & root or adpositional object
-\\ 16	& \texttt{!TO}	& target of action % TODO	% abstract goal:	able, accustom, ready, remind
+\\ 454	& \texttt{=AGT}	& agent
+\\ 356	& \texttt{=PAT}	& patient
+\\ 65	& \texttt{=POSS}& used with some relational nouns %TODO =GEN
+\\ 33	& \texttt{=DAT}	& dative, see the explanation in the text
+\\ 32	& \texttt{=REL} & root or adpositional object
+\\ 16	& \texttt{=TO}	& target of action % TODO	% abstract goal:	able, accustom, ready, remind
 							% relational non-verb:		law, occasion, sensitive, similar, skill, tendency
 							% OK:				add, addition, invite, join, load, put
 							% misc:				include
-\\ 14	& \texttt{!FROM}& source of action
-\\ 6	& \texttt{!OBL} & oblique, quirky case marked argument
-\\ 3	& \texttt{!AT}	& location of action
+\\ 14	& \texttt{=FROM}& source of action
+\\ 6	& \texttt{=OBL} & oblique, quirky case marked argument
+\\ 3	& \texttt{=AT}	& location of action
 \end{tabular}
 
 \end{center}
