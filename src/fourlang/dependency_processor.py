@@ -150,6 +150,14 @@ class DependencyProcessor():
         #     for w2 in words if dep == 'rcmod']
         return deps
 
+    def process_negation(self, deps):
+        for dep in deps.get_dep_list():
+            dtype, w1, w2 = dep
+            if dtype == 'neg' and w2[0] != 'not':
+                deps.remove(dep)
+                deps.add((dtype, w1, ('not', w2[1])))
+        return deps
+
     def process_copulars(self, deps):
         # nsubj(is, x), prep_P(is, y) -> prep_P(x, y)
         # rcmod(x, is), prep_P(is, y) -> prep_P(x, y)
@@ -303,6 +311,7 @@ class DependencyProcessor():
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)
+        deps = self.process_negation(deps)
         # deps = self.process_coordinated_root(deps)
         deps = self.process_coordination_stanford(deps)
 

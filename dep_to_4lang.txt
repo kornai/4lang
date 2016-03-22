@@ -61,8 +61,8 @@ iobj	?,?
 mwe	-,-
 #We should handle each of these uniquely
 
-neg	-,-
-#This'll trigger whatever it is that we'll do for negation
+neg	0,-
+#Mostly X -0-> "not". "no", "never", and "n't" are posptrocessed into "not"
 
 nn	-,-
 # "there is no intelligent noun compund analysis. This is likely to be fixed
