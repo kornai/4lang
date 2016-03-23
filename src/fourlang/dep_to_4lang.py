@@ -138,7 +138,7 @@ class DepTo4lang():
         word_machine = self.lexicon.get_new_machine(word)
 
         for root_machine in root_machines:
-            word_machine.unify(root_machine)
+            word_machine.unify(root_machine, exclude_negation=True)
             word_machine.append(root_machine, 0)
         return word_machine
 
