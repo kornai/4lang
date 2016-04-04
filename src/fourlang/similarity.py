@@ -10,12 +10,14 @@ from scipy.stats.stats import pearsonr
 
 from pymachine.utils import average, harmonic_mean, jaccard, min_jaccard, MachineGraph, MachineTraverser, my_max  # nopep8
 from pymachine.wrapper import Wrapper as MachineWrapper
-assert jaccard, min_jaccard  # silence pyflakes
 
 from lemmatizer import Lemmatizer
 from lexicon import Lexicon
 from text_to_4lang import TextTo4lang
 from utils import ensure_dir, get_cfg, print_text_graph, print_4lang_graph
+
+assert jaccard, min_jaccard  # silence pyflakes
+
 
 class WordSimilarity():
     sim_types = set([
@@ -184,6 +186,7 @@ class WordSimilarity():
         else:
             return False
 
+
 class GraphSimilarity():
     @staticmethod
     def graph_similarity(graph1, graph2):
@@ -234,6 +237,7 @@ class GraphSimilarity():
 
         return (zero_supported + bin_supported) / float(
             zero_count + bin_count), evidence
+
 
 class SimComparer():
     def __init__(self, cfg_file, batch=True):
@@ -344,10 +348,12 @@ class SimComparer():
         print "compared {0} distance pairs.".format(len(sims))
         print "Pearson-correlation: {0}".format(pearson)
 
+
 def main_compare(cfg):
     comparer = SimComparer(cfg)
     comparer.get_sims()
     comparer.compare()
+
 
 def main_sen_sim(cfg):
     graph_dir = cfg.get("sim", "graph_dir")
@@ -382,6 +388,7 @@ def get_test_pairs(fn):
         pairs[(w1, w2)] = float(sim_str) / 10
     return pairs
 
+
 def main_word_test(cfg):
     from scipy.stats.stats import pearsonr
     word_sim = WordSimilarity(cfg)
@@ -397,6 +404,7 @@ def main_word_test(cfg):
             w1, w2, gold_sim, sim, math.fabs(sim-gold_sim))
 
     print "Pearson: {0}".format(pearsonr(gold_sims, sims))
+
 
 def main():
     logging.basicConfig(
