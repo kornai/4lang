@@ -7,10 +7,9 @@ class CollinsParser():
     @staticmethod
     def print_definitions(definitions):
         for section in definitions:
-            print section['hw']
             for sense in section['senses']:
-                print "{0}\t{1}".format(
-                    section['hw'], sense['definition'])
+                print "{0}\t{1}\t{2}".format(
+                    section['hw'], sense['pos'], sense['definition'])
 
     @staticmethod
     def parse_file(input_file):
@@ -38,23 +37,22 @@ class CollinsParser():
         and return entry in appropriate format."""
         if not entry.strip():
             return None
-        entry = re.sub('@=', '-', entry)
-#        entry = re.sub('\n', ' ', entry)
+        from_ = ['@=', '\?&', '@!', ' esp.']
+        to = ['-', '&', '!', ' especially']
+        for f, t in zip(from_, to):
+            entry = re.sub(f, t, entry)
         for pattern in ['\n', '@n']:
             entry = re.sub(pattern, " ", entry)
         alternate_forms = CollinsParser.get_alternate_forms(entry)
-        for pattern in ['#\+', '@\.', '\?!', '#5\(.*?\)', '#5\[.*?\]',
+        for pattern in ['#\+', '@\.', '\?!',
                         'or #3[^ ]+']:  # '#3' another spelling
             entry = re.sub(pattern, "", entry)
-
-        try:
-            hw = CollinsParser.get_hw(entry)
-        except:
-            logging.warning("get_hw failed in entry: {0}".format(entry))
-            hw = "???"
+        for pattern in ['#5\(.*?\)', '#5\[.*?\]']:
+            entry = re.sub(pattern, '#5', entry)
+        hw, description = CollinsParser.get_hw(entry)
         return {
             'hw': hw,
-            'senses': CollinsParser.get_senses(entry),
+            'senses': CollinsParser.get_senses(description),
             'alternate_forms': alternate_forms}
 
     @staticmethod
@@ -75,9 +73,11 @@ class CollinsParser():
 
     @staticmethod
     def get_hw(entry):
-        print 'entry: ' + entry
-        return re.search('(.+?)#[56]', entry, re.S).group(1).replace(
-            '#4', '').strip()
+        """Return headword."""
+        match = re.search('(.+?)#[56](.+)', entry, re.S)
+        hw = match.group(1).replace('#4', '').strip()
+        description = match.group(2)
+        return hw, description
 
     @staticmethod
     def get_senses(entry):
@@ -106,44 +106,48 @@ class CollinsParser():
         pos = def_and_pos[0]
         return [{'definition': definition,
                  'pos': pos}]
-        # return [{'definition': description,
-        #           'pos': CollinsParser.get_pos(description)}]
-        #          'pos': CollinsParser.get_pos_from_sense(description)}]
-
     pos_and_def_patt = re.compile(
-        '#6(n|adj|vb|tr|adv|intr|abbrev|pl|interj|prep|prefix|determiner|pron|conj|suffix)\.(.*)')  # nopep8
+        '(.*)#6(n|adj|vb|tr|adv|intr|abbrev|pl|interj|prep|prefix|determiner|pron|conj|suffix)\.(.*)')  # nopep8
 
     @staticmethod
     def separate_def_and_pos(description):
-        # print 'searching hw in: ' + description
+        """Return a tuple of pos and definition of a sense"""
         pos_and_def = CollinsParser.pos_and_def_patt.search(description)
         if pos_and_def:
-            # print 'hw found: ' + pos_and_def.group(1)
-            pos, definition = pos_and_def.group(1), pos_and_def.group(2)
+            pos, definition = pos_and_def.group(2), pos_and_def.group(
+                1) + pos_and_def.group(3)
         else:
-            # print 'hw not found'
             pos, definition = 'unknown', description
 
         definition = definition.strip('.,').strip().replace(
             '#5', '').replace('#4', '').strip('.')
-        definition = re.sub('^#6[^ ]*', '', definition).strip()
-        definition = re.sub(' #.*', '', definition).strip()
-        definition = re.sub('#1a.', '', definition).strip()
+        unnecessary = ['^#6[^ ]*', '#1a', '#6']
+        for patt in unnecessary:
+            definition = re.sub(patt, '', definition).strip()
         definition = re.sub('@m.*', '', definition).strip('.').strip()
         return pos, definition
 
     @staticmethod
     def get_multiple_senses(description):
         lst = []
-        for sense in unicode.split(description, '#1$D'):  # todo: sense without #5 is not sense  # nopep8
+        def_part = ''  # This corrects unnecessary splitting
+        pos_for_multiple_senses = 'unknown'
+        for sense in unicode.split(description, '#1$D'):
+            if def_part:
+                sense = def_part + sense
             def_and_pos = CollinsParser.separate_def_and_pos(sense)
             definition = def_and_pos[1]
             if not definition:
+                def_part = sense
                 continue
+            else:
+                def_part = ''
             pos = def_and_pos[0]
-            lst.append({
-                'definition': definition,
-                'pos': pos})
+            if pos == 'unknown':
+                pos = pos_for_multiple_senses
+            else:
+                pos_for_multiple_senses = pos
+            lst.append({'definition': definition, 'pos': pos})
         return lst
 
 if __name__ == "__main__":

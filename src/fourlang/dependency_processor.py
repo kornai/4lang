@@ -71,6 +71,21 @@ class Dependencies():
 
 
 class NewDependencies():
+
+    @staticmethod
+    def create_from_old_deps(old_deps):
+        deps = []
+        for d_type, gov, dep in old_deps.get_dep_list():
+            deps.append({
+                "type": d_type,
+                "gov": {
+                    "word": gov[0],
+                    "id": gov[1]},
+                "dep": {
+                    "word": dep[0],
+                    "id": dep[1]}})
+        return NewDependencies(deps)
+
     def __init__(self, deps):
         self.deps = deps
         self.indexed = False
@@ -133,6 +148,14 @@ class DependencyProcessor():
         #     (w1, w2) for w1, (dependants, _) in deps.index.iteritems()
         #     for dep, words in dependants.iteritems()
         #     for w2 in words if dep == 'rcmod']
+        return deps
+
+    def process_negation(self, deps):
+        for dep in deps.get_dep_list():
+            dtype, w1, w2 = dep
+            if dtype == 'neg' and w2[0] != 'not':
+                deps.remove(dep)
+                deps.add((dtype, w1, ('not', w2[1])))
         return deps
 
     def process_copulars(self, deps):
@@ -281,12 +304,15 @@ class DependencyProcessor():
         return deps.deps
 
     def process_stanford_dependencies(self, dep_strings):
-        deps = Dependencies(dep_strings)
-        # deps = Dependencies.create_from_strings(dep_strings)
+        try:  # TODO
+            deps = Dependencies.create_from_strings(dep_strings)
+        except TypeError:
+            deps = Dependencies(dep_strings)
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)
+        deps = self.process_negation(deps)
         # deps = self.process_coordinated_root(deps)
         deps = self.process_coordination_stanford(deps)
 
-        return deps.get_dep_list()
+        return NewDependencies.create_from_old_deps(deps).deps

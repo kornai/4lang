@@ -26,7 +26,7 @@
 -ive	-as	-ivus	-iwy	6		G		=REL % demonstrative, divisive, prohibitive, festive, massive
 -ization	-esi1te1s	-atio	-izacja	18		G		-ize
 -ize	-esi1t	-N/A	-owac1	17		G	CAUSE[=REL AT/2744 =PAT]	18 criticize, 3 hypnotize, 1 privatize, 1 demobilize
--less	-talan	in-	bez-	55		G	lack	47 lack( ' =REL), 12 un+less, 10 NOTHAS, 2 NOTCAUSE
+-less	-talan	in-	bez-	55		G	lack	
 -like	-szeru3	-tus	-podobny	53		G		lifelike, springlike, childlike, ladylike
 -ly	-i	-tus	-anin	26		G	=REL	HUN -An
 -ment	-a1s	-tio	-anie	3		G	=REL	
@@ -96,11 +96,11 @@ Cambridge	Cambridge	#	#	2838		N	city, @Cambridge
 Canada	Kanada	#	#	2839		N	country, @Canada	
 Catholic	katolikus	#	#	2958		N	religion, PART_OF @Catholic_Church	
 Celsius	celsius	#	#	3103		N	temperature, @Celsius	
-Charles_II	II._Ka1roly	#	#	2927		N	king, @Charles_II_of_England	hungarian name includes period
+Charles_II	II._Ka1roly	#	#	2927		N	king, @Charles_II_of_England	
 Charles_II	II._Ka1roly	#	#	3333		N	king, @Charles_II_of_England	
 Christian	kereszte1ny	Christianus	chrzes1cijan1ski	1301		A	MEMBER christianity	ND: ADHERE Jesus
-Christianity	kereszte1nyse1g	religio_Christiana	chrzes1cijan1stwo	1302		N	religion, ABOUT @Jesus	BASED_ON teachings, Jesus HAS teachings % ND
-Christmas	kara1csony	dies_natalis	Boz1e_Narodzenie	1232		N	holiday, christian, tree, presents, candle	ND
+Christianity	kereszte1nyse1g	religio_Christiana	chrzes1cijan1stwo	1302		N	religion, ABOUT @Jesus	BASED_ON teaching, Jesus HAS teaching % ND
+Christmas	kara1csony	dies_natalis	Boz1e_Narodzenie	1232		N	holiday, christian, tree, present, candle	ND
 Coca-Cola	Coca-cola	#	#	3312		N	drink, @Coca-Cola	1
 Colombia	Kolumbia	#	#	2926		N	country, @Colombia	
 Cornwall	Cornwall	#	#	2925		N	politician, @Cornwall	
@@ -111,7 +111,7 @@ Devon	Devon	#	#	3200		N	land, @Devon
 EU	EU	#	#	3148		N	political(unit), @European_Union	
 Egypt	Egyiptom	#	#	2841		N	country, @Egypt	
 Einstein	Einstein	#	#	3185		N	@Albert_Einstein	
-Elizabeth_I	I_Erzse1bet	#	#	2924		N	queen, @Elizabeth_I_of_England	hungarian name includes period
+Elizabeth_I	I_Erzse1bet	#	#	2924		N	queen, @Elizabeth_I_of_England	
 England	anglia	#	#	2761		N	country, @United_Kingdom	
 English	angol	Britannicus	angielski	169		A	@United_Kingdom	see 2763 and 2764
 Europe	Euro1pa	#	#	2842		N	land, @Europe	
@@ -157,7 +157,7 @@ Japan	Japa1n	#	#	2852		N	country, @Japan
 Java-enabled	Java-ke1pes	#	#	3110		A		@Java_(programming_language) AT/2744
 Jesus	Je1zus	#	#	3048		N	man/744, @Jesus	
 Jew	zsido1	Iudaeus	z1yd	2689		N	adherent, IN/2758 @Judaism	ND
-Jewish	zsido1	Iudaicus	z1ydowski	2688		A	@Jew	ND felesleges?
+Jewish	zsido1	Iudaicus	z1ydowski	2688		A	@Jew	
 John_Wesley	John_Wesley	#	#	3161		N	@John_Wesley	
 Judaism	zsido1_valla1s	#	#	3096		N	@Judaism	
 July	ju1lius	mensis_Iulius	lipiec	1202		N	month, FOLLOW june, august FOLLOW	
@@ -191,7 +191,7 @@ Mediterranean	Fo2ldko2zi-tenger	#	#	2856		N	sea, @Mediterranean
 Mesopotamia	Mezopota1mia	#	#	3171		N	land AT/2744 history, @Mesopotamia	
 Mexico	Mexiko1	#	#	2857		N	country, @Mexico	
 Mikhail_Gorbachev	Gorbacsov	#	#	3098		N	@Mikhail_Gorbachev	
-Miss	kisasszony	N/A	panna	1357		G	woman, NOTHAS husband	
+Miss	kisasszony	N/A	panna	1357		G	woman, HAS lack(husband)	
 Mississippi	Mississippi	#	#	2909		N	river, @Mississippi	
 Monday	he1tfo3	dies_lunae	poniedzial1ek	1022		N	day, PART_OF week, FOLLOW sunday, tuesday FOLLOW	
 Mongolia	Mongo1lia	#	#	2908		N	country, @Mongolia	
@@ -207,7 +207,7 @@ Netherlands	Hollandia	#	#	2858		N	country, @Netherlands
 New_Guinea	U1j-Guinea	#	#	3179		N	@New_Guinea	
 New_York	New_York	#	#	2859		N	city, IN/2758 @United_States, @New_York_City	
 New_Zealand	U1j_Zealand	#	#	2860		N	country, @New_Zealand	
-Noah	Noe1	#	#	2883		N	man/744, @Noah, BUILD ship	
+Noah	Noe1	#	#	2883		N	man/744, @Noah, MAKE ship	
 Norway	Norve1gia	#	#	2875		N	country, @Norway	
 November	november	mensis_November	listopad	1800		N	month, FOLLOW october, december FOLLOW	
 October	okto1ber	October	paz1dziernik	1899		N	month, FOLLOW september, november FOLLOW	
@@ -276,7 +276,7 @@ Yugoslavia	Jugoszla1via	#	#	2894		N	country, @Yugoslavia, historical
 _path	#	#	#	2780		#	FROM/2742 ' , after(=POSS AT/2744), HAS through	HAS source, HAS target
 a	egy	NA	N/A	557	u	G	one	discourse
 a-shaped	a_alaku1	#	#	3245		A	HAS two(side), cross PART_OF	2
-abashed	zavart	perturbatus	zagubiony	2675		A	emotion, bad,[ person BREAK norm] CAUSE	
+abashed	zavart	perturbatus	zagubiony	2675		A	shame	
 ability	ke1pesse1g	facultas	umieje1tnos1c1	1248		N	can/1246	
 able	ke1pes	idoneus	w_stanie	1245		A	can/1246[=AGT[=TO]]	=TO on the surface both in Hun, Eng, and French 'capable de'
 about	miatt	propter	o	1686	u	D	=REL CAUSE	
@@ -286,11 +286,11 @@ absence	hia1ny	absentia	nieobecnos1c1	1047		N	lack(=POSS)
 absent	hia1nyzo1	absens	nieobecny	1049		A	NOTAT '	
 abstinent	tarto1zkodo1	abstinens	abstynent	2316		A		
 abuse	ba1nt	abutor	naduz1ywac1	199		V	treat, bad	
-accept	elfogad	accipio	akceptowac1	615	u	V	allow, =PAT[lack(good)], =AGT DECLARE[=PAT[right/1191]], receive, before(=FROM OFFER =PAT)	right/1191 FOR/2782 self
-accident	baleset	casus_adversus	wypadek	223	u	N	event, lack( ' PLAN), bad, CAUSE damage	
+accept	elfogad	accipio	akceptowac1	615	u	V	allow, =PAT[lack(good)], =AGT SAY[=PAT[right/1191]], receive, before(=FROM OFFER =PAT)	right/1191 FOR/2782 self
+accident	baleset	casus_adversus	wypadek	223	u	N	event, lack(person PLAN), bad, CAUSE damage	
 accompany	ki1se1r	comitor	towarzyszyc1	1321		V	with/60	
 accordance	egyeze1s	convenientia	zgodnos1c1	574		N	agree	
-according	szerint	secundum	wedl1ug	2201		D	=REL DETERMINE	
+according	szerint	secundum	wedl1ug	2201		D	=REL CAUSE[person KNOW]	
 account	besza1molo1	#	#	2695		N	story	
 account	sza1mla	ratio	rachunek	2139		N		
 accustom	hozza1szoktat	assuefacio	przyzwyczajac1	1090		V	=TO[habit,familiar[after]]	gewöhnen an ACC
@@ -321,7 +321,7 @@ advance	elo3revisz	profero	poprawic1	645		V	=AGT CAUSE[=PAT[move]], =AGT CAUSE[=
 advantage	elo3ny	emolumentum	zaleta	643		N	ER ' , good	
 adventure	kaland	casus	przygoda	1217		N	experience, excite, danger AT/2744, lack(usual)	
 adverb	hata1rozo1	adverbium	przysl1o1wek	1013		N	word	
-advertise	hirdet	proscribo	reklamowac1	1059	u	V	=AGT CAUSE[public KNOW advantages], =PAT HAS advantages, =AGT WANT[sales[increase]]	
+advertise	hirdet	proscribo	reklamowac1	1059	u	V	=AGT CAUSE[public KNOW advantage], =PAT HAS advantage, =AGT WANT[sale[increase]]	
 advice	tana1cs	consilium	rada	2299		N	=POSS[person] THINK should[other(person) DO]	
 advise	tana1csol	suadeo	radzic1	2301		V		
 affair	eset	eventus	sprawa	694		N	activity[<public>,<political>]	
@@ -344,11 +344,11 @@ agreement	egyezse1g	consensus	zogda	3405	u	N
 agriculture	mezo3gazdasa1g	#	#	3334		N	human CAUSE plant[grow], human CAUSE animal[reproduce], AT/2744 land	
 ahead	elo2l	in_fronte	z_przodu	640		A	AT/2744 front	
 aim	ce1l	finis	cel	363		N	purpose	
-air	levego3	aer	powietrze	1540	u	N	' BREATHE, gas	RA
+air	levego3	aer	powietrze	1540	u	N	gas, FOR/2782 life	
 aircraft	le1gi_ja1rmu3	#	#	3056		N	vehicle, fly, <plane/2807>	
 airforce	legiero3	#	#	3194		N	PART_OF army, fly	
 airport	repu2lo3te1r	#	#	2983		N	place/1026, plane/2807 ON ground, building AT/2744	
-alcohol	alkohol	alcohol	alkohol	158	u	N	person DRINK, CAUSE person[drunk]	
+alcohol	alkohol	alcohol	alkohol	158	u	N	liquid, <drink>, <CAUSE person[drunk]>	
 alcoholic	szeszes	vinolentus	alkoholowy	2206	u	A	alcohol IN/2758	
 alike	egyforma	aequabilis	podobny	577		A	similar	
 alive	e1lo3	vivus	z1ywy	507		A	life	ND
@@ -398,9 +398,9 @@ anything	ba1rmi	quodcumque	cokolwiek	211	u	N	thing
 anywhere	sehol	ullo_loco	gdziekolwiek	2074		D		
 apart	sze1t	seorsus	roz-	2173		A	away	
 apartment	laka1s	#	#	2955		N	place/1026, private, live IN/2758, IN/2758 building	
-apparatus	berendeze1s	apparatus	zestaw	267		N		collection, instruments PART_OF
+apparatus	berendeze1s	apparatus	zestaw	267		N		collection, instrument MEMBER
 appear	tu3nik	pareo	wydawac1_sie1	2450	u	U	=DAT THINK [=PAT[=OBL]]	
-appearance	la1tszat	simulacrum	wygla1d	1479		N	visible	Longman coloured substances that are put on your face to improve or change your appearance
+appearance	la1tszat	simulacrum	wygla1d	1479		N		
 apple	alma	malum	jabl1ko	161		N	fruit	
 appoint	kinevez	dico	wyznaczac1	1346		V	=AGT CAUSE[=PAT HAS position]	
 apprehend	megragad	apprehendo	zl1apac1	1639		V	grasp	
@@ -409,7 +409,7 @@ approach_stealthily	lopakodik	obrepo	skradac1_sie1	1554		U		no xml
 approve	jo1va1hagy	approbo	uznac1	1194		V	consider[=PAT[right/1191]], say[=PAT[right/1191]]	
 aquatic	vizi	#	#	2734		A	live AT/2744 water	ND
 arab	arab	#	#	2833		N	group, @Arab	
-arch	i1v	curvatura	l1uk	1111		N	structure, upper, ABOVE space/2327, support	
+arch	i1v	curvatura	l1uk	1111		N	structure, upper, vertical(ER space/2327), support	
 are	#	#	#	2783		#	more, is	hunspell problem
 area	terep	area	teren	2355	u	N	IN/2758 country	
 area	teru2let	area	teren	2366	u	N	place/2326, HAS border	
@@ -418,9 +418,9 @@ argument	vita	disputatio	debata	2810	u	N	argue
 arise	emelkedik	ascendo	wznosic1_sie1	664		U	=AGT AT/2744 position[vertical], after(position ER)	ND movement [up] % move, after(up)
 arm	kar	bracchium	ramie1	1231		N	long, human HAS body, body HAS, limb, hand AT/2744, wrist AT/2744, shoulder AT/2744	
 armour	pa1nce1l	thorax	zbroja	1928		N	defend, cover, metal, AT/2744 history, FOR/2782 fight	
-arms	sereg	exercitus	armia	2084	u	N		no Longman use in this sense
+arms	sereg	exercitus	armia	2084	u	N		
 army	hadsereg	exercitus	wojsko	969		N	organization, people[many], work AT/2744 war	
-around	ko2re1	circum	dokol1a	1388	u	D	SURROUND =REL	
+around	ko2re1	circum	dokol1a	1388	u	D	AROUND =REL	
 arrange	rendez	ordino	ukl1adac1	2011		V	=AGT CAUSE[=PAT HAS structure]	
 arrangement	beoszta1s	dispositio	uklad	266	u	N	plan, IN/2758 time	% HUN teendő
 arrangements	mega1llapoda1s	pactum	umowa	1616		N		see 266
@@ -428,8 +428,8 @@ arrive	mege1rkezik	advenio	przyjechac1	1622	u	V	after(=AGT AT/2744 goal), =AGT[m
 arrow	nyi1l	sagitta	strzal1a	1813		N	artefact, long, straight/563, HAS pointed(head), move	
 art	mu3ve1szet	ars	sztuka	1735	u	N	MAKE beautiful	
 artefact	keszi1tme1ny	arte_factum	#	3141		N	human MAKE	
-article	cikk	scriptum	artykul1	373		N	text, public READ, ABOUT real	
-artificial	mesterse1ges	#	#	3339		A	' MAKE, lack(natural), lack(real), SIMILAR [natural[other],real[other]]	
+article	cikk	scriptum	artykul1	373		N	text, public, ABOUT real	
+artificial	mesterse1ges	#	#	3339		A	' MAKE, lack(natural), lack(real), RESEMBLE [natural[other],real[other]]	
 artist	mu3ve1sz	artifex	artysta	1734		N	profession, MAKE art, HAS imagination, HAS skill, MAKE beautiful	
 as	mint	ut	jak	1700	u	D		empty definition
 ascend	felha1g	ascendo	wznosic1_sie1	769		V		=AGT[up[after]]
@@ -443,7 +443,7 @@ association	egylet	societas	zwia1zek	581		N	group, people
 at	-na1l	apud	u	2744	u	G	=PAT[place/1026]	primitive
 at	-ra	apud	przy	39	u	G	after(ON =REL)	
 atmosphere	le1gko2r	#	#	3379		N	AT/2744 =POSS, lack( ' SEE), air, place/1026 HAS, <feeling>, <gas>	
-atom	atom	atomus	atom	181	u	N	particle, ' NOTPART_OF, small	% naive_theo:HAS nuclear(energy)
+atom	atom	atomus	atom	181	u	N	particle, lack PART_OF, small	naive_theo:HAS nuclear(energy)
 atomic	atom-	atomicus	atomowy	182		A	atom	
 attach	e1desget	amplexor	przywia1zac1	2696	u	V	bind, =AGT CAUSE love, love IN/2758 =PAT	
 attach	hozza1kapcsol	adiungo	dol1a1czyc1	1089	u	V	join	
@@ -453,11 +453,11 @@ attempt	kise1rlet	conatus	pro1ba	1359		N	try
 attend	figyel	animum_adverto	uwaz1ac1	800		U		see 2773
 attend	re1szt_vesz	#	#	2771		V	=AGT AT/2744 =PAT	
 attend_upon	szolga1l	famulor	sl1uz1yc1	2242		V		
-attention	figyelem	animi_attentio	uwaga	801	u	N	listen, see, [=AGT THINK] ABOUT =PAT, =PAT INTEREST/517 =AGT, =PAT[important], perceive	
+attention	figyelem	animi_attentio	uwaga	801	u	N	listen, see, =POSS THINK =PAT[interesting, important]	
 attentive	figyelmes	attentus	uwaz1ny	802		A	watch	
 attitude	attitu3d	positio	nastawienie	3409	u	N		
 attract	vonz	attracho	przycia1gac1	2664		V	good, =AGT CAUSE[=PAT HAS interest/517]	
-attractive	vonzo1	suavis	atrakcyjny	2665		A	=AGT ATTRACT	
+attractive	vonzo1	suavis	atrakcyjny	2665		A	beautiful, person LIKE/3382	
 aunt	nagyne1ni	agnata/amita	ciotka	1750		N	woman, relative, relative[old] ER =POSS	related to parent, =POSS HAS parent
 authority	hato1sa1g	jurisdictio	wl1adza	2811	u	N	power, command, determine, judge	
 autumn	o3sz	autumnus	jesien1	1882		N	season/548, FOLLOW summer, winter FOLLOW, rain IN/2758, cool/1103, leave HAS colour[lack(green)]	decline % ND
@@ -468,11 +468,11 @@ awake	e1ber	vigilans	czujny	494		A	conscious	HUN e1bren van
 away	el	dis-	od-	591	u	D	AT/2744 distance	
 awkward	ki1nos	molestus	niezre1czny	1320		A	strange, CAUSE lack(comfort/1240)	
 axe	balta	securis	siekiera	224		N	tool, IN/2758 hand, HAS head, HAS edge, CUT <tree>	
-axis	tengely	#	#	3377		N	line, object[round, turn] AROUND, AT/2744 middle, shape HAS	
+axis	tengely	#	#	3377		N	line, round AROUND, turn AROUND, AT/2744 middle, shape HAS	
 baby	baba	pupus	niemowle1	216	u	N	animal[young[very]]	ND
 back	ha1t	tergum	plecy	960	u	N	PART_OF body, neck AT/2744	
 back	vissza	retro	zpowrotem	2639	u	D	after(AT/2744 place/1026), before(AT/2744 place/1026)	
-background	ha1tte1r	recessus	tl1o	962		N	SURROUND =POSS	relational noun
+background	ha1tte1r	recessus	tl1o	962		N	AROUND =POSS	relational noun
 backside	far	posticus	tyl1	726		N	bottom	
 backward	maradi	exoletus	staros1wiecki	1597		A		see 2775
 backwards	ha1tra	retro	do_tyl1u	961		G	front[after, lack], HAS direction[opposite]	
@@ -482,32 +482,32 @@ bad	rossz	malus	zl1y	2043	u	A	lack( good)	anto
 badly-behaved	rosszul_viselkedett	#	#	3244		A	HAS bad(behaviour)	2
 bag	zsa1k	saccus	torba	2684	u	N	' IN/2758, cloth	
 bake	su2l	coquor	piec_sie1	2128		U		
-bake	su2t	coquo	piec	2130		V	=AGT COOK/825 [<bread>, <cake>], =AGT CAUSE =PAT[hard]	
+bake	su2t	coquo	piec	2130		V	=AGT COOK/825 pasta[<bread>, <cake>], =AGT CAUSE =PAT[hard]	
 balance	egyensu1ly	aequilibrium	ro1wnowaga	566		N	stable, weight ON side, weight ON other(side), state/77, lack(change)	
 balance	me1rleg	libra	waga	1607		N	device, weigh, HAS <two>(pan), after(level), motion[after, lack]	
 ball	labda	pila	pil1ka	2713	u	N	round, <sport INSTRUMENT>	labda, golyo1
 ball	ba1l	saltatio	bal	198	u	N		see 2713 „labda, golyo1”
 ball-shaped	go2mb_alaku1	#	#	3322		A	HAS ball(shape)	1
-banana	bana1n	bananus	banan	225		N	fruit, long, HAS skin[thick/2752,yellow]	naive_theo HAS pulp[white,seedless]
-band	zenekar	symphonia	zespo1l1	2678		N	group, musicians, <popular>	
+banana	bana1n	bananus	banan	225		N	fruit, long, HAS skin[thick/2752,yellow]	naive_theo HAS pulp[white], HAS lack(seed)
+band	zenekar	symphonia	zespo1l1	2678		N	group, musician, <popular>	
 bank	bank	argentaria	bank	227	u	N	institution, money IN/2758	
 bank	part	ripa	brzeg	1945	u	N		see 227
 bar	kiza1r	excludo	wyl1a1czac1	1367	u	V		=AGT CAUSE[lack(can/1246[=PAT IN/2758])] % there seem to be no verbal use, just a/the metal/small bar, restaurant,…
-bar	kocsma	caupona	bar	1421	u	N	[SELL [alcoholic(drinks)]] AT/2744, room/2235	
-bare	csupasz	nudus	nagi	439		A	NOTHAS garment	RA
+bar	kocsma	caupona	bar	1421	u	N	[SELL [alcoholic(drink)]] AT/2744, room/2235	
+bare	csupasz	nudus	nagi	439		A	HAS lack(garment)	RA
 bargain	alku	pactio	okazja	159		N	after(agree), after(price)	
 bark	ke1reg	cortex	kora	1254		N	hard, cover[wood], protect[wood]	
 bark	ugat	latro	szczekac1	2517		U	<dog> MAKE sound/993[short, loud], =AGT AT/2744 conflict	
 barley	zab	avena	owies	2670		N		
 barrel	hordo1	cupa	baryl1ka	1082		N	cylinder, contain, HAS top, HAS bottom	
 barren	meddo3	sterilis	bezpl1odny	1613		A	can/1246[produce[offspring[lack]]]	cannot?
+base	alap	fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	
 base	ba1zis	NA	baza	2755	u	N	IN/2758 @Baseball, four(corner), run TOUCH	
-base	alap	fundamentum	podstawa	146	u	N	part, AT/2744 bottom, SUPPORT[=POSS]	
 base	aljas	abiectus	niski	153	u	A		see 146 and 2757
 basic	alapveto3	#	#	3050		A	other NEED	
 basin	ta1l	lanx	misa	2274		N		
 basket	kosa1r	corbis	kosz	1437		N	container, net, carry	
-bath	fu2rdo3	balneum	ka1piel	874		N	CLEANSE body, body IN/2758 water, water IN/2758 container	
+bath	fu2rdo3	balneum	ka1piel	874		N	CAUSE clean, body[clean] IN/2758 water, water IN/2758 container	
 bathe	fu2rdet	lavo	ka1pac1	872		V	bathe/873	
 bathe	fu2rdik	lavor	ka1pac1_sie1	873		U	after(clean), =PAT[<person>], =PAT IN/2758 liquid	naive_theo:IN/2758 liquid ⇒ wet
 bathroom	mosdo1	balneum	l1aziekna	3413	u	N		
@@ -527,16 +527,16 @@ beautify	sze1pi1t	exorno	upie1kszac1	2171		V	=AGT CAUSE[=PAT[beautiful]]	RA
 because	mert	quod	poniewaz1	1676		G	=REL CAUSE	
 become	vmve1_lesz	fio	stawac1_sie1	2655		U	=AGT[=PAT[after]]	
 bed	a1gy	lectus	l1o1z1ko	68		N	furniture, rest IN/2758	
-bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hairy( body ), STING other(animal), <social>, PRODUCE honey	GATHER nectar, GATHER pollen
+bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair, sting, <social>, PRODUCE honey, CAUSE nectar[together], CAUSE pollen[together]	
 been	van	fui	byl1	3414	u	N		
 beer	so2r	cervisia	piwo	2109		N		
-before	ele1	ad	przed	598	u	D		after(=REL BEHIND) % figure and ground
-before	elo3tt	ante	przed	2768	u	G		primitive
+before	ele1	ad	przed	598	u	D		after(=REL FOLLOW) % figure and ground
+before	elo3tt	ante	przed	2768	u	G		primitive, =REL FOLLOW
 beg	ko2nyo2ro2g	supplico	bl1agac1	1383		V	ask, =AGT WANT pity	
 begin	kezd	incipio	zaczynac1	1312	u	V	after(=PAT)	
 behave	viselkedik	me_gero	zachowywac1	2638	u	U	do	
 behaviour	magatarta1s	mores	zachowanie	1584		N	animal DO	
-behind	mo2go2tt	post	za	1711		D	direction, back/2639, visible[lack]	NOTCOP % x is behind y, x y mo2go2tt van % read Leonard Talmy
+behind	mo2go2tt	post	za	1711		D	direction, back/2639, visible[lack]	x is behind y, x y mo2go2tt van % read Leonard Talmy
 being	van	ens	istota	3416	u	N		
 belief	hit	opinio	wiara	1063		N	believe	
 believe	hisz	credo	wierzyc1	1062	u	V	=AGT THINK[=PAT[true,real]]	
@@ -557,9 +557,9 @@ besides	amellett	praeterea	z_wyja1tkiem	165		D	other
 best	legjobb	optimus	najlepszy	1515		A	good, ER all	
 bestow	adoma1nyoz	dono	udzielic1	118		V	=AGT CAUSE[=DAT HAS =PAT[gift]]	
 better	jobb	melior	lepszy	1198	u	A	good, ER '	
-between	ko2ze1	in/inter	mie1dzy	1409	u	G	IN/2758 space/2327, space/2327 SEPARATE =REL	
+between	ko2ze1	in/inter	mie1dzy	1409	u	G	AT/2744 space/2327, space/2327 SEPARATE =REL	
 beyond	tu1l	ultra	poza	2437	u	D		
-bicycle	bicikli	birota	rower	292	u	N	vehicle, HAS frame, HAS [two(wheels)]	
+bicycle	bicikli	birota	rower	292	u	N	vehicle, HAS frame, HAS [two(wheel)]	
 big	nagy	magnus	duz1y	1744	u	A	size, ER '	
 bill	cso3r	rostrum	dzio1b	421		N	beak	
 bill	sza1mla	ratio	rachunek	2140		N	list, price ON	
@@ -568,20 +568,20 @@ bind	ko2t	ligo	wia1zac1	1393		U	tie
 bird	mada1r	avis	ptak	1576	u	N	vertebrate, MAKE egg, HAS feather, HAS wings	naive_theo: sit ON egg
 birth	szu2lete1s	ortus	narodziny	2263		N	born	
 bit	darab	frustum	kawal1ek	448		N	piece	
-bite	falat	frustum	kawal1ek	722	u	N	' BITE/1001	
+bite	falat	frustum	kawal1ek	722	u	N		
 bite	harap	mordeo	gryz1c1	1001	u	V	cut, INSTRUMENT <tooth>	
 bitter	keseru3	amarus	goz1ki	1306	u	A	taste, sharp, coffee IS_A, poison IS_A	
 bitter-tasting	keseru3_i2zu3	#	#	3243		A	HAS bitter(taste)	2
-black	fekete	niger	czarny	761	u	A	colour, dark, death	NOTHAS colour ?
-blade	penge	lamina	ostrze	1954		N	CUT object, HAS edge, flat, <sword> HAS	
+black	fekete	niger	czarny	761	u	A	colour, dark, death	HAS lack(colour )?
+blade	penge	lamina	ostrze	1954		N	cut, HAS edge, flat, <sword> HAS	
 blame	hiba1ztat	incuso	winic1	1052		V	think[=AGT[ responsible ]]	
 bleed	ve1rzik	sanguino	krwawic1	2600		U	blood FROM/2742	
 bless	a1ld	benedico	bl1ogosl1awic1	70		V	=AGT CAUSE =PAT[holy]	
-blind	vak	caecus	s1lepy	2572		N	NOTHAS ability[see]	
+blind	vak	caecus	s1lepy	2572		N	lack(can(see))	
 block	akada1lyoz	obstruo	blokowac1	129		V	=AGT CAUSE =PAT[lack(progress), lack(happen)]	
 block	to2mb	moles	blok	2408		N		
 blood	ve1r	sanguis	krew	2599	u	N	fluid, IN/2758 body, red	
-blow	csapa1s	ictus	cios	2714	u	V	sudden, hard, animal HIT	INSTRUMENT <fist>
+blow	csapa1s	ictus	cios	2714	u	V	sudden, hard, =AGT[animal], hit	INSTRUMENT <fist>
 blow	fu1j	flo	dmuchac1	864	u	V	move, =AGT[<wind>], =PAT[<air>]	
 blue	ke1k	caeruleus	niebieski	1237		A	colour, sky HAS colour, cold	RA: boyish
 blue-black	ke1k-fekete	#	#	3242		A	blue, black	2
@@ -591,14 +591,14 @@ blue-white	ke1kesfehe1r	#	#	3104		A	blue, white
 bluish-green	ke1keszo2ld	#	#	3319		A	green, blue	1
 bluish-purple	ke1keslila	#	#	3318		A	purple, blue	1
 board	deszka	axis	deska	456	u	N	artefact, long, flat	
-boast	ke1rked	glorior	chwalic1_sie1	1255		V	speak, =AGT ADMIRE[=AGT]	
+boast	ke1rked	glorior	chwalic1_sie1	1255		V	speak, proud	
 boat	hajo1	navis	l1o1dz1	976	u	N	ship, small, open/1814	
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
 boil	forr	fervo	gotowac1_sie1	861		U	liquid, hot, <'COOK/825>, gas IN/2758	
 bold	ba1tor	animosus	odwaz1ny	212		A	brave	
 bomb	bomba	pyrobolus	bomba	331		N	weapon, explode	
 bone	csont	os	kos1c1	431		N	rigid, tissue, frame, PART_OF body	
-book	ko2nyv	liber	ksia1z1ka	1384	u	N	text IN/2758, HAS pages, HAS cover, ' READ	
+book	ko2nyv	liber	ksia1z1ka	1384	u	N	text IN/2758, HAS more(page), HAS cover, ' READ	
 boot	csizma	caliga	but	413		N	COVER foot, COVER leg	
 border	hata1r	confinium	granica	1011		N	official, line, SEPARATE <two(country)>	RA
 bore	fu1r	perforo	wiercic1	865		V	=AGT CAUSE[hole IN/2758 =PAT], INSTRUMENT roll	<drill>
@@ -623,19 +623,19 @@ brain	agy	cerebrum	mo1zg	122		N	vertebrate HAS, CONTROL body, feel, conscious, t
 branch	a1g	ramus	gal1a1z1	66	u	N	part, long, <tree HAS>, depend	
 branch-like	a1g-szeru3	#	#	3317		A	branch	broccoli stem % 1
 brass	bronz	aes	bra1z	340	u	N	metal, yellowish	alloy
-brass	re1zfu1vos	aerisonus	de1te	2715	u	N	instrument, HAS [metal(tube)], musician BLOW/864	trumpet IS_A, trombone IS_A, french_horn IS_A,
+brass	re1zfu1vos	aerisonus	de1te	2715	u	N	instrument, HAS [metal(tube)], air[move] FOR/2782	trumpet IS_A, trombone IS_A, french_horn IS_A,
 brave	ba1tor	fortis	odwaz1ny	213	u	A	confident, AT/2744 bad[<danger>], active	ND: HAS courage
 bread	kenye1r	panis	chleb	1292	u	N	food, FROM/2742 flour, bake MAKE	
 bread-like	kenye1r-szeru3	#	#	3316		A	food, FROM/2742 flour, bake MAKE	1
 breadth	sze1lesse1g	latitudo	szerokos1c1	2167		N		
-break	to2r	frango	l1amac1	2411	u	V	=PAT[object], =PAT[rigid], after(separate), after(=PAT HAS pieces), sudden, violent	
+break	to2r	frango	l1amac1	2411	u	V	=PAT[object], =PAT[rigid], after(separate), after(=PAT HAS more(piece)), sudden, violent	
 breakfast	reggeli	ientaculum	s1niadanie	2003		N	first(meal), IN/2758 morning	
 breast	mell	mamma	piers1	1656		N	two, organ, ON chest, woman HAS	
 breath	le1legzet	spiritus	oddech	1500		N	=AGT[animal] MOVE =PAT[air], air IN/2758 lung, air[out]	% [animal INHALE] OR [animal EXHALE]
 breathe	le1legzik	spiro	oddechac1	1501	u	U	breath	
 breed	tenye1szt	educo	hodowac1	2352		V		
 brick	te1gla	later	cegl1a	2321		N		
-bridge	hi1d	pons	most	1037		N	structure, PART_OF road, OVER <river>	
+bridge	hi1d	pons	most	1037		N	structure, PART_OF road, vertical(ER <river>)	
 bright	vila1gos	clarus	jasny	2629	u	A	shine	
 brightly-coloured	vila1gos_szi2nu3	#	#	3205		A	HAS bright(colour)	8
 bring	hoz	fero	przynosic1	1088	u	V	=AGT CAUSE[=PAT[here]]	
@@ -649,31 +649,31 @@ brownish-grey	barna1sszu2rke	#	#	3240		A	grey, brown	2
 brownish-yellow	barna1s-sa1rga	#	#	3315		A	yellow, brown	1
 brush	kefe	peniculus	szczotka	1277	u	N	device, HAS hair/3359, HAS handle, clean INSTRUMENT, polish INSTRUMENT, paint INSTRUMENT	
 bucket	vo2do2r	hama	wiadro	2656		N		
-build	e1pi1t	aedifico	budowac1	513		V	make, =PAT[<building>] HAS structure, before(material), things PART_OF =PAT	
-building	e1pu2let	aedificium	budynek	3125	u	N	object, structure, lack(outdoor) IN/2758, HAS roof, HAS walls, <house>	
+build	e1pi1t	aedifico	budowac1	513		V	make, =PAT[<building>] HAS structure, before(material), thing PART_OF =PAT	
+building	e1pu2let	aedificium	budynek	3125	u	N	object, structure, lack(outdoor) IN/2758, HAS roof, HAS more(wall), <house>	
 bull	bika	taurus	byk	3423	u	N		
 bullet	golyo1	glans	pocisk	901		N	metal, FROM/2742 gun	
-bunch	ko2teg	fascis	kupa	1397		N	group, things MEMBER, close/1413, before(fasten)	
-burn	e1g	ardeo	palic1	497	u	U	DESTROY =PAT, INSTRUMENT fire	
+bunch	ko2teg	fascis	kupa	1397		N	group, thing MEMBER, close/1413, before(fasten)	
+burn	e1g	ardeo	palic1	497	u	U	after(lack(=PAT)), INSTRUMENT fire	
 burst	fakad	scato	wytrysna1c1	718		U	=AGT[begin]	
 burst	robban	#	#	2709		V	explode	
 bury	ela1s	infodio	zakopac1	594		V	=AGT CAUSE[=PAT IN/2758 ground]	
 bury	temet	humo	grzebac1	2347		V		
-bus	busz	autocarrus	autobus	356		N	vehicle, [more(passengers)] IN/2758, HAS motor, HAS stop, HAS regular(way)	
+bus	busz	autocarrus	autobus	356		N	vehicle, [more(passenger)] IN/2758, HAS motor, HAS stop, HAS regular(way)	
 bush	bokor	frutex	krzew	324		N	plant, low	
 business	u2zlet	negotium	biznes	2974	u	N	organization, MAKE money	
-busy	elfoglalt	occupatus	zaje1ty	616		A	active, work, NOTHAS time	
+busy	elfoglalt	occupatus	zaje1ty	616		A	active, work, HAS lack(time)	
 but	de	sed	ale	450	u	D	opposition	
 butter	vaj	butyrum	masl1o	2570		N	RESEMBLE fat/3337, soft, yellowish, FROM/2742 milk, food	
 buttocks	fene1k	#	#	3363		N	PART_OF body, sit ON	
-button	gomb	bulla/malleolus	guzik	902	u	N	PART_OF machine[electric], operate, finger PUSH	
+button	gomb	bulla/malleolus	guzik	902	u	N	PART_OF machine[electric], finger PUSH	
 buy	vesz	emo	kupowac1	2609	u	V	exchange, =AGT CAUSE[=AGT HAS =PAT, =FROM HAS money], before(=AGT HAS money), before(=FROM HAS =PAT), =AGT[pay/812]	
 buzzer	csengo3	bombinator	syrena	3425	u	N		
 by	-ra	per	przy	40	u	G	FOLLOW =REL	? % before(lack(=REL))
-cage	beza1r	claudo	uwie1zic1	284		V	=AGT CAUSE[=PAT IN/2758 cage/1307]	no Longman in the first 20 google results
-cage	ketrec	cavea	klatka	1307		N	artefact, animal IN/2758, enclose	wires or bars that lets in air and light/739
-cake	torta	scriblita	ciasto	2434	u	N	food, sweet, [ ' MAKE] INSTRUMENT bake, flour IN/2758, butter IN/2758, sugar IN/2758, eggs IN/2758	
-calculate	sza1mol	calculo	obliczac1	2141		V	=AGT DETERMINE number, FROM/2742 information	
+cage	beza1r	claudo	uwie1zic1	284		V	=AGT CAUSE[=PAT IN/2758 cage/1307]	
+cage	ketrec	cavea	klatka	1307		N	artefact, animal IN/2758, enclose	wire or bar that let in air and light/739
+cake	torta	scriblita	ciasto	2434	u	N	food, sweet, [ ' MAKE] INSTRUMENT bake, FROM/2742 flour, FROM/2742 butter, FROM/2742 sugar, FROM/2742 egg	
+calculate	sza1mol	calculo	obliczac1	2141		V	=AGT CAUSE[=AGT KNOW number], FROM/2742 information	
 call	hi1v	voco	wol1ac1	1045	u	V	speak, =AGT MAKE[contact]	
 calm	nyugodt	tranquillus	spokojny	1827	u	A	lack( motion), quiet, lack(angry), lack(nervous), lack(upset)	motion NOTPRED
 camel	teve	camelus	wielbl1a1d	2382	u	N		
@@ -687,8 +687,8 @@ cannot	nem_ke1pes	#	#	2795		U	lack(can/1246)	negation
 cap	fedo3	operculum	nakre1tka	753		N	protect, cover, close/3381	
 cap	sapka	#	#	2716		N	garment, AT/2744 head, soft	FIT[close/1413]
 capital	fo3-	maximus/summus	gl1o1wny	820		A	important, ER ' , main	
-captain	kapita1ny	centurio	kapitan	1228		N	rank, COMMAND[team]	
-car	auto1	automobile	samocho1d	184	u	N	vehicle, HAS four(wheels), <HAS engine>	
+captain	kapita1ny	centurio	kapitan	1228		N	rank, LEAD/1803 team	
+car	auto1	automobile	samocho1d	184	u	N	vehicle, HAS four(wheel), <HAS engine>	
 carbon	sze1n	carboneum	we1giel	3426	u	N		
 card	ka1rtya	charta	karta	1211	u	N	flat, rectangular, stiff, paper	
 card	lap	pagina	karta	1490	u	N		
@@ -718,7 +718,7 @@ cell	sejt	cella	komo1rka	2076	u	N	HAS border, small, space/2327
 cement	cement	lithocolla	cement	367		N	material, build INSTRUMENT	
 cent	cent	teruncius	cent	368	u	N	amount, <money>, small	
 centre	ko2ze1ppont	centrum	centrum	1412	u	N	middle	
-century	e1vsza1zad	saeculum	stulecie	547		N	period, hundred(years)	
+century	e1vsza1zad	saeculum	stulecie	547		N	period, hundred(year)	
 cereal	gabona	#	#	3340		N	food FROM/2742 grain, plant AT/2744 agriculture, wheat IS_A, rice IS_A	
 ceremony	u2nnepe1ly	sollemne	uroczystos1c1	2497		N	formal, act, <PART_OF religion>, tradition	conventional % HUN szertarta1s
 certain	egyes	quidam	pewien	567	u	A	' KNOW	
@@ -729,11 +729,11 @@ chairman	elno2k	praeses	prezes	636		N	PART_OF group[<committee>], direct
 chalk	kre1ta	creta	kreda	1442		N	<white>, CAUSE[mark ON surface], <write> INSTRUMENT	<blackboard> HAS surface
 challenge	kihi1v	provoco	wyzywac1	1334		V	=AGT OFFER[=PAT[compete]], conflict	
 chance	ese1ly	potestas	szansa	691		N	probability	
-chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(control) OVER	
+chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD)	
 change	csere	mutatio	zmiana	404	u	N		see 2554 (no use in the first 20 result with -„to change”)
 change	va1ltoztat	muto	zmieniac1	2554	u	V	=PAT[different[after]]	
-character	jellem	habitus	charakter	1187	u	N	features, one HAS, <person>, moral, <strength>	
-characteristic	tulajdonsa1g	#	#	3352		N	< ' RECOGNIZE>	jellemzo3
+character	jellem	habitus	charakter	1187	u	N	feature[<more>], one HAS, <person>, moral, <strength>	
+characteristic	tulajdonsa1g	#	#	3352		N	CAUSE recognize	
 charge	di1j	merces	opl1ata	457	u	N	' PAY/812	
 charge	rohamoz	oppugno	atakowac1	2035	u	V		see 457, 2541
 charge	va1d	accusatio	oskarz1enie	2541	u	N	responsible, =PAT HAS control	HUN megbi1za1s, felelo3sse1g
@@ -749,27 +749,27 @@ cheerful	vi1g	laetus	wesol1y	2620		A	HAS joy
 cheese	sajt	caseus	ser	2060		N	food, solid, FROM/2742 milk, <yellow>, <white>	
 chemical	vegyi	chemicus	chemiczny	2602		A	chemistry	
 chemistry	ke1mia	chemia	chemia	1239		N	science, ABOUT material, ABOUT atom	ABOUT molecule
-cheque	csekk	gyrus	czek	397		N	paper, write ON, amount ON, ' SIGN, pay/812 INSTRUMENT	
+cheque	csekk	gyrus	czek	397		N	paper, write ON, amount ON, signature ON, pay/812 INSTRUMENT	
 chest	mell	pectus	piers1	1657		N	front, PART_OF trunk/2759	
 chew	ra1g	rodo	z1uc1	1983		N	bite/1001, CAUSE[=PAT[fluid]]	
 chew_up	megra1g	arrodo	z1uc1	1638		V		no xml
 chick	csibe	pullus	kurczak	407		N	young(chicken)	
 chicken	csirke	pullus	kurcze1	412		N	poultry	naive_theo FOR/2782[meat,egg] % ND
 chide	korhol	vitupero	ganic1	1432		V	say, lack(approve)	
-chief	fo3	primus	gl1o1wny	817		A		no use in the first 40 results
+chief	fo3	primus	gl1o1wny	817		A		
 child	gyerek	puer/puella	dziecko	931	u	N	person, young, lack(responsible), parent MAKE	lack(adult)
-chimney	ke1me1ny	fumarium	komin	1238		N	smoke THROUGH, vertical, structure, <ABOVE roof>	
+chimney	ke1me1ny	fumarium	komin	1238		N	smoke THROUGH, vertical, structure, <vertical(ER roof)>	
 chin	a1ll	mentum	broda	73		N	ON face, AT/2744 centre, PART_OF lower(jaw)	
 chocolate	csokola1de1	chocolata	czekolada	426		N	food, sweet	cacao IN/2758
 choice	va1logatott	electus	wyborowy	2550		A		
-choose	va1laszt	eligo	wybierac1	2546	u	V	DECIDE[=PAT FOR =AGT]	
+choose	va1laszt	eligo	wybierac1	2546	u	V	=AGT CAUSE[=PAT FOR =AGT]	
 church	egyha1z	ecclesia	kos1cio1l1	578	u	N	FOR/2782 worship, institution, religion HAS	ND
-cigarette	cigaretta	cigarulus	papieros	372	u	N	[tobacco[fine]] FILL tube[thin/2598,paper], ' SMOKE	
+cigarette	cigaretta	cigarulus	papieros	372	u	N	full(tobacco[fine] IN/2758 tube[thin/2598,paper]), HAS consume[burn]	
 cinema	mozi	cinema	kino	1730		N	building, film IN/2758	
 circle	ko2r	circulus	kol1o	1386		N	shape, round, close/3381, curve	
-circular	kerek	rotundus	okra1gl1y	1294		A	shape, SIMILAR circle, curve	
+circular	kerek	rotundus	okra1gl1y	1294		A	shape, RESEMBLE circle, curve	
 circular	ko2rko2ro2s	rotundus	okra1gl1y	1389		A	circle	
-circular	ko2rleve1l	litterae_passim_dimissae	oko1lnik	1390		N	notice, lot/3394 READ	
+circular	ko2rleve1l	litterae_passim_dimissae	oko1lnik	1390		N	notice, many(person) READ	
 citizen	polga1r	civis	obywatel	1963		A	person, MEMBER political	
 city	va1ros	urbs	miasto	2559	u	N	town, buy IN/2758, society/2285 IN/2758	
 civilize	civiliza1l	a_fera_agrestique_vita_ad_humanum_cultum_civilemque_deduco	cywilizowac1	379		V	=AGT CAUSE[=PAT IN/2758 society/2285]	
@@ -778,8 +778,8 @@ clasp	csat	fibula	klamra	389		N	device, fasten
 class	oszta1ly	ordo	klasa	1920		N	group, study	
 clatter	zo2ro2g	crepo	klekotac1	2680		U		
 claw	karom	#	#	2821		N		non-LDV, added from swadesh
-clay	agyag	argilla	glina	123	u	N	soil, BECOME hard	
-clean	tiszta	mundus	czysty	2389	u	A	NOTHAS dirt	
+clay	agyag	argilla	glina	123	u	N	soil, after(hard)	
+clean	tiszta	mundus	czysty	2389	u	A	HAS lack(dirt)	
 cleanse	tiszti1t	purgo	czys1c1ic1	2396		V	=AGT CAUSE[=PAT[clean]]	
 clear	tiszta	purus	czysty	2390	u	A	can/1246[see THROUGH]	easily seen through
 clergy	papsa1g	#	#	2940		N	official, LEAD/2617 religion, <priest>	
@@ -787,9 +787,9 @@ clerk	u2gyinte1zo3	clericus	urze1dnik	2491		N
 clever	okos	acutus	ma1dry	1894	u	A	HAS mind[good]	
 cleverly-designed	u2gyesen_megtervezett	#	#	3314		A	HAS clever(design)	1
 cliff	szirt	scopulus	klif	2222		N	high, rock, <AT/2744 shore>	
-climb	ma1szik	enitor	wspinac1_sie1	1573		U	move, after(up), hands AT/2744 surface, feet AT/2744 surface	
+climb	ma1szik	enitor	wspinac1_sie1	1573		U	move, after(up), hand AT/2744 surface, foot AT/2744 surface	
 cling	tapad	adhaereo	przylegac1	2307		V		
-clock	o1ra	horologium	zegar	1833		N	instrument, MEASURE time, SHOW time, numbers ON	
+clock	o1ra	horologium	zegar	1833		N	instrument, FOR[KNOW time], SHOW time, more(number) ON	
 close	csuk	claudo	zamkna1c1	3381	u	V	move, after(part AT/2744 other(part)), enter[after, lack], operate[after, lack], change[after, lack]	
 close	ko2zeli	intimus	bliski	1413	u	A	near	
 cloth	poszto1	pannus	material1	1973		N	material, HAS fibre, wool IS_A	to dry a person or animal by rubbing them with a cloth
@@ -804,7 +804,7 @@ coagulate	megalvad	concresco	te1z1ec1	1617		U		no xml
 coal	sze1n	carbo	we1giel	2169		N	mineral, hard, black, burn, MAKE heat	
 coarse	durva	asper	szorstki	491		A	rough	
 coast	part	litus	brzeg	1946		N	land, NEXT_TO sea	
-coat	kaba1t	tunica_manicata	pl1aszcz	1213	u	N	garment, HAS sleeve, outer, garment, COVER shoulders, COVER waist	
+coat	kaba1t	tunica_manicata	pl1aszcz	1213	u	N	garment, HAS sleeve, outer, garment, COVER both(shoulder), COVER waist	
 coconut	ko1kuszdio1	cocos	kokos	1369		N	fruit, large, brown, hard, HAS white (flesh), hole PART_OF, white(fluid) IN/2758 hole	
 coffee	ka1ve1	coffea	kawa	1212		N	plant HAS seed, drink, CAUSE active	
 coin	e1rme	nummus	moneta	524		N	metal, flat, circular/1294, money	
@@ -816,12 +816,12 @@ college	egyetem	universitas	uniwersytet	572	u	N	university
 colour	szi1n	colour	kolor	2207	u	N	sensation, light/739, red IS_A, green IS_A, blue IS_A	
 colour	szinez	colouro	kolorowac1	2219	u	V		
 comb	fe1su3	pecten	grzebien1	746		N	artefact, CAUSE[hair/3359[tidy]], HAS tooth	
-comb	le1p	favus	plaster	1504		N		all xml uses are „fe1su2”, 746
+comb	le1p	favus	plaster	1504		N		
 combine	vegyi1t	misceo	mieszac1	2603		V	=PAT[more], after(together)	
 come	jo2n	venio	przychodzic1	1195	u	U	move, =AGT[near[after]]	
 come_to_pieces	sze1tesik	dissolvor	rozpadac1_sie1	2174		U		
 comfort	ke1nyelem	commoditas	wygoda	1240		N	pleasure, rest	
-comfort	vigasz	solacium	pocieszenie	2626		N	REDUCE grief	
+comfort	vigasz	solacium	pocieszenie	2626		N	good FOR soul	
 command	parancs	iussum	rozkaz	1941		N	speak, HAS authority, CAUSE =DAT[=PAT]	
 commemorate	megu2l	celebro	upamie1tniac1	1653		V	=AGT REMEMBER, INSTRUMENT ceremony	no xml
 committee	bizottsa1g	consilium	komitet	301		N	group, people, official, HAS purpose	
@@ -830,34 +830,34 @@ communicate	kommunika1l	#	#	3145		U	=AGT GIVE information
 companion	ta1rs	comes	kompan	2282		N	person, WITH/60 =POSS	
 company	csapat	manus	towarzystwo	385	u	N	group, human	
 company	va1llalat	negotiatio	firma	2549	u	N	FOR/2782 business, organization	
-compare	o2sszehasonli1t	comparo	poro1wnywac1	1862		V	<different>	does not easily lose its value compared with other currencies
+compare	o2sszehasonli1t	comparo	poro1wnywac1	1862		V	<different>	
 comparison	o2sszehasonli1ta1s	comparatio	poro1wnanie	1863		N	compare	
 compass	ta1jolo1	acus_magnetica	kompas	2273		N		
 compete	versenyez	contendo	rywalizowac1	2608		U	goal PART_OF, victory PART_OF, opponent PART_OF	
 competition	verseny	certamen	konkurs	3430	u	N		
 complain	panaszkodik	queror	skarz1yc1_sie1	1937		V	express, =PAT[situation[bad FOR/2782 =AGT]]	
-complete	teljes	totus	kompletny	2345	u	A	HAS parts[all]	
+complete	teljes	totus	kompletny	2345	u	A	HAS part[all]	
 complex	o2sszetett	#	#	3341		A	HAS many(part), difficult, group	difficult to understand
 complicated	bonyolult	#	#	3032		V	difficult	
 compound	elegy	mixtio	zwia1zek	606		A	material IN/2758, other(material) IN/2758	
 computer	sza1mi1to1ge1p	ordinatrum	komputer	2968	u	N	device, calculate, HAS programme, electric, information IN/2758	
 concern	gond	sollicitudo	zmartwienie	904		N	important, FOR/2782 =PAT, CAUSE =PAT[anxious]	
 concerning	illeto3leg	quod_pertinet_ad_aliquem	dotycza1cy	1133		G	about	ill-formed
-concert	koncert	certamen_musicum	koncert	1425		N	' PERFORM, music AT/2744, entertainment	
+concert	koncert	certamen_musicum	koncert	1425		N	event, music AT/2744, entertainment	
 condition	felte1tel	condicio	warunek	782	u	N	CAUSE[=REL[possible]]	
 condition	ko2ru2lme1ny	status	warunek	2699	u	N	situation	content: modify
 conditions	ko2ru2lme1nyek	status	warunki	3433	u	N		
 conduct	vezet	#	#	3353		V	=AGT CAUSE[=PAT AT/2744 goal], <energy[flow] IN/2758>	
 cone	ku1p	#	#	2703		N	object, HAS one(side), HAS flat(bottom), HAS peak	
 confident	magabiztos	#	#	3027		A	THINK good[self, after, sure]	sure
-confine	elza1r	claudo	zamkna1c1	657		V		keep/1646, =PAT IN/2758 bounds
+confine	elza1r	claudo	zamkna1c1	657		V	keep/1646, bind	
 conflict	visza1ly	#	#	3364		N	lack(agree), fight, two AT/2744, <must[choose]>	
 conform	megfelel	#	#	3375		N	=AGT[good], good FOR/2782 =PAT	
 confuse	o2sszekever	confundo	mylic1	1864		V	think[clear[lack]], lack(understand), mistake, =AGT THINK thing[thing[other]]	problematic: confuse sy
 confused	zavaros	confusus	zagubiony	2674		A		
 connect	kapcsol	coniungo	l1a1czyc1	1227		V	join	
 conquer	ho1di1t	expugno	podbijac1	1067		V	defeat, INSTRUMENT force	
-conscience	lelkiismeret	conscientia	sumienie	1531		N	=POSS HAS, KNOW good, ABOUT moral, PREFER right/1191, GOVERN thoughts, GOVERN actions, =POSS HAS thoughts, =POSS HAS actions	
+conscience	lelkiismeret	conscientia	sumienie	1531		N	=POSS HAS, KNOW good, ABOUT moral, ABOUT right/1191, LEAD thoughts, LEAD actions, =POSS HAS thoughts, =POSS HAS actions	
 conscious	tudatos	conscius	s1wiadomy	2459		A	notice, realize, awake, understand, deliberate, think, know	
 consecrated	szentelt	sacer	us1wie1cony	2191		A		
 consider	tekint	considero	rozwaz1ac1	2339		V	think	
@@ -866,27 +866,27 @@ consist	van	consisto	skl1adac1_sie1	2586	u	V	=PAT PART_OF =AGT	ENG consist_of, H
 consonant	egybehangzo1	congruens	wspo1l1brzmia1cy	560		A	agree	
 consonant	ma1ssalhangzo1	consonans	spo1l1gl1oska	1572		N	sound/993, PART_OF speech	
 constant	a1llando1	#	#	3365		A	lack(change)	
-consume	elfogyaszt	absumo	konsumowac1	618		V	=AGT USE[resource,<time>,<energy>,<food>,<drink>]	no Longman % contradicting defaults
+consume	elfogyaszt	absumo	konsumowac1	618		V	=AGT USE[resource,<time>,<energy>,<food>,<drink>]	contradicting defaults
 contact	e1rintkeze1s	#	#	3366		N	thing AT/2744 other(thing)	
 contain	tartalmaz	contineo	zawierac1	2313	u	V	=PAT IN/2758 =AGT	
 container	tarta1ly	vasculum	pojemnik	2801	u	N	material IN/2758	
 content	ele1gedett	contentus	zadowolony	600		A		see contents % in ele1gedett sense: feeling, lack(NEED improvement)
 contents	tartalom	argumentum	zawartos1c1	2314		N	IN/2758 '	
 continue	folytat	pergo	kontinuowac1	850	u	V	after(action), before(action)	lack(stop)
-contract	megkap	afficior	zarazic1_sie1	1632		V		no xml use in this sense, see 2205
+contract	megkap	afficior	zarazic1_sie1	1632		V		see 2205
 contract	szerzo3dik	paciscor	zawierac1_umowe1	2205		V	agree, written, =AGT AT/2744 law	
 control	befolya1s	vis	kontrola	253	u	N	CAUSE[progress[<good>]], CAUSE happen, =PAT AT/2744 happen	fit/1135
 control	szaba1lyoz	ordino	kontrolowac1	2148	u	V		control
 control	vezete1s	ductus	kontrola	2619	u	N		control
-convenient	ke1nyelmes	commodus	wygodny	1241		A	satisfy	english meaning is wider
+convenient	ke1nyelmes	commodus	wygodny	1241		A	satisfy	English meaning is wider
 conversation	ta1rsalga1s	sermo	rozmowa	2286		N	lack(formal), talk	HUN = besze1lgete1s
-cook	fo3l	coquitur	gotowac1_sie1	822	u	U		COOK/825
-cook	fo3z	coquo	gotowac1	825	u	V	=AGT PREPARE <food>, INSTRUMENT heat	
-cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, COOK/825 '	
+cook	fo3l	coquitur	gotowac1_sie1	822	u	U		
+cook	fo3z	coquo	gotowac1	825	u	V	=AGT MAKE <food>, INSTRUMENT heat	
+cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, MAKE food	
 cool	hu3l	frigesco	chl1odzic1_sie1	1101		V	=PAT HAS temperature, after(temperature), ' ER temperature	%%
 cool	hu3vo2s	frigidus	chl1odny	1103		A	temperature, normal ER, ER cold	
 copper	re1z	cyprium	miedz1	2000		N	red, brown, metal, conduct	
-copy	ma1sol	transcribo	kopiowac1	1571	u	V	=AGT CAUSE [' SIMILAR =PAT]	empty argument, not the defendum %property[all], =PAT[original] HAS property
+copy	ma1sol	transcribo	kopiowac1	1571	u	V	=AGT CAUSE [' RESEMBLE =PAT]	empty argument, not the defendum %property[all], =PAT[original] HAS property
 cord	ko2te1l	restis	sznurek	1395		N	thin/2598, <rope>	
 corn	kukorica	zea	kukurydza	1460	u	N	AT/2744 agriculture, cereal, grain[yellow], food	
 corner	sarok	angulus	ro1g	2062		N	point, turn AT/2744, sharp, two(side) AT/2744, catch/828 IN/2758, <four>, lack(centre)	
@@ -894,10 +894,10 @@ corner	zug	angulus	ka1t	2693		N		2062
 correct	helyes	rectus	poprawny	1029	u	A	CONFORM norm	
 cost	a1r	pretium	koszt	84	u	N	price	
 cotton	pamut	linum_xylinum	bawel1na	1936		N	plant, soft, white, fibre	
-cough	ko2ho2g	tussio	kaszlec1	1373		V	air FROM/2742 lungs, =AGT HAS lungs, sudden, noise AT/2744, throat[<free>[after]], [bad AT/2744 throat] CAUSE	
+cough	ko2ho2g	tussio	kaszlec1	1373		V	air FROM/2742 lung, =AGT HAS lung, sudden, noise AT/2744, throat[<free>[after]], [bad AT/2744 throat] CAUSE	
 could	ke1pes	potest	mo1c	1247		V		to remove?
 council	tana1cs	consilium	rada	2300		N		
-count	sza1mol	numero	liczyc1	2142	u	V	=AGT DETERMINE number, =PAT HAS number	to unify
+count	sza1mol	numero	liczyc1	2142	u	V	calculate, other(number) FOLLOW number	
 counter-	ellen-	contra-	kontr-	629		D	oppose	
 country	orsza1g	terra	pan1stwo	1913	u	N	state/76	
 countryside	vide1k	#	#	3049		N	land, NOTIN town	
@@ -905,10 +905,10 @@ courage	ba1torsa1g	animus	odwaga	214		N	brave	will ER fear % will[strong] 2011.0
 course	kurzus	cursus	kurs	2775	u	N	series, lessons	
 course	pa1lya	cursus	bieg	1927	u	N	way	
 court	bi1ro2sa1g	curia	sa1d	3124	u	N	place/1026, INSTRUMENT law, judge AT/2744	related to 2515
-court	udvar	curia	sa1d	2515	u	N	<outdoor>, place/1026, ' SURROUND	related to 3137
+court	udvar	curia	sa1d	2515	u	N	<outdoor>, place/1026, ' AROUND	related to 3137
 cover	fed	tego	okryc1	750	u	V	=AGT ON =PAT, protect, CAUSE[lack(=AGT SEE =PAT)]	
 cover_up	befed	contego	zakryc1	251		V		=AGT COVER =PAT[<dishonest>]
-cover_up	eltitkol	obscuro	ukrywac1	651		V	=AGT CAUSE =PAT[secret]	=AGT ATTEMPT [public NOTHAS knowledge[truth]] % =AGT ATTEMPT [lack(public DISCOVER truth)] % binary lack
+cover_up	eltitkol	obscuro	ukrywac1	651		V	=AGT CAUSE =PAT[secret]	
 cow	tehe1n	vacca	krowa	2335		N	mammal, <female>, <cattle>, <MAKE milk>	„AT/2744 farm” moved to the definition of cattle % <mature>
 coward	gya1va	timidus	tcho1z1liwy	918		A		danger CAUSE[HAS fear]
 crack	re1s	rima	pe1knie1cie	1994	u	N	narrow, hole	
@@ -921,41 +921,41 @@ cream	szinejava	flos	s1mietanka	2218		N
 creature	teremtme1ny	animal	stworzenie	2354		N	animal	
 creep	ku1szik	repo	czol1gac1_sie1	1445		N	move, body AT/2744 ground	
 cricket	tu2cso2k	gryllus	s1wierszcz	2440		N	insect, brown, jump, MAKE sound/993	leap, <chirp>, HAS antennae
-crime	bu3n	delictum	zbrodnia	346	u	N	action, bad, law FORBID	
+crime	bu3n	delictum	zbrodnia	346	u	N	action, illegal	
 criminal	bu3no2s	sceleratus	kryminalny	347		A	crime	
 criticize	kritiza1l	mordeo	krytykowac1	3040	u	V	talk, talk ABOUT[problem IN/2758 =PAT]	
 crop	ro2vidre_va1g	reseco	wycinac1	2030	u	V		see 2361
 crop	terme1s	messis	zbio1r	2361	u	N	plant, AT/2744 agriculture, product	
-cross	kereszt	crux	krzyz1	1300	u	N	line MEET other(line), symbol, <HAS upright(post/2740)>, <HAS horizontal>, <christian>	
+cross	kereszt	crux	krzyz1	1300	u	N	line AT/2744 other(line), symbol, <HAS upright(post/2740)>, <HAS horizontal>, <christian>	
 crowd	to2meg	multitudo	tl1um	2409		N		
 crown	korona	corona	korona	1434		N	symbol, ON head, gold, authority	
 cruel	kegyetlen	crudelis	okrutny	1283		A	CAUSE pain	HAS lack(mercy)
 crush	o2sszeroppant	infringo	miaz1dz1yc1	1866		N	press, break, INSTRUMENT[two(surface)]	
 cry	si1r	fleo	pl1akac1	2095		U	weep[aloud], grief CAUSE	
 cry_out	felkia1lt	exclamo	wykrzykna1c1	778		U	say, loud	which sense?
-cube	kocka	#	#	2701		N	object, HAS four(sides), HAS flat(top), HAS flat(bottom)	
-cultivate	kimu3vel	excolo	kultywowac1	1345		V	=AGT PREPARE =PAT[land], crop[raise[after]] AT/2744 =PAT	plowing, harrow
+cube	kocka	#	#	2701		N	object, HAS four(side), HAS flat(top), HAS flat(bottom)	
+cultivate	kimu3vel	excolo	kultywowac1	1345		V	=AGT[work] ON =PAT[land], crop[raise[after]] AT/2744 =PAT	
 cultivate	termeszt	aro	uprawiac1	2364		V		
 cup	cse1sze	phiala	filiz1anka	395	u	N	small, open/1814, CONTAIN drink, HAS bottom, HAS handle, drink INSTRUMENT	
 cup	kupa	poculum	kubek	1463	u	N	open/1814, contain, HAS flat(bottom), drink IN/2758	
-cupboard	szekre1ny	armarium	szafa	2180	u	N	furniture, HAS doors, HAS shelf, store	
+cupboard	szekre1ny	armarium	szafa	2180	u	N	furniture, HAS door, HAS shelf, store	
 cure	gyo1gyi1t	sano	uzdrawiac1	934		V	heal	
 cure	ku1ra	cura	leczenie	1444		N	AT/2744 disease, CAUSE health	
-curl	fu2rt	cirrus	lok	875		N		HUN hajlik % TWIST <hair/3359>, MAKE[<ringlets>,<coils>]
+curl	fu2rt	cirrus	lok	875		N		HUN hajlik % TWIST <hair/3359>, MAKE[<ringlet>,<coil>]
 curl	hajlik	#	#	3123		U	lack(flat)	
 current	folyam	flumen	pra1d	844		N	move[steady,smooth]	
 curse	a1tok	exsecratio	przeklen1stwo	107		N	pray, FOR/2782[=PAT HAS harm]	content: CAUSE?
 curtain	fu2ggo2ny	velum	zasl1ona	867		N	hang, AT/2744 <window>, decorate, CAUSE shade	AT/2744 cavity
 curve	go2rbe	curvamen	krzywa	898	u	N	line HAS shape, lack(straight/563), lack(plane/2090), bend/1112, HAS direction[lack(constant)]	
 custom	szoka1s	consuetudo	zwyczaj	2236		N	common (behaviour)	
-cut	va1g	seco	cia1c1	2542	u	V	=AGT SEPARATE, INSTRUMENT edge	RA
+cut	va1g	seco	cia1c1	2542	u	V	separate, INSTRUMENT edge	RA
 cut_in_pieces	sze1tva1g	disseco	kroic1	2175		V		
 cut_off	leva1g	deseco	obcinac1	1538		V	cut, after(=PAT NOTAT =FROM)	head, arm, skin, branch, hair
 cut_up	felva1g	disseco	pocia1c1	784		V	cut, after(open/1814)	
 cutlery	evo3eszko2z	#	#	3354		N	knife IS_A, fork IS_A, spoon IS_A, FOR/2782 eat	
 cycle	ciklus	circulus	cykl	374		N	time, repeat IN/2758, change IN/2758	
 cylinder	henger	#	#	2704		N	object, HAS one(side), HAS flat(bottom), HAS top	
-daily	napi	quotidianus	codziennie	1756		A	AT/2744 day, regular	hunspell fixpoint % a book in which an official daily record is kept
+daily	napi	quotidianus	codziennie	1756		A	AT/2744 day, regular	
 damage	ka1r	damnum	zniszczenie	1209	u	N	bad(situation)	
 damage	se1ru2le1s	vulnus	zniszczenie	2066	u	N		see 1209
 dance	ta1nc	saltatio	taniec	2278	u	N	move, HAS rhythm, <INSTRUMENT music>	
@@ -970,21 +970,21 @@ dark-coloured	so2te1t_szi2nu3	#	#	3310		A	HAS dark(colour)	1
 date	da1tum	dies	data	441		N	information, day PART_OF, month PART_OF, year PART_OF	
 date	ered	orior	datowac1_sie1	674		U		=FROM[origin,time], time IN/2758 past
 daughter	la1nya	filia	co1rka	1475		N	female, offspring, =POSS[parent], HAS parent	relational
-day	nap	dies	dzien1	1754	u	N	period, week HAS, month HAS, HAS hours, sun ON sky, work AT/2744	
+day	nap	dies	dzien1	1754	u	N	period, week HAS, month HAS, HAS more(hour), sun ON sky, work AT/2744	
 dead	holt	mortuus	niez1ywy	1076	u	A	lack(live), before(live)	
 deal	alku	pactio	interes	160	u	N	agree, <secret>, <business>	
 deal	foglalkozik	contraho	zajmowac1_sie1	2776	u	V	activity	
 deal	oszt	distribuo	rozdawac1	1918	u	V		see 2779
-dear	dra1ga	carus	ukochany	484		N	person LOVE	in Longman only as a salutation
+dear	dra1ga	carus	ukochany	484		N	good FOR	
 death	hala1l	mors	s1mierc1	981		N	life[after, lack]	
 debt	ado1ssa1g	aes_alienum	dl1ug	117		N	must[=POSS PAY/812]	modality
 decay	romla1s	pernicies	rozkl1ad	2041		N	material[change[slow]], health[after, lack]	
 deceive	megte1veszt	fallo	oszukiwac1	1647		V	trick/244	
-decide	do2nt	decerno	decydowac1	471	u	U	before(HAS more(possibilities)), after(=PAT)	ZsA, 
+decide	do2nt	decerno	decydowac1	471	u	U	before(HAS more(possibility)), after(=PAT)	ZsA, 
 decimal	tizes	N/A	dziesia1tkowy	2402		A		
 decision	do2nte1s	consilium	decyzja	2957	u	N	decide	
 deck	fede1lzet	constratum	pokl1ad	752		N	floor, <ship HAS>	
-deck	pakli	N/A	talia	1934		N	pack, cards IN/2758, play INSTRUMENT card	
+deck	pakli	N/A	talia	1934		N	pack, card MEMBER, play INSTRUMENT card	
 declare	kijelent	declaro	deklarowac1	1336		V	=AGT CAUSE[=DAT[<everybody>] KNOW =PAT[<official>]]	
 decorate	di1szi1t	#	#	2736		V	=AGT CAUSE[=PAT[beautiful]]	
 decoration	di1sz	ornamentum	dekoracja	3441	u	N		
@@ -995,10 +995,10 @@ deer	o3z	caprea	jelen1	1887		N	mammal, wild, can/1246[run], EAT grass, HAS horn/
 defeat	legyo3z	vinco	pokonac1	1520		V	before(compete), =AGT HAS success, =PAT[loose]	=AGT CAUSE[=PAT[loose]]
 defeat	verese1g	clades	przegrana	2606		N		
 defence	ve1delem	praesidium	obrona	2594		N		
-defend	ve1d	defendo	bronic1	2592		V	=OBL[attack], =AGT PROTECT =PAT	=OBL is maleficient
+defend	ve1d	defendo	bronic1	2592		V	=OBL[attack], =AGT CAUSE[safe(=PAT)]	=OBL is maleficient
 defiant	dacos	contumax	wyzywaja1cy	442		A		resist, bold
 definite	hata1rozott	#	#	3011		A	change[not, after], before(decide)	
-degree	fok	gradus	stopien1	836	u	N	steps, process HAS	scale HAS % Longman: qualification
+degree	fok	gradus	stopien1	836	u	N	step, process HAS	scale HAS % Longman: qualification
 delay	halaszt	differo	przel1oz1yc1	984		V	lack(do), AT/2744 long(time), after(do)	
 deliberate	sza1nde1kos	#	#	2814		A	conscious DO, man/659 WANT effect/1014	
 delicate	finom	subtilis	delikatny	808		A		beautiful, HAS value, sensitive
@@ -1034,19 +1034,19 @@ development	fejlo3de1s	progressio	rozwo1j	3442	u	N
 device	ke1szu2le1k	#	#	3142		N	artefact, machine	
 devil	o2rdo2g	diabolus	diabel1	1853		N	evil, supernatural, person, enemy, god HAS enemy	relational noun: god ENEMY? % ND
 devour	elnyel	absorbeo	poz1erac1	638		V		eat, =PAT[after, lack], greedy
-diamond	gye1ma1nt	adamas	diament	925		N	hard, mineral, NOTHAS colour, <jewellery>	
-dictionary	szo1ta1r	dictionarium	sl1ownik	2228		N	book, list[words] IN/2758, <meaning IN/2758>, <pronunciation IN/2758>	<etymology IN/2758>
+diamond	gye1ma1nt	adamas	diament	925		N	hard, mineral, HAS lack(colour), <jewellery>	
+dictionary	szo1ta1r	dictionarium	sl1ownik	2228		N	book, list[word] IN/2758, <meaning IN/2758>, <pronunciation IN/2758>	<etymology IN/2758>
 die	meghal	morior	umierac1	1626	u	U	=PAT[dead[after]]	
 difference	ku2lo2nbse1g	discrimen	ro1z1nica	1451		N	part[lack(same)]	antonym : similar(ity)
 different	ma1s	diversus	inny	1566	u	A	lack(similar), lack(like/1701)	
-difficult	nehe1z	difficilis	trudny	1771	u	A	DEMAND[ large( effort)]	effort OR skill
+difficult	nehe1z	difficilis	trudny	1771	u	A	=DAT NEED large(effort), effort FOR/2782 difficult	effort OR skill
 difficulty	nehe1zse1g	difficultas	trudnos1c1	1773		N	difficult	
 dig	a1s	fodio	kopac1	94	u	V	move, =AGT MAKE hole, hole IN/2758 earth, INSTRUMENT spade	
 dimension	dimenzio1	#	#	3355		N	quantity, IN/2758 place/2326	
 dinner	vacsora	cena	obiad	2563		N	main(meal)	
 dip	ma1rt	immergo	moczyc1	1564		V	=AGT CAUSE[=PAT IN/2758 liquid], temporary	
 direct	ira1nyi1t	rego	skierowac1	1149		V	=AGT CAUSE[=PAT HAS direction]	
-direction	ira1ny	regio	kierunek	1148		N	relation, TOWARDS point, IN/2758 space/2327, position	
+direction	ira1ny	regio	kierunek	1148		N	relation, HAS target, IN/2758 space/2327, position	
 dirt	kosz	sordes	brud	1438		N	earth IS_A, mud IS_A, dust IS_A	
 dirty	koszos	sordidus	brudny	1439	u	A	HAS dirt	
 dis-	nem	dis-	nie-	1774		G	lack	
@@ -1055,8 +1055,8 @@ disc	lemez	discus	dysk	3443	u	N
 discourage	elriaszt	deterreo	znieche1cac1	647		V	=AGT CAUSE[=PAT[confident[lack]]]	=AGT NOTHAS
 discover	felfedez	reperio	odkrywac1	768	u	V	before(effort), after(know)	
 discuss	megvitat	confero	przedyskutowac1	3019	u	V	speak ABOUT =PAT	
-disease	ko1r	morbus	choroba	1370	u	N	bad(situation), organ IN/2758	HAS symptoms
-dish	e1tel	cibus	potrawa	541		N	food, ' SERVE	
+disease	ko1r	morbus	choroba	1370	u	N	bad(situation), organ IN/2758	HAS symptom
+dish	e1tel	cibus	potrawa	541		N	food, PART_OF meal	
 dish	ta1l	lanx	naczynie	2275		N	open/1814, food IN/2758	
 dishonest	tisztesse1gtelen	fraudulentus	nieszczery	3445	u	N		
 dismiss	elhesseget	absterreo	odprawic1	623		V	employ[after, lack]	HUN elbocsa1t
@@ -1067,7 +1067,7 @@ distress	szoronga1s	#	#	2706		N	anxiety
 distress	szu2kse1g	angustiae	potrzeba	2258		N		see 2706
 distressing	aggaszto1	dubius	niepokoja1cy	120		A	CAUSE anxiety	
 disturb	zavar	turbo	przeszkadzac1	2673		V	interrupt, =AGT CAUSE[=PAT[lack(calm)]]	worried, upset
-ditch	a1rok	fossa	ro1w	91		N	hole, long, IN/2758 earth, artificial, <SUPPLY water>	
+ditch	a1rok	fossa	ro1w	91		N	hole, long, IN/2758 earth, artificial, <water[move] IN>	
 divide	oszt	divido	dzielic1	1919	u	V	split	
 division	re1sz	pars	dywizja	1996		N		no xml
 do	tesz	facio	robic1	2372	u	N	cause, =AGT[animal], =PAT[happen]	
@@ -1084,46 +1084,46 @@ doubt	gyani1t	suspicor	podejrzewac1	923		V	lack(believe), lack(sure)	HUN: ke1tse
 down	le	deorsum	w_do1l1	1498	u	D	position[vertical], ' ER	
 drag	vonszol	traho	cia1gna1c1	2662		V		
 draw	hu1z	traho	cia1gna1c1	1095	u	V	write	
-draw	rajzol	pingo	rysowac1	2707	u	V	=AGT MAKE lines, represent INSTRUMENT picture, INSTRUMENT <pencil>	
+draw	rajzol	pingo	rysowac1	2707	u	V	=AGT MAKE line, represent INSTRUMENT picture, INSTRUMENT <pencil>	
 draw	von	delineo	rysowac1	2660	u	V		
 drawer	fio1k	arca	szuflada	810		N	contain, PART_OF furniture[<desk>], ' PULL, ' PUSH, box	naive_theo:pull → out, push → in
 drawing	rajz	figura	rysunek	3447	u	N		
-dream	a1lom	somnium	sen	81		N	IN/2758 mind, DURING sleep, events, lack(real)	
+dream	a1lom	somnium	sen	81		N	IN/2758 mind, AT/2744 sleep, events, lack(real)	
 dress	o2lto2zik	induo	ubierac1_sie1	1849		V	clothe	
 dress	ruha	vestis	suknia	2052		N	garment	RA
 drink	iszik	bibo	pic1	1161	u	V	=PAT[liquid,<alcoholic>] IN/2758 mouth, =AGT HAS mouth, swallow	„alcoholic” suggested by Randall 4.1.1 (12)
-drink	ital	potio	napo1j	1164	u	N		liquid, IN/2758 mouth, ' SWALLOW, <alcohol> % ND
-drip	csepeg	rorat	kapac1	403		V	fall/2694, =PAT[drops]	
+drink	ital	potio	napo1j	1164	u	N		liquid, IN/2758 mouth, swallow, <alcohol> % ND
+drip	csepeg	rorat	kapac1	403		V	fall/2694, =PAT[more(drop)]	
 drive	vezet	rego	prowadzic1	2614	u	V	=AGT CAUSE[=PAT[<car>,move]], control	
 driver	vezeto3	auriga	kierowca	3448	u	N		
-drop	ejt	demitto	upus1cic1	588	u	V	=PAT[fall/2694], drops	
+drop	ejt	demitto	upus1cic1	588	u	V	=PAT[fall/2694]	
 drown	fullad	mergo	tona1c1	880		U	die, =PAT[breathe[lack]] CAUSE, <=PAT IN/2758 liquid>	cannot breathe
 drug	drog	medicamentum_stupefactivum	narkotyk	486	u	N	substance, medical	
 drug	k1bi1to1szer	venenum	narkotyk	2954	u	N	substance, illegal, CAUSE[happy]	
 drum	dob	tympanum	be1ben	476		N	music INSTRUMENT, instrument, round, HAS surface[tight], ' HIT	
 drum-shaped	dob_alaku1	#	#	3309		A	HAS drum(shape)	1
-drunk	ittas	potus	pijany	1165		A	alcohol CAUSE, =AGT NOTHAS control	
+drunk	ittas	potus	pijany	1165		A	alcohol CAUSE, =AGT HAS lack(control)	
 dry	sza1raz	siccus	suchy	2145		A	lack( wet )	anto
 duck	kacsa	anas	kaczka	1214		N	bird, AT/2744 water, HAS short(leg), HAS wide(beak)	migratory % unfinished % ND
 dull	tompa	hebes	te1py	2431		A	lack( sharp )	anto % Longman use opposite of sharp (pain)
 during	ko2zben	inter/interea	podczas	1408		G	AT/2744 time, time AT/2744 =REL	
 dust	por	pulvis	kurz	1970	u	N	fine, dry, particle, powder, <dirt>	
-duty	ado1	tributum	cl1o	115		N		MaM no Longman use in this sense
+duty	ado1	tributum	cl1o	115		N		
 duty	ko2telesse1g	officium	obowia1zek	1398		N	must[ ' DO], <society/2285> WANT[=POSS DO]	
-duty	va1m	portorium	cl1o	2555		N		no Longman use in this sense
+duty	va1m	portorium	cl1o	2555		N		
 dwell	lakik	habito	mieszkac1	1486		U	live[permanent], in/2758	
 e-mail	i1me1l	#	#	3105		N	mail, INSTRUMENT computer	
 each	mind	quisque	kaz1dy	1693		G	all	
 eager	moho1	avidus	che1tny	1716	u	A	HAS desire, lack(wait)	
 ear	fu2l	auris	ucho	870		N	organ, hear INSTRUMENT	
 early	korai	maturus	wczesny	1431		A	AT/2744 time, ER time	
-earn	keres	mereo	zarabiac1	1296	u	V	=AGT GAIN =PAT[money], =AGT[work[before]]	
+earn	keres	mereo	zarabiac1	1296	u	V	after(=AGT HAS =PAT[money]), before(=AGT[work])	
 earth	fo2ld	terra	ziemia	815	u	N	IN/2758 space/2509, life ON, ocean ON, island ON, HAS atmosphere	
 east	kelet	oriens	wscho1d	1284		N	direction, ON earth, right/1199, map HAS right/1199(side)	
 eastern	keleti	orientalis	wschodni	1285		A	east	
 easy	ko2nnyu3	facilis	l1atwy	1380	u	A	lack( difficult )	antonym
 eat	eszik	edo	jes1c1	700	u	V	=AGT CAUSE[=PAT IN/2758 mouth], swallow, =PAT[<food>], <bite/1001>, <chew>, =AGT HAS mouth	
-economy	gazdasa1g	#	#	3068		N	system, trade, industry, manage, money, profit, country HAS, SPEND few	
+economy	gazdasa1g	#	#	3068		N	system, trade, industry, manage, money, profit, country HAS, low(cost)	
 edge	e1l	acies	kant	503	u	N	thin/2598, sharp, blade HAS, cut, instrument HAS	
 educate	oktat	doceo	uczyc1	1897		V	teach	
 education	oktata1s	educatio	edukacja	3450	u	N		
@@ -1150,21 +1150,21 @@ electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N
 electro-convulsive_therapy	elektrosokk-tera1pia	#	#	3306		N	@Electroconvulsive_therapy	1
 electronic	elektromos	electronicus	elektronyczny	3451	u	N		
 element	elem	elementum	pierwiastek	3452	u	N		
-elephant	elefa1nt	elephantus	sl1on1	605	u	N	mammal[large,herbivore], lack(hair/3359), HAS trunk/1910, HAS large(ears)	HAS tusks[ivory], ears HAS shape[fan]
+elephant	elefa1nt	elephantus	sl1on1	605	u	N	mammal[large,herbivore], lack(hair/3359), HAS trunk/1910, HAS large(ear)	HAS tusks[ivory], ear HAS shape[fan]
 eleven	tizenegy	#	#	3069		A	number, FOLLOW ten	
 else	vagy	aut	albo	2567	u	G	other	HUN: ma1s
 embarrass	zavarba_hoz	#	#	2973		V	=AGT CAUSE[=PAT FEEL shame], =PAT AT/2744 other(people)	
 emotion	e1rzelem	affectus	emocja	3010	u	N	state/77, IN/2758 mind, feeling	
-emphasize	hagsu1lyoz	#	#	2818		V	=AGT SHOW =PAT[important]	
-empire	birodalom	imperium	imperium	294		N	group, countries IN/2758, political, unit, one(person) CONTROL	
+emphasize	hagsu1lyoz	#	#	2818		V	CAUSE[=DAT KNOW[=PAT[important]]]	
+empire	birodalom	imperium	imperium	294		N	group, more(country) IN/2758, political, unit, one(person) CONTROL	
 employ	alkalmaz	munus_alci_mando	zatrudnic1	155		V	=AGT CAUSE[=PAT[work,=PAT HAS money]]	
 empty	u2res	vacuus	pusty	2501	u	A	' NOTIN	
 en-	bele	intro	w-	257		G	CAUSE[ ' IN/2758]	% encapsulate
-enclose	beza1r	obsero	zamkna1c1	285		V	surround, =AGT CAUSE[=PAT[shut/2668]]	
+enclose	beza1r	obsero	zamkna1c1	285		V	around, =AGT CAUSE[=PAT[shut/2668]]	
 encourage	biztat	hortor	zache1cic1	302		V	=AGT CAUSE[=PAT[lack(fear), brave]]	
 end	ve1g	finis	koniec	2596	u	N	part, lack(continue)	
 endure	kibi1r	perfero	znosic1	1327		V	=PAT[bad,happen], =AGT[suffer], =AGT[live[after]]	
-enemy	ellense1g	hostis	wro1g	632		N	HATE =POSS, WANT[=POSS[injure]], TRY damage, damage FOR =POSS	
+enemy	ellense1g	hostis	wro1g	632		N	WANT[injure, damage], injure FOR/2782 =POSS, damage FOR/2782 =POSS	
 energy	energia	energia	energia	2804	u	N	work[physical]	
 engine	ge1p	machina	silnik	893		N	machine, CAUSE[move]	HUN motor % CONSUME fuel
 english-speaking	angolul_tudo1	#	#	3106		A	can/1246[english(speak)]	
@@ -1210,30 +1210,30 @@ examine	vizsga1l	examino	badac1	2653		V	watch, WANT[=AGT KNOW more], more ABOUT 
 example	pe1lda	exemplum	przykl1ad	1950		N	pattern HAS, representative, typical	illustrate
 excellent	kitu3no3	egregius	doskonal1y	1363		A	quality, ER '	
 except	kive1ve	praeter	opro1cz	1365		G	lack	
-exchange	csere	mutatio	wymiana	405	u	N	before(=PAT[<good>] AT/2744 person], after(=PAT AT/2744 other(person))	
+exchange	csere	mutatio	wymiana	405	u	N	before(=PAT[<good>] AT/2744 person), after(=PAT AT/2744 other(person))	
 excite	izgat	excito	podniecac1	1167		V	=PAT[person], =AGT CAUSE[=PAT HAS strong (feeling)]	
 excited	izgatott	#	zainteresowany	3593	u	A		
-excuse	megbocsa1t	ignosco	wybaczac1	1619		V	=AGT FORGIVE	Longman use excuse me
-excuse	mentse1g	#	#	2708		N	EXPLAIN bad, FOR/2782['FORGIVE bad]	=AGT is a verbal case here
+excuse	megbocsa1t	ignosco	wybaczac1	1619		V		
+excuse	mentse1g	#	#	2708		N	accident CAUSE[lack(blame) AT =POSS]	
 exercise	edz	exerceo	c1wiczyc1	550	u	V		see 920
-exercise	gyakorol	exerceo	c1wiczyc1	920	u	V	repeat, develop/758, =AGT IMPROVE skill, <sport>	
-exhausted	kimeru2lt	exhaustus	wyczerpany	1343		A	[ ' USE]CAUSE, NOTHAS resource[<energy>]	
+exercise	gyakorol	exerceo	c1wiczyc1	920	u	V	repeat, develop/758, =AGT CAUSE[skill[better]], <sport>	
+exhausted	kimeru2lt	exhaustus	wyczerpany	1343		A	work CAUSE, HAS resource[lack, <energy>]	
 exhilarate	u2di1t	exhilaro	ods1wierzac1	2485		V	=AGT CAUSE[=PAT[ happy ]]	=AGT CAUSE[=PAT [feel refreshed]] % no Longman use
 exist	van	exsto	byc1	2587	u	V	real	
 expect	va1r	exspecto	spodziewac1_sie1	2557	u	V	=AGT THINK[=PAT[real] AT/2744 future]	
 expend	kiad	expendo	wydawac1	1326		V	spend	
 expensive	dra1ga	#	#	2830		A	HAS high(price)	
-experience	a1te1l	cognosco/video	dos1wiadczac1	101	u	V		see tapasztal % =AGT AT/2744 =PAT, after(=AGT REMEMBER =PAT)
+experience	a1te1l	cognosco/video	dos1wiadczac1	101	u	V		
 experience	tapasztal	experior	dos1wiadczac1	2308	u	V	=AGT AT/2744 =PAT, after(=AGT REMEMBER =PAT)	
 explain	megmagyara1z	interpreto	tl1umaczyc1	1636		V	=AGT CAUSE[=DAT UNDERSTAND =PAT]	
-explanation	magyara1zat	interpretatio	wytl1umaczenie	1586		N	CAUSE[=DAT UNDERSTAND =PAT]	
+explanation	magyara1zat	interpretatio	wytl1umaczenie	1586		N		
 explode	robban	displodor	wybuchac1	2031		V	sudden, move, violent, pressure CAUSE, pressure IN/2758 =AGT	
 explosion	robbana1s	diruptio	wybuch	2032		N	explode	
 explosive	robbane1kony	qui_facile_disploditur	wybuchowy	2033		A	can/1246[explode]	modality
 express	kifejez	effor	wyrazic1	2757	u	V	=AGT CAUSE[=DAT KNOW =PAT]	
 express	kimondott	enuntiatus	wyraz1ony	1344	u	A		before( ' EXPRESS/2757)
 expression	a1bra1zat	facies	mina	64	u	N	state/77, face HAS	
-expression	kifejeze1s	significatio	wyraz1enie	1332	u	N	<idea> IN/2758, <words> PART_OF	
+expression	kifejeze1s	significatio	wyraz1enie	1332	u	N	<idea> IN/2758, words[<more>]	
 extend	kiterjeszt	dilato	rozszerzac1	1361		V	=AGT CAUSE[=PAT[long] ER]	=AGT % no Longman
 extol	dicso3i1t	laudo	wychwalac1	466		V	praise	
 extreme	rendki2vu2li	#	#	2786		A	ER '	
@@ -1241,7 +1241,7 @@ exult	ujjong	exsulto	cieszyc1_sie1	2523		U	rejoice	no Longman use
 eye	szem	oculus	oko	2182	u	N	organ, see INSTRUMENT, animal HAS, ON face, <two>	
 eyelid	szemhe1j	palpebra	powieka	2189		N		
 face	arc	vultus	twarz	177	u	N	surface, front, PART_OF head, forehead PART_OF, chin PART_OF, ear PART_OF, jaw PART_OF	
-fact	te1ny	factum	fakt	2323	u	N	can/1246[' PROVE]	
+fact	te1ny	factum	fakt	2323	u	N	HAS proof[exist]	
 factory	gya1r	officina	fabryka	915		N	building, produce IN/2758	
 fade	fakul	decolour_fio	bledna1c1	720		U		=PAT[bright[after, lack]], lack(loud)], after(lack(' SEE =PAT))
 fail	kudarcotvall	fallo	zawodzic1	1459	u	U	lack(succeed/2718)	
@@ -1258,26 +1258,26 @@ faithful	hu3	fidus	wierny	1099		A	HAS faith	ND
 fall	o3sz	autumnus	jesien1	1883	u	N	autumn	ND
 fall	zuhan	cado	spadac1	2694	u	U	=PAT[move], =PAT[down[after]]	
 false	hamis	falsus	fal1szywy	990		A	lack(fact), lack(truth)	
-fame	hi1rne1v	gloria	sl1awa	1044		N	many RESPECT	
+fame	hi1rne1v	gloria	sl1awa	1044		N	many THINK[=PAT[good]]	
 familiar	ismero3s	notus	znajomy	1158		A	=AGT KNOW	
-family	csala1d	familia	rodzina	383	u	N	group, [<two>(parents)] PART_OF, children PART_OF	
+family	csala1d	familia	rodzina	383	u	N	group, [<two>(parent)] PART_OF, child[<more>] PART_OF	
 famous	hi1res	illustris	sl1awny	1043		A	many KNOW	
 fan	legyez	ventilo	wachlowac1	1519		V		=AGT Longman uses fan in „rajongo1” sense, see 2710
-fan	rajongo1	#	#	2710		N		ADMIRE famous, passionate, enthusiastic, pop_star HAS, film_actor HAS, football_team HAS
+fan	rajongo1	#	#	2710		N	LIKE/3382 =POSS[famous], passionate, enthusiastic, =POSS[<actor>, <PLAY sport>]	
 fancy	kedv	voluntas	zachcianka	1268		N		Longman uses fancy in the „puccos” sense (ritzy), see 2987
 fancy	puccos	#	#	2964		A		superior, quality
 far	messze	procul	daleko	1678		A	AT/2744 great(distance)	
-farm	farm	ager	gospodarstwo	727	u	N	land, work AT/2744, produce, buildings ON	
-farmer	gazda	agricola	rolnik	890		N	person, works ON farm	
+farm	farm	ager	gospodarstwo	727	u	N	land, work AT/2744, produce, building ON	
+farmer	gazda	agricola	rolnik	890		N	person, work ON farm	
 fart	fing	crepitus	ba1k	807		N	gas FROM/2742 buttocks, =AGT HAS buttocks	
 fashion	divat	mos	moda	469		N	popular, style, ABOUT <garment>, AT/2744 period	
 fashionable	divatos	novus/elegans	modny	470		A	CONFORM[fashion]	
-fast	bo2jt	ieiunium	post	309	u	N	EAT less, religious	ND: observe, rite % had asterisk in definition. why?
+fast	bo2jt	ieiunium	post	309	u	N	person EAT less, religious	ND: observe, rite % had asterisk in definition. why?
 fast	gyors	celer	szybki	940	u	A	quick	
 fast-moving	gyorsan_mozgo1	#	#	3304		A	fast/940, move	1
 fasten	ro2gzi1t	stabilio	przymocowywac1	2025	u	V	=AGT CAUSE[=PAT[firm/2215]]	
 fat	ko2ve1r	pinguis	gruby	1399	u	A	much(fat/3337) IN/2758, heavy, big	
-fat	zsi1r	adeps	tl1uszcz	3337	u	N	substance, <UNDER skin>, SIMILAR oil, <IN/2758 food>	
+fat	zsi1r	adeps	tl1uszcz	3337	u	N	substance, <UNDER skin>, RESEMBLE oil, <IN/2758 food>	
 fate	sors	sors	los	2120		N		
 father	apa	pater	ojciec	173		N	parent, male	
 fatten	hi1zlal	sagino	tuczyc1	1046		V	=PAT[fat/1399[after]]	
@@ -1287,19 +1287,19 @@ favor	kegy	favor	przysl1uga	1278		N		no Longman use
 favour	kegy	favor	przysl1uga	1279	u	N		friendly, act, free % HUN szi2vesse2g
 favourable	kedvezo3	opportunus	dogodny	1276		A	good	
 favourite	kedvenc	delicia	ulubieniec	1273		N	[ ' LIKE/3382] ER	
-fear	fe1l	timeo	bac1_sie1	732		V	feeling, <anxiety>, danger CAUSE	"feeling" is used in 4lang as ' mental state ' rather than the nominalisation of "feel"
+fear	fe1l	timeo	bac1_sie1	732		V	feeling, <anxiety>, danger CAUSE	"feeling" is used in 4lang as 'mental state' rather than the nominalisation of "feel"
 fear	fe1lelem	timor	strach	734		N		
 feast	lakoma	convivium	uczta	1488		N	meal, before(invite), large, many(people) AT/2744, entertainment	
 feather	toll	penna	pio1ro	2427		N	soft, AT/2744 bird	RA
-feature	vona1s	differentia	cecha	3017	u	N	' NOTICE, important, typical, CAUSE[recognize]	
+feature	vona1s	differentia	cecha	3017	u	N	sign, important, typical, CAUSE[recognize]	
 feed	abrak	farrago	karma	111		N		
-feed	ta1pla1l	alo	karmic1	2280		V	=AGT CAUSE [=PAT EAT =INS]	
+feed	ta1pla1l	alo	karmic1	2280		V	=AGT CAUSE [=PAT EAT =OBL]	
 feel	e1rez	sentio	czuc1	521	u	V	=PAT AT/2744 body, =PAT IN/2758 mind, =AGT HAS body, =AGT HAS mind	
 feeling	e1rze1s	sensus	uczcia	533	u	N	mental, other CAUSE, joy IS_A, sorrow IS_A, fear IS_A, anger IS_A	spontaneous
 fellow	ta1rs	socius	kompan	2283		N		no Longman use
 female	no3	femina	samica	1794	u	N	sex	
 feminine	no3i	femininus	z2en1ski	3463	u	N		
-fence	keri1te1s	saepes	ogrodzenie	1304		N	structure, border, AROUND <garden>, HAS more(post/2740)	
+fence	keri1te1s	saepes	ogrodzenie	1304		N	structure, border, AROUND =POSS[area, <garden>], more(post/2740) PART_OF	
 fence	vi1v	battuo	N/A	2621		V		
 fever	la1z	febris	gora1czka	1483		N	lack(normal), body HAS high (temperature)	
 few	keve1s	paucus	kilka	1308		A	amount, ' ER	
@@ -1318,13 +1318,13 @@ final	utols1	#	#	3042		A	last
 financial	pe1nzu2gyi	#	#	2981		A	money	
 find	lel	invenio	znajdowac1	1530	u	V	after(KNOW place), =PAT AT/2744 place	
 fine	finom	elegans	dobry	809		A	small, light/1381	OR thin/2598
-finger	ujj	digitus	palec	2522	u	N	PART_OF hand, long, thin/2598	
+finger	ujj	digitus	palec	2522	u	N	PART_OF hand, long, thin/2598	"HAS four fingers", de "HAS o2t ujj"
 finish	ve1g	finis	koniec	2597	u	N	after(not)	
 fire	tu3z	ignis	ogien1	2454	u	N	CAUSE heat, CAUSE light/739, HAS flame, burn, <CAUSE smoke>	
 firm	ce1g	domus	firma	362	u	N	company/2549[<small>]	
 firm	szila1rd	firmus	firma	2215	u	A	rigid, lack(soft)	
 first	elso3	primus	pierwszy	649	u	A	-th/5[one], lack(FOLLOW ' ), second/1569 FOLLOW	second/1569
-fish	hal	piscis	ryba	980	u	N	vertebrate, live IN/2758 water, HAS cold(blood)	HAS fins, HAS gills, HAS streamlined(body)
+fish	hal	piscis	ryba	980	u	N	vertebrate, live IN/2758 water, HAS cold(blood)	
 fisherman	hala1sz	piscator	rybak	983		N	profession, CATCH/828 fish	
 fit	illo3	decens	odpowiedni	1135		A	good, AT/2744 ' , together	HAS proper(size), HAS proper(shape)
 five	o2t	#	#	2989		A	number, FOLLOW four	
@@ -1339,12 +1339,12 @@ flesh-eating	hu1sevo3	#	#	3302		A	EAT flesh	1
 flexible	hajle1kony	#	#	3371		A	can/1246[change, bend/975]	...to suit any new situation
 flight	repu2le1s	volatus	lot	2019		N	fly	
 float	lebeg	volito	unosic1_sie1	1511		V	=AGT IN/2758 fluid, =AGT NOTAT solid	
-flood	a1r	fluctus	powo1dz1	85		N	water[flow], much, ONTO land, trouble	
+flood	a1r	fluctus	powo1dz1	85		N	water[flow], much, ON land, trouble	
 floor	padlo1	coaxatio	podl1oga	1932		N	surface, room/2235 HAS, stand ON	
 flour	liszt	farina	ma1ka	1545		N	food, FROM/2742 grain	
 flow	folyik	fluo	pl1yna1c1	847	u	V	move[smooth], <fluid>	
 flower	vira1g	flos	kwiat	2637		N	plant HAS, <HAS colour>	
-fluid	folyade1k	#	#	3143		N	thing, NOTHAS shape	
+fluid	folyade1k	#	#	3143		N	thing, HAS lack(shape)	
 fly	repu2l	volo	latac1	2018	u	U	move, =AGT IN/2758 air, control	
 fold	o2sszehajt	congregatio	owczarnia	2725	u	N	group, [religious (people)] IN/2758	ND
 fold	fe1lbehajt	complico	zl1oz1yc1	733	u	V	bend/975, =AGT CAUSE[half ON other(half)]	
@@ -1354,35 +1354,35 @@ food	e1tel	cibus	jedzenie	542		N	material, ' EAT
 fool	bolond	stultus	gl1upek	328		N	mad	
 foolish	buta	stultus	gl1upi	357		A	stupid	
 foot	la1b	pes	stopa	1466	u	N	organ, leg HAS, AT/2744 ground	
-football	foci	ludus_calcius	pil1ka_noz1na	826	u	N	game, [team[two]] PLAY, INSTRUMENT ball	INSTRUMENT kick the ball, INSTRUMENT head the ball, INSTRUMENT carry the ball, INSTRUMENT goal % goal in the „kapu” sense
+football	foci	ludus_calcius	pil1ka_noz1na	826	u	N	game, [team[two]] PART_OF, INSTRUMENT ball	INSTRUMENT kick the ball, INSTRUMENT head the ball, INSTRUMENT carry the ball, INSTRUMENT goal % goal in the „kapu” sense
 footmark	labnyom	#	#	3199		N	mark, walk MAKE	
 for	-e1rt	pro	dla	2824	u	G	AT/2744 exchange, =REL[price]	
 for	-ig	tenus	przez	27	u	G		
 for	-ig	adhoc	do	2826	u	G	AT/2744 =REL[time]	
 for	-nak	NA	dla	2825	u	G	=REL[good[after] ER]	
 for	miatt	propter	przez	2782	u	#		primitive
-forbid	megtilt	veto	zabraniac1	1650		V	=AGT CAUSE[=DAT NOTHAS permission]	
+forbid	megtilt	veto	zabraniac1	1650		V	=AGT CAUSE[=DAT HAS lack(permission)]	
 forbidding	zord	durus	ostra	2683		A		
 force	ero3	vis	sil1a	683	u	N	power	
 fore-	elo3-	pro-/prae-	przed	641		G	AT/2744 time, =REL ER time	probelmatic unification, ?
 forehead	homlok	frons	czol1o	1077		N	PART_OF face, front, up, hair/3359 AT/2744, AT/2744 temple/982	
 foreign	idegen	peregrinus	zagraniczny	1117		A	lack(native)	
 foreigner	ku2lfo2ldi	peregrinus/peregrina	cudzoziemiec	1448		N	FROM/2742 place/1026[foreign,<country>]	
-forest	erdo3	silva	las	673		N	area/2366, trees ON	
+forest	erdo3	silva	las	673		N	area/2366, tree MEMBER	
 forget	elfelejt	obliviscor	zapomniec1	613	u	V	lack(remember), before(know)	
-forgive	megbocsa1t	ignosco	wybaczac1	1620		V	after(=PAT NOTHAS anger)	?
+forgive	megbocsa1t	ignosco	wybaczac1	1620		V	after(=PAT HAS lack(anger))	?
 fork	villa	furca	widelec	2630		N	cutlery, <metal>, HAS[ <four>(branch)], HAS handle, [MOVE food]INSTRUMENT	USE_FOR/2782 instead of FOR/2782
-form	alak	forma	forma	141	u	N	objects HAS	
+form	alak	forma	forma	141	u	N	object HAS	
 formal	alaki	formalis	formalny	143	u	A	HAS structure	
 formal	formai	iustus	formalny	858	u	A		formal/143
 former	kora1bbi	prior	poprzedni	1430		A	before	ill-formed % non-intersective adjective
 formerly	valahai	pristinus	poprzednio	2574		D	AT/2744 past	
-forsake	elhagy	derelinquo	opus1cic1	621		V	=AGT LEAVE =PAT, =PAT NEED =AGT	=AGT CAUSE[NOTAT]
-fort	ero3d	castrum	forteca	686		N	strong(building), army DEFEND	
+forsake	elhagy	derelinquo	opus1cic1	621		V	after(lack(=AGT IN/2758 =PAT)), =PAT NEED =AGT	
+fort	ero3d	castrum	forteca	686		N	strong(building), army PART_OF, defend	
 fortunate	szerencse1s	felix	sze1s1liwy	2198		A		
 fortune	sors	fortuna	los	2121		N		
 forward	elo3re	protinus	na_przo1d	644		D	TO/2743 front	
-forwards	csata1r	N/A	strzelec	391		N		I ' d prefer to remove this item. See 644
+forwards	csata1r	N/A	strzelec	391		N		See 644
 found	alapi1t	repertus	znaleziony	3466	u	N		
 foundation	alap	fundamentum	podstawa	147		N		see 2755
 foundation	alapi1tva1ny	#	#	2753		N	institution, support	
@@ -1390,12 +1390,12 @@ four	ne1gy	#	#	2988		A	number, FOLLOW three
 four-legged	ne1gyla1bu1	#	#	3226		A	HAS four(leg)	3
 four-sided	ne1gyoldalu1	#	#	3301		A	HAS four(side)	1
 four-wheeled	ne1gykereku3	#	#	3300		A	HAS four(wheel)	1
-fox	ro1ka	vulpes	lis	2022		N	wild(animal), SIMILAR dog, HAS fur[red,brown], HAS pointed(face), HAS thick/2752(tail), clever, deceive	english: sexually attractive. naive_theo: carnivorous, STEAL poultry
-frame	keret	forma	rama	1303	u	N	HAS parts[together], structure, GIVE shape, fix, border	
+fox	ro1ka	vulpes	lis	2022		N	wild(animal), RESEMBLE dog, HAS fur[red,brown], HAS pointed(face), HAS thick/2752(tail), clever, deceive	english: sexually attractive. naive_theo: carnivorous, STEAL poultry
+frame	keret	forma	rama	1303	u	N	HAS part[more, together], structure, GIVE shape, fix, border	
 framework	va1z	forma	rama	2562		N		
-free	szabad	liber	wolny	2149	u	A	control NOTAT, NOTHAS price	lack(obligation)?
+free	szabad	liber	wolny	2149	u	A	control NOTAT, HAS lack(price)	lack(obligation)?
 freedom	szabadsa1g	#	#	3055		N	free	-dom: 2 uses of wisdom, and nothing else
-freeze	fagy	gelu	mro1z	715		N	cold CAUSE, before(liquid), after(solid,<ice>)	
+freeze	fagy	gelu	mro1z	715		N	cold CAUSE, before(liquid), solid[after, <ice>]	
 french-canadian	francia-kanadai	#	#	3299		A	MEMBER [nation,@Canada], HAS parent, parent MEMBER @France	
 french-speaking	francia1ul_tudo1	#	#	3225		A	can/1246[speak[@France(language)]]	3
 frequent	gyakori	frequens	cze1sty	919		A	often	
@@ -1407,11 +1407,11 @@ from	-bo1l	ab	z	2742	u	G	before(IN/2758 =REL), after(far)
 from	o1ta	ex	z	1838	u	G	AT/2744 [period[begin AT/2744 =REL]]	x from y: x IS_A period
 front	elej	pars_prior	przo1d	608	u	N	part	?
 frozen	fagyott	gelatus	zamroz2ony	3468	u	N		
-fruit	gyu2mo2lcs	fructus	owoc	945		N	PART_OF plant, seeds PART_OF, food, sweet, HAS flesh	
+fruit	gyu2mo2lcs	fructus	owoc	945		N	PART_OF plant, seed PART_OF, food, sweet, HAS flesh	
 fuck	baszik	futuo	pieprzyc1	232		V	intercourse	
 fulfil	beto2lt	impleo	wypel1nic1	277		V		satisfy
 full	teli	plenus	pel1ny	2344	u	A	=OBL[much] IN/2758, space/2327 NOTIN	German voll von
-fun	mo1ka	iocus	zabawa	1710		N	person ENJOY	
+fun	mo1ka	iocus	zabawa	1710		N	CAUSE happy, event	
 funeral	temete1s	funus	pogrzeb	2348	u	N		
 fungus	gombafe1le	fungus	grzyb	3469	u	N		
 funny	vicces	salsus	s1mieszny	2624		A	fun	
@@ -1427,20 +1427,20 @@ game	ja1te1k	ludus	gra	1173	u	N	activity, HAS rule, people[compete]
 gang	banda	caterva	gang	226		N	group, criminal	
 gape	a1si1t	oscito	ziewac1	95		U		wonder, HAS[mouth[open/1814]] % HUN ta1tja a sza1ja1t % no Longman
 garage	gara1zs	statio_automobilium	garaz1	889		N	building, car[park,lack(move)] IN/2758	
-garden	kert	hortus	ogro1d	1305		N	place/1026, outdoor, [useful (plants)] IN/2758	RA
+garden	kert	hortus	ogro1d	1305		N	place/1026, outdoor, [useful(plant)] IN/2758	RA
 garment	ruha	vestis	ubio1r	2053		N	artefact, COVER body	
-gas	ga1z	gasium	gaz	885	u	N	substance, HAS shape[change], FILL container	lack(dense)
+gas	ga1z	gasium	gaz	885	u	N	substance, HAS shape[change], full(IN/2758 container)	lack(dense)
 gate	kapu	porta	brama	1229		N	door, HAS side[out]	
 gather	gyu3jt	colligo	zbierac1	947		V	collect	
-gay	buzi	catamites	gej	361		N	male, FUCK male	
+gay	buzi	catamites	gej	361		N	man FEEL attract, other(man) CAUSE attract	
 general	fo3-	maximus/summus	gl1o1wny	821	u	A	every IN/2758	
 generate	nemz	gigno	pocza1c1	1785		V		no xml
 generation	genera1cio1	#	#	2778		N	group, people, AT/2744 age	
 generosity	bo3kezu3se1g	liberalitas	hojnos1c1	316		N	give[valuable]	
 generous	du1s	uber	hojny	487		A	generosity	HUN nagylelku3
-gentle	gyenge1d	mollis	delikatny	928		A	nice	THINK[other(person) HAS needs[important]]
+gentle	gyenge1d	mollis	delikatny	928		A	nice, =TO NEED thing, THINK thing[important]	
 gentleman	u1r	dominus	dz1entelmen	2476		N	man/659, HAS[ proper(behaviour) ]	
-get	jut	nanciscor	dostawac1	1206	u	V	=AGT REACH, =AGT SUCCEED/2718	
+get	jut	nanciscor	dostawac1	1206	u	V	after(=OBL HAS ), =OBL HAS success	
 get	kap	accipio	dostawac1	1223	u	V	after(=AGT HAS =PAT)	after(HAS)
 ghost	szellem	#	#	2728		N	supernatural, person, spirit/2181, [person[dead, natural]] HAS [spirit/2181]	ND
 gift	aja1nde1k	donum	dar	124		N	' GIVE, lack(pay/812)	
@@ -1452,24 +1452,24 @@ given	adott	datus	dany	3470	u	N
 glad	boldog	laetus	zadowolony	325		A	HAS joy	
 glass	u2veg	vitrum	szkl1o	2507	u	N	transparent, solid, substance, <bottle>	
 gleam	ragyog	splendeo	bl1yszczec1	1988		U		no xml
-glean	gyu3jt	lego	zbierac1	948		V	=AGT GATHER [small(pieces),<information>], slow, difficult	binary: GATHER[difficult]
+glean	gyu3jt	lego	zbierac1	948		V	=AGT CAUSE[=PAT[together]], =PAT[small, piece, <information>], slow, difficult	
 glorious	dicso3	gloriosus	chwalebny	465		A	HAS glory	
 glory	dicso3se1g	gloria	chwal1a	467		N	fame	ND: divine (presence)
 go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT legs	RA
 goal	ce1l	#	#	3358		N	good, =POSS WANT[=POSS AT/2744]	
 goat	kecske	capra	koza	1265		N	mammal, HAS horn/2772, HAS beard, <IN/2758 mountain>, <AT/2744 farm>, HAS wool, PRODUCE milk	contradicting defaults
-god	isten	deus	bo1g	1159		N	spirit/2181, religion FOR/2782, HAS power, NOTPART_OF nature	ultimate
+god	isten	deus	bo1g	1159		N	spirit/2181, religion FOR/2782, HAS power, ER nature	ultimate
 goddess	istenno3	dea	bogini	1160		N	female, god	ND
-gold	arany	aurum	zl1oto	175	u	N	valuable, soft, yellow, metal	naive_theo FOR/2782[ MAKE coins], GOAL[MAKE jewellery]
+gold	arany	aurum	zl1oto	175	u	N	valuable, soft, yellow, metal	naive_theo coin FROM, GOAL[MAKE jewellery]
 gold-coloured	aranyszi2nu3	#	#	3239		A	HAS gold(colour)	2
 gold-yellow	arany-sa1rga	#	#	3298		A	HAS colour[gold], yellow	1
 golden	arany	aureus	zl1oty	174		A	HAS colour, gold HAS colour	
-golf	golf	#	#	2873		N	game, outdoor, ON course/1927, holes[far] AT/2744 course/1927, ball[small, hard], INSTRUMENT club/355, stroke/2749 PART_OF	
+golf	golf	#	#	2873		N	game, outdoor, ON course/1927, hole[many, far] AT/2744 course/1927, ball[small, hard], INSTRUMENT club/355, stroke/2749 PART_OF	
 good	jo1	bonus	dobry	1189	u	A	' WANT	
 good-bye	viszontla1ta1sra	vale	dowidzenia	2645		D	communicate, AT/2744 people[split]	ZsA
 good-quality	jo1_mino3se1gu3	#	#	3297		A	good(quality)	1
 goodbye	viszontla1ta1sra	#	#	3022		G	leave	
-goods	a1ru	merx	towary	92		N	' SELL	
+goods	a1ru	merx	towary	92		N	product	
 goodwill	jo1akarat	benevolentia	dobra_wola	1192		N		attitude[kind, friendly]
 govern	vezet	gero	rza1dzic1	2615		V	official, legal, authority CONTROL[system, <country>], =AGT HAS power	
 government	korma1ny	gubernium	rza1d	1433	u	N	authority, country HAS, people IN/2758	
@@ -1480,22 +1480,22 @@ gracious	ba1jos	venustus	wdzie1czny	197		A	kind
 gracious	kegyes	comis	l1askawy	1282		A		mercy
 gradual	fokozatos	quod_gradatim_fit	stopniowy	839		A	continue, IN/2758 degree	lack(sudden)
 gradually	fokozatosan	gradatim	stopniowo	840		D	gradual	
-grain	szem	granum	ziarno	2183	u	N	small, dry, cereal HAS, SIMILAR seed	
+grain	szem	granum	ziarno	2183	u	N	small, dry, cereal HAS, RESEMBLE seed	
 gram	gramm	gramma	gram	913		N	unit, mass	
 grammar	nyelvtan	grammatica	gramatyka	1809		N	science, ABOUT language	
-grand	fo3	primus	gl1o1wny	819		N	big	RA % no use in the first 40 results
+grand	fo3	primus	gl1o1wny	819		N	big	RA
 grandfather	nagyapa	avus	dziadek	1748		N	father, parent HAS, =POSS HAS parent	
 grandmother	nagyanya	avia	babka	1747		N	mother, parent HAS, =POSS HAS parent	
 grape	szo3lo3	uva	winogrona	3400	u	N	fruit, round, green	
 grasp	fog	comprehendo	chwytac1	829		V	catch/828	
-grass	fu3	gramen	trawa	877		N	plant, HAS narrow(leaves), COVER ground	
-grateful	ha1la1s	gratus	wdzie1czny	954		A	SAY[before(=DAT CAUSE good])	
+grass	fu3	gramen	trawa	877		N	plant, HAS narrow(leaf), COVER ground	
+grateful	ha1la1s	gratus	wdzie1czny	954		A	SAY[before(=DAT CAUSE good)]	
 gratify	kiele1gi1t	libidinor	wynagradzac1	1330		V	satisfy	
 grave	si1r	sepulcrum	gro1b	2094	u	N	place/1026, dead(body) AT/2744, <body UNDER ground>	naive_theo: burial AT/2744, tombstone AT/2744
 grease	zsi1r	#	#	2822		N	substance, fat/3337 IS_A, oil IS_A, smooth	non-LDV, added from swadesh
 great	nagy	magnus	wielki	1746	u	N	big	
 greedy	moho1	avidus	zachl1anny	1717		A		no xml
-green	zo2ld	viridis	zielony	2679		A	colour, plant HAS colour, NOTHAS experience	
+green	zo2ld	viridis	zielony	2679		A	colour, plant HAS colour, HAS lack(experience)	
 green-black	zo2ld-fekete	#	#	3295		A	green, black	1
 green-brown	zo2ldesbarna	#	#	3107		A	green, brown	
 green-coloured	zo2ld_szi2nu3	#	#	3294		A	green	1
@@ -1510,38 +1510,38 @@ grey-white	szu2rke1sfehe1r	#	#	3108		A	grey, white
 grief	gya1sz	maeror	z1al	916		N	sorrow, death CAUSE	
 grieve	gya1szol	maereo	byc1_w_z1al1obie	917		V	grief	
 ground	talaj	solum	ziemia	2297	u	N	solid, surface, AT/2744 earth	
-group	csoport	caterva	grupa	432	u	N	several MEMBER, together	MEMBER for non-human groups?
+group	csoport	caterva	grupa	432	u	N	several MEMBER, together	
 grow	no3	cresco	rosna1c1	1796	u	U	=PAT HAS size, after(size ER)	
 growth	no2vekede1s	auctus	wzrost	1793		N		
 growth	tumor	tumor	guz	2464		N		
 guard	o3r	custos	straz1nik	1876		N	protect	
 guess	tala1lgat	conicio	zgadywac1	2294		V	try[know], lack(sure)	
-guest	vende1g	hospes	gos1c1	2604		N	AT/2744 home, =POSS HAS home, <before(=POSS INVITE)>	RECEIVE <hospitality>
+guest	vende1g	hospes	gos1c1	2604		N	AT/2744 home, =POSS[host] HAS home, <before(=POSS INVITE)>	
 guide	vezet	rego	prowadzic1	2616		V	=AGT CAUSE[=PAT HAS information], information ABOUT place/1026, after(=PAT AT/2744 place/1026)	
-guilt	bu3ntudat	conscientia	wina	348		N	FEEL before(=POSS DO crime)	
+guilt	bu3ntudat	conscientia	wina	348		N	FEEL [before(=POSS DO crime)]	
 guilty	bu3no2s	reus	winny	3472	u	N		
 guitar	gita1r	cithara	gitara	3473	u	N		
 gun	puska	sclopetum	bron1	1980	u	N	weapon, HAS[metal(tube)], CAUSE bullet[move]	
 gunpowder	lo3por	pulvis_pyrius	proch	1552		N	explode, powder, CAUSE bullet[move], black	
 habit	csuha	talaria	habit	437		N		all Longman uses in the first 10 result are habit/2237
 habit	szoka1s	consuetudo	zwyczaj	2237		N	repeat, character HAS, lack(think) ABOUT	
-habitual	szoka1sos	solitus	zwyczajny	2238		A	habit	ZsA eltekintve a szo1fajokto1l, ba1r ez is szo3nyeg ala1 so2pre1s
-hail	je1gvere1s	grando	grad	1179		N	weather, [big(ice)] FALL/2694, FROM/2742 cloud	
+habitual	szoka1sos	solitus	zwyczajny	2238		A	habit	
+hail	je1gvere1s	grando	grad	1179		N	weather, ice[fall] FROM/2742 cloud	
 hail	ko2szo2nt	saluto	pozdrawiac1	1392		V	welcome	
-hail	odahi1v	advoco	przywol1ywac1	1889		V	=AGT ATTRACT attention, =PAT HAS attention, INSTRUMENT <shout>	
+hail	odahi1v	advoco	przywol1ywac1	1889		V	=AGT CAUSE attention, =PAT HAS attention, INSTRUMENT <shout(=AGT)>	
 hail	zu1di1t	conicio	zarzucac1	2690		V	=AGT MOVE =PAT, INSTRUMENT force, =PAT[lot/3394]	
 hair	haj	capillus	wl1osy	972	u	N	hair/3359, ON head	
-hair	szo3r	coma	wl1osy	3359	u	N	mass, fine, thread, grow, long, ON body, mammal HAS body	
+hair	szo3r	coma	wl1osy	3359	u	N	fine, thread, grow, long, ON body, mammal HAS body	
 hairy	szo3ro2s	#	#	3378		A	hair/3359 ON body, HAS body	
 half	fe1l	dimidius	po1l1	731		A	part, [two(part)] IN/2758 [whole], before(divide)	
 half-circle	fe1lko2r	#	#	3224		N	shape, bend/1112	3
 half-frozen	fe1lig_megfagyott	#	#	3291		A	ice IN/2758	1
 hall	csarnok	#	#	3094		N	IN/2758 building	
 hammer	kalapa1cs	malleus	ml1otek	1219	u	N	IN/2758 hand, tool, HAS handle, HAS head[heavy,rigid], strike INSTRUMENT	
-hand	ke1z	manus	re1ka	1264	u	N	human HAS arm, PART_OF arm, GRASP object	HAS wrist, HAS palm, HAS fingers, HAS thumb % unification needed, „HAS four fingers”, de „HAS o2t ujj”
+hand	ke1z	manus	re1ka	1264	u	N	PART_OF arm, human HAS arm, FOR/2782[MOVE object], wrist PART_OF, palm PART_OF, fingers PART_OF, thumb PART_OF	"four(finger)", de „o2t(ujj)”
 handkerchief	zsebkendo3	sudarium	chustka	2686		N		
-handle	fogo1	manubrium	ra1czka	834		N	PART_OF artefact, [HOLD artefact]INSTRUMENT, IN/2758 hand	
-hang	lo1g	pendeo	wisiec1	1548	u	U	fasten, above, =PAT NOTHAS support, can/1246[=PAT[swing]], INSTRUMENT <cord>	
+handle	fogo1	manubrium	ra1czka	834		N	PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	
+hang	lo1g	pendeo	wisiec1	1548	u	U	fasten, above, =PAT HAS lack(support), can/1246[=PAT[swing]], INSTRUMENT <cord>	
 hang_down	lo1g	pendeo	wisiec1	1549		U	hang	
 happen	to2rte1nik	fio	stac1_sie1	2418	u	V	change	
 happening	eseme1ny	eventum	wydarzenie	693		N	event	
@@ -1564,7 +1564,6 @@ head	fej	caput	gl1owa	756	u	N	PART_OF animal, brain IN/2758, face ON, top
 heal	gyo1gyi1t	sano	uzdrawiac1	935		V	=AGT CAUSE[=PAT[healthy]]	
 health	ege1szse1g	sanitas	zdrowie	554		N	healthy	
 healthy	ege1szse1ges	sanus	zdrowy	555		A	HAS body, body IN/2758 good(situation)	
-healthy-looking	ege1szse1ges_ku2lseju3	#	#	3290		A	SEEM healthy	1
 heap	kupac	acervus	kupa	1464		N	group, things	
 heap	rak	pono	zwalac1	1991		V		no xml
 hear	hall	audio	sl1yszec1	987	u	U	=AGT PERCEIVE =PAT[sound/993], INSTRUMENT ear	
@@ -1604,24 +1603,24 @@ homeland	haza	patria	ojczyzna	1018		N	land, =POSS[born] IN/2758
 honest	becsu2letes	rectus	szczery	250	u	A	CONFORM moral	
 honesty	becsu2let	decus	szczeros1c1	248		N	honest	
 honey	me1z	#	#	3342		N	sweet, stick, substance, bee MAKE, food, love, soft, pleasant, lack(sincere), attractive, yellow, easy	
-honour	becsu2let	decus	honor	249		N	=POSS DO good, RESPECT =POSS	HUN also tisztelet, megbecsu2le1s
+honour	becsu2let	decus	honor	249		N	public KNOW [before(=POSS DO good)]	HUN also tisztelet, megbecsu2le1s
 honour	megtisztel	honoro	uczcic1	1651		V		
-honourable	tiszteletreme1lto1	honestus	szanowny	2394		A	many HONOUR	
+honourable	tiszteletreme1lto1	honestus	szanowny	2394		A	many THINK[honourable[good]]	
 hook	horog	hamus	hak	1084		N	device, curl, metal, catch/828	suspend
-hope	reme1l	spero	miec1_nadzieje1	2006	u	U	desire, want, =AGT BELIEVE =PAT[possible]	
+hope	reme1l	spero	miec1_nadzieje1	2006	u	U	desire, want, =AGT THINK =PAT[possible]	
 horizon	la1thata1r	horizon	horyzont	1477		N	border, earth AT/2744, sky AT/2744, human SEE	
 horizontal	vi1zszintes	#	#	3144		A	direction	
 horn	ku2rt	cornu	ro1g	1457	u	N	instrument, MAKE sound/993, HAS material[hard]	car horn
 horn	szarv	cornu	ro1g	2772	u	N	hard, AT/2744 head, mammal HAS	
-horse	lo1	equus	kon1	1547		N	animal, mammal, HAS[four (legs)], ride INSTRUMENT, pull	RG
-horseriding	lovagla1s	#	#	3330		N	RIDE horse	
+horseriding	lovagla1s	#	#	3330		N	ride, INSTRUMENT horse	
+horse	lo1	equus	kon1	1547		N	animal, mammal, HAS[four (leg)], ride INSTRUMENT, pull	RG
 hospital	ko1rha1z	valetudinarium	szpital	1371		N	institution, doctor IN/2758, sick IN/2758	
 host	sereg	caterva	tl1um	2085		N	army	ND
-host	vende1gla1to1	hospes	gospodarz	2605		N	INVITE guest	
+host	vende1gla1to1	hospes	gospodarz	2605		N	AT/2744 place, HAS place, <before(INVITE =POSS[guest])>	
 hostile	ellense1ges	inimicus	wrogi	633		A		angry, unfriendly[deliberate] % deliberately unfriendly
 hot	forro1	fervens	gora1cy	862	u	A	temperature, high	
 hot-tasting	csipo3s	#	#	3207		A	HAS hot(taste)	7
-hotel	hotel	deversorium	hotel	1087		N	building, lodgings, GIVE meals, guest[pay/812] IN/2758	
+hotel	hotel	deversorium	hotel	1087		N	building, lodgings, GIVE meal, guest[pay/812] IN/2758	
 hour	o1ra	hora	godzina	1834		N	time, unit, day HAS, HAS minute	
 house	ha1z	domus	dom	963	u	N	building, home	
 how	hogy	quo_modo	jak	1072	u	D	manner	
@@ -1645,27 +1644,27 @@ idea	eszme	opinio	idea	703	u	N	IN/2758 mind, think MAKE
 if	ha	si	jez1eli	952	u	G	IN/2758 case, IN/2758 situation	
 ignore	figyelmen_ki1vu2l_hagy	#	#	3021		V	lack(attention) TO/2743 =PAT	
 ill	beteg	aeger	chory	273		A	lack(health), HAS body, body IN/2758 bad(situation)	
-illegal	illega1lis	#	#	2789		A	law FORBID	
+illegal	illega1lis	#	#	2789		A	bad FOR/2782 law	
 im-	nem	im-	nie-	1775		G	lack	
-image	ke1p	imago	obraz	1242		N	HAS form, SIMILAR object, ' SEE, represent	
+image	ke1p	imago	obraz	1242		N	HAS form, RESEMBLE object, ' SEE, represent	
 imaginary	ke1pzelt	fictus	fikcyjny	1250		A	lack(real), IN/2758 mind	
-imagination	fanta1zia	imaginatio	wyobraz1nia	725		N	MAKE mental(image), lack(see), <pictures>, <idea>	contradicting defaults
-imagine	ke1pzel	cogito	wyobraz1ac1_sobie	1249		V	=AGT FORM mental(image)	
+imagination	fanta1zia	imaginatio	wyobraz1nia	725		N	MAKE mental(image), lack(see), <picture>, <idea>	contradicting defaults
+imagine	ke1pzel	cogito	wyobraz1ac1_sobie	1249		V	image IN/2758 mind, =AGT HAS mind	
 immediately	azonnal	#	#	3009		A	IN/2758 future, NEXT_TO present	
 impel	u3z	ago	s1cigac1	2511		V		
 importance	fontossa1g	momentum	waz1nos1c1	854		N	important	
 important	fontos	gravis	waz1ny	853		A	cause, HAS value	
-impressive	lenyu3go2zo3	#	#	2808		A	' ADMIRE, good	
+impressive	lenyu3go2zo3	#	#	2808		A	good	
 improve	javi1t	emendo	doskonalic1	1177		U	=PAT[better[after]]	
 in	-ba	in	do	10	u	G	after(IN/2758 =REL)	
 in	-ban	in	w	2758	u	G	=REL CONTAIN, AT/2744 =REL	
 in-	nem	in-	nie-	1776		G	lack	
-in_order_to	hogy	#	#	2738		#	FOR =REL	deep 
+in_order_to	hogy	#	#	2738		#	FOR/2782 =REL	deep 
 in_spite_of	ellene1re	#	#	2748		G		
 inch	hu2velyk	digitus	cal	1097		N	unit, length	
 include	belevesz	comprehendo	wl1a1czyc1	259		V	=PAT IN/2758 =TO	HUN ENG arg struct mismatch
 including	-val	cum	z	59		G	=REL IN/2758	
-income	jo2vedelem	reditus	docho1d	1196		N	amount, money, =POSS RECEIVE, FOR/2782 work, regular	
+income	jo2vedelem	reditus	docho1d	1196		N	amount, money, =POSS GET, FOR/2782 work, regular	
 increase	fokoz	augeo	zwie1krzac1	838		V	after(=PAT ER ' )	
 indeed	te1nyleg	vere	doprawdy	2324		D		
 indoor	otthoni	domesticus	wewna1trz	1925		A	IN/2758 building	
@@ -1683,11 +1682,11 @@ information	informa1cio1	nuntiatio	informacja	1141	u	N	study GIVE, experience GI
 injure	megsebesi1t	vulnero	ranic1	1642		V	harm	
 injury	se1ru2le1s	#	#	3360		N	damage, body HAS	
 ink	tinta	atramentum	atrament	2387	u	N	liquid, HAS colour, represent, ON paper	
-inn	fogado1	deversorium	gospoda	833		N	public, house, SERVE food, SERVE drink, travel[stop] IN/2758	
+inn	fogado1	deversorium	gospoda	833		N	public(building), SELL meal, SELL drink, before(guest[travel]), after(guest[travel])	
 inner	belso3	interior	wewne1trzny	261		N	IN/2758 '	
 inquire	nyomoz	quaero	dowiadywac1_sie1	1821		V		no xml
 inquiry	nyomoza1s	inquisitio	dochodzenie	1822		N		
-insect	rovar	insectum	owad	2048	u	N	small(animal), HAS [pair[three],leg], HAS head, <HAS [pair[two],wings]>	HAS thorax, HAS abdomen
+insect	rovar	insectum	owad	2048	u	N	small(animal), HAS [pair[three],leg], HAS head, <HAS wing[pair[two]]>	HAS thorax, HAS abdomen
 inside	-ban	intra	w	13	u	G	in/2758	
 instead	helyett	loco	zamiast	1031		D	lack(=REL), HAS purpose, =REL HAS purpose	
 institution	inte1zme1ny	#	#	3372		N	organize AT/2744, work AT/2744, HAS purpose, system, society/2285 HAS, HAS long(past), building, people IN/2758, CONFORM norm	
@@ -1719,7 +1718,7 @@ involve	#	#	#	2790		V	=PAT PART_OF =AGT
 inwards	befele1	intro	wewna1trz	252		G	after(IN/2758 ' )	
 ir-	nem	ir-	nie-	1777		G		
 iron	vas	ferrum	z1elazo	2589		N	hard(metal)	
-island	sziget	insula	wyspa	2212		N	land, water SURROUND	
+island	sziget	insula	wyspa	2212		N	land, water AROUND	
 it	az	ille	to	188	u	N	thing	% indexical
 item	te1tel	#	#	3343		N	one, IN/2758 list, IN/2758 group, IN/2758 set/2746	single
 its	aze1	suus	jego	189	u	G	it HAS	
@@ -1758,8 +1757,8 @@ kilogram	kilo1	chilogramma	kilogram	1340		N	measure, mass
 kilometre	kilo1me1ter	chilometrum	kilometr	1341		N	distance	
 kind	kedves	benignus	mil1y	1274	u	A	<speak>, like/3382, help	friendly
 kindle	gerjeszt	inflammo	zapalic1	897		V	after(fire)	
-king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, RULE[country], PART_OF [royal( family )]	
-kingdom	kira1lysa1g	regnum	kro1lewstwo	1354		N	country, monarch RULE	
+king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, LEAD[country], PART_OF [royal( family )]	
+kingdom	kira1lysa1g	regnum	kro1lewstwo	1354		N	country, monarch LEAD	
 kingly	kira1lyi	regius	kro1lewski	1351		A	king	% no Longman
 kiss	cso1k	osculum	pocal1unek	414		N	EXPRESS [emotion, =PAT[good] FOR/2782 =AGT], lip TOUCH =PAT, =AGT HAS lip	
 kitchen	konyha	culina	kuchnia	1426		N	room/2235, [MAKE food] IN/2758	
@@ -1768,14 +1767,14 @@ kneel	te1rdel	genuflecto	kle1kac1	2329		V	rest ON knee
 knife	ke1s	culter	no1z1	1256		N	cut, instrument, HAS blade, HAS handle	
 knitting	ko2te1s	lanam	robienie_na_drutach	3480	u	N		
 knock	kiu2t	#	#	2724		V	hit, CAUSE[=PAT[stand[lack]]]	HUN lever
-knock	kopog	pulso	pukac1	1428		U	=AGT STRIKE door, MAKE sound/993, =AGT WANT enter	see 2724
+knock	kopog	pulso	pukac1	1428		U	=AGT HIT door, MAKE sound/993, =AGT WANT enter	see 2724
 knot	csomo1	nodus	we1zel1	430	u	N	AT/2744 rope, fasten	
 know	tud	scio	wiedziec1	2455	u	V	=AGT HAS information, information ABOUT =PAT	
 knowledge	tuda1s	scientia	wiedza	2456		N	information	
 known	ismert	notus	znany	3481	u	N		
 labor	szu2le1s	partus	poro1d	2262		N		
 labour	munka	labor	praca	1739		N	work	
-lack	hia1ny	inopia	brak	1048		U	' EXPECT	not present % nearly primitive % Longman mis- = an opposite or the lack of something: mistrust (=lack of trust)
+lack	hia1ny	inopia	brak	1048		U		
 ladder	le1tra	scalae	drabina	1510	u	N	equipment, climb INSTRUMENT, high	
 lady	ho2lgy	domina	dama	1069		N	woman	
 lake	to1	lacus	jezioro	2403		N	place/1026, water	
@@ -1783,8 +1782,8 @@ lamb	ba1ra1ny	agnus	jagnie1	204		N	young, sheep
 lament	sirat	deploro	z1al1owac1	2106		V	=AGT EXPRESS grief	
 lamp	la1mpa	lampas	lampa	1470		N	device, PRODUCE light/739	
 land	fo2ld	ager	ziemia	816	u	V	solid, ground, area/2366	=AGT POS = N
-language	nyelv	lingua	je1zyk	1807	u	N	system, signs IN/2758 system, communicate INSTRUMENT	
-lap	o2l	gremium	podol1ek	1845		N	front, AT/2744 waist, AT/2744 knees, person[sit] HAS	
+language	nyelv	lingua	je1zyk	1807	u	N	system, sign IN/2758 system, communicate INSTRUMENT	
+lap	o2l	gremium	podol1ek	1845		N	front, AT/2744 waist, AT/2744 knee, person[sit] HAS	
 large	nagy	grandis	duz1y	1745		A	big	
 last	utolso1	ultimus	ostatni	2540		A	PART_OF sequence, lack( ' FOLLOW)	
 late	ke1so3	tardus	spo1z1niony	1257	u	A	AT/2744 time, time ER time[other,correct,usual,' EXPECT]	
@@ -1793,13 +1792,13 @@ later	ke1so3bb	#	#	2803		#	follow, AT/2744 time, time ER
 latter	uto1bbi	posterior	ostatni	2539		A		
 laugh	nevet	rideo	s1miac1_sie1	1789	u	U	=AGT EXPRESS delight, other CAUSE, =AGT MAKE sound/993	<lack(articulate), spontaneous
 laughter	nevete1s	risus	s1miech	1790		N	laugh	
-law	jog	ius	prawo	1200	u	N	rule, system, society/2285 HAS, official, ' ACCEPT, ABOUT can/1246[person[=TO]]	to2rve1ny, right 
+law	jog	ius	prawo	1200	u	N	rule, system, society/2285 HAS, official, norm, ABOUT can/1246[person[=TO]]	to2rve1ny, right 
 law-making	to2rve1nyhozo1	#	#	3223		A	MAKE law	3
-lawful	jogos	iustus	sprawiedliwy	1201		A	law ALLOW	
+lawful	jogos	iustus	sprawiedliwy	1201		A	CONFORM law	
 lawyer	u2gyve1d	advocatus	prawnik	2492		N		
 lay	laikus	laicus	s1wiecki	1484		A	person, practice[lack,official]	NOTHAS? % ND
 lazy	lusta	ignavus	leniwy	1556		A	lack(work), lack(effort)	
-lead	o1lom	plumbum	ol1o1w	1832	u	N	soft, metal	lead/2617ed windows have narrow pieces of lead/2617 separating small square or…
+lead	o1lom	plumbum	ol1o1w	1832	u	N	soft(metal)	
 lead	vezet	duco	prowadzic1	2617	u	V	=AGT CAUSE[=PAT[change]]	naive_theo: x LEAD/2617 y, y LEAD/2617 z implies x LEAD/2617 z
 leaf	faleve1l	folium	lis1c1	723		N	organ, green, flat, AT/2744 stem, PART_OF plant	
 lean	do3l	acclinor	opierac1	475		V	lack(vertical)	Longman Leaning Tower of Pisa
@@ -1819,7 +1818,7 @@ lend	ko2lcso2nad	commodo	poz1yczac1	1374		V	=AGT HAS =PAT, =AGT CAUSE[=DAT AT/27
 length	hossz	longitudo	dl1ugos1c1	1085	u	N	dimension, distance BETWEEN ends	
 lens	lencse	lenticula	soczewica	3344	u	N	PART_OF camera, light/739 THROUGH, FOR/2782 clear(image), <glass>[curl], <plastic>, image HAS different(size), <look INSTRUMENT>	
 less	kevesebb	minor	mniej	1311	u	A	few	
-lesson	lecke	ediscenda	lekcja	1512		N	' LEARN	
+lesson	lecke	ediscenda	lekcja	1512		N	know[after], person KNOW lesson	
 let	be1rbead	loco	wynaja1c1	239	u	V	give, =AGT CAUSE[=DAT USE =PAT], =DAT[pay/812], =DAT CAUSE[=AGT HAS money]	
 let	hagy	patior	pozwalac1	971	u	V	allow	
 letter	betu3	littera	litera	278	u	N	written, symbol	
@@ -1827,7 +1826,7 @@ letter	leve1l	litterae	list	1539	u	N	written, message
 level	si1k	planus	ro1wny	2088	u	A		see 2784
 level	szint	tabulatum	poziom	2781	u	N	position, AT/2744 scale	
 liberal	bo3se1ges	copiosus	hojny	321		A		see 2762
-liberal	libera1lis	#	#	2760		A	lack(limit), lack(tradition), AGREE[CHANGE system]	naive_theo: tolerant
+liberal	libera1lis	#	#	2760		A	THINK tradition[lack(important)], CHANGE system	naive_theo: tolerant
 library	ko2nyvta1r	bibliotheca	biblioteka	1385		N	place/1026, book IN/2758	
 lick	nyal	lingo	lizac1	1804		V	touch, INSTRUMENT tongue	RG
 lid	fede1l	operculum	pokrywka	751		N	' MOVE, cover, hollow HAS	
@@ -1853,11 +1852,11 @@ limp	petyhu2dt	flaccidus	bezwl1adny	1957		A
 line	sor	versus	rza1d	2118	u	N	long, HAS position, HAS direction, <straight/563>	mark, next to each other
 linen	va1szon	linteamen	pos1ciel	3490	u	N		
 linoleum	linoleum	#	#	3174		N	material, COVER floor, strong	
-lion	oroszla1n	leo	lew	1911	u	N	large, animal, mammal, SIMILAR cat, EAT flesh, brave, strong	HAS mane
+lion	oroszla1n	leo	lew	1911	u	N	large, animal, mammal, RESEMBLE cat, EAT flesh, brave, strong	HAS mane
 lip	ajak	labrum	warga	127		N	AT/2744 mouth, HAS red(skin)	
 liquid	folye1kony	fluidus	pl1ynny	846	u	A	substance, flow, HAS shape[change]	
-list	lista	tabulae	lista	1544	u	N	series, HAS items, written	
-listen	fu2lel	ausculto	sl1uchac1	871	u	U	=AGT WANT [=AGT HEAR =TO]	
+list	lista	tabulae	lista	1544	u	N	series, item MEMBER, written	
+listen	fu2lel	ausculto	sl1uchac1	871	u	U	=AGT CAUSE [=AGT HEAR =TO]	
 literature	irodalom	litterae	literatura	1153		N	every(text) IN/2758	
 litre	liter	litra	litr	1546		N	unit, space/2327, liquid	
 little	kis	parvus	mal1y	1355	u	A	small	
@@ -1875,7 +1874,7 @@ lodgings	ha1z	domus	dom	964		N	place/1026, live AT/2744, person NOTHAS
 log	naplo1	diarium	dziennik	1757		N		no xml
 log	ro2nk	codex	kl1oda	2028		N		no xml
 loll	henye1l	desideo	lenic1_sie1	1034		U	lazy, relax	
-lonely	maga1nyos	solus	samotny	1580		A	sad, [=AGT NOTHAS companion] CAUSE	
+lonely	maga1nyos	solus	samotny	1580		A	sad, [=AGT HAS lack(companion)] CAUSE	
 long	hosszu1	longus	dl1ugi	1086	u	A	size[horizontal,big], HAS axis	lack(short)
 long-haired	hosszu1_haju1	#	#	3289		A	HAS long(hair/3359)	1
 long-handled	hosszu1_nyelu3	#	#	3222		A	HAS long(handle)	3
@@ -1893,19 +1892,19 @@ louse	tetu3	#	#	2823		N		non-LDV, added from swadesh
 love	szeret	amo	kochac1	2200	u	V	emotion, good, =PAT[person], care/82	
 low	alacsony	demissus	niski	139	u	A	' ER, height	
 low-quality	rosszu3_minu3se1gu3	#	#	3288		A	HAS low(quality)	1
-lower	also1	inferior	nizszy	162	u	A	[=AGT NEAR bottom] ER	
+lower	also1	inferior	nizszy	162	u	A	[=AGT AT bottom] ER	
 loyal	hu3	fidus	lojalny	1100		A	always(respect)	
 loyalty	hu3se1g	fides	lojalnos1c1	1102		N	loyal	
 luck	szerencse	fortuna	szcze1s1cie	2197	u	N	good, chance/2770 CAUSE	
 lump	pu1p	gibber	gruda	1978		N	small, solid, lack(flat)	HUN dudor
-lung	tu2do3	pulmo	pl1uco	2441		N	organs PART_OF body, breathe INSTRUMENT, <two>	
+lung	tu2do3	pulmo	pl1uco	2441		N	organ, PART_OF body, breathe INSTRUMENT, <two>	
 lungs	tu2do3	pulmo	pl1uco	2442		N	lung	
-lustful	buja	libidinosus	napalony	353		A	[sexual(desire)] IN/2758, NOTHAS control	
+lustful	buja	libidinosus	napalony	353		A	[sexual(desire)] IN/2758, HAS lack(control)	
 machine	ge1p	machina	maszyna	894	u	N	object, work	
 machinery	ge1pezet	machinamentum	maszyneria	895		N	machine, group	
 mad	o3ru2lt	vesanus	szalony	1880		A	HAS mind[strange]	
-magazine	folyo1irat	commentarius	magazyn	849	u	N	HAS pages, articles IN/2758, stories IN/2758, pictures IN/2758	
-magic	ma1gia	ars_magica	magia	1559		N	CONTROL natural(forces), INSTRUMENT supernatural	
+magazine	folyo1irat	commentarius	magazyn	849	u	N	HAS more(page), more(article) IN/2758, more(story) IN/2758, more(picture) IN/2758	
+magic	ma1gia	ars_magica	magia	1559		N	CONTROL natural(force), INSTRUMENT supernatural	
 magician	bu3ve1sz	praestigiator	magik	349		N	USE magic, profession	ND
 mail	posta	posta	poczta	1972		N	letter/1539[move] IN/2758 system, package[move] IN/2758 system	
 main	fo3	primus	gl1o1wny	818		A	ER all, rank, lead/2617	
@@ -1918,14 +1917,14 @@ male	hi1m	mas	samiec	1039	u	N	sex
 mallet	kalapa1cs	malleus	ml1oteczek	3495	u	N		
 malt	mala1ta	maltum	sl1o1d	3496	u	N		
 mammal	emlo3s	#	#	2729		N	animal, HAS fur, HAS milk	ND
-man	ember	homo	czl1owiek	659	u	N	mammal, HAS two(legs), HAS two(hands), think, can/1246[speak], can/1246[work], HAS society/2285	opposed to animals, divine persons, or machines
+man	ember	homo	czl1owiek	659	u	N	mammal, HAS two(leg), HAS two(hand), think, can/1246[speak], can/1246[work], HAS society/2285	opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	
-manage	sikeru2l	procuro	radzic1_sobie	2980	u	V	=AGT DIRECT system, succeed/2718	kezel, sikeru2l
+manage	sikeru2l	procuro	radzic1_sobie	2980	u	V	=AGT LEAD system, succeed/2718	kezel, sikeru2l
 manner	mo1d	modus	sposo1b	1706		N	property, do HAS	
 manner	modor	mos	maniera	1715		N		manner/1706
 manners	illem	pudor	maniery	1132		N	polite	RA
 many	sok	multus	wiele	2113		A	quantity, ER '	
-map	te1rke1p	#	#	3037		N	image, REPRESENT area/2366	
+map	te1rke1p	#	#	3037		N	image, ABOUT area/2366	
 map	te1rke1p	tabula_geographica	mapa	2330		N		
 march	menetel	progredior	maszerowac1	1663		U	walk, steady, group, regular, =AGT MEMBER <military>	
 march	vonul	procedo	maszerowac1	2663		U		
@@ -1940,26 +1939,26 @@ mass	to2meg	massa	masa	2410		N
 master	gazda	dominus	pan	891		N	CONTROL =POSS, HAS =POSS	
 master	mester	magister	mistrz	1680		N	HAS skill, HAS practice	
 master	u1r	dominus	pan	2478		N		see 891
-mat	la1bto2rlo3	tapete	wycieraczka	1468		N	flat, coarse, cloth, WIPE[shoes], ON floor	
-match	gyufa	igniarium	zapal1ka	951	u	N	stick, wood, [person LIGHT/739 fire] INSTRUMENT	
+mat	la1bto2rlo3	tapete	wycieraczka	1468		N	flat, coarse, cloth, CAUSE shoes[clean], ON floor	
+match	gyufa	igniarium	zapal1ka	951	u	N	stick, wood, [person MAKE fire] INSTRUMENT	
 match	illik	decet	pasowac1	1134	u	V	similar, good(together)	
-match	me1rko3ze1s	interludium	mecz	2719	u	N	sport, two(<groups>) PART_OF	
+match	me1rko3ze1s	interludium	mecz	2719	u	N	sport, two(<group>) PART_OF	
 material	anyag	materialis	material1	2798	u	N	object	
 material	testi	corporeus	materialny	2371	u	A		
-mathematics	matematika	mathematica	matematyka	3066	u	N	science, ABOUT calculate, ABOUT numbers, ABOUT shapes	
+mathematics	matematika	mathematica	matematyka	3066	u	N	science, ABOUT calculate, ABOUT number, ABOUT shapes	
 matter	anyag	materia	materia	171		N		see 2758
 matter	sza1mi1t	#	#	2756		N	important	
 matter	u2gy	res	sprawa	2488		N		
-may	lehet	potest	mo1c1	1523	u	G	' ALLOW, permission	
+may	lehet	potest	mo1c1	1523	u	G	allow CAUSE, permission	
 me	e1n	me	mnie	510		G	i	
-meal	e1tkeze1s	cena	posil1ek	543	u	N	food, ' SERVE	
+meal	e1tkeze1s	cena	posil1ek	543	u	N	event FOR/2782 food	
 meal	koszt	cibus	posil1ek	1440	u	N		meal/543
 mean	a1tlag	plurimus_minimusque	s1redni	106	u	N	average	
 mean	gonosz	malus	zl1y	910	u	A	lack(gentle)	NOTCOP, anto?
 mean	jelent	sibi_vult	znaczyc1	1186	u	V	represent, =AGT[sign]	
 meaning	e1rtelem	significatio	znaczenie	528		N	information IN/2758 =POSS	
-means	eszko2z	facultas	sposo1b	702		N	[animal ACHIEVE]INSTRUMENT	
-measure	me1rte1k	mensura	miara	1608	u	N	COMPARE quantity	
+means	eszko2z	facultas	sposo1b	702		N	goal INSTRUMENT	
+measure	me1rte1k	mensura	miara	1608	u	N	CAUSE[person KNOW quantity]	
 meat	hu1s	caro	mie1so	1094	u	N	flesh, food, [animal,<mammal>] HAS flesh	
 medical	orvosi	medicines	mediczny	2805	u	A	CAUSE[health], treatment	
 medicine	orvossa1g	medicamentum	lekarstwo	1915		N	substance, cure/934, <liquid>, < ' SWALLOW>	
@@ -1969,14 +1968,14 @@ meeting	tala1lkoza1s	occursus	spotkania	2295	u	N
 megabyte	megabyte	#	#	3172		N	@megabyte	
 melt	olvad	liquesco	topic1_sie1	1907		V	=PAT[material], heat CAUSE, material[solid[before]], material[after(liquid)]	
 member	tag	membrum/socius	czl1onek	2293		N	person, =POSS[group], person IN/2758 group	
-memory	emle1kezet	memoria	pamie1c1	666		N	information, human HAS, ABOUT past	Longman if an experience… is etched on your memory…, you cannot forget it
+memory	emle1kezet	memoria	pamie1c1	666		N	information, human HAS, ABOUT past	
 mend	foltoz	resarcio	cerowac1	843		V	repair	
 mental	szellemi	spiritualis	mentalny	3039	u	A	mind HAS, <health>	
 mention	emli1t	memoro	wspomniec1	669		V	say	incidental?
 mercy	kegyelem	clementia	mil1osierdzie	1281		N		compassionate, HAS power
 merry	vida1m	hilarus	wesol1y	2625		A	HAS joy	
 message	u2zen	nuntio	wiadomos1c1	2508		V	information, <written>, send	
-messenger	futa1r	nuntius	posl1aniec	883		N	person, CARRY message	
+messenger	futa1r	nuntius	posl1aniec	883		N	person, CAUSE[message AT address]	
 metal	fe1m	metallum	metal	738	u	N	material, solid, shine, conduct	
 method	mo1dszer	ratio	metoda	1708		N	' INSTRUMENT, HAS stage/837, PART_OF knowledge	
 metre	me1ter	metrum	metr	1610		N	unit, length	
@@ -1985,7 +1984,7 @@ metrical	metrikus	#	#	2774		A	measure
 mexican-american	mexiko1i-amerikai	#	#	3287		A	MEMBER [@United_States,nation], FROM/2742 @Mexico	
 microscope	mikroszko1p	microscopium	mikroskop	1690		N	[human SEE small] INSTRUMENT, HAS lens, image IN/2758, image[big] ER object	
 mid-	ko2ze1p-	medius	s1rodkowy	1411		G	middle	
-middle	ko2ze1p	media_pars	s1rodek	1410	u	N	NOTAT limit, NOTAT ends, NOTAT side, NOTAT edge, NOTAT top, NOTAT bottom	
+middle	ko2ze1p	media_pars	s1rodek	1410	u	N	NOTAT limit, NOTAT end, NOTAT side, NOTAT edge, NOTAT top, NOTAT bottom	
 might	hatalom	vis	moc	1015	u	N	influence	
 mile	me1rfo2ld	mille_passus	mila	1606		N	unit, length	
 military	hadi	militaris	wojskowy	968	u	A	army	
@@ -1996,7 +1995,7 @@ mill	mar	rodo	N/A	1593		V		in xml, but actually definiendum
 mill	o3ro2l	molo	mlec1	1878		V		no xml
 mill	tolong	concurro	N/A	2429		V		
 mind	tudat	conscientia	umysl1	2457	u	N	human HAS, IN/2758 brain, human HAS brain, think INSTRUMENT, perceive INSTRUMENT, emotion INSTRUMENT, will INSTRUMENT, memory INSTRUMENT, imagination INSTRUMENT	
-mine	ba1nya	metalla	kopalnia	202		N	IN/2758 earth, minerals FROM/2742	
+mine	ba1nya	metalla	kopalnia	202		N	IN/2758 earth, mineral FROM/2742	
 mineral	a1sva1ny	metallum	mineral1	97	u	N	substance, solid, natural, IN/2758 earth	
 minister	miniszter	#	#	3402		N	politician, MEMBER government, represent	
 minister	pap	sacerdos	pastor	1938		N	priest, christian, help	person, HAS[religious(duty)] % office instead of duty? % ND
@@ -2006,13 +2005,13 @@ mis-	fe1lre-	oblique/non_recte	z1le	736		G		fail % bad, lack
 miserable	siralmas	miserabilis	z1al1osny	2105		A	lack(happy)	NOTCOP
 miserly	fukar	avarus	ska1py	879		N	quantity, small, bad	no use
 miss	kisasszony	dominula	panna	1358		N	miss/1357	
-miss	ne1lku2lo2z	#	#	2720		V	=AGT HAS bad(feeling), =AGT NOTHAS =PAT	
+miss	ne1lku2lo2z	#	#	2720		V	=AGT HAS bad(feeling), =AGT HAS lack(=PAT)	
 mist	ko2d	nebula	mgl1a	1372		N	steam IN/2758 air, outside, weather	
 mistake	hiba	error	bl1a1d	1051		N	person CAUSE bad	
 mix	kever	misceo	mieszac1	1309	u	V	=PAT[<liquid>], =PAT[material[before, separate]], =AGT CAUSE single, =PAT[single(substance)]	
 mixture	elegy	mixtio	mieszanka	607		N	compound	
-mock	a1l-	adulterinus/falsus	fal1szywy	69		G	SIMILAR =AGT, lack(=AGT), false	
-mock	gu1nyol	#	#	2965		V	=AGT CAUSE[=PAT SEEM stupid, laugh]	
+mock	a1l-	adulterinus/falsus	fal1szywy	69		G	RESEMBLE =AGT, lack(=AGT), false	
+mock	gu1nyol	#	#	2965		V	=AGT CAUSE[people[laugh] THINK =PAT[stupid]]	
 model	minta	exemplum	przykl1ad	1703		N	object, represent	
 model	modell	exemplum	przykl1ad	1713		A		see 1703
 modern	mai	hodiernus	nowoczesny	1587	u	A		see 1714
@@ -2020,24 +2019,24 @@ modern	modern	novus	nowoczesny	1714	u	A	AT/2744 time[near]	NOTAT history?
 modest	szere1ny	modestus	skromny	2196		A	THINK ability[lack(important)], HAS ability	% NOTCOP % unification needed
 moment	pillanat	momentum	chwila	1961		N	time, point	
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
-monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, RULE country	
-money	pe1nz	pecunia	pienia1dze	1952	u	N	' EXCHANGE, HAS value, official	
+monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD country	
+money	pe1nz	pecunia	pienia1dze	1952	u	N	FOR/2782 exchange, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N		
-monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[legs[two]], HAS[hands[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
+monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve, PART_OF year	
-moon	hold	luna	ksie1z1yc	1074		N	ON sky, AT/2744 night, move AROUND earth	
-moral	erko2lcs	mos	moralnos1c1	681		N		I suggest removing this line. See 682 and 2306
-moral	tanulsa1g	documentum	moral1	2306		N	story TEACH	
-morals	erko2lcs	mos	moralnos1c1	682		N	rules, ABOUT <intercourse>, right/1191 PART_OF, wrong PART_OF	
+moon	hold	luna	ksie1z1yc	1074		N	ON sky, AT/2744 night, move, move AROUND earth	
+moral	erko2lcs	mos	moralnos1c1	681		N		See 682 and 2306
+moral	tanulsa1g	documentum	moral1	2306		N	lesson, PART_OF story	
+morals	erko2lcs	mos	moralnos1c1	682		N	rule, ABOUT <intercourse>, right/1191 PART_OF, wrong PART_OF	
 more	to2bb	plus	wie1cej	2404	u	A	quantity, ER '	
 morning	reggel	mane	ranek	2002		N	early, PART_OF day, sunrise AT/2744	
 mosque	mecset	aedes_sacra_Turcorum	meczet	1612		N	@Islam HAS, temple/2349	no xml
-mosquito	szu1nyog	culex	komar	2255	u	N	insect, SUCK blood, PIERCE skin, animal HAS skin	
+mosquito	szu1nyog	culex	komar	2255	u	N	insect, CAUSE[blood FROM vessel], CAUSE [bad(feeling) AT skin], animal HAS skin	
 most	legto2bb	plurimus	najwie1cej	1518		A	-est	
 mother	anya	mater	matka	170		N	parent, female	
 motion	mozga1s	motus	ruch	1729		N	move	
 motor	motor	motor	silnik	1728		N	CAUSE move	
-mountain	hegy	mons	go1ra	1024	u	N	ON earth, natural, high, HAS <steep/1673>(sides), ER hill[high]	
+mountain	hegy	mons	go1ra	1024	u	N	ON earth, natural, high, HAS <steep/1673>(side), ER hill[high]	
 mountain-climbing	hegyma1sza1s	#	#	3285		A	climb, AT/2744 mountain	
 mouse	ege1r	mus	mysz	551		N	rodent, HAS long(tail)	
 mouth	sza1j	os	usta	2137	u	N	ON face, food IN/2758, speak INSTRUMENT, can/1246[open/1814]	
@@ -2047,18 +2046,18 @@ movement	mozgalom	motus	ruch	3506	u	N
 much	sok	multus	wiele	2114	u	A	many	
 mud	sa1r	lutum	bl1oto	2056		N	wet, earth, soft, sticky, water IN/2758	
 multiply	szaporodik	propagor	mnoz1yc1_sie1	2157		U		
-multiply	szoroz	multiplico	mnoz1yc1	2253		U	calculate, =AGT REPEAT add	
-murder	gyilkol	caedo	mordowac1	933		V	=AGT KILL human, deliberate, illegal	
+multiply	szoroz	multiplico	mnoz1yc1	2253		U	calculate, add[other] FOLLOW add	
+murder	gyilkol	caedo	mordowac1	933		V	=AGT CAUSE =PAT[live[lack]], deliberate, illegal	
 murmur	morog	murmuro	szeptac1	1723		V	animal MAKE sound/993[low, long]	no xml
 muscle	izom	musculus	mie1sien1	1168		N	tissue, move	
 music	zene	musica	muzyka	2676	u	N	art, entertainment, sound/993, HAS rhythm	HAS melody % HAS harmony
 musical	musical	musicus	muzykal	3507	u	N		
-musician	zene1sz	#	#	3016		N	profession, PLAY music	
+musician	zene1sz	#	#	3016		N	profession, FOR/2782 music	
 musician	zene1sz	musicus	muzyk	2677		N		
 must	kell	debet	musiec1	1286		G	lack(option)	hungarian and english cases differ
 mutilate	megronga1l	laedo	kaleczyc1	1641		V		no xml
 my	-m	meus	mo1j	32		G	i HAS =REL	
-mystery	rejte1ly	aenigma	tajemnica	2005		N	lack( ' UNDERSTAND)	
+mystery	rejte1ly	aenigma	tajemnica	2005		N	lack(' UNDERSTAND)	
 nail	ko2ro2m	#	#	3065		N	PART_OF finger, AT/2744 end, finger HAS end, hard, smooth	
 nail	szeg	clavus	gwo1z1dz1	2176		N		HUN szo2g
 naive	nai1v	simplex	naiwny	1753		A		no xml
@@ -2067,14 +2066,14 @@ narrow	szu3k	angustus	wa1ski	2269	u	A	HAS width, ' ER
 nasty	undok	foedus	wredny	2524		A	lack(kind), lack(pleasant)	kind/1274
 nation	nemzet	natio/gens	naro1d	1786		N	large(group), people, <HAS country>	
 native	honi	domesticus	tubylczy	1079		A	birth AT/2744	
-natural	terme1szetes	naturalis	naturalny	2972	u	A	lack(artificial), person NOTCAUSE	
+natural	terme1szetes	naturalis	naturalny	2972	u	A	lack(artificial), lack(person CAUSE)	
 nature	terme1szet	natura	natura	2362		N	character, important ER, quality	
 naval	flotta-	navalis	marynarski	814		A	navy	
-navy	flotta	classis	marynarka	813		N	nation HAS, ships, military, force, AT/2744 sea	
+navy	flotta	classis	marynarka	813		N	nation HAS, more(ship) PART_OF, military, force, AT/2744 sea	
 near	ko2zeli	propinquus	bliski	1414		A	AT/2744 distance, ER distance	relational
 neat	rendes	dispositus	schludny	2009		A	HAS structure, beautiful	RA: careful(arrangement)
 necessary	szu2kse1ges	necessarius	potrzebny	2260		A	enough	lack(can/1246[ ' NOTINSTRUMENT])
-neck	nyak	cervices	szyja	1803		N	PART_OF body, SUPPORT head	
+neck	nyak	cervices	szyja	1803		N	PART_OF body, CAUSE[head AT/2744]	
 need	szu2kse1g	necessitas	potrzeba	2259	u	N	bad FOR/2782 =AGT, =PAT NOTAT =AGT, =AGT WANT =PAT	
 needle	tu3	acus	igl1a	2448	u	N	artefact, long, thin/2598, steel, pierce, HAS hole, <sew INSTRUMENT>	
 needle-like	tu3-szeru3	#	#	3284		A	long, thin/2598, pierce	hedgehog % 1
@@ -2086,14 +2085,14 @@ neither	sem	#	#	3003		G	not
 nerve	ideg	nervus	nerw	1116		N	IN/2758 body, feel INSTRUMENT	
 nervous	ideges	trepidus	zdenerwowany	2721	u	A	anxious, sensitive	
 nervous	idegi	nervosus	nerwowy	1119	u	A		see also 2721
-nest	fe1szek	nidus	gniazdo	747		N	home, bird HAS, bird BUILD, <ON tree>, egg IN/2758, young IN/2758	
-net	ha1lo1	rete	siec1	955		N	structure, cords, knot PART_OF, catch/828	
+nest	fe1szek	nidus	gniazdo	747		N	home, bird HAS, bird MAKE, <ON tree>, egg IN/2758, young IN/2758	
+net	ha1lo1	rete	siec1	955		N	structure, cord, knot PART_OF, catch/828	
 network	ha1lo1zat	rete	siec1	956	u	N	net, <broadcast>	
 neuter	semleges	castro	kastrowac1	3511	u	N		
 never	soha	nunquam	nigdy	2112		D	AT/2744 time[lack]	
 new	u1j	novus	nowy	2469	u	A	exist AT/2744 past[short], lack(old)	
-news	hi1r	novum	wiadomos1c1	1041		N	information, ABOUT recent(events), IN/2758 <newspapers>	
-newspaper	u1jsa1g	diurna	gazeta	2473	u	N	public, HAS pages, AT/2744 every(day), news IN/2758, article IN/2758	advertisement IN/2758 % <editorial IN/2758>
+news	hi1r	novum	wiadomos1c1	1041		N	information, ABOUT recent(event), IN/2758 <newspaper>	
+newspaper	u1jsa1g	diurna	gazeta	2473	u	N	public, HAS more(page), AT/2744 every(day), news IN/2758, article IN/2758	advertisement IN/2758 % <editorial IN/2758>
 next	ko2vetkezo3	posterus	naste1pny	1406		D	at/2744, FOLLOW '	
 nice	kedves	dulcis	mil1y	1275		A	CAUSE joy	
 nice-smelling	kedves_illatu1	#	#	3283		A	HAS nice(smell)	1
@@ -2102,7 +2101,7 @@ nine	kilenc	#	#	2998		A	number, FOLLOW eight
 no	nem	non	nie	1778	u	G	lack	
 no_one	senki	nemo	nikt	2081		N	lack(person)	
 nobility	nemesse1g	nobilitas	szlachta	3512	u	N		
-noble	nemes	nobilis	szlachetny	1782		A	man/659, birth CAUSE, IN/2758 social (class), IN/2758 history	
+noble	nemes	nobilis	szlachetny	1782		A	man/659, birth CAUSE, IN/2758 social(class), IN/2758 history	
 nobleman	nemes	homo_nobilis	szlachcic	1783		N	noble, man/659	no xml
 nobody	senki	nemo	nikt	2082		N	lack(person)	quantifier
 noise	zaj	fremitus	hal1as	2671	u	N	sound/993, <bad>	loud, frighten
@@ -2111,15 +2110,14 @@ non-	nem-	non-	nie-	1781		G	lack(=REL)
 non-Christian	nem-kereszte1ny	#	#	3235		A	lack(christian)	christian or non-christian % 2
 non-european	nem_euro1pai	#	#	3282		A	lack(@Europe)	1
 non-physical	nem_fizikai	#	#	3281		A	lack(physical)	1
-non-religious	nem_valla1sos	#	#	3280		A	lack(religious)	religious or non-religious % 1
 none	semmi	nihil	z1aden	2079		A	lack(thing)	
 nonsense	ke1ptelense1g	#	#	3053		N	idea, lack(true), lack(meaning)	
 nor	sem	neque	ani	2078		G	not	
-norm	norma	#	#	3361		N	society/2285 ACCEPT	
-normal	rendes	naturalis	normalny	2799	u	A	SIMILAR other	
+norm	norma	#	#	3361		N	good FOR/2782 society/2285	
+normal	rendes	naturalis	normalny	2799	u	A	RESEMBLE other	
 north	e1szak	septemtriones	po1l1noc	538		N	direction, ON earth, top, map HAS top	
 northern	e1szaki	septemtrionalis	po1l1nocny	539		A	north	
-nose	orr	nasus	nos	1912	u	N	PART_OF face, vertebrate HAS face, front, AT/2744 centre, smell, air[move] IN/2758	nostrils PART_OF
+nose	orr	nasus	nos	1912	u	N	PART_OF face, vertebrate HAS face, front, AT/2744 centre, smell, air[move] IN/2758	nostril PART_OF
 not	nem	non	nie	1779	u	G		unsolved
 not_heed	szo1fogadatlan	non_parens	nieposl1uszny	2225		A	lack(heed)	no xml
 note	feljegyze1s	annotatio	notatka	774		N	short, written	Longman hangjegy
@@ -2132,9 +2130,9 @@ nowhere	sehol	#	#	3064		G	AT/2744[place/1026,nothing]
 nowhere	sehol	nusquam	nigdzie	2075		D		
 number	sza1m	numerus	numer	2138	u	N	quantity	
 nun	no3ve1r	ancilla	zakonnica	3514	u	N		
-nurse	dada	nutrix	niania	443		N	<woman>, CARE/82 person[<sick>,<child>]	
+nurse	dada	nutrix	niania	443		N	<woman>, FOR/2782 person[<sick>,<child>]	
 nurse	szoptat	nutrico	karmic1	2251		V		
-nut	magv	nucleus	ja1dro	1585		N	fruit, NOTHAS juice, <brown>, IN/2758 shell, grow ON tree	
+nut	magv	nucleus	ja1dro	1585		N	fruit, HAS lack(juice), <brown>, IN/2758 shell, grow ON tree	
 nylon	nylon	materia_plastica_nailonensis	nylon	1816		N	material, artefact	
 o'clock	o1rakor	hora	godzina	1836		D	AT/2744 hour	
 oar	evez	remus	wiosl1o	3515	u	N		
@@ -2165,12 +2163,12 @@ official	tisztviselo3	officialis	urze1dnik	2398	u	N
 offspring	uto1d	#	#	3346		N	child	
 often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN	
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid	
-old	o2reg	senex	stary	1854	u	A	HAS time, time SINCE/1839 birth, time ER	
+old	o2reg	senex	stary	1854	u	A	long(time) FROM birth, old HAS birth	
 old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]	
-on	-n	super	na	33	u	G	TOUCH =REL, HAS vertical(position), position ER other(position), =REL HAS position	SUE
+on	-n	super	na	33	u	G	TOUCH =REL, vertical(ER =REL)	
 once	egykor	olim	dawno	580		D	IN/2758 past	
 once	egyszer	#	#	2766		#	AT/2744 one(time)	
-one	egy	unus	jeden	559	u	N	number, lack(more), divide NOTCAUSE	NOTCOP, anto
+one	egy	unus	jeden	559	u	N	number, lack(more), lack(divide CAUSE)	NOTCOP, anto
 onion	vo2ro2shagyma	cepa	cebula	2659		N		
 only	csak	solus/modo	tylko	381	u	D	lack(other)	
 onto	-ra	#	#	2793		G	after(on)	
@@ -2178,26 +2176,26 @@ open	nyi1lt	apertus	otwarty	1814	u	A	can/1246[thing[move], move THROUGH], lack(s
 open	nyit	aperio	otwierac1	1815	u	V	=PAT[open/1814[after]]	
 operate	mu3ko2dik	#	#	2978		V	work, <system>	
 operation	mu3velet	operatio	operacja	1736		N	operate	process, PART_OF work % CAUSE[damage NOTAT body] % xml: mostly „medical”
-opinion	ne1zet	opinio	zdanie	1768	u	N	=POSS BELIEVE, =POSS[confident], =POSS NOTHAS proof	
+opinion	ne1zet	opinio	zdanie	1768	u	N	=POSS THINK, =POSS[confident], =POSS HAS lack(proof)	
 opponent	ellenfe1l	adversarius	przeciwnik	631		N	person, oppose, <compete>, <AT/2744 battle>	contradicting defaults
 opportunity	leheto3se1g	#	#	2959		N	can/1246	
 oppose	ellenez	adversor	sprzeciwic1_sie1	630		V	lack(agree)	=AGT NOTPRED
-oppose	ellenz	adversor	sprzeciwic1_sie1	635		V		=AGT remove this line, see 630
+oppose	ellenz	adversor	sprzeciwic1_sie1	635		V		=AGT see 630
 opposite	szemben	contra	przeciwny	2184	u	D	different, ER '	
-opposition	ellente1t	oppositio	przeciwien1stwo	634		N	OPPOSE =PAT[<plan>]	
+opposition	ellente1t	oppositio	przeciwien1stwo	634		N	oppose, =PAT[<plan>]	
 oppress	elnyom	opprimo	uciskac1	639		V	=AGT CAUSE[=PAT[people] NOTHAS [normal(right/3122)]]	neighter right/1191 nor right/1199
 option	leheto3se1g	#	#	3362		N	can/1246[<' CHOOSE>], possible	
 or	vagy	vel	albo	2568	u	G		
-orange	narancs	aurantium	pomaran1cza	1758		N	IN/2758 warm(land), round(fruit), SIMILAR yellow, SIMILAR red	
+orange	narancs	aurantium	pomaran1cza	1758		N	IN/2758 warm(land), round(fruit), RESEMBLE yellow, RESEMBLE red	
 orange-brown	narancs-barna	#	#	3211		A	orange, brown	5
 orange-coloured	narancs_szi2nu3	#	#	3279		A	HAS orange(colour)	1
 orange-red	narancspiros	#	#	3278		A	red, orange	1
 orange-yellow	narancssa1rga	#	#	3234		A	orange, yellow	2
 order	parancs	iussum	rozkaz	1942	u	N	authority GIVE, [other(person)] DO	
-order	sorrend	ordo	porza1dek	2739	u	N	items HAS, relation IN/2758, first PART_OF	
+order	sorrend	ordo	porza1dek	2739	u	N	more(item) HAS, relation IN/2758, first PART_OF	
 ordinary	he1tko2znapi	quotidianus	zwyczajny	1023		A	common	
 organ	szerv	membrum	narza1d	2203	u	N	PART_OF body, HAS purpose	
-organization	szervezet	societas	organizacja	2204	u	N	group, persons, HAS purpose, structure	
+organization	szervezet	societas	organizacja	2204	u	N	group, person MEMBER, HAS purpose, structure	
 organize	szervez	compono	organizowac1	2949	u	V	=AGT CAUSE[=PAT HAS structure]	
 origin	eredet	origo	pocza1tek	678		N	point, =POSS[exist[after]]	relational
 original	eredeti	#	#	3347		A	first, other FOLLOW, new, ' RESEMBLE, <famous MAKE>	lack(RESEMBLE ' ), lack(FOLLOW ') % RESEMBLE is asymmetric, figure and ground
@@ -2219,11 +2217,11 @@ overpower	legyo3z	opprimo	pokonac1	1522		V	defeat, =AGT IN/2758 conflict, =AGT H
 owe	tartozik	debeo	byc1_winnym	2317		U	must[after(=AGT CAUSE[<money> AT/2744 =DAT])]	
 owing_to	ko2szo2nheto3en	propter	dzie1ki	1391		A	=DAT CAUSE	
 own	saja1t	proprius	wl1asny	2059	u	A	self HAS	
-ox	o2ko2r	bos	wo1l1	1844		N	male, cattle, PULL cart, PULL plough	sterile % ND
-oxygen	oxige1n	oxygenum	tlen	1926		N	gas, IN/2758 air, NOTHAS colour	
+ox	o2ko2r	bos	wo1l1	1844		N	male, cattle	
+oxygen	oxige1n	oxygenum	tlen	1926		N	gas, IN/2758 air, HAS lack(colour)	
 oyster	osztriga	ostrea	ostryga	3521	u	N		
 pack	csomagol	colligo	pakowac1	429		V	wrap	
-package	csomag	arca	paczka	3002	u	N	' COVER, ' SEND	
+package	csomag	arca	paczka	3002	u	N	together, after(AT other(place))	
 packet	csomag	fascis	paczka	427		N	object, unit, ' COVER	
 page	lap	pagina	strona	1491	u	N	surface, paper HAS, write ON, IN/2758 <book>	
 pain	ki1n	cruciatus	bo1l	1318		N	bad, sensation, injury CAUSE	
@@ -2231,17 +2229,17 @@ paint	fest	pingo	malowac1	795		V	=AGT CAUSE[=PAT[liquid] COVER surface, =PAT[pic
 painter	festo3	pictor	malarz	796		N	person, paint	
 painting	festme1ny	pictura	obraz	3523	u	N		
 pair	pa1r	bini	para	1929		N	two, similar	
-palace	palota	palatium	pal1ac	1935		N	official, home, person HAS, person HAS high(rank)	the people who live in a palace - used in news reports
+palace	palota	palatium	pal1ac	1935		N	official, home, person HAS, person HAS high(rank)	
 pale	fako1	gilvus	blady	719		A	white, skin	
 pale-coloured	halva1ny_szi2nu3	#	#	3233		A	HAS pale(colour)	2
 pan	tepsi	frixorium	patelnia	2353		N	container, metal, cook/825 INSTRUMENT, HAS handle, <round>	HUN serpenyo3
 pant	liheg	anhelo	dyszec1	1543		U	breath, quick	RG
-paper	papi1r	charta	papier	1940	u	N	material, FROM/2742 wood, flexible, sheet, HAS two(sides)	
+paper	papi1r	charta	papier	1940	u	N	material, FROM/2742 wood, flexible, sheet, HAS two(side)	
 parallel	pa1rhuzamos	parallelus	ro1wnolegl1y	1931		A	[constant(distance)] BETWEEN, lack(meet)	NOTHAS
 parcel	csomag	fascis	paczka	428		N	packet	
 parent	szu2lo3	parens	rodzic	2266	u	N	MAKE child	
-park	park	horti	park	1943		N	area/2366, land, public, lack(building), rest IN/2758, beautiful, natural, grass IN/2758, trees IN/2758, IN/2758 <town>, walk IN/2758, play IN/2758	building NOTAT?
-parliament	parlament	senatus	sejm	1944		N	state/76 HAS, REPRESENT nation, MAKE law, HAS power	
+park	park	horti	park	1943		N	area/2366, land, public, lack(building), rest IN/2758, beautiful, natural, grass IN/2758, tree PART_OF, IN/2758 <town>, walk IN/2758, play IN/2758	building NOTAT?
+parliament	parlament	senatus	sejm	1944		N	state/76 HAS, FOR/2782 nation, MAKE law, HAS power	
 part	re1sz	pars	cze1s1c1	1997	u	N	part_of	
 partake_of	bevesz	capio	wzia1c1	281		V		no Longman
 participle	participium	participium	imiesl1o1w	1948	u	N		the past tense and past participle of
@@ -2256,8 +2254,8 @@ past	mu1lt	praeterita	przeszl1os1c1	1732	u	N	PART_OF time, present FOLLOW
 paste	pe1p	puls	pasta	1953		N		no xml
 pastry	su2teme1ny	panificium	wypiek	2132	u	N		
 path	o2sve1ny	semita	s1ciez1ka	1867		N	way, <narrow>, <lack(build)>	
-patient	beteg	aeger	pacjent	275		N	RECEIVE medical(care/82)	
-pattern	minta	exemplum	wzo1r	1704	u	N	' SIMILAR, repeat	part?
+patient	beteg	aeger	pacjent	275		N	GET medical(care/82)	
+pattern	minta	exemplum	wzo1r	1704	u	N	' RESEMBLE, repeat	part?
 pause	szu2net	intermissio	przerwa	2267		N	lack(action), temporary	
 pay	be1r	pretium	pensja	237	u	N	money, =POSS[work[before]], after(=POSS HAS)	
 pay	fizet	persolvo	pl1acic1	812	u	V	=AGT CAUSE[=DAT HAS money], buy, =AGT PART_OF exchange	
@@ -2270,7 +2268,7 @@ pen	toll	penna	pio1ro	2428		N	instrument, <write>, ink IN/2758, CAUSE[ink ON sur
 pence	fille1r	nummulus	pens	804		N	penny, more	
 pencil	ceruza	plumbum	ol1o1wek	369		N	instrument, write INSTRUMENT, draw/2707 INSTRUMENT, long, round, rod IN/2758	naive_theo: graphite
 penny	fille1r	nummulus	pens	805	u	N	cent	
-people	ne1p	populus	ludzie	1762	u	N	human, group	a strange object in the sky, that some people believe is a
+people	ne1p	populus	ludzie	1762	u	N	human, group	
 pepper	bors	piper	pieprz	334		N	powder, CAUSE[food HAS hot(taste)]	
 per	-ke1nt	per	jako	31		G		
 perceive	e1rze1kel	percipio	dostrzegac1	531		V	know, INSTRUMENT sense	
@@ -2278,7 +2276,7 @@ perfect	to2ke1letes	perfectus	idealny	2406		A	mistake NOTIN, best
 perform	elo3ad	ago	grac1	642	u	V	action, ' SEE, public, play	=AGT HAS role
 perhaps	ta1n	forsitan	moz1e	2277		D		
 period	ido3tartam	tempestas	okres	1123	u	N	=POSS IN/2758 time, =POSS FROM/1838 ' , =POSS TO/2743 '	
-perish	megsemmisu2l	deleor	gina1c1	1643		U	violent DESTROY	
+perish	megsemmisu2l	deleor	gina1c1	1643		U	violent, destroy	
 permanent	a1llando1	#	#	3015		A	not(change)	
 permission	engede1ly	concessio	pozwolenie	672		N	allow	
 permit	tu3r	sino	pozwalac1	2453		V	allow	
@@ -2302,8 +2300,8 @@ pick	felvesz	tollo	podnosic1	785	u	V	=AGT CAUSE[=PAT AT/2744 =AGT], after(use)	s
 picture	ke1p	pictura	obraz	1244	u	N	image	
 piece	darab	pars	kawal1ek	449	u	N	small, IN/2758 =POSS[large]	
 pierce	szu1r	figo	przekl1uwac1	2256		V	=AGT CAUSE[hole IN/2758 =PAT], INSTRUMENT sharp	
-pig	malac	porcus	s1winia	1591	u	N	mammal, HAS short(legs), HAS short(hair/3359), dig, <AT/2744 farm>, young	hog
-pile	halom	acervus	gromada	988		N	many IN/2758, object ON object(thing), high, ' COLLECT	
+pig	malac	porcus	s1winia	1591	u	N	mammal, HAS short(leg), HAS short(hair/3359), dig, <AT/2744 farm>, young	hog
+pile	halom	acervus	gromada	988		N	many IN/2758, object ON object(thing), high, collect MAKE	
 pillar	oszlop	columna	filar	1917		N	vertical, support	
 pilot	pilo1ta	#	#	3025		N	CONTROL aircraft	
 pilot	vezet	moderor	pilotowac1	2618		V		
@@ -2313,17 +2311,17 @@ pink-brown	ro1zsaszi2n-barna	#	#	3277		A	pink, brown	1
 pink-orange	ro1zsaszi2n-narancs	#	#	3275		A	pink, orange	1
 pinkish-orange	ro1zsaszi2nes-narancs	#	#	3232		A	orange, pink	2
 pinkish-red	ro1zsaszi2nespiros	#	#	3276		A	red, pink	1
-pipe	cso3	fistula	rura	418	u	N	artefact, space/2327 IN/2758, cylinder, CONDUCT material	
+pipe	cso3	fistula	rura	418	u	N	artefact, space/2327 IN/2758, cylinder, fluid[move] IN/2758	
 pity	ka1r	miseret_me_alicuius	szkoda	1208		N	sorrow, [person[other,suffer]] CAUSE	sympathy OR sorrow
-pizza	pizza	#	#	3197		N	food, flat, round, bread PART_OF, ' BAKE, <tomato ON>, <cheese ON>, <vegetable ON>, <meat ON>	
+pizza	pizza	#	#	3197		N	food, flat, round, bread PART_OF, bake MAKE, <tomato ON>, <cheese ON>, <vegetable ON>, <meat ON>	
 place	hely	locus	miejsce	1026	u	N	point, ' AT/2744	
 place	te1r	forum	plac	2326	u	N	thing IN/2758, empty, [three(dimension)] IN/2758	
 plain	egyszeru3	#	#	3052		A	simple	
 plain	si1k	planus	ro1wny	2089		A		
 plan	terv	propositum	plan	2369	u	N	after(structure)	
-plane	repu2lo3	aeroplanum	samolot	2807	u	N	vehicle, fly, HAS wings, <HAS engine>	
+plane	repu2lo3	aeroplanum	samolot	2807	u	N	vehicle, fly, HAS two(wing), <HAS engine>	
 plane	si1k	planum	pl1aszczyzna	2090	u	N	flat	see repu2lo3
-plant	no2ve1ny	planta	ros1lina	2792	u	N	live, lack(move), HAS leaves, HAS roots, AT/2744 earth	
+plant	no2ve1ny	planta	ros1lina	2792	u	N	live, lack(move), HAS many(leaf), HAS root, AT/2744 earth	
 plant	u2ltet	sero	sadzic1	2495	u	V		
 plastic	alaki1thato1	formabilis/qui_formari_potest	elastyczny	144		A	material, HAS shape, can/1246[shape CHANGE], <artificial>	mu2anyag
 plastics	mu3anyag	plastica	plastik	1733		N		see 144
@@ -2336,10 +2334,10 @@ pleased	ele1gedett	contentus	zadowolony	601		A	HAS pleasure
 pleasure	ke1j	voluptas	przyjemnos1c1	1236	u	N	nice	
 plenty	bo3se1g	copia	obfitos1c1	320		N	amount ER ' , good	
 plenty	sok	multus	wiele	2115		A	many	
-plough	eke	aratrum	pl1ug	589		N	artefact, FOR/2782 agriculture, HAS sharp(blades), MOVE soil	
+plough	eke	aratrum	pl1ug	589		N	artefact, FOR/2782 agriculture, HAS sharp(blade), MOVE soil	
 plunge	beleveti_maga1t	se_praecipito	wskoczyc1	260		U	after(=AGT UNDER surface), <water> HAS surface	
-plural	to2bbes	pluralis	mnogi	2405	u	A	IN/2758 language, MEAN/1186 more	
-pocket	zseb	sinus	kieszen1	2685		N	bag, PART_OF garment, <money> IN/2758, <keys> IN/2758	
+plural	to2bbes	pluralis	mnogi	2405	u	A	PART_OF language, MEAN/1186 more	
+pocket	zseb	sinus	kieszen1	2685		N	bag, PART_OF garment, <money> IN/2758, <key> IN/2758	
 poem	vers	versus	wiersz	2607	u	N	art, text, <metrical>, poet WRITE	
 poet	ko2lto3	poeta	poeta	1378		N	WRITE poetry	
 poetry	ko2lte1szet	poesis	poezja	1377		N	poem, whole	
@@ -2347,15 +2345,15 @@ point	pont	punctum	punkt	1969	u	N	degree
 pointed	hegyes	acutus	szpiczasty	1025		A	sharp	
 poison	me1reg	venenum	trucizna	1604		N	substance, CAUSE injury	
 pole	bot	pertica	pal	336		N	artefact, long, upright, cylinder	
-police	rendo3rse1g	disciplinae_publicae_praefectura	policja	2014		N	government HAS, control, CAUSE[KEEP[law]], CAUSE[lack(crime)]	investigate, CAUSE[order] with order in a new sense
+police	rendo3rse1g	disciplinae_publicae_praefectura	policja	2014		N	government HAS, control, FOR/2782 law, CAUSE[lack(crime)]	investigate, CAUSE[order] with order in a new sense
 policeman	rendo3r	custos_publicus	policjant	2013		N	profession, person, MEMBER police	
 polish	fe1nyez	polio	polerowac1	740	u	V	=AGT CAUSE surface[smooth, shine] , =PAT HAS surface	RA
 polite	udvarias	comis	uprzejmy	2516		A	CONFORM society/2285	
 political	politikai	civilis	polityczny	1965	u	A	politics	
 politician	politikus	vir_rerum_civilium_peritus	polityk	1966		N	person, MEMBER politics	
-politics	politika	consilium	polityka	1964	u	N	science, GOVERN nation	science of governing?, ABOUT?
+politics	politika	consilium	polityka	1964	u	N	science, LEAD nation	science of governing?, ABOUT?
 pool	medence	piscina	basen	1614		N	water IN/2758, <swim> IN/2758, <play> IN/2758	
-poor	szege1ny	pauper	biedny	2177		A	NOTHAS much(money)	
+poor	szege1ny	pauper	biedny	2177		A	HAS lack(money)	
 pope	pa1pa	#	#	3034		N	priest, LEAD/2617 @Catholic_Church	
 popular	ne1p-	popularis	popularny	1763		A	many LIKE/3382	
 popularity	ne1pszeru3se1g	favor_popularis	popularnos1c1	1764		N	popular	
@@ -2375,7 +2373,7 @@ pot	faze1k	olla	garnek	730		N	contain, IN/2758 kitchen, <round>, <deep>, <HAS ha
 potato	krumpli	solanum	kartofel	1443		N	vegetable, ' COOK/825	
 pouch	zacsko1	crumina	sakiewka	3530	u	N		
 poultry	baromfi	#	#	2733		N	AT/2744 farm, bird	ND
-pound	font	libra	funt	852	u	N	<weight>, measure	16(ounces) IN/2758
+pound	font	libra	funt	852	u	N	<weight>, measure	16(ounce) IN/2758
 pound	o1l	stabulum	chlew	1831	u	N		see 852
 pour	o2nt	fundo	nalewac1	1852		V	=PAT[liquid], after(liquid NOTAT), liquid[flow]	
 pour_out	kio2nt	effundo	wylewac1	1349		V	pour	
@@ -2403,7 +2401,7 @@ press	nyom	premo	naciskac1	1818	u	V	touch, =AGT CAUSE[=PAT AT/2744 surface]
 press_on	unszol	impello	zmuszac1	2527		V		
 press_out	sajtol	premo	wyciskac1	2061		V		
 pressure	nyoma1s	pressio	cis1nienie	3132	u	N	gas[press]	
-pretend	tettet	simulo	udawac1	2381	u	V	do[false] SIMILAR =PAT	
+pretend	tettet	simulo	udawac1	2381	u	V	do[false] RESEMBLE =PAT	
 pretty	csinos	bellus	l1adny	410		A	attractive	RA
 prevail	domina1l	dominor	dominowac1	483		V	=AGT ER ' , succeed/2718, strong	
 prevent	megelo3z	praevenio	zapobiegac1	1623		V	=AGT CAUSE[=PAT[lack]]	
@@ -2414,12 +2412,12 @@ prick	tu2ske	spina	drzazga	2445		N		no Longman use
 prickle	bo2k	pungo	kl1uc1	310		V		after(excitement), after(sensation) % no Longman
 prickly	tu2ske1s	spinosus	kolczasty	2446		A		
 pride	go3g	superbia	duma	899		N	honour[self]	self is a keyword
-priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, PERFORM ceremony, bless	preach pre1dika1l
+priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach pre1dika1l
 prime_minister	miniszterelno2k	#	#	3078		N	minister/3402, LEAD/2617 government	
 prince	herceg	dux/princeps	ksia1z1e	1035		N	male, PART_OF royal(family), son, monarch HAS son	„son” is a relational noun, „monarch” is the related entity
 principle	elv	ratio	zasada	652	u	N	basic, rule	
 print	nyomat	imprimo	drukowac1	1819	u	N	CAUSE[ [text,ink] ON surface], INSTRUMENT machine	a transparent sheet that you write or print something on
-prison	bo2rto2n	carcer	wie1zienie	312		N	building, people IN/2758, not[can/1246[people LEAVE]], people[lack(free)]	
+prison	bo2rto2n	carcer	wie1zienie	312		N	building, must[people IN/2758], people[lack(free)]	
 prisoner	rab	captivus	wie1zien1	1984		N	person, IN/2758 prison, lack(free)	
 private	maga1n	privatus	priwatny	1578	u	A	lack(public), [one(person)] USE	[restricted(group)] USE need to be inferred % anto
 prize	di1j	praemium	nagroda	458		N	win GET/1223, symbol, FOR/2782 honour	
@@ -2438,11 +2436,11 @@ product	terme1k	fructus	produkt	2359	u	N	before(IN/2758 factory), after( ' SELL)
 production	terme1k	fructus	produkt	2360		N		
 profession	szakma	artificium	zawo1d	2154		N	educate FOR/2782 job	
 professional	hivata1sos	#	#	2985		A	HAS profession, =AGT[profession]	non intersective adjective or whatever
-profit	haszon	lucrum	zysk	1009		N	money, person GAIN	
-programme	mu3sor	programma	program	2948	u	N	action, ' PLAN, IN/2758 television	
+profit	haszon	lucrum	zysk	1009		N	money, =FROM MAKE	
+programme	mu3sor	programma	program	2948	u	N	action, plan, IN/2758 television	
 progress	halad	progredior	poste1powac1	2993	u	N	ER past	
 project	projekt	#	#	3036		N	plan, work, AT/2744 long(time)	
-promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT DECLARE[after(=AGT DO])	
+promise	i1ge1r	polliceor	obiecywac1	1106		V	=AGT SAY[after(=AGT DO)]	
 pronounce	mond	dico	wymawiac1	1718		V	speak	
 pronunciation	kiejte1s	pronuntiatio	wymowa	1329		N	manner, person MAKE word	
 proof	bizonyi1te1k	indicium	dowo1d	298		N	prove	
@@ -2454,8 +2452,8 @@ protect	ve1d	tueor	chronic1	2593		V	=AGT CAUSE[=PAT[safe], lack(harm)]
 protection	oltalom	praesidium	ochrona	1906	u	N	protect	
 protective	ve1do3	defendens	ochronny	2595		A		
 protest	tiltakozik	adclamo	protesowac1	3007	u	V	=AGT SHOW[=AGT THINK[=OBL[wrong]]], public	=OBL maleficient
-proud	bu2szke	superbus	dumny	345		A	SATISFY self, THINK[self ER], RESPECT self	
-prove	igazol	demonstro	udowadniac1	1127		V	after(other(people) KNOW =PAT[true]), INSTRUMENT facts	
+proud	bu2szke	superbus	dumny	345		A	THINK[self[good]], =AGT RESPECT =AGT	
+prove	igazol	demonstro	udowadniac1	1127		V	after(other(people) KNOW =PAT[true]), INSTRUMENT real	
 provide	ad	praebeo	zapewnic1	114		V	supply	
 provision	gondoskodik	curo	utrzymywac1	909		V	supply	
 provisions	ella1tma1ny	sumptus_suppediti	zapasy	627		N	supply, <food>	
@@ -2468,7 +2466,7 @@ puppet	ba1b	pupa	kukl1a	194		N	artefact, model, small(figure/140), mock/69, pers
 pure	tiszta	purus	czysty	2391		A	HAS one (material)	RA
 purify	megtiszti1t	lustro	oczyszczac1	1652		V	=AGT CAUSE[=PAT[pure],harm NOTAT =PAT]	
 purify	tiszti1t	purgo	oczyszczac1	2397		V		
-purple	bi1bor	purpura	purpura	287		N	colour, SIMILAR red	SIMILAR violet
+purple	bi1bor	purpura	purpura	287		N	colour, RESEMBLE red	RESEMBLE violet
 purple-blue	lila-ke1k	#	#	3274		A	purple, blue	1
 purple-brown	lila-barna	#	#	3273		A	purple, brown	1
 purple-red	lila-piros	#	#	3231		A	purple, red	2
@@ -2478,8 +2476,8 @@ push	tol	promoveo	pchac1	2424	u	V	move, =AGT CAUSE[=PAT[away]]
 put	tesz	pono	kl1as1c1	2374	u	V	=AGT CAUSE[=PAT AT/2744 =TO], =AGT MOVE =PAT, =PAT[object]	setzt etwas irgendwohin
 quake	reng	tremo	trza1s1c1	2016		A	shake	
 quality	mino3se1g	qualitas	jakos1c1	1699	u	N	=POSS[good], characteristic	inherent
-quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, ' COUNT, <large>	
-quantity	tartam	spatium	ilos1c1	2315		N		. do we need this?
+quantity	mennyise1g	quantitas	ilos1c1	1667		N	much, <large>	
+quantity	tartam	spatium	ilos1c1	2315		N		
 quarrel	vita	disputatio	kl1o1tnia	2648		N	angry, argue	
 quarter	negyed	quarta_pars	c1wierc1	1770		N	part, [four(part)] IN/2758 [whole], before(divide)	
 queen	kira1lyno3	regina	kro1lowa	1353	u	N	woman, monarch	
@@ -2488,15 +2486,15 @@ quick	gyors	celer	szybki	941		A	NEED [short (time)]	[DO something] IN/2758 [shor
 quicken	serkent	hortor	oz1ywiac1	2086		V	=AGT CAUSE[=PAT[quick]]	
 quickly-made	gyorsan_ke1szu2lt	#	#	3272		A	before(quick( ' MAKE))	1
 quiet	halk	submissus	cichy	986	u	A	lack(noise)	
-quite	nagyon	admodum	cal1kiem	1752		D	ER '	a round, quite low neck on a woman ' s
-quiver	tegez	pharetra	kol1czan	2332		N	case, arrows IN/2758	no Longman use
+quite	nagyon	admodum	cal1kiem	1752		D	ER '	
+quiver	tegez	pharetra	kol1czan	2332		N	case, arrow IN/2758	no Longman use
 quote	ide1z	profero	cytowac1	1115		V	=AGT USE[expression/1332], before(other USE expression/1332)	ZsA
 rabbit	nyu1l	lepus	kro1lik	1824		N	HAS long(ear), HAS short(tail), mammal	
 race	faj	species	rasa	716	u	N	human, group, FROM/2742 birth, human HAS physical(characteristic), human HAS characteristic(hair/3359), human HAS skin, skin HAS characteristic(colour)	HAS common(ancestry)
-radio	ra1dio1	radiophonum	radio	1982	u	N	waves IN/2758 air, communicate, device MAKE sound/993, programme IN/2758, broadcast	
+radio	ra1dio1	radiophonum	radio	1982	u	N	wave IN/2758 air, communicate, device MAKE sound/993, programme IN/2758, broadcast	
 rail	si1n	#	#	3335		N	way, long, metal, parallel	
-railway	vasu1t	ferrivia	kolej	2591		N	way, rail PART_OF, train ON	sleepers PART_OF
-rain	eso3	pluvia	deszcz	698		N	water, FROM/2742 atmosphere, fall/2694, drops, weather	
+railway	vasu1t	ferrivia	kolej	2591		N	way, rail PART_OF, train ON	
+rain	eso3	pluvia	deszcz	698		N	water, FROM/2742 atmosphere, fall/2694, many(drop), weather	
 raise	emel	elevo	unies1c1	661		V	lift	
 raise	nevel	educo	wychowywac1	1788		V		
 range	teru2let	spatium	zasie1g	2367	u	N	many, BETWEEN ' , different	
@@ -2506,8 +2504,8 @@ rare	ritka	rarus	rzadki	2020		A	lack(frequent)
 rat	patka1ny	mus_rattus	szczur	1949		N	rodent, HAS long(tail)	
 rate	ha1nyados	quotiens	iloraz	959		N	quantity	Longman take-up = rate at/2744 which people accept something that is offered to them
 rather	so3t	immo	raczej	2111		D	ER =REL	
-rave	rajong	ardeo_amore	uwielbiac1	1989		U	talk, ABOUT good, =AGT ADMIRE good	
-raw	nyers	crudus	surowy	1811		A	lack( ' TREAT), lack( ' PREPARE), natural	
+rave	rajong	ardeo_amore	uwielbiac1	1989		U	fan/1266	
+raw	nyers	crudus	surowy	1811		A	after(make FROM/2742), natural	
 re-	u1jra	re-	re-	2472		G	=REL AT/2744 past, other(=REL) AT/2744 present	
 re-released	u1jra_megjelent	#	#	3269		A	release AT/2744 past, release[other[before]]	1
 reach	ele1r	attingo	osie1gna1c1	604	u	V	after(=AGT AT/2744)	lack(distance)
@@ -2521,13 +2519,13 @@ really	te1nyleg	vere	naprawde1	3541	u	N
 reason	ok	ratio	powo1d	1892	u	N	CAUSE =POSS	relational noun
 receipt	blokk	ratio	rachunek	307		N	written, AT/2744 pay/812	
 receive	kap	nanciscor	dostawac1	1225	u	V	get/1223	
-recent	minapi	nuper	ostatni	1692		A	BEFORE present, NEXT_TO present	
+recent	minapi	nuper	ostatni	1692		A	present FOLLOW, NEXT_TO present	
 recently	minap	nuper	ostatnio	1691		D	AT/2744 past, near	
 recognition	felismere1s	cognitio	rozpoznanie	772		N	recognize	
 recognize	felismer	cognosco	rozpoznac1	771	u	V	=AGT KNOW[=PAT[=PAT]]	identity
 record	ro2gzi1t	describo	nagrywac1	2027	u	V	=PAT[information, permanent[after]]	
-rectangular	ne1gyszo2gletu3	#	#	3133		A	HAS sides[four, parallel], HAS four(corner)	
-red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, SIMILAR anger	ND
+rectangular	ne1gyszo2gletu3	#	#	3133		A	HAS side[four, parallel], HAS four(corner)	
+red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, RESEMBLE anger	ND
 red-brown	vo2ro2sesbarna	#	#	3111		A	red, brown	
 reddish-brown	vo2ro2sesbarna	#	#	3204		A	brown, red	8
 reddish-orange	vo2ro2sesnarancssa1rga	#	#	3271		A	orange, red	1
@@ -2567,15 +2565,15 @@ repeat	isme1tel	repeto	powtarzac1	1157		V	before(do), do
 repel	elha1ri1t	repello	odstraszac1	619		V		=AGT CAUSE[=PAT NOTAT] % no Longman
 replace	csere1l	#	#	3006		V	before(thing AT/2744 place/1026), thing[other[after] AT/2744 place/1026]	
 reply	va1lasz	responsum	odpowiedz1	2545		N	answer, react	
-report	hi1r	nuntius	raport	1042	u	N	information, ABOUT recent(events), details IN/2758	HUN jelente1s
+report	hi1r	nuntius	raport	1042	u	N	information, ABOUT recent(event), detail IN/2758	HUN jelente1s
 represent	mutat	monstro	pokazywac1	1741	u	V	sign, meaning[=PAT]	
 representative	jellemzo3	proprius	reprezentatywny	1188		N	HAS authority, group HAS	HUN ke1pviselo3
 reproduce	szaporodik	#	#	3138		U	=AGT MEMBER race, =AGT MAKE live, live AT/2744 race	
-republic	ko2zta1rsasa1g	res_publica_libera	republika	1418		N	political, system, country, NOTHAS monarch, HAS president, ELECT representatives, representatives HAS power	
+republic	ko2zta1rsasa1g	res_publica_libera	republika	1418		N	political, system, country, HAS lack(monarch), HAS president, elect PART_OF, elect MAKE representative, representative HAS power	
 request	ke1r	rogo	z1a1dac1	1251	u	V	=AGT EXPRESS[=AGT WANT[=AGT HAS =PAT]]	
 rescue	kiment	eripio	ratowac1	1342		V	=AGT CAUSE[=PAT[free], =PAT NOTIN danger]	
 resemble	hasonli1t	#	#	3397		V	=AGT HAS property, =PAT HAS property	ähneln DAT
-resign	felmond	renuntio	zrezygnowac1	779		V	=AGT CAUSE[=AGT NOTHAS job], official	
+resign	felmond	renuntio	zrezygnowac1	779		V	=AGT CAUSE[=AGT HAS lack(job)], official	
 resort	folyamodik	recurro	odwol1ywac1_sie1	845		V		apply
 resource	ero3forra1s	#	#	3348		N	work INSTRUMENT	
 respect	tisztel	observo	szanowac1	2392	u	V	feeling, quality CAUSE, =PAT HAS quality	
@@ -2594,20 +2592,20 @@ reward	jutalom	praemium	nagroda	1207		N	give, before(=PAT DO useful)	jutalmaz V
 rhythm	ritmus	#	#	3349		N	regular, repeat, pattern, AT/2744 time	
 rice	rizs	oryza	ryz1	2021		N	plant, food, IN/2758 asia	
 rich	gazdag	opulentus	bogaty	892	u	A	HAS lot/3394(money), <human>	or valuable possession %too long % RA
-rid	megszabadul	me_libero	pozbywac1_sie1	1644		V	=AGT CAUSE[=PAT NOTAT =AGT[free]], =PAT[bad]	EN get_rid_of % xml only get_rid_of
+rid	megszabadul	me_libero	pozbywac1_sie1	1644		V	=AGT CAUSE [lack(=PAT AT/2744 =AGT[free])], =PAT[bad]	EN get_rid_of
 ride	lovagol	equito	jez1dzic1_konno	1555	u	U	travel, =AGT ON <horse>, INSTRUMENT <horse>	
 right	jo1	bonus	wl1as1ciwy	1191	u	N	CONFORM justice, lack(wrong)	
 right	jobb	dextra	prawy	1199	u	N	side, lack(left)	anto
 right	jog	jus	prawo	3122	u	N	law	
 rigid	merev	#	#	3131		A	HAS shape[lack(change)]	
-ring	cseng	tinnit	dzwonic1	2735	u	U	bell MAKE sound/993, =AGT ASK attention, <bell PART_OF telephone>	
+ring	cseng	tinnit	dzwonic1	2735	u	U	bell MAKE sound/993, FOR/2782 attention, <bell PART_OF telephone>	
 ring	gyu3ru3	anulus	piers1cionek	402	u	N	metal, circle, AT/2744 finger	
 ring-shaped	gyu3ru3_alaku1	#	#	3268		A	HAS ring/402(shape)	1
-rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(<detergent> NOTAT =PAT)
+rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(lakc(<detergent>) AT =PAT)
 ripe	e1rett	maturus	dojrzal1y	520		A	time[before, enough], good, < ' EAT>	develop 
 rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	=PAT[stand[after]], after(=PAT AT/2744 high(position)), high ER	
 rise_against	felkel	exsurgo	powstac1	776		V		no Longman use
-risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246[after(harm])	
+risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246[after(harm)]	
 river	folyo1	fluvius	rzeka	848		N	natural, stream, HAS water, IN/2758 valley	
 river-fish	folyami_hal	#	#	3267		A	fish, live IN/2758 river	1
 road	u1t	via	droga	2481	u	N	way, HAS hard (surface), vehicle ON	
@@ -2621,7 +2619,7 @@ roll	forog	volvo	obracac1_sie1	859	u	V	move[repeat], =AGT HAS axis, turn
 romantic	romantikus	romanticus	romantyczny	2962	u	A	feeling[<love>] AT/2744, lack(real)	
 roof	teto3	tectum	dach	2376	u	N	top, PART_OF house	
 room	hely	locus	miejsce	1028	u	N	place/1026	
-room	szoba	conclave	poko1j	2235	u	N	area/2366, HAS walls, PART_OF building, HAS floor	HAS ceiling
+room	szoba	conclave	poko1j	2235	u	N	area/2366, HAS more(wall), PART_OF building, HAS floor	HAS ceiling
 root	gyo2ke1r	radix	korzen1	936		N	UNDER ground, PART_OF plant, support, AT/2744 base/146	
 root	to3	radix	korzen1	2420		N		
 rope	ko2te1l	restis	lina	1396		N	artefact, long, flexible	
@@ -2645,24 +2643,24 @@ rush	siet	propero	spieszyc1_sie1	2099		U	quick, =AGT WANT '
 rustle	susog	susurro	szeles1cic1	2136		U		
 s-shaped	S_alaku1	#	#	3258		A	HAS shape[bend/1112[two]]	1
 sad	szomoru1	miserabilis	smutny	2248		A	emotion, lack(happy)	anto
-safe	biztos	tutus	bezpieczny	303		A	lack(danger), protect, not[' HARM]	
+safe	biztos	tutus	bezpieczny	303		A	lack(danger), protect, harm[lack, after]	
 sail	hajo1zik	#	#	2991		V	travel, ON water	
 sail	vitorla	velum	z1agiel	2650		N		see 3015
 salad	sala1ta	acetarium	sal1atka	3550	u	N		
 salary	fizete1s	#	#	3062		N	pay/237, organization CAUSE[=POSS HAS], =POSS[work] AT/2744 organization, AT/2744 every(month)	
-sale	elada1s	venditio	sprzedaz1	596		N	GIVE goods, GET/1223 money	
+sale	elada1s	venditio	sprzedaz1	596		N	GIVE <product>, GET/1223 money	
 salt	so1	sal	so1l	2108		N	white, CAUSE[ food HAS taste], mineral, powder	
 same	azonos	idem	taki_sam/ten_sam	192	u	A	lack(different)	
 same	ugyanaz	idem	taki_sam	2521	u	A		
-sand	homok	arena	piasek	1078	u	N	grains, rock	
-sandwich	szendvics	#	#	3046		N	food, cheese BETWEEN [two(slice), bread], meat BETWEEN bread, vegetables BETWEEN bread	
+sand	homok	arena	piasek	1078	u	N	grain, rock	
+sandwich	szendvics	#	#	3046		N	food, cheese BETWEEN [two(slice), bread], meat BETWEEN bread, vegetable BETWEEN bread	
 satisfaction	ele1gte1tel	satisfactio	satysfakcja	602		N	satisfy	
-satisfactory	megfelelo3	idoneus	zadowalaja1cy	1624		A	SATISFY '	
+satisfactory	megfelelo3	idoneus	zadowalaja1cy	1624		A	satisfy	
 satisfied	ele1gedett	contentus	usatysfakcjonowany	3551	u	N		
 satisfy	kiele1gi1t	satio	zaspokajac1	1331		V	=AGT CAUSE[=PAT HAS good], =PAT NEED good	
-sauce	szo1sz	#	#	3001		N	liquid, WITH/60 food, HAS taste, thick/2134, ' COOK/825	
+sauce	szo1sz	#	#	3001		N	liquid, PART_OF food, HAS taste, thick/2134, before(person COOK/825)	
 save	ment	conservo	ratowac1	1668		V	=AGT CAUSE[=PAT NOTAT harm]	
-say	mond	dico	mo1wic1	1719	u	V	communicate, INSTRUMENT text, =DAT HEAR text	
+say	mond	dico	mo1wic1	1719	u	V	communicate, INSTRUMENT sound, =DAT HEAR sound	
 saying	monda1s	proverbium	powiedzenie	3552	u	N		
 scale	ska1la	modulus	skala	2107		N	range, level AT/2744, measure INSTRUMENT, regular	
 scales	pikkely	squama	l1uski	1960		N		no xml
@@ -2676,15 +2674,15 @@ schoolchild	iskola1s	#	#	3329		N	child, MEMBER school
 science	tudoma1ny	scientia	nauka	2461	u	N	knowledge, <INSTRUMENT[examine, test, prove]>	
 scientific	tudoma1nyos	scientiarum	naukowy	2462		A	science	
 scientist	tudo1s	litteratus_homo	naukowiec	2460		N	profession, MEMBER science	
-scissors	ollo1	forfex	noz1yczki	1905		N	cut, artefact, HAS two(blades), can/1246[open/1814], can/1246[close/3381]	
+scissors	ollo1	forfex	noz1yczki	1905		N	cut, artefact, HAS two(blade), can/1246[open/1814], can/1246[close/3381]	
 scold	szid	obiurgo	ganic1	2211		V	chide	
-score	pontsza1m	numerus	wynik	3028	u	N	number, points, play HAS, AT/2744 game	play/1175
+score	pontsza1m	numerus	wynik	3028	u	N	number, point, play HAS, AT/2744 game	play/1175
 scratch	kapar	rado	drapac1	1226		V	=AGT MAKE mark, mark ON surface, INSTRUMENT sharp	
 scratch	vakar	rado	drapac1	2573		V		no Longman use
 screen	ke1perny2	album	ekran	2977	u	N	<PART_OF electric(machine)>, picture ON	
 screw	csavar	cochlea	s1rubokre1t	393		N	device, fasten, CAUSE together, roll, cylinder, rod	incise 
 sea	tenger	mare	morze	2350	u	N	ocean	
-search	keres	quaero	szukac1	1297		V	effort, SEE place/1026, WANT[=AGT FIND =PAT]	
+search	keres	quaero	szukac1	1297		V	effort, SEE place/1026, =AGT WANT[=AGT KNOW place], =PAT AT/2744 place	
 season	e1vad	tempus	sezon	546	u	N	<four>, period, PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather	
 season	e1vszak	tempus_anni	pora_roku	548	u	N	period, time, PART_OF year, activity IN/2758	
 seat	u2le1s	sedes	siedzenie	2494	u	N	sit IN/2758	
@@ -2711,13 +2709,13 @@ sensitive	e1rzo3	misericors	wraz1liwy	535		A	=TO CAUSE[=AGT FEEL <bad>]
 sentence	mondat	sententia	zdanie	1722		N	AT/2744 text, HAS phrase	
 separate	ku2lo2n	secretus	osobny	1450	u	A	after(thing NOTAT other), different	distance BETWEEN, lack(together)
 sequence	sorozat	#	#	3137		N	many PART_OF, thing FOLLOW other, HAS order/2739	
-series	sorozat	series	seria	2951	u	N	HAS items, item FOLLOW other(item)	
+series	sorozat	series	seria	2951	u	N	HAS item, item FOLLOW other(item)	
 serious	komoly	gravis	powaz1ny	1422	u	A	deep(feeling), bad, lack(joke), lack(pretend)	
 servant	szolga	servus	sl1uga	2241		N	serve	
-serve	szolga1l	servio	sl1uz1yc1	2243	u	V	work FOR =PAT, <CASUE[food AT/2744 =PAT]>	
+serve	szolga1l	servio	sl1uz1yc1	2243	u	V	work FOR =PAT, <CAUSE[food AT/2744 =PAT]>	
 service	szolga1lat	officium	sl1uz1ba	2244	u	N	=AGT[person, work], work FOR/2782 person[other]	HUN szolga1ltata1s, nomen actionis
 set	kitu3z	constituo	ustalac1	1364	u	V		see 2375
-set	kollekcio1	classis	kolekcja	2746	u	N	group, HAS items, together, unit, items HAS common(characteristic)	
+set	kollekcio1	classis	kolekcja	2746	u	N	group, HAS many(item), together, unit, item HAS common(characteristic)	
 set	tesz	pono	kl1as1c1	2375	u	V	=AGT CAUSE[=PAT AT/2744 position[<stable>,<proper>]]	
 settle	eldo2nt	decerno	ustalac1	597		V	=PAT[sure[after]]	
 seven	he1t	#	#	2996		A	number, FOLLOW six	
@@ -2731,7 +2729,7 @@ shade	a1rnyalat	umbra	odcien1	90		N	colour HAS, slight(different), slight(dark)
 shadow	a1rny	umbra	cien1	89		N	dark (shape), object CAUSE	RG
 shake	reng	tremo	trza1s1c1	2017		U	move, direction[change], lack(stable), lack(deliberate)	=AGT NOTCOP
 shall	fog	N/A	N/A	830		V	=REL IN/2758 future	
-shame	sze1gyen	turpitudo	wstyd	2161		N	bad, [BREAK[ norm ]] CAUSE	
+shame	sze1gyen	turpitudo	wstyd	2161		N	bad, before(not(=PAT CONFORM norm))	
 shape	alak	figura	ksztal1t	142	u	N	form	geometrical
 share	osztozik	divido	dzielic1	1922		U	person HAS thing, other(person) HAS thing	
 share	re1sz	portio	udzial1	1998		N	PART_OF property, company/2549 HAS property, ' HAS	HUN re1szve1ny
@@ -2739,7 +2737,7 @@ sharp	eles	acutus	ostry	611	u	A	HAS [<edge>,<point>], CAUSE[lack(sound/512)]
 sharpen	e1lez	acuo	ostrzyc1	506		V	=AGT CAUSE sharp	
 she	o3	ea	ona	1873		G	female	indexical
 shear	nyes	reseco	strzyc	1812		V		no xml %
-sheep	juh	ovis	owca	1204		N	mammal, <AT/2744 farm>, HAS wool	IN/2758 breeds
+sheep	juh	ovis	owca	1204		N	mammal, <AT/2744 farm>, HAS wool	IN/2758 breed
 sheet	lap	charta	kartka	1492		N	rectangular, flat	
 shelf	polc	loculus	po1l1ka	1962		N	vertical, surface, hold, store, <rectangular>, rigid	
 shell	kagylo1	concha	muszla	1216	u	N	hard, outer, cover, <animal> IN/2758	
@@ -2774,7 +2772,7 @@ sift	rosta1l	cribro	przesiewac1	2047		V		no xml
 sight	la1tva1ny	species	widok	1481		N	see	HUN la1ta1s, clear nomen actionis
 sign	jel	signum	znak	1183	u	N	' PERCEIVE, information, show, HAS meaning	
 signal	jel	signum	signal	1184		N	communicate, people SEE	
-signature	ala1i1ra1s	subscriptio	podpis	138		N	name, person HAS, person WRITE	identity
+signature	ala1i1ra1s	subscriptio	podpis	138		N	name, person HAS, person MAKE, ON document, FOR identity	
 silence	csend	silentium	cisza	400		N	lack(noise), lack(sound/993)	
 silent	csendes	tacitus	cichy	401		A	silence	
 silk	selyem	bombyx	jedwab	2077		N	cloth, thin/2598, smooth, soft	
@@ -2786,9 +2784,9 @@ silver-grey	ezu2st-szu2rke	#	#	3265		A	silver, grey	1
 silver-white	eyu2stfeh1r	#	#	3113		A	silver, white	
 silvery-white	ezu2stfehe1r	#	#	3264		A	HAS colour[silver], white	1
 similar	hasonlo1	#	#	2794		A	HAS property, =TO HAS property	
-simple	egyszeru3	simplex	prosty	584	u	A	HAS few(part), normal, NOTHAS ornament	lack(sophisticated)
+simple	egyszeru3	simplex	prosty	584	u	A	HAS few(part), normal, HAS lack(ornament)	lack(sophisticated)
 since	mert	enim	jako_z1e	1677		G	because	
-since	o1ta	abhinc	od	1839		G	FROM/1838 =REL, UNTIL now	
+since	o1ta	abhinc	od	1839		G	FROM/1838 =REL, TO now	
 sincere	o3szinte	sincerus	szczery	1884		A	real, lack(pretend)	
 sing	e1nekel	cano	s1piewac1	511	u	V	=AGT[animal], =PAT[song], make, INSTRUMENT throat	
 single	egyedu2li	solus	jedyny	562	u	N	one, lack(other)	other[exist[lack]]?
@@ -2801,15 +2799,15 @@ sister	hu1g	soror	siostra	1091		N		see 1798
 sister	no3ve1r	soror	siostra	1798		N	HAS parent, =POSS HAS parent, female	
 sit	u2l	sedeo	siedziec1	2493	u	U	=AGT AT/2744 surface[<seat>], HAS buttocks, ON buttocks, =AGT HAS trunk/2759[upright]	
 situated	elhelyezkedo3	collocatus	umiejscowiony	622		A	AT/2744 =AT	
-situation	helyzet	status	sytuacja	2784	u	N	surround	
+situation	helyzet	status	sytuacja	2784	u	N	around	
 six	hat	#	#	2990		A	number, FOLLOW five	
 six-sided	hatoldalu1	#	#	3263		A	HAS six(side)	1
 size	me1ret	magnitudo	rozmiar	1605	u	N	dimension	
 skilful	u2gyes	dexter	zdolny	2490		A	HAS skill	
 skill	ke1szse1g	facultas	umieje1tnos1c1	1262	u	N	can/1246[=POSS[=TO]], HAS practice	
 skin	bo3r	cutis	sko1ra	318	u	N	PART_OF body, cover	
-skirt	szoknya	tunica	spo1dnica	2240		N	garment, hang, AT/2744 waist, women WEAR	
-sky	e1g	caelum	niebo	496		N	OVER ground, atmosphere, animal SEE, clouds ON, sun ON, stars ON	HAS shape[dome], high
+sky	e1g	caelum	niebo	496		N	vertical(ER ground), atmosphere, animal SEE, cloud ON, sun ON, star ON	HAS shape[dome], high
+skirt	szoknya	tunica	spo1dnica	2240		N	garment, hang, AT/2744 waist, <woman> WEAR	
 slacken	lazul	relaxor	rozluz1nic1_sie1	1497		V		no xml
 slanted	ferde	obliquus	krzywy	792		A	slope	
 slave	rabszolga	servus	niewolnik	1986		N	person, other(person) HAS	
@@ -2818,7 +2816,7 @@ sleep	alszik	dormio	spac1	163	u	U	rest, =PAT[lack(conscious)]
 sleep-like	alva1s-szeru3	#	#	3262		A	lack(conscious)	1
 sleeve	kar	#	#	3076		N	PART_OF garment, COVER arm	
 slice	szelet	#	#	3336		N	thin/2598, flat, piece, food, cut MAKE	
-slide	csu1szik	labor	s1lizgac1_sie1	434	u	N	move OVER surface, HAS constant(contact)	
+slide	csu1szik	labor	s1lizgac1_sie1	434	u	N	move ON surface, HAS constant(contact)	
 slight	cseke1ly	parvus	niewielki	396		A	' ER	
 slip	csu1szik	labor	pos1lizgna1c1_sie1	435		U	move, =AGT AT/2744 surface	quiet
 slippery	si1kos	lubricus	s1lizgi	2091	u	A		
@@ -2835,7 +2833,7 @@ smoke	fu2st	fumus	dym	876	u	N	IN/2758 air, burn CAUSE, after(lack( ' SEE))
 smooth	sima	levis	gl1adki	2092	u	A	surface, lack(rough), slide ON	easy + ly
 smother	fojt	suffoco	dusic1	835		V	kill, CAUSE[=AGT NOTHAS [<air>,oxygen]]	
 smother	izzik	candeo	z1arzyc1_sie1	1170		U		no Longman
-snake	ki1gyo1	serpens	wa1z1	1317		N	animal, NOTHAS leg, <HAS poison>, SIMILAR rope	
+snake	ki1gyo1	serpens	wa1z1	1317		N	animal, HAS lack(leg), <HAS poison>, RESEMBLE rope	
 snake-haired	ki2gyo1_haju1	#	#	3260		A	HAS snake(hair/3359)	1
 snarl	hurok	vinculum	pe1tla	1105		N		no Longman use
 sneeze	tu2sszent	sternuo	kichac1	2447		U		
@@ -2863,7 +2861,7 @@ somebody	valaki	aliquis	ktos1	2577		N	person
 somehow	valahogy	aliqua	jakos1	2575		D		way?
 someone	valaki	aliquis	ktos1	2578	u	N	person	
 something	valami	aliquid	cos1	2579		N	thing	
-sometimes	ne1ha	nonnumquam	czasamy	1760		D	AT/2744 occasions, lack(always)	
+sometimes	ne1ha	nonnumquam	czasamy	1760		D	AT/2744 rare(time), lack(always)	
 somewhere	valahol	alicubi	gdzies1	2576		D	place/1026	
 son	fia	filius	syn	798		N	relative, male, offspring, =POSS[parent]	relational
 song	dal	cantus	pies1n1	446	u	N	music, HAS text	
@@ -2873,12 +2871,12 @@ sorrow	bu1	dolor	smutek	341		N	CAUSE suffer, emotion
 sorry	bu1s	tristis	smutny	342	u	A	FEEL pity	
 sort	rendez	ordino	porza1dkowac1	2012		V		
 sort_of	fajta	#	#	3075		A	quality	
-soul	le1lek	anima/animus	dusza	1502		N	animal HAS, thought, action, emotion, NOTHAS material, person, <lack(die)>	
+soul	le1lek	anima/animus	dusza	1502		N	animal HAS, thought, action, emotion, HAS lack(material), person, <lack(die)>	
 sound	e1p	salvus	cal1y	512	u	A	whole, firm/2215	ND
-sound	hang	sonus	odgl1os	993	u	N	wave, air[move] IN/2758, human HEAR	
+sound	hang	sonus	odgl1os	993	u	N	sign, human HEAR, sign[wave] IN/2758 air	
 sound	szo1l	sono	brzmiec1	2226	u	U	=AGT MAKE sound/993	
 soup	leves	ius	zupa	1541		N	food, liquid	RG
-sour	erjedt	fermentatus	kwas1ny	680	u	A	taste, SIMILAR acid, lack( ' ENJOY)	
+sour	erjedt	fermentatus	kwas1ny	680	u	A	taste, RESEMBLE acid, <bad>	
 sour-tasting	savanyu1_i2zu3	#	#	3259		A	sour	1
 south	de1l	meridies	pol1udnie	451	u	N	direction, ON earth, bottom, earth HAS bottom	
 south-eastern	de1lkeleti	#	#	3115		A	AT/2744 southeast	
@@ -2886,7 +2884,7 @@ southeast	de1lkelet	#	#	3074		N	BETWEEN[south,east]
 southern	de1li	meridianus	pol1udniowy	452		A	south	
 sow	vet	sero	siac1	2613		V		
 space	te1r	spatium	przestrzen1	2327	u	N	place/2326	
-space	u3r	vacuum	przestrzen1	2509	u	N	sun IN/2758, stars IN/2758, atmosphere UNDER	galaxy IN/2758
+space	u3r	vacuum	przestrzen1	2509	u	N	sun IN/2758, star IN/2758, atmosphere UNDER	galaxy IN/2758
 spacecraft	u3rhajo1	#	#	3044		N	vehicle, travel IN/2758 space/2509	
 spade	a1so1	pala	l1opata	96		N	dig INSTRUMENT, HAS [<wood>(handle)], HAS blade	
 spanish-speaking	spanyolul_tudo1	#	#	3215		A	can/1246[speak[spanish]]	4
@@ -2913,15 +2911,15 @@ split	hasi1t	findo	dzielic1	1007		V	break, =AGT CAUSE separate
 spoil	elront	corrumpo	zepsuc1	648	u	N	CAUSE[=PAT[spoil/1640]]	
 spoil	megromlik	corrumpor	zepsuc1_sie1	1640	u	U	after(damage AT/2744 =PAT[<food>])	
 spoon	kana1l	cochlear	l1yz1ka	1222	u	N	cutlery, [EAT soup] INSTRUMENT, HAS bowl, HAS handle	
-sport	sport	gymnastica	sport	2124	u	U	physical(activity), =AGT HAS rules, compete	
+sport	sport	gymnastica	sport	2124	u	U	physical(activity), =AGT HAS rule, compete	
 spot	folt	macula	plama	842		N	small(mark), ON surface, different	
 spread	teri1t	sterno	szerzyc1	2357	u	V		
 spread	terjed	distendo	rozprzestrzeniac1_sie1	2358	u	U	after(=PAT AT/2744 wide)	
 spring	ered	exorior	wywodzic1_sie1	676		U		no Longman, see 2318
 spring	rugo1	#	#	2779		N	device, HAS length[change,return/2643]	
-spring	tavasz	ver	wiosna	2318		N	first(season/548), warm, plants[live], love IN/2758, summer FOLLOW, FOLLOW winter	ND
+spring	tavasz	ver	wiosna	2318		N	first(season/548), warm, plant[live], love IN/2758, summer FOLLOW, FOLLOW winter	ND
 sprinkle	hint	spargo	posypac1	1057		V	scatter, =PAT[particle[after]]	
-square	ne1gyzet	quadratum	kwadrat	1759		N	IN/2758 plane/2090, figure/140, HAS sides[four, equal]	
+square	ne1gyzet	quadratum	kwadrat	1759		N	IN/2758 plane/2090, figure/140, HAS side[four, equal]	
 stab	#	perforo	#	3562		N		
 stabbing	szu1ra1s	perforatio	pchnie1cie_noz2em	3563	u	N		
 stable	stabil	#	#	3130		A	lack(move)	
@@ -2929,14 +2927,14 @@ stage	fok	gradus	stopien1	837		N	time, state/77, ' FOLLOW, FOLLOW ' , PART_OF [d
 stage	szinpad	scaena	scena	2220		N	high, floor, actor[play] ON	
 stagger	billeg	titubo	chwiac1_sie1	293		U	<move>, <walk>, totter	
 stair	le1pcso3fok	gradus	stopien1	1507		N	AT/2744 stairs, step	
-stairs	le1pcso3	gradus	schody	1506		N	steps, after(animal ON other(storey))	
+stairs	le1pcso3	gradus	schody	1506		N	many(step), FOR [animal ON other(storey)]	
 stammer	dadog	balbutio	ja1kac1_sie1	444		U	speak, pause, repeat, problem	
 stamp	be1lyeg	signum	znaczek	236		N	official, mark, pay/812 INSTRUMENT, <ON mail>	
-stand	a1ll	sto	stac1	74	u	U	=AGT[upright], =AGT ON feet	
+stand	a1ll	sto	stac1	74	u	U	=AGT[upright], =AGT ON two(foot)	
 standard	minta	exemplum	przykl1ad	1705	u	N	[compare INSTRUMENT] CAUSE accept, society/2285 HAS, <moral>	HUN: norma, szabva1ny, me1rvado1
 standard	szabva1nyos	prototypus	standartowy	2150	u	A		see 1705
 star	csillag	stella	gwiazda	408	u	N	shine, dot, AT/2744 sky, AT/2744 night	
-stark	komor	tristis	powaz1ny	1424		A	NOTHAS colour, lack(beautiful), lack(decorate)	
+stark	komor	tristis	powaz1ny	1424		A	HAS lack(colour), lack(beautiful), lack(decorate)	
 start	kezdet	initium	pocza1tek	1313	u	N	after(=POSS)	
 startled	megdo2bbent	consternatus	zdziwiony	1621		A		no xml
 state	a1llam	res_publica	pan1stwo	76	u	N	decide ABOUT self, land, political(unit)	
@@ -2945,13 +2943,13 @@ statement	kijelente1s	expositio	stwierdzenie	2802	u	N	' SAY, formal
 station	a1lloma1s	mansio	stacja	80	u	N	stop AT/2744	RG
 stay	marad	maneo	zostawac1	1596	u	U	remain, before(=AGT AT/2744 =AT), after(=AGT AT/2744 =AT)	
 steady	biztos	firmus	pewny	304	u	A	lack(change)	
-steal	lop	furor	kras1c1	1553	u	V	=AGT CAUSE[=PAT AT/2744 =AGT], NOTHAS =PAT, NOTHAS right/3122, =AGT NOTHAS permission	
+steal	lop	furor	kras1c1	1553	u	V	=AGT CAUSE[=PAT AT/2744 =AGT], HAS lack(=PAT), HAS lack(right/3122), =AGT HAS lack(permission)	
 steam	go3z	vapor	para	900		N	fluid, IN/2758 air, water	
 steam-ship	go3zhajo1	#	#	3257		N	ship, HAS engine, engine INSTRUMENT steam	1
 steel	ace1l	chalybs	stal	112	u	N	metal, hard, strong	
 steep	a1ztat	macero	zamoczyc1	108		V	=AGT CAUSE[=PAT[wet]]	
 steep	meredek	praeruptus	stromy	1673		A	change[vertical]	
-stem	to3	stirps	l1odyga	2421		N	PART_OF plant, long, leaves FROM/2742, flowers FROM/2742, fruit FROM/2742	HUN sza1r
+stem	to3	stirps	l1odyga	2421		N	PART_OF plant, long, leaf FROM/2742, flower FROM/2742, fruit FROM/2742	HUN sza1r
 step	le1p	gradior	kroczyc1	1505		U	unit, foot ON floor, PART_OF move	
 step	le1pe1s	gradus	krok	1508		N		see 1505
 sterile	#	#	#	2732		V		lack(ability[reproduce]) % NOTHAS % ND % no Longman
@@ -2966,14 +2964,14 @@ stir	kever	agito	mieszac1	1310		V	[circular/1389(motion)] IN/2758 [=PAT[<liquid>
 stir_up	felizgat	commoveo	pobudzic1	773		V	=AGT CAUSE[=PAT[move]]	
 stirred_up	felkavart	commotus	pobudzony	775		A		no Longman use
 stitch	o2lt	suo	zaszywac1	1848		V	unit, thread IN/2758 needle[move], sew	
-stocking	harisnya	tibiale	pon1czocha	1004		N	garments, COVER foot, tight	
-stomach	gyomor	venter	z1ol1a1dek	939	u	N	organ, animal HAS, tubes, food TO/2743	
+stocking	harisnya	tibiale	pon1czocha	1004		N	garment, COVER foot, tight	
+stomach	gyomor	venter	z1ol1a1dek	939	u	N	organ, animal HAS, tube, food TO/2743	
 stone	ko3	lapis	kamien1	1419	u	N	material, hard, solid	
 stop	mega1ll	consisto	zatrzymac1_sie1	1615	u	V	after(lack), =PAT[lack[after]]	
 store	bolt	taberna	sklep	330		N	shop	
 storey	emelet	tabulatum	pie1tro	662		N	level, IN/2758 building	
 storm	vihar	tempestas	burza	2627		N	weather, wind, <rain>, <snow>, <hail/1179>, <thunder>, <lightning>	
-story	to2rte1net	historia	historia	2417	u	N	events IN/2758, <fiction>	
+story	to2rte1net	historia	historia	2417	u	N	event MEMBER, <fiction>	
 straight	direkt	directus	bezpos1redni	468	u	A	sincere	
 straight	egyenes	directus	prosty	563	u	A	HAS constant(direction)	lack(curving)
 straighten	helyrehoz	corrigo	poprawiac1	1033		V		see -en
@@ -2983,12 +2981,12 @@ strain	teher	onus	kl1opot	2336		N
 strange	furcsa	mirus	dziwny	881	u	A	lack(familiar)	NOTCOP, anto? % unary lack
 stranger	idegen	peregrinus	cudzoziemiec	1118		N	person, lack(knowledge) ABOUT	
 stream	a1r	flumen	strumien1	87		N	[water[flow]] IN/2758	
-street	u1t	vicus	ulica	2482		N	public, road, IN/2758 town, houses AT/2744, HAS two(sides)	
+street	u1t	vicus	ulica	2482		N	public, road, IN/2758 town, many(house) AT/2744, HAS two(side)	
 strength	ero3	vis	sil1a	685		N	strong	
 stretch	nyu1jt	porrigo	rozcia1gac1	1823		N	CAUSE[=PAT[long,extend]]	
 strew	hint	spargo	posypac1	1058		V	scatter	
 strict	szigoru1	#	#	2960		A		control % style?
-stride	le1pked	incedo	kroczyc1	1509		V	walk, long(steps) AT/2744, quick	
+stride	le1pked	incedo	kroczyc1	1509		V	walk, long(step), quick	
 strike	u2t	percutio	uderzac1	2503		U	hit	
 string	hu1r	chroda	struna	1092	u	N	cord, fasten	
 string-like	zsino1rszeru3	#	#	3256		A	string	1
@@ -2998,7 +2996,7 @@ stroke	u2te1s	#	#	2749		N	strike	csapa1s
 strong	ero3s	validus	silny	688	u	A	HAS force[great]	
 strong-smelling	ero3s_illatu1	#	#	3116		A	strong(smell)	
 strong-tasting	ero3s_i1zu3	#	#	3117		A	strong(taste)	
-structure	szerkezet	structura	struktura	2944	u	N	HAS parts, whole	connected
+structure	szerkezet	structura	struktura	2944	u	N	HAS more(part), whole	connected
 struggle	harc	dimicatio	walka	1003		N	try, difficult, HAS goal, AT/2744 long(time)	
 student	dia1k	discipulus/discipula	student	462		N	study, IN/2758 <school>	
 study	tanulma1ny	studium	nauka	2305	u	N	work, WANT know	=PAT[branch], =PAT PART_OF discipline
@@ -3007,7 +3005,7 @@ stupidity	butasa1g	stultitia	gl1upota	360		N	stupid
 style	mo1d	mos_modusque	styl	1707	u	N		see 2125
 style	sti1lus	genus	styl	2125	u	N	property, expression/1332 HAS, art HAS	
 subject	alany	subiectum	podmiot	145	u	N		see 2752
-subject	ta1rgy	materia	przedmiot	2750	u	N	=POSS ABOUT, ' STUDY	
+subject	ta1rgy	materia	przedmiot	2750	u	N	=POSS[<learn>] ABOUT	
 submerge	lenyom	deprimo	zanurzac1	1535		V	=AGT CAUSE[=PAT IN/2758 water, =PAT UNDER surface], water HAS surface	
 substance	anyag	materia	materia	172		N	HAS mass, IN/2758 space/2327, physical	
 subtract	kivon	deduco	odejmowac1	1366		V	=AGT CAUSE[=PAT NOTIN =FROM]	
@@ -3016,7 +3014,7 @@ succeed	sikerrel_ja1r	#	#	2718		V	aim[real[after]], =AGT HAS aim
 success	siker	#	#	2969		N	real, good, before(desire), lack(failure)	
 such	ilyen	talis	taki	1136	u	A		indexical
 such_as	u1gymint	#	#	2966		#	=REL IS_A	
-suck	szopik	sugo	ssac1	2250		V	=AGT CAUSE[=PAT[fluid] IN/2758 mouth], =AGT HAS mouth, mouth SURROUND thing, pull	vacuum
+suck	szopik	sugo	ssac1	2250		V	=AGT CAUSE[=PAT[fluid] IN/2758 mouth], =AGT HAS mouth, mouth AROUND thing, pull	vacuum
 suck_in	beszi1v	sugo	wessac1	271		V	suck	
 sudden	hirtelen	subitus	nagl1y	1061		A	lack(warn), before(lack( ' KNOW))	
 suffer	szenved	patior	cierpiec1	2192		U	=AGT FEEL pain	
@@ -3041,7 +3039,7 @@ surprise	meglepete1s	novitas	niespodzianka	1635	u	N	<gift>, lack( ' EXPECT)
 surprising	meglepo3	mirus	zaskakuja1cy	3568	u	N		
 surround	ko2rbevesz	circumdo	otaczac1	1387		V	=AGT[circle], =PAT IN/2758 circle	
 swallow	nyel	voro	pol1ykac1	1805		V	=AGT CAUSE[=PAT[move]], after(=PAT IN/2758 stomach), =PAT IN/2758 mouth, =PAT IN/2758 throat, =AGT HAS stomach, =AGT HAS mouth, =AGT HAS throat	
-swear	esku2szik	iuro	przysie1gac1	696	u	U	=AGT DECLARE truth, =DAT[authority,<god>]	
+swear	esku2szik	iuro	przysie1gac1	696	u	U	=AGT SAY truth, =DAT[authority,<god>]	
 swear	ka1romkodik	exsecror	przeklinac1	1210	u	U	=AGT SAY word, lack(word CONFORM ')	<obscene>,<blasphemous>,taboo,insult
 sweep	seper	verro	zamiatac1	2083		V		
 sweet	e1des	dulcis	sl1odki	495	u	A	taste, good, pleasant, sugar HAS taste, honey HAS taste	saccharin HAS taste
@@ -3057,26 +3055,26 @@ symbol	jel	#	#	2976		N	mean/1186, represent
 sympathetic	egyu2tt_e1rzo3	#	#	3060		A	FEEL [other HAS problem], approve, support	
 sympathy	egyu2tte1rze1s	misericordia	wspo1l1czucie	587		N	pity	
 system	mo1dszer	ratio	system	1709	u	N		see 2015
-system	rendszer	ratio	system	2015	u	N	group, complex, part INFLUENCE other(part)	
+system	rendszer	ratio	system	2015	u	N	group, complex, relation BETWEEN part	
 t-shaped	T_alaku1	#	#	3229		A	HAS shape[horizontal AT/2744 top, vertical(stem)]	2
-table	asztal	mensa	sto1l1	180	u	N	furniture, HAS legs, HAS surface[flat,horizontal]	
+table	asztal	mensa	sto1l1	180	u	N	furniture, HAS leg[<more>], HAS surface[flat,horizontal]	
 tail	farok	cauda	ogon	728		N	PART_OF body, long, hang, AT/2744 bottom	
 take	elvesz	adimo	wzia1c1	653	u	U	take/654	
-take	elvesz	adimo	wzia1c1	654	u	V	=AGT CAUSE[=PAT AT/2744 =AGT, =FROM NOTHAS =PAT]	
+take	elvesz	adimo	wzia1c1	654	u	V	=AGT CAUSE[=PAT AT/2744 =AGT, =FROM HAS lack(=PAT)]	
 take_hold	fog	arripio	l1apac1	831		V	catch/828	
 talk	besze1l	loquor	rozmawiac	269	u	U	communicate, INSTRUMENT words	
 tall	magas	procerus	wysoki	1581	u	A	height, ER '	ZsA
 tape	szalag	taenia	wsta1z2ka	3051	u	N	artefact, information ON, narrow, plastic	
 taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue	RA
-tax	ado1	tributum	podatek	116		N	money, government GET/1223, persons GIVE, businesses GIVE	
+tax	ado1	tributum	podatek	116		N	money, government GET/1223, person GIVE, business GIVE	
 taxi	taxi	taximetrum	takso1wka	2319		N	car, service, person[drive,professional] PART_OF, pay/812 AT/2744	
 tea	tea	thea	herbata	2331		N	drink, leaf[dry[before]], hot(water)	
 teach	tani1t	doceo	uczyc1	2302		V	=AGT CAUSE[=DAT KNOW =PAT]	Chafe (1970)
 team	csapat	manus	druz1yna	386		N	group	
-tear	te1p	scindo	rozrywac1	2325	u	V	pull, after(=PAT HAS pieces), INSTRUMENT force	
-tears	ko2nny	lacrima	l1zy	1379		N	liquid, FROM/2742 eye, drop, salt IN/2758, ON cheeks, <emotion> CAUSE	
+tear	te1p	scindo	rozrywac1	2325	u	V	pull, after(=PAT HAS more(piece)), INSTRUMENT force	
+tears	ko2nny	lacrima	l1zy	1379		N	liquid, FROM/2742 eye, many(drop), salt IN/2758, ON cheek, <emotion> CAUSE	
 technical	mu3szaki	#	#	3041		A	knowledge, machines	
-technology	technolo1gia	#	#	3033		N	machines, equipment, method, INSTRUMENT knowledge	
+technology	technolo1gia	#	#	3033		N	machine MEMBER, equipment, method, INSTRUMENT knowledge	
 telegram	ta1virat	telegramma	telegram	2292		N		
 telegraph	ta1vi1ro1	telegraphium	telegraf	2291		N		
 telephone	telefon	telephonium	telefon	2341		N	instrument, voice[move] INSTRUMENT, sound/993[move] INSTRUMENT	
@@ -3085,23 +3083,23 @@ tell	mond	dico	powiedziec1	1720	u	V	express, INSTRUMENT speech
 temper	du2h	furor	gniew	489		N	state/77, emotion	hangulat
 temperature	ho3me1rse1klet	temperies	temperatura	1071		N	physical, property, hot	
 temple	hala1nte1k	tempora	skron1	982		N	flat, side, PART_OF head	see 2349
-temple	templom	templum	s1wia1tynia	2349		N	building, [religious (activities)] IN/2758	ND
+temple	templom	templum	s1wia1tynia	2349		N	building, FOR/2782 religion	
 temporary	ideiglenes	#	#	3020		A	short AT/2744 future	
 ten	ti1z	#	#	2999		A	number, FOLLOW nine	
 ten-pound	tizfontos	#	#	3118		A	ten(pound)	
 tend	tart_vmihez	tendo	zmierzac1	2311		V		
 tendency	tendendcia	#	#	2987		N	likely[=TO]	
 tender	gyenge1d	mollis	delikatny	929		A	love	
-tennis	tenisz	lusus_pilae_reticulo_fusae	tenis	2351	u	N	game, INSTRUMENT ball, person[two, <play>] IN/2758, ON rectangular(court/2515), net AT/2744 court/2515	or two pairs of players % INSTRUMENT rackets
+tennis	tenisz	lusus_pilae_reticulo_fusae	tenis	2351	u	N	game, INSTRUMENT ball, person[two, <play>] IN/2758, ON rectangular(court/2515), net AT/2744 court/2515	
 tense	feszu2lt	suspensus	spie1ty	797	u	A		
 tense	igeido3	tempus	czas	3140	u	N	verb HAS	time?
-tent	sa1tor	tabernaculum	namiot	2058		N	home, temporary, can/1246[' MOVE], HAS wall[lack(rigid),<cloth>], ' STRETCH	naive_theo: HAS poles, HAS ropes, HAS pegs, canva
+tent	sa1tor	tabernaculum	namiot	2058		N	home, temporary, can/1246[' MOVE], HAS wall[lack(rigid),<cloth>, tense], rope PART_OF	
 terrible	iszonyu1	atrox	okropny	1163		A	severe	
 terrified	re1mu2lt	perterritus	przeraz1ony	1993		A	HAS great (fear)	ND
 terror	terror	vis	terror	2365		N	intense(fear)	% no Longman
 test	pro1ba	probatio	pro1ba	1975	u	N	action, after(sure)	a test to see if an unborn baby has a disease
-tetrahedron	tetrae1der	#	#	2702		N	object, HAS three(sides), HAS flat(bottom), HAS peak	
-text	szo2veg	#	#	3127		N	information IN/2758, sentences PART_OF	
+tetrahedron	tetrae1der	#	#	2702		N	object, HAS three(side), HAS flat(bottom), HAS peak	
+text	szo2veg	#	#	3127		N	information IN/2758, sentence PART_OF	
 than	mint	quam	niz1	1702	u	G	'ER	
 thank	megko2szo2n	gratias_ago	dzie1kowac1	1633	u	V	=DAT CAUSE =AGT[pleased], =AGT EXPRESS[=AGT[grateful]], polite	
 that	az	ille	tamten	186	u	A	thing	% indexical
@@ -3118,7 +3116,7 @@ therefore	teha1t	quare	wie1c	2334		D	that CAUSE
 these	ezek	hi/hae/haec	te	707		N	this, more	
 they	o3k	ii/eae	oni	1874	u	G	more(person)	<he> IN/2758 % OR [she IN] OR [it IN]? % indexical
 thick	su3ru3	densus	ge1sty	2134	u	A	lack(thin/1038)	
-thick	vastag	crassus	gruby	2752	u	A	object, distance[great] BETWEEN surfaces, HAS surfaces, lack(thin/2598)	
+thick	vastag	crassus	gruby	2752	u	A	object, distance[great] BETWEEN surface, HAS more(surface), lack(thin/2598)	
 thicken	su3ri1t	denseo	zage1szczac1	2133		V	=AGT CAUSE[=PAT[thick/2134]]	
 thief	tolvaj	fur	zl1odziej	2430		N	steal	
 thin	hi1g	liquidus	rzadki	1038	u	A	[great(distance)] BETWEEN [particle], particle IN/2758, lack(thick/2134)	
@@ -3138,28 +3136,28 @@ thought	gondolat	cogitatum	mys1l	908	u	N	IN/2758 mind	enumerate=
 thousand	ezer	#	#	3059		N	number, ER hundred	
 thread	ce1rna	filum_lineum	nic1	366	u	N	fine(cord), <sew INSTRUMENT>, <IN/2758 cloth>	
 threat	fenyegete1s	minae	groz1ba	790		N	threaten	
-threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE pain])	
+threaten	fenyeget	minitor	grozic1	789		V	=AGT EXPRESS[after(=AGT CAUSE harm)]	
 three	ha1rom	#	#	2970		A	number, FOLLOW two	
 three-sided	ha1rom-oldalu1	#	#	3220		A	HAS three(side)	3
 three-word	ha1rom_szo1bo1l_a1llo1	#	#	3119		A	three(word)	
 thrive	prospera1l	vigeo	kwitna1c1	1977		U		no xml
-throat	torok	fauces	gardl1o	2432		N	PART_OF body, pipe, IN/2758 neck, FROM/2742 mouth, TO/2743 tubes, front	
+throat	torok	fauces	gardl1o	2432		N	PART_OF body, pipe, IN/2758 neck, FROM/2742 mouth, TO/2743 tube, front	
 through	a1t	per	przez	100	u	A	AT/2744[side[before]], =REL HAS side, IN/2758 =REL, after(AT/2744 other(side))	=REL HAS other(side)?
 throw	dob	conjectus	rzucac1	477	u	V	=AGT CAUSE[=PAT[move]], move IN/2758 air, INSTRUMENT hand, =AGT HAS hand	
 throw	ga1ncs	N/A	N/A	884	u	N		see 477
 thrust	tol	protrudo	pchac1	2425		V		no xml
-thud	do2rren	fragorem_edit	l1omotac1	473		U	dull(sound/993), <[ heavy(object) STRIKE solid(surface)] CAUSE>	
+thud	do2rren	fragorem_edit	l1omotac1	473		U	dull(sound/993), <[ heavy(object) HIT solid(surface)] CAUSE>	
 thumb	hu2velykujj	pollex	kciuk	1098		N	PART_OF hand, human HAS hand, short, thick/2752	hungarian semantics: ujj
 thunder	do2ro2g	tono/tonat	grzmiec1	472		V	lightning MAKE sound/993	
 thus	i1gy	sic	tak	1107		D	' CAUSE	
 ticket	jegy	tessera	bilet	1181	u	N	<paper>, <card>, before(pay/812), FOR/2782 right/3122	
 tidy	rendes	diligens	schludny	2010	u	A	good (arrangement), neat	RA
 tie	ko2t	ligo	wia1zac1	1394	u	V	=AGT CAUSE[move[lack]], INSTRUMENT rope	
-tiger	tigris	tigris	tygrys	2386		N	hairy, animal, HAS[four (legs)], aggressive, HAS[yellow(lines)], HAS[lines[other, black]], big	RA
+tiger	tigris	tigris	tygrys	2386		N	hairy, animal, HAS[four(leg)], aggressive, HAS line[yellow, more], HAS line[other, black, more], big	RA
 tight	szoros	artus	ciasny	2252	u	A	lack(move), fit, close/1413	lack(loose) % RA
 tightly-covered	szorosan_befedett	#	#	3254		A	tight( ' COVER)	1
 till	mi1g	dum	do	1684		D	after(=REL)	AT/2744 time, =REL AT/2744 time[other(time)], other(time) ER time? =REL FOLLOW?, conj
-time	ido3	tempus	czas	1120	u	N	events IN/2758, HAS direction, past PART_OF, present PART_OF, future PART_OF	
+time	ido3	tempus	czas	1120	u	N	event IN/2758, HAS direction, past PART_OF, present PART_OF, future PART_OF	
 times	ido3	tempora	czasy	3574	u	N		
 timetable	menetrend	horarium	rozkl1ad	1664		N		no xml
 timetable	o1rarend	horarium	plan	1837		N	list, time IN/2758, event AT/2744 time, <arrive> AT/2744 time, <leave> AT/2744 time	
@@ -3172,7 +3170,7 @@ tissue	szo2vet	#	#	3395		N	material, live
 title	ci1m	appellatio	tytul1	371		N	name, <book> HAS	
 to	-ba	in	do	12	u	G	in/10	
 to	-hoz	ad	do	2743	u	G	after(AT/2744 =REL)	
-tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, ' SMOKE	
+tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, burn, FOR/2782 pleasure	
 today	ma	hodie	dzisiej	1558		D	this (day)	day, now % ND
 toe	la1bujj	digitus_pedis	palec	1469		N	five, PART_OF foot	
 together	egyu2tt	una	razem	586	u	D	group, lack(separate)	
@@ -3183,7 +3181,7 @@ tongue	nyelv	lingua	je1zyk	1808		N	PART_OF body, AT/2744 mouth, taste INSTRUMENT
 tonight	ma_este	hodie_vespera	dzis1_wieczorem	1574		N	sunset FOLLOW, sunset AT/2744 today	
 too	is	etiam	tez1	1155	u	D	also	
 tool	szersza1m	instrumentum	narze1dzie	2202	u	N	object, work INSTRUMENT	
-tooth	fog	dens	za1b	827	u	N	organ, animal HAS, hard, IN/2758 jaws, bite/1001 INSTRUMENT, chew INSTRUMENT, attack INSTRUMENT, defend INSTRUMENT	
+tooth	fog	dens	za1b	827	u	N	organ, animal HAS, hard, IN/2758 jaw, bite/1001 INSTRUMENT, chew INSTRUMENT, attack INSTRUMENT, defend INSTRUMENT	
 top	teto3	culmen	dach	2377	u	N	part, AT/2744 position[vertical], position ER part[other]	
 torment	ki1n	cruciatus	cierpienie	1319		N	pain	
 total	ege1sz	totus	cal1y	552		A	whole	
@@ -3191,22 +3189,22 @@ total	teljes	totus	cal1kowity	2346		A	whole
 total	ve1go2sszeg	#	#	2764		N	sum	
 totter	inog	vacillo	chwiac1_sie1	1143		U	shake	
 touch	e1rint	attingo	dotkna1c1	522	u	N	<hand> AT/2744 =PAT[surface], <=AGT HAS hand>, contact, FEEL surface	
-tour	tu1ra	iter	wycieczka	2439		N	journey, FOR/2782 pleasure, VISIT place/1026	
+tour	tu1ra	iter	wycieczka	2439		N	journey, FOR/2782 pleasure, person AT/2744 place/1026	
 tourist	turista	viator	turysta	2465		N		
 towards	fele1	ad	do	764	u	G	after(AT/2744 =REL)	
 tower	torony	turris	wiez1a	2433		N	building[tall, narrow]	
-town	va1ros	oppidum	miasteczko	2560	u	N	many(people) IN/2758, many (houses) IN/2758	
-toy	ja1te1k	lusus	zabawka	1174		N	object, children[play], play INSTRUMENT	
+town	va1ros	oppidum	miasteczko	2560	u	N	many(people) IN/2758, many(house) IN/2758	
+toy	ja1te1k	lusus	zabawka	1174		N	object, child[play], play INSTRUMENT	
 track	ko2vet	sequor	s1ledzic1	1402	u	V	=PAT MAKE mark, =AGT LOOK mark, follow	
 track	nyom	vestigium	s1lad	1817	u	N	way, move[quick] AT/2744	HUN pa1lya
 trade	kereskedik	negotior	handlowac1	1299	u	V	buy, sell	
 trade	szakma	artificium	zawo1d	2155	u	N		
 tradition	hagyoma1ny	#	#	2953		N	old, society/2285 HAS	
-traffic	forgalom	commercium	ruch	857		N	people[move] PART_OF, vehicles PART_OF, ON street	
-train	vonat	tramen	pocia1g	2661	u	N	vehicle, series, ON rail, cars	locomotive[<pull>] PART_OF
+traffic	forgalom	commercium	ruch	857		N	people[move] PART_OF, vehicle PART_OF, ON street	
+train	vonat	tramen	pocia1g	2661	u	N	vehicle FOLLOW vehicle, ON rail, cars	locomotive[<pull>] PART_OF
 training	edze1s	exercitatio	trening	3577	u	N		
 translate	fordi1t	reddo	tl1umaczyc1	855		V	=AGT CAUSE[=PAT AT/2744 other(language)]	
-transparent	a1tla1tszo1	perlucidus	przezroczysty	104		A	can/1246[animal SEE thing], thing BEHIND	
+transparent	a1tla1tszo1	perlucidus	przezroczysty	104		A	see THROUGH	
 transport	sza1lli1ta1s	#	#	3057		N	move	
 trap	csapda	laqueus	pul1apka	388		N	device, CATCH/828 animal, sudden, enemy MAKE, lack(' SEE)	
 travel	utazik	iter_facio	podro1z1owac1	2537	u	U	after(=AGT AT/2744 place/1026[other,<city>])	
@@ -3230,8 +3228,8 @@ true	igaz	verus	prawdziwy	1125	u	A	CONFORM[fact]
 trunk	bo3ro2nd	riscus	kufer	319		N	box, garment IN/2758	no xml
 trunk	orma1ny	manus	tra1ba	1910		N	nose, elephant HAS, long	no xml
 trunk	to2rzs	#	#	2759		N	main(part), long, stable	
-trust	bi1zik	confido	ufac1	290	u	V	=AGT BELIEVE[=PAT[good], <good AT/2744 future>]	HUN -bAn is quirky, German: vertrauen ACC
-trustworthy	megbi1zhato1	certus	godny_zaufania	1618		A	can/1246[' TRUST]	
+trust	bi1zik	confido	ufac1	290	u	V	=AGT THINK[=PAT[good], <good AT/2744 future>]	HUN -bAn is quirky, German: vertrauen ACC
+trustworthy	megbi1zhato1	certus	godny_zaufania	1618		A	should[' TRUST]	
 truth	igazsa1g	verum	prawda	1129		N	true	
 try	pro1ba1l	tempto	pro1bowac1	1976	u	V	want, [DO'] FOR =PAT	modal primitve?
 tube	cso3	fistula	rura	419		N	pipe	
@@ -3240,17 +3238,17 @@ tune	dallam	modulatio	piosenka	447		N	sequence, sound/993
 turn	fordul	vertor	przekre1cac1	856	u	V		turn/860
 turn	forog	versor	przekre1cac1	860	u	V	object, move, HAS axis, =AGT HAS direction[change]	
 twelve	tizenketto3	#	#	3070		A	number, FOLLOW eleven	
-twice	ke1tszer	bis	dwa_razy	1263		D	AT/2744 two(occasions)	
+twice	ke1tszer	bis	dwa_razy	1263		D	AT/2744 two(occasion)	
 twine	gally	termes	gal1a1zka	888		N		no Longman
 twist	teker	torqueo	przekre1cac1	2338		V	<thread>, turn, =PAT[straight/563[after, lack], before(long)]	=AGT CAUSE[=PAT[spiral]]
 two	ke1t	#	#	2967		A	number, one IN/2758, other IN/2758, FOLLOW one	
 two-wheeled	ke1tkereku3	#	#	3219		A	HAS two(wheel)	3
 two-year	ke1te1ves	#	#	3253		A	AT/2744 time, time HAS length[year[two]]	1
 type	fajta	species	typ	717	u	N	group, HAS common(characteristic)	
-typical	tipikus	#	#	2945		A	SIMILAR many	
+typical	tipikus	#	#	2945		A	RESEMBLE many	
 tyre	auto1gumi	circulus_gummeus	opona	185		N	ON wheel, <rubber>, <ring/402>, vehicle HAS wheel	
 u-shape	u_alaku1	#	#	3250		A	shape(bend/1112)	1
-ugly	csu1nya	turpis	brzydki	433		A	CAUSE[eye NOTHAS pleasure]	
+ugly	csu1nya	turpis	brzydki	433		A	CAUSE[eye HAS lack(pleasure)]	
 un-	-tlan	#	#	2829		A	lack(=REL)	
 un-	-tlan	in-	nie-	57		G	lack	649 un+pleasant
 uncle	nagyba1csi	patruus/avunculus	wujek	1749		N	man/744, relative, relative[old] ER =POSS	related to parent, =POSS HAS parent
@@ -3300,7 +3298,7 @@ various	va1ltozatos	varius	ro1z1ny	2553		A	many[different]
 vary	o1vatos	cautus	ostroz1ny	1841		A		no xml
 vegetable	no2ve1ny	herba	warzywo	1791	u	N	PART_OF plant, ' EAT	HUN zo2lds1g
 vegetable	no2ve1nyi	herbarum	warzywny	1792	u	A		see 1791
-vehicle	ja1rmu3	vehiculum	pojazd	1172	u	N	device, MOVE [<people>,<objects>]	
+vehicle	ja1rmu3	vehiculum	pojazd	1172	u	N	device, MOVE [<people>,<object>]	
 verb	ige	verbum_temporale	czasownik	1130		N	word	
 vertebrate	gerinces	#	#	3374		N	animal, HAS bone, fish IS_A, mammal IS_A, bird IS_A	
 vertical	fu2ggo3leges	verticalis	pionowy	869		N	position, up, line	lack(horizontal)
@@ -3313,13 +3311,13 @@ victory	gyo3zelem	victoria	zwycie1stwo	938		N	win
 video	video1	taenia	video	2994	u	N	film	
 view	la1tva1ny	aspectus	widok	1482		N	sight	
 view	ne1z	inspecto	ogla1dac1	1767		V	=AGT[think] SEE =PAT[part,<beautiful>]	
-village	falu	vicus	wies1	724		N	area/2366, houses IN/2758, IN/2758 country	
+village	falu	vicus	wies1	724		N	area/2366, many(house) IN/2758, IN/2758 country	
 violent	ero3szakos	violentus	gwal1towny	690		A	INSTRUMENT physical(force)	
 visible	la1thato1	#	#	3128		A	can/1246[' SEE]	
 visit	la1togata1s	adventus	odwiedziny	1478		N	social, at/2744, =AGT[person], =PAT[<person>]	clear nomen actionis
 voice	hang	vox	gl1os	994	u	N	sound/993, vertebrate PRODUCE	
 volcano	vulka1n	vulcanus	wulkan	3584	u	N		
-vomit	ha1ny	vomo	wymiotowac1	958		V	=AGT EJECT material, before(material IN/2758 stomach), THROUGH mouth	<lack(WANT)>
+vomit	ha1ny	vomo	wymiotowac1	958		V	material THROUGH mouth, before(material IN/2758 stomach), =AGT HAS mouth, =AGT HAS stomach, <lack(=AGT WANT vomit)>	
 vote	szavaz	sententiam_fero	gl1osowac1	2160	u	U	=AGT EXPRESS[=AGT WANT [<candidate>,<option>]], official, choose	
 vowel	maga1nhangzo1	vocalis	samogl1oska	1579		N	sound/993, PART_OF speech	
 voyage	utaza1s	iter	podro1z1	2536		N		
@@ -3328,7 +3326,7 @@ wages	be1r	merces	zarobki	238		N	pay/237, FOR/2782 period
 waist	csi1po3	coxa	pas	406		N	PART_OF trunk/2759, human HAS trunk/2759, narrow, AT/2744 middle, body HAS middle, human HAS body	UNDER rib_cage, AT/2744 pelvis
 wait	va1r	maneo	waz1yc1	2558	u	V	expect, remain, ready, =AGT AT/2744 long(time)	
 wake	kelt	suscito	budzic1	1290		V	=PAT[awake[after]]	
-walk	ja1r	eo	spacerowac1	1171	u	U	move, AT/2744 surface, steps PART_OF, INSTRUMENT feet	
+walk	ja1r	eo	spacerowac1	1171	u	U	move, AT/2744 surface, many(step), INSTRUMENT foot	
 wall	fal	murus	s1ciana	721	u	N	object, upright, enclose, divide, protect, building HAS, long, high	
 wander	barangol	vagor	bl1a1kac1_sie1	229		U	walk, lack(purpose)	
 want	akar	volo	chciec1	131	u	V		primitive
@@ -3341,7 +3339,7 @@ waste	szeme1t	quisquiliae	odpady	2188	u	N	lack(' USE), substance
 waste_away	sorvad	tabesco	marnowac1_sie1	2122		V		
 watch	o1ra	horologium	zegarek	1835	u	N	clock, AT/2744 person, <ON wrist>	
 watchman	o3r	custos	straz1nik	1877		N		no xml
-water	vi1z	aqua	woda	2622	u	N	liquid, NOTHAS colour, NOTHAS taste, NOTHAS smell, life NEED	
+water	vi1z	aqua	woda	2622	u	N	liquid, HAS lack(colour), HAS lack(taste), HAS lack(smell), life NEED	
 wave	hulla1m	unda	fala	1104	u	N	IN/2758 sequence, move, ON surface, liquid[move[vertical]] HAS surface	
 wave	int	manu_signum_do	machac1	1144	u	V		see 2900
 waver	habozik	cunctor	wahac1_sie1	967		V	decide FOLLOW long(time), lack(sure)	
@@ -3360,7 +3358,7 @@ weave	szo3	texo	tkac1	2233	u	V	=AGT MAKE <cloth>, thread UNDER thread[other]
 website	weboldal	#	#	3081		N	PART_OF internet, information ON	
 wedding	esku2vo3	nuptiae	wesele	697		N	ceremony, after(marriage)	
 week	he1t	hebdomas	tydzien1	1021		N	period, time, seven(day) IN/2758	
-weep	si1r	lacrimo	pl1akac1	2096		U	=AGT HAS tears, emotion CAUSE	
+weep	si1r	lacrimo	pl1akac1	2096		U	=AGT HAS tear, emotion CAUSE	
 weigh	me1r	pondero	waz1yc1	1603		V	=AGT CAUSE[KNOW weight], <INSTRUMENT scale>, <INSTRUMENT balance/1607>	
 weight	su1ly	pondus	waga	2127	u	N	physical(quantity), heavy	
 welcome	fogad	accipio	witac1	832	u	V	before(=PAT NOTAT =AGT), =AGT LIKE/3382 =PAT	
@@ -3375,7 +3373,7 @@ whale	ba1lna	cetus	wieloryb	3585	u	N
 what	mi	quid	co	1683	u	G	thing	question
 whatever	ba1rmi	quodcumque	cokolwiek	210		A	anything	
 wheat	bu1za	triticum	pszenica	344		N	plant, HAS grain, flour FROM/2742	
-wheel	kere1k	rota	kol1o	1293	u	N	<vehicle> HAS, circular/1294, turn	<HAS spokes>, HAS hub, HAS axle
+wheel	kere1k	rota	kol1o	1293	u	N	<vehicle> HAS, circular/1294, turn	<HAS spoke>, HAS hub, HAS axle
 when	mikor	quando	kiedy	1689	u	D	AT/2744 what, AT/2744 time	
 whenever	amikor	cum	kiedykolwiek	168		D	=REL CAUSE	
 where	hol	ubi	gdzie	1073	u	D	AT/2744 what	
@@ -3386,19 +3384,19 @@ which	melyik	quis	kto1ry	1661	u	A		conj
 whichever	ba1rmelyik	quodcumque	kto1rykolwiek	209		N	thing	
 while	ami1g	dum	podczas	167		D	AT/2744 time	
 while	mi1g	dum	podczas	1685		D	AT/2744 time, =REL AT/2744 time	
-whip	ostor	flagellum	bat	1916		N	instrument, flexible, CONTROL animals, punish INSTRUMENT	
+whip	ostor	flagellum	bat	1916		N	instrument, flexible, CONTROL animal, punish INSTRUMENT	
 whirl	o2rve1nylik	vertices_agit	wirowac1	1858		U	turn	=AGT % no xml
 whisper	su1g	susurro	szeptac1	2126		V	speak, quiet	
 whistle	si1p	fistula	gwizdek	2093		N	air[move] MAKE sound/993	
 white	fehe1r	albus	bial1y	755	u	N	colour, light/739, snow HAS colour, empty, clear	
 who	aki	qui/quis	kto/kto1ry	134	u	G	person	% indexical
-whole	ege1sz	totus	cal1y	553		A	CONTAIN all	quantifier
+whole	ege1sz	totus	cal1y	553		A	all MEMBER	quantifier
 why	mie1rt	cur/quare	dlaczego	1688		G	what CAUSE	
 wicked	gonosz	improbus	wredny	911		A	evil	no xml
-wide	sze1les	latus	szeroki	2166		A	great(distance) BETWEEN sides, HAS sides	
-width	sze1lesse1g	latitudo	szerokos1c1	2168		N	size, horizontal, distance BETWEEN sides, =POSS HAS sides	
+wide	sze1les	latus	szeroki	2166		A	distance[great, horizontal] BETWEEN side, HAS more(sides)	
+width	sze1lesse1g	latitudo	szerokos1c1	2168		N	wide	
 wife	felese1g	uxor	z1ona	767		N	IN/2758 marriage, female	
-wild	vad	ferus	dziki	2565		A	[lack(control)] OVER	RA
+wild	vad	ferus	dziki	2565		A	lack(society LEAD)	
 will	akar	volo	chciec1	132	u	V	want	
 willing	ke1sz	paratus	che1tny	1259		A	ready, wish	
 win	gyo3z	vinco	wygrywac1	937	u	U	best, succeed/2718, before(compete), before(effort), GET/1223 <prize>	=AGT DEFEAT enemy
@@ -3407,10 +3405,10 @@ window	ablak	fenestra	okno	110	u	N	IN/2758 <wall>, light/739 THROUGH, air THROUG
 wine	bor	vinum	wino	332		N	drink, before(fruit), before(<grape>), alcohol IN/2758	
 wing	sza1rny	ala	skrzydl1o	2146	u	N	object, fly INSTRUMENT, PART_OF '	
 wing-shaped	sza1rny_alaku1	#	#	3249		A	HAS wing(shape)	1
-wink	kacsint	nicto	mrugac1	1215		V	=AGT CLOSE/3381 one(eye), eye[open/1814[after]], deliberate, signal	
+wink	kacsint	nicto	mrugac1	1215		V	eye[one, close], =AGT HAS eye, eye[open/1814[after]], deliberate, signal	
 winter	te1l	hiems	zima	2322	u	N	season/548, FOLLOW autumn, spring/2318 FOLLOW, cold, snow IN/2758, death IN/2758	ND
 wipe	to2ro2l	abstergeo	wycierac1	2413		V	rub, INSTRUMENT <cloth>, =AGT CAUSE[=PAT[clean,dry]]	
-wire	dro1t	filum_metallicum	drut	485	u	N	metal, long, thin/2598, <frame>, <CONDUCT electricity>	
+wire	dro1t	filum_metallicum	drut	485	u	N	metal, long, thin/2598, <frame>, <electricity IN/2758>	
 wise	bo2lcs	sapiens	ma1dry	311		A	sensible, KNOW right/1191	
 wish	akar	volo	chciec1	133	u	V	gentle(=AGT WANT =PAT)	
 wish	ki1va1n	opto	z1yczyc1	1322	u	V		133
@@ -3421,7 +3419,7 @@ without	ki1vu2l	extra	bez	1323	u	D	out
 without	ne1lku2l	sine	bez	1761	u	D	lack	
 witness	tanu1	testis	s1wiadek	2303		N		
 woman	no3	mulier	kobieta	1795	u	N	female, person	
-wonder	csoda	miraculum/prodigium	cud	422		N	action, lack(normal), lack( ' EXPLAIN), CAUSE[surprise]	CAUSE fear
+wonder	csoda	miraculum/prodigium	cud	422		N	event, surprise, supernatural, action	CAUSE fear
 wondrous	csoda1s	mirabilis	cudowny	425		A	wonder	
 wood	fa	lignum	drewno	710	u	N	material, hard, FROM/2742 tree	
 wool	gyapju1	lana	wel1na	924	u	N	material, soft, sheep HAS	naive_theo cloth FROM/2742
@@ -3429,11 +3427,11 @@ word	szo1	verbum	sl1owo	2224	u	N	HAS meaning, IN/2758 speech
 work	munka	opera	praca	1740	u	N	useful	RA
 working	dolgoza1s	laborans	pracowanie	3587	u	N		
 works	mu3vek	laborat	pracuje	3588	u	N		
-world	vila1g	mundus	s1wiat	2628	u	N	earth, countries IN/2758	
-worm	fe1reg	vermis	robak	743		N	animal, NOTHAS bone, NOTHAS legs, soft, long	
+world	vila1g	mundus	s1wiat	2628	u	N	earth, all(country) IN/2758	
+worm	fe1reg	vermis	robak	743		N	animal, HAS lack(bone), HAS lack(leg), soft, long	
 worry	gond	cura	zmartwienie	905		N	anxiety	
 worse	rosszabb	peior	gorszy	2045		A	bad, ER '	
-worship	ima1d	veneror	wielbic1	1139		V	respect, love, =PAT[<god>], pray, <IN/2758 building>, admire, sing, THINK[=PAT[high]], =AGT SERVE[=PAT]	devotion % ND
+worship	ima1d	veneror	wielbic1	1139		V	respect, love, =PAT[<god>], pray, <IN/2758 building>, admire, sing, THINK[=PAT[high]]	
 worst	legrosszabb	pessimus	najgorszy	1517		A	bad, -est	morphology
 worth	e1rte1k	dignitas	wartos1c1	527		N	value	
 worthy_of	e1rdemes	dignus	wart	519		A	CAUSE good	
@@ -3442,10 +3440,10 @@ wound	seb	vulnus	rana	2068	u	N	bad, ON body, <violent> CAUSE
 wound	sebesi1t	vulnero	ranic1	2069	u	V	=AGT CAUSE[=PAT HAS wound/2068]	
 wrap	becsomagol	involvo	owina1c1	246		V	=AGT CAUSE[=AGT COVER =PAT]	
 wrap_up	becsomagol	colligo	owina1c1	247		V		see 246
-wreck	roncs	reliquiae	wrak	2042		N	' DESTROY, sink/2747	
+wreck	roncs	reliquiae	wrak	2042		N	before(device), object, <ship[sink/2747]>	
 wrench	csavarkulcs	instrumentum_cochleis_extorquendis	klucz	394		N		no Longman
 wrist	csuklo1	articulus	nadgarstek	438		N	joint, PART_OF body, AT/2744 hand, AT/2744 end, arm HAS end	
-write	i1r	scribo	pisac1	1109	u	V	=AGT CAUSE[ [<letter/278>,<words>] ON surface[<paper>]], INSTRUMENT [<pen>,<pencil>]	in accord with Randall
+write	i1r	scribo	pisac1	1109	u	V	=AGT CAUSE[ [<letter/278>,<more(word)>] ON surface[<paper>]], INSTRUMENT [<pen>,<pencil>]	in accord with Randall
 writing	i1ra1s	scriptura	pisanie	3590	u	N		
 written	i1rott	#	#	3126		A	letter/278 ON surface[<paper>]	
 wrong	rossz	sinister	zl1y	2044	u	A	lack(right/1191)	

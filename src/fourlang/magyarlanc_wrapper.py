@@ -1,8 +1,11 @@
 import subprocess
 from tempfile import NamedTemporaryFile
 import logging
+from StringIO import StringIO
 import sys
 import traceback
+
+from hunmisc.corpustools.tsv_tools import sentence_iterator, get_dependencies
 
 class Magyarlanc():
     def __init__(self, cfg):
@@ -39,40 +42,22 @@ class Magyarlanc():
                 return out_file.name
             return None
 
-    def parse_lines(self, lines):
-        id_to_toks = {"0": {"lemma": "ROOT", "tok": "ROOT", "msd": None}}
-        for line in lines:
-            i, tok, lemma, msd, _, __, gov, dep = line.strip().split('\t')
-            id_to_toks[i] = {
-                'tok': tok, 'lemma': lemma, 'msd': msd, 'gov': gov, 'dep': dep}
-        deps = []
-        for i, t in id_to_toks.iteritems():
-            if t['lemma'] == 'ROOT':
-                continue
-            gov = id_to_toks[t['gov']]
-            deps.append({
-                "type": t['dep'].lower(),
-                "gov": {
-                    'id': t['gov'], "word": gov['tok'], "lemma": gov['lemma'],
-                    'msd': gov['msd']
-                },
-                "dep": {
-                    'id': i, "word": t['tok'], "lemma": t['lemma'],
-                    'msd': t['msd']
-                }
-            })
-
-        return deps
+    @staticmethod
+    def lines_to_deps(lines):
+        text_str = u"\n".join((u"".join(sen) for sen in list(lines)))
+        tsv_stream = StringIO(text_str)
+        return map(get_dependencies, sentence_iterator(tsv_stream))
 
     def add_deps(self, entry, lines):
+        deps = Magyarlanc.lines_to_deps([lines])[0]
         entry['senses'][0]['definition'] = {
             "sen": entry['senses'][0]['definition'],
-            "deps": self.parse_lines(lines)}
+            "deps": deps}
 
     def parse_text(self, text):
         in_file_name = self.dump_text(text)
         raw_parses = self.parse_file(in_file_name)
-        deps = map(self.parse_lines, raw_parses)
+        deps = Magyarlanc.lines_to_deps(raw_parses)
         return deps, []
 
     def parse_entries(self, entries):

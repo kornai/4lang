@@ -51,6 +51,7 @@ class WordSimilarity():
 
     def uniform_similarities(self, s):
         return dict(((sim_type, s) for sim_type in WordSimilarity.sim_types))
+        # TODO return {sim_type: s for sim_type in WordSimilarity.sim_types}
 
     def zero_similarities(self):
         return self.uniform_similarities(0.0)
@@ -79,6 +80,7 @@ class WordSimilarity():
             sims['nodes_contain'] = 1
 
         pn1, pn2 = machine1.printname(), machine2.printname()
+        # TODO
         if pn1 in links2 or pn2 in links1:
             sims['0-connected'] = 1
 
@@ -105,7 +107,7 @@ class WordSimilarity():
             machine1, machine2 = map(
                 self.lexicon.get_machine, (lemma1, lemma2))
 
-        if False:
+        if not self.batch:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
                 print_4lang_graph(w, m, self.graph_dir)
         lemma_sims = self.machine_similarities(machine1, machine2)
@@ -125,6 +127,7 @@ class WordSimilarity():
                 logging.debug("OOV: {0}".format(word1))
             if lemma2 is None:
                 logging.debug("OOV: {0}".format(word2))
+            # TODO
             word_sims = self.zero_similarities()
         else:
             word_sims = self.lemma_similarities(lemma1, lemma2)
@@ -136,27 +139,50 @@ class WordSimilarity():
         if use_cache and machine in self.links_nodes_cache:
             return self.links_nodes_cache[machine]
         self.seen_for_links = set()
-        links = set(self.get_links(machine, depth=0))
-        nodes = set(MachineTraverser.get_nodes(machine))
-
+        links, nodes = self._get_links_and_nodes(machine, depth=0)
+        links, nodes = set(links), set(nodes)
+        links.add(machine.printname())
+        nodes.add(machine.printname())
         self.links_nodes_cache[machine] = (links, nodes)
         return links, nodes
 
-    def get_links(self, machine, depth):
+    def _get_links_and_nodes(self, machine, depth, exclude_links=False):
+        name = machine.printname()
+        if name.isupper() or name == '=AGT':
+            links, nodes = [], []
+        elif exclude_links:
+            links, nodes = [], [name]
+        else:
+            links, nodes = [name], [name]
+
+        # logging.info("{0}{1},{2}".format(depth*"    ", links, nodes))
+        is_negated = False
         if machine in self.seen_for_links or depth > 5:
-            return
+            return [], []
         self.seen_for_links.add(machine)
-        for hypernym in machine.partitions[0]:
-            name = hypernym.printname()
-            if name == '=AGT' or not name.isupper():
-                # if depth == 0 and name not in ("lack", "to"):  # TMP!!!
-                yield name
+        for i, part in enumerate(machine.partitions):
+            for hypernym in part:
+                h_name = hypernym.printname()
+                # logging.info("{0}h: {1}".format(depth*"    ", h_name))
+                if h_name in ("lack", "not"):
+                    is_negated = True
+                    continue
 
-            for link in self.get_links(hypernym, depth=depth+1):
-                yield link
+                c_links, c_nodes = self._get_links_and_nodes(
+                    hypernym, depth=depth+1, exclude_links=i != 0)
 
-        for link in self.get_binary_links(machine):
-            yield link
+                if not h_name.isupper():
+                    links += c_links
+                nodes += c_nodes
+
+        if not exclude_links:
+            links += self.get_binary_links(machine)
+        if is_negated:
+            add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else ("lack_{0}".format(link[0]), link[1])  # nopep8
+            links = map(add_lack, links)
+            nodes = map(add_lack, nodes)
+
+        return links, nodes
 
     def get_binary_links(self, machine):
         for parent, partition in machine.parents:
