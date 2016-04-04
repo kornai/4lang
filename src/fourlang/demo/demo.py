@@ -1,12 +1,12 @@
 import logging
-import sys
+# import sys
 
-# from flask import Flask
+from flask import Flask, render_template, request
 
-from corenlp_wrapper import CoreNLPWrapper
-from utils import draw_text_graph, ensure_dir, get_cfg
-from dep_to_4lang import DepTo4lang
-from text_to_4lang import TextTo4lang
+from fourlang.corenlp_wrapper import CoreNLPWrapper
+from fourlang.utils import draw_text_graph, ensure_dir, get_cfg
+from fourlang.dep_to_4lang import DepTo4lang
+from fourlang.text_to_4lang import TextTo4lang
 
 __LOGLEVEL__ = 'INFO'
 
@@ -42,17 +42,27 @@ class FourlangDemo():
         logging.info('expanded pic drawn to {0}'.format(e_pic_fn))
 
 
-def main():
-    logging.basicConfig(
-        level=__LOGLEVEL__,
-        format="%(asctime)s : " +
-        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
-    cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
+logging.basicConfig(
+    level=__LOGLEVEL__,
+    format="%(asctime)s : " +
+    "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
 
-    cfg = get_cfg(cfg_file)
-    demo = FourlangDemo(cfg)
-    demo.backend_test()
-    # demo.start()
+cfg = get_cfg(None)
+demo = FourlangDemo(cfg)
+
+app = Flask(__name__)
+
+
+@app.route('/', methods=['GET'])
+def test():
+    return render_template('test.html')
+
+
+@app.route('/process', methods=['POST'])
+def process():
+    pic_fn = demo.text_to_graph(request.form['text'], True)
+    return render_template('pic.html', img_url=pic_fn)
 
 if __name__ == "__main__":
-    main()
+    app.debug = True
+    app.run(host='0.0.0.0')
