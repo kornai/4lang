@@ -30,6 +30,19 @@ After downloading and installing these tools, all you need to do is edit the `st
 ### Downloading pre-compiled graphs
 We provide [serialized machine graphs](http://people.mokk.bme.hu/~recski/4lang/machines.tgz) built from `4lang` definitions as well as from the English Wiktionary (using the `dict_to_4lang` module). Unpacking this archive in your `4lang` directory will place them in the `data/machines` directory, which is the default location for compiled machine graphs.
 
+### Environment variables
+The location of your installations of the above third-party tools, as well as 4lang must be specified via environment variables. These variables must always be set, there are no fallback values to avoid strange bugs. Here's an example of a `bashrc` file setting all required variables:
+
+```
+export FOURLANGPATH=/home/recski/projects/4lang
+export JYTHONPATH=/home/recski/projects/jython/jython/bin/jython
+export STANFORDPATH=/home/recski/projects/stanford_dp
+export MAGYARLANCPATH=/home/recski/projects/4lang/magyarlanc
+export HUNTOOLSBINPATH=/home/recski/sandbox/huntools_binaries
+```
+
+Note that the `JYTHONPATH` variable must point to the jython binary directly (and not a directory), since various jython installations may have different directory structures.
+
 ### Usage
 
 #### Semeval STS

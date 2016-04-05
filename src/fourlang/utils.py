@@ -59,6 +59,6 @@ def get_cfg(cfg_file=None):
         cfg_files.append(cfg_file)
     if not_found:
         raise Exception("cfg file(s) not found: {0}".format(not_found))
-    cfg = ConfigParser()
+    cfg = ConfigParser(os.environ)
     cfg.read(cfg_files)
     return cfg
