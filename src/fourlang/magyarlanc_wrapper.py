@@ -1,15 +1,18 @@
-import subprocess
-from tempfile import NamedTemporaryFile
 import logging
+import os
+import subprocess
 from StringIO import StringIO
 import sys
+from tempfile import NamedTemporaryFile
 import traceback
 
 from hunmisc.corpustools.tsv_tools import sentence_iterator, get_dependencies
 
+
 class Magyarlanc():
     def __init__(self, cfg):
-        self.path = cfg.get('magyarlanc', 'path')
+        self.jarpath = cfg.get('magyarlanc', 'jar')
+        self.magyarlanc_dir = cfg.get('magyarlanc', 'dir')
         self.tmp_dir = cfg.get('data', 'tmp_dir')
 
     def dump_entries(self, entries):
@@ -33,9 +36,10 @@ class Magyarlanc():
         return in_file_name
 
     def run_parser(self, in_file_name):
+        os.chdir(self.magyarlanc_dir)
         with NamedTemporaryFile(dir=self.tmp_dir, delete=False) as out_file:
             return_code = subprocess.call([
-                'java', '-Xmx2G', '-jar', self.path,
+                'java', '-Xmx2G', '-jar', self.jarpath,
                 '-mode', 'depparse', '-input', in_file_name,
                 '-output', out_file.name])
             if return_code == 0:
