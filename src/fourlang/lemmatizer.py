@@ -78,7 +78,7 @@ class Lemmatizer():
         hundisambig_fn = os.path.join(hunmorph_path, "hundisambig")
         hunpos_model_fn = os.path.join(hunmorph_path, "en_wsj.model")
 
-        # logging.warning('loading hunmorph...')
+        logging.warning('loading hunmorph using binaries in {0}'.format(hunmorph_path))
         for fn in (ocamorph_fn, morphdb_model_fn, hundisambig_fn,
                    hunpos_model_fn):
             if not os.path.exists(fn):
