@@ -1,5 +1,5 @@
 from collections import defaultdict
-from ConfigParser import ConfigParser, NoSectionError
+from ConfigParser import ConfigParser
 import logging
 import math
 import sys
@@ -26,11 +26,10 @@ class WordSimilarity():
     ])
 
     def __init__(self, cfg, cfg_section='word_sim'):
-        try:
-            self.batch = cfg.getboolean(cfg_section, 'batch')
-        except NoSectionError:
-            self.batch = False
+        self.batch = cfg.getboolean(cfg_section, 'batch')
 
+        logging.warning("fourlangpath is {0}".format(
+            cfg.get(cfg_section, 'fourlangpath')))
         self.cfg = cfg
         self.graph_dir = cfg.get(cfg_section, "graph_dir")
         ensure_dir(self.graph_dir)
