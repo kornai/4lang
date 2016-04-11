@@ -156,6 +156,7 @@ class WordSimilarity():
 
         # logging.info("{0}{1},{2}".format(depth*"    ", links, nodes))
         is_negated = False
+        is_before = False
         if machine in self.seen_for_links or depth > 5:
             return [], []
         self.seen_for_links.add(machine)
@@ -165,6 +166,10 @@ class WordSimilarity():
                 # logging.info("{0}h: {1}".format(depth*"    ", h_name))
                 if h_name in ("lack", "not"):
                     is_negated = True
+                    continue
+
+                if h_name == 'before':
+                    is_before = True
                     continue
 
                 c_links, c_nodes = self._get_links_and_nodes(
@@ -180,6 +185,11 @@ class WordSimilarity():
             add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else ("lack_{0}".format(link[0]), link[1])  # nopep8
             links = map(add_lack, links)
             nodes = map(add_lack, nodes)
+
+        if is_before:
+            add_before = lambda link: "before_{0}".format(link) if isinstance(link, unicode) else ("before_{0}".format(link[0]), link[1])  # nopep8
+            links = map(add_before, links)
+            nodes = map(add_before, nodes)
 
         return links, nodes
 
