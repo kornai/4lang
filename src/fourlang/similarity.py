@@ -22,7 +22,7 @@ assert jaccard, min_jaccard  # silence pyflakes
 class WordSimilarity():
     sim_types = set([
         'links_jaccard', 'nodes_jaccard', 'links_contain', 'nodes_contain',
-        '0-connected', 'entities_jaccard'
+        '0-connected', 'entities_jaccard', 'is_antonym'
     ])
 
     def __init__(self, cfg, cfg_section='word_sim'):
@@ -90,6 +90,12 @@ class WordSimilarity():
         sims['links_jaccard'] = jaccard(links1, links2)
         sims['nodes_jaccard'] = jaccard(nodes1, nodes2)
 
+        is_antonym = 0
+        if ("lack_" + pn1 in nodes2 or "lack_" + pn2 in nodes1):
+            is_antonym = 1
+
+        sims['is_antonym'] = is_antonym
+
         return sims
 
     def lemma_similarities(self, lemma1, lemma2):
@@ -156,6 +162,7 @@ class WordSimilarity():
 
         # logging.info("{0}{1},{2}".format(depth*"    ", links, nodes))
         is_negated = False
+        is_before = False
         if machine in self.seen_for_links or depth > 5:
             return [], []
         self.seen_for_links.add(machine)
@@ -163,9 +170,13 @@ class WordSimilarity():
             for hypernym in part:
                 h_name = hypernym.printname()
                 # logging.info("{0}h: {1}".format(depth*"    ", h_name))
-                if h_name in ("lack", "not"):
+                if h_name in ("lack", "not", "before"):
                     is_negated = True
                     continue
+
+                # if h_name == 'before':
+                #     is_before = True
+                #     continue
 
                 c_links, c_nodes = self._get_links_and_nodes(
                     hypernym, depth=depth+1, exclude_links=i != 0)
@@ -180,6 +191,11 @@ class WordSimilarity():
             add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else ("lack_{0}".format(link[0]), link[1])  # nopep8
             links = map(add_lack, links)
             nodes = map(add_lack, nodes)
+
+        # if is_before:
+        #     add_before = lambda link: "before_{0}".format(link) if isinstance(link, unicode) else ("before_{0}".format(link[0]), link[1])  # nopep8
+        #     links = map(add_before, links)
+        #     nodes = map(add_before, nodes)
 
         return links, nodes
 
