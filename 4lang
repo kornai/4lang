@@ -500,7 +500,7 @@ bark	ke1reg	cortex	kora	1254		N	hard, cover[wood], protect[wood]
 bark	ugat	latro	szczekac1	2517		U	<dog> MAKE sound/993[short, loud], =AGT AT/2744 conflict	
 barley	zab	avena	owies	2670		N		
 barrel	hordo1	cupa	baryl1ka	1082		N	cylinder, contain, HAS top, HAS bottom	
-barren	meddo3	sterilis	bezpl1odny	1613		A	MAKE child, make[can[lack]	MAKE lack(chid)
+barren	meddo3	sterilis	bezpl1odny	1613		A	MAKE child, make[can[lack]]	MAKE lack(chid)
 base	alap	fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	
 base	ba1zis	NA	baza	2755	u	N	IN/2758 @Baseball, four(corner), run TOUCH	
 base	aljas	abiectus	niski	153	u	A		see 146 and 2757
@@ -900,7 +900,7 @@ council	tana1cs	consilium	rada	2300		N
 count	sza1mol	numero	liczyc1	2142	u	V	calculate, other(number) FOLLOW number	
 counter-	ellen-	contra-	kontr-	629		D	oppose	
 country	orsza1g	terra	pan1stwo	1913	u	N	state/76	
-countryside	vide1k	#	#	3049		N	land, lack(town)	
+countryside	vide1k	#	#	3049		N	land, more(house) PART_OF, lack(town)	
 courage	ba1torsa1g	animus	odwaga	214		N	brave	will ER fear % will[strong] 2011.04.19 % ND
 course	kurzus	cursus	kurs	2775	u	N	series, lessons	
 course	pa1lya	cursus	bieg	1927	u	N	way	
@@ -1866,9 +1866,9 @@ lizard	gyi1k	stellio	jaszczurka	3493	u	N
 load	terhel	onero	l1adowac1	2356		V	=AGT CAUSE [=PAT[lot/3394] IN/2758 =TO[container]]	=PAT =TO -- =INS =PAT variation
 loaf	cipo1	panicellus	bochen	376		N	bread, whole	
 local	helyi	localis	lokalny	1032		A	AT/2744 place/1026	
-lock	za1r	claustrum	zamek	2667		N	CAUSE =PAT[lack(open/1814)]
+lock	za1r	claustrum	zamek	2667		N	CAUSE =PAT[lack(open/1814)]	
 lodge	lak	villa	willa	1485		N	house, small, IN/2758 country	
-lodgings	ha1z	domus	dom	964		N	place/1026, live AT/2744
+lodgings	ha1z	domus	dom	964		N	place/1026, live AT/2744	
 log	naplo1	diarium	dziennik	1757		N		no xml
 log	ro2nk	codex	kl1oda	2028		N		no xml
 loll	henye1l	desideo	lenic1_sie1	1034		U	lazy, relax	
@@ -2148,7 +2148,7 @@ odd	pa1ratlan	impar	nieparzysty	1930		A	number
 of	-bo1l	ex	-any	16	u	G	material[=REL]	
 of	-ro1l	de	o	41	u	G	before(ON =REL), after(far)	
 of	-to1l	a/ab	od	58	u	G	before(AT/2744 =FROM), after(far)	
-off	el	dis-	wy-	592	u	D	lack AT/2744		
+off	el	dis-	wy-	592	u	D	lack AT/2744	
 offence	ve1tek	delictum	wykroczenie	2601		N		
 offend	ba1nt	offendo	obrazic1	201		V	=AGT CAUSE[harm AT/2744 =PAT]	
 offensive	se1rto2	odiosus	obraz1liwy	2723	u	A	lack(polite)	
@@ -2236,7 +2236,7 @@ paper	papi1r	charta	papier	1940	u	N	material, FROM/2742 wood, flexible, sheet, H
 parallel	pa1rhuzamos	parallelus	ro1wnolegl1y	1931		A	constant(distance) BETWEEN, lack(meet)	
 parcel	csomag	fascis	paczka	428		N	packet	
 parent	szu2lo3	parens	rodzic	2266	u	N	MAKE child	
-park	park	horti	park	1943		N	area/2366, land, public, lack(building), rest IN/2758, beautiful, natural, grass IN/2758, tree PART_OF, IN/2758 <town>, walk IN/2758, play IN/2758	lack(building) AT	
+park	park	horti	park	1943		N	area/2366, land, public, lack(building), rest IN/2758, beautiful, natural, grass IN/2758, tree PART_OF, IN/2758 <town>, walk IN/2758, play IN/2758, lack(building) AT	
 parliament	parlament	senatus	sejm	1944		N	state/76 HAS, FOR/2782 nation, MAKE law, HAS power	
 part	re1sz	pars	cze1s1c1	1997	u	N	part_of	
 partake_of	bevesz	capio	wzia1c1	281		V		no Longman
@@ -2635,7 +2635,7 @@ ruins	rom	ruinae	ruina	2040		N		hunspell is ruin
 rule	uralkodik	regno	rza1dzic1	2530	u	U	govern	HUN szaba1ly
 ruler	uralkodo1	imperator	wl1adca	2531		N		
 run	fut	curro	biegac1	882	u	U	move, fast/940, INSTRUMENT foot	
-run_out	elfogy	deficio	skon1czyc1_sie1	617		V		=AGT HAS =REL[supply, lack]	
+run_out	elfogy	deficio	skon1czyc1_sie1	617		V	=AGT HAS =REL[supply, lack]	
 rush	siet	propero	spieszyc1_sie1	2099		U	quick, =AGT WANT '	
 rustle	susog	susurro	szeles1cic1	2136		U		
 s-shaped	S_alaku1	#	#	3258		A	HAS shape[bend/1112[two]]	1
@@ -2948,7 +2948,7 @@ steep	meredek	praeruptus	stromy	1673		A	change[vertical]
 stem	to3	stirps	l1odyga	2421		N	PART_OF plant, long, leaf FROM/2742, flower FROM/2742, fruit FROM/2742	HUN sza1r
 step	le1p	gradior	kroczyc1	1505		U	unit, foot ON floor, PART_OF move	
 step	le1pe1s	gradus	krok	1508		N		see 1505
-sterile	#	#	#	2732		V		reproduce[can[lack]]	ND
+sterile	#	#	#	2732		V		reproduce[can[lack]], ND
 stick	bot	baculum	kij	338	u	N	object, long, <wood>, <' USE>	
 sticky	ragado1s	glutinosus	kleja1cy	1987		A	stick	
 stiff	merev	rigidus	sztywny	1674	u	A	lack(bend/975)	difficult(' BEND)
