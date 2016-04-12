@@ -1,8 +1,9 @@
 import logging
 import os
+import random
 # import sys
 
-from flask import Flask, render_template, request  # , url_for
+from flask import Flask, render_template, request, url_for
 
 from fourlang.corenlp_wrapper import CoreNLPWrapper
 from fourlang.utils import draw_text_graph, ensure_dir, get_cfg
@@ -31,8 +32,8 @@ class FourlangDemo():
             deps, corefs)
         if expand:
             self.dep_to_4lang.lexicon.expand(machines)
-        pic_fn = draw_text_graph(machines, 'static', fn=fn)  # TODO
-        return os.path.basename(pic_fn)
+        pic_fn = draw_text_graph(machines, self.tmp_dir, fn=fn)  # TODO
+        return deps, os.path.basename(pic_fn)
 
     def backend_test(self):
         u_pic_fn = self.text_to_graph(
@@ -51,8 +52,7 @@ logging.basicConfig(
 cfg = get_cfg(None)
 demo = FourlangDemo(cfg)
 
-app = Flask(__name__)
-# app = Flask(__name__, static_path=demo.tmp_dir)
+app = Flask(__name__, static_folder=demo.tmp_dir)
 
 
 @app.route('/', methods=['GET'])
@@ -62,11 +62,11 @@ def test():
 
 @app.route('/process', methods=['POST'])
 def process():
-    pic_fn = demo.text_to_graph(request.form['text'], True)
-    # pic_url = url_for('static', filename=pic_fn)
-    pic_url = 'static/{0}'.format(pic_fn)
-    # return render_template('pic.html', img_url=pic_fn)
-    return render_template('pic.html', img_url=pic_url)
+    sen = request.form['text']
+    deps, pic_fn = demo.text_to_graph(sen, True)
+    pic_url = url_for(
+        'static', filename=pic_fn, nocache=random.randint(0, 9999))
+    return render_template('pic.html', img_url=pic_url, sen=sen, deps=deps)
 
 if __name__ == "__main__":
     app.debug = True
