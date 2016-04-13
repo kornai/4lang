@@ -678,8 +678,8 @@ calm	nyugodt	tranquillus	spokojny	1827	u	A	lack(motion), quiet, lack(angry), lac
 camel	teve	camelus	wielbl1a1d	2382	u	N		
 camera	kamera	cinematographica_machinula	kamera	1221		N	equipment, MAKE photograph, HAS lens	
 camp	ta1bor	castra	obo1z	2271	u	N		
-can/1246	ke1pes	potest	mo1c	1246	u	U	<do>	
-can/1246	konzerv	cibus_conservatus	puszka	1427	u	U	cylinder, metal, CONTAIN [<food>,<drink>]	=AGT % OR
+can	ke1pes	potest	mo1c	1246	u	U	<do>	
+can	konzerv	cibus_conservatus	puszka	1427	u	U	cylinder, metal, CONTAIN [<food>,<drink>]	=AGT % OR
 candidate	jelo2lt	#	#	3399		N	<person>, can/1246(person CHOOSE)	
 candle	gyertya	candela	s1wieca	932	u	N	solid, long, round, <wax>, thread PART_OF, light/739 FROM/2742	
 cannot	nem_ke1pes	#	#	2795		U	lack(can/1246)	
@@ -940,8 +940,8 @@ cup	kupa	poculum	kubek	1463	u	N	open/1814, contain, HAS flat(bottom), drink IN/2
 cupboard	szekre1ny	armarium	szafa	2180	u	N	furniture, HAS door, HAS shelf, store	
 cure	gyo1gyi1t	sano	uzdrawiac1	934		V	heal	
 cure	ku1ra	cura	leczenie	1444		N	AT/2744 disease, CAUSE health	
-curl/3123	fu2rt	cirrus	lok	875		N		HUN hajlik % TWIST <hair/3359>, MAKE[<ringlet>,<coil>]
-curl/3123	hajlik	#	#	3123		U	lack(flat)	
+curl	fu2rt	cirrus	lok	875		N		HUN hajlik % TWIST <hair/3359>, MAKE[<ringlet>,<coil>]
+curl	hajlik	#	#	3123		U	lack(flat)	
 current	folyam	flumen	pra1d	844		N	move[steady,smooth]	
 curse	a1tok	exsecratio	przeklen1stwo	107		N	pray, FOR/2782[=PAT HAS harm]	content: CAUSE?
 curtain	fu2ggo2ny	velum	zasl1ona	867		N	hang, AT/2744 <window>, decorate, CAUSE shade	AT/2744 cavity
@@ -2022,8 +2022,8 @@ monk	szerzetes	monachus	mnich	3505	u	N
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve, PART_OF year	
 moon	hold	luna	ksie1z1yc	1074		N	ON sky, AT/2744 night, move, move AROUND earth	
-moral/681	erko2lcs	mos	moralnos1c1	681		N	rule, ABOUT <intercourse>, right/1191 PART_OF, wrong PART_OF	
-moral/681	tanulsa1g	documentum	moral1	2306		N	lesson, PART_OF story	
+moral	erko2lcs	mos	moralnos1c1	681		N	rule, ABOUT <intercourse>, right/1191 PART_OF, wrong PART_OF	
+moral	tanulsa1g	documentum	moral1	2306		N	lesson, PART_OF story	
 morals	erko2lcs	mos	moralnos1c1	682		N		
 more	to2bb	plus	wie1cej	2404	u	A	quantity, ER '	
 morning	reggel	mane	ranek	2002		N	early, PART_OF day, sunrise AT/2744	
@@ -2080,8 +2080,8 @@ neighbour	szomsze1d	vicinus	sa1siad	2249		N
 neither	se	nec	ani	2065		G		
 neither	sem	#	#	3003		G	not	
 nerve	ideg	nervus	nerw	1116		N	IN/2758 body, feel INSTRUMENT	
-nervous/2721	ideges	trepidus	zdenerwowany	2721	u	A	anxious, sensitive	
-nervous/2721	idegi	nervosus	nerwowy	1119	u	A	nerve	
+nervous	ideges	trepidus	zdenerwowany	2721	u	A	anxious, sensitive	
+nervous	idegi	nervosus	nerwowy	1119	u	A	nerve	
 nest	fe1szek	nidus	gniazdo	747		N	home, bird HAS, bird MAKE, <ON tree>, egg IN/2758, young IN/2758	
 net	ha1lo1	rete	siec1	955		N	structure, cord, knot PART_OF, catch/828	
 network	ha1lo1zat	rete	siec1	956	u	N	net, <broadcast>	
