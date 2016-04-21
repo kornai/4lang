@@ -21,12 +21,6 @@ assert jaccard, min_jaccard  # silence pyflakes
 
 
 class WordSimilarity():
-    # TODO: to delete
-    # sim_types = set([
-    #     'links_jaccard', 'nodes_jaccard', 'links_contain', 'nodes_contain',
-    #     '0-connected', 'entities_jaccard', 'is_antonym', "0-connected_exp"
-    # ])
-
     def __init__(self, cfg, cfg_section='word_sim'):
         self.batch = cfg.getboolean(cfg_section, 'batch')
 
@@ -55,8 +49,6 @@ class WordSimilarity():
         return lambda w1, w2: self.word_similarities(w1, w2)[sim_type]
 
     def machine_similarities(self, machine1, machine2, machine1_expand, machine2_expand):
-        # temp = SubGraphFeatures(machine1, machine2, 5)
-
         pn1, pn2 = machine1.printname(), machine2.printname()
         self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
 
@@ -74,50 +66,12 @@ class WordSimilarity():
                                                MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
         return sims
 
-        # TODO: to delete
-        # sims = self.zero_similarities()
-        #
-        # if (self.contains(links1, machine2) or
-        #         self.contains(links2, machine1)):
-        #     sims['links_contain'] = 1
-        #
-        # if (self.contains(nodes1, machine2) or
-        #         self.contains(nodes2, machine1)):
-        #     sims['nodes_contain'] = 1
-        #
-        # # TODO
-        # if pn1 in links2 or pn2 in links1:
-        #     sims['0-connected'] = 1
-        #
-        # entities1 = filter(lambda l: "@" in l, links1)
-        # entities2 = filter(lambda l: "@" in l, links2)
-        # sims['entities_jaccard'] = jaccard(entities1, entities2)
-        #
-        # sims['links_jaccard'] = jaccard(links1, links2)
-        # sims['nodes_jaccard'] = jaccard(nodes1, nodes2)
-        #
-        # is_antonym = 0
-        # if ("lack_" + pn1 in nodes2 or "lack_" + pn2 in nodes1):
-        #     is_antonym = 1
-        #
-        # sims['is_antonym'] = is_antonym
-        #
-        # return sims
-
     def lemma_similarities(self, lemma1, lemma2):
         if (lemma1, lemma2) in self.lemma_sim_cache:
             return self.lemma_sim_cache[(lemma1, lemma2)]
 
         if lemma1 == lemma2:
             lemma_sims = self.sim_feats.one_similarities()
-
-        # TODO: to delete
-        # if self.expand:
-        #     machine1, machine2 = map(
-        #         self.lexicon.get_expanded_definition, (lemma1, lemma2))
-        # else:
-        #     machine1, machine2 = map(
-        #         self.lexicon.get_machine, (lemma1, lemma2))
 
         machine1, machine2 = map(
                 self.lexicon.get_machine, (lemma1, lemma2))
