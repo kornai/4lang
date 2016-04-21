@@ -25,7 +25,7 @@ def draw_text_graph(words_to_machines, out_dir, fn='text'):
     graph = MachineGraph.create_from_machines(
         words_to_machines.values())
     src_str = graph.to_dot().encode('utf-8')
-    src = graphviz.Source(src_str)
+    src = graphviz.Source(src_str, format='png')
     pic_path = src.render(filename=fn, directory=out_dir)
     return pic_path
 
@@ -53,7 +53,7 @@ def print_4lang_graph(word, machine, graph_dir, max_depth=None):
 
 
 def get_cfg(cfg_file=None):
-    cfg_files = ['conf/default.cfg']
+    cfg_files = [os.path.join(os.environ['FOURLANGPATH'], 'conf/default.cfg')]
     not_found = [fn for fn in cfg_files if not os.path.exists(fn)]
     if cfg_file is not None:
         cfg_files.append(cfg_file)
