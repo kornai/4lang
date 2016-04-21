@@ -4,6 +4,9 @@ import logging
 import math
 import sys
 
+import networkx as nx
+import itertools
+
 from gensim.models import Word2Vec
 from nltk.corpus import stopwords as nltk_stopwords
 from scipy.stats.stats import pearsonr
@@ -62,6 +65,8 @@ class WordSimilarity():
         return lambda w1, w2: self.word_similarities(w1, w2)[sim_type]
 
     def machine_similarities(self, machine1, machine2):
+        temp = SubGraphFeatures(machine1, machine2, 5)
+
         pn1, pn2 = machine1.printname(), machine2.printname()
         self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
 
@@ -226,6 +231,45 @@ class WordSimilarity():
                 return True
         else:
             return False
+
+class SubGraphFeatures():
+    def __init__(self, machine1, machine2, max_depth):
+        G1 = MachineGraph.create_from_machines([machine1], max_depth=max_depth)
+        G2 = MachineGraph.create_from_machines([machine2], max_depth=max_depth)
+        name1 = machine1.printname()
+        name2 = machine2.printname()
+
+        print name1
+        print G1.G.edges()
+        print G1.G.nodes()
+
+        print name2
+        print G2.G.edges()
+        print G2.G.nodes()
+
+        subgraphs1 = self._get_subgraphs(G1.G.to_undirected(), name1)
+        subgraphs2 = self._get_subgraphs(G2.G.to_undirected(), name2)
+
+        intersection = subgraphs1 & subgraphs2
+
+        print "INTERSECTION: " + name1 + " " + name2
+        for r in itertools.product(subgraphs1, subgraphs2):
+            if(nx.is_isomorphic(r[0], r[1])):
+                print r[0].edges()
+        print "\n"
+
+
+    def _get_subgraphs(self, graph, name, size=3):
+        subgraphs = set()
+        print "\nSubgraphs START: " + name
+        target = nx.complete_graph(size)
+        for sub_nodes in itertools.combinations(graph.nodes(),len(target.nodes())):
+            subg = graph.subgraph(sub_nodes)
+            if nx.is_connected(subg):
+                print subg.edges()
+                subgraphs.add(subg)
+        print "Subgraphs END \n"
+        return subgraphs
 
 
 class GraphSimilarity():
