@@ -15,9 +15,9 @@ class SimFeatures:
             'nodes_jaccard' : ['nodes_jaccard'],
             'links_contain' : ['links_contain'],
             'nodes_contain' : ['nodes_contain'],
-            '0-connected' : ['0-connected', '0-connected_exp'],
+            '0-connected' : ['0-connected'],
             'is_antonym' : ['is_antonym'],
-            'subgraphs' : ['subgraph_N']
+            'subgraphs' : ['subgraph_N_0_N', 'subgraph_N_1_N', 'subgraph_N_2_N']
         }
 
     def get_all_features(self, graph1, graph2):
@@ -125,8 +125,11 @@ class MachineInfo():
         self.machine = machine
         self.nodes = nodes
         self.links = links
-        self.nodes_expand = nodes_expand
-        self.links_expand = links_expand
+        # TODO: hack
+        # self.nodes_expand = nodes_expand
+        # self.links_expand = links_expand
+        self.nodes_expand = nodes
+        self.links_expand = links
 
 class SubGraphFeatures():
     def __init__(self, machine1, machine2, max_depth):
@@ -134,39 +137,16 @@ class SubGraphFeatures():
         G2 = MachineGraph.create_from_machines([machine2], max_depth=max_depth)
         name1 = machine1.printname()
         name2 = machine2.printname()
-        # print name1 + " " + name2
-
-        # # GM = nx.algorithms.isomorphism.GraphMatcher(G1.G,G2.G)
-        # GM = nx.algorithms.isomorphism.GraphMatcher(G1.G,G2.G, node_match=iso.categorical_node_match(['str_name'], ['']),
-        #                                             edge_match=iso.numerical_edge_match(['color'], [-1]))
-        #
-        # print "\nSubgraphs START: " + name1 + " " + name2
-        # for subgraph in GM.subgraph_isomorphisms_iter():
-        #     print subgraph
-        # print "Subgraphs END \n"
-
-
-        # intersection = subgraphs1 & subgraphs2
-
-        # if name1 == 'intelligent' or name2 == 'intelligent':
-        #     for subg in subgraphs1:
-        #         print "SUB_NODES"
-        #         print subg.nodes(True)
-        #     for subg in subgraphs2:
-        #         print "SUB_NODES"
-        #         print subg.nodes(True)
-
-        # print "!!!!!!"
-        # fish = (n for n in G1.G if G1.G.node[n]['str_name']=='intelligent')
-        # print list(fish)
 
         self.subgraph_dict = dict()
-        self.subgraph_dict["subgraph_N"] = 0
+        # self.subgraph_dict.update(self._get_subgraph_N(G1.G, G2.G, name1, name2))
+        self.subgraph_dict.update(self._get_subgraph_N_X_N(G1.G, G2.G, name1, name2))
 
-        subgraphs1 = self._get_subgraphs(G1.G, name1, 1)
-        subgraphs2 = self._get_subgraphs(G2.G, name2, 1)
+    def _get_subgraph_N(self, graph1, graph2, name1, name2):
+        ret = 0
+        subgraphs1 = self._get_subgraphs(graph1, name1, 1)
+        subgraphs2 = self._get_subgraphs(graph2, name2, 1)
 
-        # print "INTERSECTION: " + name1 + " " + name2
         for r in itertools.product(subgraphs1, subgraphs2):
             GM =  nx.algorithms.isomorphism.GraphMatcher(r[0], r[1],
                                                          node_match=iso.categorical_node_match(['str_name'], ['name']),
@@ -177,12 +157,34 @@ class SubGraphFeatures():
                     if d['str_name'].isupper():
                         is_upper = True
                 if not is_upper:
-                    # print "ISOMORPHIC"
-                    # print r[0].nodes(True)
-                    # print r[1].nodes(True)
-                    self.subgraph_dict["subgraph_N"] += 1
-        # print "\n"
+                    ret = 1
+        return {'subgraph_N' : ret}
 
+    def _get_subgraph_N_X_N(self, graph1, graph2, name1, name2):
+        ret = {
+            'subgraph_N_0_N' : 0,
+            'subgraph_N_1_N' : 0,
+            'subgraph_N_2_N' : 0
+        }
+        subgraphs1 = self._get_subgraphs(graph1, name1, 2)
+        subgraphs2 = self._get_subgraphs(graph2, name2, 2)
+
+        for r in itertools.product(subgraphs1, subgraphs2):
+            GM =  nx.algorithms.isomorphism.GraphMatcher(r[0], r[1],
+                                                         node_match=iso.categorical_node_match(['str_name'], ['name']),
+                                                         edge_match=iso.numerical_edge_match(['color'], [-1]))
+            if GM.is_isomorphic():
+                for u, v, d in r[0].edges(data=True):
+                    if d['color'] == 0:
+                        ret['subgraph_N_0_N'] += 1
+                        # print u + " " + v + " 0"
+                    elif d['color'] == 1:
+                        ret['subgraph_N_1_N'] += 1
+                        # print u + " " + v + " 1"
+                    elif d['color'] == 2:
+                        ret['subgraph_N_2_N'] += 1
+                        # print u + " " + v + " 2"
+        return ret
 
     def _get_subgraphs(self, graph, name, size=3):
         subgraphs = set()
