@@ -81,7 +81,7 @@ class SimFeatures:
         if val == -1:
             if name1 in links2_expand or name2 in links1_expand:
                 val2 = 1
-        ret.update({ "0-connected_exp" : val2 })
+        #ret.update({ "0-connected_exp" : val2 })
         return ret
 
     def is_antonym(self, name1, nodes1, name2, nodes2):
