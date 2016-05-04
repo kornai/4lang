@@ -12,6 +12,7 @@ from pymachine.utils import MachineGraph, MachineTraverser
 
 from utils import get_cfg
 
+
 class Lexicon():
     """A mapping from lemmas to machines"""
 
@@ -171,7 +172,7 @@ class Lexicon():
         return machine
 
     def get_machine(self, printname, allow_new_base=False,
-                    allow_new_ext=False):
+                    allow_new_ext=False, allow_new_oov=True):
         """returns the lowest level (base < ext < oov) existing machine
         for the printname. If none exist, creates a new machine in the lowest
         level allowed by the allow_* flags. Will always create new machines
@@ -196,8 +197,10 @@ class Lexicon():
                 self.add(printname, new_machine, external=False)
             elif allow_new_ext:
                 self.add(printname, new_machine)
-            else:
+            elif allow_new_oov:
                 self.add(printname, new_machine, oov=True)
+            else:
+                return None
 
             return self.get_machine(printname)
         else:
