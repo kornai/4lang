@@ -2,12 +2,23 @@ import logging
 from pymachine.utils import MachineGraph, jaccard
 
 import networkx as nx
+import networkx.algorithms.isomorphism as iso
 import itertools
 
 class SimFeatures:
     def __init__(self, cfg, section):
         self.batch = cfg.getboolean(section, 'batch')
         self.feats_to_get = cfg.get(section, 'sim_types').split('|')
+        self.feats_dict = {
+            'links_jaccard' : ['links_jaccard'],
+            'entities_jaccard' : ['entities_jaccard'],
+            'nodes_jaccard' : ['nodes_jaccard'],
+            'links_contain' : ['links_contain'],
+            'nodes_contain' : ['nodes_contain'],
+            '0-connected' : ['0-connected'],
+            'is_antonym' : ['is_antonym'],
+            'subgraphs' : ['subgraph_N_0_N', 'subgraph_N_1_N', 'subgraph_N_2_N']
+        }
 
     def get_all_features(self, graph1, graph2):
         all_feats = dict()
@@ -31,6 +42,8 @@ class SimFeatures:
                                        graph2.name, graph2.links, graph2.links_expand)
         elif feature_name == 'is_antonym':
             return self.is_antonym(graph1.name, graph1.nodes_expand, graph2.name, graph2.nodes_expand)
+        elif feature_name == 'subgraphs':
+            return self.subgraphs(graph1.machine, graph2.machine)
         else:
             return { feature_name : 0 }
 
@@ -77,8 +90,9 @@ class SimFeatures:
             is_antonym = 1
         return {"is_antonym" : is_antonym }
 
-    def subgraphs(self):
-        return {}
+    def subgraphs(self, machine1, machine2):
+        temp = SubGraphFeatures(machine1, machine2, 5)
+        return temp.subgraph_dict
 
     def contains(self, links, name):
         for link in links:
@@ -89,7 +103,11 @@ class SimFeatures:
             return False
 
     def uniform_similarities(self, s):
-        return dict(((sim_type, s) for sim_type in self.feats_to_get))
+        temp_dict = dict()
+        for sim_type in self.feats_to_get:
+            for feat_type in self.feats_dict[sim_type]:
+                temp_dict[feat_type] = s
+        return temp_dict
 
     def zero_similarities(self):
         return self.uniform_similarities(0.0)
@@ -101,15 +119,17 @@ class SimFeatures:
         if not self.batch:
             logging.info(string)
 
-
 class MachineInfo():
     def __init__(self, machine, nodes, nodes_expand, links, links_expand):
         self.name = machine.printname()
         self.machine = machine
         self.nodes = nodes
         self.links = links
-        self.nodes_expand = nodes_expand
-        self.links_expand = links_expand
+        # TODO: hack
+        # self.nodes_expand = nodes_expand
+        # self.links_expand = links_expand
+        self.nodes_expand = nodes
+        self.links_expand = links
 
 class SubGraphFeatures():
     def __init__(self, machine1, machine2, max_depth):
@@ -118,36 +138,64 @@ class SubGraphFeatures():
         name1 = machine1.printname()
         name2 = machine2.printname()
 
-        print name1
-        print G1.G.edges()
-        print G1.G.nodes()
+        self.subgraph_dict = dict()
+        # self.subgraph_dict.update(self._get_subgraph_N(G1.G, G2.G, name1, name2))
+        self.subgraph_dict.update(self._get_subgraph_N_X_N(G1.G, G2.G, name1, name2))
 
-        print name2
-        print G2.G.edges()
-        print G2.G.nodes()
+    def _get_subgraph_N(self, graph1, graph2, name1, name2):
+        ret = 0
+        subgraphs1 = self._get_subgraphs(graph1, name1, 1)
+        subgraphs2 = self._get_subgraphs(graph2, name2, 1)
 
-        subgraphs1 = self._get_subgraphs(G1.G, name1)
-        subgraphs2 = self._get_subgraphs(G2.G, name2)
-
-        intersection = subgraphs1 & subgraphs2
-
-        print "INTERSECTION: " + name1 + " " + name2
         for r in itertools.product(subgraphs1, subgraphs2):
-            if(nx.is_isomorphic(r[0], r[1])):
-                print r[0].edges()
-        print "\n"
+            GM =  nx.algorithms.isomorphism.GraphMatcher(r[0], r[1],
+                                                         node_match=iso.categorical_node_match(['str_name'], ['name']),
+                                                         edge_match=iso.numerical_edge_match(['color'], [-1]))
+            if GM.is_isomorphic():
+                is_upper = False
+                for n, d in r[0].nodes_iter(data=True):
+                    if d['str_name'].isupper():
+                        is_upper = True
+                if not is_upper:
+                    ret = 1
+        return {'subgraph_N' : ret}
 
+    def _get_subgraph_N_X_N(self, graph1, graph2, name1, name2):
+        ret = {
+            'subgraph_N_0_N' : 0,
+            'subgraph_N_1_N' : 0,
+            'subgraph_N_2_N' : 0
+        }
+        subgraphs1 = self._get_subgraphs(graph1, name1, 2)
+        subgraphs2 = self._get_subgraphs(graph2, name2, 2)
+
+        for r in itertools.product(subgraphs1, subgraphs2):
+            GM =  nx.algorithms.isomorphism.GraphMatcher(r[0], r[1],
+                                                         node_match=iso.categorical_node_match(['str_name'], ['name']),
+                                                         edge_match=iso.numerical_edge_match(['color'], [-1]))
+            if GM.is_isomorphic():
+                for u, v, d in r[0].edges(data=True):
+                    if d['color'] == 0:
+                        ret['subgraph_N_0_N'] += 1
+                        # print u + " " + v + " 0"
+                    elif d['color'] == 1:
+                        ret['subgraph_N_1_N'] += 1
+                        # print u + " " + v + " 1"
+                    elif d['color'] == 2:
+                        ret['subgraph_N_2_N'] += 1
+                        # print u + " " + v + " 2"
+        return ret
 
     def _get_subgraphs(self, graph, name, size=3):
         subgraphs = set()
-        print "\nSubgraphs START: " + name
+        # print "\nSubgraphs START: " + name
         target = nx.complete_graph(size)
         for sub_nodes in itertools.combinations(graph.nodes(),len(target.nodes())):
             subg = graph.subgraph(sub_nodes)
             if nx.is_weakly_connected(subg):
-                print subg.edges()
+                # print subg.edges()
                 subgraphs.add(subg)
-        print "Subgraphs END \n"
+        # print "Subgraphs END \n"
         return subgraphs
 
 def test():

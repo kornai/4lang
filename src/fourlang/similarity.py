@@ -78,10 +78,12 @@ class WordSimilarity():
         machine1_expand, machine2_expand = map(
                 self.lexicon.get_expanded_definition, (lemma1, lemma2))
 
-        # TODO other folder?
         if not self.batch:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
                 print_4lang_graph(w, m, self.graph_dir)
+            for w, m in ((lemma1, machine1_expand), (lemma2, machine2_expand)):
+                print_4lang_graph(w, m, self.graph_dir + "_expand")
+
         lemma_sims = self.machine_similarities(machine1, machine2, machine1_expand, machine2_expand)
 
         self.lemma_sim_cache[(lemma1, lemma2)] = lemma_sims
