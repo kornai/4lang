@@ -12,6 +12,9 @@ from pymachine.utils import MachineGraph, MachineTraverser
 
 from utils import get_cfg
 
+import networkx as nx
+import os
+
 
 class Lexicon():
     """A mapping from lemmas to machines"""
@@ -134,6 +137,7 @@ class Lexicon():
         self.stopwords = set(nltk_stopwords.words('english'))
         self.stopwords.add('as')  # TODO
         self.stopwords.add('root')  # TODO
+        self.full_graph = None
 
     def get_words(self):
         return set(self.lexicon.keys()).union(set(self.ext_lexicon.keys()))
@@ -264,6 +268,37 @@ class Lexicon():
                             machine.partitions[2][0].unify(cm)
 
                 self.expanded.add(lemma)
+
+    def get_full_graph(self):
+        if not self.full_graph == None:
+            return self.full_graph
+        allwords = set()
+        allwords.update(self.lexicon.keys(), self.ext_lexicon.keys(), self.oov_lexicon.keys())
+        self.full_graph = nx.MultiDiGraph()
+
+        # TODO: only for debugging
+        until = 10
+        for i, word in enumerate(allwords):
+            # TODO: only for debugging
+            # if word not in ['dumb', 'intelligent', 'stupid']:
+            #     continue
+            # if i > until:
+            #     break
+
+            machine = self.get_machine(word)
+            MG = MachineGraph.create_from_machines([machine], str_graph=True)
+            G = MG.G
+            self.full_graph.add_edges_from(G.edges(data=True))
+            # TODO: needed??
+            # self.full_graph.add_nodes_from(G.nodes())
+
+            # TODO: only for debugging
+            # MG.G = self.full_graph
+            # fn = os.path.join('/home/eszter/projects/4lang/test/graphs/full_graph', u"{0}.dot".format(i)).encode('utf-8')
+            # with open(fn, 'w') as dot_obj:
+            #     dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
+
+        return self.full_graph
 
 if __name__ == "__main__":
     logging.basicConfig(
