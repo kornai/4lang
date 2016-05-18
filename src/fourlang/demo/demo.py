@@ -57,6 +57,7 @@ app = Flask(__name__, static_folder=demo.tmp_dir)
 
 @app.route('/', methods=['GET'])
 def test():
+    logging.info('app.root path is: {0}'.format(app.root_path))
     return render_template('test.html')
 
 
