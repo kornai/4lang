@@ -15,16 +15,12 @@ from lemmatizer import Lemmatizer
 from lexicon import Lexicon
 from text_to_4lang import TextTo4lang
 from utils import ensure_dir, get_cfg, print_text_graph, print_4lang_graph
+from sim_feats import SimFeatures, MachineInfo
 
 assert jaccard, min_jaccard  # silence pyflakes
 
 
 class WordSimilarity():
-    sim_types = set([
-        'links_jaccard', 'nodes_jaccard', 'links_contain', 'nodes_contain',
-        '0-connected', 'entities_jaccard', 'is_antonym'
-    ])
-
     def __init__(self, cfg, cfg_section='word_sim'):
         self.batch = cfg.getboolean(cfg_section, 'batch')
 
@@ -41,6 +37,7 @@ class WordSimilarity():
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
+        self.sim_feats = SimFeatures(cfg, cfg_section)
         self.expand = cfg.getboolean(cfg_section, "expand")
         logging.info("expand is {0}".format(self.expand))
 
@@ -48,54 +45,25 @@ class WordSimilarity():
         if not self.batch:
             logging.info(string)
 
-    def uniform_similarities(self, s):
-        return dict(((sim_type, s) for sim_type in WordSimilarity.sim_types))
-        # TODO return {sim_type: s for sim_type in WordSimilarity.sim_types}
-
-    def zero_similarities(self):
-        return self.uniform_similarities(0.0)
-
-    def one_similarities(self):
-        return self.uniform_similarities(1.0)
-
     def sim_type_to_function(self, sim_type):
         return lambda w1, w2: self.word_similarities(w1, w2)[sim_type]
 
-    def machine_similarities(self, machine1, machine2):
+    def machine_similarities(self, machine1, machine2, machine1_expand, machine2_expand):
         pn1, pn2 = machine1.printname(), machine2.printname()
         self.log(u'machine1: {0}, machine2: {1}'.format(pn1, pn2))
 
-        sims = self.zero_similarities()
         links1, nodes1 = self.get_links_nodes(machine1)
         links2, nodes2 = self.get_links_nodes(machine2)
+        links1_expand, nodes1_expand = self.get_links_nodes(machine1_expand)
+        links2_expand, nodes2_expand = self.get_links_nodes(machine2_expand)
+
         self.log('links1: {0}, links2: {1}'.format(links1, links2))
         self.log('nodes1: {0}, nodes2: {1}'.format(nodes1, nodes2))
-        if (self.contains(links1, machine2) or
-                self.contains(links2, machine1)):
-            sims['links_contain'] = 1
+        self.log('links1_expand: {0}, links2_expand: {1}'.format(links1_expand, links2_expand))
+        self.log('nodes1_expand: {0}, nodes2_expand: {1}'.format(nodes1_expand, nodes2_expand))
 
-        if (self.contains(nodes1, machine2) or
-                self.contains(nodes2, machine1)):
-            sims['nodes_contain'] = 1
-
-        pn1, pn2 = machine1.printname(), machine2.printname()
-        # TODO
-        if pn1 in links2 or pn2 in links1:
-            sims['0-connected'] = 1
-
-        entities1 = filter(lambda l: "@" in l, links1)
-        entities2 = filter(lambda l: "@" in l, links2)
-        sims['entities_jaccard'] = jaccard(entities1, entities2)
-
-        sims['links_jaccard'] = jaccard(links1, links2)
-        sims['nodes_jaccard'] = jaccard(nodes1, nodes2)
-
-        is_antonym = 0
-        if ("lack_" + pn1 in nodes2 or "lack_" + pn2 in nodes1):
-            is_antonym = 1
-
-        sims['is_antonym'] = is_antonym
-
+        sims = self.sim_feats.get_all_features(MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
+                                               MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
         return sims
 
     def lemma_similarities(self, lemma1, lemma2):
@@ -103,19 +71,21 @@ class WordSimilarity():
             return self.lemma_sim_cache[(lemma1, lemma2)]
 
         if lemma1 == lemma2:
-            lemma_sims = self.one_similarities()
+            lemma_sims = self.sim_feats.one_similarities()
 
-        if self.expand:
-            machine1, machine2 = map(
-                self.lexicon.get_expanded_definition, (lemma1, lemma2))
-        else:
-            machine1, machine2 = map(
+        machine1, machine2 = map(
                 self.lexicon.get_machine, (lemma1, lemma2))
+        machine1_expand, machine2_expand = map(
+                self.lexicon.get_expanded_definition, (lemma1, lemma2))
 
         if not self.batch:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
                 print_4lang_graph(w, m, self.graph_dir)
-        lemma_sims = self.machine_similarities(machine1, machine2)
+            for w, m in ((lemma1, machine1_expand), (lemma2, machine2_expand)):
+                print_4lang_graph(w, m, self.graph_dir + "_expand")
+
+        lemma_sims = self.machine_similarities(machine1, machine2, machine1_expand, machine2_expand)
+
         self.lemma_sim_cache[(lemma1, lemma2)] = lemma_sims
         self.lemma_sim_cache[(lemma2, lemma1)] = lemma_sims
         return lemma_sims
@@ -132,8 +102,8 @@ class WordSimilarity():
                 logging.debug("OOV: {0}".format(word1))
             if lemma2 is None:
                 logging.debug("OOV: {0}".format(word2))
-            # TODO
-            word_sims = self.zero_similarities()
+
+            word_sims = self.sim_feats.zero_similarities()
         else:
             word_sims = self.lemma_similarities(lemma1, lemma2)
         self.word_sim_cache[(word1, word2)] = word_sims
@@ -174,10 +144,6 @@ class WordSimilarity():
                     is_negated = True
                     continue
 
-                # if h_name == 'before':
-                #     is_before = True
-                #     continue
-
                 c_links, c_nodes = self._get_links_and_nodes(
                     hypernym, depth=depth+1, exclude_links=i != 0)
 
@@ -191,11 +157,6 @@ class WordSimilarity():
             add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else ("lack_{0}".format(link[0]), link[1])  # nopep8
             links = map(add_lack, links)
             nodes = map(add_lack, nodes)
-
-        # if is_before:
-        #     add_before = lambda link: "before_{0}".format(link) if isinstance(link, unicode) else ("before_{0}".format(link[0]), link[1])  # nopep8
-        #     links = map(add_before, links)
-        #     nodes = map(add_before, nodes)
 
         return links, nodes
 
@@ -226,7 +187,6 @@ class WordSimilarity():
                 return True
         else:
             return False
-
 
 class GraphSimilarity():
     @staticmethod
