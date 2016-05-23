@@ -4,6 +4,7 @@ import os
 
 import graphviz
 
+from pymachine.machine import Machine
 from pymachine.utils import MachineGraph
 
 
@@ -21,9 +22,10 @@ def batches(l, n):
         yield l[i:i+n]
 
 
-def draw_text_graph(words_to_machines, out_dir, fn='text'):
+def draw_text_graph(
+        words_to_machines, out_dir, fn='text', orig_machines=[]):
     graph = MachineGraph.create_from_machines(
-        words_to_machines.values())
+        words_to_machines.values(), orig_machines=orig_machines)
     src_str = graph.to_dot().encode('utf-8')
     src = graphviz.Source(src_str, format='png')
     pic_path = src.render(filename=fn, directory=out_dir)
@@ -50,6 +52,42 @@ def print_4lang_graph(word, machine, graph_dir, max_depth=None):
     fn = os.path.join(graph_dir, u"{0}.dot".format(word)).encode('utf-8')
     with open(fn, 'w') as dot_obj:
         dot_obj.write(graph.to_dot().encode('utf-8'))
+
+
+HEADER = u"digraph finite_state_machine {\n\tdpi=100;\n\trankdir=LR;\n"
+EXCLUDE = ("punct")
+
+
+def dep_to_dot(deps):
+    if isinstance(deps[0], dict):
+        # new dep structure
+        edges = [
+            (d['dep']['lemma'], d['type'], d['gov']['lemma']) for d in deps
+            if d['type'] not in EXCLUDE]
+    else:
+        # old dep structure
+        edges = [(d[1][0], d[0], d[2][0]) for d in deps if d[0] not in EXCLUDE]
+
+    words = set([e[0] for e in edges] + [e[2] for e in edges])
+    lines = []
+    for word in words:
+        lines.append(u'\t{0} [shape=rectangle, label="{0}"];'.format(
+            Machine.d_clean(word)))
+    for edge in edges:
+        dep, dtype, gov = map(Machine.d_clean, edge)
+        lines.append(u'\t{0} -> {1} [label="{2}"];'.format(dep, gov, dtype))
+
+    dot_str = HEADER.encode("utf-8")
+    dot_str += u"\n".join(lines).encode("utf-8")
+    dot_str += "}\n"
+    return dot_str
+
+
+def draw_dep_graph(deps, out_dir, fn):
+    dot_str = dep_to_dot(deps)
+    src = graphviz.Source(dot_str, format='png')
+    pic_path = src.render(filename=fn, directory=out_dir)
+    return pic_path
 
 
 def get_cfg(cfg_file=None):

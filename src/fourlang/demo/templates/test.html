@@ -1,11 +1,26 @@
 <html>
 <body>
-  <form action="{{ "http://hlt.bme.hu/4lang/process" }}" method="post">
+<h2> 4lang </h2>
+An interactive demo of the <a href="http://hlt.bme.hu/en/projects/4lang"> 4lang library</a>, developed by the <a href="http://hlt.bme.hu">HLT-BME group</a>.
+  <h3> Try text_to_4lang! </h3>
+  <form action="{{ "http://hlt.bme.hu/4lang/tfl" }}" method="post">
     <dl>
       <dt>Text:
       <dd><input type="text" name="text">
       <dd><input type="submit" value="Test">
     </dl>
   </form>
-</body>
-</html
+
+  <h3> Try dict_to_4lang! </h3>
+  <form action="{{ "http://hlt.bme.hu/4lang/dfl" }}" method="post">
+    <dl>
+      <dt>Word:
+      <dd><input type="text" name="word">
+      <dd><input type="submit" value="Test">
+    </dl>
+  </form>
+
+  This demo is maintained by <a href="http://hlt.bme.hu/en/recski">Gabor Recski</a>, comments, suggestions, bug reports are very welcome!
+
+  </body>
+</html>
