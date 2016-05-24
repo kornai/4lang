@@ -7,7 +7,9 @@ from flask import Flask, render_template, request, url_for
 
 from fourlang.corenlp_wrapper import CoreNLPWrapper
 from fourlang.utils import draw_dep_graph, draw_text_graph, ensure_dir, get_cfg
+from fourlang.dependency_processor import Dependencies
 from fourlang.dep_to_4lang import DepTo4lang
+from fourlang.dict_to_4lang import DictTo4lang
 from fourlang.text_to_4lang import TextTo4lang
 
 from pymachine.utils import MachineTraverser
@@ -23,6 +25,8 @@ class FourlangDemo():
         ensure_dir(self.tmp_dir)
         self.parser_wrapper = CoreNLPWrapper(self.cfg)
         self.dep_to_4lang = DepTo4lang(self.cfg)
+        self.dict_to_4lang = DictTo4lang(self.cfg)
+        self.dict_to_4lang.read_dict()
 
     def get_tmp_dir_name(self, tmp_root):
         return tmp_root  # TODO
@@ -37,7 +41,28 @@ class FourlangDemo():
         t += '</table>\n'
         return t
 
-    def text_to_4lang(self, text, expand, fn='pic', dep_fn='deps'):
+    def dict_to_4lang_demo(self, word, fn='pic', dep_fn='deps'):
+        if word in self.dep_to_4lang.lexicon.lexicon:
+            source = '4lang'
+        elif word in self.dep_to_4lang.lexicon.ext_lexicon:
+            source = 'ext'
+        else:
+            # OOV
+            return None, None, None, None
+
+        machine = self.dep_to_4lang.lexicon.get_machine(word)
+        pic_path = draw_text_graph({word: machine}, self.tmp_dir, fn=fn)
+
+        if source == '4lang':
+            return source, None, None, os.path.basename(pic_path)
+        else:
+            entry = demo.dict_to_4lang.dictionary[word]
+            definition = entry['senses'][0]['definition']
+            deps = map(Dependencies.parse_dependency, definition['deps'])
+            dep_path = draw_dep_graph(deps, self.tmp_dir, dep_fn)
+            return source, definition['sen'], os.path.basename(dep_path), os.path.basename(pic_path)  # nopep8
+
+    def text_to_4lang_demo(self, text, expand, fn='pic', dep_fn='deps'):
         preproc_sen = TextTo4lang.preprocess_text(text.strip().decode('utf-8'))
         deps, corefs = self.parser_wrapper.parse_text(preproc_sen)
         words2machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
@@ -73,10 +98,12 @@ logging.basicConfig(
     format="%(asctime)s : " +
     "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
 
-cfg = get_cfg(None)
+cfg_file = os.path.join(os.environ['FOURLANGPATH'], 'conf/demo.cfg')
+cfg = get_cfg(cfg_file)
 demo = FourlangDemo(cfg)
 
 app = Flask(__name__, static_folder=demo.tmp_dir)
+app.debug = True
 
 
 @app.route('/', methods=['GET'])
@@ -86,26 +113,35 @@ def test():
 
 @app.route('/dfl', methods=['POST'])
 def dfl_demo():
-    sen = request.form['text']
-    dep_fn, pic_fn = demo.text_to_4lang(sen, True)
+    word = request.form['word']
+    source, sen, dep_fn, pic_fn = demo.dict_to_4lang_demo(word)
+    if source is None:
+        return 'oov'
+        # return render_template('oov.html', word=word)
     pic_url = url_for(
         'static', filename=pic_fn, nocache=random.randint(0, 9999))
-    dep_url = url_for(
-        'static', filename=dep_fn, nocache=random.randint(0, 9999))
-    return render_template(
-        'pic.html', img_url=pic_url, sen=sen, dep_url=dep_url)
+    if source == '4lang':
+        return render_template('dfl_4lang.html', word=word, img_url=pic_url)
+    elif source == 'ext':
+        dep_url = url_for(
+            'static', filename=dep_fn, nocache=random.randint(0, 9999))
+        return render_template(
+            'dfl_ext.html', word=word, img_url=pic_url, sen=sen,
+            dep_url=dep_url)
+    else:
+        assert False
 
 
 @app.route('/tfl', methods=['POST'])
 def tfl_demo():
     sen = request.form['text']
-    dep_fn, pic_fn = demo.text_to_4lang(sen, True)
+    dep_fn, pic_fn = demo.text_to_4lang_demo(sen, True)
     pic_url = url_for(
         'static', filename=pic_fn, nocache=random.randint(0, 9999))
     dep_url = url_for(
         'static', filename=dep_fn, nocache=random.randint(0, 9999))
     return render_template(
-        'pic.html', img_url=pic_url, sen=sen, dep_url=dep_url)
+        'tfl.html', img_url=pic_url, sen=sen, dep_url=dep_url)
 
 if __name__ == "__main__":
     app.debug = True

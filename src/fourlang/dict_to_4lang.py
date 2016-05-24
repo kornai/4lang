@@ -24,6 +24,7 @@ assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
 ONE_BY_ONE = False  # run threads after one another (to avoid memory issues)
 
+
 class DictTo4lang():
     def __init__(self, cfg):
         self.dictionary = {}
@@ -156,6 +157,14 @@ class DictTo4lang():
                 break
             else:
                 raise Exception("some threads failed")
+
+    def read_dict(self):
+        logging.info(
+            'loading dict_to_4lang intermediate state from {0}'.format(
+                self.output_fn))
+        with open(self.output_fn, 'r') as dict_file:
+            self.dictionary = json.load(dict_file)
+        logging.info('done!')
 
     def print_dict(self, stream=None):
         if stream is None:
