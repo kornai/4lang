@@ -370,7 +370,7 @@ altogether	egyu2tt	una	razem	585		D	together
 always	mindig	semper	zawsze	1696		D	AT/2744 time[all]	
 among	ko2zo2tt	inter	mie1dzy	1416		G	at/2744	
 amongst	ko2zo2tt	inter	mie1dzy	1417		G	among	
-amount	mennyise1g	numerus	ilos1c1	1666	u	N	quantity	szonyeg ala sepres, ZsA
+amount	mennyise1g	numerus	ilos1c1	1666	u	N	quantity	TODO
 amuse	mulattat	delecto	bawic1	1737		V	=AGT CAUSE[=PAT[merry]]	
 amusing	szo1rakoztato1	iucundus	zabawny	2227	u	A	CAUSE[person[happy]]	
 an	egy	NA	N/A	558	u	G	a	
@@ -447,7 +447,7 @@ atom	atom	atomus	atom	181	u	N	particle, lack PART_OF, small	naive_theo:HAS nucle
 atomic	atom-	atomicus	atomowy	182		A	atom	
 attach	e1desget	amplexor	przywia1zac1	2696	u	V	bind, =AGT CAUSE love, love IN/2758 =PAT	
 attach	hozza1kapcsol	adiungo	dol1a1czyc1	1089	u	V	join	
-attack	roham	impetus	atak	2034	u	N	violent, <INSTRUMENT weapon>, WANT hurt, WANT damage	
+attack	roham	impetus	atak	2034	u	V	violent, <INSTRUMENT weapon>, WANT hurt, WANT damage	
 attain	ele1r	potior	osia1gna1c1	603		V	gain	
 attempt	kise1rlet	conatus	pro1ba	1359		N	try	
 attend	figyel	animum_adverto	uwaz1ac1	800		U		see 2773
