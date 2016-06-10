@@ -565,7 +565,7 @@ bill	cso3r	rostrum	dzio1b	421		N	beak
 bill	sza1mla	ratio	rachunek	2140		N	list, price ON	
 bill	to2rve1nyjavaslat	#	#	2745		N		
 bind	ko2t	ligo	wia1zac1	1393		U	tie	
-bird	mada1r	avis	ptak	1576	u	N	vertebrate, MAKE egg, HAS feather, HAS wings	naive_theo: sit ON egg
+bird	mada1r	avis	ptak	1576	u	N	vertebrate, MAKE egg, HAS feather, HAS two(wing)	naive_theo: sit ON egg
 birth	szu2lete1s	ortus	narodziny	2263		N	born	
 bit	darab	frustum	kawal1ek	448		N	piece	
 bite	falat	frustum	kawal1ek	722	u	N		
