@@ -482,7 +482,7 @@ bad	rossz	malus	zl1y	2043	u	A	lack(good)	anto
 badly-behaved	rosszul_viselkedett	#	#	3244		A	HAS bad(behaviour)	2
 bag	zsa1k	saccus	torba	2684	u	N	container, cloth	
 bake	su2l	coquor	piec_sie1	2128		U		
-bake	su2t	coquo	piec	2130		V	=AGT COOK/825 pasta[<bread>, <cake>], =AGT CAUSE =PAT[hard]	
+bake	su2t	coquo	piec	2130		V	cook/825, =PAT[<bread>, <cake>], =AGT CAUSE =PAT[hard]	
 balance	egyensu1ly	aequilibrium	ro1wnowaga	566		N	stable, weight ON side, weight ON other(side), state/77, lack(change)	
 balance	me1rleg	libra	waga	1607		N	device, weigh, HAS <two>(pan), after(level), motion[after, lack]	
 ball	labda	pila	pil1ka	2713	u	N	artefact, round, <sport INSTRUMENT>	labda, golyo1
@@ -527,7 +527,7 @@ beautify	sze1pi1t	exorno	upie1kszac1	2171		V	=AGT CAUSE[=PAT[beautiful]]	RA
 because	mert	quod	poniewaz1	1676		G	=REL CAUSE	
 become	vmve1_lesz	fio	stawac1_sie1	2655		U	=AGT[=PAT[after]]	
 bed	a1gy	lectus	l1o1z1ko	68		N	furniture, rest IN/2758	
-bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair/3359, sting, <social>, PRODUCE honey, CAUSE nectar[together], CAUSE pollen[together]	
+bee	me1h	apis	pszczol1a	1601	u	N	insect, HAS wing, HAS hair/3359, sting, <social>, PRODUCE honey	CAUSE nectar[together], CAUSE pollen[together]
 been	van	fui	byl1	3414	u	N		
 beer	so2r	cervisia	piwo	2109		N		
 before	ele1	ad	przed	598	u	D		after(=REL FOLLOW) % figure and ground
