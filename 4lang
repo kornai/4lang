@@ -729,7 +729,7 @@ chairman	elno2k	praeses	prezes	636		N	PART_OF group[<committee>], direct
 chalk	kre1ta	creta	kreda	1442		N	<white>, CAUSE[mark ON surface], <write> INSTRUMENT	<blackboard> HAS surface
 challenge	kihi1v	provoco	wyzywac1	1334		V	=AGT OFFER[=PAT[compete]], conflict	
 chance	ese1ly	potestas	szansa	691		N	probability	
-chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD)	
+chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD/2617)	
 change	csere	mutatio	zmiana	404	u	N		see 2554 (no use in the first 20 result with -„to change”)
 change	va1ltoztat	muto	zmieniac1	2554	u	V	=PAT[different[after]]	
 character	jellem	habitus	charakter	1187	u	N	property[<moral>, <good>], <person HAS>, recognize INSTRUMENT	
@@ -857,7 +857,7 @@ confuse	o2sszekever	confundo	mylic1	1864		V	think[clear[lack]], lack(understand)
 confused	zavaros	confusus	zagubiony	2674		A		
 connect	kapcsol	coniungo	l1a1czyc1	1227		V	join	
 conquer	ho1di1t	expugno	podbijac1	1067		V	defeat, INSTRUMENT force	
-conscience	lelkiismeret	conscientia	sumienie	1531		N	KNOW good, ABOUT moral, ABOUT right/1191, LEAD thought, LEAD action, =POSS HAS thought, =POSS HAS action	
+conscience	lelkiismeret	conscientia	sumienie	1531		N	KNOW good, ABOUT moral, ABOUT right/1191, LEAD/2617 thought, LEAD/2617 action, =POSS HAS thought, =POSS HAS action	
 conscious	tudatos	conscius	s1wiadomy	2459		A	notice, realize, awake, understand, deliberate, think, know	
 consecrated	szentelt	sacer	us1wie1cony	2191		A		
 consider	tekint	considero	rozwaz1ac1	2339		V	think	
@@ -1755,8 +1755,8 @@ kilogram	kilo1	chilogramma	kilogram	1340		N	measure, mass
 kilometre	kilo1me1ter	chilometrum	kilometr	1341		N	distance	
 kind	kedves	benignus	mil1y	1274	u	A	<speak>, like/3382, help	friendly
 kindle	gerjeszt	inflammo	zapalic1	897		V	after(fire)	
-king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, LEAD[country], PART_OF [royal(family)]	
-kingdom	kira1lysa1g	regnum	kro1lewstwo	1354		N	country, monarch LEAD	
+king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, LEAD/2617[country], PART_OF [royal(family)]	
+kingdom	kira1lysa1g	regnum	kro1lewstwo	1354		N	country, monarch LEAD/2617	
 kingly	kira1lyi	regius	kro1lewski	1351		A	king	% no Longman
 kiss	cso1k	osculum	pocal1unek	414		N	EXPRESS [emotion, =PAT[good] FOR/2782 =AGT], lip TOUCH =PAT, =AGT HAS lip	
 kitchen	konyha	culina	kuchnia	1426		N	room/2235, [MAKE food] IN/2758	
@@ -1917,7 +1917,7 @@ malt	mala1ta	maltum	sl1o1d	3496	u	N
 mammal	emlo3s	#	#	2729		N	animal, HAS fur, HAS milk	ND
 man	ember	homo	czl1owiek	659	u	N	mammal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285	opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	
-manage	sikeru2l	procuro	radzic1_sobie	2980	u	V	=AGT LEAD system, succeed/2718	kezel, sikeru2l
+manage	sikeru2l	procuro	radzic1_sobie	2980	u	V	=AGT LEAD/2617 system, succeed/2718	kezel, sikeru2l
 manner	mo1d	modus	sposo1b	1706		N	property, do HAS	
 manner	modor	mos	maniera	1715		N		manner/1706
 manners	illem	pudor	maniery	1132		N	polite	RA
@@ -2017,7 +2017,7 @@ modern	modern	novus	nowoczesny	1714	u	A	AT/2744 time[near]
 modest	szere1ny	modestus	skromny	2196		A	THINK ability[lack(important)], HAS ability	
 moment	pillanat	momentum	chwila	1961		N	time, point	
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
-monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD country	
+monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD/2617 country	
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR/2782 exchange, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N		
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
@@ -2319,7 +2319,7 @@ plain	si1k	planus	ro1wny	2089		A
 plan	terv	propositum	plan	2369	u	N	after(structure)	
 plane	repu2lo3	aeroplanum	samolot	2807	u	N	vehicle, fly, HAS two(wing), <HAS engine>	
 plane	si1k	planum	pl1aszczyzna	2090	u	N	flat	see repu2lo3
-planet	e1gitest	#	#	#		N	object, IN space	
+planet	e1gitest	#	#	#		N	object, IN space/2509	
 plant	no2ve1ny	planta	ros1lina	2792	u	N	live, lack(move), HAS many(leaf), HAS root, AT/2744 earth	
 plant	u2ltet	sero	sadzic1	2495	u	V		
 plastic	alaki1thato1	formabilis/qui_formari_potest	elastyczny	144		A	material, HAS shape, shape[can/1246(change)], <artificial>	mu2anyag
@@ -2350,7 +2350,7 @@ polish	fe1nyez	polio	polerowac1	740	u	V	=AGT CAUSE surface[smooth, shine] , =PAT
 polite	udvarias	comis	uprzejmy	2516		A	CONFORM society/2285	
 political	politikai	civilis	polityczny	1965	u	A	politics	
 politician	politikus	vir_rerum_civilium_peritus	polityk	1966		N	person, MEMBER politics	
-politics	politika	consilium	polityka	1964	u	N	science, LEAD nation	science of governing?, ABOUT?
+politics	politika	consilium	polityka	1964	u	N	science, LEAD/2617 nation	science of governing?, ABOUT?
 pool	medence	piscina	basen	1614		N	water IN/2758, <swim> IN/2758, <play> IN/2758	
 poor	szege1ny	pauper	biedny	2177		A	HAS lack(money)	
 pope	pa1pa	#	#	3034		N	priest, LEAD/2617 @Catholic_Church	
@@ -3393,7 +3393,7 @@ wicked	gonosz	improbus	wredny	911		A	evil	no xml
 wide	sze1les	latus	szeroki	2166		A	distance[great, horizontal] BETWEEN side, HAS more(side)	
 width	sze1lesse1g	latitudo	szerokos1c1	2168		N	wide	
 wife	felese1g	uxor	z1ona	767		N	IN/2758 marriage, female	
-wild	vad	ferus	dziki	2565		A	lack(society LEAD)	
+wild	vad	ferus	dziki	2565		A	lack(society LEAD/2617)	
 will	akar	volo	chciec1	132	u	V	want	
 willing	ke1sz	paratus	che1tny	1259		A	ready, wish	
 win	gyo3z	vinco	wygrywac1	937	u	U	best, succeed/2718, before(compete), before(effort), GET/1223 <prize>	=AGT DEFEAT enemy
