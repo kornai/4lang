@@ -1356,8 +1356,8 @@ foot	la1b	pes	stopa	1466	u	N	organ, leg HAS, AT/2744 ground
 football	foci	ludus_calcius	pil1ka_noz1na	826	u	N	game, [team[two]] PART_OF, INSTRUMENT ball	INSTRUMENT kick the ball, INSTRUMENT head the ball, INSTRUMENT carry the ball, INSTRUMENT goal % goal in the „kapu” sense
 footmark	labnyom	#	#	3199		N	mark, walk MAKE	
 for	-e1rt	pro	dla	2824	u	G		AT/2744 exchange, =REL[price]
-for	-ig	tenus	przez	27	u	G	English for is primitive, other languages deferred
-for	-ig	adhoc	do	2826	u	G	English for is primitive, other languages deferred
+for	-ig	tenus	przez	27	u	G		English for is primitive, other languages deferred
+for	-ig	adhoc	do	2826	u	G		English for is primitive, other languages deferred
 for	-nak	NA	dla	2825	u	G		=REL[good[after] ER]
 for	miatt	propter	przez	2782	u	#		primitive
 forbid	megtilt	veto	zabraniac1	1650		V	=AGT CAUSE[=DAT HAS lack(permission)]	
