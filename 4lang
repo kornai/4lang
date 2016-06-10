@@ -1408,7 +1408,7 @@ frozen	fagyott	gelatus	zamroz2ony	3468	u	N
 fruit	gyu2mo2lcs	fructus	owoc	945		N	PART_OF plant, seed PART_OF, food, sweet, HAS flesh	
 fuck	baszik	futuo	pieprzyc1	232		V	intercourse	
 fulfil	beto2lt	impleo	wypel1nic1	277		V		satisfy
-full	teli	plenus	pel1ny	2344	u	A	=OBL[much] IN/2758, lakc(space/2327) IN	German voll von
+full	teli	plenus	pel1ny	2344	u	A	=OBL[much] IN/2758, lack(space/2327) IN	German voll von
 fun	mo1ka	iocus	zabawa	1710		N	CAUSE happy, event	
 funeral	temete1s	funus	pogrzeb	2348	u	N		
 fungus	gombafe1le	fungus	grzyb	3469	u	N		
@@ -1813,7 +1813,7 @@ leg	la1b	pes	noga	1467	u	N	limb, animal HAS, move INSTRUMENT, support, low
 legal	jogi	#	#	2806		A	-al[law]	
 legitimize	legitimiza1l	legitimo	uznac1	3484	u	N		
 lend	ko2lcso2nad	commodo	poz1yczac1	1374		V	=AGT HAS =PAT, =AGT CAUSE[=DAT AT/2744 =PAT]	
-length	hossz	longitudo	dl1ugos1c1	1085	u	N	size, distance BETWEEN ends	
+length	hossz	longitudo	dl1ugos1c1	1085	u	N	size, distance BETWEEN two(end)	
 lens	lencse	lenticula	soczewica	3344	u	N	shape, PART_OF camera, light/739 THROUGH, FOR/2782 clear(image), <glass>[curl], <plastic>, image HAS different(size), <look INSTRUMENT>	
 less	kevesebb	minor	mniej	1311	u	A	few	
 lesson	lecke	ediscenda	lekcja	1512		N	know[after], person KNOW lesson	
@@ -2599,7 +2599,7 @@ rigid	merev	#	#	3131		A	HAS shape[lack(change)]
 ring	cseng	tinnit	dzwonic1	2735	u	U	bell MAKE sound/993, FOR/2782 attention, <bell PART_OF telephone>	
 ring	gyu3ru3	anulus	piers1cionek	402	u	N	artefact, metal, circle, AT/2744 finger	
 ring-shaped	gyu3ru3_alaku1	#	#	3268		A	HAS ring/402(shape)	1
-rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(lakc(<detergent>) AT =PAT)
+rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(lack(<detergent>) AT =PAT)
 ripe	e1rett	maturus	dojrzal1y	520		A	time[before, enough], good, < ' EAT>	develop 
 rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	=PAT[stand[after]], after(=PAT AT/2744 high(position)), high ER	
 rise_against	felkel	exsurgo	powstac1	776		V		no Longman use
