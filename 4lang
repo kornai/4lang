@@ -902,7 +902,7 @@ counter-	ellen-	contra-	kontr-	629		D	oppose
 country	orsza1g	terra	pan1stwo	1913	u	N	state/76	
 countryside	vide1k	#	#	3049		N	land, more(house) PART_OF, lack(town)	
 courage	ba1torsa1g	animus	odwaga	214		N	brave	will ER fear % will[strong] 2011.04.19 % ND
-course	kurzus	cursus	kurs	2775	u	N	series, lessons	
+course	kurzus	cursus	kurs	2775	u	N	series, lesson PART_OF	
 course	pa1lya	cursus	bieg	1927	u	N	way	
 court	bi1ro2sa1g	curia	sa1d	3124	u	N	place/1026, INSTRUMENT law, judge AT/2744	related to 2515
 court	udvar	curia	sa1d	2515	u	N	outdoor(place/1026), ' AROUND	related to 3137
@@ -1232,7 +1232,7 @@ explosive	robbane1kony	qui_facile_disploditur	wybuchowy	2033		A	can/1246(explode
 express	kifejez	effor	wyrazic1	2757	u	V	=AGT CAUSE[=DAT KNOW =PAT]	
 express	kimondott	enuntiatus	wyraz1ony	1344	u	A		
 expression	a1bra1zat	facies	mina	64	u	N		
-expression	kifejeze1s	significatio	wyraz1enie	1332	u	N	words[<more>]	<idea> IN/2758
+expression	kifejeze1s	significatio	wyraz1enie	1332	u	N	word[<more>]	<idea> IN/2758
 extend	kiterjeszt	dilato	rozszerzac1	1361		V	=AGT CAUSE[=PAT[long] ER]	=AGT % no Longman
 extol	dicso3i1t	laudo	wychwalac1	466		V	praise	
 extreme	rendki2vu2li	#	#	2786		A	ER '	
@@ -1306,7 +1306,7 @@ fibre	rost	#	#	3357		N	IN/2758 food, CAUSE health, thread, IN/2758 rope, IN/2758
 fiction	kitala1lt	#	#	3398		N	lack(real)	
 field	mezo3	campus	pole	1681	u	N	place/1026, land, level	broad
 fierce	a1da1z	saevus	gwal1towny	65		A	state/77, INSTRUMENT strong (feeling), INSTRUMENT much (energy)	RG %: MaM violent % ZsA to redefine, i cannot fix this
-fight	harc	pugna	bo1jka	1002	u	N	person WANT[harm AT/2744 other(person)], INSTRUMENT weapons	TODO
+fight	harc	pugna	bo1jka	1002	u	N	person WANT[harm AT/2744 other(person)], INSTRUMENT weapon	
 figure	alak	figura	figura	140		N	shape, human HAS shape	
 figure	o2sszeg	#	#	2712		N	number	
 fill	to2lt	compleo	wypel1niac1	2407	u	V	=PAT[full[after]]	
@@ -1943,7 +1943,7 @@ match	illik	decet	pasowac1	1134	u	V	similar, good(together)
 match	me1rko3ze1s	interludium	mecz	2719	u	N	event, sport, two(<group>) PART_OF	
 material	anyag	materialis	material1	2798	u	N	object	
 material	testi	corporeus	materialny	2371	u	A		
-mathematics	matematika	mathematica	matematyka	3066	u	N	science, ABOUT calculate, ABOUT number, ABOUT shapes	
+mathematics	matematika	mathematica	matematyka	3066	u	N	science, ABOUT calculate, ABOUT number, ABOUT shape	
 matter	anyag	materia	materia	171		N		see 2758
 matter	sza1mi1t	#	#	2756		N	important	
 matter	u2gy	res	sprawa	2488		N		
@@ -2744,7 +2744,7 @@ shield	pajzs	scutum	tarcza	1933		N	artefact, rigid, protect, <armour>
 shilling	silling	N/A	szyling	2103		N		
 shine	fe1nylik	splendeo	s1wiecic1	742		V	light/739 FROM/2742	RA
 ship	hajo1	navis	statek	977	u	N	vehicle, ON water	
-shirt	ing	camisia	koszula	1142	u	N	garment, AT/2744 trunk/2759, HAS collar, HAS sleeves	
+shirt	ing	camisia	koszula	1142	u	N	garment, AT/2744 trunk/2759, HAS collar, HAS two(sleeve)	
 shit	szar	stercus	go1wno	2159		N		
 shock	sokk	collisio	szok	2117	u	N	surprise, bad, sudden	
 shoe	cipo3	calceus	but	377	u	N	garment, COVER foot, human HAS foot	HAS sole, HAS heel
@@ -3059,7 +3059,7 @@ tail	farok	cauda	ogon	728		N	PART_OF body, long, hang, AT/2744 bottom
 take	elvesz	adimo	wzia1c1	653	u	U	take/654	
 take	elvesz	adimo	wzia1c1	654	u	V	=AGT CAUSE[=PAT AT/2744 =AGT, =FROM HAS lack(=PAT)]	
 take_hold	fog	arripio	l1apac1	831		V	catch/828	
-talk	besze1l	loquor	rozmawiac	269	u	U	communicate, INSTRUMENT words	
+talk	besze1l	loquor	rozmawiac	269	u	U	communicate, INSTRUMENT sentence	
 tall	magas	procerus	wysoki	1581	u	A	height, ER '	ZsA
 tape	szalag	taenia	wsta1z2ka	3051	u	N	artefact, information ON, narrow, plastic	
 taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue	RA
@@ -3198,7 +3198,7 @@ trade	kereskedik	negotior	handlowac1	1299	u	V	buy, sell
 trade	szakma	artificium	zawo1d	2155	u	N		
 tradition	hagyoma1ny	#	#	2953		N	old, society/2285 HAS	
 traffic	forgalom	commercium	ruch	857		N	people[move] PART_OF, vehicle PART_OF, ON street	
-train	vonat	tramen	pocia1g	2661	u	N	vehicle FOLLOW vehicle, ON rail, cars	locomotive[<pull>] PART_OF
+train	vonat	tramen	pocia1g	2661	u	N	vehicle FOLLOW vehicle, ON rail, more(car)	locomotive[<pull>] PART_OF
 training	edze1s	exercitatio	trening	3577	u	N		
 translate	fordi1t	reddo	tl1umaczyc1	855		V	=AGT CAUSE[=PAT AT/2744 other(language)]	
 transparent	a1tla1tszo1	perlucidus	przezroczysty	104		A	see THROUGH	
@@ -3390,7 +3390,7 @@ who	aki	qui/quis	kto/kto1ry	134	u	G	person	% indexical
 whole	ege1sz	totus	cal1y	553		A	all MEMBER	quantifier
 why	mie1rt	cur/quare	dlaczego	1688		G	what CAUSE	
 wicked	gonosz	improbus	wredny	911		A	evil	no xml
-wide	sze1les	latus	szeroki	2166		A	distance[great, horizontal] BETWEEN side, HAS more(sides)	
+wide	sze1les	latus	szeroki	2166		A	distance[great, horizontal] BETWEEN side, HAS more(side)	
 width	sze1lesse1g	latitudo	szerokos1c1	2168		N	wide	
 wife	felese1g	uxor	z1ona	767		N	IN/2758 marriage, female	
 wild	vad	ferus	dziki	2565		A	lack(society LEAD)	
