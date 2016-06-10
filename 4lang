@@ -1,4 +1,4 @@
--able	-hato1	N/A	-alny	21		G	can/1246[ ' =REL]	
+able	-hato1	N/A	-alny	21		G	can/1246[ ' =REL]	
 -al	-sa1g	-men	-enie	42		G	=REL	HUN: -a1s % disapprov-
 -an	-i	-anus	-anin	23		G	MEMBER =REL	geographical
 -ance	-a1s	-tia	-stwo	1		G	=REL	
@@ -857,7 +857,7 @@ confuse	o2sszekever	confundo	mylic1	1864		V	think[clear[lack]], lack(understand)
 confused	zavaros	confusus	zagubiony	2674		A		
 connect	kapcsol	coniungo	l1a1czyc1	1227		V	join	
 conquer	ho1di1t	expugno	podbijac1	1067		V	defeat, INSTRUMENT force	
-conscience	lelkiismeret	conscientia	sumienie	1531		N	=POSS HAS, KNOW good, ABOUT moral, ABOUT right/1191, LEAD thoughts, LEAD actions, =POSS HAS thoughts, =POSS HAS actions	
+conscience	lelkiismeret	conscientia	sumienie	1531		N	KNOW good, ABOUT moral, ABOUT right/1191, LEAD thought, LEAD action, =POSS HAS thought, =POSS HAS action	
 conscious	tudatos	conscius	s1wiadomy	2459		A	notice, realize, awake, understand, deliberate, think, know	
 consecrated	szentelt	sacer	us1wie1cony	2191		A		
 consider	tekint	considero	rozwaz1ac1	2339		V	think	
@@ -1088,7 +1088,7 @@ draw	rajzol	pingo	rysowac1	2707	u	V	=AGT MAKE line, represent INSTRUMENT picture
 draw	von	delineo	rysowac1	2660	u	V		
 drawer	fio1k	arca	szuflada	810		N	contain, PART_OF furniture[<desk>], ' PULL, ' PUSH, box	naive_theo:pull → out, push → in
 drawing	rajz	figura	rysunek	3447	u	N		
-dream	a1lom	somnium	sen	81		N	IN/2758 mind, AT/2744 sleep, events, lack(real)	
+dream	a1lom	somnium	sen	81		N	IN/2758 mind, AT/2744 sleep, event, lack(real)	
 dress	o2lto2zik	induo	ubierac1_sie1	1849		V	clothe	
 dress	ruha	vestis	suknia	2052		N	garment	RA
 drink	iszik	bibo	pic1	1161	u	V	=PAT[liquid,<alcoholic>] IN/2758 mouth, =AGT HAS mouth, swallow	„alcoholic” suggested by Randall 4.1.1 (12)
@@ -1536,7 +1536,7 @@ half-circle	fe1lko2r	#	#	3224		N	shape, bend/1112	3
 half-frozen	fe1lig_megfagyott	#	#	3291		A	ice IN/2758	1
 hall	csarnok	#	#	3094		N	IN/2758 building	
 hammer	kalapa1cs	malleus	ml1otek	1219	u	N	artefact, IN/2758 hand, tool, HAS handle, HAS head[heavy,rigid], strike INSTRUMENT	
-hand	ke1z	manus	re1ka	1264	u	N	organ, PART_OF arm, human HAS arm, FOR/2782[MOVE object], wrist PART_OF, palm PART_OF, fingers PART_OF, thumb PART_OF	"four(finger)", de „o2t(ujj)”
+hand	ke1z	manus	re1ka	1264	u	N	organ, PART_OF arm, human HAS arm, FOR/2782[MOVE object], wrist PART_OF, palm PART_OF, five(finger) PART_OF, thumb PART_OF	"four(finger)", de „o2t(ujj)”
 handkerchief	zsebkendo3	sudarium	chustka	2686		N		
 handle	fogo1	manubrium	ra1czka	834		N	PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	
 hang	lo1g	pendeo	wisiec1	1548	u	U	=PAT HAS lack(support), [above CAUSE =PAT[fall/2694[lack]]] INSTRUMENT <cord>, =PAT[swing[can/1246]]	
@@ -1937,7 +1937,7 @@ mass	to2meg	massa	masa	2410		N
 master	gazda	dominus	pan	891		N	CONTROL =POSS, HAS =POSS	
 master	mester	magister	mistrz	1680		N	HAS skill, HAS practice	
 master	u1r	dominus	pan	2478		N		see 891
-mat	la1bto2rlo3	tapete	wycieraczka	1468		N	flat, coarse, cloth, CAUSE shoes[clean], ON floor	
+mat	la1bto2rlo3	tapete	wycieraczka	1468		N	flat, coarse, cloth, CAUSE shoe[clean], ON floor	
 match	gyufa	igniarium	zapal1ka	951	u	N	stick, wood, [person MAKE fire] INSTRUMENT	
 match	illik	decet	pasowac1	1134	u	V	similar, good(together)	
 match	me1rko3ze1s	interludium	mecz	2719	u	N	event, sport, two(<group>) PART_OF	
