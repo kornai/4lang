@@ -693,7 +693,7 @@ carbon	sze1n	carboneum	we1giel	3426	u	N
 card	ka1rtya	charta	karta	1211	u	N	artefact, flat, rectangular, stiff, paper	
 card	lap	pagina	karta	1490	u	N		
 cardboard	karton	charta_spissa	karton	1234		N	paper, thick/2752, rigid	material?
-care	a1pol	curo	piele1gnowac1	82	u	V	help, =PAT[sick], =AGT WANT [good FOR/2782 =PAT], =AGT THINK [=PAT[important]]
+care	a1pol	curo	piele1gnowac1	82	u	V	help, =PAT[sick], =AGT WANT [good FOR/2782 =PAT], =AGT THINK [=PAT[important]]	
 care	gond	diligentia	opieka	903	u	N		
 careful	o1vatos	cautus	ostroz2ny	3427	u	N		
 caretaker	gondnok	provisor	opiekun	906		N	person, job, FOR/2782 place/1026	
@@ -732,8 +732,8 @@ chance	ese1ly	potestas	szansa	691		N	probability
 chance	ve1letlen	#	#	2770		N	force, lack(knowledge) ABOUT, cause, lack(person LEAD)	
 change	csere	mutatio	zmiana	404	u	N		see 2554 (no use in the first 20 result with -„to change”)
 change	va1ltoztat	muto	zmieniac1	2554	u	V	=PAT[different[after]]	
-character	jellem	habitus	charakter	1187	u	N	property[<moral>, <good>], <person HAS>, recognize INSTRUMENT		
-characteristic	tulajdonsa1g	#	#	3352		N	
+character	jellem	habitus	charakter	1187	u	N	property[<moral>, <good>], <person HAS>, recognize INSTRUMENT	
+characteristic	tulajdonsa1g	#	#	3352		N		
 charge	di1j	merces	opl1ata	457	u	N	price	
 charge	rohamoz	oppugno	atakowac1	2035	u	V		see 457, 2541
 charge	va1d	accusatio	oskarz1enie	2541	u	N	=PAT[responsible] HAS control	HUN megbi1za1s, felelo3sse1g
@@ -791,7 +791,7 @@ climb	ma1szik	enitor	wspinac1_sie1	1573		U	move, after(up), hand AT/2744 surface
 cling	tapad	adhaereo	przylegac1	2307		V		
 clock	o1ra	horologium	zegar	1833		N	instrument, FOR[KNOW time], SHOW time, more(number) ON	
 close	csuk	claudo	zamkna1c1	3381	u	V	move, after(part AT/2744 other(part)), enter[after, lack], operate[after, lack], change[after, lack]	
-close	ko2zeli	intimus	bliski	1413	u	A	
+close	ko2zeli	intimus	bliski	1413	u	A		
 cloth	poszto1	pannus	material1	1973		N	material, HAS fibre, wool IS_A	to dry a person or animal by rubbing them with a cloth
 cloth	szo2vet	textum	material1	2232		N		
 cloth-covered	ruha1val_bori2tott	#	#	3313		A	cloth COVER	1
@@ -946,7 +946,7 @@ curl	hajlik	#	#	3123		U	lack(flat)
 current	folyam	flumen	pra1d	844		N	move[steady,smooth]	
 curse	a1tok	exsecratio	przeklen1stwo	107		N	pray, FOR/2782[=PAT HAS harm]	content: CAUSE?
 curtain	fu2ggo2ny	velum	zasl1ona	867		N	hang, AT/2744 <window>, decorate, CAUSE shade	AT/2744 cavity
-curve	go2rbe	curvamen	krzywa	898	u	N	shape, line lack(straight/563), lack(plane/2090), bend/1112, HAS direction[lack(constant)]	
+curve	go2rbe	curvamen	krzywa	898	u	N	line, lack(straight/563), lack(plane/2090), bend/1112, HAS direction[lack(constant)]	
 custom	szoka1s	consuetudo	zwyczaj	2236		N	common (behaviour)	
 cut	va1g	seco	cia1c1	2542	u	V	separate, INSTRUMENT edge	RA
 cut_in_pieces	sze1tva1g	disseco	kroic1	2175		V		
@@ -1145,7 +1145,7 @@ elect	va1laszt	creo/lego	wybierac1	2547		V	=AGT CHOOSE =PAT[person], after(=PAT 
 electric	villamos	electricus	elektryczny	2632		A	INSTRUMENT electricity	
 electrical	villamos	electricus	elektryczny	2633		A	electric	
 electrician	villanyszerelo3	instructor_electricus	elektryk	2636		N		
-electricity	a1ram	fluidum_electricum	elektrycznos1c1	88	u	N	power, move, <FOR device, IN/2758 wire>	
+electricity	a1ram	fluidum_electricum	elektrycznos1c1	88	u	N	power, move, <FOR device>, <IN/2758 wire>	
 electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N		
 electro-convulsive_therapy	elektrosokk-tera1pia	#	#	3306		N	@Electroconvulsive_therapy	1
 electronic	elektromos	electronicus	elektronyczny	3451	u	N		
@@ -2617,7 +2617,7 @@ roll	forog	volvo	obracac1_sie1	859	u	V	move[repeat], =AGT HAS axis, turn
 romantic	romantikus	romanticus	romantyczny	2962	u	A	feeling[<love>] AT/2744, lack(real)	
 roof	teto3	tectum	dach	2376	u	N	top, PART_OF house	
 room	hely	locus	miejsce	1028	u	N		
-room	szoba	conclave	poko1j	2235	u	N	place/1026, HAS more(wall), PART_OF building, HAS floor	HAS ceiling	
+room	szoba	conclave	poko1j	2235	u	N	place/1026, HAS more(wall), PART_OF building, HAS floor	HAS ceiling
 root	gyo2ke1r	radix	korzen1	936		N	UNDER ground, PART_OF plant, support, AT/2744 base/146	
 root	to3	radix	korzen1	2420		N		
 rope	ko2te1l	restis	lina	1396		N	artefact, long, flexible	
@@ -3301,7 +3301,7 @@ vertebrate	gerinces	#	#	3374		N	animal, HAS bone, fish IS_A, mammal IS_A, bird I
 vertical	fu2ggo3leges	verticalis	pionowy	869		N	position, up, line	lack(horizontal)
 very	nagyon	valde	bardzo	1751	u	A	ER '	
 vessel	ede1ny	vas	naczynie	549		N	cutlery, CONTAIN <liquid>	
-vessel	hajo1	navis	statek	978		
+vessel	hajo1	navis	statek	978		N		
 vexed	vita1s	controversus	kontowersyjny	2649		A		
 vice-	sege1d-	auxiliarius	wice-	2071		G		
 victory	gyo3zelem	victoria	zwycie1stwo	938		N	win	
