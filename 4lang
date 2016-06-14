@@ -14,7 +14,7 @@ able	-hato1	N/A	-alny	21		G	can/1246[ ' =REL]
 -ess	-no3	-a/-trix	-ka	37		G	female	
 -est	leg-bb	issimus	naj-szy	1513		G	ER all	
 -ful	-teli	-osus	-ny	56		G	HAS =REL	success- % full
--hood	-sa1g	-ia	-os1c1	45		G		manhood, falsehood, knighthood, priesthood
+-hood	-sa1g	-ia	-os1c1	45		G		
 -ible	-hato1	N/A	-alny	22		G		-able
 -ic	-i	-ius	-anin	24		G	=REL	az esetek to2bbse1ge1ben tu1lelemez, de photograph+ic, econom+ic
 -ical	-i	-icus	-anin	25		G		
@@ -1500,7 +1500,7 @@ green-coloured	zo2ld_szi2nu3	#	#	3294		A	green	1
 greenish-blue	zo2ldeske1k	#	#	3212		A	blue, green	5
 greenish-yellow	zo2ldessa1rga	#	#	3238		A	yellow, green	2
 greet	u2dvo2zo2l	saluto	pozdawiac1	2486		V	welcome	
-grey	szu2rke	canus	szary	2268		A	colour	
+grey	szu2rke	canus	szary	2268		A	colour, dark(cloud) IS_A	
 grey-blue	szu2rke1ske1k	#	#	3293		A	grey, blue	1
 grey-coloured	szu2rke_szi2nu3	#	#	3292		A	grey	1
 grey-green	szu2rke1szo2ld	#	#	3237		A	grey, green	2
@@ -3471,3 +3471,27 @@ yours	tied	tuus	two1j	2385		G	you HAS
 yourself	magad	#	#	2797		G	you, self	
 youth	ifjusa1g	iuventus	ml1odos1c1	1124		N	young(person), group	
 zero	nulla	zero	zero	1801		N	number, lack(one)	
+bubble	bubore1k	#	#	#		N	air, IN liquid	Longman real DV
+centre	ko2ze1p	centrum	centrum	#		N	centre	Longman real DV
+consumer	fogyaszto1	#	#	#		N	person, buy, USE service	Longman real DV
+disk	lemez	#	#	#		N	device, CONTAIN information	Longman real DV
+dock	dokk	#	#	#		N	place/1026, PART_OF port	Longman real DV
+gray	szu2rke	canus	szary	#		N	grey	Longman real DV
+knight	lovag	#	#	#		N	man/744, HAS high(rank), fight, ON horse	Longman real DV
+layer	re1teg	#	#	#		N	material, BETWEEN two(thing)	Longman real DV
+mane	so2re1ny	#	#	#		N	hair/3359, ON back/473	Longman real DV
+monastery	monostor	#	#	#		N	institution, more(monk) HAS, apartment	Longman real DV
+oats	zab	#	#	#		N	cereal	Longman real DV
+proton	proton	#	#	#		N	particle, PART_OF atom 	Longman real DV
+stock	re1szve1ny	#	#	#		N	document, prove, ABOUT[=POSS HAS part]	Longman real DV
+unless	hacsak_nem	#	#	#		G	=PAT CAUSE lack(unless)	Longman real DV
+woods	erdo3	#	#	#		N	forest	Longman real DV
+affect	e1rint	#	#		V	=AGT CAUSE =PAT[change]	Longman real DV
+alkali	alka1li	#	#	#		A	substance, [WITH/3412 acid] CAUSE [MAKE salt] 	Longman real DV
+asterisk	betu3	#	#	#		N	letter/278, star	Longman real DV
+baseball	baseball	#	#	#		N	game, ball PART_OF, two(group) PART_OF	Longman real DV
+billiards	billiards	#	#	#		N	game, ball PART_OF, two(person) PART_OF, table PART_OF	Longman real DV
+chess	sakk	#	#	#		N	game, two(person) PART_OF, board PART_OF, king PART_OF	Longman real DV
+confidence	bizalom	#	#	#		N	trust	Longman real DV
+Dr	Dr.	#	#	#		A	title, professional	Longman real DV
+vine	szo3lo3	#	#	#		N	plant, <grape>	Longman real DV
