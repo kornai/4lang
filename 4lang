@@ -2019,7 +2019,7 @@ moment	pillanat	momentum	chwila	1961		N	time, point
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
 monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD/2617 country	
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR/2782 exchange, HAS value, official	
-monk	szerzetes	monachus	mnich	3505	u	N		
+monk	szerzetes	monachus	mnich	3505	u	N	profession, PART_OF religion, live IN/2758 group
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve, PART_OF year	
 moon	hold	luna	ksie1z1yc	1074		N	planet, ON sky, AT/2744 night, move, move AROUND earth	
@@ -2411,7 +2411,7 @@ prick	tu2ske	spina	drzazga	2445		N		no Longman use
 prickle	bo2k	pungo	kl1uc1	310		V		after(excitement), after(sensation) % no Longman
 prickly	tu2ske1s	spinosus	kolczasty	2446		A		
 pride	go3g	superbia	duma	899		N	honour[self]	self is a keyword
-priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach pre1dika1l
+priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach
 prime_minister	miniszterelno2k	#	#	3078		N	minister/3402, LEAD/2617 government	
 prince	herceg	dux/princeps	ksia1z1e	1035		N	male, PART_OF royal(family), son, monarch HAS son	„son” is a relational noun, „monarch” is the related entity
 principle	elv	ratio	zasada	652	u	N	basic(rule)	
