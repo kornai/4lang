@@ -1,0 +1,3 @@
+recursive-include src/fourlang/demo/templates *
+recursive-include src/fourlang/demo/static *
+

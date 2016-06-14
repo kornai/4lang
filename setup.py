@@ -19,7 +19,7 @@ setup(
 
     package_dir={'': 'src'},
     packages=find_packages("src"),
-
+    include_package_data=True,
     dependency_links=[
         "https://github.com/kornai/pymachine/tarball/master#egg=pymachine"],
     install_requires=[
