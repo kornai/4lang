@@ -1453,7 +1453,7 @@ gleam	ragyog	splendeo	bl1yszczec1	1988		U		no xml
 glean	gyu3jt	lego	zbierac1	948		V	=AGT CAUSE[=PAT[together]], =PAT[small, piece, <information>], slow, difficult	
 glorious	dicso3	gloriosus	chwalebny	465		A	HAS glory	
 glory	dicso3se1g	gloria	chwal1a	467		N	fame	ND: divine (presence)
-go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT legs	RA
+go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT leg	RA
 goal	ce1l	#	#	3358		N	good, =POSS WANT[=POSS AT/2744]	
 goat	kecske	capra	koza	1265		N	mammal, HAS horn/2772, HAS beard, <IN/2758 mountain>, <AT/2744 farm>, HAS wool, PRODUCE milk	contradicting defaults
 god	isten	deus	bo1g	1159		N	spirit/2181, religion FOR/2782, HAS power, ER nature	ultimate
@@ -3044,7 +3044,7 @@ sweet-smelling	illatos	#	#	3203		A	HAS sweet(smell)	8
 sweet-tasting	e1des_i2zu3	#	#	3255		A	HAS sweet(taste)	1
 swell	dagad	tumesco	puchna1c1	445		V	=AGT HAS size[increase], <pressure> CAUSE, <pressure> IN/2758	
 swift	gyors	celer	szybki	943		A	quick	
-swim	u1sza1s	natatio	pl1ywanie	2479	u	N	move, IN/2758 water, INSTRUMENT arm[<two>], INSTRUMENT legs	
+swim	u1sza1s	natatio	pl1ywanie	2479	u	N	move, IN/2758 water, INSTRUMENT arm[<two>], INSTRUMENT leg[<two>]	
 swing	leng	oscillo	bujac1_sie1	1533		U	move, =AGT HAS direction[change], hang	
 switch	kapcsol	#	#	3061		V	=AGT CHANGE activity	electric(machine)
 sword	kard	gladius	miecz	1233		N	weapon, HAS blade[<long>,pointed], HAS edge	
