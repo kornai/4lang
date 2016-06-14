@@ -3486,7 +3486,7 @@ proton	proton	#	#	#		N	particle, PART_OF atom 	Longman real DV
 stock	re1szve1ny	#	#	#		N	document, prove, ABOUT[=POSS HAS part]	Longman real DV
 unless	hacsak_nem	#	#	#		G	=PAT CAUSE lack(unless)	Longman real DV
 woods	erdo3	#	#	#		N	forest	Longman real DV
-affect	e1rint	#	#		V	=AGT CAUSE =PAT[change]	Longman real DV
+affect	e1rint	#	#	#		V	=AGT CAUSE =PAT[change]	Longman real DV
 alkali	alka1li	#	#	#		A	substance, [WITH/3412 acid] CAUSE [MAKE salt] 	Longman real DV
 asterisk	betu3	#	#	#		N	letter/278, star	Longman real DV
 baseball	baseball	#	#	#		N	game, ball PART_OF, two(group) PART_OF	Longman real DV
