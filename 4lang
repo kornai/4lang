@@ -1453,7 +1453,7 @@ gleam	ragyog	splendeo	bl1yszczec1	1988		U		no xml
 glean	gyu3jt	lego	zbierac1	948		V	=AGT CAUSE[=PAT[together]], =PAT[small, piece, <information>], slow, difficult	
 glorious	dicso3	gloriosus	chwalebny	465		A	HAS glory	
 glory	dicso3se1g	gloria	chwal1a	467		N	fame	ND: divine (presence)
-go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT legs	RA
+go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT leg	RA
 goal	ce1l	#	#	3358		N	good, =POSS WANT[=POSS AT/2744]	
 goat	kecske	capra	koza	1265		N	mammal, HAS horn/2772, HAS beard, <IN/2758 mountain>, <AT/2744 farm>, HAS wool, PRODUCE milk	contradicting defaults
 god	isten	deus	bo1g	1159		N	spirit/2181, religion FOR/2782, HAS power, ER nature	ultimate
@@ -2019,7 +2019,7 @@ moment	pillanat	momentum	chwila	1961		N	time, point
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
 monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD/2617 country	
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR/2782 exchange, HAS value, official	
-monk	szerzetes	monachus	mnich	3505	u	N		
+monk	szerzetes	monachus	mnich	3505	u	N	profession, PART_OF religion, live IN/2758 group	
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, twelve, PART_OF year	
 moon	hold	luna	ksie1z1yc	1074		N	planet, ON sky, AT/2744 night, move, move AROUND earth	
@@ -2411,7 +2411,7 @@ prick	tu2ske	spina	drzazga	2445		N		no Longman use
 prickle	bo2k	pungo	kl1uc1	310		V		after(excitement), after(sensation) % no Longman
 prickly	tu2ske1s	spinosus	kolczasty	2446		A		
 pride	go3g	superbia	duma	899		N	honour[self]	self is a keyword
-priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach pre1dika1l
+priest	pap	sacerdos	ksia1dz	1939		N	profession, PART_OF religion, MAKE ceremony, <christian>, bless	preach
 prime_minister	miniszterelno2k	#	#	3078		N	minister/3402, LEAD/2617 government	
 prince	herceg	dux/princeps	ksia1z1e	1035		N	male, PART_OF royal(family), son, monarch HAS son	„son” is a relational noun, „monarch” is the related entity
 principle	elv	ratio	zasada	652	u	N	basic(rule)	
@@ -3044,7 +3044,7 @@ sweet-smelling	illatos	#	#	3203		A	HAS sweet(smell)	8
 sweet-tasting	e1des_i2zu3	#	#	3255		A	HAS sweet(taste)	1
 swell	dagad	tumesco	puchna1c1	445		V	=AGT HAS size[increase], <pressure> CAUSE, <pressure> IN/2758	
 swift	gyors	celer	szybki	943		A	quick	
-swim	u1sza1s	natatio	pl1ywanie	2479	u	N	move, IN/2758 water, INSTRUMENT arm[<two>], INSTRUMENT legs	
+swim	u1sza1s	natatio	pl1ywanie	2479	u	N	move, IN/2758 water, INSTRUMENT arm[<two>], INSTRUMENT leg[<two>]	
 swing	leng	oscillo	bujac1_sie1	1533		U	move, =AGT HAS direction[change], hang	
 switch	kapcsol	#	#	3061		V	=AGT CHANGE activity	electric(machine)
 sword	kard	gladius	miecz	1233		N	weapon, HAS blade[<long>,pointed], HAS edge	
