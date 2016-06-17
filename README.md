@@ -9,13 +9,7 @@ This repository provides
 ### Dependencies
 
 #### pymachine
-Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines, just clone it to your machine and run setup.py:
-
-```
-git clone https://github.com/kornai/pymachine.git
-cd pymachine
-python setup.py install
-```
+Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines.
 
 #### hunmorph
 For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). If they don't work on your system, you may have to download and recompile `hunmorph` and/or the model it uses following the instructions [here](http://mokk.bme.hu/en/resources/hunmorph/). This process is quite error-prone, but please [reach out](#contact) to us and we'll be happy to help you!

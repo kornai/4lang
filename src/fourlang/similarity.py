@@ -37,7 +37,7 @@ class WordSimilarity():
         self.lemma_sim_cache = {}
         self.links_nodes_cache = {}
         self.stopwords = set(nltk_stopwords.words('english'))
-        self.sim_feats = SimFeatures(cfg, cfg_section)
+        self.sim_feats = SimFeatures(cfg, cfg_section, self.lexicon)
         self.expand = cfg.getboolean(cfg_section, "expand")
         logging.info("expand is {0}".format(self.expand))
 
@@ -62,8 +62,9 @@ class WordSimilarity():
         self.log('links1_expand: {0}, links2_expand: {1}'.format(links1_expand, links2_expand))
         self.log('nodes1_expand: {0}, nodes2_expand: {1}'.format(nodes1_expand, nodes2_expand))
 
-        sims = self.sim_feats.get_all_features(MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
-                                               MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
+        # TODO: should be machine_expand
+        sims = self.sim_feats.get_all_features(MachineInfo(machine1, nodes1, nodes1_expand, links1, links1_expand),
+                                               MachineInfo(machine2, nodes2, nodes2_expand, links2, links2_expand))
         return sims
 
     def lemma_similarities(self, lemma1, lemma2):
