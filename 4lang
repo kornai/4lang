@@ -461,7 +461,7 @@ attractive	vonzo1	suavis	atrakcyjny	2665		A	beautiful, person LIKE/3382
 aunt	nagyne1ni	agnata/amita	ciotka	1750		N	woman, relative, relative[old] ER =POSS	related to parent, =POSS HAS parent
 authority	hato1sa1g	jurisdictio	wl1adza	2811	u	N	power, command, determine, judge	
 autumn	o3sz	autumnus	jesien1	1882		N	season/548, FOLLOW summer, winter FOLLOW, rain IN/2758, cool/1103, leave HAS colour[lack(green)]	decline % ND
-available	ele1rheto3	#	#	2800		A	can/1246[=FOR USE]	
+available	ele1rheto3	#	#	2800		A	can/1246[=TO USE]	
 average	a1tlag	plurimus_minimusque	s1redni	105	u	N	amount[normal]	
 avoid	elkeru2l	evito	unikac1	624		V	=AGT AT =PAT[lack]	
 awake	e1ber	vigilans	czujny	494		A	conscious	HUN e1bren van
@@ -2070,9 +2070,9 @@ naval	flotta-	navalis	marynarski	814		A	navy
 navy	flotta	classis	marynarka	813		N	nation HAS, more(ship) PART_OF, military, force, AT/2744 sea	
 near	ko2zeli	propinquus	bliski	1414		A	AT/2744 distance, ER distance	relational
 neat	rendes	dispositus	schludny	2009		A	HAS structure, beautiful	RA: careful(arrangement)
-necessary	szu2kse1ges	necessarius	potrzebny	2260		A	lack(=REL) CAUSE lack(=FOR)	
+necessary	szu2kse1ges	necessarius	potrzebny	2260		A	lack(=REL) CAUSE lack(=TO)	
 neck	nyak	cervices	szyja	1803		N	PART_OF body, CAUSE[head AT/2744]	
-need	szu2kse1g	necessitas	potrzeba	2259	u	N	bad FOR/2782 =AGT, lack(=FOR) AT =AGT, =AGT WANT lack(=FOR)	
+need	szu2kse1g	necessitas	potrzeba	2259	u	N	bad FOR/2782 =AGT, lack(=TO) AT =AGT, =AGT WANT lack(=TO)	
 needle	tu3	acus	igl1a	2448	u	N	artefact, long, thin/2598, steel, pierce, HAS hole, <sew INSTRUMENT>	
 needle-like	tu3-szeru3	#	#	3284		A	long, thin/2598, pierce	hedgehog % 1
 negative	negati1v	negativus	negatywny	3004	u	A	lack	
