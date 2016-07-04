@@ -120,14 +120,14 @@ class NSzTParser():
         before = ['</?hint>', '<syn special="semicolon">',
             '<syn special="comma">', '<syn special="ill">',
             '<syn special="v">', ' es\.', ' gyakr\.', ' haszn\.', ' ill\.',
-            ' kapcs\.', u' kül\.', ' rendsz\.', ' ritk\.', ' v\.',
-            ' vonatk\.', u' ált\.', ' vm', ' vki', ' mn ', ' fn ', ' pl.',
-            u' ún.',  ' {2,}', ' ,']
+            ' kapcs\.', u' k\xf6l\.', ' rendsz\.', ' ritk\.', ' v\.',
+            ' vonatk\.', u' \xe1lt\.', ' vm', ' vki', ' mn ', ' fn ', ' pl.',
+            u' \xfan.',  ' {2,}', ' ,']
         after = ['', '; ', ', ', ' illetve ', ' vagy ', ' esetleg', ' gyakran',
-            u' használt', ' illetve', ' kapcsolatos', u' különösen',
-            ' rendszerint', u' ritkábban', ' vagy', u' vonatkozó',
-            u' általában', ' valam', ' valaki', u' melléknév ', u' főnév ',
-            u' például', u' úgynevezett', ' ', ',']
+            u' haszn\xe1lt', ' illetve', ' kapcsolatos', u' k\xfcl\xf6n\xf6sen',
+            ' rendszerint', u' ritk\xe1bban', ' vagy', u' vonatkoz\xf3',
+            u' \xe1ltal\xe1ban', ' valam', ' valaki', u' mell\xe9kn\xe9v ', u' f\u0151n\xe9v ',
+            u' p\xe9ld\xe1ul', u' \xfagynevezett', ' ', ',']
         # places of last two items are important
         for b, a in zip(before, after):
             definition = re.sub(b, a, definition)
