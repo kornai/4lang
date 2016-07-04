@@ -6,7 +6,8 @@ import networkx.algorithms.isomorphism as iso
 import itertools
 
 class SimFeatures:
-    def __init__(self, cfg, section):
+    def __init__(self, cfg, section, lexicon):
+        self.lexicon = lexicon
         self.batch = cfg.getboolean(section, 'batch')
         self.feats_to_get = cfg.get(section, 'sim_types').split('|')
         self.feats_dict = {
@@ -17,8 +18,14 @@ class SimFeatures:
             'nodes_contain' : ['nodes_contain'],
             '0-connected' : ['0-connected'],
             'is_antonym' : ['is_antonym'],
-            'subgraphs' : ['subgraph_N_0_N', 'subgraph_N_1_N', 'subgraph_N_2_N']
+            'subgraphs' : ['subgraph_N_0_N', 'subgraph_N_1_N', 'subgraph_N_2_N'],
+            'fullgraph' : ['shortest_path']
         }
+        self.full_graph = self.lexicon.get_full_graph()
+
+        self.file = open('/home/eszter/dijstra_res_TEST.txt', 'w')
+        print "NODES count: {0}".format(len(self.full_graph.nodes()))
+        print "EDGES count: {0}".format(len(self.full_graph.edges()))
 
     def get_all_features(self, graph1, graph2):
         all_feats = dict()
@@ -44,6 +51,8 @@ class SimFeatures:
             return self.is_antonym(graph1.name, graph1.nodes_expand, graph2.name, graph2.nodes_expand)
         elif feature_name == 'subgraphs':
             return self.subgraphs(graph1.machine, graph2.machine)
+        elif feature_name == 'fullgraph':
+            return self.fullgraph(graph1.name, graph2.name)
         else:
             return { feature_name : 0 }
 
@@ -86,13 +95,29 @@ class SimFeatures:
 
     def is_antonym(self, name1, nodes1, name2, nodes2):
         is_antonym = -1
-        if ("lack_" + name1 in nodes2 or "lack_" + name2 in nodes1):
+        if ("lack_" + name1 in nodes2 and name1 not in nodes2):
+            is_antonym = 1
+        elif("lack_" + name2 in nodes1 and name2 not in nodes1):
             is_antonym = 1
         return {"is_antonym" : is_antonym }
 
     def subgraphs(self, machine1, machine2):
         temp = SubGraphFeatures(machine1, machine2, 5)
         return temp.subgraph_dict
+
+    def fullgraph(self, name1, name2):
+        FG = self.full_graph
+        UG = FG.to_undirected()
+        lenght = 0
+        if nx.has_path(UG, name1, name2):
+            path = nx.shortest_path(UG, name1, name2)
+            lenght = len(path)
+            print "PATH: " + name1 + " " + name2
+            print path
+            print lenght
+            self.file.write("\t".join(path))
+            self.file.write("\n")
+        return {"shortest_path" : lenght}
 
     def contains(self, links, name):
         for link in links:
@@ -125,11 +150,8 @@ class MachineInfo():
         self.machine = machine
         self.nodes = nodes
         self.links = links
-        # TODO: hack
-        # self.nodes_expand = nodes_expand
-        # self.links_expand = links_expand
-        self.nodes_expand = nodes
-        self.links_expand = links
+        self.nodes_expand = nodes_expand
+        self.links_expand = links_expand
 
 class SubGraphFeatures():
     def __init__(self, machine1, machine2, max_depth):
@@ -138,10 +160,35 @@ class SubGraphFeatures():
         name1 = machine1.printname()
         name2 = machine2.printname()
 
+        # TODO: hack
+        # G1_str = MachineGraph.create_from_machines([machine1], max_depth=max_depth, str_graph=True)
+        # G2_str = MachineGraph.create_from_machines([machine2], max_depth=max_depth, str_graph=True)
+        #
+        # print name1
+        # print G1.G.nodes()
+        # print G1_str.G.nodes()
+        # print G1.G.edges()
+        # print G1_str.G.edges()
+        # print name2
+        # print G2.G.nodes()
+        # print G2_str.G.nodes()
+        # print G2.G.edges()
+        # print G2_str.G.edges()
+        #
+        # if(name2 == 'intelligent'):
+        #     G2_str.G = G2_str.G.to_undirected()
+        #     print nx.shortest_path_length(G2_str.G, 'intelligent', 'intelligence')
+        #     print G2_str.G.nodes(data=True)
+        #     print G2_str.G.edges(data=True)
+
+        # TODO: end_hack
+
         self.subgraph_dict = dict()
         # self.subgraph_dict.update(self._get_subgraph_N(G1.G, G2.G, name1, name2))
         self.subgraph_dict.update(self._get_subgraph_N_X_N(G1.G, G2.G, name1, name2))
+        # self.subgraph_dict.update(self._get_subgraph_3_nodes(G1.G, G2.G, name1, name2))
 
+    # TODO: not useful
     def _get_subgraph_N(self, graph1, graph2, name1, name2):
         ret = 0
         subgraphs1 = self._get_subgraphs(graph1, name1, 1)
@@ -162,10 +209,14 @@ class SubGraphFeatures():
 
     def _get_subgraph_N_X_N(self, graph1, graph2, name1, name2):
         ret = {
-            'subgraph_N_0_N' : 0,
-            'subgraph_N_1_N' : 0,
-            'subgraph_N_2_N' : 0
+            'subgraph_N_0_N' : 0
         }
+        # TODO: not worth counting all of them
+        # ret = {
+        #     'subgraph_N_0_N' : 0,
+        #     'subgraph_N_1_N' : 0,
+        #     'subgraph_N_2_N' : 0
+        # }
         subgraphs1 = self._get_subgraphs(graph1, name1, 2)
         subgraphs2 = self._get_subgraphs(graph2, name2, 2)
 
@@ -178,12 +229,29 @@ class SubGraphFeatures():
                     if d['color'] == 0:
                         ret['subgraph_N_0_N'] += 1
                         # print u + " " + v + " 0"
-                    elif d['color'] == 1:
-                        ret['subgraph_N_1_N'] += 1
-                        # print u + " " + v + " 1"
-                    elif d['color'] == 2:
-                        ret['subgraph_N_2_N'] += 1
-                        # print u + " " + v + " 2"
+                    # TODO: appears to be unuseful
+                    # elif d['color'] == 1:
+                    #     ret['subgraph_N_1_N'] += 1
+                    #     # print u + " " + v + " 1"
+                    # elif d['color'] == 2:
+                    #     ret['subgraph_N_2_N'] += 1
+                    #     # print u + " " + v + " 2"
+        return ret
+
+    # TODO: not useful
+    def _get_subgraph_3_nodes(self, graph1, graph2, name1, name2):
+        ret = {
+            'subgraph_3N' : 0
+        }
+        subgraphs1 = self._get_subgraphs(graph1, name1, 3)
+        subgraphs2 = self._get_subgraphs(graph2, name2, 3)
+
+        for r in itertools.product(subgraphs1, subgraphs2):
+            GM =  nx.algorithms.isomorphism.GraphMatcher(r[0], r[1],
+                                                         node_match=iso.categorical_node_match(['str_name'], ['name']),
+                                                         edge_match=iso.numerical_edge_match(['color'], [-1]))
+            if GM.is_isomorphic():
+                ret['subgraph_3N'] += 1
         return ret
 
     def _get_subgraphs(self, graph, name, size=3):

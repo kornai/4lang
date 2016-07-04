@@ -9,13 +9,7 @@ This repository provides
 ### Dependencies
 
 #### pymachine
-Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines, just clone it to your machine and run setup.py:
-
-```
-git clone https://github.com/kornai/pymachine.git
-cd pymachine
-python setup.py install
-```
+Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines.
 
 #### hunmorph
 For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). If they don't work on your system, you may have to download and recompile `hunmorph` and/or the model it uses following the instructions [here](http://mokk.bme.hu/en/resources/hunmorph/). This process is quite error-prone, but please [reach out](#contact) to us and we'll be happy to help you!
@@ -28,7 +22,7 @@ For parsing dictionary definitions, `4lang` requires the [Stanford Dependency Pa
 After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the default configuration file `conf/default.cfg` so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
 
 ### Downloading pre-compiled graphs
-We provide [serialized machine graphs](http://people.mokk.bme.hu/~recski/4lang/machines.tgz) built from `4lang` definitions as well as from the English Wiktionary (using the `dict_to_4lang` module). Unpacking this archive in your `4lang` directory will place them in the `data/machines` directory, which is the default location for compiled machine graphs.
+We provide [serialized machine graphs](http://sandbox.hlt.bme.hu/~recski/4lang/machines.tgz) built from `4lang` definitions as well as from the English Wiktionary (using the `dict_to_4lang` module). Unpacking this archive in your `4lang` directory will place them in the `data/machines` directory, which is the default location for compiled machine graphs.
 
 ### Environment variables
 The location of your installations of the above third-party tools, as well as 4lang must be specified via environment variables. These variables must always be set, there are no fallback values to avoid strange bugs. Here's an example of a `bashrc` file setting all required variables:
