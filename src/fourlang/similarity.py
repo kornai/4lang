@@ -63,8 +63,12 @@ class WordSimilarity():
         self.log('nodes1_expand: {0}, nodes2_expand: {1}'.format(nodes1_expand, nodes2_expand))
 
         # TODO: should be machine_expand
-        sims = self.sim_feats.get_all_features(MachineInfo(machine1, nodes1, nodes1_expand, links1, links1_expand),
-                                               MachineInfo(machine2, nodes2, nodes2_expand, links2, links2_expand))
+        sims = self.sim_feats.get_all_features(MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
+                                               MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
+
+        # if sims['is_antonym'] == 1:
+        #     sims['shortest_path'] = 0
+
         return sims
 
     def lemma_similarities(self, lemma1, lemma2):
@@ -394,6 +398,10 @@ def get_test_pairs(fn):
 def main_word_test(cfg):
     from scipy.stats.stats import pearsonr
     word_sim = WordSimilarity(cfg)
+
+    machine = word_sim.lexicon.get_machine('merry-go-round')
+    links, nodes = word_sim.get_links_nodes(machine)
+
     test_pairs = get_test_pairs(cfg.get('sim', 'word_test_data'))
     sims, gold_sims = [], []
     for (w1, w2), gold_sim in test_pairs.iteritems():

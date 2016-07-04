@@ -14,6 +14,7 @@ from utils import get_cfg
 
 import networkx as nx
 import os
+import csv
 
 
 class Lexicon():
@@ -138,6 +139,7 @@ class Lexicon():
         self.stopwords.add('as')  # TODO
         self.stopwords.add('root')  # TODO
         self.full_graph = None
+        self.shortest_path_dict = None
 
     def get_words(self):
         return set(self.lexicon.keys()).union(set(self.ext_lexicon.keys()))
@@ -188,6 +190,11 @@ class Lexicon():
 
         if printname.isupper():
             return self.get_new_machine(printname)
+
+        # # TODO: hack
+        # if printname == 'have':
+        #     print "HAVE"
+        #     return self.get_machine('HAS')
 
         machines = self.lexicon.get(
             printname, self.ext_lexicon.get(
@@ -288,6 +295,22 @@ class Lexicon():
             machine = self.get_machine(word)
             MG = MachineGraph.create_from_machines([machine], str_graph=True)
             G = MG.G
+
+            # TODO: to print out all graphs
+            # try:
+            #     fn = os.path.join('/home/eszter/projects/4lang/data/graphs/allwords', u"{0}.dot".format(word)).encode('utf-8')
+            #     with open(fn, 'w') as dot_obj:
+            #         dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
+            # except:
+            #     print "EXCEPTION: " + word
+
+            # TODO: words to test have nodes
+            # if 'other' in G.nodes() and 'car' in G.nodes():
+            #     print word
+            #
+            # if word == 'merry-go-round' or word == 'Klaxon':
+            #     print G.edges()
+
             self.full_graph.add_edges_from(G.edges(data=True))
             # TODO: needed??
             # self.full_graph.add_nodes_from(G.nodes())
@@ -299,6 +322,21 @@ class Lexicon():
             #     dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
 
         return self.full_graph
+
+    def get_shortest_path(self, word1, word2, file):
+        if self.shortest_path_dict == None:
+            self.shortest_path_dict = dict()
+            with open(file, 'r') as f:
+                reader = csv.reader(f, delimiter="\t")
+                d = list(reader)
+                for path in d:
+                    key = path[0] + "_" + path[-1]
+                    self.shortest_path_dict[key] = len(path)
+        key = word1 + "_" + word2
+        if key in self.shortest_path_dict.keys():
+            return self.shortest_path_dict[key]
+        else:
+            return 0
 
 if __name__ == "__main__":
     logging.basicConfig(

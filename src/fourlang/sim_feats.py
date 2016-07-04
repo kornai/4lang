@@ -4,6 +4,7 @@ from pymachine.utils import MachineGraph, jaccard
 import networkx as nx
 import networkx.algorithms.isomorphism as iso
 import itertools
+import os.path
 
 class SimFeatures:
     def __init__(self, cfg, section, lexicon):
@@ -18,14 +19,26 @@ class SimFeatures:
             'nodes_contain' : ['nodes_contain'],
             '0-connected' : ['0-connected'],
             'is_antonym' : ['is_antonym'],
-            'subgraphs' : ['subgraph_N_0_N', 'subgraph_N_1_N', 'subgraph_N_2_N'],
+            'subgraphs' : ['subgraph_3N'],
             'fullgraph' : ['shortest_path']
         }
-        self.full_graph = self.lexicon.get_full_graph()
 
-        self.file = open('/home/eszter/dijstra_res_TEST.txt', 'w')
-        print "NODES count: {0}".format(len(self.full_graph.nodes()))
-        print "EDGES count: {0}".format(len(self.full_graph.edges()))
+        self.shortest_path_file_name = cfg.get(section, 'shortest_path_res')
+        if not os.path.isfile(self.shortest_path_file_name) or cfg.getboolean(section, 'calc_shortest_path'):
+            self.calc_path = True
+            shortest_path_dir = os.path.dirname(self.shortest_path_file_name)
+            if not os.path.exists(shortest_path_dir):
+                os.makedirs(shortest_path_dir)
+            self.shortest_path_res = open(self.shortest_path_file_name, 'w')
+        else:
+            self.calc_path = False
+
+
+        if 'fullgraph' in self.feats_to_get:
+            self.full_graph = self.lexicon.get_full_graph()
+            print "NODES count: {0}".format(len(self.full_graph.nodes()))
+            print "EDGES count: {0}".format(len(self.full_graph.edges()))
+            self.UG = self.full_graph.to_undirected()
 
     def get_all_features(self, graph1, graph2):
         all_feats = dict()
@@ -106,18 +119,22 @@ class SimFeatures:
         return temp.subgraph_dict
 
     def fullgraph(self, name1, name2):
-        FG = self.full_graph
-        UG = FG.to_undirected()
-        lenght = 0
-        if nx.has_path(UG, name1, name2):
-            path = nx.shortest_path(UG, name1, name2)
-            lenght = len(path)
-            print "PATH: " + name1 + " " + name2
-            print path
-            print lenght
-            self.file.write("\t".join(path))
-            self.file.write("\n")
-        return {"shortest_path" : lenght}
+        ####################
+        # Only for calculating shortest path
+        ####################
+        if self.calc_path:
+            length = 0
+            if nx.has_path(self.UG, name1, name2):
+                path = nx.shortest_path(self.UG, name1, name2)
+                length = len(path)
+                print "PATH: " + name1 + " " + name2
+                print path
+                print length
+                self.shortest_path_res.write("\t".join(path))
+                self.shortest_path_res.write("\n")
+        else:
+            length = self.lexicon.get_shortest_path(name1, name2, self.shortest_path_file_name)
+        return {"shortest_path" : length}
 
     def contains(self, links, name):
         for link in links:
@@ -185,8 +202,8 @@ class SubGraphFeatures():
 
         self.subgraph_dict = dict()
         # self.subgraph_dict.update(self._get_subgraph_N(G1.G, G2.G, name1, name2))
-        self.subgraph_dict.update(self._get_subgraph_N_X_N(G1.G, G2.G, name1, name2))
-        # self.subgraph_dict.update(self._get_subgraph_3_nodes(G1.G, G2.G, name1, name2))
+        # self.subgraph_dict.update(self._get_subgraph_N_X_N(G1.G, G2.G, name1, name2))
+        self.subgraph_dict.update(self._get_subgraph_3_nodes(G1.G, G2.G, name1, name2))
 
     # TODO: not useful
     def _get_subgraph_N(self, graph1, graph2, name1, name2):
