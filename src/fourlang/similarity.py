@@ -62,10 +62,10 @@ class WordSimilarity():
         self.log('links1_expand: {0}, links2_expand: {1}'.format(links1_expand, links2_expand))
         self.log('nodes1_expand: {0}, nodes2_expand: {1}'.format(nodes1_expand, nodes2_expand))
 
-        # TODO: should be machine_expand
         sims = self.sim_feats.get_all_features(MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
                                                MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
 
+        # TODO: we should use this way, but so far it didn't prove to be better
         # if sims['is_antonym'] == 1:
         #     sims['shortest_path'] = 0
 
@@ -399,8 +399,9 @@ def main_word_test(cfg):
     from scipy.stats.stats import pearsonr
     word_sim = WordSimilarity(cfg)
 
-    machine = word_sim.lexicon.get_machine('merry-go-round')
-    links, nodes = word_sim.get_links_nodes(machine)
+    # TODO: only testing
+    # machine = word_sim.lexicon.get_machine('merry-go-round')
+    # links, nodes = word_sim.get_links_nodes(machine)
 
     test_pairs = get_test_pairs(cfg.get('sim', 'word_test_data'))
     sims, gold_sims = [], []
