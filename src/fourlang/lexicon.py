@@ -13,7 +13,6 @@ from pymachine.utils import MachineGraph, MachineTraverser
 from utils import get_cfg
 
 import networkx as nx
-import os
 import csv
 
 
@@ -165,6 +164,9 @@ class Lexicon():
 
     def get_new_machine(self, printname):
         """returns a new machine without adding it to any lexicon"""
+        #TODO
+        if printname == 'have':
+            return self.get_new_machine('HAS')
         return Machine(printname, ConceptControl())
 
     def get_expanded_definition(self, printname):
@@ -191,10 +193,9 @@ class Lexicon():
         if printname.isupper():
             return self.get_new_machine(printname)
 
-        # # TODO: hack
-        # if printname == 'have':
-        #     print "HAVE"
-        #     return self.get_machine('HAS')
+        # TODO: hack
+        if printname == 'have':
+            return self.get_machine('HAS')
 
         machines = self.lexicon.get(
             printname, self.ext_lexicon.get(
