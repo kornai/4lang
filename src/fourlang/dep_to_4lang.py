@@ -244,6 +244,13 @@ class Dependency():
             # logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split('_', 1)[1].upper()
 
+        # Universal Dependencies
+        if ((dep.startswith('acl:') and not dep.startswith('acl:relcl')) or
+                dep.startswith('advcl:') or
+                dep.startswith('nmod:')) and rel is None:
+            logging.info('adding new rel from: {0}'.format(dep))
+            rel = dep.split(':', 1)[1].upper()
+
         return Dependency(dep, patt1, patt2, Dependency.get_standard_operators(
             edge1, edge2, rel, reverse))
 
