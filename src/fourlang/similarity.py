@@ -98,6 +98,7 @@ class WordSimilarity():
     def word_similarities(self, word1, word2):
         if (word1, word2) in self.word_sim_cache:
             return self.word_sim_cache[(word1, word2)]
+        # TODO: uppercase flag = ?
         lemma1, lemma2 = [self.lemmatizer.lemmatize(
             word, defined=self.defined_words, stem_first=True)
             for word in (word1, word2)]
@@ -329,6 +330,7 @@ class SimComparer():
         logging.warning('lemmatizing words to determine machine-OOVs...')
         self.non_oov = set(
             (word for word in self.non_oov
+                # TODO: uppercase flag = ?
                 if self.sim_wrapper.lemmatizer.lemmatize(
                     word, defined=self.sim_wrapper.machine_wrapper.definitions,
                     stem_first=True) is not None))

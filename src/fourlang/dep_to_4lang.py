@@ -114,7 +114,7 @@ class DepTo4lang():
     def get_root_lemmas(self, deps):
         return [
             d['dep'].setdefault(
-                'lemma', self.lemmatizer.lemmatize(d['dep']['word']))
+                'lemma', self.lemmatizer.lemmatize(d['dep']['word'], uppercase=True))
             for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
@@ -138,7 +138,7 @@ class DepTo4lang():
             logging.info('word2machine: {0}'.format(word2machine))
             sys.exit(-1)
 
-        word_machine = self.lexicon.get_new_machine(word)
+        word_machine = self.lexicon.get_machine(word, new_machine=True)
 
         for root_machine in root_machines:
             word_machine.unify(root_machine)
@@ -162,7 +162,7 @@ class DepTo4lang():
             for dep in deps:
                 for t in (dep['gov'], dep['dep']):
                     self.word2lemma[t['word']] = t.setdefault(
-                        'lemma', self.lemmatizer.lemmatize(t['word']))
+                        'lemma', self.lemmatizer.lemmatize(t['word'], uppercase=True))
 
         for i, deps in enumerate(dep_lists):
             try:
@@ -197,8 +197,8 @@ class DepTo4lang():
 
                     for lemma in (lemma1, lemma2):
                         if lemma not in word2machine:
-                            word2machine[lemma] = self.lexicon.get_new_machine(
-                                lemma)
+                            word2machine[lemma] = self.lexicon.get_machine(
+                                lemma, new_machine=True)
 
                     self.apply_dep(
                         dep, word2machine[lemma1], word2machine[lemma2])
