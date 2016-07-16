@@ -128,6 +128,9 @@ class DepTo4lang():
         word2machine = self.get_machines_from_deps_and_corefs(
             [deps], [], process_deps=False)
 
+        if word in word2machine:
+            return word2machine[word]
+
         root_machines = filter(None, map(word2machine.get, root_lemmas))
         if not root_machines:
             logging.info("failed to find root machine")
