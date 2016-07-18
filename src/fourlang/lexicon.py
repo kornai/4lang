@@ -87,7 +87,7 @@ class Lexicon():
                 if not pn:
                     logging.warning(u"empty pn in node: {0}, word: {1}".format(
                         node, word))
-                node2machine[node] = self.get_new_machine(pn)
+                node2machine[node] = self.get_machine(pn, new_machine=True)
 
         for node1, adjacency in graph.adjacency_iter():
             machine1 = node2machine[node1]
@@ -162,13 +162,6 @@ class Lexicon():
             raise Exception("duplicate word in lexicon: '{0}'".format(lexicon))
         lexicon[printname] = set([machine])
 
-    def get_new_machine(self, printname):
-        """returns a new machine without adding it to any lexicon"""
-        #TODO
-        if printname == 'have':
-            return self.get_new_machine('HAS')
-        return Machine(printname, ConceptControl())
-
     def get_expanded_definition(self, printname):
         machine = self.expanded_lexicon.get(printname)
         if machine is not None:
@@ -179,23 +172,23 @@ class Lexicon():
         self.expanded_lexicon[printname] = machine
         return machine
 
-    def get_machine(self, printname, allow_new_base=False,
+    def get_machine(self, printname, new_machine=False, allow_new_base=False,
                     allow_new_ext=False, allow_new_oov=True):
         """returns the lowest level (base < ext < oov) existing machine
         for the printname. If none exist, creates a new machine in the lowest
         level allowed by the allow_* flags. Will always create new machines
         for uppercase printnames"""
 
+        # returns a new machine without adding it to any lexicon
+        if new_machine:
+            return Machine(printname, ConceptControl())
+
         # TODO
         if not printname:
             return self.get_machine("_empty_")
 
         if printname.isupper():
-            return self.get_new_machine(printname)
-
-        # TODO: hack
-        if printname == 'have':
-            return self.get_machine('HAS')
+            return self.get_machine(printname, new_machine=True)
 
         machines = self.lexicon.get(
             printname, self.ext_lexicon.get(

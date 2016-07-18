@@ -132,6 +132,9 @@ class DependencyProcessor():
                     if dep.startswith('conj_'):
                         for word2 in words:
                             deps.merge(word1, word2, exclude=['conj_'])
+                    elif dep.startswith('conj:'):
+                        for word2 in words:
+                            deps.merge(word1, word2, exclude=['conj:'])
         return deps
 
     def process_coordinated_root(self, deps):
@@ -141,6 +144,9 @@ class DependencyProcessor():
                 if dep.startswith('conj_'):
                     for word in words:
                         deps.merge(word, root_word, exclude=['conj_'])
+                elif dep.startswith('conj:'):
+                    for word in words:
+                        deps.merge(word, root_word, exclude=['conj:'])
         return deps
 
     def process_rcmods(self, deps):

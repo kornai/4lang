@@ -2,6 +2,7 @@ import logging
 import os
 import sys
 
+from nltk.corpus import stopwords as nltk_stopwords
 from hunmisc.utils.huntool_wrapper import Hundisambig, Ocamorph, OcamorphAnalyzer, MorphAnalyzer  # nopep8
 from stemming.porter2 import stem as porter_stem
 
@@ -12,6 +13,10 @@ class Lemmatizer():
     def __init__(self, cfg):
         self.cfg = cfg
         self.analyzer, self.morph_analyzer = self.get_analyzer()
+
+        self.stopwords = set(nltk_stopwords.words('english'))
+        self.stopwords.add('as')  # TODO
+        self.stopwords.add('root')  # TODO
 
         self.read_cache()
         self.oov = set()
@@ -30,13 +35,23 @@ class Lemmatizer():
 
         self.cache[word] = (stem, lemma, candidates)
 
-    def lemmatize(self, word, defined=None, stem_first=False,
+    def _lemmatize_with_stopwords(self, word, uppercase):
+        if word == 'have':
+            return 'HAS'
+        elif not uppercase:
+            return word
+        elif word in self.stopwords:
+            return word.upper()
+        else:
+            return word
+
+    def lemmatize(self, word, defined=None, stem_first=False, uppercase=False,
                   debug=False):
         # if 'defined' is provided, will refuse to return lemmas not in it
 
         # if the word is defined, we just return it
         if defined is not None and word in defined:
-            return word
+            return self._lemmatize_with_stopwords(word, uppercase)
 
         # if the word is not in our cache, we run all analyses
         if word not in self.cache:
@@ -51,22 +66,22 @@ class Lemmatizer():
                 logging.warning("stem_first=True and defined=None, \
                                 'lemmatize' is now a blind Porter stemmer")
             stemmed_lemma = self.lemmatize(
-                stem, defined=defined, stem_first=False)
+                stem, defined=defined, stem_first=False, uppercase=uppercase)
             if stemmed_lemma is not None:
-                return stemmed_lemma
+                return self._lemmatize_with_stopwords(stemmed_lemma, uppercase)
 
         # we return the lemma unless it's not in defined
         if defined is None or lemma in defined:
-            return lemma
+            return self._lemmatize_with_stopwords(lemma, uppercase)
 
         # we go over the other candidates as a last resort
         for cand in candidates:
             if cand in defined:
-                return cand
+                return self._lemmatize_with_stopwords(cand, uppercase)
 
         # last resort is the porter stem:
         if stem in defined:
-            return stem
+            return self._lemmatize_with_stopwords(stem, uppercase)
 
         # if that doesn't work either, we return None
         return None

@@ -297,3 +297,267 @@ prepc_towards	-,-
 prepc_until	-,-
 prepc_up	-,-
 prepc_while	-,-
+
+
+############################################################
+# Universal Dependencies
+# Some lines may occur above, these are commented out below.
+############################################################
+
+# clausal modifier of noun
+acl	-,-
+acl:about	-,-
+acl:after	-,-
+acl:as	-,-
+acl:at	-,-
+acl:based_on	-,-
+acl:before	-,-
+acl:between	-,-
+acl:by	-,-
+acl:compared_to	-,-
+acl:compared_with	-,-
+acl:except_for	-,-
+acl:for	-,-
+acl:from	-,-
+acl:in	-,-	IN
+acl:in_order	-,-
+acl:including	-,-
+acl:inside	-,-
+acl:like	-,-
+acl:near	-,-
+acl:next_to	-,-
+acl:of	-,-
+acl:on	-,-
+acl:out_of	-,-
+acl:rather_than	-,-
+acl:relcl	-,-
+acl:than	-,-
+acl:through	-,-
+acl:to	-,-
+acl:with	-,-	INSTRUMENT
+acl:without	-,-	LACK
+
+# adverbial clause modifier
+advcl	0,-
+advcl:about	-,-
+advcl:according_to	-,-
+advcl:around	-,-
+advcl:as	-,-
+advcl:at	-,-
+advcl:away_from	-,-
+advcl:based_on	-,-
+advcl:because_of	-,-
+advcl:but	-,-
+advcl:by	-,-
+advcl:compared_to	-,-
+advcl:compared_with	-,-
+advcl:existing	-,-
+advcl:for	-,-
+advcl:from	-,-
+advcl:in	-,-
+advcl:in_order	-,-
+advcl:instead_of	-,-
+advcl:into	-,-
+advcl:of	-,-
+advcl:on	-,-
+advcl:onto	-,-
+advcl:out	-,-
+advcl:out_of	-,-
+advcl:rather_than	-,-
+advcl:than	-,-
+advcl:to	-,-
+advcl:towards	-,-
+advcl:under	-,-
+advcl:with	-,-	INSTRUMENT
+advcl:without	-,-	LACK
+
+# adverbial modifier
+# advmod	0,-
+
+# adjectival modifier
+# amod	0,-
+
+# appositional modifier
+# appos	0,0
+
+# auxiliary
+# aux	-,-
+
+# passive auxiliary
+# auxpass	-,-
+
+# case making
+case	-,-
+
+# coordination
+# cc	-,-
+
+# preconjunct
+cc:preconj	-,-
+
+# clausal complement
+ccomp	2,-
+
+# compund
+compound	-,-
+
+# phrasal verb particle
+compound:prt	0,-
+
+# conj	-,-
+conj:and	-,-
+conj:but	-,-
+conj:if	-,-
+conj:negcc	-,-
+conj:nor	-,-
+conj:not	-,-
+conj:of	-,-
+conj:or	-,-
+conj:so	-,-
+conj:well	-,-
+
+# cop	-,-
+#but will be necessary to disambiguate nsubj and csubj
+
+# clausal subject
+# csubj	1,0
+# 1,0 for copular sentences, 1,- otherwise (just like with nsubj)
+
+# clausal passive subject
+# csubjpass	2,-
+
+# dep	0,-
+
+# det	?,?
+#Articles will probably trigger some direct action and not have their own nodes
+#in the graph
+
+# det:predet	-,-
+# discourse	-,-
+
+# direct object
+# dobj	2,-
+
+# expl	-,-
+# iobj	?,?
+mark	-,-
+
+# mwe	-,-
+#We should handle each of these uniquely
+
+# neg	0,-
+#Mostly X -0-> "not". "no", "never", and "n't" are posptrocessed into "not"
+
+# nominal modifiers
+nmod	0,-
+nmod:'	-,-	HAS
+nmod:'s	-,-	HAS
+nmod:about	-,-
+nmod:above	-,-
+nmod:according_to	-,-
+nmod:across	-,-
+nmod:after	-,-	AFTER
+nmod:against	-,-
+nmod:agent	-,-
+nmod:ahead_of	-,-
+nmod:along	-,-
+nmod:among	-,-
+nmod:apart_from	-,-
+nmod:around	-,-
+nmod:as	-,-
+nmod:at	-,-
+nmod:away_from	-,-
+nmod:based_on	-,-
+nmod:because	-,-
+nmod:because_of	-,-
+nmod:before	-,-
+nmod:behind	-,-
+nmod:below	-,-
+nmod:beneath	-,-
+nmod:beside	-,-
+nmod:between	-,-
+nmod:beyond	-,-
+nmod:but	-,-
+nmod:by	-,-
+nmod:close_to	-,-
+nmod:containing	-,-
+nmod:down	-,-
+nmod:during	-,-
+nmod:except	-,-
+nmod:except_for	-,-
+nmod:far_from	-,-
+nmod:following	-,-
+nmod:for	-,-	FOR
+nmod:from	-,-
+nmod:given	-,-
+nmod:if	-,-
+nmod:in	-,-	IN
+nmod:in_addition_to	-,-
+nmod:in_front_of	-,-
+nmod:in_order	-,-
+nmod:including	-,-
+nmod:inside	-,-
+nmod:inside_of	-,-
+nmod:instead_of	-,-
+nmod:into	-,-
+nmod:involving	-,-
+nmod:less	-,-
+nmod:like	-,-
+nmod:near	-,-
+nmod:nearest	-,-
+nmod:next_to	-,-
+
+# noun phrase as adverbial modifier
+nmod:npmod	0,-
+
+nmod:of	-,-	!HAS
+nmod:off	-,-
+nmod:on	-,-
+nmod:onto	-,-
+nmod:opposite	-,-
+nmod:or	-,-
+nmod:out	-,-
+nmod:out_of	-,-	NOTIN
+nmod:outside	-,-
+nmod:outside_of	-,-
+nmod:over	-,-
+nmod:past	-,-
+nmod:per	-,-
+nmod:poss	-,-	!HAS
+nmod:rather_than	-,-
+nmod:since	-,-
+nmod:subsides	-,-
+nmod:such_as	-,-
+nmod:than	-,-
+nmod:that	-,-
+nmod:through	-,-
+nmod:tmod	-,-	AT
+nmod:to	-,-
+nmod:together_with	-,-
+nmod:towards	-,-
+nmod:under	-,-
+nmod:until	-,-
+nmod:up	-,-
+nmod:using	-,-
+nmod:while	-,-
+nmod:with	-,-	INSTRUMENT
+nmod:within	-,-
+nmod:without	-,-
+
+# nominal subject
+# nsubj	1,0
+
+# passive nominal subject
+# nsubjpass	2,-
+
+# numeric modifier
+nummod	0,-
+
+# parataxis	?,?
+# ref	-,-
+
+# root	-,-
+# tells us what the predicate is
+
+# open clausal complement
+# xcomp	2,-

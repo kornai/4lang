@@ -103,7 +103,6 @@ class SimFeatures:
         if val == -1:
             if name1 in links2_expand or name2 in links1_expand:
                 val2 = 1
-        #ret.update({ "0-connected_exp" : val2 })
         return ret
 
     def is_antonym(self, name1, nodes1, name2, nodes2):
@@ -124,6 +123,8 @@ class SimFeatures:
         ####################
         if self.calc_path:
             length = 0
+            if name1 not in self.UG.nodes() or name2 not in self.UG.nodes():
+                return {"shortest_path" : length}
             if nx.has_path(self.UG, name1, name2):
                 path = nx.shortest_path(self.UG, name1, name2)
                 length = len(path)
@@ -176,29 +177,6 @@ class SubGraphFeatures():
         G2 = MachineGraph.create_from_machines([machine2], max_depth=max_depth)
         name1 = machine1.printname()
         name2 = machine2.printname()
-
-        # TODO: hack
-        # G1_str = MachineGraph.create_from_machines([machine1], max_depth=max_depth, str_graph=True)
-        # G2_str = MachineGraph.create_from_machines([machine2], max_depth=max_depth, str_graph=True)
-        #
-        # print name1
-        # print G1.G.nodes()
-        # print G1_str.G.nodes()
-        # print G1.G.edges()
-        # print G1_str.G.edges()
-        # print name2
-        # print G2.G.nodes()
-        # print G2_str.G.nodes()
-        # print G2.G.edges()
-        # print G2_str.G.edges()
-        #
-        # if(name2 == 'intelligent'):
-        #     G2_str.G = G2_str.G.to_undirected()
-        #     print nx.shortest_path_length(G2_str.G, 'intelligent', 'intelligence')
-        #     print G2_str.G.nodes(data=True)
-        #     print G2_str.G.edges(data=True)
-
-        # TODO: end_hack
 
         self.subgraph_dict = dict()
         # self.subgraph_dict.update(self._get_subgraph_N(G1.G, G2.G, name1, name2))

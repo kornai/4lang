@@ -114,7 +114,7 @@ class DepTo4lang():
     def get_root_lemmas(self, deps):
         return [
             d['dep'].setdefault(
-                'lemma', self.lemmatizer.lemmatize(d['dep']['word']))
+                'lemma', self.lemmatizer.lemmatize(d['dep']['word'], uppercase=True))
             for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
@@ -128,6 +128,9 @@ class DepTo4lang():
         word2machine = self.get_machines_from_deps_and_corefs(
             [deps], [], process_deps=False)
 
+        if word in word2machine:
+            return word2machine[word]
+
         root_machines = filter(None, map(word2machine.get, root_lemmas))
         if not root_machines:
             logging.info("failed to find root machine")
@@ -135,7 +138,7 @@ class DepTo4lang():
             logging.info('word2machine: {0}'.format(word2machine))
             sys.exit(-1)
 
-        word_machine = self.lexicon.get_new_machine(word)
+        word_machine = self.lexicon.get_machine(word, new_machine=True)
 
         for root_machine in root_machines:
             word_machine.unify(root_machine)
@@ -159,7 +162,7 @@ class DepTo4lang():
             for dep in deps:
                 for t in (dep['gov'], dep['dep']):
                     self.word2lemma[t['word']] = t.setdefault(
-                        'lemma', self.lemmatizer.lemmatize(t['word']))
+                        'lemma', self.lemmatizer.lemmatize(t['word'], uppercase=True))
 
         for i, deps in enumerate(dep_lists):
             try:
@@ -194,8 +197,8 @@ class DepTo4lang():
 
                     for lemma in (lemma1, lemma2):
                         if lemma not in word2machine:
-                            word2machine[lemma] = self.lexicon.get_new_machine(
-                                lemma)
+                            word2machine[lemma] = self.lexicon.get_machine(
+                                lemma, new_machine=True)
 
                     self.apply_dep(
                         dep, word2machine[lemma1], word2machine[lemma2])
@@ -243,6 +246,13 @@ class Dependency():
                 dep.startswith('prepc_')) and rel is None:
             # logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split('_', 1)[1].upper()
+
+        # Universal Dependencies
+        if ((dep.startswith('acl:') and not dep.startswith('acl:relcl')) or
+                dep.startswith('advcl:') or
+                dep.startswith('nmod:')) and rel is None:
+            logging.info('adding new rel from: {0}'.format(dep))
+            rel = dep.split(':', 1)[1].upper()
 
         return Dependency(dep, patt1, patt2, Dependency.get_standard_operators(
             edge1, edge2, rel, reverse))
