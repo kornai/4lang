@@ -1,4 +1,3 @@
-from ConfigParser import ConfigParser
 import logging
 import re
 import sys
@@ -6,6 +5,8 @@ import sys
 import zmq
 
 from longman_parser import XMLParser
+
+from utils import get_cfg
 
 class Parser(XMLParser):
     sen_regex = re.compile(
@@ -82,12 +83,12 @@ class CoreNLPWrapper():
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
-    cfg = ConfigParser()
-    cfg.read([cfg_file])
+    cfg = get_cfg(cfg_file)
 
     wrapper = CoreNLPWrapper(cfg)
+    input_file = cfg.get('text', 'input_sens')
     parsed_sens, corefs = wrapper.parse_text(
-        open('test/input/mrhug_story.sens').read())
+        open(input_file).read())
     print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 
