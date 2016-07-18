@@ -488,7 +488,7 @@ nmod:except_for	-,-
 nmod:far_from	-,-
 nmod:following	-,-
 nmod:for	-,-	FOR
-nmod:from	-,-	from
+nmod:from	-,-
 nmod:given	-,-
 nmod:if	-,-
 nmod:in	-,-	IN

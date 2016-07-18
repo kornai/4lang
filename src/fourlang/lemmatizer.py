@@ -36,10 +36,10 @@ class Lemmatizer():
         self.cache[word] = (stem, lemma, candidates)
 
     def _lemmatize_with_stopwords(self, word, uppercase):
-        if not uppercase:
-            return word
-        elif word == 'have':
+        if word == 'have':
             return 'HAS'
+        elif not uppercase:
+            return word
         elif word in self.stopwords:
             return word.upper()
         else:
