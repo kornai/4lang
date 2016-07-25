@@ -18,18 +18,20 @@ __MACHINE_LOGLEVEL__ = 'INFO'
 class TextTo4lang():
     square_regex = re.compile("\[.*?\]")
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, direct_parse=False):
         self.cfg = cfg
         self.lang = self.cfg.get("deps", "lang")
-        self.deps_dir = self.cfg.get('text', 'deps_dir')
+        if not direct_parse:
+            self.deps_dir = self.cfg.get('text', 'deps_dir')
+            ensure_dir(self.deps_dir)
         # self.machines_dir = self.cfg.get('text', 'machines_dir')
         self.graphs_dir = cfg.get('text', 'graph_dir')
-        map(ensure_dir, (self.deps_dir, self.graphs_dir))  # self.machines_dir
+        ensure_dir(self.graphs_dir)
         if self.lang == 'en':
             self.parser_wrapper = CoreNLPWrapper(self.cfg)
         elif self.lang == 'hu':
             self.parser_wrapper = Magyarlanc(self.cfg)
-        self.dep_to_4lang = DepTo4lang(self.cfg)
+        self.dep_to_4lang = DepTo4lang(self.cfg, direct_parse)
 
     @staticmethod
     def preprocess_text(text):
@@ -124,6 +126,22 @@ class TextTo4lang():
         # ipdb.set_trace()
         return None
 
+    def process_phrase(self, phrase):
+        preproc_sens = []
+        preproc_sens.append(TextTo4lang.preprocess_text(
+                phrase.strip().decode('utf-8')))
+        deps, corefs = self.parser_wrapper.parse_text("\n".join(preproc_sens))
+        machine = self.dep_to_4lang.get_machines_from_deps_and_corefs(
+            [deps[0]], corefs)
+        if self.cfg.getboolean('text', 'expand'):
+            self.dep_to_4lang.lexicon.expand(machine)
+
+        file_name = phrase.replace(' ', '_')
+        file_name = file_name.replace('.', '')
+
+        if self.cfg.getboolean('text', 'print_graphs'):
+            fn = print_text_graph(machine, self.graphs_dir, fn=file_name)
+        return machine
 
 def main():
     logging.basicConfig(
@@ -134,7 +152,8 @@ def main():
 
     cfg = get_cfg(cfg_file)
     text_to_4lang = TextTo4lang(cfg)
-    text_to_4lang.process()
+    text_to_4lang.process_phrase("national government.")
+    # text_to_4lang.process()
 
 if __name__ == "__main__":
     main()
