@@ -89,7 +89,11 @@ class TextTo4lang():
                 continue
             preproc_sens.append(TextTo4lang.preprocess_text(
                 line.strip().decode('utf-8')))
-        deps, corefs = self.parser_wrapper.parse_text("\n".join(preproc_sens))
+        deps, corefs, parse_trees = self.parser_wrapper.parse_text("\n".join(preproc_sens))
+        parse_tree_fn = out_fn.split('.')[0] + '_parse_trees.txt'
+        with open(parse_tree_fn, 'w') as out_f:
+            for sen, parse_tree in zip(preproc_sens, parse_trees):
+                out_f.write("{0}\t{1}\n".format(sen, parse_tree))
         with open(out_fn, 'w') as out_f:
             out_f.write("{0}\n".format(json.dumps({
                 "deps": deps,
@@ -106,6 +110,7 @@ class TextTo4lang():
                 # logging.info("processing sentences...")
                 machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
                     [sen_deps], corefs)
+                # TODO: not always works
                 if self.cfg.getboolean('text', 'expand'):
                     self.dep_to_4lang.lexicon.expand(machines)
 
@@ -152,8 +157,8 @@ def main():
 
     cfg = get_cfg(cfg_file)
     text_to_4lang = TextTo4lang(cfg)
-    text_to_4lang.process_phrase("national government.")
-    # text_to_4lang.process()
+    # text_to_4lang.process_phrase("national government.")
+    text_to_4lang.process()
 
 if __name__ == "__main__":
     main()
