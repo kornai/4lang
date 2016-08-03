@@ -1,3 +1,4 @@
+from ConfigParser import ConfigParser
 import logging
 import re
 import sys
@@ -5,8 +6,6 @@ import sys
 import zmq
 
 from longman_parser import XMLParser
-
-from utils import get_cfg
 
 class Parser(XMLParser):
     sen_regex = re.compile(
@@ -21,6 +20,7 @@ class Parser(XMLParser):
         <dependent idx="([0-9]*)">(.*?)</dependent>', re.S)
     repr_mention_regex = re.compile(
         '<mention representative="true">(.*?)</mention>', re.S)
+    parse_tree_regex = re.compile('<parse>(.*?)</parse>', re.S)
 
     @staticmethod
     def parse_mention(mention):
@@ -58,12 +58,14 @@ class Parser(XMLParser):
         parsed_sens = [Parser.parse_sen(sen)
                        for sen in Parser.sen_regex.findall(cl_output)]
 
+        parse_trees = [match for match in Parser.parse_tree_regex.findall(cl_output)]
+
         corefs_match = Parser.all_corefs_regex.search(cl_output)
         if corefs_match is None:
             corefs = []
         else:
             corefs = Parser.parse_corefs(corefs_match.group(1))
-        return parsed_sens, corefs
+        return parsed_sens, corefs, parse_trees
 
 class CoreNLPWrapper():
 
@@ -83,12 +85,12 @@ class CoreNLPWrapper():
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
-    cfg = get_cfg(cfg_file)
+    cfg = ConfigParser()
+    cfg.read([cfg_file])
 
     wrapper = CoreNLPWrapper(cfg)
-    input_file = cfg.get('text', 'input_sens')
     parsed_sens, corefs = wrapper.parse_text(
-        open(input_file).read())
+        open('test/input/mrhug_story.sens').read())
     print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 
