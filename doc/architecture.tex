@@ -1,0 +1,397 @@
+\documentclass{article}
+% vi: tw=79
+
+\usepackage{xspace}
+
+\newcommand{\defl}{\texttt{dep\_to\_4lang}\xspace}
+\newcommand{\difl}{\texttt{dict\_to\_4lang}\xspace}
+\newcommand{\tfl}{\texttt{text\_to\_4lang}\xspace}
+\newcommand{\tefl}{\texttt{text\_to\_4lang}\xspace}
+\newcommand{\fl}{\texttt{4lang}\xspace}
+
+\newcommand{\edge}[3]{\texttt{#1}~$\xrightarrow#2$~\texttt{#3}}
+\newcommand{\twoedges}[4]{\texttt{#1}~$\overset{#2}{\underset{#3}{\rightleftharpoons}}$~\texttt{#4}}
+\newcommand{\bin}[3]{
+    \texttt{#2}~$\xleftarrow1$~\texttt{#1}~$\xrightarrow2$~\texttt{#3}}
+\title{Architecture of the \texttt{4lang} system}
+\author{G\'abor Recski \\ \texttt{recski@mokk.bme.hu}}
+
+\usepackage{hyperref}
+\begin{document}
+\maketitle
+
+
+This chapter describes the main building blocks of the \texttt{4lang} system.
+The most up-to-date version of this document is available under
+\url{https://github.com/kornai/4lang/tree/master/doc}. Besides introducing the
+main modules \defl (Section~\ref{sec:defl}) and \difl (Section~\ref{sec:difl}),
+which were introduced in Chapters~\ref{chap:phrases}~and~\ref{chap:defparsing}
+repsectively, this chapter also describes auxiliary components
+such as the \texttt{Lemmatizer} and \texttt{Lexicon} classes
+(Sections~\ref{sec:lemmatizer}~and~\ref{sec:lexicon}) as well as some modules of
+the \texttt{pymachine} library used by \fl (Section~\ref{sec:pymachine}).
+Section~\ref{sec:requirements} lists the external dependencies of the \fl
+module along with brief instructions on how to obtain and install them.
+The purpose of the short overview in Section \ref{sec:overview}) is to make
+this chapter accessible on its own, those who have read
+Chapters~\ref{chap:4lang}~through~\ref{chap:applications} of this thesis may
+safely skip it.
+Finally, Section~\ref{sec:config} gives detailed instructions on how to
+customize each \fl tool using configuration files.
+
+\section{Overview}
+\label{sec:overview}
+
+The \texttt{4lang} library provides tools to build and manipulate directed
+graphs of concepts that represent the meaning of words, phrases and sentences.
+\texttt{4lang} can be used to
+\begin{itemize}
+    \item build concept graphs from plain text (\tfl)
+    \item build concept graphs from dictionary definitions (\difl)
+    \item measure semantic similarity of concept graphs
+    \item (experimental) measure entailment between concept graphs
+\end{itemize}
+Both \tfl and \difl rely on the Stanford CoreNLP (English) and the
+\texttt{magyarlanc} (Hungarian) toolchains for generating dependency relations
+from text, which are in turn processed by the \defl module.
+
+The top-level file \fl contains a manually built concept dictionary, mapping
+ca. 3000 words to \fl-style definition graphs. Graphs are specified using a
+simple human-readable format, partially documented in \cite{Kornai:2015a} (a
+more complete description is forthcoming). Definitions in the \fl dictionary
+can be processed using the \texttt{definition\_parser} module of the
+\texttt{pymachine} library (see Section~\ref{sec:pymachine}).
+% MM nincs rendesen leírva. A legjobb, ami most van, az a grammatika, ami
+% Konrai:2015-be is bekerült magyarázat nélkül. Némi magyarázat van hozzá
+% ACL13/Spreading/frag-ban (The nonterminals used in Figure 1 are...).
+% Termezem, hogy leírom egy hyperedge replacement grammar formájában, ami egyszerre
+% generálja a formulákat és a gráfokat, de ez nem biztos, hogy kész lesz
+% addig, amikor neked kell.
+% Másik megoldás lenne rendesebb commenteket írni a definition_parser-be, de
+% maga a kód sem túl logikus. Ha pedig a kódhoz is hozzányúlunk, akkor
+% elméleti kérdések is felmerülnének.
+
+The \texttt{text\_to\_4lang}
+module takes as its input raw text, passes it to the Stanford CoreNLP package
+for dependency parsing and coreference resolution, than calls the \\
+\defl module to convert the output into interconnected Machine
+instances. The \difl tool builds graphs from
+dictionary definitions by extending the pipeline with parsers
+for several machine-readable monolingual dictionaries and some genre-specific
+preprocessing steps.
+
+\section{Requirements}
+\label{sec:requirements}
+
+\subsection{\texttt{pymachine}}
+the \texttt{pymachine} library is responsible for implementing machines, graphs
+of machines, and some more miscellaneous tools for manipulating machines. The
+library is documented in Section~\ref{sec:pymachine}. The library can be
+downloaded from \url{http://www.github.com/kornai/pymachine} and installed by
+running \texttt{python setup.py install} from the \texttt{pymachine} directory.
+
+\subsection{\texttt{hunmorph} and \texttt{hundisambig}}
+The lemmatizer class in \fl, documented in Section~\ref{sec:lemmatizer} uses a
+combination of tools, two of which are the \texttt{hunmorph} open-source library
+for morphological analysis and the \texttt{hundisambig} tool for morphological
+disambiguation. The source code for both can be downloaded from
+\url{http://mokk.bme.hu/en/resources/hunmorph/}, the pre-built models for
+English and Hungarian, \texttt{morphdb.en} and \texttt{morphdb.hu}, are also
+made available. Alternatively, pre-compiled binaries for both \texttt{hunmorph}
+and \texttt{hundisambig} are available at
+\url{http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz}, they can
+be expected to work on most UNIX-based systems. The archive should be extracted
+in the \fl working directory, which will create the \texttt{huntools\_binaries}
+directory. If binaries need to be recompiled, they should also be copied to
+this directory, or the value of the parameter \texttt{hunmorph\_path} must be
+changed in \texttt{default.cfg} to point to an alternative directory.
+
+\subsection{Stanford Parser and CoreNLP}
+\fl runs the Stanford Parser in two separate ways. When parsing dictionary
+definitions, the \texttt{stanford\_wrapper} module launches the
+\texttt{Jython}-based module \texttt{stanford\_parser.py}, which can
+communicate directly with the Stanford Parser API to enforce constraints on the
+parse trees (see Section~\ref{sec:constraining} for details). These modules
+require the presence of the
+Stanford Dependency Parser, which can be obtained from
+\url{http://nlp.stanford.edu/software/lex-parser.shtml#Download}
+and the Jython tool,
+available from \url{http://www.jython.org/downloads.html}.
+After downloading and installing these tools, the
+`stanford' and `corenlp' sections of the default configuration file
+`conf/default.cfg' must be updated so that the relevant fields point to 
+existing installations of each tool and the englishRNN.ser.gz model
+(details on the config file will be given in Section~\ref{sec:config}).
+
+The \tfl tool, on the other hand, runs parsing as well as coreference
+resolution using the Stanford CoreNLP package. To save the overhead of loading
+multiple models each time \tfl is run, CoreNLP is run using the
+\texttt{corenlp-server} tool, which takes care of downloading CoreNLP, then
+launching it and keeping it running in the background, allowing \tfl to pass
+requests to it continuously. The \texttt{corenlp-server} tool can be downloaded
+from \url{https://github.com/kowey/corenlp-server}, then instructions in its
+README should be followed to launch the server.
+
+
+\section{\defl}
+\label{sec:defl}
+The core module for building \fl graphs from text is the \defl module which
+processes the output of dependency parsers. The \tfl module
+only contains glue code for feeding raw text to Stanford CoreNLP and passing the
+output to \defl. The \difl module, which parses and preprocesses dictionary
+definitions before passing them to CoreNLP, will be described in the next
+section.
+
+The \defl module processes for each sentence the output of a dependency parser,
+i.e. a list of relations (or \textit{triplets}) of the form $R(w_1, w_2)$, and
+optionally a list of coreferences, i.e. indications that a group of words
+in the sentence all refer to the same entity (this is currently available for
+English, using the Stanford Coreference Resolution system from the CoreNLP
+library). The configuration passed to the DepTo4lang class upon initialization
+must point to a file containing a map from dependencies to \fl edges and/or
+binary relations. For English the default map is the \texttt{dep\_to\_4lang.txt}
+file in the project's root directory.
+
+The core method of the \defl module is \\
+\texttt{DepTo4lang.get\_machines\_from\_deps\_and\_corefs}, which expects as
+its parameter not just a list of dependencies but also the output of
+coreference resolution, which is called by \tfl but not by \difl. This
+function will ultimately return a map from surface word forms to
+\texttt{Machine} instances. To create machines, the function requires the
+dependencies to also contain each word's lemma - for Hungarian data these are
+extracted from the output of \texttt{magyarlanc} by
+\texttt{magyarlanc\_wrapper}, for English data the \texttt{Lemmatizer} module
+is called (see Section~\ref{sec:lemmatizer}). Dependency triplets are iterated
+over, Machines are instantiated for each lemma, and the \texttt{apply\_dep}
+function is called for each triple of \texttt{(relation, machine1, machine2)}.
+
+The \texttt{apply\_dep} function matches such triplets against
+\texttt{Dependency} instances that have been created by parsing the
+\texttt{dep\_to\_4lang.txt} file containing the mapping from dependency relations
+to \fl configurations. In order to handle morphological features in Hungarian
+data, these patterns may make reference to the \texttt{MSD} labels of words
+which have also been extracted from the \texttt{magyarlanc} output. In case of
+a match, \texttt{Operators} associated with the dependency are run on the
+machines to enforce the specific configurations\footnote{We do not document the
+\texttt{Operator} class, which is used to define complex actions over
+\texttt{Machines} that may be sensitive to some input data. In its current
+state the codebase makes no more use of them as it does of \texttt{Machines}:
+they are elaborate structures performing one or two very simple
+tasks; in this case, adding edges between machines. They do however play a
+significant role in the experimental system presented in
+Section~\ref{sec:spreading} and will likely play a crucial part in \fl-based
+parsing (see Section~\ref{sec:4lang_parsing}).}. 
+
+\section{\difl}
+\label{sec:difl}
+
+The \difl module implements the pipeline that builds \fl graphs from
+dictionary entries by connecting a variety of dictionary parsers, a module for
+preprocessing dictionary entries (\texttt{EntryPreprocessor}), and a custom
+wrapper for the Stanford Parser (\texttt{stanford\_parser.py}) written in
+\texttt{Jython} that allows adding custom constraints to the parsing process.
+The output from dependency parsers is passed by \difl to \defl, the resulting
+graph of \fl concepts is used to construct the definition graph for each
+headword in the dictionary, which are then saved using the \texttt{Lexicon}
+class (see Section~\ref{sec:lexicon}).
+
+\subsection{Parsing dictionaries}
+\difl supports 5 input data formats:
+\begin{itemize}
+    \item an XML version of the Longman Dictionary of Contemporary English
+    \item a typographer's tape version of the Collins COBUILD Dictionary
+        from the ACL/DCI dataset (\url{https://catalog.ldc.upenn.edu/LDC93T1})
+    \item XML dumps of the English Wiktionary (\url{https://dumps.wikimedia.org/enwiktionary/})
+    \item an XML version of the \textit{Magyar Nyelv Nagysz\'ot\'ara}
+        (Hungarian)
+    \item a preprocessed XML format of the \textit{Magyar \'Ertelmez\H o
+        K\'ezisz\'ot\'ar}. (Hungarian)
+\end{itemize}
+        
+These datasets are processed by the modules \texttt{longman\_parser,
+collins\_parser, wiktionary\_parser, nszt\_parser,} and \texttt{eksz\_parser},
+respectively, three of which (\texttt{longman\_parser, wiktionary\_parser,
+eksz\_parser}) are subclasses of the
+\texttt{xml\_parser} module. Each parser extracts a dictionary containing a
+list of definitions for each headword, each with part-of-speech tag (where
+available), and possibly other data which is not currently used by \difl.
+Parsers also perform format-specific
+preprocessing if necessary (e.g. replacing abbreviated forms of frequent words
+with their full form in Hungarian definitions).
+If run as standalone applications, all five parsers will print their output in
+human-readable format, useful for testing.
+
+\subsubsection{\texttt{xml\_parser}}
+Methods common to the three XML-based formats are defined in the abstract superclass \texttt{XMLParser}.
+Methods specific to the Longman dictionary are defined by the \texttt{LongmanParser} class.
+Functions required to parse database dumps of the English Wiktionary
+(available at \url{https://dumps.wikimedia.org/enwiki/}) are defined by the \texttt{WiktionaryParser} class.
+
+\subsubsection{\texttt{collins\_parser}}
+The \texttt{CollinsParser} class, contributed by Attila Bolev\'acz, parses the
+typographer's tape format of the 1979 edition of the Collins English Dictionary,
+fixed by Mark Liberman and made available by LDC as pasrt of the LDC/ACI collection (LDC93T1)\footnote{\url{https://catalog.ldc.upenn.edu/LDC93T1}}
+
+\subsubsection{\texttt{nszt\_parser}}
+The \texttt{NSZTParser} class processes an XML format of a single volume
+of \textit{A Magyar Nyelv Nagysz\'ot\'ara}, made available to the author by editor-in-chief N\'ora Ittz\'es.
+
+\subsubsection{\texttt{eksz\_parser}}
+Finally, the \texttt{EKSZParser} class processes an interim format of \textit{Magyar \'Ertelmez\H o K\'ezisz\'ot\'ar}, created by M\'arton Mih\'altz.
+
+\subsection{Preprocessing entries}
+The output from parsing dictionary data is passed to the
+\texttt{EntryPreprocessor} module, which performs various steps that clean and
+simplify data before it is passed to external syntactic parsers. This module
+defines a list of regex patterns to be removed or replaced in definitions, and
+each pattern can be associated with one or more flags that are added to the
+entry if a replacement took place. It is therefore straightforward to define,
+given a new datasource, rules that will e.g. remove the string
+\textit{of~person} from a definition and simultaneously add the flag
+\texttt{person} to the entry being processed. The preprocessor also performs
+sentence tokenization (via \texttt{nltk.punkt}) and by default keeps only the
+first sentence of the first definition for each headword (but see
+Section~\ref{sec:config} on how to change this).
+
+\subsection{Parsing definitions}
+Definitions returned by \texttt{EntryPreprocessor} are passed to one of two
+external tools for dependency parsing: the Stanford Parser for English
+definitions and the \texttt{magyarlanc} tool for Hungarian, both accessed via
+the python wrappers \texttt{stanford\_wrapper.py} and
+\texttt{magyarlanc\_wrapper.py}. Both wrappers use the \texttt{Subprocess}
+module to launch external tools; \texttt{magyarlanc} is launched directly and
+the Stanford Parser is used via a Jython wrapper.
+
+\subsubsection{Parser wrappers}
+\label{sec:jython}
+Since the \difl module requires access to the Stanford Parser's API (see below
+for details), a wrapper (\texttt{stanford\_parser.py} was written in
+Jython, a Java implementation of the Python interpreter that allows
+direct access to Java classes from
+Python code.
+
+Access to the Stanford Parser API is necessary to pass custom
+\textit{constraints} to the parser before processing sentences, limiting the
+types of possible parse trees. Currently this feature is used to enforce that
+dictionary definitions of nouns get parsed as noun phrases (NPs). When using
+the \texttt{parse\_definitions} function for parsing, part-of-speech tags for
+each entry are passed to the \texttt{get\_constraints} function, which returns
+a list of \texttt{ParserConstraint} instances -- currently a list of length 0
+or 1 (more ParserConstraints can be created from regex \texttt{Patterns}).
+
+The Jython module \texttt{stanford\_parser.py}
+is not to be confused with the python module \texttt{stanford\_wrapper.py}: the
+latter can be imported by any Python application and will launch a Jython
+session running the former.
+
+The \texttt{magyarlanc} library is run directly as a subprocess launched by the
+\texttt{Magyarlanc} class, which also processes the parser's output to obtain
+dependencies as well as morphological information.
+
+\subsection{Processing dependencies}
+The language-specific postprocessing of dependencies described in
+Section~\ref{sec:depproc} takes place in the \texttt{dependency\_processor}
+module. The \texttt{DependencyProcessor} class defines one or more functions
+for each of the processing steps described, these functions take as their
+instances of either the \texttt{Dependencies} or the \texttt{NewDependencies}
+class. The \texttt{Dependencies} class is deprecated, new functions should
+support the \texttt{NewDependencies} class.
+
+\section{The \texttt{Lexicon} class}
+\label{sec:lexicon}
+
+The \texttt{Lexicon} class stores \fl definitions for words, separating the
+manually written ones in the \fl dictionary from those built by the \difl
+module. When invoked from the command line, \texttt{Lexicon.py} processes the
+\fl dictionary (using the \texttt{definition\_parser} module of the
+\texttt{pymachine} library) and saves the resulting \texttt{Lexicon} instance
+in pickle format. \difl loads the lexicon built from \fl, adds definitions
+built from dictionaries, and saves the output. All other applications can load
+any of the pickle files to use the corresponding \texttt{Lexicon} instance.
+Applications typically use the \texttt{get\_machine} function to obtain the \fl
+definition graph for some word. By default, \texttt{get\_machine} first
+searches for definitions of a word in \fl, then among words for which
+graphs have been built automatically, and finally falls back to creating a new
+\texttt{Machine} instance with no definition (i.e. no connections to other
+\texttt{Machines}). The \texttt{expand} function implements expansion of
+definitions (see Section~\ref{sec:expansion}), adding links to all nodes in a
+definition taken from their own definitions. Stopwords are omitted by default,
+the user can specify other words that are to be skipped. Expansion does not
+affect definition graphs stored in the lexicon.
+
+\section{The \texttt{Lemmatizer} class}
+\label{sec:lemmatizer}
+
+The \texttt{Lemmatizer} combines various external tools in trying to map words
+to \fl concepts. For each word processed, the \texttt{lemmatize} function
+invokes the \texttt{hunmorph} morphological analyzer (using wrappers around
+\texttt{ocamorph} and \texttt{hundisambig} from the \texttt{hunmisc} library),
+as well as the Porter stemmer. \texttt{lemmatize} caches the results of each
+analysis step, storing for each word form it encounters the stem (according to
+the Porter stemmer), the list of possible morphological analyses (according to
+\texttt{ocamorph}) and the analysis chosen by \texttt{hundisambig}. In using
+all these to select the lemma to be returned, the \texttt{lemmatize} function
+supports several strategies for different applications.
+
+If no flags are passed, \texttt{lemmatize} returns the output of
+\texttt{hundisambig}. The option \texttt{defined} can be used to pass the list
+of all lemmas from which \texttt{lemmatize} should try to return one (e.g. the
+list of all concepts defined) -- if specified, \texttt{lemmatize} will
+return the word itself if it is defined, then try the lemma from
+\textit{hundisambig}, and then go through all other lemmas proposed by
+\texttt{ocamorph}. If no match is found, the stemmed form is tried as a last
+resort before returning None. If the flag \texttt{stemmed\_first} is set to
+True, \texttt{lemmatize} will run the above process on the stem first and only
+return to the original word form if no defined lemma is found. If
+\texttt{defined} is left unspecified and \texttt{stem\_first} is set to true
+at the same time, \texttt{lemmatize} will act as a plain Porter stemmer, and a
+warning is issued.
+By default, \texttt{Lemmatizer} loads on startup a cache file of previously
+analyzed words. To save a new cache file (or overwrite an old one), the program
+using \texttt{Lemmatizer} must call its \texttt{write\_cache} function.
+
+\section{The \texttt{pymachine} library}
+
+\label{sec:pymachine}
+
+Concept graphs built by \fl are encoded using the external library
+\texttt{pymachine} (\url{http://www.github.com/kornai/pymachine}, which
+implements Eilenberg machines via the \texttt{Machine} class.
+Currently \fl uses these objects simply as graph nodes, not as Eilenberg
+machines. \texttt{pymachine.utils} provides, among others, the
+\texttt{MachineGraph} class for building, manipulating, (de)serializing and
+visualizing graphs of \texttt{Machine}s. This class relies on the open-source
+library \texttt{networkx} as its backend for encoding directed graphs. The
+\texttt{pymachine.definition\_parser} module provides a parser for the
+format used by the \fl dictionary, generation is currently not supported,
+i.e. graphs created with \texttt{4lang} cannot be saved in this format.
+% MM mihez lenne hasznos, ha lenne?
+% RG pl. ko2nnyebb lenne olvasgatni a szo1ta1rakbo1l e1pi1tett defini1cio1kat
+\texttt{pymachine} also contains several modules that form the codebase of the
+system described in \cite{Nemeskey:2013}, these are not used by the \fl
+library.
+
+\section{The \texttt{similarity} module}
+All systems for measuring word similarity or textual similarity, described in
+Chapter~\ref{chap:applications}, rely on \fl's \texttt{similarity} module to
+return similarity scores for pairs of English words. Main functions are exposed
+by the \texttt{WordSimilarity} class, which performs lemmatization, accesses
+\texttt{Lexicon}s, and generates scores using one of several strategies,
+depending on the application at hand. Feature generation based on \fl subgraphs takes place in the
+\texttt{SimFeats} module,
+which also implements some recent experimental features.
+
+
+\label{sec:arch_sim}
+
+\section{Configuration}
+\label{sec:config}
+
+All \fl modules can be configured using standard Python configuration files,
+command line parameters have been avoided nearly everywhere. All parameters
+left unspecified in the cfg file passed to a module will be set to the values
+specified in \texttt{default.cfg}. If no configuration file is passed, defaults
+are used everywhere, running simple tests for most modules on data in the
+\texttt{test/input} directory. Options are documented in \texttt{default.cfg}.
+
+\end{document}
