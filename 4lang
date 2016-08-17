@@ -544,7 +544,7 @@ bell	harang	campana	dzwon	1000		N	hollow, metal, instrument, HAS shape[cup/395],
 bell-shaped	harang_alaku1	#	#	3213		A	HAS bell(shape)	5
 bellow	bo3g	rudo/rugio	muczec1	315		V		roar, <bull>
 belly	has	#	#	2820		N		non-LDV, added from swadesh
-belong	vkihez_tartozik	sum_alcis	nalez1ec1	2654	u	U	member, =TO HAS =PAT	
+belong	vkihez_tartozik	sum_alcis	nalez1ec1	2654	u	U	=PAT[member], =TO HAS =PAT	
 below	lent	infra	poniz1ej	1534		A	under	
 belt	o2v	cingulum	pas	1868		N	flexible, fix	
 bend	hajli1t	flecto	zginac1	974		V	bend/975	
@@ -654,7 +654,7 @@ building	e1pu2let	aedificium	budynek	3125	u	N	artefact, structure, lack(outdoor)
 bull	bika	taurus	byk	3423	u	N		
 bullet	golyo1	glans	pocisk	901		N	metal, FROM/2742 gun	
 bunch	ko2teg	fascis	kupa	1397		N	group, thing MEMBER, close/1413, before(fasten)	
-burn	e1g	ardeo	palic1	497	u	U	=PAT[lack, after], INSTRUMENT fire	
+burn	e1g	ardeo	palic1	497	u	U	=AGT[fire] CAUSE =PAT[lack]	
 burst	fakad	scato	wytrysna1c1	718		U	=AGT[begin]	
 burst	robban	#	#	2709		V	explode	
 bury	ela1s	infodio	zakopac1	594		V	=AGT CAUSE[=PAT IN/2758 ground]	
@@ -680,7 +680,7 @@ camel	teve	camelus	wielbl1a1d	2382	u	N
 camera	kamera	cinematographica_machinula	kamera	1221		N	equipment, MAKE photograph, HAS lens	
 camp	ta1bor	castra	obo1z	2271	u	N		
 can	ke1pes	potest	mo1c	1246	u	U	<do>	
-can	konzerv	cibus_conservatus	puszka	1427	u	U	cylinder, metal, CONTAIN [<food>,<drink>]	=AGT % OR
+can	konzerv	cibus_conservatus	puszka	1427	u	N	cylinder, metal, CONTAIN [<food>,<drink>]	=AGT % OR
 candidate	jelo2lt	#	#	3399		N	<person>, can/1246(person CHOOSE)	
 candle	gyertya	candela	s1wieca	932	u	N	artefact, solid, long, round, <wax>, thread PART_OF, light/739 FROM/2742	
 cannot	nem_ke1pes	#	#	2795		U	lack(can/1246)	
@@ -980,7 +980,7 @@ death	hala1l	mors	s1mierc1	981		N	life[lack, after]
 debt	ado1ssa1g	aes_alienum	dl1ug	117		N	must[=POSS PAY/812]	modality
 decay	romla1s	pernicies	rozkl1ad	2041		N	material[change[slow]], health[lack, after]	
 deceive	megte1veszt	fallo	oszukiwac1	1647		V	trick/244	
-decide	do2nt	decerno	decydowac1	471	u	U	before(HAS more(possibility)), after(=PAT)	ZsA, 
+decide	do2nt	decerno	decydowac1	471	u	U	want, before(=AGT HAS more(possibility)), after(=PAT)	ZsA
 decimal	tizes	N/A	dziesia1tkowy	2402		A		
 decision	do2nte1s	consilium	decyzja	2957	u	N	decide	
 deck	fede1lzet	constratum	pokl1ad	752		N	floor, <ship HAS>	
@@ -1453,7 +1453,7 @@ gleam	ragyog	splendeo	bl1yszczec1	1988		U		no xml
 glean	gyu3jt	lego	zbierac1	948		V	=AGT CAUSE[=PAT[together]], =PAT[small, piece, <information>], slow, difficult	
 glorious	dicso3	gloriosus	chwalebny	465		A	HAS glory	
 glory	dicso3se1g	gloria	chwal1a	467		N	fame	ND: divine (presence)
-go	megy	eo	is1c1	1654	u	U	=AGT CHANGE place/1026, INSTRUMENT leg	RA
+go	megy	eo	is1c1	1654	u	U	move, INSTRUMENT leg, =AGT HAS leg	
 goal	ce1l	#	#	3358		N	good, =POSS WANT[=POSS AT/2744]	
 goat	kecske	capra	koza	1265		N	mammal, HAS horn/2772, HAS beard, <IN/2758 mountain>, <AT/2744 farm>, HAS wool, PRODUCE milk	contradicting defaults
 god	isten	deus	bo1g	1159		N	spirit/2181, religion FOR/2782, HAS power, ER nature	ultimate
@@ -1509,7 +1509,7 @@ grief	gya1sz	maeror	z1al	916		N	sorrow, death CAUSE
 grieve	gya1szol	maereo	byc1_w_z1al1obie	917		V	grief	
 ground	talaj	solum	ziemia	2297	u	N	surface, solid, AT/2744 earth	
 group	csoport	caterva	grupa	432	u	N	several MEMBER, together	TODO
-grow	no3	cresco	rosna1c1	1796	u	U	=PAT HAS size, after(size ER)	
+grow	no3	cresco	rosna1c1	1796	u	U	after(size ER), =PAT HAS size 	
 growth	no2vekede1s	auctus	wzrost	1793		N		
 growth	tumor	tumor	guz	2464		N		
 guard	o3r	custos	straz1nik	1876		N	protect	
@@ -1539,7 +1539,7 @@ hammer	kalapa1cs	malleus	ml1otek	1219	u	N	artefact, IN/2758 hand, tool, HAS hand
 hand	ke1z	manus	re1ka	1264	u	N	organ, PART_OF arm, human HAS arm, FOR/2782[MOVE object], wrist PART_OF, palm PART_OF, five(finger) PART_OF, thumb PART_OF	"four(finger)", de „o2t(ujj)”
 handkerchief	zsebkendo3	sudarium	chustka	2686		N		
 handle	fogo1	manubrium	ra1czka	834		N	PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	
-hang	lo1g	pendeo	wisiec1	1548	u	U	=PAT HAS lack(support), [above CAUSE =PAT[fall/2694[lack]]] INSTRUMENT <cord>, =PAT[swing[can/1246]]	
+hang	lo1g	pendeo	wisiec1	1548	u	U	above CAUSE =PAT[fall/2694[lack]], =PAT HAS lack(support), =PAT[can/1246(swing)], <INSTRUMENT cord>	
 hang_down	lo1g	pendeo	wisiec1	1549		U	hang	
 happen	to2rte1nik	fio	stac1_sie1	2418	u	V	change	
 happening	eseme1ny	eventum	wydarzenie	693		N	event	
@@ -1740,7 +1740,7 @@ judge	bi1ro1	iudex	se1dzia	289		N	human, PART_OF court/3124, decide, MAKE offici
 judgment	i1te1let	iudicium	osa1d	1110		N	decision, judge	
 juice	le1	sucus	sok	1499		N	fluid, IN/2758 fruit	
 jump	ugrat	concito	N/A	2518	u	V		see 2519
-jump	ugrik	concito	skakac1	2519	u	U	lack(=AGT AT ground), move, sudden	
+jump	ugrik	concito	skakac1	2519	u	U	move, lack(=AGT AT ground), sudden	
 just	e1ppen	modo	wl1as1nie	514	u	D	AT/2744 little(period)	before? after?
 just	e1ppen	solummodo	wl1as1nie	2943	u	A	AT/2744 past, near	
 justice	igazsa1g	iustitia	sprawiedliwos1c1	1128		N	principle, moral, right/1191	
@@ -2038,7 +2038,7 @@ mountain	hegy	mons	go1ra	1024	u	N	object, ON earth, natural, high, HAS <steep/16
 mountain-climbing	hegyma1sza1s	#	#	3285		A	climb, AT/2744 mountain	
 mouse	ege1r	mus	mysz	551		N	rodent, HAS long(tail)	
 mouth	sza1j	os	usta	2137	u	N	organ, ON face, food IN/2758, speak INSTRUMENT, can/1246(open/1814)	
-move	mozog	moveor	ruszac1_sie1	1731	u	U	before(=AGT AT/2744 place/1026), after(=AGT AT/2744 other(place/1026)), =AGT HAS _path	
+move	mozog	moveor	ruszac1_sie1	1731	u	U	before(=AGT AT/2744 place/1026), after(=AGT AT/2744 other(place/1026))	
 move_crookedly	sa1nti1t	claudico	kulec1	2055		U		
 movement	mozgalom	motus	ruch	3506	u	N		
 much	sok	multus	wiele	2114	u	A	many	
@@ -2578,7 +2578,7 @@ respect	tisztel	observo	szanowac1	2392	u	V	feeling, quality CAUSE, =PAT HAS qual
 respectful	tiszteletteljes	observantissimus	godny	2395		A	respect	
 responsibility	felelo3sse1g	pietas	odpowiedzialnos1c1	3545	u	N		
 responsible	felelo3s	cui_ratio_reddenda_est	odpowiedzialny	766	u	A	HAS control, HAS authority, HAS blame	
-rest	pihen	quiesco	odpoczywac1	1959	u	U	lack(work), relax, after(=AGT HAS energy)	FOR/2782[tired(lack)] 
+rest	pihen	quiesco	odpoczywac1	1959	u	U	relax, lack(work), FOR [=AGT HAS energy], =AGT[tired[before]]	
 restaurant	e1tterem	cenatio	restauracja	544		N	public(place/1026), eat IN/2758	
 restrict	korla1toz	#	#	3024		V	=AGT CAUSE[=PAT[lack(complete)]], control	
 result	eredme1ny	eventus	wynik	679	u	N	action CAUSE, favourable	
@@ -2601,7 +2601,7 @@ ring	gyu3ru3	anulus	piers1cionek	402	u	N	artefact, metal, circle, AT/2744 finger
 ring-shaped	gyu3ru3_alaku1	#	#	3268		A	HAS ring/402(shape)	1
 rinse	o2bli1t	colluo	pl1ukac1	1842		V	wash, INSTRUMENT water	after(lack(<detergent>) AT =PAT)
 ripe	e1rett	maturus	dojrzal1y	520		A	time[before, enough], good, < ' EAT>	develop 
-rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	=PAT[stand[after]], after(=PAT AT/2744 high(position)), high ER	
+rise	emelkedik	ascendo	wznosic1_sie1	665	u	U	after(=PAT AT/2744 high(position)), =PAT[stand[after]]	
 rise_against	felkel	exsurgo	powstac1	776		V		no Longman use
 risk	kocka1zat	periculum	ryzyko	1420	u	N	can/1246(harm)	
 river	folyo1	fluvius	rzeka	848		N	natural, stream, HAS water, IN/2758 valley	
@@ -2795,7 +2795,7 @@ sip	korty	haustus	l1yk	1436		N	drink, little, IN/2758 mouth, ' SWALLOW
 sir	u1r	dominus	pan	2475		G	man/744, HAS honour	
 sister	hu1g	soror	siostra	1091		N		see 1798
 sister	no3ve1r	soror	siostra	1798		N	HAS parent, =POSS HAS parent, female	
-sit	u2l	sedeo	siedziec1	2493	u	U	=AGT AT/2744 surface[<seat>], HAS buttocks, ON buttocks, =AGT HAS trunk/2759[upright]	
+sit	u2l	sedeo	siedziec1	2493	u	U	=AGT AT/2744 surface[<seat>], HAS buttocks, buttocks AT/2744 surface, =AGT HAS trunk/2759[upright]	
 situated	elhelyezkedo3	collocatus	umiejscowiony	622		A	AT/2744 =AT	
 situation	helyzet	status	sytuacja	2784	u	N	around	
 six	hat	#	#	2990		A	number, FOLLOW five	
@@ -2908,7 +2908,7 @@ split	hasi1t	findo	dzielic1	1007		V	break, =AGT CAUSE separate
 spoil	elront	corrumpo	zepsuc1	648	u	N	CAUSE[=PAT[spoil/1640]]	
 spoil	megromlik	corrumpor	zepsuc1_sie1	1640	u	U	after(damage AT/2744 =PAT[<food>])	
 spoon	kana1l	cochlear	l1yz1ka	1222	u	N	cutlery, [EAT soup] INSTRUMENT, HAS bowl, HAS handle	
-sport	sport	gymnastica	sport	2124	u	U	physical(activity), =AGT HAS rule, compete	
+sport	sport	gymnastica	sport	2124	u	N	physical(activity), =AGT HAS rule, compete	
 spot	folt	macula	plama	842		N	small(mark), ON surface, different	
 spread	teri1t	sterno	szerzyc1	2357	u	V		
 spread	terjed	distendo	rozprzestrzeniac1_sie1	2358	u	U	after(=PAT AT/2744 wide)	
@@ -3119,7 +3119,7 @@ thief	tolvaj	fur	zl1odziej	2430		N	steal
 thin	hi1g	liquidus	rzadki	1038	u	A	[great(distance)] BETWEEN [particle], particle IN/2758, lack(thick/2134)	
 thin	ve1kony	tenuis	chudy	2598	u	A	lack(thick/2752)	
 thing	dolog	res	rzecz	481	u	N	exist	should be primitive?
-think	gondol	cogito	mys1lec1	907	u	U	human, INSTRUMENT mind, =PAT[opinion]	
+think	gondol	cogito	mys1lec1	907	u	U	=PAT IN/2758 mind, =AGT HAS mind	
 third	harmad	tertia_pars	trzecia	1005		N	part, [three(part)] IN/2758 [whole], before(divide)	
 third	harmadik	tertius	trzeci	1006		A	-th/5, FOLLOW second/1569	fourth FOLLOW
 thirst	szomj	sitis	pragnienie	2246		N	NEED drink	
