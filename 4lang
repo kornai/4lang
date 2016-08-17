@@ -380,7 +380,7 @@ and	s	et/-que	i	2054	u	G
 anger	du2h	furor	gniew	488		N	feeling, bad, strong, aggressive	
 angle	szo2g	angulus	ka1t	2230	u	N		
 angry	haragos	iratus	zl1y	999	u	A	anger	
-animal	a1llat	animal	zwierze1	78	u	N	live, move, animal	
+animal	a1llat	animal	zwierze1	78	u	N	live, move	
 animal-like	a1llati	#	#	3217		A	animal HAS	4
 ankle	boka	talus	kostka	323		N	joint, AT/2744 foot, AT/2744 leg	
 annoy	bosszant	irrito	denerwowac1	335		V	=AGT CAUSE[=PAT[angry]]	
@@ -3075,7 +3075,7 @@ technology	technolo1gia	#	#	3033		N	machine MEMBER, equipment, method, INSTRUMEN
 telegram	ta1virat	telegramma	telegram	2292		N		
 telegraph	ta1vi1ro1	telegraphium	telegraf	2291		N		
 telephone	telefon	telephonium	telefon	2341		N	instrument, voice[move] INSTRUMENT, sound/993[move] INSTRUMENT	
-television	televi1zio1	televisio	telewizor	2343	u	N	electric, equipment, box, HAS screen, programme ON screen, man/659 SEE programme	
+television	televi1zio1	televisio	telewizor	2343	u	N	electric(equipment), box, HAS screen, programme ON screen, man/659 SEE programme	
 tell	mond	dico	powiedziec1	1720	u	V	communicate, INSTRUMENT speech	
 temper	du2h	furor	gniew	489		N	state/77, emotion	hangulat
 temperature	ho3me1rse1klet	temperies	temperatura	1071		N	physical, property, hot	
@@ -3102,7 +3102,7 @@ thank	megko2szo2n	gratias_ago	dzie1kowac1	1633	u	V	=DAT CAUSE =AGT[pleased], =AG
 that	az	ille	tamten	186	u	A	thing	% indexical
 the	a	NA	N/A	62	u	G		
 the	az	NA	N/A	187	u	G		the/62
-theatre	szi1nha1z	theatrum	teatr	2209	u	N	building, perform IN/2758, play IN/2758, stage/2220 IN/2758	
+theatre	szi1nha1z	theatrum	teatr	2209	u	N	institution, perform IN/2758, play IN/2758, stage/2220 IN/2758	
 their	-uk	sui/suae	ich	38	u	G	they HAS	
 theirs	o2ve1k	sui/suae	ich	1871		G	they HAS	
 them	o3ket	eos/eas	ich	1875	u	G	they	
@@ -3171,7 +3171,7 @@ tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, burn, FOR/2782 pleasure
 today	ma	hodie	dzisiej	1558		D	this (day)	day, now % ND
 toe	la1bujj	digitus_pedis	palec	1469		N	five, PART_OF foot	
 together	egyu2tt	una	razem	586	u	D	group, lack(separate)	
-toilet	WC	sella	toaleta	2963	u	N	bowl, sit ON, FOR/2782 rid, waste FROM/2742 body	
+toilet	WC	sella	toaleta	2963	u	N	artefact, material[useful[lack]] TO, material FROM person, bowl, sit ON	
 tomato	paradicsom	#	#	3401		N	vegetable, red, round, soft	
 tomorrow	holnap	cras	jutro	1075		D	day, before(today)	FOLLOW? % ND
 tongue	nyelv	lingua	je1zyk	1808		N	PART_OF body, AT/2744 mouth, taste INSTRUMENT, speak INSTRUMENT	RG
@@ -3185,12 +3185,12 @@ total	ege1sz	totus	cal1y	552		A	whole
 total	teljes	totus	cal1kowity	2346		A	whole	
 total	ve1go2sszeg	#	#	2764		N	sum	
 totter	inog	vacillo	chwiac1_sie1	1143		U	shake	
-touch	e1rint	attingo	dotkna1c1	522	u	N	<hand> AT/2744 =PAT[surface], <=AGT HAS hand>, contact, FEEL surface	
+touch	e1rint	attingo	dotkna1c1	522	u	V	<hand> AT/2744 =PAT[surface], <=AGT HAS hand>, contact, FEEL surface	
 tour	tu1ra	iter	wycieczka	2439		N	journey, FOR/2782 pleasure, person AT/2744 place/1026	
 tourist	turista	viator	turysta	2465		N		
 towards	fele1	ad	do	764	u	G	after(AT/2744 =REL)	
 tower	torony	turris	wiez1a	2433		N	building[tall, narrow]	
-town	va1ros	oppidum	miasteczko	2560	u	N	many(people) IN/2758, many(house) IN/2758	
+town	va1ros	oppidum	miasteczko	2560	u	N	artefact, many(people) IN/2758, many(house) IN/2758	
 toy	ja1te1k	lusus	zabawka	1174		N	object, child[play], play INSTRUMENT	
 track	ko2vet	sequor	s1ledzic1	1402	u	V	=PAT MAKE mark, =AGT LOOK mark, follow	
 track	nyom	vestigium	s1lad	1817	u	N	way, move[quick] AT/2744	HUN pa1lya
@@ -3198,7 +3198,7 @@ trade	kereskedik	negotior	handlowac1	1299	u	V	buy, sell
 trade	szakma	artificium	zawo1d	2155	u	N		
 tradition	hagyoma1ny	#	#	2953		N	old, society/2285 HAS	
 traffic	forgalom	commercium	ruch	857		N	people[move] PART_OF, vehicle PART_OF, ON street	
-train	vonat	tramen	pocia1g	2661	u	N	vehicle FOLLOW vehicle, ON rail, more(car)	locomotive[<pull>] PART_OF
+train	vonat	tramen	pocia1g	2661	u	N	vehicle, car FOLLOW car, ON rail, more(car)	locomotive[<pull>] PART_OF
 training	edze1s	exercitatio	trening	3577	u	N		
 translate	fordi1t	reddo	tl1umaczyc1	855		V	=AGT CAUSE[=PAT AT/2744 other(language)]	
 transparent	a1tla1tszo1	perlucidus	przezroczysty	104		A	see THROUGH	
@@ -3293,7 +3293,7 @@ value	e1rte1k	pretium	wartos1c1	526	u	N	amount, < ' PAY/812>
 variety	va1ltozat	varietas	wybo1r	2552		N	various	
 various	va1ltozatos	varius	ro1z1ny	2553		A	many[different]	
 vary	o1vatos	cautus	ostroz1ny	1841		A		no xml
-vegetable	no2ve1ny	herba	warzywo	1791	u	N	PART_OF plant, ' EAT	HUN zo2lds1g
+vegetable	no2ve1ny	herba	warzywo	1791	u	N	plant, ' EAT	HUN zo2lds1g
 vegetable	no2ve1nyi	herbarum	warzywny	1792	u	A		see 1791
 vehicle	ja1rmu3	vehiculum	pojazd	1172	u	N	device, MOVE [<people>,<object>]	
 verb	ige	verbum_temporale	czasownik	1130		N	word	
@@ -3332,7 +3332,7 @@ warm	fu3t	calefacio	grzac1	878	u	V		after(warm/1655)
 warm	meleg	calidus	ciepl1y	1655	u	A	temperature, ER '	
 warn	figyelmeztet	adverto	oztrzegac1	803		V	=AGT CAUSE[=PAT KNOW danger]	
 wash	mos	lavo	myc1	1724	u	V	=AGT CAUSE[=PAT[clean]], INSTRUMENT liquid, INSTRUMENT <soap>, INSTRUMENT rub	
-waste	szeme1t	quisquiliae	odpady	2188	u	N	lack(' USE), substance	
+waste	szeme1t	quisquiliae	odpady	2188	u	N	substance, lack(' USE)	
 waste_away	sorvad	tabesco	marnowac1_sie1	2122		V		
 watch	o1ra	horologium	zegarek	1835	u	N	clock, AT/2744 person, <ON wrist>	
 watchman	o3r	custos	straz1nik	1877		N		no xml
@@ -3341,7 +3341,7 @@ wave	hulla1m	unda	fala	1104	u	N	IN/2758 sequence, move, ON surface, liquid[move[
 wave	int	manu_signum_do	machac1	1144	u	V		see 2900
 waver	habozik	cunctor	wahac1_sie1	967		V	decide FOLLOW long(time), lack(sure)	
 wax	no3	cresco	rosna1c1	1797		V	substance	
-way	u1t	via	droga	2484	u	N	move AT/2744, HAS direction	
+way	u1t	via	droga	2484	u	N	artefact, move AT/2744, HAS direction	
 we	mi	nos	my	1682		G	more(person), i IN/2758	% indexical
 weak	gyenge	infirmus	sl1aby	927	u	A	HAS power, ER power, lack(strong)	
 weaken	gyengi1t	infirmo	osl1abiac1	930		V	=PAT[weak[after]]	
@@ -3370,7 +3370,7 @@ whale	ba1lna	cetus	wieloryb	3585	u	N
 what	mi	quid	co	1683	u	G	thing	question
 whatever	ba1rmi	quodcumque	cokolwiek	210		A	anything	
 wheat	bu1za	triticum	pszenica	344		N	plant, HAS grain, flour FROM/2742	
-wheel	kere1k	rota	kol1o	1293	u	N	<vehicle> HAS, circular/1294, turn	<HAS spoke>, HAS hub, HAS axle
+wheel	kere1k	rota	kol1o	1293	u	N	artefact, PART_OF <vehicle>, circular/1294, turn	<HAS spoke>, HAS hub, HAS axle
 when	mikor	quando	kiedy	1689	u	D	AT/2744 what, AT/2744 time	
 whenever	amikor	cum	kiedykolwiek	168		D	=REL CAUSE	
 where	hol	ubi	gdzie	1073	u	D	AT/2744 what	
@@ -3398,7 +3398,7 @@ will	akar	volo	chciec1	132	u	V	want
 willing	ke1sz	paratus	che1tny	1259		A	ready, wish	
 win	gyo3z	vinco	wygrywac1	937	u	U	best, succeed/2718, before(compete), before(effort), GET/1223 <prize>	=AGT DEFEAT enemy
 wind	sze1l	ventus	wiatr	2164	u	N	air[move[horizontal]]	
-window	ablak	fenestra	okno	110	u	N	IN/2758 <wall>, light/739 THROUGH, air THROUGH, HAS frame, HAS glass, open/1814, close/3381	
+window	ablak	fenestra	okno	110	u	N	artefact, IN/2758 <wall>, light/739 THROUGH, air THROUGH, HAS frame, HAS glass, open/1814, close/3381	
 wine	bor	vinum	wino	332		N	drink, before(fruit), before(<grape>), alcohol IN/2758	
 wing	sza1rny	ala	skrzydl1o	2146	u	N	object, fly INSTRUMENT, PART_OF '	
 wing-shaped	sza1rny_alaku1	#	#	3249		A	HAS wing(shape)	1
@@ -3420,7 +3420,7 @@ wonder	csoda	miraculum/prodigium	cud	422		N	event, surprise, supernatural, actio
 wondrous	csoda1s	mirabilis	cudowny	425		A	wonder	
 wood	fa	lignum	drewno	710	u	N	material, hard, FROM/2742 tree	
 wool	gyapju1	lana	wel1na	924	u	N	material, soft, sheep HAS	naive_theo cloth FROM/2742
-word	szo1	verbum	sl1owo	2224	u	N	HAS meaning, IN/2758 speech	
+word	szo1	verbum	sl1owo	2224	u	N	sign, speech	
 work	munka	opera	praca	1740	u	N	useful	RA
 working	dolgoza1s	laborans	pracowanie	3587	u	N		
 works	mu3vek	laborat	pracuje	3588	u	N		
