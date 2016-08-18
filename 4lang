@@ -356,7 +356,7 @@ all	mind	omnis	wszyscy	1695	u	N		primitive
 all-male	fe1rfi-	#	#	3323		A	male	1
 all_right	rendben	ordine	w_porza1dku	2008		A		
 allow	enged	sino	pozwolic1	670	u	V	=AGT SAY =DAT[=PAT[can/1246]], say CAUSE =DAT[=PAT[can/1246]]	modality probability vs permission
-almost	majdnem	paene	prawie	1589	u	D	similar, lack	conjunctive
+almost	majdnem	paene	prawie	1589	u	D	SIMILAR =REL, lack(=REL)	conjunctive
 alone	csak	solus/modo	sam	380	u	D	only	
 along	mente1n	per	wzdl1uz1	1669	u	D	AT/2744 =REL[long]	
 aloud	hangosan	clare	gl1os1no	996		D	INSTRUMENT normal(voice)	
@@ -3170,7 +3170,7 @@ to	-hoz	ad	do	2743	u	G	after(AT/2744 =REL)
 tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, burn, FOR/2782 pleasure	
 today	ma	hodie	dzisiej	1558		D	this (day)	day, now % ND
 toe	la1bujj	digitus_pedis	palec	1469		N	five, PART_OF foot	
-together	egyu2tt	una	razem	586	u	D	group, lack(separate)	
+together	egyu2tt	una	razem	586	u	D	MEMBER group, lack(separate)	
 toilet	WC	sella	toaleta	2963	u	N	artefact, material[useful[lack]] TO, material FROM person, bowl, sit ON	
 tomato	paradicsom	#	#	3401		N	vegetable, red, round, soft	
 tomorrow	holnap	cras	jutro	1075		D	day, before(today)	FOLLOW? % ND
@@ -3371,7 +3371,7 @@ what	mi	quid	co	1683	u	G	thing	question
 whatever	ba1rmi	quodcumque	cokolwiek	210		A	anything	
 wheat	bu1za	triticum	pszenica	344		N	plant, HAS grain, flour FROM/2742	
 wheel	kere1k	rota	kol1o	1293	u	N	artefact, PART_OF <vehicle>, circular/1294, turn	<HAS spoke>, HAS hub, HAS axle
-when	mikor	quando	kiedy	1689	u	D	AT/2744 what, AT/2744 time	
+when	mikor	quando	kiedy	1689	u	D	AT/2744 what(time)	
 whenever	amikor	cum	kiedykolwiek	168		D	=REL CAUSE	
 where	hol	ubi	gdzie	1073	u	D	AT/2744 what	
 wherever	ba1rhol	ubicumque	gdziekolwiek	206		D	place/1026	
