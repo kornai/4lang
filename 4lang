@@ -1639,7 +1639,7 @@ hut	bo1de1	pergula	chata	308		N	building[small, simple], [<one>(room/2235)] IN/2
 ice	je1g	glacies	lo1d	1178	u	N	water, cold, hard	
 icy	jeges	glacialis	lodowaty	1180		A		-y[ice]
 idea	eszme	opinio	idea	703	u	N	IN/2758 mind, think MAKE	TODO
-if	ha	si	jez1eli	952	u	G	IN/2758 case, IN/2758 situation	
+if	ha	si	jez1eli	952	u	G	=REL CAUSE	IN/2758 case, IN/2758 situation
 ignore	figyelmen_ki1vu2l_hagy	#	#	3021		V	lack(attention) TO/2743 =PAT	
 ill	beteg	aeger	chory	273		A	lack(health), HAS body, body IN/2758 bad(situation)	
 illegal	illega1lis	#	#	2789		A	bad FOR/2782 law	
@@ -2456,7 +2456,7 @@ prove	igazol	demonstro	udowadniac1	1127		V	after(other(people) KNOW =PAT[true]),
 provide	ad	praebeo	zapewnic1	114		V	supply	
 provision	gondoskodik	curo	utrzymywac1	909		V	supply	
 provisions	ella1tma1ny	sumptus_suppediti	zapasy	627		N	supply, <food>	
-public	ko2z-	publicus	publiczny	1407	u	G	lack(private), every(people) HAS	
+public	ko2z-	publicus	publiczny	1407	u	A	lack(private), every(people) HAS	
 pull	hu1z	vello	ciagna1c1	1096	u	V	=AGT CAUSE[=PAT AT/2744 =AGT]	
 pump	szivattyu1	antlia	pompa	2223		N	machine, MOVE fluid	<COMPRESS fluid>
 punish	fenyi1t	castigo	karac1	791		V	=AGT HAS authority, before(=PAT DO bad), =AGT CAUSE[=PAT[suffer]]	
@@ -3107,7 +3107,7 @@ their	-uk	sui/suae	ich	38	u	G	they HAS
 theirs	o2ve1k	sui/suae	ich	1871		G	they HAS	
 them	o3ket	eos/eas	ich	1875	u	G	they	
 then	majd	mox	wtedy	1588		D	time, follow	conjunctive
-there	oda	illuc	tam	1888	u	G	AT/2744 place/1026	, indexical
+there	oda	illuc	tam	1888	u	G	AT/2744 that(place/1026)	, indexical
 there	ott	ibi	tam	1923	u	A		indexical
 therefore	teha1t	quare	wie1c	2334		D	that CAUSE	
 these	ezek	hi/hae/haec	te	707		N	this, more	
