@@ -93,7 +93,8 @@ class TextTo4lang():
         parse_tree_fn = out_fn.split('.')[0] + '_parse_trees.txt'
         with open(parse_tree_fn, 'w') as out_f:
             for sen, parse_tree in zip(preproc_sens, parse_trees):
-                out_f.write("{0}\t{1}\n".format(sen, parse_tree))
+                out_f.write(
+                    u"{0}\t{1}\n".format(sen, parse_tree).encode('utf-8'))
         with open(out_fn, 'w') as out_f:
             out_f.write("{0}\n".format(json.dumps({
                 "deps": deps,

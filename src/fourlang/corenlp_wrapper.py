@@ -7,6 +7,9 @@ import zmq
 
 from longman_parser import XMLParser
 
+class ParserException(Exception):
+    pass
+
 class Parser(XMLParser):
     sen_regex = re.compile(
         '<sentence id="[0-9]*">(.*?)</sentence>', re.S)
@@ -27,8 +30,12 @@ class Parser(XMLParser):
         sen_no = int(Parser.get_section('sentence', mention))
         start_index = int(Parser.get_section('start', mention))
         head_index = int(Parser.get_section('head', mention))
-        word = Parser.get_section(
-            'text', mention).split()[head_index-start_index]
+        try:
+            word = Parser.get_section(
+                'text', mention).split()[head_index-start_index]
+        except:
+            # logging.error('failed on mention: {0}'.format(mention))
+            raise ParserException()
         return word, sen_no
 
     @staticmethod
@@ -37,9 +44,13 @@ class Parser(XMLParser):
         for coref in Parser.iter_sections("coreference", corefs):
             repr_mention = Parser.repr_mention_regex.search(coref).group(1)
             mentions = Parser.iter_sections('mention', coref)
-            repr_word, sen_no = Parser.parse_mention(repr_mention)
-            other_words = map(Parser.parse_mention, mentions)
-            parsed_corefs.append(((repr_word, sen_no), other_words))
+            try:
+                repr_word, sen_no = Parser.parse_mention(repr_mention)
+                other_words = map(Parser.parse_mention, mentions)
+                parsed_corefs.append(((repr_word, sen_no), other_words))
+            except ParserException:
+                logging.warning('skipping mention with no text')
+                # logging.error('failed on coref: {0}'.format(coref))
         return parsed_corefs
 
     @staticmethod
