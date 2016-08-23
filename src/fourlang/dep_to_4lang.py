@@ -17,11 +17,12 @@ class DepTo4lang():
 
     dep_regex = re.compile("([a-z_-]*)\((.*?)-([0-9]*)'*, (.*?)-([0-9]*)'*\)")
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, direct_parse=False):
         self.cfg = cfg
         self.lang = self.cfg.get("deps", "lang")
-        self.out_fn = self.cfg.get("machine", "definitions_binary_out")
-        ensure_dir(os.path.dirname(self.out_fn))
+        if(not direct_parse):
+            self.out_fn = self.cfg.get("machine", "definitions_binary_out")
+            ensure_dir(os.path.dirname(self.out_fn))
         self.dependency_processor = DependencyProcessor(self.cfg)
         dep_map_fn = cfg.get("deps", "dep_map")
         self.read_dep_map(dep_map_fn)

@@ -39,6 +39,7 @@ class WordSimilarity():
         self.stopwords = set(nltk_stopwords.words('english'))
         self.sim_feats = SimFeatures(cfg, cfg_section, self.lexicon)
         self.expand = cfg.getboolean(cfg_section, "expand")
+        self.text_to_4lang = TextTo4lang(cfg, direct_parse=True)
         logging.info("expand is {0}".format(self.expand))
 
     def log(self, string):
@@ -114,6 +115,26 @@ class WordSimilarity():
         self.word_sim_cache[(word1, word2)] = word_sims
         self.word_sim_cache[(word2, word1)] = word_sims
         return word_sims
+
+    def phrase_similarities(self, phrase1, phrase2):
+        words1 = phrase1.split(' ')
+        words2 = phrase2.split(' ')
+        if(len(words1) == 1 and len(words2) == 1):
+            return self.word_similarities(phrase1, phrase2)
+        else:
+            # TODO: cache!
+            machine1 = self.text_to_4lang.process_phrase(phrase1)
+            machine2 = self.text_to_4lang.process_phrase(phrase2)
+            nodes1 = self._get_nodes_from_text_machine(machine1)
+            nodes2 = self._get_nodes_from_text_machine(machine2)
+            sims = self.sim_feats.get_all_features(MachineInfo(machine1, nodes1, nodes1, None, None, has_printname=False),
+                                       MachineInfo(machine2, nodes2, nodes2, None, None, has_printname=False))
+            print "{0}\t{1}\t{2}".format(phrase1, phrase2, sims)
+            return sims
+
+    def _get_nodes_from_text_machine(self, machine, excludes=["ROOT"]):
+        return [k for k in set(machine.keys()).difference(set(excludes))]
+
 
     def get_links_nodes(self, machine, use_cache=True):
         if use_cache and machine in self.links_nodes_cache:

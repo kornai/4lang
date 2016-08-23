@@ -1,3 +1,4 @@
+from ConfigParser import ConfigParser
 import logging
 import re
 import sys
@@ -6,7 +7,8 @@ import zmq
 
 from longman_parser import XMLParser
 
-from utils import get_cfg
+class ParserException(Exception):
+    pass
 
 class Parser(XMLParser):
     sen_regex = re.compile(
@@ -21,14 +23,19 @@ class Parser(XMLParser):
         <dependent idx="([0-9]*)">(.*?)</dependent>', re.S)
     repr_mention_regex = re.compile(
         '<mention representative="true">(.*?)</mention>', re.S)
+    parse_tree_regex = re.compile('<parse>(.*?)</parse>', re.S)
 
     @staticmethod
     def parse_mention(mention):
         sen_no = int(Parser.get_section('sentence', mention))
         start_index = int(Parser.get_section('start', mention))
         head_index = int(Parser.get_section('head', mention))
-        word = Parser.get_section(
-            'text', mention).split()[head_index-start_index]
+        try:
+            word = Parser.get_section(
+                'text', mention).split()[head_index-start_index]
+        except:
+            # logging.error('failed on mention: {0}'.format(mention))
+            raise ParserException()
         return word, sen_no
 
     @staticmethod
@@ -37,9 +44,13 @@ class Parser(XMLParser):
         for coref in Parser.iter_sections("coreference", corefs):
             repr_mention = Parser.repr_mention_regex.search(coref).group(1)
             mentions = Parser.iter_sections('mention', coref)
-            repr_word, sen_no = Parser.parse_mention(repr_mention)
-            other_words = map(Parser.parse_mention, mentions)
-            parsed_corefs.append(((repr_word, sen_no), other_words))
+            try:
+                repr_word, sen_no = Parser.parse_mention(repr_mention)
+                other_words = map(Parser.parse_mention, mentions)
+                parsed_corefs.append(((repr_word, sen_no), other_words))
+            except ParserException:
+                logging.warning('skipping mention with no text')
+                # logging.error('failed on coref: {0}'.format(coref))
         return parsed_corefs
 
     @staticmethod
@@ -58,12 +69,14 @@ class Parser(XMLParser):
         parsed_sens = [Parser.parse_sen(sen)
                        for sen in Parser.sen_regex.findall(cl_output)]
 
+        parse_trees = [match for match in Parser.parse_tree_regex.findall(cl_output)]
+
         corefs_match = Parser.all_corefs_regex.search(cl_output)
         if corefs_match is None:
             corefs = []
         else:
             corefs = Parser.parse_corefs(corefs_match.group(1))
-        return parsed_sens, corefs
+        return parsed_sens, corefs, parse_trees
 
 class CoreNLPWrapper():
 
@@ -83,12 +96,12 @@ class CoreNLPWrapper():
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]
-    cfg = get_cfg(cfg_file)
+    cfg = ConfigParser()
+    cfg.read([cfg_file])
 
     wrapper = CoreNLPWrapper(cfg)
-    input_file = cfg.get('text', 'input_sens')
     parsed_sens, corefs = wrapper.parse_text(
-        open(input_file).read())
+        open('test/input/mrhug_story.sens').read())
     print 'parsed_sens:', parsed_sens
     print 'corefs:', corefs
 

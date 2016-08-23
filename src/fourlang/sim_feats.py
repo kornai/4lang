@@ -163,8 +163,9 @@ class SimFeatures:
             logging.info(string)
 
 class MachineInfo():
-    def __init__(self, machine, nodes, nodes_expand, links, links_expand):
-        self.name = machine.printname()
+    def __init__(self, machine, nodes, nodes_expand, links, links_expand, has_printname=True):
+        if has_printname:
+            self.name = machine.printname()
         self.machine = machine
         self.nodes = nodes
         self.links = links
