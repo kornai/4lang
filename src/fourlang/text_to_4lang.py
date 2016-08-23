@@ -110,7 +110,6 @@ class TextTo4lang():
                 # logging.info("processing sentences...")
                 machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
                     [sen_deps], corefs)
-                # TODO: not always works
                 if self.cfg.getboolean('text', 'expand'):
                     self.dep_to_4lang.lexicon.expand(machines)
 
@@ -135,7 +134,7 @@ class TextTo4lang():
         preproc_sens = []
         preproc_sens.append(TextTo4lang.preprocess_text(
                 phrase.strip().decode('utf-8')))
-        deps, corefs = self.parser_wrapper.parse_text("\n".join(preproc_sens))
+        deps, corefs, _ = self.parser_wrapper.parse_text("\n".join(preproc_sens))
         machine = self.dep_to_4lang.get_machines_from_deps_and_corefs(
             [deps[0]], corefs)
         if self.cfg.getboolean('text', 'expand'):

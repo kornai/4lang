@@ -4,11 +4,14 @@ import logging
 import math
 import sys
 
+import itertools
+
 from gensim.models import Word2Vec
 from nltk.corpus import stopwords as nltk_stopwords
 from scipy.stats.stats import pearsonr
 
-from pymachine.utils import average, harmonic_mean, jaccard, min_jaccard, MachineGraph, MachineTraverser, my_max  # nopep8
+from pymachine.utils import average, harmonic_mean, jaccard, min_jaccard, MachineGraph, MachineTraverser, \
+    my_max  # nopep8
 from pymachine.wrapper import Wrapper as MachineWrapper
 
 from lemmatizer import Lemmatizer
@@ -63,8 +66,9 @@ class WordSimilarity():
         self.log('links1_expand: {0}, links2_expand: {1}'.format(links1_expand, links2_expand))
         self.log('nodes1_expand: {0}, nodes2_expand: {1}'.format(nodes1_expand, nodes2_expand))
 
-        sims = self.sim_feats.get_all_features(MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
-                                               MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
+        sims = self.sim_feats.get_all_features(
+            MachineInfo(machine1_expand, nodes1, nodes1_expand, links1, links1_expand),
+            MachineInfo(machine2_expand, nodes2, nodes2_expand, links2, links2_expand))
 
         # TODO: we should use this way, but so far it didn't prove to be better
         # if sims['is_antonym'] == 1:
@@ -80,9 +84,9 @@ class WordSimilarity():
             lemma_sims = self.sim_feats.one_similarities()
 
         machine1, machine2 = map(
-                self.lexicon.get_machine, (lemma1, lemma2))
+            self.lexicon.get_machine, (lemma1, lemma2))
         machine1_expand, machine2_expand = map(
-                self.lexicon.get_expanded_definition, (lemma1, lemma2))
+            self.lexicon.get_expanded_definition, (lemma1, lemma2))
 
         if not self.batch:
             for w, m in ((lemma1, machine1), (lemma2, machine2)):
@@ -101,7 +105,7 @@ class WordSimilarity():
             return self.word_sim_cache[(word1, word2)]
         lemma1, lemma2 = [self.lemmatizer.lemmatize(
             word, defined=self.defined_words, stem_first=True, uppercase=True)
-            for word in (word1, word2)]
+                          for word in (word1, word2)]
         # self.log(u'lemmas: {0}, {1}'.format(lemma1, lemma2))
         if lemma1 is None or lemma2 is None:
             if lemma1 is None:
@@ -119,22 +123,28 @@ class WordSimilarity():
     def phrase_similarities(self, phrase1, phrase2):
         words1 = phrase1.split(' ')
         words2 = phrase2.split(' ')
-        if(len(words1) == 1 and len(words2) == 1):
+        if (len(words1) == 1 and len(words2) == 1):
             return self.word_similarities(phrase1, phrase2)
         else:
             # TODO: cache!
             machine1 = self.text_to_4lang.process_phrase(phrase1)
             machine2 = self.text_to_4lang.process_phrase(phrase2)
-            nodes1 = self._get_nodes_from_text_machine(machine1)
-            nodes2 = self._get_nodes_from_text_machine(machine2)
-            sims = self.sim_feats.get_all_features(MachineInfo(machine1, nodes1, nodes1, None, None, has_printname=False),
-                                       MachineInfo(machine2, nodes2, nodes2, None, None, has_printname=False))
+            nodes1 = self.get_nodes_from_text_machine(machine1)
+            nodes2 = self.get_nodes_from_text_machine(machine2)
+            sims = self.sim_feats.get_all_features(
+                MachineInfo(machine1, nodes1, nodes1, None, None, has_printname=False),
+                MachineInfo(machine2, nodes2, nodes2, None, None, has_printname=False))
             print "{0}\t{1}\t{2}".format(phrase1, phrase2, sims)
             return sims
 
-    def _get_nodes_from_text_machine(self, machine, excludes=["ROOT"]):
-        return [k for k in set(machine.keys()).difference(set(excludes))]
+    def get_nodes_from_text_machine(self, machine, excludes=["ROOT"]):
+        return set(
+            itertools.chain(*[self._get_all_nodes(k) for k in machine.values() if k.printname() not in set(excludes)]))
+        # return [k for k in set(machine.keys()).difference(set(excludes))]
 
+    def _get_all_nodes(self, machine):
+        nodes = [m for m in MachineTraverser.get_nodes(machine, names_only=True, keep_upper=False)]
+        return nodes
 
     def get_links_nodes(self, machine, use_cache=True):
         if use_cache and machine in self.links_nodes_cache:
@@ -171,7 +181,7 @@ class WordSimilarity():
                     continue
 
                 c_links, c_nodes = self._get_links_and_nodes(
-                    hypernym, depth=depth+1, exclude_links=i != 0)
+                    hypernym, depth=depth + 1, exclude_links=i != 0)
 
                 if not h_name.isupper():
                     links += c_links
@@ -180,7 +190,8 @@ class WordSimilarity():
         if not exclude_links:
             links += self.get_binary_links(machine)
         if is_negated:
-            add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else ("lack_{0}".format(link[0]), link[1])  # nopep8
+            add_lack = lambda link: "lack_{0}".format(link) if isinstance(link, unicode) else (
+                "lack_{0}".format(link[0]), link[1])  # nopep8
             links = map(add_lack, links)
             nodes = map(add_lack, nodes)
 
@@ -195,10 +206,10 @@ class WordSimilarity():
                 continue
             elif partition == 1:
                 links = set([(parent_pn, other.printname())
-                            for other in parent.partitions[2]])
+                             for other in parent.partitions[2]])
             elif partition == 2:
                 links = set([(other.printname(), parent_pn)
-                            for other in parent.partitions[1]])
+                             for other in parent.partitions[1]])
             else:
                 raise Exception(
                     'machine {0} has more than 3 partitions!'.format(machine))
@@ -213,6 +224,7 @@ class WordSimilarity():
                 return True
         else:
             return False
+
 
 class GraphSimilarity():
     @staticmethod
@@ -303,7 +315,7 @@ class SimComparer():
     def get_words(self):
         self.words = set((
             line.strip().decode("utf-8") for line in open(
-                self.config.get('words', 'word_file'))))
+            self.config.get('words', 'word_file'))))
         logging.warning('read {0} words'.format(len(self.words)))
 
     def get_machine_sims(self):
@@ -350,9 +362,9 @@ class SimComparer():
         logging.warning('lemmatizing words to determine machine-OOVs...')
         self.non_oov = set(
             (word for word in self.non_oov
-                if self.sim_wrapper.lemmatizer.lemmatize(
-                    word, defined=self.sim_wrapper.machine_wrapper.definitions,
-                    stem_first=True, uppercase=True) is not None))
+             if self.sim_wrapper.lemmatizer.lemmatize(
+                word, defined=self.sim_wrapper.machine_wrapper.definitions,
+                stem_first=True, uppercase=True) is not None))
 
         logging.warning(
             'kept {0} words after discarding those not in machine sim'.format(
@@ -405,7 +417,7 @@ def main_sen_sim(cfg):
             (machines1.values(), machines2.values()))
         print GraphSimilarity.graph_similarity(graph1, graph2)
 
-    # text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
+        # text_to_4lang.dep_to_4lang.lemmatizer.write_cache()
 
 
 def get_test_pairs(fn):
@@ -423,6 +435,8 @@ def main_word_test(cfg):
     # TODO: only testing
     # machine = word_sim.lexicon.get_machine('merry-go-round')
     # links, nodes = word_sim.get_links_nodes(machine)
+    machine1 = word_sim.text_to_4lang.process_phrase('federal assembly')
+    nodes1 = word_sim.get_nodes_from_text_machine(machine1)
 
     test_pairs = get_test_pairs(cfg.get('sim', 'word_test_data'))
     sims, gold_sims = [], []
@@ -433,7 +447,7 @@ def main_word_test(cfg):
         gold_sims.append(gold_sim)
         sims.append(sim)
         print "{0}\t{1}\t{2}\t{3}\t{4}".format(
-            w1, w2, gold_sim, sim, math.fabs(sim-gold_sim))
+            w1, w2, gold_sim, sim, math.fabs(sim - gold_sim))
 
     print "Pearson: {0}".format(pearsonr(gold_sims, sims))
 
@@ -442,7 +456,7 @@ def main():
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s : " +
-        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+               "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
 
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
@@ -455,6 +469,7 @@ def main():
         main_word_test(cfg)
     else:
         raise Exception('unknown similarity type: {0}'.format(sim_type))
+
 
 if __name__ == '__main__':
     # import cProfile
