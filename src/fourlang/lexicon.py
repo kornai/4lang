@@ -5,7 +5,7 @@ import logging
 import sys
 
 from nltk.corpus import stopwords as nltk_stopwords
-from pymachine.definition_parser import read as read_defs
+from pymachine.definition_parser import read_defs
 from pymachine.machine import Machine
 from pymachine.control import ConceptControl
 from pymachine.utils import MachineGraph, MachineTraverser
