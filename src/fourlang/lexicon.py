@@ -22,14 +22,13 @@ class Lexicon():
     @staticmethod
     def build_from_4lang(cfg):
         fn = cfg.get("machine", "definitions")
-        plural_fn = cfg.get("machine", "plurals")
         primitive_fn = cfg.get("machine", "primitives")
         primitives = set(
             [line.decode('utf-8').strip() for line in open(primitive_fn)])
         logging.info('parsing 4lang definitions...')
         pn_index = 1 if cfg.get("deps", "lang") == 'hu' else 0
         definitions = read_defs(
-            file(fn), plural_fn, pn_index, three_parts=True)
+            file(fn), pn_index, three_parts=True)
         logging.info('parsed {0} entries, done!'.format(len(definitions)))
         lexicon = Lexicon.create_from_dict(definitions, primitives, cfg)
         return lexicon
