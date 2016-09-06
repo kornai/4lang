@@ -119,8 +119,8 @@ class DepTo4lang():
             for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
-        deps = self.dependency_processor.process_dependencies(deps)
         root_lemmas = self.get_root_lemmas(deps)
+        deps = self.dependency_processor.process_dependencies(deps)
         if not root_lemmas:
             logging.warning(
                 u'no root dependency, skipping word "{0}"'.format(word))
