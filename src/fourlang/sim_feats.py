@@ -35,7 +35,8 @@ class SimFeatures:
 
 
         if 'fullgraph' in self.feats_to_get:
-            self.full_graph = self.lexicon.get_full_graph()
+            fullgraph_options = FullgraphOptions(cfg)
+            self.full_graph = self.lexicon.get_full_graph(fullgraph_options)
             print "NODES count: {0}".format(len(self.full_graph.nodes()))
             print "EDGES count: {0}".format(len(self.full_graph.edges()))
             self.UG = self.full_graph.to_undirected()
@@ -161,6 +162,15 @@ class SimFeatures:
     def log(self, string):
         if not self.batch:
             logging.info(string)
+
+class FullgraphOptions():
+    def __init__(self, cfg):
+        section = 'fullgraph'
+        self.upper_excl = cfg.getboolean(section, 'upper_exclude')
+        self.freq_file = cfg.get(section, 'freq_file')
+        self.freq_val = cfg.getint(section, 'freq_val')
+        self.freq_cnt = cfg.getint(section, 'freq_count')
+        self.nodename_option = cfg.getint(section, 'nodename_option')
 
 class MachineInfo():
     def __init__(self, machine, nodes, nodes_expand, links, links_expand, has_printname=True):

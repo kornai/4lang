@@ -270,12 +270,15 @@ class Lexicon():
 
                 self.expanded.add(lemma)
 
-    def get_full_graph(self):
+    def get_full_graph(self, fullgraph_options):
         if not self.full_graph == None:
             return self.full_graph
         allwords = set()
         allwords.update(self.lexicon.keys(), self.ext_lexicon.keys(), self.oov_lexicon.keys())
         self.full_graph = nx.MultiDiGraph()
+
+        machinegraph_options = MachineGraphOptions(nodename_option=fullgraph_options.nodename_option,
+                                                   upper_excl=fullgraph_options.upper_excl)
 
         # TODO: only for debugging
         until = 10
@@ -287,7 +290,7 @@ class Lexicon():
             #     break
 
             machine = self.get_machine(word)
-            MG = MachineGraph.create_from_machines([machine], str_graph=True)
+            MG = MachineGraph.create_from_machines([machine], machinegraph_options=machinegraph_options)
             G = MG.G
 
             # TODO: to print out all graphs
@@ -331,6 +334,15 @@ class Lexicon():
             return self.shortest_path_dict[key]
         else:
             return 0
+
+class MachineGraphOptions():
+    # nodename_option:
+    #   0: all nodes are unique
+    #   1: all nodes are printnames
+    #   2: only: uppercase + 'lack', 'before', 'not', 'have' are unique
+    def __init__(self, nodename_option = 2, upper_excl = False):
+        self.nodename_option = nodename_option
+        self.upper_excl = upper_excl
 
 if __name__ == "__main__":
     logging.basicConfig(
