@@ -140,7 +140,6 @@ class DepTo4lang():
         if word in word2machine:
             return word2machine[word]
 
-        root_lemmas = [lemma.lower() for lemma in root_lemmas]  # TODO
         root_machines = filter(None, map(word2machine.get, root_lemmas))
         if not root_machines:
             logging.info("failed to find root machine")
