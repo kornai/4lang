@@ -8,10 +8,11 @@ import traceback
 
 from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
 
-from dependency_processor import DependencyProcessor
+from dependency_processor import DependencyProcessor, Dependencies, NewDependencies  # nopep8
 from lemmatizer import Lemmatizer
 from lexicon import Lexicon
 from utils import ensure_dir, get_cfg, print_4lang_graphs
+
 
 class DepTo4lang():
 
@@ -115,11 +116,18 @@ class DepTo4lang():
     def get_root_lemmas(self, deps):
         return [
             d['dep'].setdefault(
-                'lemma', self.lemmatizer.lemmatize(d['dep']['word'], uppercase=True))
+                'lemma', self.lemmatizer.lemmatize(
+                    d['dep']['word'], uppercase=True))
             for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
-        root_lemmas = self.get_root_lemmas(deps)
+        if isinstance(deps[0], unicode):
+            # TODO
+            root_lemmas = self.get_root_lemmas(
+                NewDependencies.create_from_old_deps(
+                    Dependencies.create_from_strings(deps)).deps)
+        else:
+            root_lemmas = self.get_root_lemmas(deps)
         deps = self.dependency_processor.process_dependencies(deps)
         if not root_lemmas:
             logging.warning(
@@ -163,7 +171,8 @@ class DepTo4lang():
             for dep in deps:
                 for t in (dep['gov'], dep['dep']):
                     self.word2lemma[t['word']] = t.setdefault(
-                        'lemma', self.lemmatizer.lemmatize(t['word'], uppercase=True))
+                        'lemma', self.lemmatizer.lemmatize(
+                            t['word'], uppercase=True))
 
         for i, deps in enumerate(dep_lists):
             try:
@@ -211,6 +220,7 @@ class DepTo4lang():
                 raise Exception("adding dependencies failed")
 
         return word2machine
+
 
 class Dependency():
     def __init__(self, name, patt1, patt2, operators=[]):
@@ -284,6 +294,7 @@ class Dependency():
             logging.debug('MATCH!')
             for operator in self.operators:
                 operator.act((machine1, machine2))
+
 
 def main():
     logging.basicConfig(

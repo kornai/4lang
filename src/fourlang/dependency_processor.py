@@ -313,6 +313,7 @@ class DependencyProcessor():
         try:  # TODO
             deps = Dependencies.create_from_strings(dep_strings)
         except TypeError:
+            logging.warning("can't parse deps, assuming they are already parsed")
             deps = Dependencies(dep_strings)
         deps = self.process_copulars(deps)
         deps = self.remove_copulars(deps)
