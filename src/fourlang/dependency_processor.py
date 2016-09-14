@@ -170,6 +170,7 @@ class DependencyProcessor():
         copulars = [(word, w_id) for word, w_id in deps.index.iterkeys()
                     if word in DependencyProcessor.copulars]
         new_deps = []
+        processed = False
         for cop in copulars:
             if 'nsubj' in deps.index[cop][0]:
                 for dep, words in deps.index[cop][0].iteritems():
@@ -187,7 +188,11 @@ class DependencyProcessor():
                                 for word3 in deps.index[cop][1]['rcmod']]
         for new_dep in new_deps:
             # logging.info('adding new dep: {0}'.format(new_dep))
+            processed = True
             deps.add(new_dep)
+
+        if processed:  # TODO
+            deps = self.remove_copulars(deps)
         return deps
 
     def remove_copulars(self, deps):
@@ -316,7 +321,6 @@ class DependencyProcessor():
             logging.warning("can't parse deps, assuming they are already parsed")
             deps = Dependencies(dep_strings)
         deps = self.process_copulars(deps)
-        deps = self.remove_copulars(deps)
         deps = self.process_rcmods(deps)
         deps = self.process_negation(deps)
         # deps = self.process_coordinated_root(deps)
