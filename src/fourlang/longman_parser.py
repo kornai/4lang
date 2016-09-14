@@ -10,6 +10,7 @@ from xml_parser import XMLParser
 
 assert json  # silence pyflakes
 
+
 class LongmanParser(XMLParser):
 
     @staticmethod
@@ -37,10 +38,12 @@ class LongmanParser(XMLParser):
 
     @staticmethod
     def parse_sense(text):
+
         definition = LongmanParser.clean_definition(
             LongmanParser.get_section("DEF", text))
         full_form = LongmanParser.get_section("FULLFORM", text)
-        return {"full_form": full_form, "definition": definition}
+        mwe = LongmanParser.get_section("LEXUNIT", text)
+        return {"full_form": full_form, "definition": definition, 'mwe': mwe}
 
     @staticmethod
     def get_headword(entry_text):
