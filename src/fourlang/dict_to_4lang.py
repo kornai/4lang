@@ -77,7 +77,8 @@ class DictTo4lang():
 
         # print 'entry1: ' + repr(entry1)
         # print 'entry2: ' + repr(entry2)
-        entry1['senses'] += entry2['senses']
+        else:
+            entry1['senses'] += entry2['senses']
 
     def process_entries(self, words):
         entry_preprocessor = EntryPreprocessor(self.cfg)
