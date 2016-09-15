@@ -14,7 +14,7 @@ from utils import get_cfg
 
 import networkx as nx
 import csv
-
+import traceback
 
 class Lexicon():
     """A mapping from lemmas to machines"""
@@ -115,8 +115,11 @@ class Lexicon():
 
             # logging.info('dumping this: {0}'.format(
             #     MachineGraph.create_from_machines([machine]).to_dot()))
-
-            dump[word] = Lexicon.dump_definition_graph(machine)
+            try:
+                dump[word] = Lexicon.dump_definition_graph(machine)
+            except:
+                traceback.print_exc()
+                logging.warning('skipping word {0}'.format(word))
         return dump
 
     @staticmethod
@@ -232,8 +235,8 @@ class Lexicon():
             stopwords = self.stopwords
         for lemma, machine in words_to_machines.iteritems():
             if (
-                    (not cached or lemma not in self.expanded) and
-                    lemma in self.known_words() and lemma not in stopwords):
+                            (not cached or lemma not in self.expanded) and
+                                lemma in self.known_words() and lemma not in stopwords):
 
                 # deepcopy so that the version in the lexicon keeps its links
                 definition = self.get_machine(lemma)
@@ -277,8 +280,20 @@ class Lexicon():
         allwords.update(self.lexicon.keys(), self.ext_lexicon.keys(), self.oov_lexicon.keys())
         self.full_graph = nx.MultiDiGraph()
 
-        machinegraph_options = MachineGraphOptions(nodename_option=fullgraph_options.nodename_option,
-                                                   upper_excl=fullgraph_options.upper_excl)
+        excluded_words = set()
+
+        # get excluded words set
+        with open(fullgraph_options.freq_file) as f:
+            for line_no, line in enumerate(f):
+                fields = line.strip().decode('utf-8').split('\t')
+                freq = int(fields[0])
+                word = fields[1]
+                if line_no > fullgraph_options.freq_cnt and (
+                        fullgraph_options.freq_val == 0 or fullgraph_options.freq_val > freq):
+                    break;
+                excluded_words.add(word)
+
+        machinegraph_options = MachineGraphOptions(fullgraph_options=fullgraph_options)
 
         # TODO: only for debugging
         until = 10
@@ -291,7 +306,8 @@ class Lexicon():
 
             machine = self.get_machine(word)
             MG = MachineGraph.create_from_machines([machine], machinegraph_options=machinegraph_options)
-            G = MG.G
+            # TODO: maybe directed is better
+            G = MG.G.to_undirected()
 
             # TODO: to print out all graphs
             # try:
@@ -309,14 +325,16 @@ class Lexicon():
             #     print G.edges()
 
             self.full_graph.add_edges_from(G.edges(data=True))
-            # TODO: needed??
-            # self.full_graph.add_nodes_from(G.nodes())
 
             # TODO: only for debugging
             # MG.G = self.full_graph
             # fn = os.path.join('/home/eszter/projects/4lang/test/graphs/full_graph', u"{0}.dot".format(i)).encode('utf-8')
             # with open(fn, 'w') as dot_obj:
             #     dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
+
+        for word in excluded_words:
+            if self.full_graph.has_node(word):
+                self.full_graph.remove_node(word)
 
         return self.full_graph
 
@@ -335,20 +353,25 @@ class Lexicon():
         else:
             return 0
 
+
 class MachineGraphOptions():
     # nodename_option:
     #   0: all nodes are unique
     #   1: all nodes are printnames
     #   2: only: uppercase + 'lack', 'before', 'not', 'have' are unique
-    def __init__(self, nodename_option = 2, upper_excl = False):
-        self.nodename_option = nodename_option
-        self.upper_excl = upper_excl
+    def __init__(self, fullgraph_options):
+        self.nodename_option = fullgraph_options.nodename_option
+        self.upper_excl = fullgraph_options.upper_excl
+        self.weighted = fullgraph_options.weighted
+        self.embedding_model = fullgraph_options.embedding_model
+        self.color_based = fullgraph_options.color_based
+
 
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s : " +
-        "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
+               "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
     lexicon = Lexicon.build_from_4lang(cfg)
