@@ -3,6 +3,8 @@ from ConfigParser import ConfigParser
 import logging
 import math
 import sys
+import os
+import time
 
 import itertools
 
@@ -42,7 +44,9 @@ class WordSimilarity():
         self.stopwords = set(nltk_stopwords.words('english'))
         self.sim_feats = SimFeatures(cfg, cfg_section, self.lexicon)
         self.expand = cfg.getboolean(cfg_section, "expand")
-        self.text_to_4lang = TextTo4lang(cfg, direct_parse=True)
+        compositional = cfg.getboolean('similarity', 'compositional')
+        if compositional is True:
+            self.text_to_4lang = TextTo4lang(cfg, direct_parse=True)
         logging.info("expand is {0}".format(self.expand))
 
     def log(self, string):
@@ -422,35 +426,53 @@ def main_sen_sim(cfg):
 
 def get_test_pairs(fn):
     pairs = {}
-    for line in open(fn):
-        w1, w2, sim_str = line.decode('utf-8').strip().split('\t')
-        pairs[(w1, w2)] = float(sim_str) / 10
+    with open(fn) as f:
+        for line_no, line in enumerate(f):
+            if line_no == 0:
+                continue
+            fields = line.strip().decode('utf-8').split('\t')
+            w1, w2 = fields[:2]
+            sim = float(fields[2])
+            pairs[(w1, w2)] = sim
     return pairs
 
 
 def main_word_test(cfg):
     from scipy.stats.stats import pearsonr
     word_sim = WordSimilarity(cfg)
+    out_dir = cfg.get('word_sim', 'out_dir')
+    result_str = 'word1\tword2\tgold\tsim\tdiff\n'
 
     # TODO: only testing
     # machine = word_sim.lexicon.get_machine('merry-go-round')
     # links, nodes = word_sim.get_links_nodes(machine)
-    machine1 = word_sim.text_to_4lang.process_phrase('federal assembly')
-    nodes1 = word_sim.get_nodes_from_text_machine(machine1)
+    # machine1 = word_sim.text_to_4lang.process_phrase('federal assembly')
+    # nodes1 = word_sim.get_nodes_from_text_machine(machine1)
 
     test_pairs = get_test_pairs(cfg.get('sim', 'word_test_data'))
     sims, gold_sims = [], []
     for (w1, w2), gold_sim in test_pairs.iteritems():
-        sim = word_sim.word_similarity(w1, w2, 'foo', 'foo')  # dummy POS-tags
+        sim = word_sim.word_similarities(w1, w2)  # dummy POS-tags
         if sim is None:
             continue
+        sim = sim.itervalues().next()
         gold_sims.append(gold_sim)
         sims.append(sim)
-        print "{0}\t{1}\t{2}\t{3}\t{4}".format(
-            w1, w2, gold_sim, sim, math.fabs(sim - gold_sim))
+        result_str += "{0}\t{1}\t{2}\t{3}\t{4}".format(
+            w1, w2, gold_sim, sim, math.fabs(sim - gold_sim)) + "\n"
 
+    print "NO path exist: {0}".format(word_sim.sim_feats.no_path_cnt)
     print "Pearson: {0}".format(pearsonr(gold_sims, sims))
+    print_results(out_dir, result_str)
 
+def print_results(out_dir, str):
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    time_str = time.strftime("%H%M")
+    date_str = time.strftime("%Y%m%d")
+    file_str = out_dir + '/res' + date_str + time_str + '.txt'
+    with open(file_str, 'w') as file:
+        file.write(str)
 
 def main():
     logging.basicConfig(

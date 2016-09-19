@@ -32,6 +32,7 @@ class DepTo4lang():
         self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
         self.word2lemma = {}
+        self.first_only = cfg.getboolean('filter', 'first_only')
 
     def read_dep_map(self, dep_map_fn):
         self.dependencies = defaultdict(list)
@@ -70,21 +71,29 @@ class DepTo4lang():
                     #  TODO these are words that only have pointers to an MWE
                     #  that they are part of.
                     continue
-                definition = entry['senses'][0]['definition']
-                if definition is None:
-                    continue
-                deps = definition['deps']
-                if not deps:
-                    #  TODO see previous comment
-                    continue
-                machine = self.get_dep_definition(word, deps)
-                if machine is None:
-                    continue
 
-                # logging.info('adding: {0}'.format(word))
-                # logging.info('ext_lex_keys: {0}'.format(
-                    # self.lexicon.ext_lexicon.keys()))
-                self.lexicon.add(word, machine)
+                unified_machine = None
+
+                for sense in entry['senses']:
+                    if sense['mwe'] is not None:
+                        continue
+                    definition = sense['definition']
+                    if definition is None:
+                        continue
+                    deps = definition['deps']
+                    if not deps:
+                        #  TODO see previous comment
+                        continue
+                    machine = self.get_dep_definition(word, deps)
+                    if machine is None:
+                        continue
+                    if unified_machine is None:
+                        unified_machine = machine
+                    else:
+                        unified_machine.unify(machine)
+                    if self.first_only == True:
+                        break
+                self.lexicon.add(word, unified_machine)
             except Exception:
                 logging.error(u"exception caused by: '{0}'".format(word))
                 # logging.error(
@@ -145,6 +154,7 @@ class DepTo4lang():
             logging.info("failed to find root machine")
             logging.info('root lemmas: {0}'.format(root_lemmas))
             logging.info('word2machine: {0}'.format(word2machine))
+            logging.info('word: {0}'.format(word))
             sys.exit(-1)
 
         word_machine = self.lexicon.get_machine(word, new_machine=True)

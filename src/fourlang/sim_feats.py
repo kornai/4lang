@@ -5,6 +5,7 @@ import networkx as nx
 import networkx.algorithms.isomorphism as iso
 import itertools
 import os.path
+import numpy as np
 
 class SimFeatures:
     def __init__(self, cfg, section, lexicon):
@@ -22,6 +23,7 @@ class SimFeatures:
             'subgraphs' : ['subgraph_3N'],
             'fullgraph' : ['shortest_path']
         }
+        self.no_path_cnt = 0
 
         self.shortest_path_file_name = cfg.get(section, 'shortest_path_res')
         if not os.path.isfile(self.shortest_path_file_name) or cfg.getboolean(section, 'calc_shortest_path'):
@@ -35,7 +37,8 @@ class SimFeatures:
 
 
         if 'fullgraph' in self.feats_to_get:
-            self.full_graph = self.lexicon.get_full_graph()
+            self.fullgraph_options = FullgraphOptions(cfg)
+            self.full_graph = self.lexicon.get_full_graph(self.fullgraph_options)
             print "NODES count: {0}".format(len(self.full_graph.nodes()))
             print "EDGES count: {0}".format(len(self.full_graph.edges()))
             self.UG = self.full_graph.to_undirected()
@@ -126,13 +129,19 @@ class SimFeatures:
             if name1 not in self.UG.nodes() or name2 not in self.UG.nodes():
                 return {"shortest_path" : length}
             if nx.has_path(self.UG, name1, name2):
-                path = nx.shortest_path(self.UG, name1, name2)
-                length = len(path)
+                path = nx.shortest_path(self.UG, name1, name2, weight='weight')
+                if self.fullgraph_options.weighted == True:
+                    length = nx.shortest_path_length(self.UG, name1, name2, weight='weight')
+                else:
+                    length = len(path)
                 print "PATH: " + name1 + " " + name2
                 print path
                 print length
                 self.shortest_path_res.write("\t".join(path))
                 self.shortest_path_res.write("\n")
+            else:
+                logging.info("path does not exist between {0} and {1}".format(name1, name2))
+                self.no_path_cnt += 1
         else:
             length = self.lexicon.get_shortest_path(name1, name2, self.shortest_path_file_name)
         return {"shortest_path" : length}
@@ -161,6 +170,19 @@ class SimFeatures:
     def log(self, string):
         if not self.batch:
             logging.info(string)
+
+class FullgraphOptions():
+    def __init__(self, cfg):
+        section = 'fullgraph'
+        self.upper_excl = cfg.getboolean(section, 'upper_exclude')
+        self.freq_file = cfg.get(section, 'freq_file')
+        self.freq_val = cfg.getint(section, 'freq_val')
+        self.freq_cnt = cfg.getint(section, 'freq_count')
+        self.nodename_option = cfg.getint(section, 'nodename_option')
+        self.weighted = cfg.getboolean(section, 'weighted')
+        embedding_path = cfg.get(section, 'embedding_path')
+        self.embedding_model = TSVEmbedding(embedding_path)
+        self.color_based = cfg.getboolean(section, 'color_based')
 
 class MachineInfo():
     def __init__(self, machine, nodes, nodes_expand, links, links_expand, has_printname=True):
@@ -261,6 +283,39 @@ class SubGraphFeatures():
                 subgraphs.add(subg)
         # print "Subgraphs END \n"
         return subgraphs
+
+class TSVEmbedding():
+    def get_vec(self, w):
+        return self.model.get(w)
+
+    def get_sim(self, w1, w2):
+        vec1, vec2 = map(self.get_vec, (w1, w2))
+        if vec1 is None or vec2 is None:
+            return None
+        return (
+            np.dot(vec1, vec2) / np.linalg.norm(vec1) / np.linalg.norm(vec2))
+
+    @staticmethod
+    def load(fn, tab_first):
+        model = {}
+        logging.info('loading {0}...'.format(fn))
+        with open(fn) as f:
+            for line in f:
+                if tab_first:
+                    try:
+                        word, vec_str = line.decode('utf-8').strip().split('\t', 1)
+                    except:
+                        logging.warning('skipping line: "{0}"'.format(line))
+                        continue
+                else:
+                    word, vec_str = line.decode('utf-8').strip().split(' ', 1)
+                vec = np.array(map(float, vec_str.split()))
+                model[word] = vec
+        return model
+
+    def __init__(self, fn, tab_first=True):
+        self.fn = fn
+        self.model = TSVEmbedding.load(fn, tab_first)
 
 def test():
     sf = SimFeatures()
