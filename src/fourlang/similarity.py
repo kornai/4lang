@@ -44,7 +44,9 @@ class WordSimilarity():
         self.stopwords = set(nltk_stopwords.words('english'))
         self.sim_feats = SimFeatures(cfg, cfg_section, self.lexicon)
         self.expand = cfg.getboolean(cfg_section, "expand")
-        self.text_to_4lang = TextTo4lang(cfg, direct_parse=True)
+        compositional = cfg.getboolean('similarity', 'compositional')
+        if compositional is True:
+            self.text_to_4lang = TextTo4lang(cfg, direct_parse=True)
         logging.info("expand is {0}".format(self.expand))
 
     def log(self, string):
@@ -459,6 +461,7 @@ def main_word_test(cfg):
         result_str += "{0}\t{1}\t{2}\t{3}\t{4}".format(
             w1, w2, gold_sim, sim, math.fabs(sim - gold_sim)) + "\n"
 
+    print "NO path exist: {0}".format(word_sim.sim_feats.no_path_cnt)
     print "Pearson: {0}".format(pearsonr(gold_sims, sims))
     print_results(out_dir, result_str)
 

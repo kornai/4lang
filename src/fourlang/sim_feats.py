@@ -23,6 +23,7 @@ class SimFeatures:
             'subgraphs' : ['subgraph_3N'],
             'fullgraph' : ['shortest_path']
         }
+        self.no_path_cnt = 0
 
         self.shortest_path_file_name = cfg.get(section, 'shortest_path_res')
         if not os.path.isfile(self.shortest_path_file_name) or cfg.getboolean(section, 'calc_shortest_path'):
@@ -138,6 +139,9 @@ class SimFeatures:
                 print length
                 self.shortest_path_res.write("\t".join(path))
                 self.shortest_path_res.write("\n")
+            else:
+                logging.info("path does not exist between {0} and {1}".format(name1, name2))
+                self.no_path_cnt += 1
         else:
             length = self.lexicon.get_shortest_path(name1, name2, self.shortest_path_file_name)
         return {"shortest_path" : length}
