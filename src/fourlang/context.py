@@ -67,7 +67,7 @@ class Context():
         edges, subjs, objs = self.coocc
         for i, edge in enumerate(edges):
             subj, obj = subjs[i], objs[i]
-            self.ndarray[i][subj][obj] += 1
+            self.ndarray[edge][subj][obj] += 1
 
     def get_w_index(self, word):
         if word in self.vocabulary:
@@ -166,10 +166,11 @@ def main():
 
     cfg = get_cfg(cfg_file)
     context = Context(cfg)
+    # context.build_from_stanford_output(filter_fnc=first_only_filter)
     # context.build_from_stanford_output(filter_fnc=short_only_filter)
     context.build_from_stanford_output()
     context.freeze_vocab()
-    context.build_ndarray()
+    # context.build_ndarray()  # causes MemoryError
     context.save()
     context.print_to_files()
 
