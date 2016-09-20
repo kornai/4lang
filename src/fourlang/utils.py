@@ -90,6 +90,22 @@ def draw_dep_graph(deps, out_dir, fn):
     return pic_path
 
 
+def get_raw_deps(fn):
+    curr_deps = []
+    with open(fn) as f:
+        for line in f:
+            l = line.strip()
+            if not l:
+                if curr_deps:
+                    yield curr_deps
+                    curr_deps = []
+                continue
+            elif l[0] == '(':
+                continue
+            else:
+                curr_deps.append(l)
+
+
 def get_cfg(cfg_file=None):
     cfg_files = [os.path.join(os.environ['FOURLANGPATH'], 'conf/default.cfg')]
     not_found = [fn for fn in cfg_files if not os.path.exists(fn)]
