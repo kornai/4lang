@@ -19,9 +19,12 @@ class Context():
         self.dfl = DepTo4lang(cfg)
         self.dep_processor = DependencyProcessor(cfg)
         self.vocabulary = {"IS_A": 0, "X": 1}
-        self.words = ["X"]
+        self.words = ["IS_A", "X"]
+        self.binary_vocab = {}
+        self.binary_words = []
         self.coocc = [], [], []
-        self.ndarray = None
+        self.zero_array = None
+        self.binary_array = None
 
     @staticmethod
     def load(cfg):
@@ -32,28 +35,35 @@ class Context():
         updated_fn = fn + '.pickle' if not fn.endswith('pickle') else fn
         data = {
             "words": self.words, "vocabulary": self.vocabulary,
-            "coocc": self.coocc, "ndarray": self.ndarray, "cfg": self.cfg}
+            "binary_words": self.binary_words,
+            "binary_vocab": self.binary_vocab, "coocc": self.coocc,
+            "zero_array": self.zero_array, "binary_array": self.binary_array,
+            "cfg": self.cfg}
         cPickle.dump(data, open(updated_fn, 'w'))
 
     def freeze_vocab(self):
         self.is_vocab_frozen = True
         self.vocab_size = len(self.vocabulary)
-        assert self.vocab_size == len(self.words) + 1
+        assert self.vocab_size == len(self.words)
         # 0: IS_A is not listed
+        self.binary_size = len(self.binary_vocab)
+        assert self.binary_size == len(self.binary_words)
 
-    def check_existing(self):
-        if self.ndarray is None:
+    def ensure_arrays(self):
+        if self.zero_array is None:
+            logging.info('creating new arrays')
             if not self.is_vocab_frozen:
                 logging.warning('freezing vocabulary before creating ndarray')
                 self.freeze_vocab()
-            self.ndarray = np.zeros(shape=3*(self.vocab_size,), dtype=int)
+            self.zero_array = np.zeros(shape=2*(self.vocab_size,), dtype=int)
+            self.binary_array = np.zeros(
+                shape=(self.binary_size*2, self.vocab_size), dtype=int)
         else:
-            if not self.ndarray.shape == 3*(self.vocab_size,):
-                error_msg = 'ndarray already exists but has shape {0}\
-                    instead of {1}'.format(
-                        self.ndarray.shape, 3*(self.vocab_size,))
-                logging.error(error_msg)
-                raise Exception(error_msg)
+            logging.info('adding occurences to existing arrays')
+        logging.info('# words: {0}'.format(self.vocab_size))
+        logging.info('zero_array shape: {0}'.format(self.zero_array.shape))
+        logging.info('# binaries: {0}'.format(self.binary_size))
+        logging.info('binary_array shape: {0}'.format(self.binary_array.shape))
 
     def check_edges(self):
         edges, subjs, objs = self.coocc
@@ -61,13 +71,19 @@ class Context():
         assert len(subjs) == edge_no
         assert len(objs) == edge_no
 
-    def build_ndarray(self):
-        self.check_existing()
+    def build_arrays(self):
+        self.ensure_arrays()
         self.check_edges()
         edges, subjs, objs = self.coocc
         for i, edge in enumerate(edges):
             subj, obj = subjs[i], objs[i]
-            self.ndarray[edge][subj][obj] += 1
+            if edge == 0:
+                self.zero_array[subj][obj] += 1
+            else:
+                binary_word = self.words[edge]
+                binary_index = self.binary_vocab[binary_word]
+                self.binary_array[2*binary_index][subj] += 1
+                self.binary_array[2*binary_index+1][obj] += 1
 
     def get_w_index(self, word):
         if word in self.vocabulary:
@@ -76,6 +92,15 @@ class Context():
             self.words.append(word)
             new_index = len(self.vocabulary)
             self.vocabulary[word] = new_index
+            return new_index
+
+    def add_binary(self, word):
+        if word in self.binary_vocab:
+            return self.binary_vocab[word]
+        else:
+            self.binary_words.append(word)
+            new_index = len(self.binary_vocab)
+            self.binary_vocab[word] = new_index
             return new_index
 
     def add_edge(self, w0_index, w1_index, w2_index):
@@ -112,6 +137,8 @@ class Context():
                 obj_index = self.get_w_index(
                     machine.partitions[2][0].printname())
 
+            if subj_index or obj_index:
+                self.add_binary(word)
             if subj_index and obj_index:
                 self.add_edge(w_index, subj_index, obj_index)
             elif subj_index:
@@ -166,13 +193,13 @@ def main():
 
     cfg = get_cfg(cfg_file)
     context = Context(cfg)
-    # context.build_from_stanford_output(filter_fnc=first_only_filter)
+    context.build_from_stanford_output(filter_fnc=first_only_filter)
     # context.build_from_stanford_output(filter_fnc=short_only_filter)
-    context.build_from_stanford_output()
+    # context.build_from_stanford_output()
     context.freeze_vocab()
-    # context.build_ndarray()  # causes MemoryError
-    context.save()
     context.print_to_files()
+    context.build_arrays()  # causes MemoryError
+    context.save()
 
 if __name__ == "__main__":
     main()
