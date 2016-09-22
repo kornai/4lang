@@ -6,7 +6,7 @@ import re
 import sys
 import traceback
 
-from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
+from pymachine.operators import AppendOperator, AppendToNewBinaryOperator
 
 from dependency_processor import DependencyProcessor, Dependencies, NewDependencies  # nopep8
 from lemmatizer import Lemmatizer
@@ -40,7 +40,7 @@ class DepTo4lang():
             l = line.strip()
             if not l or l.startswith('#'):
                 continue
-            dep = Dependency.create_from_line(l, self.lexicon)
+            dep = Dependency.create_from_line(l)
             self.dependencies[dep.name].append(dep)
 
     def apply_dep(self, dep, machine1, machine2):
@@ -233,15 +233,14 @@ class DepTo4lang():
 
 
 class Dependency():
-    def __init__(self, name, patt1, patt2, lexicon, operators=[]):
+    def __init__(self, name, patt1, patt2, operators=[]):
         self.name = name
         self.patt1 = re.compile(patt1) if patt1 else None
         self.patt2 = re.compile(patt2) if patt2 else None
         self.operators = operators
-        self.lexicon = lexicon
 
     @staticmethod
-    def create_from_line(line, lexicon):
+    def create_from_line(line):
         rel, reverse = None, False
         # logging.debug('parsing line: {}'.format(line))
         fields = line.split('\t')
@@ -277,7 +276,7 @@ class Dependency():
             rel = dep.split(':', 1)[1].upper()
 
         return Dependency(
-            dep, patt1, patt2, lexicon, Dependency.get_standard_operators(
+            dep, patt1, patt2, Dependency.get_standard_operators(
                 edge1, edge2, rel, reverse))
 
     @staticmethod
@@ -289,7 +288,7 @@ class Dependency():
             operators.append(AppendOperator(1, 0, part=edge2))
         if rel:
             operators.append(
-                AppendToBinaryFromLexiconOperator(rel, 0, 1, reverse=reverse))
+                AppendToNewBinaryOperator(rel.lower(), 0, 1, reverse=reverse))
 
         return operators
 
@@ -305,10 +304,7 @@ class Dependency():
         if self.match(msd1, msd2):
             logging.debug('MATCH!')
             for operator in self.operators:
-                if isinstance(operator, AppendToBinaryFromLexiconOperator):
-                    operator.act((machine1, machine2), self.lexicon)
-                else:
-                    operator.act((machine1, machine2))
+                operator.act((machine1, machine2))
 
 
 def main():
