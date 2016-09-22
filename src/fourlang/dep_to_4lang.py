@@ -26,11 +26,11 @@ class DepTo4lang():
             ensure_dir(os.path.dirname(self.out_fn))
         self.dependency_processor = DependencyProcessor(self.cfg)
         dep_map_fn = cfg.get("deps", "dep_map")
-        self.read_dep_map(dep_map_fn)
         self.undefined = set()
         self.lemmatizer = Lemmatizer(cfg)
         self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
+        self.read_dep_map(dep_map_fn)
         self.word2lemma = {}
         self.first_only = cfg.getboolean('filter', 'first_only')
 
@@ -40,7 +40,7 @@ class DepTo4lang():
             l = line.strip()
             if not l or l.startswith('#'):
                 continue
-            dep = Dependency.create_from_line(l)
+            dep = Dependency.create_from_line(l, self.lexicon)
             self.dependencies[dep.name].append(dep)
 
     def apply_dep(self, dep, machine1, machine2):
@@ -91,7 +91,7 @@ class DepTo4lang():
                         unified_machine = machine
                     else:
                         unified_machine.unify(machine)
-                    if self.first_only == True:
+                    if self.first_only is True:
                         break
                 self.lexicon.add(word, unified_machine)
             except Exception:
@@ -233,14 +233,15 @@ class DepTo4lang():
 
 
 class Dependency():
-    def __init__(self, name, patt1, patt2, operators=[]):
+    def __init__(self, name, patt1, patt2, lexicon, operators=[]):
         self.name = name
         self.patt1 = re.compile(patt1) if patt1 else None
         self.patt2 = re.compile(patt2) if patt2 else None
         self.operators = operators
+        self.lexicon = lexicon
 
     @staticmethod
-    def create_from_line(line):
+    def create_from_line(line, lexicon):
         rel, reverse = None, False
         # logging.debug('parsing line: {}'.format(line))
         fields = line.split('\t')
@@ -275,8 +276,9 @@ class Dependency():
             logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split(':', 1)[1].upper()
 
-        return Dependency(dep, patt1, patt2, Dependency.get_standard_operators(
-            edge1, edge2, rel, reverse))
+        return Dependency(
+            dep, patt1, patt2, lexicon, Dependency.get_standard_operators(
+                edge1, edge2, rel, reverse))
 
     @staticmethod
     def get_standard_operators(edge1, edge2, rel, reverse):
@@ -287,7 +289,7 @@ class Dependency():
             operators.append(AppendOperator(1, 0, part=edge2))
         if rel:
             operators.append(
-                AppendToNewBinaryOperator(rel, 0, 1, reverse=reverse))
+                AppendToBinaryFromLexiconOperator(rel, 0, 1, reverse=reverse))
 
         return operators
 
@@ -303,7 +305,10 @@ class Dependency():
         if self.match(msd1, msd2):
             logging.debug('MATCH!')
             for operator in self.operators:
-                operator.act((machine1, machine2))
+                if isinstance(operator, AppendToBinaryFromLexiconOperator):
+                    operator.act((machine1, machine2), self.lexicon)
+                else:
+                    operator.act((machine1, machine2))
 
 
 def main():
