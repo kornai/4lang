@@ -7,7 +7,7 @@ import numpy as np
 
 from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
-from utils import ensure_dir, get_cfg, get_raw_deps
+from utils import ensure_dir, get_cfg, get_raw_deps, conll_to_deps
 
 
 __LOGLEVEL__ = logging.INFO
@@ -27,8 +27,17 @@ class Context():
         self.binary_array = None
 
     @staticmethod
-    def load(cfg):
-        pass
+    def load(fn):
+        updated_fn = fn + '.pickle' if not fn.endswith('pickle') else fn
+        data = cPickle.load(open(updated_fn))
+        c = Context(data['cfg'])
+        c.words = data['words']
+        c.vocabulary = data['vocabulary']
+        c.binary_words = data['binary_words']
+        c.binary_vocab = data['binary_vocab']
+        c.zero_array = data['zero_array']
+        c.binary_array = data['binary_array']
+        return c
 
     def save(self):
         fn = self.cfg.get('context', 'context_file')
@@ -172,6 +181,9 @@ class Context():
                 k = self.coocc[2][c]
                 f.write("{0}\t{1}\t{2}\n".format(i, j, k))
 
+    def test_activation(self, deps):
+        pass
+
 
 def first_only_filter(sens):
     yield next(sens)
@@ -184,22 +196,34 @@ def short_only_filter(sens):
             yield deps
 
 
+def test_build(cfg):
+    context = Context(cfg)
+    # context.build_from_stanford_output(filter_fnc=first_only_filter)
+    # context.build_from_stanford_output(filter_fnc=short_only_filter)
+    context.build_from_stanford_output()
+    context.freeze_vocab()
+    context.print_to_files()
+    context.build_arrays()  # causes MemoryError
+    context.save()
+
+def test_use(cfg):
+    fn = cfg.get('context', 'context_file')
+    context = Context.load(fn)
+    stanford_fn = cfg.get('context', 'stanford_output')
+    with open(stanford_fn) as file_obj:
+        for deps in conll_to_deps(file_obj):
+            context.test_activation(deps)
+
 def main():
     logging.basicConfig(
         level=__LOGLEVEL__,
         format="%(asctime)s : " +
         "%(module)s (%(lineno)s) - %(levelname)s - %(message)s")
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
-
     cfg = get_cfg(cfg_file)
-    context = Context(cfg)
-    context.build_from_stanford_output(filter_fnc=first_only_filter)
-    # context.build_from_stanford_output(filter_fnc=short_only_filter)
-    # context.build_from_stanford_output()
-    context.freeze_vocab()
-    context.print_to_files()
-    context.build_arrays()  # causes MemoryError
-    context.save()
+
+    # test_build(cfg)
+    test_use(cfg)
 
 if __name__ == "__main__":
     main()

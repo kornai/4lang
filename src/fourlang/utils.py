@@ -3,6 +3,7 @@ import logging
 import os
 
 import graphviz
+from hunmisc.corpustools.tsv_tools import get_dependencies, sentence_iterator
 
 from pymachine.machine import Machine
 from pymachine.utils import MachineGraph
@@ -104,6 +105,10 @@ def get_raw_deps(fn):
                 continue
             else:
                 curr_deps.append(l)
+
+def conll_to_deps(stream):
+    for sen in sentence_iterator(stream):
+        yield get_dependencies(sen)
 
 
 def get_cfg(cfg_file=None):
