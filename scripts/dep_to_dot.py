@@ -29,18 +29,24 @@ def dep_to_dot(deps, fn):
 
 def main():
     if sys.argv[1] == '-':
+        # USAGE 1: read raw stanford output from stdin
         dep_to_dot(map(
             lambda l: Dependencies.parse_dependency(l.strip()),
             sys.stdin.readlines()), sys.argv[2])
     else:
         data = json.load(open(sys.argv[1]))
         try:
+            # USAGE 2: choose a sentence by number from text_to_4lang output
             i = int(sys.argv[3])
         except:
+            # USAGE 3: pick a word from JSON
+            # dep_to_dot.py input_json output_dir word
             w = sys.argv[3]
-            sen = map(
-                Dependencies.parse_dependency,
-                data[w]['senses'][0]['definition']['deps'])
+            deps = data[w]['senses'][0]['definition']['deps']
+            try:
+                sen = map(Dependencies.parse_dependency, deps)
+            except:
+                sen = deps
             fn = u"{0}/{1}.dot".format(sys.argv[2], w).encode('utf-8')
             dep_to_dot(sen, fn)
         else:
