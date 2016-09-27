@@ -24,7 +24,7 @@ def main():
 
     if text_to_4lang.lang == 'hu':
         id_field, word_field, lemma_field, msd_field, gov_field, dep_field = (
-            0, 1, 3, None, -4, -2)
+            0, 1, 3, 4, -4, -2)
     else:
         id_field, word_field, lemma_field, msd_field, gov_field, dep_field = (
             0, 1, None, None, -4, -3)
