@@ -4,10 +4,11 @@ import os
 import sys
 
 import numpy as np
+import scipy
 
 from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
-from utils import ensure_dir, get_cfg, get_raw_deps, conll_to_deps
+from utils import ensure_dir, get_cfg, get_raw_deps, conll_to_deps, load_sparse_csr, save_sparse_csr  # nopep8
 
 
 __LOGLEVEL__ = logging.INFO
@@ -28,16 +29,26 @@ class Context():
 
     @staticmethod
     def load(fn):
-        updated_fn = fn + '.pickle' if not fn.endswith('pickle') else fn
+        c = Context._load_data(fn)
+        c._load_arrays(fn)
+        return c
+
+    @staticmethod
+    def _load_data(fn):
+        updated_fn = fn + '.pickle'
         data = cPickle.load(open(updated_fn))
         c = Context(data['cfg'])
         c.words = data['words']
         c.vocabulary = data['vocabulary']
         c.binary_words = data['binary_words']
         c.binary_vocab = data['binary_vocab']
-        c.zero_array = data['zero_array']
-        c.binary_array = data['binary_array']
         return c
+
+    def _load_arrays(self, fn):
+        zero_fn = fn + '.npz'
+        bin_fn = fn + '.bin.npz'
+        self.zero_sparse = load_sparse_csr(zero_fn)
+        self.binary_sparse = load_sparse_csr(bin_fn)
 
     def save(self):
         fn = self.cfg.get('context', 'context_file')
@@ -46,9 +57,13 @@ class Context():
             "words": self.words, "vocabulary": self.vocabulary,
             "binary_words": self.binary_words,
             "binary_vocab": self.binary_vocab, "coocc": self.coocc,
-            "zero_array": self.zero_array, "binary_array": self.binary_array,
             "cfg": self.cfg}
+        logging.info('saving cfg, vocabulary, and edges...')
         cPickle.dump(data, open(updated_fn, 'w'))
+        logging.info('saving arrays...')
+        bin_fn = fn + '.bin'
+        save_sparse_csr(fn, self.zero_sparse)
+        save_sparse_csr(bin_fn, self.binary_sparse)
 
     def freeze_vocab(self):
         self.is_vocab_frozen = True
@@ -80,19 +95,33 @@ class Context():
         assert len(subjs) == edge_no
         assert len(objs) == edge_no
 
-    def build_arrays(self):
-        self.ensure_arrays()
+    def build_sparse(self):
         self.check_edges()
         edges, subjs, objs = self.coocc
+        values, rows, cols = [], [], []
+        bin_values, bin_rows, bin_cols = [], [], []
         for i, edge in enumerate(edges):
             subj, obj = subjs[i], objs[i]
             if edge == 0:
-                self.zero_array[subj][obj] += 1
+                values.append(1)
+                rows.append(subj)
+                cols.append(obj)
             else:
                 binary_word = self.words[edge]
                 binary_index = self.binary_vocab[binary_word]
-                self.binary_array[2*binary_index][subj] += 1
-                self.binary_array[2*binary_index+1][obj] += 1
+                bin_values += [1, 1]
+                bin_rows += [2*binary_index, 2*binary_index+1]
+                bin_cols += [subj, obj]
+
+        self.zero_sparse = scipy.sparse.csr_matrix((values, (rows, cols)))
+        self.binary_sparse = scipy.sparse.csr_matrix(
+            (bin_values, (bin_rows, bin_cols)))
+
+    def build_array(self):
+        self.zero_array = self.zero_sparse.toarray()
+        self.binary_array = self.binary_sparse.toarray()
+        logging.info('0-array: {0}'.format(self.zero_array.shape))
+        logging.info('b-array: {0}'.format(self.binary_array.shape))
 
     def get_w_index(self, word):
         if word in self.vocabulary:
@@ -182,7 +211,28 @@ class Context():
                 f.write("{0}\t{1}\t{2}\n".format(i, j, k))
 
     def test_activation(self, deps):
-        pass
+        word2machine = self.dfl.get_machines_from_deps_and_corefs([deps], [])
+        for word in word2machine:
+            if word not in self.vocabulary:
+                # print 'OOV:', word
+                continue
+            i = self.vocabulary[word]
+            out_edges = self.zero_array[i, :]
+            in_edges = self.zero_array[:, i]
+            out_words = dict(
+                [(self.words[w], count) for w, count in enumerate(out_edges)
+                 if count])
+            in_words = dict(
+                [(self.words[w], count) for w, count in enumerate(in_edges)
+                 if count])
+            if out_words:
+                top_out = sorted(out_words.items(), key=lambda it: -it[1])[:5]
+            if not (out_words or in_words):
+                continue
+            top_out = sorted(out_words.items(), key=lambda it: -it[1])[:5]
+            top_in = sorted(in_words.items(), key=lambda it: -it[1])[:5]
+            print 'word: {0}, top_out: {1}, top_in: {2}'.format(
+                word, top_out, top_in)
 
 
 def first_only_filter(sens):
@@ -200,15 +250,24 @@ def test_build(cfg):
     context = Context(cfg)
     # context.build_from_stanford_output(filter_fnc=first_only_filter)
     # context.build_from_stanford_output(filter_fnc=short_only_filter)
+    logging.info('building context...')
     context.build_from_stanford_output()
     context.freeze_vocab()
+    logging.info('printing...')
     context.print_to_files()
-    context.build_arrays()  # causes MemoryError
+    logging.info('building arrays...')
+    context.build_sparse()
+    logging.info('saving context...')
     context.save()
+    logging.info('done...')
 
 def test_use(cfg):
     fn = cfg.get('context', 'context_file')
+    logging.info('loading context...')
     context = Context.load(fn)
+    logging.info('building array...')
+    context.build_array()
+    logging.info('done...')
     stanford_fn = cfg.get('context', 'stanford_output')
     with open(stanford_fn) as file_obj:
         for deps in conll_to_deps(file_obj):
@@ -222,8 +281,8 @@ def main():
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
 
-    # test_build(cfg)
-    test_use(cfg)
+    test_build(cfg)
+    # test_use(cfg)
 
 if __name__ == "__main__":
     main()

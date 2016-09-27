@@ -4,6 +4,8 @@ import os
 
 import graphviz
 from hunmisc.corpustools.tsv_tools import get_dependencies, sentence_iterator
+import numpy as np
+from scipy.sparse import csr_matrix
 
 from pymachine.machine import Machine
 from pymachine.utils import MachineGraph
@@ -121,3 +123,16 @@ def get_cfg(cfg_file=None):
     cfg = ConfigParser(os.environ)
     cfg.read(cfg_files)
     return cfg
+
+"""these two copied from http://stackoverflow.com/questions/8955448/
+save-load-scipy-sparse-csr-matrix-in-portable-data-format"""
+
+def save_sparse_csr(filename, array):
+    np.savez(filename, data=array.data, indices=array.indices,
+             indptr=array.indptr, shape=array.shape)
+
+def load_sparse_csr(filename):
+    loader = np.load(filename)
+    return csr_matrix(
+        (loader['data'], loader['indices'], loader['indptr']),
+        shape=loader['shape'])

@@ -19,6 +19,13 @@ class Dependencies():
         dep_list = map(Dependencies.parse_dependency, dep_strings)
         return Dependencies(dep_list)
 
+    @staticmethod
+    def create_from_new_deps(new_deps):
+        deps = [(
+            d['type'], (d['dep']['word'], d['dep']['id']),
+            (d['dep']['word'], d['dep']['id'])) for d in new_deps]
+        return Dependencies(deps)
+
     def __init__(self, dep_list):
         self.dep_list = dep_list
         self.index_dependencies(dep_list)
@@ -318,8 +325,13 @@ class DependencyProcessor():
         try:  # TODO
             deps = Dependencies.create_from_strings(dep_strings)
         except TypeError:
-            logging.warning("can't parse deps, assuming they are already parsed")
-            deps = Dependencies(dep_strings)
+            try:
+                deps = Dependencies.create_from_new_deps(dep_strings)
+                logging.warning(
+                    "got NewDeps, converting to Deps for processing")
+            except KeyError:
+                logging.warning("got Deps")
+                deps = Dependencies(dep_strings)
         deps = self.process_copulars(deps)
         deps = self.process_rcmods(deps)
         deps = self.process_negation(deps)
