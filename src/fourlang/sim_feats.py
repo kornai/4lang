@@ -1,5 +1,6 @@
 import logging
 from pymachine.utils import MachineGraph, jaccard
+from lexicon import MachineGraphOptions
 
 import networkx as nx
 import networkx.algorithms.isomorphism as iso
@@ -24,6 +25,7 @@ class SimFeatures:
             'fullgraph' : ['shortest_path']
         }
         self.no_path_cnt = 0
+        self.expand_path = cfg.getboolean(section, 'expand_path')
 
         self.shortest_path_file_name = cfg.get(section, 'shortest_path_res')
         if not os.path.isfile(self.shortest_path_file_name) or cfg.getboolean(section, 'calc_shortest_path'):
@@ -38,10 +40,12 @@ class SimFeatures:
 
         if 'fullgraph' in self.feats_to_get:
             self.fullgraph_options = FullgraphOptions(cfg)
-            self.full_graph = self.lexicon.get_full_graph(self.fullgraph_options)
-            print "NODES count: {0}".format(len(self.full_graph.nodes()))
-            print "EDGES count: {0}".format(len(self.full_graph.edges()))
-            self.UG = self.full_graph.to_undirected()
+            self.machinegraph_options = MachineGraphOptions(self.fullgraph_options)
+            if not self.expand_path:
+                self.full_graph = self.lexicon.get_full_graph(self.fullgraph_options)
+                print "NODES count: {0}".format(len(self.full_graph.nodes()))
+                print "EDGES count: {0}".format(len(self.full_graph.edges()))
+                self.UG = self.full_graph.to_undirected()
 
     def get_all_features(self, graph1, graph2):
         all_feats = dict()
@@ -68,7 +72,7 @@ class SimFeatures:
         elif feature_name == 'subgraphs':
             return self.subgraphs(graph1.machine, graph2.machine)
         elif feature_name == 'fullgraph':
-            return self.fullgraph(graph1.name, graph2.name)
+            return self.fullgraph(graph1.name, graph2.name, graph1.machine, graph2.machine)
         else:
             return { feature_name : 0 }
 
@@ -120,18 +124,49 @@ class SimFeatures:
         temp = SubGraphFeatures(machine1, machine2, 5)
         return temp.subgraph_dict
 
-    def fullgraph(self, name1, name2):
+    def fullgraph(self, name1, name2, machine1, machine2):
         ####################
         # Only for calculating shortest path
         ####################
         if self.calc_path:
+            logging.debug('name1 = {0}, name2 = {1}'.format(name1, name2))
+
             length = 0
-            if name1 not in self.UG.nodes() or name2 not in self.UG.nodes():
+            active_graph = None
+            unified_machine = None
+            if self.expand_path:
+                logging.debug("calc active graph")
+                active_graph = MachineGraph.create_from_machines(
+                    [machine1], machinegraph_options=self.machinegraph_options).G.to_undirected()
+                G2 = MachineGraph.create_from_machines(
+                    [machine2], machinegraph_options=self.machinegraph_options).G.to_undirected()
+                active_graph.add_edges_from(G2.edges(data=True))
+
+                # TODO: e.g. "take" is empty
+                if name1 not in active_graph.nodes() or name2 not in G2.nodes():
+                    return {"shortest_path": length}
+
+                i = 0
+                while not nx.has_path(active_graph, name1, name2):
+                    if i > 5:
+                        return {"shortest_path": length}
+                    self.lexicon.expand_definition(machine1)
+                    self.lexicon.expand_definition(machine2)
+                    active_graph = MachineGraph.create_from_machines(
+                        [machine1], machinegraph_options=self.machinegraph_options).G.to_undirected()
+                    G2 = MachineGraph.create_from_machines(
+                        [machine2], machinegraph_options=self.machinegraph_options).G.to_undirected()
+                    active_graph.add_edges_from(G2.edges(data=True))
+                    i += 1
+            else:
+                active_graph = self.UG
+
+            if name1 not in active_graph.nodes() or name2 not in active_graph.nodes():
                 return {"shortest_path" : length}
-            if nx.has_path(self.UG, name1, name2):
-                path = nx.shortest_path(self.UG, name1, name2, weight='weight')
+            if nx.has_path(active_graph, name1, name2):
+                path = nx.shortest_path(active_graph, name1, name2, weight='weight')
                 if self.fullgraph_options.weighted == True:
-                    length = nx.shortest_path_length(self.UG, name1, name2, weight='weight')
+                    length = nx.shortest_path_length(active_graph, name1, name2, weight='weight')
                 else:
                     length = len(path)
                 print "PATH: " + name1 + " " + name2
