@@ -6,7 +6,7 @@ import re
 import sys
 import traceback
 
-from pymachine.operators import AppendOperator, AppendToNewBinaryOperator, AppendToBinaryFromLexiconOperator  # nopep8
+from pymachine.operators import AppendOperator, AppendToNewBinaryOperator
 
 from dependency_processor import DependencyProcessor, Dependencies, NewDependencies  # nopep8
 from lemmatizer import Lemmatizer
@@ -26,11 +26,11 @@ class DepTo4lang():
             ensure_dir(os.path.dirname(self.out_fn))
         self.dependency_processor = DependencyProcessor(self.cfg)
         dep_map_fn = cfg.get("deps", "dep_map")
-        self.read_dep_map(dep_map_fn)
         self.undefined = set()
         self.lemmatizer = Lemmatizer(cfg)
         self.lexicon_fn = self.cfg.get("machine", "definitions_binary")
         self.lexicon = Lexicon.load_from_binary(self.lexicon_fn)
+        self.read_dep_map(dep_map_fn)
         self.word2lemma = {}
         self.first_only = cfg.getboolean('filter', 'first_only')
 
@@ -91,7 +91,7 @@ class DepTo4lang():
                         unified_machine = machine
                     else:
                         unified_machine.unify(machine)
-                    if self.first_only == True:
+                    if self.first_only is True:
                         break
                 self.lexicon.add(word, unified_machine)
             except Exception:
@@ -275,8 +275,9 @@ class Dependency():
             logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split(':', 1)[1].upper()
 
-        return Dependency(dep, patt1, patt2, Dependency.get_standard_operators(
-            edge1, edge2, rel, reverse))
+        return Dependency(
+            dep, patt1, patt2, Dependency.get_standard_operators(
+                edge1, edge2, rel, reverse))
 
     @staticmethod
     def get_standard_operators(edge1, edge2, rel, reverse):
@@ -287,7 +288,7 @@ class Dependency():
             operators.append(AppendOperator(1, 0, part=edge2))
         if rel:
             operators.append(
-                AppendToNewBinaryOperator(rel, 0, 1, reverse=reverse))
+                AppendToNewBinaryOperator(rel.lower(), 0, 1, reverse=reverse))
 
         return operators
 

@@ -198,7 +198,9 @@ class Lexicon():
             return self.get_machine("_empty_")
 
         if printname.isupper():
-            return self.get_machine(printname, new_machine=True)
+            # return self.get_machine(printname, new_machine=True)
+            return self.get_machine(printname=printname.lower(), new_machine=new_machine, allow_new_base=allow_new_base,
+                                    allow_new_ext=allow_new_ext, allow_new_oov=allow_new_oov)
 
         machines = self.lexicon.get(
             printname, self.ext_lexicon.get(
