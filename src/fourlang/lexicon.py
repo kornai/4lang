@@ -31,6 +31,13 @@ class Lexicon():
         definitions = read_defs(
             file(fn), plural_fn, pn_index, three_parts=True)
         logging.info('parsed {0} entries, done!'.format(len(definitions)))
+        logging.info('lowercasing binaries...')
+        for pn, machines in definitions.iteritems():
+            for m in machines:
+                for node in MachineTraverser.get_nodes(
+                        m, keep_upper=True, names_only=False):
+                    node.printname_ = node.printname_.lower()
+        logging.info('done!')
         lexicon = Lexicon.create_from_dict(definitions, primitives, cfg)
         return lexicon
 
@@ -235,8 +242,8 @@ class Lexicon():
             stopwords = self.stopwords
         for lemma, machine in words_to_machines.iteritems():
             if (
-                            (not cached or lemma not in self.expanded) and
-                                lemma in self.known_words() and lemma not in stopwords):
+                    (not cached or lemma not in self.expanded) and
+                    lemma in self.known_words() and lemma not in stopwords):
 
                 # deepcopy so that the version in the lexicon keeps its links
                 definition = self.get_machine(lemma)
@@ -274,10 +281,12 @@ class Lexicon():
                 self.expanded.add(lemma)
 
     def get_full_graph(self, fullgraph_options):
-        if not self.full_graph == None:
+        if self.full_graph is not None:
             return self.full_graph
         allwords = set()
-        allwords.update(self.lexicon.keys(), self.ext_lexicon.keys(), self.oov_lexicon.keys())
+        allwords.update(
+            self.lexicon.keys(), self.ext_lexicon.keys(),
+            self.oov_lexicon.keys())
         self.full_graph = nx.MultiDiGraph()
 
         excluded_words = set()
@@ -289,14 +298,16 @@ class Lexicon():
                 freq = int(fields[0])
                 word = fields[1]
                 if line_no > fullgraph_options.freq_cnt and (
-                        fullgraph_options.freq_val == 0 or fullgraph_options.freq_val > freq):
-                    break;
+                        fullgraph_options.freq_val == 0 or
+                        fullgraph_options.freq_val > freq):
+                    break
                 excluded_words.add(word)
 
-        machinegraph_options = MachineGraphOptions(fullgraph_options=fullgraph_options)
+        machinegraph_options = MachineGraphOptions(
+            fullgraph_options=fullgraph_options)
 
         # TODO: only for debugging
-        until = 10
+        # until = 10
         for i, word in enumerate(allwords):
             # TODO: only for debugging
             # if word not in ['dumb', 'intelligent', 'stupid']:
@@ -305,13 +316,16 @@ class Lexicon():
             #     break
 
             machine = self.get_machine(word)
-            MG = MachineGraph.create_from_machines([machine], machinegraph_options=machinegraph_options)
+            MG = MachineGraph.create_from_machines(
+                [machine], machinegraph_options=machinegraph_options)
             # TODO: maybe directed is better
             G = MG.G.to_undirected()
 
             # TODO: to print out all graphs
             # try:
-            #     fn = os.path.join('/home/eszter/projects/4lang/data/graphs/allwords', u"{0}.dot".format(word)).encode('utf-8')
+            #     fn = os.path.join(
+            #   '/home/eszter/projects/4lang/data/graphs/allwords',
+            #   u"{0}.dot".format(word)).encode('utf-8')
             #     with open(fn, 'w') as dot_obj:
             #         dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
             # except:
@@ -328,7 +342,9 @@ class Lexicon():
 
             # TODO: only for debugging
             # MG.G = self.full_graph
-            # fn = os.path.join('/home/eszter/projects/4lang/test/graphs/full_graph', u"{0}.dot".format(i)).encode('utf-8')
+            # fn = os.path.join(
+            #   '/home/eszter/projects/4lang/test/graphs/full_graph',
+            #   u"{0}.dot".format(i)).encode('utf-8')
             # with open(fn, 'w') as dot_obj:
             #     dot_obj.write(MG.to_dot_str_graph().encode('utf-8'))
 
@@ -339,7 +355,7 @@ class Lexicon():
         return self.full_graph
 
     def get_shortest_path(self, word1, word2, file):
-        if self.shortest_path_dict == None:
+        if self.shortest_path_dict is None:
             self.shortest_path_dict = dict()
             with open(file, 'r') as f:
                 reader = csv.reader(f, delimiter="\t")
