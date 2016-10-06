@@ -1,3 +1,4 @@
+from collections import defaultdict
 import cPickle
 import logging
 import os
@@ -5,6 +6,8 @@ import sys
 
 import numpy as np
 import scipy
+
+from pymachine.utils import MachineGraph
 
 from dep_to_4lang import DepTo4lang
 from dependency_processor import DependencyProcessor
@@ -158,7 +161,29 @@ class Context():
                 logging.info('processed {0}k sens'.format(count/1000))
             word2machine = self.dfl.get_machines_from_deps_and_corefs(
                 [deps], [])
-            self.add_machines(word2machine)
+            # self.add_machines(word2machine)
+            self.add_edges(word2machine)
+
+    def add_edges(self, word2machine):
+        g = MachineGraph.create_from_machines(word2machine.values())
+        g.do_closure()
+        binaries = defaultdict(lambda: [set(), set()])
+        for n1, n2, edata in g.G.edges(data=True):
+            n1_index = self.get_w_index(n1)
+            n2_index = self.get_w_index(n2)
+            if edata['color'] == 0:
+                self.add_edge(0, n1_index, n2_index)
+            elif edata['color'] == 1:
+                binaries[n1_index][0].add(n2_index)
+            elif edata['color'] == 2:
+                binaries[n1_index][1].add(n2_index)
+            else:
+                assert False
+
+        for bin_index, (subjs, objs) in binaries.iteritems():
+            for subj_index in subjs:
+                for obj_index in objs:
+                    self.add_edge(bin_index, subj_index, obj_index)
 
     def add_machines(self, word2machine):
         for word, machine in word2machine.iteritems():
