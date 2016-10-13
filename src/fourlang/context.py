@@ -157,11 +157,12 @@ class Context():
         count = 0
         for deps in sen_deps:
             count += 1
-            if count % 1000 == 0:
-                logging.info('processed {0}k sens'.format(count/1000))
+            # if count % 1000 == 0:
+            #    logging.info('processed {0}k sens'.format(count/1000))
             word2machine = self.dfl.get_machines_from_deps_and_corefs(
                 [deps], [])
             # self.add_machines(word2machine)
+            self.dfl.lexicon.expand(word2machine)
             self.add_edges(word2machine)
 
     def add_edges(self, word2machine):
@@ -273,6 +274,37 @@ def short_only_filter(sens):
             yield deps
 
 
+def test_build_bulk(cfg):
+    import gzip
+    context = Context(cfg)
+    logging.info('building context...')
+    path = cfg.get('context', 'stanford_output')
+    files = os.listdir(path)
+    file_no = len(files)
+    sen_count = 0
+    for c, fn in enumerate(files):
+        logging.info('processing file {0} of {1}'.format(c+1, file_no))
+        with gzip.open(os.path.join(path, fn)) as fobj:
+            for sen_deps in conll_to_deps(fobj):
+                try:
+                    context.build_from_deps([sen_deps])
+                    sen_count += 1
+                    if sen_count % 10000 == 0:
+                        logging.info(
+                            'processed {0}K sens'.format(sen_count/1000))
+                except:
+                    logging.warning(
+                        'error on sentence {0}: {1}'.format(c, sen_deps))
+
+    context.freeze_vocab()
+    logging.info('printing...')
+    context.print_to_files()
+    logging.info('building arrays...')
+    context.build_sparse()
+    logging.info('saving context...')
+    context.save()
+    logging.info('done...')
+
 def test_build(cfg):
     context = Context(cfg)
     # context.build_from_stanford_output(filter_fnc=first_only_filter)
@@ -308,7 +340,8 @@ def main():
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
 
-    test_build(cfg)
+    test_build_bulk(cfg)
+    # test_build(cfg)
     # test_use(cfg)
 
 if __name__ == "__main__":

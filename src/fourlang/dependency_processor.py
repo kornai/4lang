@@ -322,16 +322,17 @@ class DependencyProcessor():
         return deps.deps
 
     def process_stanford_dependencies(self, dep_strings):
+        # print dep_strings
         try:  # TODO
             deps = Dependencies.create_from_strings(dep_strings)
         except TypeError:
             try:
                 deps = Dependencies.create_from_new_deps(dep_strings)
-                logging.warning(
-                    "got NewDeps, converting to Deps for processing")
-            except KeyError:
-                logging.warning("got Deps")
+                # logging.warning(
+                #    "got NewDeps, converting to Deps for processing")
+            except:
                 deps = Dependencies(dep_strings)
+                # logging.warning("got Deps")
         deps = self.process_copulars(deps)
         deps = self.process_rcmods(deps)
         deps = self.process_negation(deps)
