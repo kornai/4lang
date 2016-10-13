@@ -169,16 +169,18 @@ class Context():
         g.do_closure()
         binaries = defaultdict(lambda: [set(), set()])
         for n1, n2, edata in g.G.edges(data=True):
-            n1_index = self.get_w_index(n1)
-            n2_index = self.get_w_index(n2)
+            n1_index = self.get_w_index(n1.split('_')[0])
+            n2_index = self.get_w_index(n2.split('_')[0])
             if edata['color'] == 0:
                 self.add_edge(0, n1_index, n2_index)
-            elif edata['color'] == 1:
-                binaries[n1_index][0].add(n2_index)
-            elif edata['color'] == 2:
-                binaries[n1_index][1].add(n2_index)
             else:
-                assert False
+                self.add_binary(n1.split('_')[0])
+                if edata['color'] == 1:
+                    binaries[n1_index][0].add(n2_index)
+                elif edata['color'] == 2:
+                    binaries[n1_index][1].add(n2_index)
+                else:
+                    assert False
 
         for bin_index, (subjs, objs) in binaries.iteritems():
             for subj_index in subjs:
