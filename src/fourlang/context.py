@@ -311,6 +311,7 @@ def test_build_bulk(cfg):
                 except:
                     logging.warning(
                         'error on sentence {0}: {1}'.format(c, sen_deps))
+                    traceback.print_exc()
 
     context.freeze_vocab()
     logging.info('printing...')

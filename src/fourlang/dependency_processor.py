@@ -22,7 +22,7 @@ class Dependencies():
     @staticmethod
     def create_from_new_deps(new_deps):
         deps = [(
-            d['type'], (d['dep']['word'], d['dep']['id']),
+            d['type'], (d['gov']['word'], d['gov']['id']),
             (d['dep']['word'], d['dep']['id'])) for d in new_deps]
         return Dependencies(deps)
 
