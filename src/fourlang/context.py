@@ -3,6 +3,7 @@ import cPickle
 import logging
 import os
 import sys
+import traceback
 
 import numpy as np
 import scipy
@@ -22,8 +23,8 @@ class Context():
         self.cfg = cfg
         self.dfl = DepTo4lang(cfg)
         self.dep_processor = DependencyProcessor(cfg)
-        self.vocabulary = {"IS_A": 0, "X": 1}
-        self.words = ["IS_A", "X"]
+        self.vocabulary = {}
+        self.words = []
         self.binary_vocab = {}
         self.binary_words = []
         self.coocc = [], [], []
@@ -98,6 +99,21 @@ class Context():
         assert len(subjs) == edge_no
         assert len(objs) == edge_no
 
+    def lookup_edge(self, edge, subj, obj):
+        subj_i, obj_i = map(self.vocabulary.get, (subj, obj))
+        if subj_i is None:
+            raise Exception("OOV: {0}".format(subj))
+        if obj_i is None:
+            raise Exception("OOV: {0}".format(obj))
+        if edge == 'IS_A':
+            return self.zero_sparse[subj_i, obj_i]
+        else:
+            if edge not in self.binary_vocab:
+                raise Exception("OOV: {0}".format(edge))
+            binary_index = self.binary_vocab[edge]
+            return (self.binary_sparse[2*binary_index, subj_i],
+                    self.binary_sparse[2*binary_index+1, obj_i])
+
     def build_sparse(self):
         self.check_edges()
         edges, subjs, objs = self.coocc
@@ -130,8 +146,8 @@ class Context():
         if word in self.vocabulary:
             return self.vocabulary[word]
         else:
-            self.words.append(word)
             new_index = len(self.vocabulary)
+            self.words.append(word)
             self.vocabulary[word] = new_index
             return new_index
 
@@ -139,8 +155,8 @@ class Context():
         if word in self.binary_vocab:
             return self.binary_vocab[word]
         else:
-            self.binary_words.append(word)
             new_index = len(self.binary_vocab)
+            self.binary_words.append(word)
             self.binary_vocab[word] = new_index
             return new_index
 
@@ -320,7 +336,22 @@ def test_build(cfg):
     context.save()
     logging.info('done...')
 
-def test_use(cfg):
+def test_lookup(cfg):
+    fn = cfg.get('context', 'context_file')
+    logging.info('loading context...')
+    context = Context.load(fn)
+    logging.info('done...')
+    while True:
+        print("Type an edge such as 'has man head' or 'IS_A bird vertebrate'")
+        x_y_z = raw_input()
+        x, y, z = x_y_z.split()
+        try:
+            print context.lookup_edge(x, y, z)
+        except:
+            print('error:')
+            traceback.print_exc()
+
+def test_spreading(cfg):
     fn = cfg.get('context', 'context_file')
     logging.info('loading context...')
     context = Context.load(fn)
@@ -342,7 +373,8 @@ def main():
 
     test_build_bulk(cfg)
     # test_build(cfg)
-    # test_use(cfg)
+    # test_lookup(cfg)
+    # test_spreading(cfg)
 
 if __name__ == "__main__":
     main()
