@@ -7,6 +7,7 @@ import traceback
 
 import numpy as np
 import scipy
+from scipy.sparse import find
 
 from pymachine.utils import MachineGraph
 
@@ -99,17 +100,43 @@ class Context():
         assert len(subjs) == edge_no
         assert len(objs) == edge_no
 
+    def lookup_0_freqs(self, word):
+        i = self.vocabulary.get(word)
+        if i is None:
+            return None
+        out_sum = sum(find(self.zero_sparse[i, :])[2])
+        in_sum = sum(find(self.zero_sparse[:, i])[2])
+        return out_sum, in_sum
+
+    def lookup_arg_freqs(self, word):
+        i = self.vocabulary.get(word)
+        if i is None:
+            return None
+        sum1 = sum(find(self.binary_sparse[::2, i])[2])
+        sum2 = sum(find(self.binary_sparse[1::2, i])[2])
+        return sum1, sum2
+
+    def lookup_bin_freqs(self, word):
+        i = self.binary_vocab.get(word)
+        if i is None:
+            return None
+        sum1 = sum(find(self.binary_sparse[2*i, :])[2])
+        sum2 = sum(find(self.binary_sparse[2*i+1, :])[2])
+        return sum1, sum2
+
     def lookup_edge(self, edge, subj, obj):
         subj_i, obj_i = map(self.vocabulary.get, (subj, obj))
-        if subj_i is None:
-            raise Exception("OOV: {0}".format(subj))
-        if obj_i is None:
-            raise Exception("OOV: {0}".format(obj))
+        if subj_i is None or obj_i is None:
+            return None
+            # raise Exception("OOV: {0}".format(subj))
+        # if obj_i is None:
+            # raise Exception("OOV: {0}".format(obj))
         if edge == 'IS_A':
             return self.zero_sparse[subj_i, obj_i]
         else:
             if edge not in self.binary_vocab:
-                raise Exception("OOV: {0}".format(edge))
+                return None
+                # raise Exception("OOV: {0}".format(edge))
             binary_index = self.binary_vocab[edge]
             return (self.binary_sparse[2*binary_index, subj_i],
                     self.binary_sparse[2*binary_index+1, obj_i])
@@ -372,9 +399,9 @@ def main():
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
 
-    test_build_bulk(cfg)
+    # test_build_bulk(cfg)
     # test_build(cfg)
-    # test_lookup(cfg)
+    test_lookup(cfg)
     # test_spreading(cfg)
 
 if __name__ == "__main__":
