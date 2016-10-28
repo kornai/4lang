@@ -27,11 +27,10 @@ class Lexicon():
             [line.decode('utf-8').strip() for line in open(primitive_fn)])
         logging.info('parsing 4lang definitions...')
         pn_index = 1 if cfg.get("deps", "lang") == 'hu' else 0
-        definitions = read_defs(
-            file(fn), pn_index, three_parts=True)
-        logging.info('parsed {0} entries, done!'.format(len(definitions)))
+        definitions = read_defs(file(fn), pn_index)
+        #logging.info('parsed {0} entries, done!'.format(len(definitions)))
         logging.info('lowercasing binaries...')
-        for pn, machines in definitions.iteritems():
+        for pn, machines in definitions:
             for m in machines:
                 for node in MachineTraverser.get_nodes(
                         m, keep_upper=True, names_only=False):
