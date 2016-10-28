@@ -398,4 +398,4 @@ if __name__ == "__main__":
     lexicon = Lexicon.build_from_4lang(cfg)
     fourlang_fn = cfg.get("machine", "definitions_binary")
     ensure_dir(os.path.dirname(fourlang_fn))
-    lexicon.save_to_binary(cfg.get("machine", "definitions_binary"))
+    lexicon.save_to_binary(fourlang_fn)
