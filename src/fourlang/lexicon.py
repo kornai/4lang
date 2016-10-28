@@ -2,6 +2,7 @@ import copy
 import cPickle
 import json
 import logging
+import os
 import sys
 
 from nltk.corpus import stopwords as nltk_stopwords
@@ -10,7 +11,7 @@ from pymachine.machine import Machine
 from pymachine.control import ConceptControl
 from pymachine.utils import MachineGraph, MachineTraverser
 
-from utils import get_cfg
+from utils import get_cfg, ensure_dir
 
 import networkx as nx
 import csv
@@ -395,4 +396,6 @@ if __name__ == "__main__":
     cfg_file = sys.argv[1] if len(sys.argv) > 1 else None
     cfg = get_cfg(cfg_file)
     lexicon = Lexicon.build_from_4lang(cfg)
+    fourlang_fn = cfg.get("machine", "definitions_binary")
+    ensure_dir(os.path.dirname(fourlang_fn))
     lexicon.save_to_binary(cfg.get("machine", "definitions_binary"))
