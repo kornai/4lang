@@ -1,7 +1,8 @@
 ## 4lang
 
 This repository provides
-- the `4lang` concept dictionary, which contains manually written concept definitions
+- the `4lang` concept dictionary, which contains manually written concept
+  definitions. (Learn more about the filelds of the tsv file [here](https://github.com/kornai/4lang/wiki/Fields-in-the-concept-dictionary))
 - the `text_to_4lang` module, which creates concept graph representations from running text
 - the `dict_to_4lang` module, which builds more of these definitions from human-readable dictionaries
 
