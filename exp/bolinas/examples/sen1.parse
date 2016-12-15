@@ -1,0 +1,18 @@
+(ROOT
+  (S
+    (NP (DT this) (NN agreement))
+    (VP (VBZ helps)
+      (S
+        (NP (PRP us))
+        (VP (VB achieve)
+          (NP (DT that) (NN goal)))))
+    (. .) ('' '')))
+
+det(agreement-2, this-1)
+nsubj(helps-3, agreement-2)
+root(ROOT-0, helps-3)
+nsubj(achieve-5, us-4)
+ccomp(helps-3, achieve-5)
+det(goal-7, that-6)
+dobj(achieve-5, goal-7)
+

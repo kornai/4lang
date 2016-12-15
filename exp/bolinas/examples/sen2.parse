@@ -1,0 +1,23 @@
+(ROOT
+  (S (`` ``)
+    (S
+      (S
+        (VP (VBG preventing)
+          (NP (NNS spills))))
+      (VP (VBZ is)
+        (NP (PRP$ our) (NN no.) (CD 1) (NN priority))))
+    (, ,) ('' '')
+    (NP (NN jensen))
+    (VP (VBD said))
+    (. .)))
+
+csubj(priority-8, preventing-2)
+dobj(preventing-2, spills-3)
+cop(priority-8, is-4)
+nmod:poss(priority-8, our-5)
+compound(priority-8, no.-6)
+nummod(priority-8, 1-7)
+ccomp(said-12, priority-8)
+nsubj(said-12, jensen-11)
+root(ROOT-0, said-12)
+

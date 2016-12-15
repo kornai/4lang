@@ -1,0 +1,5 @@
+X -> (. :ROOT :root (. :X$0)) | (. :X$0);
+X -> (. :apple) | (. :apple);
+X -> (. :X$1 :amod (. :X$2)) | (. :X$1 :is (. :X$2));
+X -> (. :red) | (. :red);
+

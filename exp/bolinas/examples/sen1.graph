@@ -1,0 +1,1 @@
+(ROOT. :ROOT :root (helps-3. :helps :nsubj (agreement-2. :agreement :det (this-1. :this)) :ccomp (achieve-5. :achieve :nsubj (us-4. :us) :dobj (goal-7. :goal :det (that-6. :that)))))

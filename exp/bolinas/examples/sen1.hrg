@@ -1,0 +1,25 @@
+# delete the root part (for now)
+X -> (. :ROOT :root (. :X$0)) | (. :X$0);
+
+# nsubj = 1-edge
+X -> (. :X$1 :nsubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# dobj = 2-edge
+X -> (. :X$1 :dobj (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# ccomp = 2-edge (will have to be resolved based on the predicate word's definition)
+X -> (. :X$1 :ccomp (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+
+# "this X" becomes X -0-> this (and can be handled later) 
+X -> (. :X$1 :det (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# vocabulary
+X -> (. :helps) | (. :helps);
+X -> (. :agreement) | (. :agreement);
+X -> (. :this) | (. :this);
+X -> (. :achieve) | (. :achieve);
+X -> (. :us) | (. :us);
+X -> (. :goal) | (. :goal);
+X -> (. :that) | (. :that);
+
