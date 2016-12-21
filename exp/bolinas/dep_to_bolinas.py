@@ -51,6 +51,7 @@ def dict_to_graph(dictionary, node):
     if node in SEEN:
         GRAPH_STRING += node + '.'
     else:
+        SEEN.add(node)
         GRAPH_STRING += "({0}. :{1}".format(node, node.split('-')[0])
         for neighbor in dictionary[node]:
             edge = dictionary[node][neighbor]
@@ -64,7 +65,7 @@ def main():
     global SEEN
     global GRAPH_STRING
     for sentence_dict in sentence_dicts:
-        SEEN = {}
+        SEEN = set()
         GRAPH_STRING = ''
         dict_to_graph(sentence_dict, 'ROOT')
         print GRAPH_STRING
