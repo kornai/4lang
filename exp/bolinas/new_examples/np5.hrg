@@ -1,0 +1,12 @@
+S -> (. :root :gov (. :ROOT) :dep (. :W$0 .));          # | (. :X$0);
+
+#W -> (. :X$0 (. :W$0 .*)) ;
+W -> (. :W$0 .* :X$0 .) ;
+
+# X -> (. :nmod_of :gov .* :dep (. :W$0 .));           # | (. :OF :subj (. :X$2) :obj (. :X$1));
+X -> (. :amod :gov .* :dep (. :W$0 .));             # | (. :X$1 :IS_A (. :X$2));
+
+W -> (. :space .*); # | (. :space);
+# W -> (. :structure .*); # | (. :structure);
+
+

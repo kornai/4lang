@@ -1,0 +1,12 @@
+(ROOT
+  (NP
+    (NP (DT the) (JJ overall) (NN structure))
+    (PP (IN of)
+      (NP (NN space)))))
+
+det(structure-3, the-1)
+amod(structure-3, overall-2)
+root(ROOT-0, structure-3)
+case(space-5, of-4)
+nmod:of(structure-3, space-5)
+

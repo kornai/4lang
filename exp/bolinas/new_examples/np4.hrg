@@ -1,0 +1,16 @@
+S -> (. :ROOT :root (. :W$0)) | (. :W$0);
+
+#X -> (. :X$1 :amod (. :X$2)) ; # | (. :X$1 :is (. :X$2));
+
+#X -> (. :X$1 :det (. :X$2)) ; # | (. :X$1 :is (. :X$2));
+
+W -> (. :W$0 :X$0) | (. :W$0 :X$0) ;
+
+X -> (. :amod (. :W$0)) | (. :IS_A (. :W$0));
+X -> (. :nmod_of (. :W$0)) | (n1. (. :OF :subj (. :W$0) :obj n1.));
+
+W -> (. :overall) | (. :overall);
+
+W -> (. :structure) | (. :structure);
+
+W -> (. :space) | (. :space);

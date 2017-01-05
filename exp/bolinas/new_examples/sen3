@@ -1,0 +1,36 @@
+(ROOT
+  (S
+    (PP (IN with)
+      (NP (JJ extra) (NNS dimensions)))
+    (, ,)
+    (NP (EX there))
+    (VP (VBP are)
+      (NP
+        (NP (DT an) (JJ enormous) (NN number))
+        (PP (IN of)
+          (NP
+            (NP (NNS possibilities))
+            (PP (IN for)
+              (NP
+                (NP (DT the) (JJ overall) (NN structure))
+                (PP (IN of)
+                  (NP (NN space)))))))))
+    (. .)))
+
+case(dimensions-3, with-1)
+amod(dimensions-3, extra-2)
+nmod:with(are-6, dimensions-3)
+expl(are-6, there-5)
+root(ROOT-0, are-6)
+det(number-9, an-7)
+amod(number-9, enormous-8)
+nsubj(are-6, number-9)
+case(possibilities-11, of-10)
+nmod:of(number-9, possibilities-11)
+case(structure-15, for-12)
+det(structure-15, the-13)
+amod(structure-15, overall-14)
+nmod:for(possibilities-11, structure-15)
+case(space-17, of-16)
+nmod:of(structure-15, space-17)
+

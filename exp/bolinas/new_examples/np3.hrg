@@ -1,0 +1,7 @@
+S -> (. :root :gov (. :ROOT) :dep (. :X$0 .)); # | (. :X$0);
+X -> (. :nmod_of :gov .* :dep (. :X$0 .)); # | (. :OF :subj (. :X$2) :obj (. :X$1));
+X -> (. :amod :gov .* :dep (. :X$0 .)); # | (. :X$1 :IS_A (. :X$2));
+X -> (. :space .*); # | (. :space);
+X -> (. :structure .*); # | (. :structure);
+
+

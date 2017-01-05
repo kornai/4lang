@@ -1,0 +1,130 @@
+# 4LANG DEPENDENCIES, BASED ON THE CHART
+# 0-, 1- and 2-edges of 4lang graphs will be called "is", "subj" and "obj", respectively
+
+# delete the root part (for now)
+X -> (. :ROOT :root (. :X$0)) | (. :X$0);
+
+# delete copulars
+X -> (. :X$1 :cop (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# amod = 0-edge
+X -> (. :X$1 :amod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# advmod = 0-edge
+X -> (. :X$1 :advmod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# npadvmod = 0-edge
+X -> (. :X$1 :npadvmod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# acomp = 0-edge
+X -> (. :X$1 :acomp (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# dep = 0-edge
+X -> (. :X$1 :dep (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# num = 0-edge
+X -> (. :X$1 :num (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# prt = 0-edge
+X -> (. :X$1 :prt (. :X$2)) | (. :X$1 :is (. :X$2));
+
+#appos (??)
+X -> (. :X$1 :poss (. :X$2)) | (. :is (. :X$2) :is (. :X$1));
+
+# nsubj = 1-edge
+X -> (. :X$1 :nsubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# csubj = 1-edge
+X -> (. :X$1 :csubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# xsubj = 1-edge
+X -> (. :X$1 :xsubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# agent = 1-edge
+X -> (. :X$1 :agent (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# dobj = 2-edge
+X -> (. :X$1 :dobj (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# pobj = 2-edge
+X -> (. :X$1 :pobj (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# nsubjpass = 2-edge
+X -> (. :X$1 :nsubjpass (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# csubjpass = 2-edge
+X -> (. :X$1 :csubjpass (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# pcomp = 2-edge
+X -> (. :X$1 :pcomp (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# xcomp = 2-edge
+X -> (. :X$1 :xcomp (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# poss = Y HAS X ( Y <-1- HAS -2-> X )
+X -> (. :X$1 :poss (. :X$2)) | (. :HAS :subj (. :X$2) :obj (. :X$1));
+
+# prep_of = Y HAS X ( Y <-1- HAS -2-> X )
+X -> (. :X$1 :prep_of (. :X$2)) | (. :HAS :subj (. :X$2) :obj (. :X$1));
+
+# tmod = Y AT X ( Y <-1- AT -2-> X )
+X -> (. :X$1 :tmod (. :X$2)) | (. :AT :subj (. :X$2) :obj (. :X$1));
+
+# prep_with = Y <-1- INSTRUMENT -2-> X
+X -> (. :X$1 :prep_with (. :X$2)) | (. :INSTRUMENT :subj (. :X$2) :obj (. :X$1));
+
+# prep_without = Y <-1- LACK -2-> X
+X -> (. :X$1 :prep_without (. :X$2)) | (. :LACK :subj (. :X$2) :obj (. :X$1));
+
+# prep_P = Y <-1- P -2-> X
+X -> (. :X$1 :prep_P (. :X$2)) | (. :P :subj (. :X$2) :obj (. :X$1));
+
+# OTHERS (they work, but need revision)
+
+# X nmod_poss Y -> Y HAS X ( Y <-1- HAS -2-> X )
+X -> (. :X$1 :nmod_poss (. :X$2)) | (. :HAS :subj (. :X$2) :obj (. :X$1));
+
+# compound = 0-edge
+X -> (. :X$1 :compound (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nummod = 0-edge
+X -> (. :X$1 :nummod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# "this X" becomes X -0-> this (and can be handled later) 
+X -> (. :X$1 :det (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nmod_of (x <--1 of 2--> y ???)
+X -> (. :X$1 :nmod_of (. :X$2)) | (. :OF :subj (. :X$2) :obj (. :X$1));
+
+# nmod_for (x <--1 for 2--> y ????)
+X -> (. :X$1 :nmod_for (. :X$2)) | (. :FOR :subj (. :X$2) :obj (. :X$1));
+
+# nmod_with (x <--1 with 2--> y ????)
+X -> (. :X$1 :nmod_with (. :X$2)) | (. :WITH :subj (. :X$2) :obj (. :X$1));
+
+# expl = 0-edge????
+X -> (. :X$1 :expl (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# case = 0-edge????
+X -> (. :X$1 :case (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# OTHERS (I'm not sure they work!)
+
+# det_predet = det
+X -> (. :X$1 :det_predet (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# advcl = 1-edge ???
+X -> (. :X$1 :advcl (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# nmod_to (x <--1 TO 2--> y ????)
+X -> (. :X$1 :nmod_to (. :X$2)) | (. :TO :subj (. :X$2) :obj (. :X$1));
+
+# acl_by = 1-edge?? /????????????????????????????
+X -> (. :X$1 :acl_by (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# acl_after = 1-edge??
+X -> (. :X$1 :acl_after (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# mark = 1-edge?? /????????????????????????????
+X -> (. :X$1 :mark (. :X$2)) | (. :X$1 :subj (. :X$2));
+

@@ -1,0 +1,99 @@
+#0-, 1- and 2-edges of 4lang graphs will be called "is", "subj" and "obj", respectively
+
+
+# delete the root part (for now)
+S -> (. :ROOT :root (. :W$0)) | (. :W$0);
+
+W -> (. :W$0 :X$0) | (. :W$0 :X$0) ;
+
+# delete copulars
+X -> (. :cop (. :W$0)) | (. :is (. :W$0));
+
+# X nmod_poss Y -> Y HAS X ( Y <-1- HAS -2-> X )
+X -> (. :nmod_poss (. :W$0)) | (n1. (. :HAS :subj (. :W$0) :obj n1.));
+
+# compound = 0-edge
+X -> (. :compound (. :W$0)) | (. :IS_A (. :W$0));
+
+# nummod = 0-edge
+X -> (. :nummod (. :W$0)) | (. :IS_A (. :W$0));
+
+# nsubj = 1-edge
+X -> (. :nsubj (. :W$0)) | (n1. :subj (. :W$0 :IS_A n1.));
+
+# csubj = 1-edge
+X -> (. :csubj (. :W$0)) | (n1. :subj (. :W$0 :IS_A n1.));
+
+# dobj = 2-edge
+X -> (. :dobj (. :W$0)) | (. :obj (. :W$0));
+
+# ccomp = 2-edge (will have to be resolved based on the predicate word's definition)
+X -> (. :ccomp (. :W$0)) | (. :obj (. :W$0));
+
+# "this X" becomes X -0-> this (and can be handled later) 
+X -> (. :det (. :W$0)) | (. :IS_A (. :W$0));
+
+# amod = 0-edge
+X -> (. :amod (. :W$0)) | (. :IS_A (. :W$0));
+
+# nmod_of (pl. structure of space; x <--1 of 2--> y ???)
+X -> (. :nmod_of (. :W$0)) | (n1. (. :HAS :subj n1. :obj (. :W$0)));
+
+# nmod_for (x <--1 for 2--> y ????)
+X -> (. :nmod_for (. :W$0)) | (n1. (. :FOR :subj n1. :obj (. :W$0)));
+
+# nmod_with (x <--1 with 2--> y ????)
+X -> (. :nmod_with (. :W$0)) | (n1. (. :WITH :subj n1. :obj (. :W$0)));
+
+# nmod_to (x <--1 for 2--> y ????)
+X -> (. :nmod_to (. :W$0)) | (n1. (. :TO :subj n1. :obj (. :W$0)));
+
+# expl = 0-edge????
+X -> (. :expl (. :W$0)) | (. :IS_A (. :W$0));
+
+# case = 0-edge????
+X -> (. :case (. :W$0)) | (. :IS_A (. :W$0));
+
+# det_predet = det
+X -> (. :det_predet (. :W$0)) | (. :IS_A (. :W$0));
+
+# advcl ??? TODO
+X -> (. :advcl (. :W$0)) | (. :IS_A (. :W$0));
+
+# advmod = 0-edge
+X -> (. :advmod (. :W$0)) | (. :IS_A (. :W$0));
+
+# acl_by
+X -> (. :acl_by (. :W$0)) | (n1. (. :BY :subj n1. :obj (. :W$0)));
+
+# acl_after
+X -> (. :acl_after (. :W$0)) | (n1. (. :AFTER :subj n1. :obj (. :W$0)));
+
+# mark ??? TODO
+X -> (. :mark (. :W$0)) | (. :IS_A (. :W$0));
+
+
+W -> (. :TO) | (. :TO);
+W -> (. :a) | (. :a);
+W -> (. :after) | (. :after);
+W -> (. :all) | (. :all);
+W -> (. :are) | (. :are);
+W -> (. :by) | (. :by);
+W -> (. :decimal) | (. :decimal);
+W -> (. :digits) | (. :digits);
+W -> (. :equal) | (. :equal);
+W -> (. :finite) | (. :finite);
+W -> (. :given) | (. :given);
+W -> (. :if) | (. :if);
+W -> (. :number) | (. :number);
+W -> (. :rational) | (. :rational);
+W -> (. :ROOT) | (. :ROOT);
+W -> (. :sa) | (. :sa);
+W -> (. :terms) | (. :terms);
+W -> (. :the) | (. :the);
+W -> (. :these) | (. :these);
+W -> (. :to) | (. :to);
+W -> (. :xy) | (. :xy);
+W -> (. :zeros) | (. :zeros);
+
+

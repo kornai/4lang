@@ -1,0 +1,23 @@
+#0-, 1- and 2-edges of 4lang graphs will be called "is", "subj" and "obj", respectively
+
+# delete the root part (for now)
+X -> (. :ROOT :root (. :X$0)) | (. :X$0);
+
+# "this X" becomes X -0-> this (and can be handled later) 
+X -> (. :X$1 :det (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# amod = 0-edge
+X -> (. :X$1 :amod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nmod_of (pl. structure of space; x <--1 of 2--> y ???)
+X -> (. :X$1 :nmod_of (. :X$2)) | (. :OF :subj (. :X$2) :obj (. :X$1));
+
+# case = 0-edge????
+X -> (. :X$1 :case (. :X$2)) | (. :X$1 :is (. :X$2));
+
+X -> (. :of) | (. :of);
+X -> (. :overall) | (. :overall);
+X -> (. :space) | (. :space);
+X -> (. :structure) | (. :structure);
+X -> (. :the) | (. :the);
+

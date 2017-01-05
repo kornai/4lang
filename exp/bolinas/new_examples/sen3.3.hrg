@@ -1,0 +1,121 @@
+#0-, 1- and 2-edges of 4lang graphs will be called "is", "subj" and "obj", respectively
+
+# delete the root part (for now)
+S -> (. :ROOT :root (. :X$0)) | (. :X$0);
+
+# delete copulars
+X -> (. :X$1 :cop (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# X nmod_poss Y -> Y HAS X ( Y <-1- HAS -2-> X )
+X -> (. :X$1 :nmod_poss (. :X$2)) | (. :HAS :subj (. :X$2) :obj (. :X$1));
+
+# compound = 0-edge
+X -> (. :X$1 :compound (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nummod = 0-edge
+X -> (. :X$1 :nummod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nsubj = 1-edge
+X -> (. :X$1 :nsubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# csubj = 1-edge
+X -> (. :X$1 :csubj (. :X$2)) | (. :X$1 :subj (. :X$2));
+
+# dobj = 2-edge
+X -> (. :X$1 :dobj (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# ccomp = 2-edge (will have to be resolved based on the predicate word's definition)
+X -> (. :X$1 :ccomp (. :X$2)) | (. :X$1 :obj (. :X$2));
+
+# "this X" becomes X -0-> this (and can be handled later) 
+X -> (. :X$1 :det (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# amod = 0-edge
+X -> (. :X$1 :amod (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# nmod_of (pl. structure of space; x <--1 of 2--> y ???)
+X -> (. :X$1 :nmod_of (. :X$2)) | (. :OF :subj (. :X$2) :obj (. :X$1));
+
+# nmod_for (x <--1 for 2--> y ????)
+X -> (. :X$1 :nmod_for (. :X$2)) | (. :FOR :subj (. :X$2) :obj (. :X$1));
+
+# nmod_with (x <--1 with 2--> y ????)
+X -> (. :X$1 :nmod_with (. :X$2)) | (. :WITH :subj (. :X$2) :obj (. :X$1));
+
+# expl = 0-edge????
+X -> (. :X$1 :expl (. :X$2)) | (. :X$1 :is (. :X$2));
+
+# case = 0-edge????
+X -> (. :X$1 :case (. :X$2)) | (. :X$1 :is (. :X$2));
+
+
+# delete the root part (for now)
+S -> (. :ROOT :root (. :W$0)) | (. :W$0);
+
+# delete copulars
+X -> (. :W$1 :cop (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# W nmod_poss Y -> Y HAS W ( Y <-1- HAS -2-> W )
+X -> (. :W$1 :nmod_poss (. :W$2)) | (. :HAS :subj (. :W$2) :obj (. :W$1));
+
+# compound = 0-edge
+X -> (. :W$1 :compound (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# nummod = 0-edge
+X -> (. :W$1 :nummod (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# nsubj = 1-edge
+X -> (. :W$1 :nsubj (. :W$2)) | (. :W$1 :subj (. :W$2));
+
+# csubj = 1-edge
+X -> (. :W$1 :csubj (. :W$2)) | (. :W$1 :subj (. :W$2));
+
+# dobj = 2-edge
+X -> (. :W$1 :dobj (. :W$2)) | (. :W$1 :obj (. :W$2));
+
+# ccomp = 2-edge (will have to be resolved based on the predicate word's definition)
+X -> (. :W$1 :ccomp (. :W$2)) | (. :W$1 :obj (. :W$2));
+
+# "this W" becomes W -0-> this (and can be handled later) 
+X -> (. :W$1 :det (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# amod = 0-edge
+X -> (. :W$1 :amod (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# nmod_of (pl. structure of space; x <--1 of 2--> y ???)
+X -> (. :W$1 :nmod_of (. :W$2)) | (. :OF :subj (. :W$2) :obj (. :W$1));
+
+# nmod_for (x <--1 for 2--> y ????)
+X -> (. :W$1 :nmod_for (. :W$2)) | (. :FOR :subj (. :W$2) :obj (. :W$1));
+
+# nmod_with (x <--1 with 2--> y ????)
+X -> (. :W$1 :nmod_with (. :W$2)) | (. :WITH :subj (. :W$2) :obj (. :W$1));
+
+# expl = 0-edge????
+X -> (. :W$1 :expl (. :W$2)) | (. :W$1 :is (. :W$2));
+
+# case = 0-edge????
+X -> (. :W$1 :case (. :W$2)) | (. :W$1 :is (. :W$2));
+
+
+
+#W -> (. :WITH) | (. :WITH);
+#W -> (. :FOR) | (. :FOR);
+#W -> (. :OF) | (. :OF);
+W -> (. :an) | (. :an);
+W -> (. :are) | (. :are);
+W -> (. :dimensions) | (. :dimensions);
+W -> (. :enormous) | (. :enormous);
+W -> (. :extra) | (. :extra);
+W -> (. :for) | (. :for);
+W -> (. :number) | (. :number);
+W -> (. :of) | (. :of);
+W -> (. :overall) | (. :overall);
+W -> (. :possibilities) | (. :possibilities);
+W -> (. :ROOT) | (. :ROOT);
+W -> (. :space) | (. :space);
+W -> (. :structure) | (. :structure);
+W -> (. :the) | (. :the);
+W -> (. :there) | (. :there);
+W -> (. :with) | (. :with);
+
