@@ -190,7 +190,7 @@ class DepTo4lang():
                     word1 = dep['gov']['word']
                     word2 = dep['dep']['word']
                     # logging.info('dep: {0}, w1: {1}, w2: {2}'.format(
-                    #     repr(dep), repr(word1), repr(word2)))
+                    #      repr(dep), repr(word1), repr(word2)))
                     c_word1 = coref_index[word1].get(i, word1)
                     c_word2 = coref_index[word2].get(i, word2)
 
@@ -272,7 +272,7 @@ class Dependency():
         if ((dep.startswith('acl:') and not dep.startswith('acl:relcl')) or
                 dep.startswith('advcl:') or
                 dep.startswith('nmod:')) and rel is None:
-            logging.info('adding new rel from: {0}'.format(dep))
+            # logging.info('adding new rel from: {0}'.format(dep))
             rel = dep.split(':', 1)[1].upper()
 
         return Dependency(

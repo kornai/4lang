@@ -64,7 +64,7 @@ class FourlangDemo():
 
     def text_to_4lang_demo(self, text, expand, fn='pic', dep_fn='deps'):
         preproc_sen = TextTo4lang.preprocess_text(text.strip().decode('utf-8'))
-        deps, corefs = self.parser_wrapper.parse_text(preproc_sen)
+        deps, corefs, parse_trees = self.parser_wrapper.parse_text(preproc_sen)
         words2machines = self.dep_to_4lang.get_machines_from_deps_and_corefs(
             deps, corefs)
         # TODO
