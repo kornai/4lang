@@ -1,0 +1,39 @@
+
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+// interpretation 4lang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+S! -> root(W)
+[graph] f_dep(merge("(r<root> / ROOT :root (w<dep>))", r_dep(?1)))
+
+W -> nsubj(W, W)
+[graph] r_gov_root(merge(merge("(g<gov> :nsubj (d<dep>))", r_gov(?1)), r_dep(?2)))
+
+W -> dobj(W, W)
+[graph] r_gov_root(merge(merge("(g<gov> :dobj (d<dep>))", r_gov(?1)), r_dep(?2)))
+
+W -> ccomp(W, W)
+[graph] r_gov_root(merge(merge("(g<gov> :ccomp (d<dep>))", r_gov(?1)), r_dep(?2)))
+
+W -> det(W, W)
+[graph] r_gov_root(merge(merge("(g<gov> :det (d<dep>))", r_gov(?1)), r_dep(?2)))
+
+W -> helps
+[graph] "(helps<root> / helps)"
+
+W -> agreement
+[graph] "(agreement<root> / agreement)"
+
+W -> this
+[graph] "(this<root> / this)"
+
+W -> achieve
+[graph] "(achieve<root> / achieve)"
+
+W -> us
+[graph] "(us<root> / us)"
+
+W -> goal
+[graph] "(goal<root> / goal)"
+
+W -> that
+[graph] "(that<root> / that)"
