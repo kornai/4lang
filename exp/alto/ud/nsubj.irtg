@@ -1,0 +1,14 @@
+
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+S! -> root(V)
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+
+V -> nsubj(V, N)
+[graph] r_gov_root(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2)))
+
+V -> eats
+[graph] "(eats<root> / eats)"
+
+N -> John
+[graph] "(John<root> / John)"
