@@ -68,7 +68,7 @@ to create concept graphs from running English text
 ### The config file
 
 ### Contact
-This repository is maintained by Gábor Recski. Questions, suggestions, bug reports, etc. are very welcome and can be sent by email to recski at mokk bme hu.
+This repository is maintained by Gábor Recski. Questions, suggestions, bug reports, etc. are very welcome and can be sent by email to recski at aut bme hu.
 
 ### Publications
 If you use the `4lang` module, please cite:
