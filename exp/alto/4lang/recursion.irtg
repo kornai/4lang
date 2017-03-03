@@ -1,0 +1,13 @@
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+N! -> recurse_0_in(N, N)
+[graph] f_out(r_in_root(merge(r_out(merge("(u<root> / node :ARG0 (v<in>))", r_in(?2))), r_out(?1))))
+
+N -> recurse_0_out(N, N)
+[graph] f_in(r_out_root(merge(r_out(merge("(u<root> / node :ARG0 (v<in>))", r_in(?2))), r_out(?1))))
+
+N -> egyik
+[graph] "(a<root> / egyik)"
+
+N -> masik
+[graph] "(b<root> / masik)"

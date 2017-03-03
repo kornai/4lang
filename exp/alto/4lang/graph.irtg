@@ -1,0 +1,13 @@
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+N! -> e1(N,N)
+[graph] r_out_root(f_in(merge(merge('(n<out> :ARG0 (m<in>))', r_in(?2)), r_out(?1))))
+
+N! -> e2(N,N)
+[graph] r_in_root(f_out(merge(merge('(n<out> :ARG0 (m<in>))', r_in(?2)), r_out(?1))))
+
+N -> node1
+[graph] '(n<root> / node1)'
+
+N -> node2
+[graph] '(n<root> / node2)'

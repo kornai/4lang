@@ -1,0 +1,10 @@
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+S! -> r1(S,S)
+[graph]  merge(merge('(s<subj> :ARG1 (o1<obj1>))',r_root_obj1(?2)),r_root_subj(?1))
+
+S -> r2
+[graph] '(u<root> / John)'
+
+S -> r3
+[graph] '(u<root> / Mary)'
