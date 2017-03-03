@@ -1,0 +1,58 @@
+
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+// [0] - generate root dependency
+S! -> root(V2)
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+
+S -> root(N2)
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+
+
+// [1]
+V2 -> nsubj(V1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+
+
+// [8]
+V2 -> csubj(V1, V1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
+
+
+// [9]
+V1 -> obj(V, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+
+
+// [10] ???
+
+// [11]
+V2 -> ccomp(V, V1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
+
+
+// [2]
+N2 -> orphan(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :orphan (d<dep>))"), r_dep(?2))))
+
+
+// [3]
+//V2 -> conj(V2, V2)
+//[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+
+//N2 -> conj(N2, N2)
+//[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+
+
+N1 -> bar(N)
+[graph] ?1
+
+V1 -> bar(V)
+[graph] ?1
+
+
+V -> eats
+[graph] "(eats<root> / eats)"
+
+N -> John
+[graph] "(John<root> / John)"
