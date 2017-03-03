@@ -27,8 +27,38 @@ V1 -> obj(V, N1)
 // [10] ???
 
 // [11]
-V2 -> ccomp(V, V1)
+V2 -> ccomp(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
+
+// [12] ???
+
+// [13] ???
+
+
+// [14]
+N1 -> amod(N1, A)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+
+
+// [15]
+N1 -> nmod(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+
+
+// [16]
+N2 -> appos(N2, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :appos (d<dep>))"), r_dep(?2))))
+
+
+// [17]
+N1 -> nummod(N1, NUM)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
+
+
+
+// [18]
+N1 -> det(N1, DET)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 
 
 // [2]
@@ -44,15 +74,45 @@ N2 -> orphan(N1, N1)
 //[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
 
+N2 -> bar(N1)
+[graph] ?1
+
 N1 -> bar(N)
+[graph] ?1
+
+V2 -> bar(V1)
 [graph] ?1
 
 V1 -> bar(V)
 [graph] ?1
 
 
-V -> eats
-[graph] "(eats<root> / eats)"
 
-N -> John
-[graph] "(John<root> / John)"
+V -> helps
+[graph] "(helps<root> / helps)"
+
+V -> achieve
+[graph] "(achieve<root> / achieve)"
+
+N -> us
+[graph] "(us<root> / us)"
+
+N -> agreement
+[graph] "(agreement<root> / agreement)"
+
+N -> goal
+[graph] "(goal<root> / goal)"
+
+A -> red
+[graph] "(red<root> / red)"
+
+NUM -> three
+[graph] "(three<root> / three)"
+
+DET -> that
+[graph] "(that<root> / that)"
+
+DET -> this
+[graph] "(this<root> / this)"
+
+
