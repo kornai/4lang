@@ -2,32 +2,59 @@
 interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
 // [0] - generate root dependency
-S! -> root(V2)
+S! -> _root(V2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
-S -> root(N2)
+S -> _root(N2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
+
+// [?]
+V2 -> _punct(V2, PUNCT)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+
+N2 -> _punct(N2, PUNCT)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+
+V1 -> _punct(V1, PUNCT)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+
+N1 -> _punct(N1, PUNCT)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+
+
+// [?]
+V -> _aux(V, AUX)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :aux (d<dep>))"), r_dep(?2))))
 
 // [1]
-V2 -> nsubj(V1, N1)
+V2 -> _nsubj(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 
 // [8]
-V2 -> csubj(V1, V1)
+V2 -> _csubj(V1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 
 // [9]
-V1 -> obj(V, N1)
+V1 -> _obj(V, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+
+
+// [9]
+V1 -> _iobj(V1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+
+// [?]
+V1 -> _obl(V1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
 
 // [10] ???
 
 // [11]
-V2 -> ccomp(V2, V2)
+V2 -> _ccomp(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
 
 // [12] ???
@@ -36,56 +63,77 @@ V2 -> ccomp(V2, V2)
 
 
 // [14]
-N1 -> amod(N1, A)
+N1 -> _amod(N1, A)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
 
 
 // [15]
-N1 -> nmod(N1, N1)
-[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+N1 -> _nmod(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+
+// [?]
+N1 -> _case(N1, ADP)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+
+// [?]
+N1 -> _acl(N1, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
+
+// [?]
+V1 -> _mark(V1, PART)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 
 // [16]
-N2 -> appos(N2, N2)
+N2 -> _appos(N2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :appos (d<dep>))"), r_dep(?2))))
 
 
 // [17]
-N1 -> nummod(N1, NUM)
+N1 -> _nummod(N1, NUM)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 
 
 
 // [18]
-N1 -> det(N1, DET)
+N1 -> _det(N1, DET)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 
 
 // [2]
-N2 -> orphan(N1, N1)
+N2 -> _orphan(N1, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :orphan (d<dep>))"), r_dep(?2))))
 
 
 // [3]
-//V2 -> conj(V2, V2)
-//[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+V2 -> _conj(V2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
-//N2 -> conj(N2, N2)
-//[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+N2 -> _conj(N2, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
 
-N2 -> bar(N1)
+N2 -> _bar(N1)
 [graph] ?1
 
-N1 -> bar(N)
+N1 -> _bar(N)
 [graph] ?1
 
-V2 -> bar(V1)
+V2 -> _bar(V1)
 [graph] ?1
 
-V1 -> bar(V)
+V1 -> _bar(V)
 [graph] ?1
 
+
+V -> _pos(VERB)
+[graph] ?1
+
+N -> _pos(NOUN)
+[graph] ?1
+
+A -> _pos(ADJ)
+[graph] ?1
 
 
 V -> helps
