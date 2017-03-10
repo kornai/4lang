@@ -1,1 +1,1 @@
-(r / ROOT :root (w_1 / helps :nsubj (w_2 / agreement :det (w_3 / this)) :ccomp (w_4 / achieve :nsubj (w_5 / us) :dobj (w_6 / goal :det (w_7 / that)))))
+(r / ROOT :root (w_1 / helps :nsubj (w_2 / agreement :det (w_3 / this)) :ccomp (w_4 / achieve :nsubj (w_5 / us) :obj (w_6 / goal :det (w_7 / that)))))
