@@ -3,49 +3,13 @@ from collections import defaultdict
 import sys
 
 from hunmisc.corpustools.tsv_tools import sentence_iterator, get_dependencies
-from unidecode import unidecode
 
-
-REPLACE_MAP = {
-    ":": "COLON",
-    ",": "COMMA",
-    ".": "PERIOD",
-    ";": "SEMICOLON",
-    "-": "HYPHEN",
-    "[": "LSB",
-    "]": "RSB",
-    "(": "LRB",
-    ")": "RRB",
-    "{": "LCB",
-    "}": "RCB",
-    "!": "EXC",
-    "?": "QUE",
-    "'": "SQ",
-    '"': "DQ",
-    "/": "PER",
-    "\\": "BSL",
-    "#": "HASHTAG",
-    "%": "PERCENT",
-    "&": "ET",
-    "@": "AT",
-    "$": "DOLLAR",
-    "*": "ASTERISK",
-    "^": "CAP",
-    "`": "IQ",
-    "+": "=",
-    "|": "PIPE",
-    "~": "TILDE",
-    "<": "LESS",
-    ">": "MORE",
-    "=": "EQ"
-    }
+from common import sanitize_word
 
 
 def get_node_id_and_word(token):
     word, i = token
-    word = unidecode(word.decode('utf-8')).encode('utf-8')
-    for patt, tgt in REPLACE_MAP.iteritems():
-        word = word.replace(patt, tgt)
+    word = sanitize_word(word)
     node_id = "{0}_{1}".format(word, i)
     return node_id, word
 
