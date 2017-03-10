@@ -38,7 +38,7 @@ def dict_to_graph(sen_dict, token):
     else:
         node_id, word = get_node_id_and_word(token)
         SEEN[token] = node_id
-        GRAPH_STRING += "({0} / {0}".format(node_id, word)
+        GRAPH_STRING += "({0} / {1}".format(node_id, word)
         for neighbor, edge in sen_dict[token].iteritems():
             GRAPH_STRING += ' :{0} '.format(edge)
             dict_to_graph(sen_dict, neighbor)
