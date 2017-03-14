@@ -27,9 +27,17 @@ N1 -> _punct(N1, PUNCT)
 V -> _aux(V, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :aux (d<dep>))"), r_dep(?2))))
 
+// [?]
+V -> _aux_pass(V, AUX)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :aux_pass (d<dep>))"), r_dep(?2))))
+
 // [1]
 V2 -> _nsubj(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+
+// [?]
+V2 -> _nsubj_pass(V1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 
 
 // [8]
@@ -130,6 +138,15 @@ V -> _pos(VERB)
 [graph] ?1
 
 N -> _pos(NOUN)
+[graph] ?1
+
+N -> _pos(PRON)
+[graph] ?1
+
+N -> _pos(NUM)
+[graph] ?1
+
+N -> _pos(PROPN)
 [graph] ?1
 
 A -> _pos(ADJ)
