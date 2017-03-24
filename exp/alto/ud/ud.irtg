@@ -61,9 +61,33 @@ V1 -> _obl(V1, N1)
 
 // [10] ???
 
+// [??]
+V2 -> _advmod(V2, ADV)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+
+// [??]
+ADJ -> _advmod(ADJ, ADV)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+
+// [??]
+V2 -> _advmod(V2, PART)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+
+// [??]
+V2 -> _advcl(V2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
+
 // [11]
 V2 -> _ccomp(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
+
+// [??]
+V2 -> _xcomp(V2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
+
+// [??]
+V2 -> _xcomp(V2, ADJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
 
 // [12] ???
 
@@ -79,6 +103,26 @@ N1 -> _amod(N1, A)
 N1 -> _nmod(N1, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
 
+// [??]
+N1 -> _nmod_poss(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_poss (d<dep>))"), r_dep(?2))))
+
+// [??]
+N1 -> _compound(N1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+
+// [??]
+V1 -> _compound_prt(V1, ADP)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound_prt (d<dep>))"), r_dep(?2))))
+
+// [??]
+V1 -> _cc(V1, CCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
+
+// [??]
+N1 -> _cc(N1, CCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
+
 // [?]
 N1 -> _case(N1, ADP)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
@@ -89,6 +133,10 @@ N1 -> _acl(N1, V2)
 
 // [?]
 V1 -> _mark(V1, PART)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+
+// [?]
+V1 -> _mark(V1, SCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 
