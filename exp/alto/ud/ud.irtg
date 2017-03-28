@@ -44,6 +44,10 @@ V2 -> _csubj(V1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 // [?]
+V2 -> _csubj_pass(V1, V1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj_pass (d<dep>))"), r_dep(?2))))
+
+// [?]
 N2 -> _nsubj(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
@@ -54,6 +58,11 @@ N2 -> _nsubj_pass(N1, N2)
 // [?]
 N2 -> _csubj(N1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
+
+// [?]
+V2 -> _csubj_pass(N1, V1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj_pass (d<dep>))"), r_dep(?2))))
+
 
 
 // [9]
@@ -74,6 +83,10 @@ V1 -> _obl(V1, N2)
 
 // [??]
 V2 -> _advmod(V2, ADV)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+
+// [??]
+ADV -> _advmod(ADV, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
@@ -139,6 +152,24 @@ V1 -> _compound_prt(V1, ADP)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound_prt (d<dep>))"), r_dep(?2))))
 
 // [??]
+N1 -> _flat(N1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
+
+// [??]
+X -> _fixed(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+
+// [??]
+X -> _parataxis(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
+
+// [??]
+X -> _discourse(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :discourse (d<dep>))"), r_dep(?2))))
+
+
+
+// [??]
 V1 -> _cc(V1, CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 
@@ -153,6 +184,10 @@ N1 -> _case(N1, ADP)
 // [?]
 N1 -> _acl(N1, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
+
+// [?]
+N1 -> _acl_relcl(N1, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 
 // [?]
 V1 -> _mark(V1, PART)
@@ -216,7 +251,6 @@ V2 -> _bar(V1)
 V1 -> _bar(V)
 [graph] ?1
 
-
 V -> _pos(VERB)
 [graph] ?1
 
@@ -236,31 +270,44 @@ A -> _pos(ADJ)
 [graph] ?1
 
 
-V -> helps
-[graph] "(helps<root> / helps)"
 
-V -> achieve
-[graph] "(achieve<root> / achieve)"
+// X is used only with the "fixed", "parataxis", "discourse" dependencies!
 
-N -> us
-[graph] "(us<root> / us)"
+N -> _x(X)
+[graph] ?1
 
-N -> agreement
-[graph] "(agreement<root> / agreement)"
+V -> _x(X)
+[graph] ?1
 
-N -> goal
-[graph] "(goal<root> / goal)"
+X -> _x(N2)
+[graph] ?1
 
-A -> red
-[graph] "(red<root> / red)"
+X -> _x(V2)
+[graph] ?1
 
-NUM -> three
-[graph] "(three<root> / three)"
+X -> _x(A)
+[graph] ?1
 
-DET -> that
-[graph] "(that<root> / that)"
+X -> _x(ADP)
+[graph] ?1
 
-DET -> this
-[graph] "(this<root> / this)"
+X -> _x(ADV)
+[graph] ?1
 
+X -> _x(ADJ)
+[graph] ?1
 
+X -> _x(SCONJ)
+[graph] ?1
+
+X -> _x(CCONJ)
+[graph] ?1
+
+X -> _x(PART)
+[graph] ?1
+
+X -> _x(INTJ)
+[graph] ?1
+
+X -> _x(SYM)
+[graph] ?1
