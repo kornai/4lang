@@ -78,6 +78,14 @@ V1 -> _iobj(V1, N2)
 V1 -> _obl(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
+// [?]
+V1 -> _obl_tmod(V1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_tmod (d<dep>))"), r_dep(?2))))
+
+// [?]
+V1 -> _obl_npmod(V1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_npmod (d<dep>))"), r_dep(?2))))
+
 
 // [10] ???
 
@@ -144,6 +152,14 @@ N1 -> _nmod_poss(N1, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_poss (d<dep>))"), r_dep(?2))))
 
 // [??]
+N1 -> _nmod_tmod(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_tmod (d<dep>))"), r_dep(?2))))
+
+// [??]
+N1 -> _nmod_npmod(N1, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_npmod (d<dep>))"), r_dep(?2))))
+
+// [??]
 N1 -> _compound(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
 
@@ -158,6 +174,14 @@ N1 -> _flat(N1, N2)
 // [??]
 X -> _fixed(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+
+// [??]
+X -> _goeswith(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :goeswith (d<dep>))"), r_dep(?2))))
+
+// [??]
+X -> _list(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :list (d<dep>))"), r_dep(?2))))
 
 // [??]
 X -> _parataxis(X, X)
@@ -198,6 +222,14 @@ V1 -> _mark(V1, SCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?]
+V1 -> _expl(V, PRON)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :expl (d<dep>))"), r_dep(?2))))
+
+// [?]
+V1 -> _expl(A, PRON)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :expl (d<dep>))"), r_dep(?2))))
+
+// [?]
 N1 -> _mark(N1, PART)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
@@ -224,6 +256,10 @@ N1 -> _nummod(N1, NUM)
 // [18]
 N1 -> _det(N1, DET)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+
+// [18]
+N1 -> _det_predet(N1, DET)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det_predet (d<dep>))"), r_dep(?2))))
 
 
 // [2]
@@ -270,8 +306,32 @@ A -> _pos(ADJ)
 [graph] ?1
 
 
+// a dozen cases involve the det relation involving not a DET but one of these
+DET -> _pos(PRON)
+[graph] ?1
 
-// X is used only with the "fixed", "parataxis", "discourse" dependencies!
+DET -> _pos(ADJ)
+[graph] ?1
+
+DET -> _pos(NUM)
+[graph] ?1
+
+DET -> _pos(ADP)
+[graph] ?1
+
+DET -> _pos(PUNCT)
+[graph] ?1
+
+DET -> _pos(PRON)
+[graph] ?1
+
+DET -> _pos(PRON)
+[graph] ?1
+
+
+
+// X is used only with the following dependencies:
+// fixed, parataxis, discourse, list, goeswith
 
 N -> _x(X)
 [graph] ?1
