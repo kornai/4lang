@@ -8,6 +8,10 @@ S! -> _root(V2)
 S -> _root(N2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
+S -> _root(X)
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+
+
 
 // [?]
 V2 -> _punct(V2, PUNCT)
@@ -144,19 +148,19 @@ N1 -> _amod(N1, A)
 
 
 // [15]
-N1 -> _nmod(N1, N1)
+N1 -> _nmod(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-N1 -> _nmod_poss(N1, N1)
+N1 -> _nmod_poss(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_poss (d<dep>))"), r_dep(?2))))
 
 // [??]
-N1 -> _nmod_tmod(N1, N1)
+N1 -> _nmod_tmod(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_tmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-N1 -> _nmod_npmod(N1, N1)
+N1 -> _nmod_npmod(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_npmod (d<dep>))"), r_dep(?2))))
 
 // [??]
@@ -172,23 +176,23 @@ N1 -> _flat(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
 
 // [??]
-X -> _fixed(X, X)
+X1 -> _fixed(X0, X0)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
 
 // [??]
-X -> _goeswith(X, X)
+X1 -> _goeswith(X0, X0)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :goeswith (d<dep>))"), r_dep(?2))))
 
 // [??]
-X -> _list(X, X)
+X1 -> _list(X0, X0)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :list (d<dep>))"), r_dep(?2))))
 
 // [??]
-X -> _parataxis(X, X)
+X1 -> _parataxis(X0, X0)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 
 // [??]
-X -> _discourse(X, X)
+X1 -> _discourse(X0, X0)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :discourse (d<dep>))"), r_dep(?2))))
 
 
@@ -204,6 +208,11 @@ N1 -> _cc(N1, CCONJ)
 // [?]
 N1 -> _case(N1, ADP)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+
+// e.g. "including"
+N1 -> _case(N1, VERB)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+
 
 // [?]
 N1 -> _acl(N1, V2)
@@ -248,6 +257,10 @@ N2 -> _appos(N2, N2)
 
 
 // [17]
+N1 -> _nummod(N1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
+
+// [17]
 N1 -> _nummod(N1, NUM)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 
@@ -274,6 +287,13 @@ V2 -> _conj(V2, V2)
 N2 -> _conj(N2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
+// e.g. "Kut is in southeastern Iraq and has an overwhelmingly Shiite population"
+V2 -> _conj(N2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+
+V2 -> _conj(V2, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+
 
 N2 -> _bar(N1)
 [graph] ?1
@@ -288,6 +308,10 @@ V1 -> _bar(V)
 [graph] ?1
 
 V -> _pos(VERB)
+[graph] ?1
+
+// e.g. "X is equivalent to Y" involves nsubj and obl
+V -> _pos(ADJ)
 [graph] ?1
 
 N -> _pos(NOUN)
@@ -333,41 +357,41 @@ DET -> _pos(PRON)
 // X is used only with the following dependencies:
 // fixed, parataxis, discourse, list, goeswith
 
-N -> _x(X)
+N -> _x1(X1)
 [graph] ?1
 
-V -> _x(X)
+V -> _x1(X1)
 [graph] ?1
 
-X -> _x(N2)
+X0 -> _xn2(N2)
 [graph] ?1
 
-X -> _x(V2)
+X0 -> _xv2(V2)
 [graph] ?1
 
-X -> _x(A)
+X0 -> _xa(A)
 [graph] ?1
 
-X -> _x(ADP)
+X0 -> _xadp(ADP)
 [graph] ?1
 
-X -> _x(ADV)
+X0 -> _xadv(ADV)
 [graph] ?1
 
-X -> _x(ADJ)
+X0 -> _xadj(ADJ)
 [graph] ?1
 
-X -> _x(SCONJ)
+X0 -> _xsconj(SCONJ)
 [graph] ?1
 
-X -> _x(CCONJ)
+X0 -> _xcconj(CCONJ)
 [graph] ?1
 
-X -> _x(PART)
+X0 -> _xpart(PART)
 [graph] ?1
 
-X -> _x(INTJ)
+X0 -> _xintj(INTJ)
 [graph] ?1
 
-X -> _x(SYM)
+X0 -> _xsym(SYM)
 [graph] ?1
