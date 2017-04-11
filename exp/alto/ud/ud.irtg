@@ -8,6 +8,11 @@ S! -> _root(V2)
 S -> _root(N2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
+// ... is [all] you hear
+S -> _root(DET)
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+
+// X is the POS-tag for misc stuff, e.g. URLs
 S -> _root(X)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
@@ -39,12 +44,28 @@ V -> _aux_pass(V, AUX)
 V2 -> _nsubj(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
+// e.g. "they are the same people" involves nsubj
+V2 -> _nsubj(N1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+
+// e.g. "everyone is apprehensive" involves nsubj
+V2 -> _nsubj(ADJ, N1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+
+// e.g. "`they are targetting...' is all you hear" 
+V2 -> _nsubj(N2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+
 // [?]
 V2 -> _nsubj_pass(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 
 // [8]
 V2 -> _csubj(V1, V1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
+
+// "[They] are [targetting] 
+V2 -> _csubj(V1, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -80,6 +101,10 @@ V1 -> _iobj(V1, N2)
 
 // [?]
 V1 -> _obl(V1, N2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+
+// [?] "convoys have headed [out for Fallujah]" (error?)
+ADV -> _obl(ADV, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -131,6 +156,10 @@ V2 -> _ccomp(V2, V2)
 
 // [??]
 V2 -> _xcomp(V2, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
+
+// [??] "X and Y are going to be bloody days"
+V2 -> _xcomp(V2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
 
 // [??]
@@ -213,7 +242,6 @@ N1 -> _case(N1, ADP)
 N1 -> _case(N1, VERB)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
 
-
 // [?]
 N1 -> _acl(N1, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
@@ -222,12 +250,20 @@ N1 -> _acl(N1, V2)
 N1 -> _acl_relcl(N1, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 
+// ... is [all] [you hear]
+N1 -> _acl_relcl(DET, V2)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
+
 // [?]
 V1 -> _mark(V1, PART)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?]
 V1 -> _mark(V1, SCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+
+// [?] "where you might get stuck" (error?)
+V1 -> _mark(V1, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -248,6 +284,14 @@ N1 -> _mark(N1, SCONJ)
 
 // [?]
 N1 -> _cop(N1, AUX)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
+
+// [?]
+ADJ -> _cop(ADJ, AUX)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
+
+// [?] "All you hear is..."
+N1 -> _cop(DET, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
 
 
@@ -295,16 +339,16 @@ V2 -> _conj(V2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
 
-N2 -> _bar(N1)
+N2 -> _nbar(N1)
 [graph] ?1
 
-N1 -> _bar(N)
+N1 -> _nbar(N)
 [graph] ?1
 
-V2 -> _bar(V1)
+V2 -> _vbar(V1)
 [graph] ?1
 
-V1 -> _bar(V)
+V1 -> _vbar(V)
 [graph] ?1
 
 V -> _pos(VERB)
@@ -315,6 +359,10 @@ V -> _pos(ADJ)
 [graph] ?1
 
 N -> _pos(NOUN)
+[graph] ?1
+
+// "[most] of them returned"
+N -> _pos(ADJ)
 [graph] ?1
 
 N -> _pos(PRON)
@@ -361,6 +409,10 @@ N -> _x1(X1)
 [graph] ?1
 
 V -> _x1(X1)
+[graph] ?1
+
+// "as opposed to" (fixed)
+ADP -> _x1(X1)
 [graph] ?1
 
 X0 -> _xn2(N2)
