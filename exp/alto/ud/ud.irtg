@@ -2,33 +2,33 @@
 interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
 // [0] - generate root dependency
-S! -> _root(V2)
+S! -> _root_v(V2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
-S -> _root(N2)
+S -> _root_n(N2)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
 // ... is [all] you hear
-S -> _root(DET)
+S -> _root_d(DET)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
 // X is the POS-tag for misc stuff, e.g. URLs
-S -> _root(X)
+S -> _root_x(X)
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 
 
 
 // [?]
-V2 -> _punct(V2, PUNCT)
+V2 -> _punct_v2(V2, PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 
-N2 -> _punct(N2, PUNCT)
+N2 -> _punct_n2(N2, PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 
-V1 -> _punct(V1, PUNCT)
+V1 -> _punct_v1(V1, PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 
-N1 -> _punct(N1, PUNCT)
+N1 -> _punct_n1(N1, PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 
 
@@ -41,39 +41,39 @@ V -> _aux_pass(V, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :aux_pass (d<dep>))"), r_dep(?2))))
 
 // [1]
-V2 -> _nsubj(V1, N2)
+V2 -> _nsubj_v_n(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 // e.g. "they are the same people" involves nsubj
-V2 -> _nsubj(N1, N2)
+V2 -> _nsubj_n_n(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 // e.g. "everyone is apprehensive" involves nsubj
-V2 -> _nsubj(ADJ, N1)
+V2 -> _nsubj_a_n(ADJ, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 // e.g. "`they are targetting...' is all you hear" 
-V2 -> _nsubj(N2, V2)
+V2 -> _nsubj_n_v(N2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 // [?]
-V2 -> _nsubj_pass(V1, N2)
+V2 -> _nsubj_pass_v_n(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 
 // [8]
-V2 -> _csubj(V1, V1)
+V2 -> _csubj_v_v(V1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 // "[They] are [targetting] 
-V2 -> _csubj(V1, N1)
+V2 -> _csubj_v_n(V1, N1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 // [?]
-V2 -> _csubj_pass(V1, V1)
+V2 -> _csubj_pass_v_v(V1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj_pass (d<dep>))"), r_dep(?2))))
 
 // [?]
-N2 -> _nsubj(N1, N2)
+N2 -> _nsubj_n_n(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -81,11 +81,11 @@ N2 -> _nsubj_pass(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 
 // [?]
-N2 -> _csubj(N1, V1)
+N2 -> _csubj_n_v(N1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 
 // [?]
-V2 -> _csubj_pass(N1, V1)
+V2 -> _csubj_pass_n_v(N1, V1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj_pass (d<dep>))"), r_dep(?2))))
 
 
@@ -100,11 +100,11 @@ V1 -> _iobj(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
 
 // [?]
-V1 -> _obl(V1, N2)
+V1 -> _obl_v_n(V1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
 // [?] "convoys have headed [out for Fallujah]" (error?)
-ADV -> _obl(ADV, N2)
+ADV -> _obl_adv_n(ADV, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -119,35 +119,35 @@ V1 -> _obl_npmod(V1, N2)
 // [10] ???
 
 // [??]
-V2 -> _advmod(V2, ADV)
+V2 -> _advmod_v_adv(V2, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-ADV -> _advmod(ADV, ADV)
+ADV -> _advmod_adv_adv(ADV, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-ADJ -> _advmod(ADJ, ADV)
+ADJ -> _advmod_adj_adv(ADJ, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-V2 -> _advmod(V2, PART)
+V2 -> _advmod_v_part(V2, PART)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-N2 -> _advmod(N2, ADV)
+N2 -> _advmod_n_adv(N2, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-N2 -> _advmod(N2, PART)
+N2 -> _advmod_n_part(N2, PART)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 
 // [??]
-V2 -> _advcl(V2, N2)
+V2 -> _advcl_v_n(V2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
 
 // [??]
-V2 -> _advcl(V2, V2)
+V2 -> _advcl_v_v(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
 
 // [11]
@@ -155,15 +155,15 @@ V2 -> _ccomp(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
 
 // [??]
-V2 -> _xcomp(V2, V2)
+V2 -> _xcomp_v_v(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
 
 // [??] "X and Y are going to be bloody days"
-V2 -> _xcomp(V2, N2)
+V2 -> _xcomp_v_n(V2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
 
 // [??]
-V2 -> _xcomp(V2, ADJ)
+V2 -> _xcomp_v_adj(V2, ADJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
 
 // [12] ???
@@ -227,19 +227,19 @@ X1 -> _discourse(X0, X0)
 
 
 // [??]
-V1 -> _cc(V1, CCONJ)
+V1 -> _cc_v(V1, CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 
 // [??]
-N1 -> _cc(N1, CCONJ)
+N1 -> _cc_n(N1, CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 
 // [?]
-N1 -> _case(N1, ADP)
+N1 -> _case_n_adp(N1, ADP)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
 
 // e.g. "including"
-N1 -> _case(N1, VERB)
+N1 -> _case_n_v(N1, VERB)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
 
 // [?]
@@ -247,51 +247,51 @@ N1 -> _acl(N1, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
 
 // [?]
-N1 -> _acl_relcl(N1, V2)
+N1 -> _acl_relcl_n_v(N1, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 
 // ... is [all] [you hear]
-N1 -> _acl_relcl(DET, V2)
+N1 -> _acl_relcl_d_v(DET, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 
 // [?]
-V1 -> _mark(V1, PART)
+V1 -> _mark_v_part(V1, PART)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?]
-V1 -> _mark(V1, SCONJ)
+V1 -> _mark_v_sconj(V1, SCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+
+// [?]
+N1 -> _mark_n_part(N1, PART)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+
+// [?]
+N1 -> _mark_n_sconj(N1, SCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?] "where you might get stuck" (error?)
-V1 -> _mark(V1, ADV)
+V1 -> _mark_adv(V1, ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 
 // [?]
-V1 -> _expl(V, PRON)
+V1 -> _expl_v(V, PRON)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :expl (d<dep>))"), r_dep(?2))))
 
 // [?]
-V1 -> _expl(A, PRON)
+V1 -> _expl_a(A, PRON)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :expl (d<dep>))"), r_dep(?2))))
 
 // [?]
-N1 -> _mark(N1, PART)
-[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
-
-// [?]
-N1 -> _mark(N1, SCONJ)
-[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
-
-// [?]
-N1 -> _cop(N1, AUX)
+N1 -> _cop_n(N1, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
 
 // [?]
-ADJ -> _cop(ADJ, AUX)
+ADJ -> _cop_a(ADJ, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
 
 // [?] "All you hear is..."
-N1 -> _cop(DET, AUX)
+N1 -> _cop_d(DET, AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
 
 
@@ -301,11 +301,11 @@ N2 -> _appos(N2, N2)
 
 
 // [17]
-N1 -> _nummod(N1, N2)
+N1 -> _nummod_n(N1, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 
 // [17]
-N1 -> _nummod(N1, NUM)
+N1 -> _nummod_num(N1, NUM)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 
 
@@ -325,79 +325,76 @@ N2 -> _orphan(N1, N1)
 
 
 // [3]
-V2 -> _conj(V2, V2)
+V2 -> _conj_v_v(V2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
-N2 -> _conj(N2, N2)
+N2 -> _conj_n_n(N2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
 // e.g. "Kut is in southeastern Iraq and has an overwhelmingly Shiite population"
-V2 -> _conj(N2, V2)
+V2 -> _conj_n_v(N2, V2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
-V2 -> _conj(V2, N2)
+V2 -> _conj_v_n(V2, N2)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 
 
-N2 -> _nbar(N1)
+N2 -> _nbar2(N1)
 [graph] ?1
 
-N1 -> _nbar(N)
+N1 -> _nbar1(N)
 [graph] ?1
 
-V2 -> _vbar(V1)
+V2 -> _vbar2(V1)
 [graph] ?1
 
-V1 -> _vbar(V)
+V1 -> _vbar1(V)
 [graph] ?1
 
-V -> _pos(VERB)
+V -> _pos_v_verb(VERB)
 [graph] ?1
 
 // e.g. "X is equivalent to Y" involves nsubj and obl
-V -> _pos(ADJ)
+V -> _pos_v_adj(ADJ)
 [graph] ?1
 
-N -> _pos(NOUN)
+N -> _pos_n_noun(NOUN)
 [graph] ?1
 
 // "[most] of them returned"
-N -> _pos(ADJ)
+N -> _pos_n_adj(ADJ)
 [graph] ?1
 
-N -> _pos(PRON)
+N -> _pos_n_pron(PRON)
 [graph] ?1
 
-N -> _pos(NUM)
+N -> _pos_n_num(NUM)
 [graph] ?1
 
-N -> _pos(PROPN)
+N -> _pos_n_propn(PROPN)
 [graph] ?1
 
-A -> _pos(ADJ)
+A -> _pos_a_adj(ADJ)
 [graph] ?1
 
 
 // a dozen cases involve the det relation involving not a DET but one of these
-DET -> _pos(PRON)
+DET -> _pos_d_pron(PRON)
 [graph] ?1
 
-DET -> _pos(ADJ)
+DET -> _pos_d_a(ADJ)
 [graph] ?1
 
-DET -> _pos(NUM)
+DET -> _pos_d_num(NUM)
 [graph] ?1
 
-DET -> _pos(ADP)
+DET -> _pos_d_adp(ADP)
 [graph] ?1
 
-DET -> _pos(PUNCT)
+DET -> _pos_d_punct(PUNCT)
 [graph] ?1
 
-DET -> _pos(PRON)
-[graph] ?1
-
-DET -> _pos(PRON)
+DET -> _pos_d_pron(PRON)
 [graph] ?1
 
 
@@ -405,45 +402,45 @@ DET -> _pos(PRON)
 // X is used only with the following dependencies:
 // fixed, parataxis, discourse, list, goeswith
 
-N -> _x1(X1)
+N -> _x1_n(X1)
 [graph] ?1
 
-V -> _x1(X1)
+V -> _x1_v(X1)
 [graph] ?1
 
 // "as opposed to" (fixed)
-ADP -> _x1(X1)
+ADP -> _x1_adp(X1)
 [graph] ?1
 
-X0 -> _xn2(N2)
+X0 -> _x_n2(N2)
 [graph] ?1
 
-X0 -> _xv2(V2)
+X0 -> _x_v2(V2)
 [graph] ?1
 
-X0 -> _xa(A)
+X0 -> _x_a(A)
 [graph] ?1
 
-X0 -> _xadp(ADP)
+X0 -> _x_adp(ADP)
 [graph] ?1
 
-X0 -> _xadv(ADV)
+X0 -> _x_adv(ADV)
 [graph] ?1
 
-X0 -> _xadj(ADJ)
+X0 -> _x_adj(ADJ)
 [graph] ?1
 
-X0 -> _xsconj(SCONJ)
+X0 -> _x_sconj(SCONJ)
 [graph] ?1
 
-X0 -> _xcconj(CCONJ)
+X0 -> _x_cconj(CCONJ)
 [graph] ?1
 
-X0 -> _xpart(PART)
+X0 -> _x_part(PART)
 [graph] ?1
 
-X0 -> _xintj(INTJ)
+X0 -> _x_intj(INTJ)
 [graph] ?1
 
-X0 -> _xsym(SYM)
+X0 -> _x_sym(SYM)
 [graph] ?1
