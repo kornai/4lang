@@ -8,17 +8,17 @@ import threading
 import time
 import traceback
 
+from collins_parser import CollinsParser
+from corenlp_wrapper import CoreNLPWrapper
 from dep_to_4lang import DepTo4lang
+from eksz_parser import EkszParser
 from entry_preprocessor import EntryPreprocessor
 from lexicon import Lexicon
 from longman_parser import LongmanParser
-from wiktionary_parser import WiktParser
-from stanford_wrapper import StanfordWrapper
-from utils import batches, ensure_dir, get_cfg
-from collins_parser import CollinsParser
-from eksz_parser import EkszParser
-from nszt_parser import NSzTParser
 from magyarlanc_wrapper import Magyarlanc
+from nszt_parser import NSzTParser
+from utils import batches, ensure_dir, get_cfg
+from wiktionary_parser import WiktParser
 
 assert Lexicon  # silence pyflakes (Lexicon must be imported for cPickle)
 
@@ -86,9 +86,8 @@ class DictTo4lang():
                       (self.raw_dict[word] for word in words))
 
         if self.lang == 'eng':
-            stanford_wrapper = StanfordWrapper(self.cfg)
-            entries = stanford_wrapper.parse_sentences(
-                entries, definitions=True)
+            corenlp_wrapper = CoreNLPWrapper(self.cfg)
+            entries = corenlp_wrapper.parse_entries(entries)
         elif self.lang == 'hun':
             magyarlanc_wrapper = Magyarlanc(self.cfg)
             entries = magyarlanc_wrapper.parse_entries(entries)

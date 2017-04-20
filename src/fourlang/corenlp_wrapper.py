@@ -7,8 +7,10 @@ import zmq
 
 from longman_parser import XMLParser
 
+
 class ParserException(Exception):
     pass
+
 
 class Parser(XMLParser):
     sen_regex = re.compile(
@@ -69,7 +71,8 @@ class Parser(XMLParser):
         parsed_sens = [Parser.parse_sen(sen)
                        for sen in Parser.sen_regex.findall(cl_output)]
 
-        parse_trees = [match for match in Parser.parse_tree_regex.findall(cl_output)]
+        parse_trees = [match
+                       for match in Parser.parse_tree_regex.findall(cl_output)]
 
         corefs_match = Parser.all_corefs_regex.search(cl_output)
         if corefs_match is None:
@@ -77,6 +80,7 @@ class Parser(XMLParser):
         else:
             corefs = Parser.parse_corefs(corefs_match.group(1))
         return parsed_sens, corefs, parse_trees
+
 
 class CoreNLPWrapper():
 
@@ -93,6 +97,18 @@ class CoreNLPWrapper():
 
     def parse_sentences(self, sens):
         return self.parse_text("\n".join(sens))
+
+    def parse_entries(self, entries):
+        for entry in entries:
+            for sense in entry['senses']:
+                sentence = sense['definition']
+                deps, corefs, parse_trees = self.parse_text(sentence)
+                sense['definition'] = {
+                    "sen": sentence,
+                    "deps": deps[0],
+                    "parse": parse_trees}
+        return entries
+
 
 def test():
     cfg_file = 'conf/default.cfg' if len(sys.argv) < 2 else sys.argv[1]

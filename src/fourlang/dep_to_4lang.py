@@ -130,13 +130,15 @@ class DepTo4lang():
             for d in deps if d['type'] == 'root']  # TODO
 
     def get_dep_definition(self, word, deps):
-        if isinstance(deps[0], unicode):
-            # TODO
-            root_lemmas = self.get_root_lemmas(
-                NewDependencies.create_from_old_deps(
-                    Dependencies.create_from_strings(deps)).deps)
-        else:
-            root_lemmas = self.get_root_lemmas(deps)
+        # get NewDependencies from whatever type "deps" are
+        if isinstance(deps[0], unicode):  # string dependencies
+            deps = NewDependencies.create_from_old_deps(
+                Dependencies.create_from_strings(deps)).deps
+        elif isinstance(deps[0], list):   # old dependencies
+            deps = NewDependencies.create_from_old_deps(
+                Dependencies(deps)).deps
+
+        root_lemmas = self.get_root_lemmas(deps)
         deps = self.dependency_processor.process_dependencies(deps)
         if not root_lemmas:
             logging.warning(
