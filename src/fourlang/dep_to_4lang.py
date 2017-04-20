@@ -157,7 +157,7 @@ class DepTo4lang():
             logging.info('root lemmas: {0}'.format(root_lemmas))
             logging.info('word2machine: {0}'.format(word2machine))
             logging.info('word: {0}'.format(word))
-            sys.exit(-1)
+            return None
 
         word_machine = self.lexicon.get_machine(word, new_machine=True)
 

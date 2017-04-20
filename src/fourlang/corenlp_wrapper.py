@@ -102,6 +102,8 @@ class CoreNLPWrapper():
         for entry in entries:
             for sense in entry['senses']:
                 sentence = sense['definition']
+                if sentence is None:
+                    continue
                 deps, corefs, parse_trees = self.parse_text(sentence)
                 sense['definition'] = {
                     "sen": sentence,
