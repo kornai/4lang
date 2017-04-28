@@ -75,7 +75,7 @@ class DepTo4lang():
                 unified_machine = None
 
                 for sense in entry['senses']:
-                    if sense['mwe'] is not None:
+                    if sense.get('mwe') is not None:
                         continue
                     definition = sense['definition']
                     if definition is None:
