@@ -74,10 +74,14 @@ This repository is maintained by Gábor Recski. Questions, suggestions, bug repo
 If you use the `4lang` module, please cite:
 
 ```
-@unpublished{Kornai:2015a,
-author = "Andr\'as Kornai and Judit \'Acs and M\'arton Makrai and D\'avid Nemeskey and Katalin Pajkossy and G\'abor Recski",
-title = "Competence in Lexical Semantics",
-year = 2015,
-note = "{T}o appear in Proc. *SEM-2015"
-}
+@inproceedings{Kornai:2015a,
+    author    = {Kornai, Andr\'as  and  \'{A}cs, Judit  and  Makrai, M\'{a}rton  and  Nemeskey, D\'{a}vid M\'{a}rk  and  Pajkossy, Katalin  and  Recski, G\'{a}bor},
+    title     = {Competence in lexical semantics},
+    booktitle = {Proceedings of the Fourth Joint Conference on Lexical and Computational Semantics},
+    month     = {June},
+    year      = {2015},
+    address   = {Denver, Colorado},
+    publisher = {Association for Computational Linguistics},
+    pages     = {165--175},
+    url       = {ht
 ```
