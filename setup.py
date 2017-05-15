@@ -24,5 +24,5 @@ setup(
         "https://github.com/kornai/pymachine/tarball/master#egg=pymachine"],
     install_requires=[
         "nltk", "pymachine", "requests", "stemming", "unidecode", "pyzmq",
-        "graphviz"],
+        "graphviz", "scipy"],
 )
