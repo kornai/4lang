@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # https://stackoverflow.com/questions/6593531/running-a-limited-number-of-child-processes-in-parallel-in-bash/14387296#14387296
-function max3 {
+function maxn {
    while [ `jobs | wc -l` -ge 3 ]
    do
       sleep 5
@@ -22,7 +22,7 @@ for dir in $@; do
     logdir=log/$lang
     mkdir -p $outdir $logdir
     echo parsing ${fn}...
-    time nice java -cp /home/recski/projects/alto/target/alto-2.2-SNAPSHOT-jar-with-dependencies.jar de.up.ling.irtg.script.ParsingEvaluator $fn -g $grammar -I graph -o $outdir/output 2> $logdir/log
-    echo done!
+    maxn; time nice java -cp /home/recski/projects/alto/target/alto-2.2-SNAPSHOT-jar-with-dependencies.jar de.up.ling.irtg.script.ParsingEvaluator $fn -g $grammar -I graph -o $outdir/output 2> $logdir/log &
+    #echo done!
 done
 
