@@ -7,7 +7,8 @@ from fourlang.lexicon import Lexicon
 def main():
     lex_fn, word = sys.argv[1:3]
     lex = Lexicon.load_from_binary(lex_fn)
-    machines = lex.lexicon.get(word, lex.ext_lexicon.get(word))
+    # machines = lex.lexicon.get(word, lex.ext_lexicon.get(word))
+    machines = [lex.get_machine(word)]
     if machines is None:
         print '404 :('
     else:
