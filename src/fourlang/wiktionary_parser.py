@@ -110,5 +110,16 @@ def test():
     for entry in WiktParser.parse_xml(xml):
         print entry
 
+def print_defs():
+    xml = sys.stdin.read()
+    for entry in WiktParser.parse_xml(xml):
+        hw, senses = entry['hw'], entry['senses']
+        if not senses:
+            continue
+        for sense in senses:
+            d = sense['definition']
+            if d:
+                print "{0}\t{1}".format(hw, d)
+
 if __name__ == "__main__":
-    test()
+    print_defs()
