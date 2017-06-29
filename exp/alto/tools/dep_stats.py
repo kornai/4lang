@@ -36,7 +36,11 @@ def main():
         for dep in deps}
 
     for dep, av_perc in sorted(av_percentages.items(), key=lambda (d, f): -f):
-        print("{0}\t{1:.2%}\t{2}".format(dep, av_perc, totals[dep]))
+        top_perc, top_lang = sorted(
+                [(dep_percentage_by_lang[lang][dep], lang)
+                 for lang in lang_totals])[-1]
+        print("{0}\t{1:.2%}\t{2}\t{3:.2%}\t{4}".format(
+            dep, av_perc, totals[dep], top_perc, top_lang))
 
 
 if __name__ == "__main__":
