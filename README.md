@@ -20,6 +20,8 @@ __NOTE__: All remaining dependencies are required only for building 4lang graphs
 #### Stanford Parser, CoreNLP, jython
 For parsing dictionary definitions, `4lang` requires the [Stanford Dependency Parser](http://nlp.stanford.edu/software/lex-parser.shtml#Download). Additionally, `text_to_4lang.py` requires the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml#Download) toolkit for parsing and coreference resolution, while the `dict_to_4lang` tool requires [jython](http://www.jython.org/downloads.html) for customized parsing via the Stanford Parser API. Both tools require a copy of the RNN-based parser model for English, which is distributed alongside the Stanford Parser.
 
+Currently, `text_to_4lang` requires the installation of the [corenlp-server](https://github.com/kowey/corenlp-server) package. Just download the repository and follow the instructions in its README to build the package and start the server (mvn package; mvn exec:java -D server), the text_to_4lang module will then be able to connect.
+
 After downloading and installing these tools, all you need to do is edit the `stanford` and `corenlp` sections of the default configuration file `conf/default.cfg` so that the relevant fields point to your installations of each tool and your copy of the englishRNN.ser.gz model (more on config files below).
 
 ### Downloading pre-compiled graphs
