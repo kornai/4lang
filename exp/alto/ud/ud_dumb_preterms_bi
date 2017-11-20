@@ -1,68 +1,68 @@
 X -> _ADJ(ADJ)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _ADP(ADP)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _ADV(ADV)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _AUX(AUX)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _CCONJ(CCONJ)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _DET(DET)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _INTJ(INTJ)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _NOUN(NOUN)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _NUM(NUM)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _PART(PART)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _PRON(PRON)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _PROPN(PROPN)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _PUNCT(PUNCT)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _SCONJ(SCONJ)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _SYM(SYM)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _VERB(VERB)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 
 X -> _X(X)
 [graph] ?1
-[4lang] ?1
+[fourlang] ?1
 

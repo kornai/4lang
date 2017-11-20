@@ -19,7 +19,7 @@ X -> _nmod(X, X)
 
 X -> _nsubj(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep>))"), r_dep(?2))))
 
 X -> _det(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
@@ -39,7 +39,7 @@ X -> _advmod(X, X)
 
 X -> _obj(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
 
 X -> _conj(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
