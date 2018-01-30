@@ -9,7 +9,7 @@ def main():
             continue
         cfg_rule = 'X -> _{0}({1})'.format(pos, pos)
         graph_rule = '[graph] ?1'
-        fourlang_rule = '[4lang] ?1'
+        fourlang_rule = '[fourlang] ?1'
         print(cfg_rule)
         print(graph_rule)
         print(fourlang_rule)
