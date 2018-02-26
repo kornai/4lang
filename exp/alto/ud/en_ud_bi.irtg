@@ -215,7 +215,7 @@ X -> _obl_agent(X, X)
 
 X -> _dislocated(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :dislocated (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :dislocated (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :0 (d<dep> :0 g))"), r_dep(?2))))
 
 X -> _case_gen(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case_gen (d<dep>))"), r_dep(?2))))
@@ -419,7 +419,7 @@ X -> _nmod_cau(X, X)
 
 X -> _obl_npmod(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_npmod (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
 X -> _acl_inf(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_inf (d<dep>))"), r_dep(?2))))
