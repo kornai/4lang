@@ -9,9 +9,21 @@ X -> _punct(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
-X -> _case(X, X)
-[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+\\ X -> _case(X, X)
+\\ [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+\\ [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+X -> _obl_case(X, X, X)
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+X -> _nmod_case(X, X, X)
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+X -> _nsubj_case(X, X, X)
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nsubj (d1<dep1>) :case (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
 X -> _nmod(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
