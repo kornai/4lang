@@ -6,7 +6,7 @@ from hunmisc.corpustools.tsv_tools import sentence_iterator
 from common import sanitize_word
 
 
-TEMPLATE = ('{0} -> {1}\n[graph] "({1}<root> / {1})"\n' +
+TEMPLATE = ('{0} -> {1}_{0}\n[graph] "({1}<root> / {1})"\n' +
             '[fourlang] "({1}<root> / {1})"\n')
 
 
