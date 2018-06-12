@@ -9,6 +9,14 @@ X -> _punct(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
+_PART -> _punct(_PART, _PUNCT) // not:
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+// _VERB -> _punct(_VERB, _PUNCT) // so-called controversy
+// [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+// [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
 // X -> _case(X, X)
 // [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
 // [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
@@ -17,7 +25,11 @@ X -> _obl_case(X, X, X)
 [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
 [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_ADV -> _obl_case(_ADV, _PROPN, _ADP)
+_ADV -> _obl_case(_ADV, _PROPN, _ADP) // headed out for Fallujah
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+_ADV -> _obl_case(_ADV, _NOUN, _ADP) // liked something better than
 [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
 [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
@@ -37,7 +49,19 @@ X -> _nsubj(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
+_VERB -> _nsubj(_VERB, X) // as far as George knew
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+_ADV -> _nsubj(_ADV, _PROPN) // than Bush did then
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
 X -> _det(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _det(_NOUN, _DET)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 
@@ -49,7 +73,11 @@ X -> _amod(X, _ADJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
-X -> _amod(X, _VERB)
+X -> _amod(X, _NUM) // Bernard, 36, was arrested
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+X -> _amod(X, _VERB) // the following links
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
@@ -61,7 +89,23 @@ _ADJ -> _amod(X, _ADJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
+_NOUN -> _amod(X, _ADJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _amod(_NOUN, _ADJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _amod_compound(_ADJ, _PUNCT, _ADJ) // Israeli - Arab conflict
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :punct (d1<dep1>) :amod (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
 X -> _advmod(X, _ADV)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+X -> _advmod(_ADV, _PART) // not 200,000 guns
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
@@ -69,25 +113,45 @@ X -> _advmod(X, _ADJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
-X -> _advmod(X, _PART)
+X -> _advmod(X, _PART) // have not
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
-_ADV -> _advmod(_ADV, _ADV)
+_ADV -> _advmod(_ADV, _ADV) // reminds too much
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
-_ADJ -> _advmod(_ADJ, _ADV)
+_ADJ -> _advmod(_ADJ, _ADV) // no longer dominant
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _advmod(X, _ADV)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_ADV -> _as_adv_as(_ADV, _ADV, _SCONJ, _VERB) // As far as George knew
+[graph] r_gov_root(f_dep3(f_dep2(f_dep1(merge(merge(merge(merge(r_gov(?2), "(g<gov> :advmod (d1<dep1> :advcl (d3<dep3> :mark (d2<dep2>))))"), r_dep1(?1)), r_dep3(?4)), r_dep2(?3))))))
+[fourlang] r_gov_root(f_dep3(f_dep2(f_dep1(merge(merge(merge(merge(r_gov(?2), "(g<gov> :advmod (d1<dep1> :advcl (d3<dep3> :mark (d2<dep2>))))"), r_dep1(?1)), r_dep3(?4)), r_dep2(?3))))))
+
+_ADJ -> _more_than_then(_ADJ, _VERB, _ADV, _SCONJ) // more than Bush did then; can this be simpler?? more than Bush did
+[graph] r_gov_root(f_dep3(f_dep2(f_dep1(merge(merge(merge(merge(r_gov(?1), "(g<gov> :advcl (d1<dep1> :advmod (d3<dep3> :mark (d2<dep2>))))"), r_dep1(?2)), r_dep3(?3)), r_dep2(?4))))))
+[fourlang] r_gov_root(f_dep3(f_dep2(f_dep1(merge(merge(merge(merge(r_gov(?1), "(g<gov> :advcl (d1<dep1> :advmod (d3<dep3> :mark (d2<dep2>))))"), r_dep1(?2)), r_dep3(?3)), r_dep2(?4))))))
 
 X -> _obj(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+X -> _obj(X, _ADJ) // knows more than...
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
 
 X -> _conj(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+ _ADJ -> _conj(X, X) // local or international
+ [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+ [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
 X -> _cc(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
@@ -102,6 +166,10 @@ X -> _aux(X, X)
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
 X -> _advcl(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _advcl(X, X) // more than ever did
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
@@ -124,6 +192,30 @@ X -> _nummod(X, _NUM)
 X -> _compound(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _compound(_NOUN, _NOUN) // negotiating table
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+
+// _VERB -> _compound(_VERB, _ADV) // so-called controversy
+// [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+// [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
+
+_VERB -> _compound_punct_adv(_VERB, _ADV, _PUNCT) // so-called controversy
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :compound (d1<dep1>) :punct (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+_NOUN -> _compound_punct_adv(_VERB, _ADV, _PUNCT) // less-provocative forces
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :compound (d1<dep1>) :punct (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+_ADJ -> _compound_punct_num(_ADJ, _NUM, _PUNCT) // 15,000-strong
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :compound (d1<dep1>) :punct (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
+_VERB -> _compound_punct_noun(_VERB, _NOUN, _PUNCT) // radiation-induced cancers
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :compound (d1<dep1>) :punct (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
 X -> _xcomp(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :xcomp (d<dep>))"), r_dep(?2))))
@@ -158,6 +250,10 @@ X -> _parataxis(X, X)
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 
 X -> _fixed(X, X)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+
+_ADV -> _fixed(_ADV, _ADV) // of course
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
 
@@ -469,6 +565,14 @@ X -> _obl_npmod(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_npmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
+_ADV -> _obl_npmod(X, X) // decades ago
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_npmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_ADV -> _obl_npmod_3(_ADV, _NOUN, _DET) // a lot less
+[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl_npmod (d1<dep1> :det (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+
 X -> _acl_inf(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_inf (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
@@ -637,11 +741,19 @@ X -> _DET(DET)
 [graph] ?1
 [fourlang] ?1
 
+_DET -> _DET(DET)
+[graph] ?1
+[fourlang] ?1
+
 X -> _INTJ(INTJ)
 [graph] ?1
 [fourlang] ?1
 
 X -> _NOUN(NOUN)
+[graph] ?1
+[fourlang] ?1
+
+_NOUN -> _NOUN(NOUN)
 [graph] ?1
 [fourlang] ?1
 
@@ -677,7 +789,15 @@ X -> _PUNCT(PUNCT)
 [graph] ?1
 [fourlang] ?1
 
+_PUNCT -> _PUNCT(PUNCT)
+[graph] ?1
+[fourlang] ?1
+
 X -> _SCONJ(SCONJ)
+[graph] ?1
+[fourlang] ?1
+
+_SCONJ -> _SCONJ(SCONJ)
 [graph] ?1
 [fourlang] ?1
 
