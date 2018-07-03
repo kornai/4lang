@@ -1,0 +1,47 @@
+/* A synchronous grammar that translates between strings and
+   semantic representations, represented as graphs.
+
+   This grammar uses a source <coref1> to implement anaphoric coreference.
+   This idea arose in the discussions of the Johns Hopkins workshop on AMRs
+   in Prague (July 2014; Chiang, Drewes, Gildea, Koller, Lopez, Satta).
+
+   Try parsing this sentence: "bill_1 wants the girl to like him_1"
+
+   And try parsing this graph:
+   (u91 / want-01
+     :ARG0 (u92 / bill)
+     :ARG1 (u93 / like-01
+          :ARG0 (u94 / girl)
+	  :ARG1 u92))
+*/
+
+
+
+interpretation string: de.up.ling.irtg.algebra.StringAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+// NB: it is important to merge ?2 and ?3 first, because the source <obj>
+// is undefined in the first graph, so merging them yields a graph with two
+// connected components; but the parser will not generate unconnected graphs.
+
+
+NN -> john
+[string] john
+[graph]  "(y<root> / john)"
+
+NN -> mary
+[string] mary
+[graph]  "(z<root> / mary)"
+
+NP -> Noun(NN)
+[string] ?1
+[graph]  merge("(x<root> / Noun : (r<noun>))",r_noun(?1))
+
+S! -> loves(NP,NP)
+[string] *(?1, *(loves, ?2))
+[graph]  f_subj(f_obj(merge(merge("(u<root> / love  :ARG0 (v<subj>)  :ARG1 (w<obj>))", r_subj(?1)), r_obj(?2))))
+
+VP -> love(NP)
+[string] *(love, ?1)
+[graph] f_obj(merge("(u<root> / love  :ARG0 (v<subj>)  :ARG1 (w<obj>))", r_obj(?1)))
+

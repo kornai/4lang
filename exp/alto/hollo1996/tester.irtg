@@ -1,0 +1,76 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//from the tregex we know the type of the upper structure
+S! -> root(Sentence)
+[tree] 	?1
+[graph] merge("(u<root> / root)", ?1)
+
+Sentence -> MainStructure(PredicatePh,SubjectPh)
+[tree]  S(?2,?1)
+[graph] f_obj(merge(?1,r_predicate(?2)))
+
+PredicatePh -> VP(V,ObjectPh)
+[tree] VP(?1,?2)
+[graph] merge("(n<root> :root (p<predicate>))", r_predicate(merge(?1,?2)))
+
+SubjectPh -> Subject(NP)
+[tree] ?1
+[graph] merge("(n<root> :nsubj (s<subject>))", r_subject(?1))
+
+ObjectPh -> Object(NP)
+[tree] ?1
+[graph] f_obj(merge("(n<root> :dobj (o<object>))", r_object(?1)))
+
+NP -> noun(NN)
+[tree] NP(?1)
+[graph] ?1
+
+NN -> john
+[tree] NN(john)
+[graph] "(n<root> / john)"
+
+NN -> mary
+[tree] NN(mary)
+[graph] "(n<root> / mary)"
+
+//
+V -> loves
+[tree] V(loves)
+[graph] "(v<root> / loves)"
+
+/*
+//starting with the predicate we can build different phrase structure trees by making more rules for it
+// It will mean a different phrase structure but the same dependency
+predicatePh -> verbPhrase(V)
+[tree] ?1
+[graph] ?1
+
+//In this case both subject and object are in noun phrases headed by them.
+subjectPh -> nounPhrase(NP)
+[tree] ?1
+[graph] ?1
+
+objectPh -> nounPhrase(NP)
+[tree] ?1
+[graph] ?1
+				
+//In both case the noun phrase contains only the noun itself				
+NP -> lonlyNoun(NN)
+[tree] NP(?1)
+[graph] f_subj(f_obj(?1))
+
+NN -> john
+[tree] NN(john)
+[graph] "(n<root> / john)"
+
+NN -> mary
+[tree] NN(mary)
+[graph] "(n<root> / mary)"
+
+//
+V -> loves
+[tree] V(loves)
+[graph] f_obj("(u<root> / loves  :dobj (v<object>)  :nsubj (w<subject>))")
+
+input: S(NP(NN(john)),VP(V(loves),NP(NN(mary)))) */
