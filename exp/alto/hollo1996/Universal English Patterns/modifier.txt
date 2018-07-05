@@ -1,0 +1,15 @@
+MODIFIER :
+	- Language.UniversalEnglish
+	- "mod"
+	- "modifier"
+	- DEPENDENT
+* The "modifier" grammatical relation. A modifier of a VP is
+* any constituent that serves to modify the meaning of the VP
+* (but is not an {@code ARGUMENT} of that
+* VP); a modifier of a clause is an modifier of the VP which is
+* the predicate of that clause.<p>
+* <p/>
+* Examples: <br/>
+* "Last night, I swam in the pool" &rarr;
+* {@code mod}(swam, in the pool)
+* {@code mod}(swam, last night)

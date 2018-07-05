@@ -1,0 +1,10 @@
+PATTERN:
+	- Language language
+	- String shortName
+	- String longName
+	- GrammaticalRelation parent
+	- String sourcePattern
+	- TregexPatternCompiler tregexCompiler
+	- String[] targetPatterns
+	- String specific
+* Discription

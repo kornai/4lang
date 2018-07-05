@@ -1,0 +1,22 @@
+INDIRECT_OBJECT :
+	- Language.UniversalEnglish
+	- "iobj"
+	- "indirect object"
+	- OBJECT
+	- "VP"
+	- tregexCompiler
+
+	"VP < (NP=target !< /\\$/ !<# (/^NN/ < " + timeWordRegex + ") $+ (NP !<# (/^NN/ < " + timeWordRegex + ")))"
+	// this next one was meant to fix common mistakes of our parser, but is perhaps too dangerous to keep
+	// excluding selfRegex leaves out phrases such as "I cooked dinner myself"
+	// excluding DT leaves out phrases such as "My dog ate it all""
+	"VP < (NP=target < (NP !< /\\$/ $++ (NP !<: (PRP < " + selfRegex + ") !<: DT !< (/^NN/ < " + timeWordLotRegex + ")) !$ CC|CONJP !$ /^,$/ !$++ /^:$/))"
+
+* The "indirect object" grammatical relation. The indirect
+* object of a VP is the noun phrase which is the (dative) object
+* of the verb; the indirect object of a clause is the indirect
+* object of the VP which is the predicate of that clause.
+* <p/>
+* Example: <br/>
+* "She gave me a raise" &rarr;
+* {@code iobj}(gave, me)

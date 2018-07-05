@@ -1,0 +1,61 @@
+NP_ADVERBIAL_MODIFIER :
+	- Language.UniversalEnglish
+	- "nmod:npmod"
+	- "noun phrase adverbial modifier"
+	- MODIFIER
+	- "VP|(?:WH)?(?:NP|ADJP|ADVP|PP|QP)(?:-TMP|-ADV)?"
+	- tregexCompiler
+
+	"@ADVP|ADJP|WHADJP|WHADVP|PP|WHPP <# (JJ|JJR|IN|RB|RBR !< notwithstanding $- (@NP=target !< NNP|NNPS))"
+	// one word nouns like "cost efficient"
+	- "ice-free"
+	"@ADJP < (NN=target $++ /^JJ/) !< CC|CONJP"
+	"@ADVP <# (/^(RB|ADVP)/ $++ @NP=target)", //up 20%, once a week, ...
+	"@NP|WHNP < /^NP-ADV/=target"
+	// Mr. Bush himself ..., in a couple different parse
+	// patterns. Looking for CC|CONJP leaves out phrases such
+	// as "he and myself"
+	"@NP|WHNP [ < (NP=target <: (PRP < " + selfRegex + ")) | < (PRP=target < " + selfRegex + ") ] : (=target $-- NP|NN|NNS|NNP|NNPS|PRP=noun !$-- (/^,|CC|CONJP$/ $-- =noun))"
+	// this next one is for weird financial listings: 4.7% three months
+	"@NP <1 (@NP <<# /^%$/) <2 (@NP=target <<# days|month|months) !<3 __"
+	"@VP < /^NP-ADV/=target"
+	"@NP|ADVP|QP <+(/ADVP/) (@ADVP=target < (IN < /(?i:at)/) < NP)" //at least/most/...
+
+* The "noun phrase as adverbial modifier" grammatical relation.
+* This relation captures various places where something syntactically a noun
+* phrase is used as an adverbial modifier in a sentence. These usages include:
+* <ul>
+* <li> A measure phrase, which is the relation between
+* the head of an ADJP/ADVP and the head of a measure-phrase modifying the ADJP/ADVP.
+* <p/>
+* Example: <br/>
+* "The director is 65 years old" &rarr;
+* {@code npadvmod}(old, years)
+* </li>
+* <li> Noun phrases giving extent inside a VP which are not objects
+* <p/>
+* Example: <br/>
+* "Shares eased a fraction" &rarr;
+* {@code npadvmod}(eased, fraction)
+* </li>
+* <li> Financial constructions involving an adverbial or PP-like NP, notably
+* the following construction where the NP means "per share"
+* <p/>
+* Example: <br/>
+* "IBM earned $ 5 a share" &rarr;
+* {@code npadvmod}($, share)
+* </li>
+* <li>Floating reflexives
+* <p/>
+* Example: <br/>
+* "The silence is itself significant" &rarr;
+* {@code npadvmod}(significant, itself)
+* </li>
+* <li>Certain other absolutive NP constructions.
+* <p/>
+* Example: <br/>
+* "90% of Australians like him, the most of any country" &rarr;
+* {@code npadvmod}(like, most)
+* </ul>
+* A temporal modifier (tmod) is a subclass of npadvmod which is distinguished
+* as a separate relation.

@@ -1,0 +1,17 @@
+COMPLEMENT :
+	- Language.UniversalEnglish
+	- "comp"
+	- "complement"
+	- ARGUMENT
+* The "complement" grammatical relation. A complement of a VP
+* is any object (direct or indirect) of that VP, or a clause or
+* adjectival phrase which functions like an object; a complement
+* of a clause is an complement of the VP which is the predicate
+* of that clause.<p>
+* <p/>
+* Examples: <br/>
+* "She gave me a raise" &rarr;
+* {@code comp}(gave, me)
+* {@code comp}(gave, a raise) <br/>
+* "I like to swim" &rarr;
+* {@code comp}(like, to swim)

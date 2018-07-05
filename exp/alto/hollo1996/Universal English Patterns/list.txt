@@ -1,0 +1,12 @@
+LIST :
+	- Language.UniversalEnglish
+	- "list"
+	- "list"
+	- DEPENDENT
+	- "FRAG"
+	- tregexCompiler
+
+	"FRAG < (NP $+ (/,/ $+ (NP=target $+ (/,/ $+ NP))) !$++ CC|CONJP|MWE)"
+	"FRAG < (NP $+ (/,/ $+ (NP $++ (/,/ $+ NP=target))) !$++ CC|CONJP|MWE)"
+
+* The "list" relation.

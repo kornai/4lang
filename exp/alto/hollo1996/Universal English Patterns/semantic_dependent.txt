@@ -1,0 +1,7 @@
+SEMANTIC_DEPENDENT :
+	- Language.UniversalEnglish
+	- "sdep"
+	- "semantic dependent"
+	- DEPENDENT
+* The "semantic dependent" grammatical relation has been
+* introduced as a supertype for the controlling subject relation.

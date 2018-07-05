@@ -1,0 +1,25 @@
+CLAUSAL_MODIFIER :
+	- Language.UniversalEnglish
+	- "acl"
+	- "clausal modifier of noun"
+	- MODIFIER
+	- "WHNP|WHNP-TMP|WHNP-ADV|NP(?:-[A-Z]+)?|NML|NX"
+	- tregexCompiler
+
+	"WHNP|WHNP-TMP|WHNP-ADV|NP|NP-TMP|NP-ADV|NML|NX < (VP=target < VBG|VBN|VBD $-- @NP|NML|NX)", // also allow VBD since it quite often occurs in treebank errors and parse errors
+	// to get "MBUSA, headquartered ..."
+	// Allows an adverb to come before the participle
+	"WHNP|WHNP-TMP|WHNP-ADV|NP|NP-TMP|NP-ADV|NML|NX < (/^,$/ $+ (VP=target [ <1 VBG|VBN | <2 (VBG|VBN $-- ADVP) ]))"
+	//former pcomp
+	"/^(?:(?:WH)?(?:NP|NX|NML)(?:-TMP|-ADV)?)$/ < (WHPP|WHPP-TMP|PP|PP-TMP=target !< @NP|WHNP|NML !$- (@CC|CONJP $- __) < /^((?!(PP|CC|CONJP|,)).)*$/ !< (@PP <1 IN|RB|MWE|PCONJP|VBN|JJ <2 @NP)) !<- " + ETC_PAT + " !<- " + FW_ETC_PAT
+	"/^NP(?:-[A-Z]+)?$/ < (S=target < (VP < TO) $-- NP|NN|NNP|NNS)"
+	"/^NP(?:-[A-Z]+)?$/ < (SBAR=target < (S < (VP < TO)) $-- NP|NN|NNP|NNS)"
+
+* The "clausal modifier of noun" relation. {@code acl} is used for
+* finite and non-finite clauses that modify a noun. Note that in
+* English relative clauses get assigned a specific relation
+* <code>acl:relcl</code>, a subtype of {@code acl}.
+* <p/>
+* Examples: <br/>
+* "the issues as he sees them" &rarr;
+* {@code acl}(issues, sees) <br/>

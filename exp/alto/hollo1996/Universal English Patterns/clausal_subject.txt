@@ -1,0 +1,16 @@
+CLAUSAL_SUBJECT :
+	- Language.UniversalEnglish
+	- "csubj"
+	- "clausal subject"
+	- SUBJECT
+	- "S"
+	- tregexCompiler
+
+	"S < (SBAR|S=target !$+ /^,$/ $++ (VP !$-- NP))"
+
+* The "clausal subject" grammatical relation. A clausal subject is
+* a subject which is a clause.<p>
+* <p/>
+* Examples: (subject is "what she said" in both examples) <br/>
+* "What she said makes sense" &rarr; {@code csubj}(makes, said) <br/>
+* "What she said is untrue" &rarr; {@code csubj}(untrue, said)

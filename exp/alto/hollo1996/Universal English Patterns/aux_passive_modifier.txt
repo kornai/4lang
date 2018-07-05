@@ -1,0 +1,20 @@
+AUX_PASSIVE_MODIFIER :
+	- Language.UniversalEnglish
+	- "auxpass"
+	- "passive auxiliary"
+	- AUX_MODIFIER
+	- "VP|SQ|SINV"
+	- tregexCompiler
+
+	"VP < (/^(?:VB|AUX|POS)/=target < " + passiveAuxWordRegex + " ) < (VP|ADJP [ < VBN|VBD | < (VP|ADJP < VBN|VBD) < CC ] )"
+	"SQ|SINV < (/^(?:VB|AUX|POS)/=target < " + beAuxiliaryRegex + " $++ (VP < VBD|VBN))"
+	// add handling of tricky VP fronting cases...
+	"SINV < (VP=target < (/^(?:VB|AUX|POS)/ < " + beAuxiliaryRegex + ") $-- (VP < VBD|VBN))"
+	"SINV < (VP=target < (VP < (/^(?:VB|AUX|POS)/ < " + beAuxiliaryRegex + ")) $-- (VP < VBD|VBN))"
+
+* The "passive auxiliary" grammatical relation. A passive auxiliary of a
+* clause is a
+* non-main verb of the clause which contains the passive information.
+*
+* Example: <br/>
+* "Kennedy has been killed" &rarr; {@code auxpass}(killed, been)

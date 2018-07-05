@@ -1,0 +1,21 @@
+MARKER :
+	- Language.UniversalEnglish
+	- "mark"
+	- "marker"
+	- MODIFIER
+	- "SBAR(?:-TMP)?|VP|PP(?:-TMP|-ADV)?"
+	- tregexCompiler
+
+	//infinitival to
+	"VP < VP < (TO=target)"
+	"SBAR|SBAR-TMP < (IN|DT|MWE=target $++ S|FRAG)"
+	"SBAR < (IN|DT=target < that|whether) [ $-- /^(?:VB|AUX)/ | $- NP|NN|NNS | > ADJP|PP | > (@NP|UCP|SBAR < CC|CONJP $-- /^(?:VB|AUX)/) ]"
+	"/^PP(?:-TMP|-ADV)?$/ < (IN|TO|MWE|PCONJP|VBN|JJ=target $+ @SBAR|S)"
+
+* The "marker" grammatical relation. A marker is the word introducing a finite clause subordinate to another clause.
+* For a complement clause, this will typically be "that" or "whether".
+* For an adverbial clause, the marker is typically a preposition like "while" or "although".
+* <p/>
+* Example: <br/>
+* "U.S. forces have been engaged in intense fighting after insurgents launched simultaneous attacks" &rarr;
+* {@code mark}(launched, after)

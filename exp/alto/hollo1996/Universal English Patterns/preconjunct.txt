@@ -1,0 +1,24 @@
+PRECONJUNCT :
+	- Language.UniversalEnglish
+	- "cc:preconj"
+	- "preconjunct"
+	- MODIFIER
+	- "S|VP|ADJP|PP|ADVP|UCP(?:-TMP|-ADV)?|NX|NML|SBAR|NP(?:-TMP|-ADV)?"
+	- tregexCompiler
+
+	"NP|NP-TMP|NP-ADV|NX|NML < (PDT|CC|DT=target < /^(?i:either|neither|both)$/ $++ CC)"
+	"NP|NP-TMP|NP-ADV|NX|NML < (CONJP=target < (RB < /^(?i:not)$/) < (RB|JJ < /^(?i:only|merely|just)$/) $++ CC|CONJP)"
+	// This matches weird/wrong NP-internal preconjuncts where you get (NP PDT (NP NP CC NP)) or similar
+	"NP|NP-TMP|NP-ADV|NX|NML < (PDT|CC|DT=target < /^(?i:either|neither|both)$/ ) < (NP < CC)"
+	"/^S|VP|ADJP|PP|ADVP|UCP(?:-TMP|-ADV)?|NX|NML|SBAR$/ < (PDT|DT|CC=target < /^(?i:either|neither|both)$/ $++ CC)"
+	"/^S|VP|ADJP|PP|ADVP|UCP(?:-TMP|-ADV)?|NX|NML|SBAR$/ < (CONJP=target < (RB < /^(?i:not)$/) < (RB|JJ < /^(?i:only|merely|just)$/) $++ CC|CONJP)"
+
+* The "preconjunct" grammatical relation.
+* <p/>
+* Example: <br/>
+* "Both the boys and the girls are here" &rarr; {@code cc:preconj}(boys,both)
+
+	//TODO: web_tbk/data/reviews/penntree/122270.xml.tree:
+	// "both of the work.."
+
+

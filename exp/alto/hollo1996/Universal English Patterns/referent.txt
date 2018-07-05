@@ -1,0 +1,14 @@
+REFERENT :
+	- Language.UniversalEnglish
+	- "ref"
+	- "referent"
+	- DEPENDENT
+
+* The "referent" grammatical relation. A
+* referent of the Wh-word of a NP is the relative word introducing the relative clause modifying the NP.
+* <p/>
+* Example: <br/>
+* "I saw the book which you bought" &rarr;
+* {@code ref}(book, which) <br/>
+* "I saw the book the cover of which you designed" &rarr;
+* {@code ref}(book, which)

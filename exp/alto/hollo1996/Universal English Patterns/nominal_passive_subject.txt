@@ -1,0 +1,20 @@
+NOMINAL_PASSIVE_SUBJECT :
+	- Language.UniversalEnglish
+	- "nsubjpass"
+	- "nominal passive subject"
+	- NOMINAL_SUBJECT
+	- "S|SQ"
+	- tregexCompiler
+	
+	"S|SQ < (WHNP|NP=target !< EX) < (VP < (/^(?:VB|AUX)/ < " + passiveAuxWordRegex + ") < (VP < VBN|VBD))"
+
+* The "nominal passive subject" grammatical relation. A nominal passive
+* subject is a subject of a passive which is an noun phrase.<p>
+* <p/>
+* Example: <br/>
+* "Dole was defeated by Clinton" &rarr; {@code nsubjpass}(defeated, Dole)
+* <p>
+* This pattern recognizes basic (non-coordinated) examples. The coordinated
+* examples are currently handled by correctDependencies() in
+* EnglishGrammaticalStructure. This seemed more accurate than any tregex
+* expression we could come up with.

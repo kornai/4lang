@@ -1,0 +1,76 @@
+DIRECT_OBJECT :
+	- Language.UniversalEnglish
+	- "dobj"
+	- "direct object"
+	- OBJECT
+	- "VP|SQ|SBARQ?"
+	- tregexCompiler
+
+	"VP !< (/^(?:VB|AUX)/ [ < " + copularWordRegex + " | < " + clausalComplementRegex + " ]) < (NP|WHNP=target [ [ !<# (/^NN/ < " + timeWordRegex + ") !$+ NP ] | $+ NP-TMP | $+ (NP <# (/^NN/ < " + timeWordRegex + ")) ] ) " +
+	// The next qualification eliminates parentheticals that
+	// come after the actual dobj
+	" <# (__ !$++ (NP $++ (/^[:]$/ $++ =target))) "
+
+	// Examples such as "Rolls-Royce expects sales to remain steady"
+	"VP < (S < (NP|WHNP=target $++ (VP < TO)))"
+
+	// This matches rare cases of misparses, such as "What
+	// disease causes cancer?" where the "causes" does not get a
+	// surrounding VP. Hopefully it does so without overlapping
+	// any other dependencies.
+	"SQ < (/^(?:VB)/=verb !< " + copularWordRegex + ") $-- WHNP !< VP !< (/^(?:VB)/ ! == =verb) < (NP|WHNP=target [ [ !<# (/^NN/ < " + timeWordRegex + ") !$+ NP ] | $+ NP-TMP | $+ (NP <# (/^NN/ < " + timeWordRegex + ")) ] )"
+
+	// The rule for Wh-questions
+	// cdm Jul 2010: No longer require WHNP as first child of SBARQ below: often not because of adverbials, quotes, etc., and removing restriction does no harm
+	// this next pattern used to assume no empty NPs. Corrected.
+	// One could require the VP at the end of the <+ to also be !< (/^(?:VB|AUX)/ $. SBAR) . This would be right for complement SBAR, but often avoids good matches for adverbial SBAR. Adding it kills 4 good matches for avoiding 2 wrong matches on sum of TB3-train and EWT
+	"SBARQ < (WHNP=target !< WRB !<# (/^NN/ < " + timeWordRegex + ")) <+(SQ|SINV|S|VP) (VP !< NP|TO !< (S < (VP < TO)) !< (/^(?:VB|AUX)/ < " + copularWordRegex + " $++ (VP < VBN|VBD)) !< (PP <: IN|TO) $-- (NP !< /^-NONE-$/))"
+
+	// matches direct object in relative clauses with relative pronoun "I saw the book that you bought". Seems okay. If this is changed, also change the pattern for "rel"
+	// TODO: this can occasionally produce incorrect dependencies, such as the sentence
+	// "with the way which his split-fingered fastball is behaving"
+	// eg take a tree where the verb doesn't have an object
+	"SBAR < (WHNP=target !< WRB) < (S < NP < (VP !< SBAR !<+(VP) (PP <- IN|TO) !< (S < (VP < TO))))"
+
+	// // matches direct object for long dependencies in relative clause without explicit relative pronouns
+	// "SBAR !< (WHPP|WHNP|WHADVP) < (S < (@NP $++ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) !<+(VP) (/^(?:VB|AUX)/ < " + copularWordRegex + " $+ (VP < VBN|VBD)) !<+(VP) NP !< SBAR !<+(VP) (PP <- IN|TO)))) !$-- CC $-- NP > NP=target " +
+	// // avoid conflicts with rcmod. TODO: we could look for
+	// // empty nodes in this kind of structure and use that to
+	// // find dobj, tmod, advmod, etc. won't help the parser
+	// // of course, but will help when converting a treebank
+	// // which contains empties
+	// // Example: "with the way his split-fingered fastball is behaving"
+	// "!($-- @NP|WHNP|NML > @NP|WHNP <: (S !< (VP < TO)))"
+
+	// If there was an NP between the WHNP and the ADJP, we want
+	// that NP to have the nsubj relation, and the WHNP is either
+	// a dobj or a pobj instead. For example, dobj(What, worth)
+	// in "What is UAL stock worth?"
+	"SBARQ < (WHNP=target $++ ((/^(?:VB|AUX)/ < " + copularWordRegex + ") $++ (ADJP=adj !< (PP !< NP)) $++ (NP $++ =adj)))"
+
+	// Now allow $++ in main pattern above so don't need this.
+	// "SBAR !< (WHPP|WHNP|WHADVP) < (S < (@NP $+ (ADVP $+ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) !<+(VP) (/^(?:VB|AUX)/ < " + copularWordRegex + " $+ (VP < VBN|VBD)) !<+(VP) NP !< SBAR !<+(VP) (PP <- IN|TO))))) !$-- CC $-- NP > NP=target"
+
+	// Excluding BE doesn't allow cases of NP-PRD followed by NP-TMP or NP-LOC like "These are Europeans next door."
+	// Doc said: case with an iobj before dobj as two regular NPs. (This won't match if second one is explicitly NP-TMP.) But basic case covers this case. Does nothing.
+	// "VP < (NP $+ (NP|WHNP=target !< (/^NN/ < " + timeWordLotRegex + "))) !<(/^(?:VB|AUX)/ < " + copularWordRegex + ")", // this time one also included "lot"
+	// Doc said: match "give it next week". CDM 2013: I think this was put in to handle parse errors where the 2 NPs of a ditransitive were grouped into 1. But it is in principle wrong, and including it seems to be a no-op on TB3 WSJ. So exclude for now.
+	// "VP < (NP < (NP $+ (/^(NP|WHNP)$/=target !< (/^NN/ < " + timeWordLotRegex + "))))!< (/^(?:VB|AUX)/ < " + copularWordRegex + ")", // this time one also included "lot"
+
+	// Doc said: matches direct object in relative clauses "I saw the book that you said you bought". But it didn't seem to determine anything.
+	// This was various attempts at handling a long distance dependency, but that doesn't work; now handled through rel mechanism.
+	// "SBAR !< WHNP|WHADVP < (S < (@NP $++ (VP !$++ NP))) > (VP > (S < NP $- WHNP=target))"
+	// "SBAR !< WHNP|WHADVP|IN < (S < @NP < (VP !< (NP !<<# " + timeWordRegex + "))) > (VP > (S < NP $- WHNP=target))"
+	// "S < (@NP !< /^-NONE-$/) <+(VP) (VP !< (@NP !< /^-NONE-$/ < (/^VB/ !< " + copularWordRegex + ")) !< CONJP|CC|SBAR) > (@SBAR !< @WHNP|WHADVP $- /^VB/ >+(VP|S|SBAR) (S < (@NP !< /^-NONE-$/ !<<# " + timeWordRegex + ") $- (@WHNP=target !< /^-NONE-$/ !<# WRB)))"
+
+	// we now don't match "VBG > PP $+ NP=target", since it seems better to CM to regard these quasi preposition uses (like "including soya") as prepositions rather than verbs with objects -- that's certainly what the phrase structure at least suggests in the PTB. They're now matched as pobj
+
+* The "direct object" grammatical relation. The direct object
+* of a verb is the noun phrase which is the (accusative) object of
+* the verb; the direct object of a clause or VP is the direct object of
+* the head predicate of that clause.<p>
+* <p/>
+* Example: <br/>
+* "She gave me a raise" &rarr;
+* {@code dobj}(gave, raise) <p/>
+* Note that dobj can also be assigned by the conversion of rel in the postprocessing.

@@ -1,0 +1,50 @@
+NOMINAL_SUBJECT :
+	- Language.UniversalEnglish
+	- "nsubj"
+	- "nominal subject"
+	- SUBJECT
+	- "S|SQ|SBARQ|SINV|SBAR|PRN"
+	- tregexCompiler
+	
+	"S=subj < ((NP|WHNP=target !< EX !<# (/^NN/ < (" + timeWordRegex + "))) $++ VP=verb) : (=subj !> VP | !<< (=verb < TO))"
+	"S < ( NP=target <# (/^NN/ < " + timeWordRegex + ") !$++ NP $++VP)"
+	"SQ|PRN < (NP=target !< EX $++ VP)"
+	"SQ < (NP=target !< EX $- (/^(?:VB|AUX)/ < " + copularWordRegex + ") !$++ VP)"
+	// Allows us to match "Does it?" without matching "Who does it?"
+	"SQ < (NP=target !< EX $- /^(?:VB|AUX)/ !$++ VP) !$-- NP|WHNP"
+	"SQ < ((NP=target !< EX) $- (RB $- /^(?:VB|AUX)/) ![$++ VP])"
+	"SBARQ < WHNP=target < (SQ < (VP !$-- NP))"
+	// This will capture incorrectly parsed trees in sentences
+	// such as "What disease causes cancer" without capturing
+	// correctly parsed trees such as "What do elephants eat?"
+	"SBARQ < WHNP=target < (SQ < ((/^(?:VB)/ !< " + copularWordRegex + ") !$-- NP !$++ VP))"
+	"SBARQ < (SQ=target < (/^(?:VB|AUX)/ < " + copularWordRegex + ") !< VP)"
+	// matches subj in SINV
+	"SINV < (NP|WHNP=target [ $- VP|VBZ|VBD|VBP|VB|MD|AUX | $- (@RB|ADVP $- VP|VBZ|VBD|VBP|VB|MD|AUX) | !$- __ !$ @NP] )"
+	// Another SINV subj, such as "Such a great idea this was"
+	"SINV < (NP $++ (NP=target $++ (VP < (/^(?:VB|AUX)/ < " + copularWordRegex + "))))"
+	//matches subj in xcomp like "He considered him a friend"
+	"S < (NP=target $+ NP|ADJP) > VP"
+	// matches subj in relative clauses
+	"SBAR < WHNP=target [ < (S < (VP !$-- NP) !< SBAR) | < (VP !$-- NP) !< S ]", // second disjunct matches errors where there is no S under SBAR and otherwise does no harm
+	// matches subj in relative clauses
+	"SBAR !< WHNP < (S !< (NP $++ VP)) > (VP > (S $- WHNP=target))"
+	// matches subj in existential "there" SQ
+	"SQ < ((NP < EX) $++ NP=target)"
+	// matches subj in existential "there" S
+	"S < (NP < EX) <+(VP) (VP < NP=target)"
+	// matches (what, that) in "what is that" after the SQ has been flattened out of the tree
+	"SBARQ < (/^(?:VB|AUX)/ < " + copularWordRegex + ") < (WHNP < WP) < NP=target"
+	// matches (what, wrong) in "what is wrong with ..." after the SQ has been flattened out of the tree
+	// note that in that case "wrong" is taken as the head thanks to UniversalSemanticHeadFinder hackery
+	// The !$++ matches against (what, worth) in What is UAL stock worth?
+	"SBARQ < (WHNP=target $++ ((/^(?:VB|AUX)/ < " + copularWordRegex + ") $++ ADJP=adj !$++ (NP $++ =adj)))"
+	// the (NP < EX) matches (is, WHNP) in "what dignity is there in ..."
+	// the PP matches (is, WHNP) in "what is on the test"
+	"SBARQ <1 WHNP=target < (SQ < (/^(?:VB|AUX)/ < " + copularWordRegex + ") [< (NP < EX) | < PP])"
+
+* The "nominal subject" grammatical relation. A nominal subject is
+* a subject which is an noun phrase.<p>
+* <p/>
+* Example: <br/>
+* "Clinton defeated Dole" &rarr; {@code nsubj}(defeated, Clinton)

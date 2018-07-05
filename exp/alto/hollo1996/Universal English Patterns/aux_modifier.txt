@@ -1,0 +1,23 @@
+AUX_MODIFIER:
+	- Language.UniversalEnglish
+	- "aux"
+	- "auxiliary"
+	- DEPENDENT
+	- "VP|SQ|SINV|CONJP"
+	- tregexCompiler
+
+	"VP < VP < (/^(?:MD|VB.*|AUXG?|POS)$/=target)"
+	"SQ|SINV < (/^(?:VB|MD|AUX)/=target $++ /^(?:VP|ADJP)/)"
+	// add handling of tricky VP fronting cases...
+	"SINV < (VP=target < (/^(?:VB|AUX|POS)/ < " + beAuxiliaryRegex + ") $-- (VP < VBG))"
+
+* An auxiliary of a clause is a non-main verb of the clause
+* e.g., a modal auxiliary, or a form of be, do or have in a
+* periphrastic tense.
+*
+* Contrary to the older SD and arguments of Pullum (1982) and
+* following, infinitive to is not analyzed as an auxiliary.
+* Instead, it is analyzed as a mark.
+*
+* Example: <br/>
+* "Reagan has died" &rarr; {@code aux}(died, has)
