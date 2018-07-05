@@ -1,0 +1,38 @@
+COMPOUND_MODIFIER :
+	- Language.UniversalEnglish
+	- "compound"
+	- "compound modifier"
+	- MODIFIER
+	- "(?:WH)?(?:NP|NX|NAC|NML|ADVP|ADJP|QP)(?:-TMP|-ADV)?"
+	- tregexCompiler
+
+	"/^(?:WH)?(?:NP|NX|NAC|NML)(?:-TMP|-ADV)?$/ < (NP|NML|NN|NNS|NNP|NNPS|FW|AFX=target $++ NN|NNS|NNP|NNPS|FW|CD=sister !<<- POS !<<- (VBZ < /^\'s$/) !$- /^,$/ !$++ (POS $++ =sister))"
+	"/^(?:WH)?(?:NP|NX|NAC|NML)(?:-TMP|-ADV)?$/ < JJ|JJR|JJS=sister < (NP|NML|NN|NNS|NNP|NNPS|FW=target !<<- POS !<<- (VBZ < /^\'s$/) $+ =sister) <# NN|NNS|NNP|NNPS !<<- POS !<<- (VBZ < /^\'s$/) "
+	"QP|ADJP < (/^(?:CD|$|#)$/=target !$- CC)", //number relation in original SD
+	// in vitro, in vivo, etc., in Genia
+	// matches against "etc etc"
+	"ADJP|ADVP < (FW [ $- (FW=target !< /^(?i:etc)$/) | $- (IN=target < in|In) ] )"
+
+* The "compound modifier" grammatical relation. A compound
+* modifier of an NP is any noun that serves to modify the head noun.
+* Note that this has all nouns modify the rightmost a la Penn headship
+* rules. There is no intelligent noun compound analysis.
+* <p/>
+* We eliminate nouns that are detected as part of a POS, since that
+* will turn into the dependencies denoting possession instead.
+* Note we have to include (VBZ &lt; /^\'s$/) as part of the POS
+* elimination, since quite a lot of text such as
+* "yesterday's widely published sequester" was misannotated as a
+* VBZ instead of a POS. TODO: remove that if a revised PTB is ever
+* released.
+* <p/>
+* Example: <br/>
+* "Oil price futures" &rarr;
+* {@code compound}(futures, oil)
+* {@code compound}(futures, price) <p/>
+*
+* Numbers consisting of multiple words are also treated as compounds.
+* <p/>
+* Example: <br/>
+* "I have four thousand sheep" &rarr;
+* {@code compound}(thousand, four) <p/>

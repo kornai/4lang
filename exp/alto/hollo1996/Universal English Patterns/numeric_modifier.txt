@@ -1,0 +1,25 @@
+NUMERIC_MODIFIER:
+	- Language.UniversalEnglish
+	- "nummod"
+	- "numeric modifier"
+	- MODIFIER
+	- "(?:WH)?NP(?:-TMP|-ADV)?|NML|NX|ADJP|WHADJP|QP"
+	- tregexCompiler
+
+	"/^(?:WH)?(?:NP|NX|NML)(?:-TMP|-ADV)?$/ < (CD|QP=target !$- CC)"
+	// $ is so phrases such as "$ 100 million buyout" get amod(buyout, $)
+	"/^(?:WH)?(?:NP|NX|NML)(?:-TMP|-ADV)?$/ < (ADJP=target <: (QP !< /^[$]$/))"
+	// Phrases such as $ 100 million get converted from (QP ($ $) (CD 100) (CD million)) to
+	// (QP ($ $) (QP (CD 100) (CD million))). This next tregex covers those phrases.
+	// Note that the earlier tregexes are usually enough to cover those phrases, such as when
+	// the QP is by itself in an ADJP or NP, but sometimes it can have other siblings such
+	// as in the phrase "$ 100 million or more". In that case, this next expression is needed.
+	"QP < QP=target < /^[$]$/"
+
+* The "numeric modifier" grammatical relation. A numeric
+* modifier of an NP is any number phrase that serves to modify
+* the meaning of the NP.<p>
+* <p/>
+* Example: <br/>
+* "Sam eats 3 sheep" &rarr;
+* {@code nummod}(sheep, 3)

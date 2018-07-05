@@ -1,0 +1,16 @@
+CONTROLLING_CLAUSAL_SUBJECT :
+	- Language.UniversalEnglish
+	- "csubj:xsubj"
+	- "controlling clausal subject"
+	- NOMINAL_PASSIVE_SUBJECT
+* The "controlling clausal subject" relation. Used in the enhanced and enhanced++
+* representations between a controlled verb and its nominal controller.
+*
+* <p/>
+* Example: <br/>
+* "That they bought the company " &rarr;
+* {@code nsubj}(hat, seemed)<br/>
+* {@code nsubjpass:xsubj}(hat, bought)<br/>
+* {@code mark}(to, bought)<br/>
+* {@code aux}(have, bought)<br/>
+* {@code auxpass}(been, bought)<br/>

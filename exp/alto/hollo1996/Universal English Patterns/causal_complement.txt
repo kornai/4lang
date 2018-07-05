@@ -1,0 +1,63 @@
+CLAUSAL_COMPLEMENT :
+	- Language.UniversalEnglish
+	- "ccomp"
+	- "clausal complement"
+	- COMPLEMENT
+	- "VP|SINV|S|ADJP|ADVP|NP(?:-.*)?"
+	- tregexCompiler
+
+	// Weird case of verbs with direct S complement that is not an infinitive or participle
+	// ("I saw [him take the cake]."
+	- "making [him go crazy]")
+	"VP < (S=target < (VP !<, TO|VBG|VBN) !$-- NP)"
+	// the canonical case of a SBAR[that] with an overt "that" or "whether"
+	"VP < (SBAR=target < (S <+(S) VP) <, (IN|DT < /^(?i:that|whether)$/))"
+	// Conjoined SBAR otherwise in the canonical case
+	"VP < (SBAR=target < (SBAR < (S <+(S) VP) <, (IN|DT < /^(?i:that|whether)$/)) < CC|CONJP)"
+	// This finds most ccomp SBAR[that] with omission of that, but only ones without dobj
+	"VP < (SBAR=target < (S < VP) !$-- NP !<, (IN|WHADVP) !<2 (IN|WHADVP $- ADVP|RB))"
+	// Find ccomp SBAR[that] after dobj for clear marker verbs
+	"VP < (/^V/ < " + ccompObjVerbRegex + ") < (SBAR=target < (S < VP) $-- NP !<, (IN|WHADVP) !<2 (IN|WHADVP $- ADVP|RB))"
+	"VP < (SBAR=target < (S < VP) !$-- NP <, (WHADVP < (WRB < /^(?i:how)$/)))"
+	"VP < @SBARQ=target", // Direct question: She asked "Who is in trouble"
+	"VP < (/^VB/ < " + haveRegex + ") < (S=target < @NP < VP)"
+	// !$-- @SBAR|S handles cases where the answer to the question
+	// "What do they ccompVerb?"
+	// is already answered by a different node
+	// the ccompObjVerbRegex/NP test distinguishes "He told me why ..."
+	// vs "They know my order when ..."
+	"VP < (@SBAR=target !$-- @SBAR|S !$-- /^:$/ [ == @SBAR=sbar | <# @SBAR=sbar ] ) < (/^V/ < " + ccompVerbRegex + ") [ < (/^V/ < " + ccompObjVerbRegex + ") | < (=target !$-- NP) ] : (=sbar < (WHADVP|WHNP < (WRB !< /^(?i:how)$/) !$-- /^(?!RB|ADVP).*$/) !< (S < (VP < TO)))"
+	// to find "...", he said or "...?" he asked.
+	// We eliminate conflicts with conj by looking for CC
+	// Matching against "!< (VP < TO|VBG|VBN)" matches against vmod
+	// "!< (VP <1 (VP [ <1 VBG|VBN | <2 (VBG|VBN $-- ADVP) ])))" also matches against vmod
+	"@S|SINV < (@S|SBARQ=target $+ /^(,|\\.|'')$/ !$- /^(?:CC|CONJP|:)$/ !$- (/^(?:,)$/ $- CC|CONJP) !< (VP < TO|VBG|VBN) !< (VP <1 (VP [ <1 VBG|VBN | <2 (VBG|VBN $-- ADVP) ]))) !< (@S !== =target $++ =target !$++ @CC|CONJP)"
+	// ADVP is things like "As long as they spend ..."
+	// < WHNP captures phrases such as "no matter what"
+	- "no matter how", etc
+	"ADVP < (SBAR=target [ < WHNP | ( < (IN < /^(?i:as|that)/) < (S < (VP !< TO))) ])"
+	"ADJP < (SBAR=target !< (IN < as) < S)", // ADJP is things like "sure (that) he'll lose" or for/to ones or object of comparison with than "than we were led to expect"; Leave aside as in "as clever as we thought.
+	// That ... he know
+	"S <, (SBAR=target <, (IN < /^(?i:that|whether)$/) !$+ VP)"
+	// JJ catches a couple of funny NPs with heads like "enough"
+	// Note that we eliminate SBAR which also match an vmod pattern
+	"@NP < JJ|NN|NNS < (SBAR=target [ !<(S < (VP < TO )) | !$-- NP|NN|NNP|NNS ] )"
+
+* The "clausal complement" grammatical relation. A clausal complement of
+* a verb or adjective is a dependent clause with an internal subject which
+* functions like an object of the verb, or adjective. Clausal complements
+* for nouns are limited to complement clauses with a subset of nouns
+* like "fact" or "report". We analyze them the same (parallel to the
+* analysis of this class as "content clauses" in Huddleston and Pullum 2002).
+* Clausal complements are usually finite (though there
+* are occasional exceptions including remnant English subjunctives, and we
+* also classify the complement of causative "have" (She had him arrested)
+* in this category.<p>
+* <p/>
+* Example: <br/>
+* "He says that you like to swim" &rarr;
+* {@code ccomp}(says, like) <br/>
+* "I am certain that he did it" &rarr;
+* {@code ccomp}(certain, did) <br/>
+* "I admire the fact that you are honest" &rarr;
+* {@code ccomp}(fact, honest)

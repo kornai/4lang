@@ -1,0 +1,26 @@
+TEMPORAL_MODIFIER :
+	- Language.UniversalEnglish
+	- "nmod:tmod"
+	- "temporal modifier"
+	- NOMINAL_MODIFIER
+	- "VP|S|ADJP|PP|SBAR|SBARQ|NP|RRC"
+	- tregexCompiler
+
+	"VP|ADJP|RRC [ < NP-TMP=target | < (VP=target <# NP-TMP !$ /^,|CC|CONJP$/) | < (NP=target <# (/^NN/ < " + timeWordRegex + ") !$+ (/^JJ/ < old)) ]"
+	// CDM Jan 2010: For constructions like "during the same period last year"
+	// combining expressions into a single disjunction should improve speed a little
+	"@PP < (IN|TO|VBG|FW $++ (@NP [ $+ NP-TMP=target | $+ (NP=target <# (/^NN/ < " + timeWordRegex + ")) ]))"
+	"S < (NP-TMP=target $++ VP $ NP )"
+	"S < (NP=target <# (/^NN/ < " + timeWordRegex + ") $++ (NP $++ VP))"
+	// matches when relative clauses as temporal modifiers of verbs!
+	"SBAR < (@WHADVP < (WRB < when)) < (S < (NP $+ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) ))) !$-- CC $-- NP > NP=target"
+	"SBARQ < (@WHNP=target <# (/^NN/ < " + timeWordRegex + ")) < (SQ < @NP)"
+	"NP < NP-TMP=target"
+
+* The "temporal modifier" grammatical relation. A temporal modifier
+* is a subtype of the nmod relation: if the modifier is specifying
+* a time, it is labeled as tmod.
+* <p/>
+* Example: <br/>
+* "Last night, I swam in the pool" &rarr;
+* {@code nmod:tmod}(swam, night)

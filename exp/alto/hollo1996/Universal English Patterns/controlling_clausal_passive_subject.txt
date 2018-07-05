@@ -1,0 +1,9 @@
+CONTROLLING_CLAUSAL_PASSIVE_SUBJECT :
+	- Language.UniversalEnglish
+	- "csubjpass:xsubj"
+	- "controlling clausal passive subject"
+	-NOMINAL_PASSIVE_SUBJECT
+*The "controlling clausal passive subject" relation. Used in the enhanced and enhanced++
+* representations between a controlled verb and its nominal controller, if the controlled verb is in passive voice.
+*
+* TODO: Is this a possible relation?

@@ -1,0 +1,15 @@
+QMOD :
+	- Language.UniversalEnglish
+	- "det:qmod"
+	- "quantificational modifier"
+	- DETERMINER
+* The quantificational modifier relation. Used in the enhanced++
+* representation for the quanfiticational determiner in
+* partitive and light noun constructions.
+*
+* <p/>
+* Example: <br/>
+* "Both of the planes" &rarr;
+* {@code det:qmod}(planes, both)<br/>
+* {@code mwe}(both, of)<br/>
+* {@code mwe}(both, the)<br/>

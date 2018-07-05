@@ -1,0 +1,19 @@
+PUNCTUATION :
+	- Language.UniversalEnglish
+	- "punct"
+	- "punctuation"
+	- DEPENDENT
+	- ".*"
+	- tregexCompiler
+
+	"__ < /^(?:\\.|:|,|''|``|\\*|-LRB-|-RRB-|HYPH)$/=target"
+	"__ < (NFP=target !< " + WESTERN_SMILEY + " !< " + ASIAN_SMILEY + ")"
+
+* The "punctuation" grammatical relation. This is used for any piece of
+* punctuation in a clause, if punctuation is being retained in the
+* typed dependencies.
+* <p/>
+* Example: <br/>
+* "Go home!" &rarr; {@code punct}(Go, !)
+* <p/>
+* The condition for NFP to appear hear is that it does not match the emoticon patterns under discourse.

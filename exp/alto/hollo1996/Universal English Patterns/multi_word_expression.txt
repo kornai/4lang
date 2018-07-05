@@ -1,0 +1,25 @@
+MULTI_WORD_EXPRESSION :
+	- Language.UniversalEnglish
+	- "mwe"
+	- "multi-word expression"
+	- MODIFIER
+	- "MWE"
+	- tregexCompiler
+
+	"MWE < (IN|TO|RB|NP|NN|JJ|VB|CC|VBZ|VBD|ADVP|PP|JJS|RBS=target)"
+
+* The "multi-word expression" grammatical relation.
+* This covers various multi-word constructions for which it would
+* seem pointless or arbitrary to claim grammatical relations between words:
+* as well as, rather than, instead of, but also;
+* such as, because of, all but, in addition to ....
+* <p/>
+* Examples: <br/>
+* "dogs as well as cats" &rarr;
+* {@code mwe}(as, well)<br/>
+* {@code mwe}(as, as)<p/>
+* "fewer than 700 bottles" &rarr;
+* {@code mwe}(fewer, than)
+*
+* @see {@link CoordinationTransformer#MWETransform(Tree)}
+* @see <a href="http://universaldependencies.github.io/docs/en/dep/mwe.html">List of multi-word expressions</a>
