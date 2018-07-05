@@ -1,0 +1,22 @@
+COPULA
+	- Language.UniversalEnglish
+	- "cop"
+	- "copula"
+	- AUX_MODIFIER
+	- "VP|SQ|SINV|SBARQ"
+	- tregexCompiler
+
+	"VP < (/^(?:VB|AUX)/=target < " + copularWordRegex + " [ $++ (/^(?:ADJP|NP$|WHNP$|PP|UCP)/ !< (VBN|VBD !$++ /^N/)) | $++ (S <: (ADJP < JJ)) ] )"
+	"SQ|SINV < (/^(?:VB|AUX)/=target < " + copularWordRegex + " [ $++ (ADJP !< VBN|VBD) | $++ (NP $++ NP) | $++ (S <: (ADJP < JJ)) ] )"
+	// matches (what, is) in "what is that" after the SQ has been flattened out of the tree
+	"SBARQ < (/^(?:VB|AUX)/=target < " + copularWordRegex + ") < (WHNP < WP)"
+	// "Such a great idea this was"
+	"SINV <# (NP $++ (NP $++ (VP=target < (/^(?:VB|AUX)/ < " + copularWordRegex + "))))"
+
+* The "copula" grammatical relation. A copula is the relation between
+* the complement of a copular verb and the copular verb.<p>
+* <p/>
+* Examples: <br/>
+* "Bill is big" &rarr; {@code cop}(big, is) <br/>
+* "Bill is an honest man" &rarr; {@code cop}(man, is)
+

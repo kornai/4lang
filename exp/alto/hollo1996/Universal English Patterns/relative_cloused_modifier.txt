@@ -1,0 +1,27 @@
+RELATIVE_CLAUSE_MODIFIER :
+	- Language.UniversalEnglish
+	- "acl:relcl"
+	- "relative clause modifier"
+	- CLAUSAL_MODIFIER
+	- "(?:WH)?(?:NP|NML|ADVP)(?:-.*)?"
+	- tregexCompiler
+
+	"@NP|WHNP|NML=np $++ (SBAR=target [ <+(SBAR) WHPP|WHNP | <: (S !< (VP < TO)) ]) !$-- @NP|WHNP|NML !$++ " + ETC_PAT + " !$++ " + FW_ETC_PAT + " > @NP|WHNP : (=np !$++ (CC|CONJP $++ =target))"
+	"NP|NML $++ (SBAR=target < (WHADVP < (WRB </^(?i:where|why|when)/))) !$-- NP|NML !$++ " + ETC_PAT + " !$++ " + FW_ETC_PAT + " > @NP"
+	// for case of relative clauses with no relativizer
+	// (it doesn't distinguish whether actually gapped).
+	"@NP|WHNP < RRC=target <# NP|WHNP|NML|DT|S"
+	"@ADVP < (@ADVP < (RB < /where$/)) < @SBAR=target"
+	"NP < (NP $++ (SBAR=target !< (IN < /^(?i:than|that|whether)$/) !< (WHPP|WHNP|WHADVP) < (S < (@NP $++ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) !<+(VP) (/^(?:VB|AUX)/ < " + 		copularWordRegex + " $+ (VP < VBN|VBD)) !<+(VP) NP !< SBAR !<+(VP) (PP <- IN|TO)))) !<: (S !< (VP < TO))) !$++ (CC $++ =target))"
+
+* The "relative clause modifier" grammatical relation. A relative clause
+* modifier of an NP is a relative clause modifying the NP. The link
+* points from the head noun of the NP to the head of the relative clause
+* normally a verb.
+* <p/>
+* <p/>
+* Examples: <br/>
+* "I saw the man you love" &rarr;
+* {@code relcl}(man, love) <br/>
+* "I saw the book which you bought" &rarr;
+* {@code relcl}(book, bought)

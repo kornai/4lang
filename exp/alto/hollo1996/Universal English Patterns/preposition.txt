@@ -1,0 +1,14 @@
+PREPOSITION :
+	- Language.UniversalEnglish
+	- "prep"
+	- "preposition"
+	- COMPLEMENT
+	- "VP|ADJP"
+	- tregexCompiler
+
+	"VP|ADJP < (PP=target <: IN|TO)"
+
+* The PREPOSITION grammatical relation is only here as a temporary
+* relation. It matches prepositions in sentences such as
+* "What is the esophagus used for?" which are attached to the
+* nominal modifier in a post-processing step.

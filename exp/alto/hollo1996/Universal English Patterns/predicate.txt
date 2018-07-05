@@ -1,0 +1,17 @@
+PREDICATE:
+	- Language.UniversalEnglish
+	- "pred"
+	- "predicate"
+	- DEPENDENT
+	- "S|SINV"
+	- tregexCompiler
+	
+	"S|SINV <# VP=target"
+
+* The "predicate" grammatical relation. The predicate of a
+* clause is the main VP of that clause; the predicate of a
+* subject is the predicate of the clause to which the subject
+* belongs.
+*
+* Example: <br/>
+* "Reagan died" &rarr; {@code pred}(Reagan, died)

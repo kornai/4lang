@@ -1,0 +1,28 @@
+ADJECTIVAL_MODIFIER :
+	- Language.UniversalEnglish
+	- "amod"
+	- "adjectival modifier"
+	- MODIFIER
+	- "NP(?:-TMP|-ADV)?|NX|NML|NAC|WHNP|ADJP|INTJ"
+	- tregexCompiler
+
+	"/^(?:NP(?:-TMP|-ADV)?|NX|NML|NAC|WHNP|INTJ)$/ < (ADJP|WHADJP|JJ|JJR|JJS|JJP|VBN|VBG|VBD|IN=target !< (QP !< /^[$]$/) !$- CC)"
+	// IN above is needed for "next" in "next week" etc., which is often tagged IN.
+	"ADJP !< CC|CONJP < (JJ|NNP $ JJ|NNP=target)"
+	// Cover the case of "John, 34, works at Stanford" - similar to an expression for appos
+	"WHNP|WHNP-TMP|WHNP-ADV|NP|NP-TMP|NP-ADV < (NP=target <: CD $- /^,$/ $-- /^(?:WH)?NP/ !$ CC|CONJP)"
+
+* The "adjectival modifier" grammatical relation. An adjectival
+* modifier of an NP is any adjectival phrase that serves to modify
+* the meaning of the NP.<p>
+* <p/>
+* Example: <br/>
+* "Sam eats red meat" &rarr;
+* {@code amod}(meat, red) <p/>
+* The relation amod is also used for multiword country adjectives, despite their
+* questionable treebank representation.
+* <p/>
+* Example: <br/>
+* "the West German economy" &rarr;
+* {@code amod}(German, West)
+* {@code amod}(economy, German)

@@ -1,0 +1,40 @@
+NOMINAL_MODIFIER :
+	- Language.UniversalEnglish
+	- "nmod"
+	- "nominal modifier"
+	- MODIFIER
+	- ".*"
+	- tregexCompiler
+
+	"/^(?:(?:WH)?(?:NP|ADJP|ADVP|NX|NML)(?:-TMP|-ADV)?|VP|NAC|SQ|FRAG|PRN|X|RRC)$/ < (WHPP|WHPP-TMP|PP|PP-TMP=target [< @NP|WHNP|NML | < (PP < @NP|WHNP|NML)]) !<- " + ETC_PAT + " !<- " + FW_ETC_PAT
+	"/^(?:(?:WH)?(?:NP|ADJP|ADVP|NX|NML)(?:-TMP|-ADV)?|VP|NAC|SQ|FRAG|PRN|X|RRC)$/ < (S=target <: WHPP|WHPP-TMP|PP|PP-TMP)"
+	// only allow a PP < PP one if there is not a verb, or other pattern that matches acl/advcl under it. Else acl/advcl
+	"WHPP|WHPP-TMP|WHPP-ADV|PP|PP-TMP|PP-ADV < (WHPP|WHPP-TMP|WHPP-ADV|PP|PP-TMP|PP-ADV=target !$- IN|VBG|VBN|TO)"
+	"S|SINV < (PP|PP-TMP=target !< SBAR|S) < VP|S"
+	"SBAR|SBARQ < /^(?:WH)?PP/=target < S|SQ"
+	"@NP < (@UCP|PRN=target <# @PP)"
+	// to handle "What weapon is Apollo most proficient with?"
+	"SBARQ < (WHNP=target $++ ((/^(?:VB|AUX)/ < " + copularWordRegex + ") $++ (ADJP=adj < (PP <: IN)) $++ (NP $++ =adj)))"
+	//to handle "What is the esophagus used for"? or "What radio station did Paul Harvey work for?"
+	"SBARQ < (WHNP=target [$++ (VP < (PP <: IN)) | $++ (SQ < (VP < (PP <: IN)))])"
+
+* The "nominal modifier" grammatical relation. The nmod relation is
+* used for nominal modifiers of nouns or clausal predicates. {@code nmod}
+* is a noun functioning as a non-core (oblique) argument or adjunct.
+* In English, nmod is used for prepositional complements.
+* <p/>
+* (The preposition in turn may be modifying a noun, verb, etc.)
+* We here define cases of VBG quasi-prepositions like "including"
+* "concerning", etc. as instances of pobj (unlike the Penn Treebank).
+* <p/>
+* Example: <br/>
+* "I sat on the chair" &rarr;
+* {@code nmod}(sat, chair)
+* <p/>
+* (The preposition can be called a FW for pace, versus, etc. It can also
+* be called a CC - but we don't currently handle that and would need to
+* distinguish from conjoined PPs. Jan 2010 update: We now insist that the
+* NP must follow the preposition. This prevents a preceding NP measure
+* phrase being matched as a nmod. We do allow a preposition tagged RB
+* followed by an NP pobj, as happens in the Penn Treebank for adverbial uses
+* of PP like "up 19%")

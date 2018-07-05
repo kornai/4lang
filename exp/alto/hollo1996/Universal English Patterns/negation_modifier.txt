@@ -1,0 +1,26 @@
+NEGATION_MODIFIER :
+	- Language.UniversalEnglish
+	- "neg"
+	- "negation modifier"
+	- ADVERBIAL_MODIFIER
+	- "VP|ADJP|S|SBAR|SINV|SQ|NP(?:-TMP|-ADV)?|FRAG|CONJP|PP|NAC|NML|NX|ADVP|WHADVP"
+	- tregexCompiler
+
+	"/^(?:VP|NP(?:-TMP|-ADV)?|ADJP|SQ|S|FRAG|CONJP|PP)$/< (RB=target < " + NOT_PAT + ")"
+	"VP|ADJP|S|SBAR|SINV|FRAG < (ADVP=target <# (RB < " + NOT_PAT + "))"
+	"VP > SQ $-- (RB=target < " + NOT_PAT + ")"
+	// the commented out parts were relevant for the "det"
+	// but don't seem to matter for the "neg" relation
+	"/^(?:NP(?:-TMP|-ADV)?|NAC|NML|NX|ADJP|ADVP)$/ < (DT|RB=target < /^(?i:no)$/ " + /* !$++ CC */ " $++ /^(?:N[MNXP]|CD|JJ|JJR|FW|ADJP|QP|RB|RBR|PRP(?![$])|PRN)/ " + /* =det !$++ (/^PRP[$]|POS/ $++ =det !$++(/''/ $++ =det)) */ ")"
+	// catches "no more", possibly others as well
+	// !< CC|CONJP catches phrases such as "no more or less", which maybe should be preconj
+	"ADVP|WHADVP < (RB|RBR|RBS|WRB|ADVP|WHADVP|JJ=target < /^(?i:no)$/) !< CC|CONJP"
+
+* The "negation modifier" grammatical relation. The negation modifier
+* is the relation between a negation word and the word it modifies.
+* <p/>
+* Examples: <br/>
+* "Bill is not a scientist" &rarr;
+* {@code neg}(scientist, not) <br/>
+* "Bill doesn't drive" &rarr;
+* {@code neg}(drive, n't)

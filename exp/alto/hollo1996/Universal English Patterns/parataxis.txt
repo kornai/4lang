@@ -1,0 +1,30 @@
+PARATAXIS :
+	- Language.UniversalEnglish
+	- "parataxis"
+	- "parataxis"
+	- DEPENDENT
+	- "S|VP|FRAG|NP"
+	- tregexCompiler
+
+	"VP < (PRN=target < S|SINV|SBAR)", // parenthetical
+	"VP $ (PRN=target [ < S|SINV|SBAR | < VP < @NP ] )", // parenthetical
+	// The next relation handles a colon between sentences
+	// and similar punct such as --
+	// Sometimes these are lists, especially in the case of ";"
+	// so we don't trigger if there is a CC|CONJP that occurs
+	// anywhere other than the first child
+	// First child can occur in rare circumstances such as
+	// "But even if he agrees -- which he won't -- etc etc"
+	"S|FRAG|VP < (/^:$/ $+ /^S/=target) !<, (__ $++ CC|CONJP)"
+	// two juxtaposed sentences; common in web materials (but this also matches quite a few wsj things)
+	"@S|FRAG < (@S|SBARQ|SQ|FRAG $++ @S|SBARQ|SQ|FRAG=target !$++ @CC|CONJP|MWE !$++ (/:/ < /;/))"
+	"@S|FRAG|VP < (/^:$/ $-- /^V/ $+ @NP=target) !< @CONJP|CC", // sometimes CC cases are right node raising, etc.
+	"FRAG|NP < (NP $+ (/:/ $+ @SQ|S=target) << NNP|NNPS)"
+
+* The "parataxis" grammatical relation. Relation between the main verb of a sentence
+* and other sentential elements, such as a sentential parenthetical, a sentence after a ":" or a ";", when two
+* sentences are juxtaposed next to each other without any coordinator or subordinator, etc.
+* <p> <p/>
+* Examples: <br/>
+* "The guy, John said, left early in the morning." &rarr; {@code parataxis}(left,said) <br/>
+* "

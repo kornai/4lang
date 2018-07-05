@@ -1,0 +1,28 @@
+DETERMINER :
+	- Language.UniversalEnglish
+	- "det"
+	- "determiner"
+	- MODIFIER
+	- "(?:WH)?NP(?:-TMP|-ADV)?|NAC|NML|NX|X|ADVP|ADJP"
+	- tregexCompiler
+
+	"/^(?:NP(?:-TMP|-ADV)?|NAC|NML|NX|X)$/ < (DT=target !< /^(?i:either|neither|both|no)$/ !$+ DT !$++ CC $++ /^(?:N[MNXP]|CD|JJ|FW|ADJP|QP|RB|PRP(?![$])|PRN)/=det !$++ (/^PRP[$]|POS/ $++ =det !$++ 		(/''/ $++ =det)))"
+	"NP|NP-TMP|NP-ADV < (DT=target [ (< /^(?i:either|neither|both)$/ !$+ DT !$++ CC $++ /^(?:NN|NX|NML)/ !$++ (NP < CC)) | " +
+	"(!< /^(?i:either|neither|both|no)$/ $++ CC $++ /^(?:NN|NX|NML)/) | " +
+	"(!< /^(?i:no)$/ $++ (/^JJ/ !$+ /^NN/) !$++CC !$+ DT) ] )"
+	// "NP|NP-TMP|NP-ADV < (RB=target $++ (/^PDT$/ $+ /^NN/))", // todo: This matches nothing. Was it meant to be a PDT rule for (NP almost/RB no/DT chairs/NNS)?
+	"NP|NP-TMP|NP-ADV <<, PRP <- (NP|DT|RB=target <<- /^(?i:all|both|each)$/)", // we all, them all; various structures
+	"WHNP < (NP $-- (WHNP=target < WDT))"
+	// testing against CC|CONJP avoids conflicts with preconj in
+	// phrases such as "both foo and bar"
+	// however, we allow WDT|WP to account for "what foo or bar" and "whatever foo or bar"
+	"@WHNP|ADVP|ADJP < (/^(?:NP|NN|CD|RBS|JJ)/ $-- (DT|WDT|WP=target !< /^(?i:no)$/ [ ==WDT|WP | !$++ CC|CONJP ]))"
+	"@NP < (/^(?:NP|NN|CD|RBS)/ $-- WDT|WP=target)"
+
+* The "determiner" grammatical relation.
+* <p> <p/>
+* Examples: <br/>
+* "The man is here" &rarr; {@code det}(man,the) <br/>
+* "Which man do you prefer?" &rarr; {@code det}(man,which) <br>
+* (The ADVP match is because sometimes "a little" or "every time" is tagged
+* as an AVDVP with POS tags straight under it.)
