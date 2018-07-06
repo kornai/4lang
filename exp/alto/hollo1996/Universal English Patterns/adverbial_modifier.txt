@@ -33,4 +33,4 @@ ADVERBIAL_MODIFIER :
 * "genetically modified food" &rarr;
 * {@code advmod}(modified, genetically) <br/>
 * "less often" &rarr;
-* {@code advmod}(often, less)
+* {@code advmod}(often, less)F

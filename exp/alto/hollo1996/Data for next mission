@@ -1,0 +1,125 @@
+
+
+A cél a következő mondat Parsolása: This item is a small one and easily missed.
+
+Parsing Tree: 
+(ROOT (S (NP (DT This) (NN item)) (VP (VBZ is) (UCP (NP (DT a) (JJ small) (CD one)) (CC and) (VP (ADVP (RB easily)) (VBN missed)))) (. .)))
+Dependency graph: 
+(ROOT_0 / ROOT :root (one_6 / one :nsubj (item_2 / item :det (This_1 / This)) :det (a_4 / a) :conj (missed_9 / missed :cc (and_7 / and) :advmod (easily_8 / easily)) :cop (is_3 / is) :punct (PERIOD_10 / PERIOD) :amod (small_5 / small)))
+
+Releváns Tregexek:
+
+NP_ADVERBIAL_MODIFIER :
+	"@ADVP|ADJP|WHADJP|WHADVP|PP|WHPP <# (JJ|JJR|IN|RB|RBR !< notwithstanding $- (@NP=target !< NNP|NNPS))"
+ 	one word nouns like "cost efficient"
+	- "ice-free"
+	"@ADJP < (NN=target $++ /^JJ/) !< CC|CONJP"
+
+ADVERBIAL_MODIFIER :
+	//last term is to exclude "at least/most..."
+	"/^(?:VP|ADJP|JJP|WHADJP|SQ?|SBARQ?|SINV|XS|RRC|(?:WH)?NP(?:-TMP|-ADV)?)$/ < (RB|RBR|RBS|WRB|ADVP|WHADVP=target !< " + NOT_PAT + " !< " + ETC_PAT + " [!<+(/ADVP/) (@ADVP < (IN < /(?i:at)/)) | !<+(/ADVP/) (@ADVP < NP)] )"
+	"QP < IN|RB|RBR|RBS|PDT|DT|JJ|JJR|JJS|XS=target", //quantmod relation in original SD
+	"QP < (MWE=target < (JJR|RBR|IN < /^(?i)(more|less)$/) < (IN < /^(?i)than$/))", //more than / less than
+	"ADVP|WHADVP < (RB|RBR|RBS|WRB|ADVP|WHADVP|JJ=target !< " + NOT_PAT + " !< /^(?i:no)$/ !< " + ETC_PAT + ") [ !< /^CC|CONJP$/ | ( <#__=head !< (/^CC|CONJP$/ [ ($++ =head $-- =target) | ($-- =head $++ =target) ])) ]"
+	//this one gets "at least" advmod(at, least) or "fewer than" advmod(than, fewer)
+	"SBAR < (WHNP=target < WRB)"
+	- "SBARQ <, WHADVP=target"
+	- "XS < JJ=target"
+	// for PP, only ones before head, or after NP, since others afterwards are pcomp
+	"/(?:WH)?PP(?:-TMP|-ADV)?$/ <# (__ $-- (RB|RBR|RBS|WRB|ADVP|WHADVP=target !< " + NOT_PAT + " !< " + ETC_PAT + "))"
+	"/(?:WH)?PP(?:-TMP|-ADV)?$/ < @NP|WHNP < (RB|RBR|RBS|WRB|ADVP|WHADVP=target !< " + NOT_PAT + " !< " + ETC_PAT + ")"
+	"CONJP < (RB=target !< " + NOT_PAT + " !< " + ETC_PAT + ")"
+
+(ROOT_0 / ROOT :root (one_6 / one :nsubj (item_2 / item :det (This_1 / This)) :det (a_4 / a) :conj (missed_9 / missed :cc (and_7 / and) :advmod (easily_8 / easily)) :cop (is_3 / is) :punct (PERIOD_10 / PERIOD) :amod (small_5 / small)))
+
+(ROOT:
+
+<-root-- (one:
+
+	<-nsubj- (item <-det--- (this))
+	<-det--- (a)
+
+<-conj-- (missed:
+		<--cc--- (and)
+		<-advmod- (easily)
+		)
+
+	<-cop--- (is)
+	<-punct- (period)
+	<-amod-- (small)
+
+	)
+)
+det(item-2, This-1)
+nsubj(one-6, item-2)
+cop(one-6, is-3)
+det(one-6, a-4)
+amod(one-6, small-5)
+root(ROOT-0, one-6)
+cc(one-6, and-7)
+advmod(missed-9, easily-8)
+acl(one-6, missed-9)
+
+(ROOT (S (NP (DT This) (NN item)) (VP (VBZ is) (UCP (NP (DT a) (JJ small) (CD one)) (CC and) (VP (ADVP (RB easily)) (VBN missed)))) (. .)))
+
+(ROOT
+
+-----> (S:
+
+	-----> (NP:
+
+		-----> (DT -----> this)
+		-----> (NN -----> item)
+
+		),
+
+	-----> (VP:
+
+		----->(VBZ -----> is),
+
+		----->(UCP:
+
+			----->(NP:
+				-----> (DT -----> a)
+				-----> (JJ -----> small)
+				-----> (CD -----> one)
+				),
+
+			-----> (CC -----> and),
+
+			-----> (VP:
+				-----> (ADVP -----> (RB -----> easily))
+				-----> (VBN -----> missed)
+				),
+
+			)
+
+		),
+
+	-----> (. -----> .)
+
+	)
+
+)
+
+Root-->S(SubjectPhrase,PredicativePhrase)
+PredicativePhrase-->UCP_NN_PP(VerbPhrase,NounPhrase,Conjuction,VerbPhrase)
+SubjectPhrase-->SP(NounPhrase)
+VerbPhrase-->VP(AdverbPhrase,VerbNoun)
+VerbPhrase-->VP(VBZ)
+NounPhrase-->NP(Determinant,JJ,CD)
+NounPhrase-->NP(Determinant,Noun)
+AdverbPhrase-->ADVP(RB)
+Conjunction-->and
+VerbNoun-->missed
+VBZ-->is
+Determinant-->this
+Determinant-->a
+JJ-->small
+CD-->one
+Noun-->item
+RB-->easily
+
+
+
+
