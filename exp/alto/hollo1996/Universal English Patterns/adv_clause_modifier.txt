@@ -1,4 +1,4 @@
-ADV_CLAUSE_MODIFIER :
+ADV_CLAUSE_MODIFIER :f
 	- Language.UniversalEnglish
 	- "advcl"
 	- "adverbial clause modifier"

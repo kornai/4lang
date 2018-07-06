@@ -1,0 +1,135 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+//In the future I will need to change the root so I can make full and partial sentenses too.
+
+//Root -> S(SubjectPhrase,PredicativePhrase)
+//PredicativePhrase -> UCP_NN_PP(VerbPhrase,UCPN)
+//UCPN -> UCP(NounPhrase,Conjuction,VerbPhrase)
+//SubjectPhrase -> SP(NounPhrase)
+
+/*S! -> root(Sentence)
+[tree] 	?1
+[graph] merge("(u<root> / root)", ?1)*/
+
+//The most trikky assembly of the whole system is the graph part of this step. I have to connect the VP and the NP to the S as siblings in the parser tree, but I have to connect the subject phrase as the predicatives sibling in the dependency tree.
+S! -> S(SubjectPhrase,PredicativePhrase)
+[tree]  S(?1,?2)
+[graph] merge(SubjectPhrase,PredicativePhrase)
+
+//It bilds the object phrase into the predicative phrase 
+PredicativePhrase -> UCP_NN_PP(VerbPhrase,UCPN)
+[tree] S(?1,?2)
+[graph] 
+
+UCPN -> UCP(NounPhrase,Conjuction,VerbPhrase)
+[tree]UCP(NN,CC,VP)
+[graph] merge("(r<Root> :nsubj (s<subject>))", r_subject(?1))
+
+//It boxes the Noun phrase into a Subject while building the Object phrase of the graph
+SubjectPh -> Subject(NP)
+[tree] ?1
+[graph] merge("(n<root> :nsubj (s<subject>))", r_subject(?1))
+
+//It boxes the Noun phrase into an Object while building the Object phrase of the graph
+ObjectPh -> Object(NP)
+[tree] ?1
+[graph] f_obj(merge("(n<root> :dobj (o<object>))", r_object(?1)))
+
+
+//LOW NODES
+//LOW NODES
+
+//VerbPhrase -> VP(AdverbPhrase,VerbNoun)
+//VerbPhrase -> VP(VBZ)
+//NounPhrase -> NP(Determinant,JJ,CD)
+//NounPhrase -> NP(Determinant,Noun)
+//AdverbPhrase -> ADVP(RB)
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+VerbPhrase -> VP(AdverbPhrase,VerbNoun)
+[tree] VP(?1,?2)
+[graph] f_obj(merge(merge("(v<verbnoun> :advmod (advp<adverbphrase>))", r_verbnoun(?1)), r_adverbphrase(?2))
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+NounPhrase -> NP(NN)
+[tree] NP(?1)
+[graph] ?1
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+NounPhrase -> NP(NN)
+[tree] NP(?1)
+[graph] ?1
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+NounPhrase -> NP(NN)
+[tree] NP(?1)
+[graph] ?1
+
+
+//LEAFS
+//LEAFS
+
+//Conjunction -> and
+//VerbNoun -> missed
+//VBZ -> is
+//Determinant -> this
+//Determinant -> a
+//JJ -> small
+//CD -> one
+//Noun -> item
+//RB -> easily
+
+//Boxing and into a CC
+CC -> and
+[tree] CC(and)
+[graph] "(c<root> / and)"
+
+//Boxing missed into a verbnoun
+VBN -> missed
+[tree] VBN(missed)
+[graph] "(v<root> / missed)"
+
+//Boxing is into a VBZ (third time verb?)
+VBZ -> is
+[tree] VBZ(is)
+[graph] "(v<root> / is)"
+
+//Boxing this into a determinant
+Determinant -> this
+[tree] DT(this)
+[graph] "(d<root> / this)"
+//Boxing a into a determinant
+Determinant -> a
+[tree] DT(a)
+[graph] "(d<root> / a)"
+
+//Boxing small into a JJ
+JJ -> small
+[tree] JJ(small)
+[graph] "(j<root> / a)"
+
+//Boxing one into a CD
+CD -> one
+[tree] CD(one)
+[graph] "(c<root> / one)"
+
+//Boxing item into a noun
+Noun -> item
+[tree] NN(item)
+[graph] "(n<root> / item)"
+
+//Boxing easily into a RB
+RB -> easily
+[tree] RB(easily)
+[graph] "(r<root> / easily)"
+
+//Boxing . into an end
+end -> .
+[tree] .(.)
+[graph] "(p<root> / .)"
+
+
+
+
+
+//input: S(NP(NN(john)),VP(V(loves),NP(NN(mary)))) */
