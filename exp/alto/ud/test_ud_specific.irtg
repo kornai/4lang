@@ -17,6 +17,10 @@ S! -> _root(_ADJ) // The MoI in Iraq is equivalent to the US FBI
 [graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
 [fourlang] ?1
 
+S! -> _root(_DET) // is all you get to hear from him
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+[fourlang] ?1
+
 _VERB -> _punct(_VERB, _PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
@@ -33,71 +37,115 @@ _ADJ -> _punct(_ADJ, _PUNCT)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
+_DET -> _punct(_DET, _PUNCT)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
 _PART -> _punct(_PART, _PUNCT) // not:
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _case_PP(_NOUN, _ADP) // of a cleric
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _case_PP(_NOUN, _SCONJ) // as opposed to the north
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _case_PP(_NOUN, _VERB) // an attack that left 6 dead, including 4 Iraqi soldiers
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_PROPN -> _case_PP(_PROPN, _ADP) // in Baghdad
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_PRON -> _case_PP(_PRON, _ADP) // two of them
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_ADV -> _case_PP(_ADV, _ADP) // from there
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
 // _VERB -> _punct(_VERB, _PUNCT) // so-called controversy
 // [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
 // [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
-// X -> _case(X, X)
-// [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :case (d<dep>))"), r_dep(?2))))
-// [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+// X -> _obl_case(X, X, X)
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-X -> _obl_case(X, X, X)
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _ADV -> _obl_case(_ADV, _PROPN, _ADP) // headed out for Fallujah
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_ADV -> _obl_case(_ADV, _PROPN, _ADP) // headed out for Fallujah
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _ADJ -> _obl_case(_ADJ, _PROPN, _ADP) // equivalent to FBI
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_ADJ -> _obl_case(_ADJ, _PROPN, _ADP) // equivalent to FBI
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _ADV -> _obl_case(_ADV, _NOUN, _ADP) // liked something better than
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_ADV -> _obl_case(_ADV, _NOUN, _ADP) // liked something better than
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _VERB -> _obl_case(_VERB, _NOUN, _ADP) // causing for years
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_VERB -> _obl_case(_VERB, _NOUN, _ADP) // causing for years
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _VERB -> _obl_case(_VERB, _PROPN, _ADP) // learn about Chernobyl
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_VERB -> _obl_case(_VERB, _PROPN, _ADP) // learn about Chernobyl
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :obl (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _NOUN -> _nmod_case(_NOUN, _NOUN, _ADP) // killing of a cleric
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_NOUN -> _nmod_case(_NOUN, _NOUN, _ADP) // killing of a cleric
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _NOUN -> _nmod_case(_NOUN, _PROPN, _ADP) // officials of the Ministry
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_NOUN -> _nmod_case(_NOUN, _PROPN, _ADP) // officials of the Ministry
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _PROPN -> _nmod_case(_PROPN, _PROPN, _ADP) // Ministry of the Interior
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_PROPN -> _nmod_case(_PROPN, _PROPN, _ADP) // Ministry of the Interior
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _NUM -> _nmod_case(_NUM, _PRON, _ADP) // two of them
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_NUM -> _nmod_case(_NUM, _PRON, _ADP) // two of them
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _DET -> _nmod_case(_DET, _NOUN, _ADP) // some of the links
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_DET -> _nmod_case(_DET, _NOUN, _ADP) // some of the links
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nmod (d1<dep1> :case (d2<dep2>)))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _NOUN -> _nsubj_case(_NOUN, _PRON, _ADP) // who are on the lookout
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nsubj (d1<dep1>) :case (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
-_NOUN -> _nsubj_case(_NOUN, _PRON, _ADP) // who are on the lookout
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nsubj (d1<dep1>) :case (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
-
-_PROPN -> _nsubj_case(_PROPN, _PROPN, _ADP) // Kut is in Iraq
-[graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nsubj (d1<dep1>) :case (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
-[fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
+// _PROPN -> _nsubj_case(_PROPN, _PROPN, _ADP) // Kut is in Iraq
+// [graph] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(g<gov> :nsubj (d1<dep1>) :case (d2<dep2>))"), r_dep1(?2)), r_dep2(?3)))))
+// [fourlang] r_gov_root(f_dep2(f_dep1(merge(merge(merge(r_gov(?1),"(d2<dep2> :1 (g<gov>) :2 (d1<dep1>))"), r_dep1(?2)), r_dep2(?3)))))
 
 _NOUN -> _nmod(_NOUN, _NOUN) // post about fault-finding (finding is a noun)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _nmod(_NOUN, _PROPN) // officials of the Ministry
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _nmod(_NOUN, _ADV) // news from there
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_PROPN -> _nmod(_PROPN, _PROPN) // Ministry of the Interior
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NUM -> _nmod(_NUM, _PRON) // two of them
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NUM -> _nmod(_NUM, _NOUN) // an attack that left 6 dead, including 4 Iraqi soldiers
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
@@ -106,6 +154,10 @@ _VERB -> _nsubj(_VERB, _PRON) // they busted
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
 _VERB -> _nsubj(_VERB, _NOUN)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+_DET -> _nsubj(_DET, _VERB) // "They are targetting ambulances" is all you get to hear from him.
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
@@ -129,11 +181,23 @@ _NOUN -> _nsubj(_NOUN, _PRON) // this is not a post
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
+_PROPN -> _nsubj(_PROPN, _PROPN) // Kut is in Iraq
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+_PROPN -> _nsubj(_PROPN, _NUM) // One of them was from the Jubur tribe
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
 _NOUN -> _nsubj(_NOUN, _NOUN) // this willingness is the main difference
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
 _ADJ -> _nsubj(_ADJ, _PROPN) // The MoI in Iraq is equivalent to the US FBI
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+_ADJ -> _nsubj(_ADJ, _PRON) // it is significant
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
@@ -153,9 +217,25 @@ _VERB -> _obl(_VERB, _NOUN) // causing us trouble for years
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
-X -> _amod(X, _ADJ)
-[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+_VERB -> _obl(_VERB, _PRON) // hear from him
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+
+_VERB -> _obl(_VERB, _PROPN) // operating in Baghdad
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _obl(_ADJ, _PROPN) // equivalent to the FBI
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _obl(_ADJ, _NOUN) // in my view it is highly significant
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+
+_VERB -> _obl(_VERB, _ADP) // to rely on
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl (d<dep>))"), r_dep(?2))))
 
 X -> _amod(X, _NUM) // Bernard, 36, was arrested
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
@@ -205,6 +285,14 @@ _NOUN -> _advmod(_NOUN, _ADV)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
+_PROPN -> _advmod(_PROPN, _ADV) // in Fallujah alone
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_NUM -> _advmod(_NUM, _ADV) // over 300 Iraqis
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
 _NOUN -> _advmod(_NOUN, _PART) // not a post
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
@@ -245,7 +333,15 @@ _VERB -> _obj(_VERB, _NOUN)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
 
+_VERB -> _obj(_VERB, _NUM) // an attack that left 6 dead, including 4 Iraqi soldiers
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
 _VERB -> _obj(_VERB, _DET) // read some
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+_ADJ -> _obj(_ADJ, _NOUN) // going to get better this way
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
 
@@ -257,7 +353,15 @@ _PROPN -> _conj(_PROPN, _PROPN) // Ghazaliyah and Al-Jihad
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
+_PROPN -> _conj(_PROPN, _NOUN)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
 _VERB -> _conj(_VERB, _VERB) // read and write
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_VERB -> _conj(_VERB, _NUM) // 300 Iraqis are reported dead and 500 wounded
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :conj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
@@ -285,6 +389,10 @@ _NOUN -> _cc(_NOUN, _CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
+_NUM -> _cc(_NUM, _CCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
 _VERB -> _cc(_VERB, _CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
@@ -293,7 +401,11 @@ _NOUN -> _cc(_NOUN, _CCONJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
-X -> _mark(X, X)
+_ADJ -> _cc(_ADJ, _CCONJ)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cc (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _mark(_NOUN, _SCONJ) // while their way home
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
@@ -313,6 +425,10 @@ _VERB -> _advcl(_VERB, _VERB)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
+_VERB -> _advcl(_VERB, _NOUN) // kidnapped a cosmetic surgeon and his wife while they were on their way home
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
 _ADJ -> _advcl(X, X) // more than ever did
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :advcl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
@@ -322,6 +438,10 @@ _NOUN -> _cop(_NOUN, _AUX)
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
 _ADJ -> _cop(_ADJ, _AUX)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_DET -> _cop(_DET, _AUX)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :cop (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
@@ -337,11 +457,19 @@ _NOUN -> _acl(_NOUN, _VERB) // years to come
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
-X -> _nummod(X, X)
+_PROPN -> _acl(_PROPN, _VERB)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+_NOUN -> _nummod(_NOUN, _NOUN) // a week and a half
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
 _NOUN -> _nummod(_NOUN, _NUM) // 2 officials
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+_PROPN -> _nummod(_PROPN, _NUM) // 300 Iraqis
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nummod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
 
@@ -401,6 +529,10 @@ _PROPN -> _flat(_PROPN, _PROPN)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
 
+_PROPN -> _flat(_PROPN, _NOUN)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :flat (d<dep>))"), r_dep(?2))))
+
 _VERB -> _ccomp(_VERB, _VERB) // announced that they had busted
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :ccomp (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
@@ -409,7 +541,15 @@ _NOUN -> _nmod_poss(_NOUN, _PRON) // his targets
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_poss (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(HAS / HAS :1 (d<dep>) :2 (g<gov>))"), r_dep(?2))))
 
+_PROPN -> _nmod_poss(_PROPN, _PROPN) // his Iraqi National Congress
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nmod_poss (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(HAS / HAS :1 (d<dep>) :2 (g<gov>))"), r_dep(?2))))
+
 _PROPN -> _appos(_PROPN, _NOUN)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :appos (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :0 (d<dep> :0 g))"), r_dep(?2))))
+
+_NOUN -> _appos(_NOUN, _PROPN)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :appos (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :0 (d<dep> :0 g))"), r_dep(?2))))
 
@@ -425,6 +565,10 @@ _NOUN -> _acl_relcl(_NOUN, _VERB) // officers who were working
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
+_DET -> _acl_relcl(_DET, _VERB) // all you get to hear
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
 _NOUN -> _acl_relcl(_NOUN, _NOUN) // population who are on the lookout
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl_relcl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
@@ -437,11 +581,19 @@ _NOUN -> _parataxis(_NOUN, _NOUN)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 
+_VERB -> _parataxis(_VERB, _VERB)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
+
 _ADJ -> _parataxis(_ADJ, _VERB)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 
-X -> _fixed(X, X)
+_SCONJ -> _fixed(_SCONJ, _ADP) // as opposed to
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
+
+_SCONJ -> _fixed(_SCONJ, _VERB) // as opposed to
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :fixed (d<dep>))"), r_dep(?2))))
 
@@ -473,6 +625,10 @@ _VERB -> _nsubj_pass(_VERB, _NOUN) // the announcement was made
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
 
+_VERB -> _nsubj_pass(_VERB, _PROPN) // over 300 Iraqis are reported dead
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
 _VERB -> _nsubj_pass(_VERB, _PRON) // they could be detonated
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj_pass (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
@@ -493,7 +649,7 @@ _VERB -> _expl(_VERB, _PRON)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :expl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
 
-X -> _csubj(X, X)
+_VERB -> _csubj(_VERB, _PRON) // they are targetting
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :csubj (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
 
@@ -545,7 +701,7 @@ X -> _compound_smixut(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound_smixut (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :compound (d<dep>))"), r_dep(?2))))
 
-X -> _orphan(X, X)
+_NUM -> _orphan(_NUM, _ADJ)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :orphan (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :orphan (d<dep>))"), r_dep(?2))))
 
@@ -669,7 +825,7 @@ X -> _parataxis_discourse(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis_discourse (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :parataxis (d<dep>))"), r_dep(?2))))
 
-X -> _obl_tmod(X, X)
+_VERB -> _obl_tmod(_VERB, _PROPN) // The trial begins again Nov.28.
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obl_tmod (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(AT / AT :2 (d<dep>) :1 (g<gov>))"), r_dep(?2))))
 
@@ -717,7 +873,7 @@ X -> _det_numgov(X, X)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det_numgov (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 
-X -> _det_predet(X, X)
+_NOUN -> _det_predet(_NOUN, _DET) // such an exclusion
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det_predet (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
 
