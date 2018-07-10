@@ -1,0 +1,74 @@
+ADV_CLAUSE_MODIFIER :f
+	- Language.UniversalEnglish
+	- "advcl"
+	- "adverbial clause modifier"
+	- MODIFIER
+	- "VP|S|SQ|SINV|SBARQ|NP|ADVP|ADJP"
+	- tregexCompiler
+
+	"VP < (@SBAR=target <= (@SBAR [ < (IN|MWE !< /^(?i:that|whether)$/) | <: (SINV <1 /^(?:VB|MD|AUX)/) | < (RB|IN < so|now) < (IN < that) | <1 (ADVP < (RB < now)) <2 (IN < that) ] ))"
+	"S|SQ|SINV < (SBAR|SBAR-TMP=target <, (IN|MWE !< /^(?i:that|whether)$/ !$+ (NN < order)) !$-- /^(?!CC|CONJP|``|,|INTJ|PP(-.*)?).*$/ !$+ VP)"
+	// to get "rather than"
+	//"S|SQ|SINV < (SBAR|SBAR-TMP=target <2 (IN|MWE !< /^(?i:that|whether)$/ !$+ (NN < order)) !$-- /^(?!CC|CONJP|``|,|INTJ|PP(-.*)?$).*$/)"
+	// this one might just be better, but at any rate license one with quotation marks or a conjunction beforehand
+	"S|SQ|SINV < (SBAR|SBAR-TMP=target <, (IN|MWE !< /^(?i:that|whether)$/ !$+ (NN < order)) !$+ @VP $+ /^,$/ $++ @NP)"
+	// the last part should probably only be @SQ, but this captures some strays at no cost
+	"SBARQ < (SBAR|SBAR-TMP|SBAR-ADV=target <, (IN|MWE !< /^(?i:that|whether)$/ !$+ (NN < order)) $+ /^,$/ $++ @SQ|S|SBARQ)"
+	// added the (S < (VP <TO)) part so that "I tell them how to do so" doesn't get a wrong advcl
+	// note that we allow adverb phrases to come before the WHADVP, which allows for phrases such as "even when"
+	// ":" indicates something that should be a parataxis
+	// in cases where there are two SBARs conjoined, we're happy
+	// to use the head SBAR as a candidate for this relation
+	"S|SQ < (@SBAR=target [ == @SBAR=sbar | <# @SBAR=sbar ] ): (=sbar < (WHADVP|WHNP < (WRB !< /^(?i:how)$/) !$-- /^(?!RB|ADVP).*$/) !< (S < (VP < TO)) !$-- /^:$/)"
+	"VP < (@SBAR=target !$-- /^:$/ [ == @SBAR=sbar | <# @SBAR=sbar ] ) [ !< (/^V/ < " + ccompVerbRegex + ") | < (=target $-- @SBAR|S) | ( !< (/^V/ < " + ccompObjVerbRegex + ") < (=target $-- NP)) ] : (=sbar < (WHADVP|WHNP < (WRB !< /^(?i:how)$/) !$-- /^(?!RB|ADVP).*$/) !< (S < (VP < TO)))"
+	// "S|SQ < (PP=target <, RB < @S)", // caught as prep and pcomp.
+	"@S < (@SBAR=target $++ @NP $++ @VP)", // fronted adverbial clause
+	"@S < (@S=target < (VP < TO) $+ (/^,$/ $++ @NP))", // part of former purpcl: This is fronted infinitives: "To find out why, we went to ..."
+	// "VP > (VP < (VB|AUX < be)) < (S=target !$- /^,$/ < (VP < TO|VBG) !$-- NP)", // part of former purpcl [cdm 2010: this pattern was added by me in 2006, but it is just bad!]
+
+	// // matches direct object for long dependencies in relative clause without explicit relative pronouns
+	// "SBAR !< (WHPP|WHNP|WHADVP) < (S < (@NP $++ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) !<+(VP) (/^(?:VB|AUX)/ < " + copularWordRegex + " $+ (VP < VBN|VBD)) !<+(VP) NP !< SBAR !<+(VP) (PP <- IN|TO)))) !$-- CC $-- NP > NP=target " +
+	// // avoid conflicts with rcmod. TODO: we could look for
+	// // empty nodes in this kind of structure and use that to
+	// // find dobj, tmod, advmod, etc. won't help the parser
+	// // of course, but will help when converting a treebank
+	// // which contains empties
+	// // Example: "with the way his split-fingered fastball is behaving"
+	// "!($-- @NP|WHNP|NML > @NP|WHNP <: (S !< (VP < TO)))"
+	"NP < (NP $++ (SBAR=target < (IN|MWE < /^(?i:than)$/) !< (WHPP|WHNP|WHADVP) < (S < (@NP $++ (VP !< (/^(?:VB|AUX)/ < " + copularWordRegex + " !$+ VP) !<+(VP) (/^(?:VB|AUX)/ < " + copularWordRegex + " $+ (VP < VBN|VBD)) !<+(VP) NP !< SBAR !<+(VP) (PP <- IN|TO|MWE)))) !<: (S !< (VP < TO))) !$++ (CC $++ =target))"
+	// this is for comparative or as ... as complements: sold more quickly [than they had expected]
+	// available as long [as they install a crash barrier]
+	"ADVP < ADVP < SBAR=target"
+
+	//moved from vmod
+
+	// to get "John, knowing ..., announced "
+	// allowing both VP=verb and VP <1 VP=verb catches
+	// conjunctions of two VP clauses
+	"S|SINV < (S=target (< VP=verb | < (VP <1 VP=verb)) [ $- (/^,$/ [ $- @NP | $- (@PP $ @NP) ] ) | $+ (/^,$/ $+ @NP) ] ) : (=verb [ <1 VBG|VBN | <2 (VBG|VBN $-- ADVP) ])"
+	"(VP < (@S=target < (VP [ <1 VBG|VBN | <2 (VBG|VBN $-- ADVP) ]) $- (/^,$/ [$- @NP|VP | $- (@PP $-- @NP ) |$- (@ADVP $-- @NP)])))"
+	// What are you wearing dancing tonight?
+	"(VP < (S=target < (VP < VBG) $-- VBG=ing !$-- (/^[:]$/ $-- =ing)))"
+	// We could use something like this keying off -ADV annotation, but not yet operational, as we don't keep S-ADV, only NP-ADV
+	// "VP < (/^S-ADV$/=target < (VP <, VBG|VBN) )"
+	// they wrote asking the SEC to ...
+	"VP < (S=target $-- NP < (VP < TO) !$-- (/^V/ < " + xcompVerbRegex + ") )"
+	//"VP < (S=target < (VP < TO) !$-- (/^V/ < " + xcompNoObjVerbRegex + ") )"
+
+	"SBARQ < WHNP < (S=target < (VP <1 TO))"
+
+	//former pcomp
+	"/^(?:(?:WH)?(?:ADJP|ADVP)(?:-TMP|-ADV)?|VP|SQ|FRAG|PRN|X|RRC|S)$/ < (WHPP|WHPP-TMP|PP|PP-TMP=target !< @NP|WHNP|NML !$- (@CC|CONJP $- __) !<: IN|TO !< @CC|CONJP < /^((?!(PP|IN)).)*$/) !<- " + ETC_PAT + " !<- " + FW_ETC_PAT
+	"VP|ADJP < /^PP(?:-TMP|-ADV)?$/=target < (@PP < @SBAR|S $++ CONJP|CC)"
+
+* The "adverbial clause modifier" grammatical relation. An adverbial
+* clause modifier is a clause which modifies a verb or other predicate
+* (adjective, etc.), as a modifier not as a core complement. This includes
+* things such as a temporal clause, consequence, conditional clause
+* purpose clause, etc. The dependent must be clausal (or else it is an
+* {@code advmod}) and the dependent is the main predicate of the clause.
+* <p/>
+* Examples: <br/>
+* "The accident happened as the night was falling" &rarr;
+* {@code advcl}(happened, falling) <br/>
+* "If you know who did it, you should tell the teacher" &rarr;

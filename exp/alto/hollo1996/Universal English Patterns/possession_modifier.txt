@@ -1,0 +1,23 @@
+POSSESSION_MODIFIER :
+	- Language.UniversalEnglish
+	- "nmod:poss"
+	- "possession modifier"
+	- MODIFIER
+	- "(?:WH)?(NP|ADJP|INTJ|PRN|NAC|NX|NML)(?:-.*)?"
+	- tregexCompiler
+
+	"/^(?:WH)?(?:NP|INTJ|ADJP|PRN|NAC|NX|NML)(?:-.*)?$/ < /^(?:WP\\$|PRP\\$)$/=target"
+	// todo: possessive pronoun under ADJP needs more work for one case of (ADJP his or her own)
+	// basic NP possessive: we want to allow little conjunctions in head noun (NP (NP ... POS) NN CC NN) but not falsely match when there are conjoined NPs. See tests.
+	"/^(?:WH)?(?:NP|NML)(?:-.*)?$/ [ < (WHNP|WHNML|NP|NML=target [ < POS | < (VBZ < /^'s$/) ] ) !< (CC|CONJP $++ WHNP|WHNML|NP|NML) | < (WHNP|WHNML|NP|NML=target < (CC|CONJP $++ WHNP|WHNML|NP|NML) < 		(WHNP|	WHNML|NP|NML [ < POS | < (VBZ < /^'s$/) ] )) ]"
+	// handle a few too flat NPs
+	// note that ' matches both ' and 's
+	"/^(?:WH)?(?:NP|NML|NX)(?:-.*)?$/ < (/^NN|NP/=target $++ (POS=pos < /\'/ $++ /^NN/) !$++ (/^NN|NP/ $++ =pos))"
+
+* The "possession" grammatical relation between the possessum and the possessor.<p>
+* </p>
+* Examples: <br/>
+* "their offices" &rarr;
+* {@code poss}(offices, their)<br/>
+* "Bill 's clothes" &rarr;
+* {@code poss}(clothes, Bill)

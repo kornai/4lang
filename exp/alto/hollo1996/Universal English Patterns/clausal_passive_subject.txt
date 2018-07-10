@@ -1,0 +1,17 @@
+CLAUSAL_PASSIVE_SUBJECT :
+	- Language.UniversalEnglish
+	- "csubjpass"
+	- "clausal passive subject"
+	- CLAUSAL_SUBJECT
+	- "S"
+	- tregexCompiler
+
+	"S < (SBAR|S=target !$+ /^,$/ $++ (VP < (VP < VBN|VBD) < (/^(?:VB|AUXG?)/ < " + passiveAuxWordRegex + ") !$-- NP))"
+	"S < (SBAR|S=target !$+ /^,$/ $++ (VP <+(VP) (VP < VBN|VBD > (VP < (/^(?:VB|AUX)/ < " + passiveAuxWordRegex + "))) !$-- NP))"
+
+* The "clausal passive subject" grammatical relation. A clausal passive subject is
+* a subject of a passive verb which is a clause.<p>
+* <p/>
+* Example: (subject is "that she lied") <br/>
+* "That she lied was suspected by everyone" &rarr; {@code csubjpass}(suspected, lied)
+

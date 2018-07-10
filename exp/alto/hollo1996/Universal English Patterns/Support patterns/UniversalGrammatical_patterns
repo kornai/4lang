@@ -1,0 +1,45 @@
+private static final EnumMap<Language, Map<String, GrammaticalRelation>>
+ stringsToRelations = new EnumMap<>(Language.class);
+
+PATTERN:
+	-Language language,
+	-String shortName,
+	-String longName,
+	-GrammaticalRelation parent,
+	-String sourcePattern,
+	-TregexPatternCompiler tregexCompiler,
+	-String[] targetPatterns,
+	-String specific
+* Discription
+
+GOVERNOR:
+	-Language.Any, 
+	-"gov", 
+	-"governor", 
+	-null);
+* The "governor" grammatical relation, which is the inverse of "dependent".
+* Example: "the red car" &rarr; {@code gov}(red, car)
+
+
+DEPENDENT:
+	-Language.Any
+	-"dep"
+	-"dependent"
+	-null
+* The "dependent" grammatical relation, which is the inverse of "governor".
+* Example: "the red car" &rarr; {@code dep}(car, red)
+
+
+ROOT:
+	-Language.Any
+	-"root"
+	-"root"
+	-null
+* The "root" grammatical relation between a faked "ROOT" node, and the root of the sentence.
+
+KILL :
+	-Language.Any
+	-"KILL"
+	-"dummy relation kill"
+	-null
+* Dummy relation, used while collapsing relations, e.g., in English &amp; Chinese GrammaticalStructure

@@ -1,0 +1,17 @@
+EXPLETIVE :
+	- Language.UniversalEnglish
+	- "expl"
+	- "expletive"
+	- DEPENDENT
+	- "S|SQ|SINV"
+	- tregexCompiler
+
+	"S|SQ|SINV < (NP=target <+(NP) EX)"
+
+* The "expletive" grammatical relation.
+* This relation captures an existential there.
+* <p/>
+* <p/>
+* Example: <br/>
+* "There is a statue in the corner" &rarr;
+* {@code expl}(is, there)

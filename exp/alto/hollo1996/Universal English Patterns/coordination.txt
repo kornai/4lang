@@ -1,0 +1,15 @@
+COORDINATION :
+	- Language.UniversalEnglish
+	- "cc"
+	- "coordination"
+	- DEPENDENT
+	- ".*"
+	- tregexCompiler
+
+	"__ ([ < (CC=target !< /^(?i:either|neither|both)$/ ) | < (CONJP=target !< (RB < /^(?i:not)$/ $+ (RB|JJ < /^(?i:only|just|merely)$/))) ] [!> /PP/ | !>2 NP])"
+
+* The "coordination" grammatical relation. A coordination is the relation
+* between an element and a conjunction.
+* <p/>
+* Example: <br/>
+* "Bill is big and honest." &rarr; {@code cc}(big, and)

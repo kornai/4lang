@@ -1,0 +1,13 @@
+SUBJECT :
+	- Language.UniversalEnglish
+	- "subj"
+	- "subject"
+	- ARGUMENT
+* The "subject" grammatical relation. The subject of a VP is
+* the noun or clause that performs or experiences the VP; the
+* subject of a clause is the subject of the VP which is the
+* predicate of that clause.<p>
+* <p/>
+* Examples: <br/>
+* "Clinton defeated Dole" &rarr; {@code subj}(defeated, Clinton) <br/>
+* "What she said is untrue" &rarr; {@code subj}(is, What she said)

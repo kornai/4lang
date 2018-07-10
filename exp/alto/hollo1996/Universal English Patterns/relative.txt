@@ -1,0 +1,17 @@
+RELATIVE :
+	- Language.UniversalEnglish
+	- "rel"
+	- "relative"
+	- COMPLEMENT
+	- "SBAR|SBARQ"
+	- tregexCompiler
+
+	"SBAR < (WHNP=target !< WRB) < (S < NP < (VP [ < SBAR | <+(VP) (PP <- IN|TO) | < (S < (VP < TO)) ] ))"
+
+	// Rule for copular Wh-questions, e.g. "What am I good at?"
+	"SBARQ < (WHNP=target !< WRB !<# (/^NN/ < " + timeWordRegex + ")) <+(SQ|SINV) (/^(?:VB|AUX)/ < " + copularWordRegex + " !$++ VP)"
+
+* The RELATIVE grammatical relation is only here as a temporary
+* relation. This tregex triggering indicates either a dobj or a
+* pobj should be here. We figure this out in a post-processing
+* step by looking at the surrounding dependencies.

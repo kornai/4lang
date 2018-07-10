@@ -1,0 +1,12 @@
+ARGUMENT :
+	- Language.UniversalEnglish
+	- "arg"
+	- "argument"
+	- DEPENDENT
+* The "argument" grammatical relation. An argument of a VP is a
+* subject or complement of that VP; an argument of a clause is
+* an argument of the VP which is the predicate of that
+* clause.<p>
+* <p/>
+* Example: <br/>
+* "Clinton defeated Dole" &rarr; <code>arg</code>(defeated, Clinton), {@code arg}(defeated, Dole)

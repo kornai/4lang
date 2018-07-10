@@ -1,0 +1,17 @@
+CONTROLLING_NOMINAL_SUBJECT :
+	- Language.UniversalEnglish
+	- "nsubj:xsubj"
+	- "controlling nominal subject"
+	- NOMINAL_SUBJECT
+* The "controlling nominal subject" relation. Used in the enhanced and enhanced++
+* representations between a controlled verb and its nominal controller.
+*
+* <p/>
+* Example: <br/>
+* "Sue wants to buy a hat." &rarr;
+* {@code nsubj}(Sue, wants)<br/>
+* {@code nsubj:xsubj}(Sue, wants)<br/>
+* {@code mark}(to, buy)<br/>
+* {@code xcomp}(buy, wants)<br/>
+* {@code det}(a, hat)<br/>
+* {@code dobj}(hat, buy)<br/>

@@ -1,0 +1,7 @@
+DEPENDENT:
+	-Language.Any
+	-"dep"
+	-"dependent"
+	-null
+* The "dependent" grammatical relation, which is the inverse of "governor".
+* Example: "the red car" &rarr; {@code dep}(car, red)

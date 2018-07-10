@@ -1,0 +1,16 @@
+GOES_WITH :
+	- Language.UniversalEnglish
+	- "goeswith"
+	- "goes with"
+	- MODIFIER
+	- ".*"
+	- tregexCompiler
+
+	"__ < GW=target"
+
+* The "goes with" grammatical relation. This corresponds to use of the GW (goes with) part-of-speech tag
+* in the recent Penn Treebanks. It marks partial words that should be combined with some other word. <p>
+* <p/>
+* Example: <br/>
+* "They come here with out legal permission." &rarr;
+* {@code goeswith}(out, with)

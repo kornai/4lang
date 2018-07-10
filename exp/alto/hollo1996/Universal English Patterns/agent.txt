@@ -1,0 +1,11 @@
+AGENT :
+	- Language.UniversalEnglish
+	- "agent"
+	- "agent"
+	- DEPENDENT
+* The "agent" grammatical relation. The agent of a passive VP
+* is the complement introduced by "by" and doing the action.<p>
+* <p/>
+* Example: <br/>
+* "The man has been killed by the police" &rarr;
+* {@code agent}(killed, police)

@@ -1,0 +1,17 @@
+PHRASAL_VERB_PARTICLE :
+	- Language.UniversalEnglish
+	- "compound:prt"
+	- "phrasal verb particle"
+	- MODIFIER
+	- "VP|ADJP"
+	- tregexCompiler
+
+	"VP < PRT=target"
+	"ADJP < /^VB/ < RP=target"
+
+* The "phrasal verb particle" grammatical relation. The "phrasal verb particle"
+* relation identifies phrasal verb.<p>
+* <p/>
+* Example: <br/>
+* "They shut down the station." &rarr;
+* {@code prt}(shut, down)

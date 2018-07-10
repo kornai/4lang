@@ -1,0 +1,54 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//In the future I will need to change the root so I can make full and partial sentenses too.
+/*S! -> root(Sentence)
+[tree] 	?1
+[graph] merge("(u<root> / root)", ?1)*/
+
+//The most trikky assembly of the whole system is the graph part of this step. I have to connect the VP and the NP to the S as siblings in the parser tree, but I have to connect the subject phrase as the predicatives sibling in the dependency tree.
+S! -> MainStructure(PredicatePh,SubjectPh)
+[tree]  S(?2,?1)
+[graph] merge("(u<root> / Root)",f_obj(merge(?1,r_predicative(?2))))
+
+//It bilds the object phrase into the predicative phrase 
+PredicatePh -> VP(V,ObjectPh)
+[tree] VP(?1,?2)
+[graph] merge("(n<root> :root (p<predicative>))", r_predicative(merge(?1,?2)))
+
+//It boxes the Noun phrase into a Subject while building the Object phrase of the graph
+SubjectPh -> Subject(NP)
+[tree] ?1
+[graph] merge("(n<root> :nsubj (s<subject>))", r_subject(?1))
+
+//It boxes the Noun phrase into an Object while building the Object phrase of the graph
+ObjectPh -> Object(NP)
+[tree] ?1
+[graph] f_obj(merge("(n<root> :dobj (o<object>))", r_object(?1)))
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+NP -> noun(NN)
+[tree] NP(?1)
+[graph] ?1
+
+//Boxes John into a noun.
+NN -> john
+[tree] NN(John)
+[graph] "(n<root> / John)"
+
+//Boxes Mary into a noun
+NN -> mary
+[tree] NN(Mary)
+[graph] "(n<root> / Mary)"
+
+//Boxes loves into a verb
+V -> loves
+[tree] V(loves)
+[graph] "(v<root> / loves)"
+
+//Boxes loves into a verb
+V -> hates
+[tree] V(hates)
+[graph] "(v<root> / hates)"
+
+//input: S(NP(NN(john)),VP(V(loves),NP(NN(mary)))) */
