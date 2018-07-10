@@ -1,0 +1,130 @@
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+//In the future I will need to change the root so I can make full and partial sentenses too.
+
+//Root -> S(SubjectPhrase,PredicativePhrase)
+//PredicativePhrase -> UCP_NN_PP(VerbPhrase,UCPN)
+//UCPN -> UCP(NounPhrase,Conjuction,VerbPhrase)
+//SubjectPhrase -> SP(NounPhrase)
+
+//The most trikky assembly of the whole system is the graph part of this step. I have to connect the VP and the NP to the S as siblings in the parser tree, but I have to connect the subject phrase as the predicatives sibling in the dependency tree.
+S! -> S(SubjectPhrase,PredicativePhrase)
+[graph] f_obj(merge(r_sentence(SubjectPhrase),r_sentence(PredicativePhrase)))
+[graph] f_obj(merge(merge("(p<predicative :nsubj (s<subject))",r_predicative(?2)), r_subject(?1)))
+
+//It bilds the object phrase into the predicative phrase 
+PredicativePhrase -> UCP_NN_PP(VerbPhrase,UCPN)
+[graph]f_obj(merge(merge("(u<root/S :_ (NP<nounphrase) :_ (Cconjuction) :_ (VP<verbphrase))", r_nounphrase(?1)), r_conjuction(?2)))
+[graph]f_obj(merge(merge("(u<ucpn :cop (VP<verbphrase))", r_ucpn(?2)), r_verbphrase(?1)))
+
+UCPN -> UCP(NounPhrase,Conjuction,VerbPhrase)
+[graph]f_obj(merge(merge(merge("(u<root/UCP :_ (NP<nounphrase) :_ (Cconjuction) :_ (VP<verbphrase))", r_nounphrase(?1)), r_conjuction(?2)), r_verbphrase(?3)))
+[graph]f_obj(merge(merge(merge("(u<nounphrase :acl (VP<verbphrase) :cc (Cconjuction))", r_nounphrase(?1)), r_conjuction(?2)), r_verbphrase(?3)))
+
+SubjectPhrase -> SP(NounPhrase)
+[graph] r_S(?1)
+[graph] f_obj(merge("(s<root :nsubj (s<subject))", r_subject(?1)))
+
+
+//LOW NODES
+//LOW NODES
+
+//VerbPhrase -> VP(AdverbPhrase,VerbNoun)
+//VerbPhrase -> VP(VBZ)
+//NounPhrase -> NP(Determinant,JJ,CD)
+//NounPhrase -> NP(Determinant,Noun)
+//NounPhrase -> NP(Noun)
+//AdverbPhrase -> ADVP(RB)
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+S! -> VP2(AdverbPhrase,VerbNoun)
+[graph1] f_obj( merge(merge("(<root>/VP :_ (<adverbphrase>) :_ (<verbnoun>))", r_adverbphrase(?1)), r_verbnoun(?2)))
+[graph2] f_obj(merge(merge("(<verbnoun> :advmod (<adverbphrase>))", r_verbnoun(?2)), r_adverbphrase(?1)))
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+S! -> VP1(VBZ)
+[graph1] f_obj(merge("(<root>/VP :_ (<vbz>))", r_vbz(?1)))
+[graph2] ?1
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+S! -> NP3(Determinant,JJ,CD)
+[graph1] f_obj(merge(merge(merge("(<root>/NP :_ (<determinant>) :_ (<jj>) :_ (<cd>))", r_determinant(?1)), r_jj(?2)), r_cd(?3)))
+[graph2] f_obj(merge(merge(merge("(<cd> :amod (<jj>) :det (<determinant>))", r_cd(?3)),r_determinant(?1)),r_jj(?2)))
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+S! -> NP2(Determinant,Noun)
+[graph1] f_obj(merge(merge("(<root>/NP :_ (<determinant>) :_ (<noun>))", r_determinant(?1) ), r_noun(?2)))
+[graph2] f_obj(merge(merge("(<noun> :det (<determinant>))", r_noun(?2)),r_determinant(?1)))
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+S! -> NP1(Noun)
+[graph1] f_obj(merge("(<root>/NP :_ (<noun>))", r_noun(?1)))
+[graph2] ?1
+
+//Build Noun Phrase from a single noun while boxing the word into a Noun phrase
+AdverbPhrase -> ADVP(RB)
+[graph1] f_obj(merge("(<root>/ADVP :_ (<rb>))", r_rb(?1)))
+[graph2] ?1
+
+
+//LEAFS
+//LEAFS
+
+//Conjunction -> and
+//VerbNoun -> missed
+//VBZ -> is
+//Determinant -> this
+//Determinant -> a
+//JJ -> small
+//CD -> one
+//Noun -> item
+//RB -> easily
+
+//Boxing and into a CC
+CC -> and
+[graph1] "(<root>/CC :_ (and/and) )"
+[graph2] "(<root>/and)"
+
+//Boxing missed into a verbnoun
+VerbNoun -> missed
+[graph1] "(<root>/VBN :_ (missed/missed) )"
+[graph2] "(<root>/missed)"
+
+//Boxing is into a VBZ (third time verb?)
+VBZ -> is
+[graph1] "(<root>/VBZ :_ (is/is) )"
+[graph2] "(<root>/is)"
+
+//Boxing this into a determinant
+Determinant -> this
+[graph1] "(<root>/DT :_ (this/this) )"
+[graph2] "(<root>/this)"
+//Boxing a into a determinant
+Determinant -> a
+[graph1] "(<root>/DT :_ (a/a) )"
+[graph2] "(<root>/a)"
+
+//Boxing small into a JJ
+JJ -> small
+[graph1] "(<root>/JJ :_ (small/small) )"
+[graph2] "(<root>/a)"
+
+//Boxing one into a CD
+CD -> one
+[graph1] "(<root>/CD :_ (one/one) )"
+[graph2] "(<root>/one)"
+
+//Boxing item into a noun
+Noun -> item
+[graph1] "(<root>/NN :_ (item/item) )"
+[graph2] "(<root>/item)"
+
+//Boxing easily into a RB
+RB -> easily
+[graph1] "(<root>/RB :_ (easily/easily) )"
+[graph2] "(<root>/easily)"
+
+//Boxing . into an end
+end -> pont
+[graph1] "(<root>/. :_ (pont/.))"
+[graph2] "(<root>/.)"
+
+
+
+//input: S(NP(NN(john)),VP(V(loves),NP(NN(mary)))) */

@@ -30,7 +30,7 @@ ADVERBIAL_MODIFIER :
 	"/(?:WH)?PP(?:-TMP|-ADV)?$/ < @NP|WHNP < (RB|RBR|RBS|WRB|ADVP|WHADVP=target !< " + NOT_PAT + " !< " + ETC_PAT + ")"
 	"CONJP < (RB=target !< " + NOT_PAT + " !< " + ETC_PAT + ")"
 
-(ROOT_0 / ROOT :root (one_6 / one :nsubj (item_2 / item :det (This_1 / This)) :det (a_4 / a) :conj (missed_9 / missed :cc (and_7 / and) :advmod (easily_8 / easily)) :cop (is_3 / is) :punct (PERIOD_10 / PERIOD) :amod (small_5 / small)))
+(ROOT_0 / ROOT :root (one_6 / one :nsubj (item_2 / item :det (This_1 / This)) :det (a_4 / a) :conj (missed_9 / missed :advmod (easily_8 / easily)) :cc (and_7 / and) :cop (is_3 / is) :punct (PERIOD_10 / PERIOD) :amod (small_5 / small)))
 
 (ROOT:
 
@@ -38,12 +38,8 @@ ADVERBIAL_MODIFIER :
 
 	<-nsubj- (item <-det--- (this))
 	<-det--- (a)
-
-<-conj-- (missed:
-		<--cc--- (and)
-		<-advmod- (easily)
-		)
-
+	<-conj-- (missed <-advmod- (easily))
+	<--cc--- (and)
 	<-cop--- (is)
 	<-punct- (period)
 	<-amod-- (small)
@@ -121,5 +117,74 @@ Noun-->item
 RB-->easily
 
 
+
+
+
+
+
+
+
+
+
+
+//From Evelin
+//From Evelin
+
+
+evelin [10:46 AM]
+ezt dobta ki a stanford parser a mondatra:
+(ROOT
+ (S
+   (NP (DT This) (NN item))
+   (VP (VBZ is)
+     (UCP
+       (NP (DT a) (JJ small) (CD one))
+       (CC and)
+       (VP
+         (ADVP (RB easily))
+         (VBN missed))))
+   (. .)))
+
+det(item-2, This-1)
+nsubj(one-6, item-2)
+cop(one-6, is-3)
+det(one-6, a-4)
+amod(one-6, small-5)
+root(ROOT-0, one-6)
+cc(one-6, and-7)
+advmod(missed-9, easily-8)
+acl(one-6, missed-9)
+szóval jó, amit küldtél :slightly_smiling_face:
+a stanford parser kimenetét nyugodtan kezeld úgy, hogy az tényleg úgy van
+közben megvan a megoldás a terminálos gondra: azt mondta az Ádám, hogy valami javás hülyeség miatt szállt el
+a string kiírásánál nem lehet két nulla egymás után
+# IRTG unannotated corpus file, v1.0
+# interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+S(NP(NN(john)),VP(V(loves),NP(NN(mary))))
+
+S(NP(NN(john)),VP(V(loves),NP(NN(mary))))
+
+S(NP(NN(john)),VP(V(loves),NP(NN(mary))))
+ha csak 1 instance van, azt nem szereti, de így egyből működik
+evelin@shironeko:~/Letöltések$ java -Xmx2G -cp alto-2.1.jar de.up.ling.irtg.script.ParsingEvaluator input_example_1 -g OldSolution.irtg -I tree -O graph=amr-sgraph -o out
+Processing input_example_1 (3 instances) ...
+1 [S(NP(NN(john)),VP(V(loves),NP(NN(mary))))         ] 256 ms
+2 [S(NP(NN(john)),VP(V(loves),NP(NN(mary))))         ] 8 ms
+3 [S(NP(NN(john)),VP(V(loves),NP(NN(mary))))         ] 19 ms
+Done, total time: 451 ms
+
+
+
+# text = This item is a small one and easily missed.
+1       This    this    DET     DT      Number=Sing|PronType=Dem        2       det     2:det   _
+2       item    item    NOUN    NN      Number=Sing     6       nsubj   6:nsubj _
+3       is      be      AUX     VBZ     Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin   6       cop     6:cop   _
+4       a       a       DET     DT      Definite=Ind|PronType=Art       6       det     6:det   _
+5       small   small   ADJ     JJ      Degree=Pos      6       amod    6:amod  _
+6       one     one     NOUN    NN      Number=Sing     0       root    0:root  _
+7       and     and     CCONJ   CC             _9       cc      9:cc_    
+8       easily  easily  ADV     RB             _9       advmod  9:advmod_        
+9       missed  miss    VERB    VBN     Tense=Past|VerbForm=Part        6       conj    6:conj  SpaceAfter=No
+10      .       .       PUNCT   .             _6       punct   6:punct_
 
 
