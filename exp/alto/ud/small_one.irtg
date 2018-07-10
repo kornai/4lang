@@ -1,0 +1,36 @@
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation tree: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+// IRTG for the phrase 'a small one'
+
+S! -> _det(N_BAR, DET)
+[tree] merge(f_dep(merge("(NP<root> :_ (d<dep>))",r_dep(?2))), ?1)
+[graph] r_gov_root(f_dep(merge(merge("(g<gov> :det (d<dep>))", r_gov(?1)), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :_ (d<dep>))", r_gov(?1)), r_dep(?2))))
+
+N_BAR -> _amod(NOUN, ADJ)
+[tree] f_dep(merge(f_gov(merge("(NP<root> / NP :_ (d<dep>) :_ (g<gov>))", r_gov(?1))), r_dep(?2)))
+[graph] r_gov_root(f_dep(merge(merge("(g<gov> :amod (d<dep>))", r_gov(?1)), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2))))
+
+N_BAR -> _noun(NOUN)
+[tree] f_gov(merge("(NP<root> / NP :_ (<gov>))", r_gov(?1)))
+[graph] ?1
+[fourlang] ?1
+
+DET -> a_DET
+[tree] "(DT<root> / DT :_ (a/a))"
+[graph] "(a<root> / a)"
+[fourlang] "(a<root> / a)"
+
+ADJ -> small_ADJ
+[tree] "(JJ<root> / JJ :_ (small/small))"
+[graph] "(small<root> / small)"
+[fourlang] "(small<root> / small)"
+
+NOUN -> one_NOUN
+[tree] "(NN<root> / NN :_ (one/one))"
+[graph] "(one<root> / one)"
+[fourlang] "(one<root> / one)"
+
