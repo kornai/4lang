@@ -57,6 +57,7 @@ S2 (
 //NP2 (NP (NN (trouble)), PP2 (IN (for), NP2 (NNS (years), S2 (VP (TO (to)), VP (VB (come))))))
 
 //_root(_iobj(_punct(_punct(_punct(_nsubj(_obj(_obl_case(_aux(_aux(causing_VERB,be_AUX),will_AUX),_case_PP (_acl(years_NOUN,_mark(come_VERB,to_PART)),for_ADP)),trouble_NOUN),_det(_nmod_case(killing_NOUN,_case_PP (_amod(_det(cleric_NOUN,a_DET),respected_ADJ),of_ADP)),This_DET)),LSB_PUNCT),RSB_PUNCT),PERIOD_PUNCT),us_PRON))
+//(ROOT_0 / ROOT :root (causing_10 / causing :aux (be_9 / be) :obj (trouble_12 / trouble) :punct (RSB_18 / RSB) :punct (PERIOD_17 / PERIOD) :iobj (us_11 / us) :nsubj (killing_3 / killing :det (This_2 / This) :nmod (cleric_7 / cleric :case (of_4 / of) :amod (respected_6 / respected) :det (a_5 / a))) :aux (will_8 / will) :punct (LSB_1 / LSB) :obl (years_14 / years :acl (come_16 / come :mark (to_15 / to)) :case (for_13 / for))))
 
 //UPPER NODES
 //UPPER NODES
