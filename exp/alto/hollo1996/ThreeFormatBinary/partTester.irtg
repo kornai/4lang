@@ -1,0 +1,20 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+
+S! -> S(NP)
+[tree] ?1
+
+NP -> NP3(DT,NP_BAR)
+[tree] @(?2,?1)
+
+
+NP_BAR -> NP2(JJ,NN)
+[tree] @(?2,?1)
+
+NN -> John
+[tree] NP(*,NN(John))
+
+JJ -> big
+[tree] JJ(big)
+
+DT -> The
+[tree] DT(The)
