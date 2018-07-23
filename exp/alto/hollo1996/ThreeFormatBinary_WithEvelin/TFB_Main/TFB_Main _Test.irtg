@@ -45,8 +45,8 @@ S(
 //_root(_iobj(_punct(_punct(_punct(_nsubj(_obj(_obl_case(_aux(_aux(causing_VERB,be_AUX),will_AUX),_case_PP(_acl(years_NOUN,_mark(come_VERB,to_PART)),for_ADP)),trouble_NOUN),_det(_nmod_case(killing_NOUN,_case_PP(_amod(_det(cleric_NOUN,a_DET),respected_ADJ),of_ADP)),This_DET)),LSB_PUNCT),RSB_PUNCT),PERIOD_PUNCT),us_PRON))
 //NP2 (NNS (years), S2(VP (TO (to)), VP (VB (come))))
 
-//HIGH
-//HIGH
+//UPPER NODES
+//UPPER NODES
 
 VP -> _obl_case(VERB, PP) // causing us trouble for years
 [tree] VP2(?1,?2)
@@ -75,8 +75,8 @@ PP -> _case_PP(NP, ADP) // with his targets
 [graph] r_gov_root(f_dep(merge(merge(?1, "(g<root> :aux (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2))))*/
 
-//MIDDLE
-//MIDDLE
+//MIDDLE NODES
+//MIDDLE NODES
 
 //Basic VerbPhrases
 VP -> lonely_verb(VERB)

@@ -1,7 +1,0 @@
-# IRTG unannotated corpus file, v1.0
-# interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
-S(NP(NN(john)),VP(V(loves),NP(NN(mary))))
-
-S(NP(NN(john)),VP(V(loves),NP(NN(mary))))
-
-S(NP(NN(john)),VP(V(loves),NP(NN(mary))))

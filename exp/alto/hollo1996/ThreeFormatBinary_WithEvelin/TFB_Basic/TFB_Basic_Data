@@ -3,22 +3,6 @@ tynitag.irtg
 mbot.irtg
 cohn-lapata.irtg
 
-(ROOT
- (S
-   (NP
-     (NP (DT a) (JJ small) (NN one))
-     (NP (DT The) (NN situation)))
-   (VP (VBZ is)
-     (ADVP (RB only))
-     (VP (VBG going)
-       (S
-         (VP (TO to)
-           (VP (VB get)
-             (NP
-               (NP (JJR better))
-               (NP (DT this) (NN way))))))))
-   (. .)))
-
 det(one-3, a-1)
 amod(one-3, small-2)
 nsubj(going-8, one-3)

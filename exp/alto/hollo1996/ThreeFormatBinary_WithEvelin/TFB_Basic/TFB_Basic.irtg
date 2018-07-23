@@ -1,48 +1,48 @@
 interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
-interpretation treeOld: de.up.ling.irtg.algebra.graph.GraphAlgebra
-interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
-interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation treeOld: de.up.ling.irtg.algebra.UDgraph.UDgraphAlgebra
+interpretation UDgraph: de.up.ling.irtg.algebra.UDgraph.UDgraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.UDgraph.UDgraphAlgebra
 
 // IRTG for the phrase 'a small one'
 
 S! -> _det(N_BAR, DET)
 [tree] @(?1,?2)
 [treeOld] merge(f_child(merge("(NP<root> :_ (c<child>))",r_child(?2))), ?1)
-[graph] f_dep(merge(merge("(g<gov> :det (d<dep>))", ?1), r_dep(?2)))
+[UDgraph] f_dep(merge(merge("(g<gov> :det (d<dep>))", ?1), r_dep(?2)))
 [fourlang] ?1
 
 N_BAR -> _amod(NOUN, ADJ)
 [tree] NP3(*,?2,?1)
 [treeOld] f_child2(merge(f_child1(merge("(NP<root> / NP :_ (c2<child2>) :_ (c1<child1>))", r_child1(?1))), r_child2(?2)))
-[graph] f_dep(merge(merge("(g<gov> :amod (d<dep>))", r_gov(?1)), r_dep(?2)))
+[UDgraph] f_dep(merge(merge("(g<gov> :amod (d<dep>))", r_gov(?1)), r_dep(?2)))
 [fourlang] f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2)))
 
 N_BAR -> _noun(NOUN)
 [tree] NP2(*,?1)
 [treeOld] f_child(merge("(NP<root> / NP :_ (c<child>))", r_child(?1)))
-[graph] r_gov(?1)
+[UDgraph] r_gov(?1)
 [fourlang] ?1
 
 S! -> lonelyNoun(NOUN)
 [tree] NP(?1)
 [treeOld] f_child(merge("(NP<root> / NP :_ (c<child>))", r_child(?1)))
-[graph] r_gov(?1)
+[UDgraph] r_gov(?1)
 [fourlang] ?1
 
 DET -> a_DET
 [tree] DT(a)
 [treeOld] "(DT<root> / DT :_ (a/a))"
-[graph] "(a<root> / a)"
+[UDgraph] "(a<root> / a)"
 [fourlang] "(a<root> / a)"
 
 ADJ -> small_ADJ
 [tree] JJ(small)
 [treeOld] "(JJ<root> / JJ :_ (small/small))"
-[graph] "(small<root> / small)"
+[UDgraph] "(small<root> / small)"
 [fourlang] "(small<root> / small)"
 
 NOUN -> one_NOUN
 [tree] NN(one)
 [treeOld] "(NN<root> / NN :_ (one/one))"
-[graph] "(one<root> / one)"
+[UDgraph] "(one<root> / one)"
 [fourlang] "(one<root> / one)"
