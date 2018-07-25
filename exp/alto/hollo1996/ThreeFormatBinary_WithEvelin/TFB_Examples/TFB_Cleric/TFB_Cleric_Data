@@ -1,6 +1,30 @@
+x
 
-
-(ROOT_0 / ROOT :root (causing_10 / causing :aux (be_9 / be) :obj (trouble_12 / trouble) :punct (RSB_18 / RSB) :punct (PERIOD_17 / PERIOD) :iobj (us_11 / us) :nsubj (killing_3 / killing :det (This_2 / This) :nmod (cleric_7 / cleric :case (of_4 / of) :amod (respected_6 / respected) :det (a_5 / a))) :aux (will_8 / will) :punct (LSB_1 / LSB) :obl (years_14 / years :acl (come_16 / come :mark (to_15 / to)) :case (for_13 / for))))
+(ROOT_0 / ROOT 
+	:root (causing_10 / causing 
+		:aux (be_9 / be) 
+		:obj (trouble_12 / trouble) 
+		:punct (RSB_18 / RSB) 
+		:punct (PERIOD_17 / PERIOD) 
+		:iobj (us_11 / us) 
+		:nsubj (killing_3 / killing 
+			:det (This_2 / This) 
+			:nmod (cleric_7 / cleric 
+				:case (of_4 / of) 
+				:amod (respected_6 / respected) 
+				:det (a_5 / a)
+			)
+		) 
+		:aux (will_8 / will) 
+		:punct (LSB_1 / LSB) 
+		:obl (years_14 / years 
+			:acl (come_16 / come 
+				:mark (to_15 / to)
+			) 
+			:case (for_13 / for)
+		)
+	)
+)
 
 (killing_3 / killing :det (This_2 / This) :nmod (cleric_7 / cleric :case (of_4 / of) :amod (respected_6 / respected) :det (a_5 / a)))
 
@@ -213,23 +237,70 @@ PUNCT -> RRB_PUNCT
 [fourlang] "(RRB<root> / RRB)"
 
 (ROOT
- (S
-   (NP
-     (NP (DT This) (NN killing))
-     (PP (IN of)
-       (NP (DT a) (JJ respected) (NN cleric))))
-   (VP (MD will)
-     (VP (VB be)
-       (VP (VBG causing)
-         (S
-           (NP (PRP us))
-           (NP
-             (NP (NN trouble))
-             (PP (IN for)
-               (NP (NNS years)
-                 (S
-                   (VP (TO to)
-                     (VP (VB come)))))))))))
-   (. .)))
+  (S
+    (NP
+      (NP (DT This) (NN killing))
+      (PP (IN of)
+        (NP (DT a) (JJ respected) (NN cleric))))
+    (VP (MD will)
+      (VP (VB be)
+        (VP (VBG causing)
+          (S
+            (NP (PRP us))
+            (NP
+              (NP (NN trouble))
+              (PP (IN for)
+                (NP (NNS years)
+                  (S
+                    (VP (TO to)
+                      (VP (VB come)))))))))))
+    (. .)))
+
+ROOT(
+	S3(
+		NP2(
+			NP2(
+				DT(This),
+				NN(killing)
+			),
+			PP(
+				IN(of),
+				NP3(
+					DT(a),
+					JJ(respected),
+					NN(cleric)
+				)
+			)
+		),
+		VP2(
+			MD(will),
+			VP2(
+				VB(be),
+				VP2(
+					VBG(cousing),
+					S2(
+						NP(PRP(us)),
+						NP2(
+							NP(NN(trouble)),
+							PP(
+								IN(for),
+								NP2(
+									NNS(years),
+									S(
+										VP(
+											TO(to),
+											VP(VB(come))
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		.(.)
+	)
+)
 
 _root(_iobj(_punct(_punct(_punct(_nsubj(_obj(_obl_case(_aux(_aux(causing_VERB,be_AUX),will_AUX),_case_PP(_acl(years_NOUN,_mark(come_VERB,to_PART)),for_ADP)),trouble_NOUN),_det(_nmod_case(killing_NOUN,_case_PP(_amod(_det(cleric_NOUN,a_DET),respected_ADJ),of_ADP)),This_DET)),LSB_PUNCT),RSB_PUNCT),PERIOD_PUNCT),us_PRON))

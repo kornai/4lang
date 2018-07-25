@@ -7,18 +7,18 @@
 ###forExample:java -cp "/home/hollo/BMENotes/6.felev_4,83_37/Önlab(5)/alto-2.2-SNAPSHOT-jar-with-dependencies.jar" de.up.ling.irtg.script.ParsingEvaluator input_example_1 -g "NewSolution_(stable).irtg" -I tree
 
 ##TFB_Main
-###discription: This is the place of the Main Solution. It is developed by every example. It is ready when all of Evelin's irtg-s are processed by us.
+###discription: This is the place of the Main Solution. It is developed by every example. It is ready when all of Evelin's irtg-s are processed by us. It have been reseted: 2018.07.25
 ### TFB_Main.irtg
 #### date-of-creation:2018.07.23
-#### discription: This is the final solutions file. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements only the stable version of the first example yet.
-#### usage: Use this tree for example: NP2 (NP (NN (trouble)), PP (IN (for), NP2 (NNS (years), S2(VP (TO (to)), VP (VB (come))))))
+#### discription: This is the final solutions file. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements no examples yet.
+#### usage: Unuseable yet
 ### TFB_Main_Test.irtg
 #### date-of-creation:2018.07.05
 #### discription: It is the same as TFB_Main.irtg except some features and other impruvements. For example this is the file to make and teyt fixes.
-#### usage: Use this tree for example: NP2 (NP (NN (trouble)), PP (IN (for), NP2 (NNS (years), S2(VP (TO (to)), VP (VB (come))))))
+#### usage: Unuseable yet
 ### TFB_Main_Data
 #### date-of-creation:2018.07.03
-#### discription: It contains many information about the last implemented example. For example trees that cover all features, and the head of the rules from Evelin's irtg, that are covered.
+#### discription: It will contain many information about the last implemented example. For example trees that cover all features, and the head of the rules from Evelin's irtg, that are covered. It is empty know
 
 ##TFB_Basic
 ###discription: This is the the first implementted example. It is Pritty special becouse it used 4 format instead of three. This was the stadium we figured out, how to merge our different views. It is made for the sentence part: "a small one"
@@ -38,7 +38,7 @@
 
 ###TFB_Cleric
 ####discription: This is the place of the irtg made for the sentence: "This Killing of a respected cleric will be cousing us trouble for years to come"
-#### TFB_Main.irtg
+#### TFB_Cleric.irtg
 ##### date-of-creation:2018.07.23
 ##### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements only the part "This Killing of a respected cleric" and "trouble for years to come" yet.
 ##### usage: Use this tree for example: NP2 (NP (NN (trouble)), PP (IN (for), NP2 (NNS (years), S2(VP (TO (to)), VP (VB (come))))))
@@ -50,3 +50,19 @@
 ##### date-of-creation:2018.07.03
 ##### discription: It contains many information about the last implemented example. For example trees that cover all features, the full tree, the full dependency tree, the full derivation tree and all the relevant rules from Evelin's irtg.
 
+###TFB_NounPhrases
+####discription: This contains the examples specialised for NounPhrases. This is going to be under the fastest developement on the Summer of 2018.
+
+####TFB_BasicNP
+#####discription: This is the place of the irtg made for NP-s like:
+##### TFB_BasicNP.irtg
+###### date-of-creation:2018.07.23
+###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements only the part "This Killing of a respected cleric" and "trouble for years to come" yet.
+###### usage: Use this tree for example: Unuseable yet
+##### TFB_BasicNP_Test.irtg
+###### date-of-creation:2018.07.05
+###### discription: It is the same as TFB_Main.irtg except some features and other impruvements. For example this is the file to make and teyt fixes.
+###### usage: Use this tree for example: Unuseable yet
+##### TFB_BasicNP_Data
+###### date-of-creation:2018.07.03
+###### discription: It will contain many information about the last implemented example. For example trees that cover all features, the full tree, the full dependency tree, the full derivation tree and all the relevant rules from Evelin's irtg. It is empty know

@@ -13,17 +13,22 @@
 ## NewSolution2.0_Stable.irtg
 ### date-of-creation:2018.07.03
 ### discription: This is my new Stable solution for the task. We did not understand the tricks of tag tree grammer at one point, so it uses graph algebra twice and tag tree algebra once. Parses sintactic tree to dependency graph. I already understand the concept and I understand both algebra, and both concepts. I made the words perfectly independen, and the structure very dinamic and modular, but the best solution is used only in my teamworks.
-### usage: Use the well known grammer tree of "john loves mary" in the well known format: S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
+### usage: Use this tree for example: S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
 
 ## NewSolution2.0_UnderTesting.irtg
 ### date-of-creation:2018.07.08
 ### discription: It is the same as NewSolution2.0_Stable.irtg except some features and other impruvements under.
-### usage: Use the well known grammer tree of "john loves mary" in the well known format: S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
+### usage: Use this tree for example: S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
 
-## partTexter.irtg
+## partTester.irtg
 ### date-of-creation:2018.07.03
 ### discription: It is an irtg created to test only the newest features, algebras, and the wierd things of ALTO.
 ### usage: Don't Use.
+
+## ALTOTester.irtg
+### date-of-creation:2018.07.17
+### discription: It is an irtg created to test only tiny things. The capabilities of ALTO.
+### usage: Don't Parse! See the language!
 
 ## input_example_1
 ### date-of-creation:2018.07.08
@@ -31,4 +36,4 @@
 
 ## Data_for_next_mission
 ### date-of-creation:2018.07.03
-### discription: It contains many information about the last implemented example.
+### discription: It contains many information about and for the last implemented example.

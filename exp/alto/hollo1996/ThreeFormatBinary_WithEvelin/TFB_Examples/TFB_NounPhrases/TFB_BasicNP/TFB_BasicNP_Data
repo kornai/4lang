@@ -1,0 +1,22 @@
+egyszerűek:
+The MoI in Iraq
+MoI_2 / MoI :det (The_1 / The) :nmod (Iraq_4 / Iraq :case (in_3 / in)))
+ (NP (DT The) (NN MoI))
+        (PP (IN in)
+          (NP (NNP Iraq))))
+**
+the third
+(third_2 / third :det (The_1 / The))
+(NP (DT The) (JJ third))
+**
+The cells
+(cells_2 / cells :det (The_1 / The))
+(NP (DT The) (NNS cells))
+**
+egy bonyolult, ahol a dependenciagráfban nincs egyben az NP:
+a high level members of the Weathermen bombers
+(NP
+                        (NP (DT a) (JJ high) (NN level) (NNS members))
+                        (PP (IN of)
+                          (NP (DT the) (NNP Weathermen) (NNS bombers)))))
+(ROOT_0 / ROOT :root (equivalent_6 / equivalent :punct (PERIOD_36 / PERIOD) :obl (FBI_10 / FBI :case (to_7 / to) :compound (US_9 / US) :det (the_8 / the)) :parataxis (be_15 / be :advcl (having_17 / having :ccomp (employ_22 / employ :obj (members_27 / members :nmod (bombers_31 / bombers :compound (Weathermen_30 / Weathermen) :det (the_29 / the) :case (of_28 / of))) :nsubj (JPERIOD_18 / JPERIOD :flat (Hoover_20 / Hoover) :flat (Edgar_19 / Edgar)) :advmod (unwittingly_21 / unwittingly) :obl (level_26 / level :amod (high_25 / high) :det (a_24 / a) :case (at_23 / at)) :obl (DIGITDIGITDIGITDIGITs_35 / DIGITDIGITDIGITDIGITs :det (the_34 / the) :advmod (back_32 / back) :case (in_33 / in))) :mark (like_16 / like) :advmod (so_12 / so)) :nsubj (this_13 / this) :aux (would_14 / would)) :nsubj (MoI_2 / MoI :det (The_1 / The) :nmod (Iraq_4 / Iraq :case (in_3 / in))) :cop (is_5 / is) :punct (COMMA_11 / COMMA)))

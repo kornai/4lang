@@ -2,92 +2,44 @@ interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
 interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
-/*
-ROOT(
-	S3 (
-		NP2 (
-			NP2 (
-				DT(This),
-				NN(killing)
-			),
-			PP2 (
-				IN(of),
-				NP3 (
-					DT(a),
-					JJ(respected),
-					NN(cleric)
-		))),
-		VP2 (
-			MD(will),
-			VP2 (
-				VB(be),
-				VP2 (
-					VBG(causing),
-					S2 (
-						NP (PRP (us)),
-						NP2 (
-							NP (NN(trouble)),
-							S2 (
-								VP (TO(to)),
-								VP (VB(come))
-		)))))),
-		(. .)
-))
-*/
-//ROOT(S3 (NP2 (NP2 (DT(This),NN(killing)),PP2 (IN(of),NP3 (DT(a),JJ(respected),NN(cleric)))),VP2 (MD(will),VP2 (VB(be),VP2 (VBG(causing),S2 (NP (PRP (us)),NP2 (NP (NN(trouble)),S2 (VP (TO(to)),VP (VB(come)))))))),(. .)))
-
-/*
-S2 (
-	NP (PRP (us))
-	NP2 (
-		NP (NN (trouble)), 
-		PP2 (
-			IN (for), 
-			NP2 (
-				NNS (years), 
-				S2 (
-					VP (TO (to)), 
-					VP (VB (come))
-				)
-			)
-		)
-	)
-)
-*/
-//NP2 (NP (NN (trouble)), PP2 (IN (for), NP2 (NNS (years), S2 (VP (TO (to)), VP (VB (come))))))
-
-//_root(_iobj(_punct(_punct(_punct(_nsubj(_obj(_obl_case(_aux(_aux(causing_VERB,be_AUX),will_AUX),_case_PP (_acl(years_NOUN,_mark(come_VERB,to_PART)),for_ADP)),trouble_NOUN),_det(_nmod_case(killing_NOUN,_case_PP (_amod(_det(cleric_NOUN,a_DET),respected_ADJ),of_ADP)),This_DET)),LSB_PUNCT),RSB_PUNCT),PERIOD_PUNCT),us_PRON))
-//(ROOT_0 / ROOT :root (causing_10 / causing :aux (be_9 / be) :obj (trouble_12 / trouble) :punct (RSB_18 / RSB) :punct (PERIOD_17 / PERIOD) :iobj (us_11 / us) :nsubj (killing_3 / killing :det (This_2 / This) :nmod (cleric_7 / cleric :case (of_4 / of) :amod (respected_6 / respected) :det (a_5 / a))) :aux (will_8 / will) :punct (LSB_1 / LSB) :obl (years_14 / years :acl (come_16 / come :mark (to_15 / to)) :case (for_13 / for))))
+//NP2(NP(NN(trouble)),PP2(IN(for),NP2(NNS(years),S(VP2(TO(to),VP(VB(come)))))))
 
 //UPPER NODES
 //UPPER NODES
 
-VP -> _obl_case(VERB, PP) // causing us trouble for years
+//VP
+VP -> _obl_case(VP, PP) // causing us trouble for years
 [tree] VP2 (?1,?2)
 [graph] r_gov_root(f_dep(merge(merge(?1, "(g<root> :obl (d<dep>))"), r_dep(?2))))
 [fourlang] r_gov_root(merge(merge(r_gov(?1), "(d<root> :1 (g<gov>))"), ?2))
 
+SVP -> lonlyVerbPhrase(VP)
+[tree] S(?1)
+[graph] ?1
+[fourlang] ?1
+
+/*
+SpNPNP -> _iobj(VP, PRON) // us trouble
+[tree] S2
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+*/
+
 //NP
-S! -> _nmod_case(NP, PP) // killing of a cleric
+NP -> _nmod_case(NP, PP) // killing of a cleric || trouble for years
 [tree] NP2 (?1,?2)
 [graph] f_dep(merge(merge("(g<root> :nmod (d<dep>))",?1), r_dep(?2)))
 [fourlang] merge(f_gov(merge("(d<root> :1 (g<gov>))",r_gov(?1))), ?2)
 
-PP -> _case_PP (NP, ADP) // with his targets
-[tree] PP2 (?2,?1)
-[graph] merge(f_dep(merge("(g<root> :case (d<dep>))", r_dep(?2))), ?1)
-//[fourlang] merge("(g<gov> :2 (d<dep>))", ?2)
-[fourlang] merge(f_dep(merge("(g<root> :2 (d<dep>))",  r_dep(?1))), ?2)
-
-/*VERB -> _aux(VERB, AUX)
-[tree]
+VP -> _aux(VP, AUX)
+[tree] VP2(?2,?1)
 [graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<root> :aux (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<root> :_ (d<dep>))"), r_dep(?2))))*/
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<root> :_ (d<dep>))"), r_dep(?2))))
 
-/*ADJ -> _aux(ADJ, AUX) // I would be interested
-[tree]
-[graph] r_gov_root(f_dep(merge(merge(?1, "(g<root> :aux (d<dep>))"), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2))))*/
+VP -> _iobj(VP, PRON) // causing us
+[tree] S2
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
 
 //MIDDLE NODES
 //MIDDLE NODES
@@ -98,36 +50,44 @@ VP -> lonely_verb(VERB)
 [graph] ?1
 [fourlang] ?1
 
-VP -> _mark(VERB, PART)
-[tree] S2 (VP (?2),VP (?1))
+VP -> _mark(VP, PART)
+[tree] VP2 (?2,?1)
 [graph] f_dep(merge(merge(?1, "(g<root> :mark (d<dep>))"), r_dep(?2)))
 [fourlang] f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2)))
 
 //Basic NounPhrases
-NP -> _acl(NOUN, VP) // years to come
+NP -> lonely_noun(NOUN)
+[tree] NP(?1)
+[graph] ?1
+[fourlang] ?1
+
+proNP -> lonely_pronoun(PRON)
+[tree] NP(?1)
+[graph] ?1
+[fourlang] ?1
+
+NP -> _acl(NOUN, SVP) // years to come
 [tree] NP2 (?1,?2)
 [graph] f_dep(merge(merge(?1, "(g<root> :acl (d<dep>))"), r_dep(?2)))
 [fourlang] f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2)))
 
-NP -> lonely_noun(NOUN)
-[tree] NP (?1)
-[graph] ?1
-[fourlang] ?1
+S! -> obl(N3P)
+[tree] ?1
+[graph] f_obl(f_obj(merge("g<root> :obj (oj<obj>) :obl (ol<obl>)",?1)))
+[fourlang] f_under(f_above(merge("a<above> :1 (<root>) :2 (<under>)",?1)))
 
-NP -> _det(N_BAR, DET)
-[tree] @(?1,?2)
-[graph] merge(f_dep(merge("(g<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] merge(f_dep(merge("(g<root> :det (d<dep>))", r_dep(?2))), ?1)
 
-N_BAR -> _amod(NOUN, ADJ)
-[tree] NP3 (*,?2,?1)
-[graph] f_dep(merge(merge("(g<root> :amod (d<dep>))", ?1), r_dep(?2)))
-[fourlang] f_dep(merge(merge("(g<root> :0 (d<dep>))", ?1), r_dep(?2)))
+N3P -> n3p(NP, PP) // killing of a cleric
+[tree] NP2(?1,?2)
+[graph] merge(r_obj(?1),r_obl(?2))
+[fourlang] merge(r_under(?1),r_above(?2))
 
-N_BAR -> _noun(NOUN)
-[tree] NP2 (*,?1)
-[graph] ?1
-[fourlang] ?1
+//Basic PrepositionPhrase
+PP -> _case_PP(NP, ADP) // with his targets
+[tree] PP2(?2,?1)
+[graph] merge(f_dep(merge("(g<root> :case (d<dep>))", r_dep(?2))), ?1)
+//[fourlang] merge("(g<gov> :2 (d<dep>))", ?2)
+[fourlang] merge(f_dep(merge("(g<root> :2 (d<dep>))",  r_dep(?1))), ?2)
 
 //LEAFS
 //LEAFS
@@ -149,26 +109,10 @@ NOUN -> years_NOUN
 [graph] "(years<root> / years)"
 [fourlang] "(years<root> / years)"
 
-NOUN -> killing_NOUN
-[tree] NN(killing)
-[graph] "(killing<root> / killing)"
-[fourlang] "(killing<root> / killing)"
-
-NOUN -> cleric_NOUN
-[tree] NN(cleric)
-[graph] "(cleric<root> / cleric)"
-[fourlang] "(cleric<root> / cleric)"
-
-//Determinants
-DET -> This_DET
-[tree] DT(This)
-[graph] "(This<root> / This)"
-[fourlang] "(This<root> / This)"
-
-DET -> a_DET
-[tree] DT(a)
-[graph] "(a<root> / a)"
-[fourlang] "(a<root> / a)"
+PRON -> us_PRON
+[tree] PRP(us)
+[graph] "(us<root> / us)"
+[fourlang] "(us<root> / us)"
 
 //
 PART -> to_PART
@@ -181,14 +125,3 @@ ADP -> for_ADP
 [tree] IN(for)
 [graph] "(for<root> / for)"
 [fourlang] "(for<root> / for)"
-
-ADP -> of_ADP
-[tree] IN(of)
-[graph] "(of<root> / of)"
-[fourlang] "(of<root> / of)"
-
-//Adjectives
-ADJ -> respected_ADJ
-[tree] JJ(respected)
-[graph] "(respected<root> / respected)"
-[fourlang] "(respected<root> / respected)"
