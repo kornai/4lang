@@ -1,0 +1,85 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//input:
+//NP2(NP2(DT(The),NN(Moi)),PP2(IN(in),NP(NNP(Iraq))))
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S! -> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//MIDDLE NODES
+//MIDDLE NODES
+
+//NounPhrase
+//NounPhrase Out of a NounPhrase and a PPPhrase ? 
+NP -> nounPhWithPPh(NP,PP)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nmod (d<dependent>))",r_dependent(?2))),?1)
+[fourlangGraph] merge(f_dependent(merge("(d<dependent> :1 (r<root>))",r_dependent(?2))),?1)
+
+//PPPhrase ?
+//PPPhrase Out of a IN and a NounPhrase ? 
+PP -> inWithNoun(IN,NP)
+[syntacticTree] PP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :case (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :2 (d<dependent>))",r_dependent(?2))),?1)
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NpunPhrase
+//NounPhrase Out of one Noun
+NP -> lonelyNoun(NN)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of a Determinant and a Noun 
+NP -> nounWithDeterminant(DT,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+
+
+
+//LEAFS
+//LEAFS
+
+//Nouns
+//Moi
+NN -> MoiNoun
+[syntacticTree] NN(Moi)
+[dependencyGraph] "(Moi<root>/Moi)"
+[fourlangGraph] "(Moi<root>/Moi)"
+
+//Iraq
+NN -> IraqNoun
+[syntacticTree] NNP(Iraq)
+[dependencyGraph] "(Iraq<root>/Iraq)"
+[fourlangGraph] "(Iraq<root>/Iraq)"
+
+//Determinants
+//some
+DT -> TheDeterminant
+[syntacticTree] DT(The)
+[dependencyGraph] "(The<root>/The)"
+[fourlangGraph] "(The<root>/The)"
+
+//In? , ADP?
+//in
+IN -> inAdp
+[syntacticTree] IN(in)
+[dependencyGraph] "(in<root>/in)"
+[fourlangGraph] "(in<root>/in)"
+

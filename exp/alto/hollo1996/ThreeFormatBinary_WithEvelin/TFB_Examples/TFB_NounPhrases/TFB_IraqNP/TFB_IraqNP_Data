@@ -1,0 +1,26 @@
+egyszerűek:
+The MoI in Iraq
+
+(Moi / Moi 
+	:det (The / The) 
+	:nmod (Iraq / Iraq 
+		:case (in / in)
+	)
+)
+
+(in / in 
+	:1 (Moi /Moi) 
+	:2 (Iraq / Iraq)
+)
+
+NP2(NP2(DT(The),NN(Moi)),PP2(IN(in),NP( NNP(Iraq))))
+NP2(
+	NP2(
+		DT(The),
+		NN(Moi)
+	),
+	PP2(
+		IN(in),
+		NP( NNP(Iraq))
+	)
+)

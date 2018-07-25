@@ -1,0 +1,57 @@
+Examples:
+
+-----------------------------------------------------------------------------------------------
+"some big apple"
+Input:
+NP(DT(some),JJ(big),NN(apple))
+
+NP(
+	DT(some),
+	JJ(big),
+	NN(apple)
+)
+
+Outputs:
+
+dependency graph:
+(apple<root>/ apple 
+	:det (some / some) 
+	:amod (big / big)
+)
+
+four lang graph:
+(apple<root>/ apple 
+	:_ (big / big)
+)
+
+-----------------------------------------------------------------------------------------------
+"The Mi in Iraq"
+Input:
+NP2(NP2(DT(The),NN(Moi)),PP2(IN(in),NP(NNP(Iraq))))
+
+NP2(
+	NP2(
+		DT(The),
+		NN(Moi)
+	),
+	PP2(
+		IN(in),
+		NP( NNP(Iraq))
+	)
+)
+
+Outputs:
+
+dependency graph:
+(Moi / Moi 
+	:det (The / The) 
+	:nmod (Iraq / Iraq 
+		:case (in / in)
+	)
+)
+
+four lang graph:
+(in / in 
+	:1 (Moi /Moi) 
+	:2 (Iraq / Iraq)
+)
