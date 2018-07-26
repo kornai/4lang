@@ -1,0 +1,37 @@
+a high level members of the Weathermen bombers
+NP(
+	NP(
+		DT(a),
+		JJ(high),
+		NN(level)
+	),
+	NP(
+		NP(NNS(members)),
+		PP(
+			IN(of),
+			NP(
+				DT(the),
+				JJ(Weathermen),
+				NN(bombers)
+			)
+		)
+	)
+)
+NP(NP(DT(a),JJ(high),NN(level)),NP(NP(NNS(members)),PP(IN(of),NP(DT(the),JJ(Weathermen),NN(bombers)))))
+
+ROOT(
+	root>level(
+		det>a
+		amod>high
+		dep>members(
+			nmod>bombers(
+				compound>Weathermen
+				det>the
+				case>of
+			
+			)
+		)
+	)
+)
+
+level-0>member

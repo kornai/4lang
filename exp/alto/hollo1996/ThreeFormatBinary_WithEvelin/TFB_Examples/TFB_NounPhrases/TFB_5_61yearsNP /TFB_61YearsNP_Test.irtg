@@ -1,0 +1,48 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//input:
+//NP2(CD(n61), NNS(years))
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S! -> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NounPhrases
+//NounPhrase Out of a Cardinal number and a Noun 
+NP -> nounWithCardinalNumber(CD,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+
+//LEAVES
+//LEAVES
+
+//Nouns
+//years
+NN -> yearsNoun
+[syntacticTree] NNS(years)
+[dependencyGraph] "(years<root> / years)"
+[fourlangGraph] "(years<root> / years)"
+
+//Cardinal numbers
+//61
+CD -> HatvanEgyCardinalNumber
+[syntacticTree] CD(n61)
+[dependencyGraph] "(61<root> / 61)"
+[fourlangGraph] "(61<root> / 61)"
+
+

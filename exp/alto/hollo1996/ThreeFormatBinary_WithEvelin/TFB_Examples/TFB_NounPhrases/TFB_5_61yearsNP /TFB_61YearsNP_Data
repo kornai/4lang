@@ -1,0 +1,8 @@
+egyszerűek:
+61 years
+
+NP2(CD(n61), NNS(years))
+
+(years / years :nummod (61 / 61))
+
+(years / years :_ (61 / 61))

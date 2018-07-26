@@ -1,0 +1,8 @@
+egyszerűek:
+Pierre Vinken
+
+NP2(NNP(Pierre),NNP(Vinken))
+
+(Vinken / Vinken :compound (Pierre / Pierre))
+
+(Vinken / Vinken :comp (Pierre / Pierre))

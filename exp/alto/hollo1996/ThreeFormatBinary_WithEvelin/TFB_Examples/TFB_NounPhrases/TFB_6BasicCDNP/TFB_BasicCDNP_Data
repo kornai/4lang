@@ -1,0 +1,26 @@
+possible inputs:
+NP(DT(the))
+NP(CD(nine))
+NP(NNS(cats))
+NP2(DT(the),CD(nine))
+NP2(DT(the),NNS(cats))
+NP2(CD(nine),NNS(cats))
+NP3(DT(the),CD(nine),NNS(cats))
+
+syntactic tree:
+NP(
+	DT(the),
+	CD(nine),
+	NNS(cats)
+)
+
+dependency graph:
+(cats<root>/ cats 
+	:det (the / the) 
+	:nummod (nine / nine)
+)
+
+four lang graph:
+(cats<root>/ cats 
+	:_ (nine / nine)
+)

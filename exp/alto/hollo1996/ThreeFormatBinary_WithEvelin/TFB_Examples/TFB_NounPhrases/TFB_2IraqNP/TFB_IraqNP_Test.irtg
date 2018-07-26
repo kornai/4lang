@@ -19,15 +19,15 @@ S! -> sentence(NP)
 //MIDDLE NODES
 //MIDDLE NODES
 
-//NounPhrase
-//NounPhrase Out of a NounPhrase and a PPPhrase ? 
-NP -> nounPhWithPPh(NP,PP)
+//NounPhrases
+//NounPhrase Out of a NounPhrase and a PrepositionalPhrase
+NP -> nounPhWithPrepositionalPh(NP,PP)
 [syntacticTree] NP2(?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :nmod (d<dependent>))",r_dependent(?2))),?1)
 [fourlangGraph] merge(f_dependent(merge("(d<dependent> :1 (r<root>))",r_dependent(?2))),?1)
 
-//PPPhrase ?
-//PPPhrase Out of a IN and a NounPhrase ? 
+//PrepositionalPhrases
+//PrepositionalPhrases Out of a Preposition or subordinating conjunction and a NounPhrase
 PP -> inWithNoun(IN,NP)
 [syntacticTree] PP2(?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :case (d<dependent>))",r_dependent(?1))),?2)
@@ -38,7 +38,7 @@ PP -> inWithNoun(IN,NP)
 //LOWER NODES
 //LOWER NODES
 
-//Basic NpunPhrase
+//Basic NounPhrases
 //NounPhrase Out of one Noun
 NP -> lonelyNoun(NN)
 [syntacticTree] NP(?1)

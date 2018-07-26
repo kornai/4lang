@@ -11,7 +11,7 @@ BASE -> base
 //UPPER NODES
 
 //entry point
-S! -> sentence(Base)
+S! -> sentence(NP)
 [syntacticTree] ?1
 [dependencyGraph] ?1
 [fourlangGraph] ?1

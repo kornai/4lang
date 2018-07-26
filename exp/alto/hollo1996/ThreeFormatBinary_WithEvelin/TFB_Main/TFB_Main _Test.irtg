@@ -2,8 +2,13 @@ interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
 interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
-//input:
+//inputs:
+//NP(DT(some),JJ(big),NN(apple))
 //NP2(NP2(DT(The),NN(Moi)),PP2(IN(in),NP(NNP(Iraq))))
+//NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
+//NP2(NNP(Pierre),NNP(Vinken))
+//NP2(CD(n61), NNS(years))
+
 
 //UPPER NODES
 //UPPER NODES
@@ -20,14 +25,15 @@ S! -> sentence(NP)
 //MIDDLE NODES
 
 //NounPhrases
-//NounPhrase Out of a NounPhrase and a PPPhrase ? 
-NP -> nounPhWithPPh(NP,PP)
+//NounPhrase Out of a NounPhrase and a PrepositionalPhrase
+NP -> nounPhWithPrepositionalPh(NP,PP)
 [syntacticTree] NP2(?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :nmod (d<dependent>))",r_dependent(?2))),?1)
 [fourlangGraph] merge(f_dependent(merge("(d<dependent> :1 (r<root>))",r_dependent(?2))),?1)
 
-//PPPhrases ?
-//PPPhrase Out of a IN and a NounPhrase ? 
+
+//PrepositionalPhrases
+//PrepositionalPhrases Out of a Preposition or subordinating conjunction and a NounPhrase
 PP -> inWithNoun(IN,NP)
 [syntacticTree] PP2(?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :case (d<dependent>))",r_dependent(?1))),?2)
@@ -69,31 +75,88 @@ NP -> nounWithDeterminant(DT,NN)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
 [fourlangGraph] ?2
 
-//NounPhrase Out of a Determinant and a Noun 
+//NounPhrase Out of an Adjective and a Noun 
 NP -> nounWithAdjective(JJ,NN)
 [syntacticTree] NP2(?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
 [fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
 
-//NounPhrase Out of a Determinant, an Adjective, and a Noun
+//NounPhrase Out of a Cardinal number and a Noun 
+NP -> nounWithCardinalNumber(CD,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
 
-//Connecting the Determinant to the NounPhrase
-NP -> nounWithDeterminantAndAdjective(DT,NP_BAR)
+
+//Three order Noun Phrases
+
+//Connecting the Determinant to the NounPhrase Part
+NP -> partWithDeterminant(DT,NP_BAR)
 [syntacticTree] @(?2,?1)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
 [fourlangGraph] ?2
+
+//NounPhrase Parts
 //Connecting the Adjective and the Noun
 NP_BAR -> nounWithAdjectivePart(JJ,NN)
 [syntacticTree] NP3(*,?1,?2)
 [dependencyGraph] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
 [fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
 
+//Connecting the Cardinal number and the Noun
+NP_BAR -> nounWithCardinalNumberPart(CD,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//Connecting two nouns 
+NP_BAR -> compoundPart(NN,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :compound (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :comp (d<dependent>))",r_dependent(?1))),?2)
 
 
-//LEAFS
-//LEAFS
+
+//LEAVES
+//LEAVES
 
 //Nouns
+//Pierre
+NN -> PierreNoun
+[syntacticTree] NNP(Pierre)
+[dependencyGraph] "(Pierre<root> / Pierre)"
+[fourlangGraph] "(Pierre<root> / Pierre)"
+
+//Vinken
+NN -> VinkenNoun
+[syntacticTree] NNP(Vinken)
+[dependencyGraph] "(Vinken<root> / Vinken)"
+[fourlangGraph] "(Vinken<root> / Vinken)"
+
+//level
+NN -> levelNoun
+[syntacticTree] NN(level)
+[dependencyGraph] "(level<root>/level)"
+[fourlangGraph] "(level<root>/level)"
+
+//member
+NN -> memberNoun
+[syntacticTree] NN(member)
+[dependencyGraph] "(member<root>/member)"
+[fourlangGraph] "(member<root>/member)"
+
+//bombers
+NN -> bombersNoun
+[syntacticTree] NNS(bombers)
+[dependencyGraph] "(bombers<root>/bombers)"
+[fourlangGraph] "(bombers<root>/bombers)"
+
+//Weathermen
+NN -> WeathermenNoun
+[syntacticTree] NNP(Weathermen)
+[dependencyGraph] "(Weathermen<root>/Weathermen)"
+[fourlangGraph] "(Weathermen<root>/Weathermen)"
+
 //apple
 NN -> appleNoun
 [syntacticTree] NN(apple)
@@ -112,6 +175,43 @@ NN -> MoiNoun
 [dependencyGraph] "(Moi<root>/Moi)"
 [fourlangGraph] "(Moi<root>/Moi)"
 
+//years
+NN -> yearsNoun
+[syntacticTree] NNS(years)
+[dependencyGraph] "(years<root> / years)"
+[fourlangGraph] "(years<root> / years)"
+
+NN -> boardNoun
+[syntacticTree] NN(board)
+[dependencyGraph] "(board<root> / board)"
+[fourlangGraph] "(board<root> / board)"
+
+NN -> directorsNoun
+[syntacticTree] NNS(directors)
+[dependencyGraph] "(directors<root> / directors)"
+[fourlangGraph] "(directors<root> / directors)"
+
+//cats
+NN -> catsNoun
+[syntacticTree] NNS(cats)
+[dependencyGraph] "(cats<root>/cats)"
+[fourlangGraph] "(cats<root>/cats)"
+
+
+//Cardinal numbers
+//61
+CD -> HatvanEgyCardinalNumber
+[syntacticTree] CD(n61)
+[dependencyGraph] "(61<root> / 61)"
+[fourlangGraph] "(61<root> / 61)"
+
+//nine
+CD -> nineCardinalNumber
+[syntacticTree] CD(nine)
+[dependencyGraph] "(nine<root> / nine)"
+[fourlangGraph] "(nine<root> / nine)"
+
+
 //Determinants
 //some
 DT -> someDeterminant
@@ -119,18 +219,38 @@ DT -> someDeterminant
 [dependencyGraph] "(some<root>/some)"
 [fourlangGraph] "(some<root>/some)"
 
-//some
+//The
 DT -> TheDeterminant
 [syntacticTree] DT(The)
 [dependencyGraph] "(The<root>/The)"
 [fourlangGraph] "(The<root>/The)"
 
-//In? , ADP?
+//a
+DT -> aDeterminant
+[syntacticTree] DT(a)
+[dependencyGraph] "(a<root>/a)"
+[fourlangGraph] "(a<root>/a)"
+
+//the
+DT -> theDeterminant
+[syntacticTree] DT(the)
+[dependencyGraph] "(the<root>/the)"
+[fourlangGraph] "(the<root>/the)"
+
+
+//Prepositions and subordinating conjunctions
+//of
+IN -> ofPreposition
+[syntacticTree] IN(of)
+[dependencyGraph] "(of<root>/of)"
+[fourlangGraph] "(of<root>/of)"
+
 //in
-IN -> inAdp
+IN -> inPreposition
 [syntacticTree] IN(in)
 [dependencyGraph] "(in<root>/in)"
 [fourlangGraph] "(in<root>/in)"
+
 
 //Adjectives
 //big
@@ -138,3 +258,14 @@ JJ -> bigAdjective
 [syntacticTree] JJ(big)
 [dependencyGraph] "(big<root>/big)"
 [fourlangGraph] "(big<root>/big)"
+
+//high
+JJ -> highAdjective
+[syntacticTree] JJ(high)
+[dependencyGraph] "(high<root>/high)"
+[fourlangGraph] "(high<root>/high)"
+
+JJ -> nonexecutiveAdjective
+[syntacticTree] JJ(nonexecutive)
+[dependencyGraph] "(nonexecutive<root> / nonexecutive)"
+[fourlangGraph] "(nonexecutive<root> / nonexecutive)"

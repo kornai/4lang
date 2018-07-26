@@ -53,20 +53,21 @@
 ###TFB_NounPhrases
 ####discription: This contains the examples specialised for NounPhrases. This is going to be under the fastest developement on the Summer of 2018.
 
-####TFB_BasicNP
+####TFB_1BasicNP
 #####discription: This is the place of the irtg made for NP-s like: "some","big","apple","some big","some apple","big apple","some big apple"
 ##### TFB_BasicNP.irtg
 ###### date-of-creation:2018.07.25
 ###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements everything it should.
+###### usage: Use this tree for example: NP3(DT(some),JJ(big),NN(apple))
 ##### TFB_BasicNP_Test.irtg
 ###### date-of-creation:2018.07.25
 ###### discription: It is the same as TFB_BasicNP.irtg except some features and other impruvements. For example this is the file to make the fast fixes.
 ###### usage: Use this tree for example: NP3(DT(some),JJ(big),NN(apple))
 ##### TFB_BasicNP_Data
 ###### date-of-creation:2018.07.25
-###### discription: It contains all useable inputs, a better formed version for the biggest input and the outputs for that.
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.
 
-####TFB_IraqNP
+####TFB_2IraqNP
 #####discription: This is the place of the irtg made for the NP: "The Moi in Iraq"
 ##### TFB_IraqNP.irtg
 ###### date-of-creation:2018.07.25
@@ -78,4 +79,60 @@
 ###### usage: Use this tree for example: NP2(NP2(DT(The),NN(Moi)),PP2(IN(in),NP( NNP(Iraq))))
 ##### TFB_IraqNP_Data
 ###### date-of-creation:2018.07.25
-###### discription: It contains all useable inputs, a better formed version for the biggest input and the outputs for that.
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.
+
+####TFB_3BomberNP
+#####discription: This is the place of the irtg made for the NP: "a high level member of the Weathermen bombers"
+##### TFB_BomberNP.irtg
+###### date-of-creation:2018.07.26
+###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements everything it should.
+###### usage: Use this tree for example: NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
+##### TFB_BomberNP_Test.irtg
+###### date-of-creation:2018.07.25
+###### discription: It is the same as TFB_BomberNP.irtg except some features and other impruvements. For example this is the file to make the fast fixes.
+###### usage: Use this tree for example: NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
+##### TFB_Bomber_Data
+###### date-of-creation:2018.07.25
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.
+
+####TFB_4PierreNP
+#####discription: This is the place of the irtg made for the NP: "Pierre Vinken"
+##### TFB_PierreNP.irtg
+###### date-of-creation:2018.07.26
+###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements everything it should.
+###### usage: Use this tree for example: NP2(NNP(Pierre),NNP(Vinken))
+##### TFB_PierreNP_Test.irtg
+###### date-of-creation:2018.07.26
+###### discription: It is the same as TFB_PierreNP.irtg except some features and other impruvements. For example this is the file to make the fast fixes.
+###### usage: Use this tree for example: NP2(NNP(Pierre),NNP(Vinken))
+##### TFB_PierreNP_Data
+###### date-of-creation:2018.07.26
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.
+
+####TFB_561YearsNP
+#####discription: This is the place of the irtg made for the NP: "Pierre Vinken"
+##### TFB_61YearsNP.irtg
+###### date-of-creation:2018.07.26
+###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements everything it should.
+###### usage: Use this tree for example: NP2(CD(n61),NNS(years))
+##### TFB_61YearsNP_Test.irtg
+###### date-of-creation:2018.07.26
+###### discription: It is the same as TFB_61YearsNP.irtg except some features and other impruvements. For example this is the file to make the fast fixes.
+###### usage: Use this tree for example: NP2(CD(n61),NNS(years))
+##### TFB_61Years_Data
+###### date-of-creation:2018.07.26
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.
+
+####TFB_6BasicCDNP
+#####discription: This is the place of the irtg made for NP-s like: "some","big","apple","some big","some apple","big apple","some big apple"
+##### TFB_BasicCDNP.irtg
+###### date-of-creation:2018.07.25
+###### discription: This is the stable version. It contains only the three necessary algebras. A tag tree algebra for the sintactic tree, a graph algebra for the dependency graph and a graph algebra for the four lang graph. It implements everything it should.
+###### usage: Use this tree for example: NP3(DT(the),CD(nine),NN(cats))
+##### TFB_BasicCDNP_Test.irtg
+###### date-of-creation:2018.07.25
+###### discription: It is the same as TFB_BasicCDNP.irtg except some features and other impruvements. For example this is the file to make the fast fixes.
+###### usage: Use this tree for example: NP3(DT(the),CD(nine),NN(cats))
+##### TFB_BasicCDNP_Data
+###### date-of-creation:2018.07.25
+###### discription: It will contain all useable inputs, a better formed version for the biggest input and the outputs for that.

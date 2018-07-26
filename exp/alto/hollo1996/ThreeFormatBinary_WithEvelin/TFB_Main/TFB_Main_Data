@@ -55,3 +55,115 @@ four lang graph:
 	:1 (Moi /Moi) 
 	:2 (Iraq / Iraq)
 )
+
+-----------------------------------------------------------------------------------------------
+"a high level member of the Weathermen bombers"
+Input:
+NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
+
+NP2(
+	NP3(
+		DT(a),
+		JJ(high),
+		NN(level)
+	),
+	NP2(
+		NP(NN(member)),
+		PP2(
+			IN(of),
+			NP3(
+				DT(the),
+				NNP(Weathermen),
+				NNS(bombers)
+			)
+		)
+	)
+)
+
+Outputs:
+
+dependency graph:
+(level/level 
+	:det (a/a) 
+	:amod (high/high) 
+	:dep (member 
+		:nmod (bomber 
+			:det (the/the) 
+			:case (of/of) 
+			:compound (Weathermen/Weathermen)
+		)
+	)
+)
+
+four lang graph:
+(of/of
+	:2 (bomber :comp (Weathermen/Weathermen))
+	:1 (member/member)
+)
+(level/level
+	:_ (member/member)
+	:_ (high/high)
+)
+
+-----------------------------------------------------------------------------------------------
+"Pierre Vinken"
+Input:
+NP2(NNP(Pierre),NNP(Vinken))
+NP2(
+	NNP(Pierre),
+	NNP(Vinken)
+)
+
+Outputs:
+
+dependency graph:
+(Vinken / Vinken 
+	:compound (Pierre / Pierre)
+)
+
+four lang graph:
+(Vinken / Vinken 
+	:comp (Pierre / Pierre)
+)
+
+-----------------------------------------------------------------------------------------------
+"61 years"
+Input:
+NP2(CD(n61), NNS(years))
+NP2(
+	CD(n61),
+	NNS(years)
+)
+
+Outputs:
+
+dependency graph:
+(years / years :nummod (61 / 61))
+
+four lang graph:
+(years / years :_ (61 / 61))
+
+-----------------------------------------------------------------------------------------------
+"the nine cats"
+Input:
+NP3(DT(the),CD(nine),NN(cats))
+
+NP3(
+	DT(the),
+	CD(nine),
+	NN(cats)
+)
+
+Outputs:
+
+dependency graph:
+(cats<root>/ cats 
+	:det (the / the) 
+	:nummod (nine / nine)
+)
+
+four lang graph:
+(cats<root>/ cats 
+	:_ (nine / nine)
+)
+
