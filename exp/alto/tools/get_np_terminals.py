@@ -1,4 +1,5 @@
 import sys
+
 from nltk.tree import Tree
 
 TEMPLATE = ('{0} -> {1}_{0}\n[tree] {0}({1})\n[ud] "({1}<root> / {1})"\n' +
@@ -16,7 +17,7 @@ def get_np_terminals():
 
     #print(seen)
     for tuples in seen:
-         print(TEMPLATE.format(tuples[1], tuples[0]))
+         print TEMPLATE.format(tuples[1], tuples[0])
 
   
 get_np_terminals()
