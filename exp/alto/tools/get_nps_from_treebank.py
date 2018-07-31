@@ -5,6 +5,7 @@ from nltk.corpus import treebank
 from common import sanitize_word
 
 def sanitize_tree(tree):
+    tree.set_label(sanitize_word(tree.label()))
     if tree.height() == 2: #word, pos
         tree[0] = sanitize_word(tree[0]) #tree[0] == word
     else:
