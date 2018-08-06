@@ -8,6 +8,7 @@ interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
 //NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
 //NP2(NNP(Pierre),NNP(Vinken))
 //NP2(CD(n61), NNS(years))
+//NP(DT(the),CD(nine),NN(cats))
 
 
 //UPPER NODES

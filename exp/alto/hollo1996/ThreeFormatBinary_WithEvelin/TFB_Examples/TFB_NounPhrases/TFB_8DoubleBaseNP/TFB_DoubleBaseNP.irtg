@@ -1,0 +1,271 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S!-> sentence(NP)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//NounPhrase Out of one CardinalNumber
+NP -> lonelyCardinalNumber(CD)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//Basic NounPhrases
+//NounPhrase Out of one Determinant
+NP -> lonelyDeterminant(DT)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one ForeignWord
+NP -> lonelyForeignWord(FW)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one Preposition
+NP -> lonelyPreposition(IN)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one Adjective
+NP -> lonelyAdjective(JJ)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one Noun
+NP -> lonelyNoun(NN)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one PersonalPronoun
+NP -> lonelyPersonalPronoun(PRP)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one PrologePossessivePronoun
+NP -> lonelyPrologePossessivePronoun(PRP$)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one Adverb
+NP -> lonelyAdverb(RB)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one Verb
+NP -> lonelyVerb(VB)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//NounPhrase Out of one WhDeterminer
+NP -> lonelyWhDeterminer(WDT)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+
+
+//LEAVES
+//LEAVES
+
+//Cardinal Numbers
+//nine
+CD -> nine_CardinalNumber
+[tree] CD(nine)
+[ud] "(nine<root>/nine)"
+[fourlang] "(nine<root>/nine)"
+
+//Determinants
+//the
+DT -> the_Determinant
+[tree] DT(the)
+[ud] "(the<root>/the)"
+[fourlang] "(the<root>/the)"
+
+//ForeignWord
+//Perestroika
+FW -> Perestroika_ForeignWord
+[tree] FW(Perestroika)
+[ud] "(Perestroika<root>/Perestroika)"
+[fourlang] "(Perestroika<root>/Perestroika)"
+
+//Prepositions|SubordinatingConjunctions
+//that
+IN -> that_Preposition
+[tree] IN(that)
+[ud] "(that<root>/that)"
+[fourlang] "(that<root>/that)"
+
+//Adjective
+//Basic
+
+//small
+JJ -> small_Adjective
+[tree] JJ(small)
+[ud] "(small<root>/small)"
+[fourlang] "(small<root>/small)"
+
+//Comparative
+JJ -> adapter(JJR)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//smaller
+JJR -> smaller_AdjectiveComparative
+[tree] JJR(smaller)
+[ud] "(smaller<root>/smaller)"
+[fourlang] "(smaller<root>/smaller)"
+
+//Superlative
+JJ -> adapter(JJS)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//smallest
+JJS -> smallest_AdjectiveSuperlative
+[tree] JJS(smallest)
+[ud] "(smallest<root>/smallest)"
+[fourlang] "(smallest<root>/smallest)"
+
+//Nouns
+//Basic
+
+//cat
+NN -> cat_Noun
+[tree] NN(cat)
+[ud] "(cat<root>/cat)"
+[fourlang] "(cat<root>/cat)"
+
+//Plural
+NN -> adapter(NNS)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//cats
+NNS -> cats_NounPlural
+[tree] NNS(cats)
+[ud] "(cats<root>/cats)"
+[fourlang] "(cats<root>/cats)"
+
+//Proper
+NN -> adapter(NNP)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//John
+NNP -> John_NounProper
+[tree] NNP(John)
+[ud] "(John<root>/John)"
+[fourlang] "(John<root>/John)"
+
+//Plural and Proper
+NN -> adapter(NNPS)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//Engineers
+NNPS -> Engineers_NounPluralProper
+[tree] NNPS(Engineers)
+[ud] "(John<root>/John)"
+[fourlang] "(John<root>/John)"
+
+//Personal Pronouns
+//it
+PRP -> it_PronounPersonal
+[tree] PRP(it)
+[ud] "(it<root>/it)"
+[fourlang] "(it<root>/it)"
+
+//PrologePossessive Pronoun
+//her
+PRP$ -> her_PronounPrologePossessive
+[tree] PRP$(her)
+[ud] "(her<root>/her)"
+[fourlang] "(her<root>/her)"
+
+//Adverbs
+//Basic
+
+//then
+RB -> then_Adverb
+[tree] RB(then)
+[ud] "(then<root>/then)"
+[fourlang] "(then<root>/then)"
+
+//Comparative
+RB -> adapter(RBR)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//less
+RBR -> less_AdverbComparative
+[tree] RBR(less)
+[ud] "(less<root>/less)"
+[fourlang] "(less<root>/less)"
+
+//Superlative
+RB -> adapter(RBS)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//most
+RBS -> less_AdverbSuperlative
+[tree] RBS(most)
+[ud] "(most<root>/most)"
+[fourlang] "(most<root>/most)"
+
+//Verb
+//Basic
+
+//favor
+VB -> favor_Verb
+[tree] VB(favor)
+[ud] "(favor<root>/favor)"
+[fourlang] "(favor<root>/favor)"
+
+//Gerund|PresentParticiple Verb
+VB -> adapter(VBG)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+//checking
+VBG -> checking_Verb_Gerund_PresentParticiple
+[tree] VBG(checking)
+[ud] "(checking<root>/checking)"
+[fourlang] "(checking<root>/checking)"
+
+//WhDeterminer
+//that
+WDT -> that_WhDeterminer
+[tree] WDT(that)
+[ud] "(that<root>/that)"
+[fourlang] "(that<root>/that)"
+

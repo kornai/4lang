@@ -1,0 +1,648 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S!-> sentence(NP)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+
+//Double input simple NounPhrase
+//(NP (CD DIGITSBSLPERDIGITS) (NN point))
+//NounPhrase Out of a Cardinal number and a Noun 
+NP -> nummodNoun(CD,NN)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (CD DIGITS) (CD DIGITSBSLPERDIGITS))
+//NounPhrase Out of two Cardinal numbers
+NP -> nummodCardinalNumber(CD,CD)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (CD DIGITSCOLONDIGITS) (RB pPERIODm))
+//NounPhrase Out of a Cardinal number and an Adverb 
+NP -> nummodAdverb(CD,RB)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (CD DIGITS) (POS SQs))
+//NounPhrase Out of a Cardinal number and an PossessiveEnding 
+NP -> nummodPossessiveEnding(CD,POS)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (CD one) (JJ right))
+//NounPhrase Out of a Cardinal number and an Adjective 
+NP -> nummodAdjective(CD,JJ)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (DT a) (CD DIGITSHYPHENyearHYPHENold))
+//NounPhrase Out of a determiner and a CardinalNumber
+NP -> detCardinalNumber(DT,CD)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+//(NP (DT a) (JJ DIGITSHYPHENyearHYPHENold))
+//NounPhrase Out of a determiner and an Adjective
+NP -> detAdjective(DT,JJ)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+//(NP (DT all) (NN propaganda))
+//NounPhrase Out of a determiner and a Noun
+NP -> detCardinalNoun(DT,NN)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+//(NP (DT a) (RB little))
+//NounPhrase Out of a determiner and a Adverb
+NP -> detAdverb(DT,RB)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+//(NP (DT each) (VBD preferred))
+//NounPhrase Out of a determiner and a Past Verb
+NP -> detPastVerb(DT,VBD)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+//(NP (DT no) (PRP one))
+//NounPhrase Out of a determiner and a Personal Pronoun
+NP -> detPersonalPronouns(DT,PRP)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] ?2
+
+
+//(NP (IQIQ IQIQ) (NN exposure))
+//NounPhrase Out of a IQIQ and a Noun
+NP -> IQIQwithNoun(IQIQ,NN)
+[tree] NP2(?1,?2)
+[ud] ?2
+[fourlang] ?2
+
+//(NP (JJ abortionHYPHENrelated) (NNS services))
+//NounPhrase Out of an Adjective and a Noun 
+NP -> amodAdjective(JJ,NN)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (JJ fiscal) (CD DIGITS))
+//NounPhrase Out of a Adjective and a CardinalNumber 
+NP -> AmodCardinalNumber(JJ,CD)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//(NP (JJ moderate) (VBG trading))
+//NounPhrase Out of an Adjective number and a Gerund Verb 
+NP -> nummodAdjective(JJ,VBG)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (NN acid) (NN rain))
+//NounPhrase Out of two Nouns
+NP -> compound(NN,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :compound (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :comp (d<dependent>))",r_dependent(?1))),?2)
+
+
+//NounPhrase Out of a Cardinal number and a Noun 
+NP -> nounWithCardinalNumber(NN,CD)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?2))),?1)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?2))),?1)
+
+
+//case(anybody-7, 's-8)
+//(NP (NN anybody) (POS SQs))
+//NounPhrase Out of an Noun and a Possessive Ending
+NP -> nummodAdjective(NN,POS)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :case (d<dependent>))",r_dependent(?2))),?1)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?2))),?1)
+
+//(NP (NN anyone) (RB else))
+//NounPhrase Out of an Noun and a Adverb
+NP -> advmodAdjective(NN,RB)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :advmod (d<dependent>))",r_dependent(?2))),?1)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?2))),?1)
+
+
+//(NP (NN dollar) (VBG buying))
+//NounPhrase Out of a Noun and a Gerund Verb
+NP -> compoundGerund(NN,VBG)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :compound (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :comp (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (NNP Ark) (PERIOD PERIOD))
+//NounPhrase Out of a Noun and a PERIOD
+NP -> compoundPeriod(NN,PERIOD)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :compound (d<dependent>))",r_dependent(?2))),?1)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :comp (d<dependent>))",r_dependent(?2))),?1)
+
+
+//(NP (NNP Heritage) (JJ common))
+//NounPhrase Out of an Noun and an Adjective 
+NP -> amodAdjectiveRev(NN,JJ)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?2))),?1)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?2))),?1)
+
+
+//(NP (PDT all) (DT this))
+//NounPhrase Out of an PreDeterminer and a Determiner 
+NP -> predetDet(PDT,DT)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :predet (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (PRP$ her) (NN behalf))
+//NounPhrase Out of an PrologePossessive Pronoun and a Noun 
+NP -> possNoun(PRP$,NN)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :poss (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (PRP$ his) (JJ own))
+//NounPhrase Out of an PrologePossessive Pronoun and a Adjective 
+NP -> possAdjective(PRP$,JJ)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :poss (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (RB as) (JJ much))
+//NounPhrase Out of an Adverb and a Adjective 
+NP -> possAdjective(RB,JJ)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :advmod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (RB currently) (NN chairman))
+//NounPhrase Out of an Adverb and a Noun 
+NP -> advmodNoun(RB,NN)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :advmod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (RB just) (CD DIGITSPERIODDIGITS))
+//NounPhrase Out of an Adverb and a CardinalNumber 
+NP -> advmodCardinalNumber(RB,CD)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :advmod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+//(NP (RB very) (RB little))
+//NounPhrase Out of two Adverbs 
+NP -> advmodAdverb(RB,RB)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :advmod (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+/*
+
+
+//(NP (RB almost) (DT all))
+//NounPhrase Out of an PrologePossessive Pronoun and a Adjective 
+NP -> possAdjective(RB,DT)
+[tree] NP2(?1,?2)
+[ud] merge(f_dependent(merge("(r<root> :poss (d<dependent>))",r_dependent(?1))),?2)
+[fourlang] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+//Adverb with Determiner
+(NP (RB almost) (DT all))
+
+
+//Past Verb with Noun
+(NP (VBD proposed) (NN offering))
+//Gerund|PresentParticiple Verb with Plural Noun
+(NP (VBG advancing) (NNS issues))
+//Verb with Noun
+(NP (VB Put) (NN option))
+//Noun with Noun
+(NP (WP what) (RB else))
+*/
+
+
+//LEAVES
+//LEAVES
+
+
+//Cardinal Numbers
+//DIGITS
+CD -> DIGITS_CardinalNumber
+[tree] CD(DIGITS)
+[ud] "(DIGITS<root>/DIGITS)"
+[fourlang] "(DIGITS<root>/DIGITS)"
+
+//DIGITSBSLPERDIGITS
+CD -> DIGITSBSLPERDIGITS_CardinalNumber
+[tree] CD(DIGITSBSLPERDIGITS)
+[ud] "(DIGITSBSLPERDIGITS<root>/DIGITSBSLPERDIGITS)"
+[fourlang] "(DIGITSBSLPERDIGITS<root>/DIGITSBSLPERDIGITS)"
+
+//DIGITSCOLONDIGITS
+CD -> DIGITSCOLONDIGITS_CardinalNumber
+[tree] CD(DIGITSCOLONDIGITS)
+[ud] "(DIGITSCOLONDIGITS<root>/DIGITSCOLONDIGITS)"
+[fourlang] "(DIGITSCOLONDIGITS<root>/DIGITSCOLONDIGITS)"
+
+//DIGITSHYPHENyearHYPHENold
+CD -> DIGITSHYPHENyearHYPHENold_CardinalNumber
+[tree] CD(DIGITSHYPHENyearHYPHENold)
+[ud] "(DIGITSHYPHENyearHYPHENold<root>/DIGITSHYPHENyearHYPHENold)"
+[fourlang] "(DIGITSHYPHENyearHYPHENold<root>/DIGITSHYPHENyearHYPHENold)"
+
+//DIGITSPERIODDIGITS
+CD -> DIGITSPERIODDIGITS_CardinalNumber
+[tree] CD(DIGITSPERIODDIGITS)
+[ud] "(DIGITSPERIODDIGITS<root>/DIGITSPERIODDIGITS)"
+[fourlang] "(DIGITSPERIODDIGITS<root>/DIGITSPERIODDIGITS)"
+
+
+//Determinants
+//a
+DT -> a_Determinant
+[tree] DT(a)
+[ud] "(a<root>/a)"
+[fourlang] "(a<root>/a)"
+
+//all
+DT -> all_Determinant
+[tree] DT(all)
+[ud] "(all<root>/all)"
+[fourlang] "(all<root>/all)"
+
+//each
+DT -> each_Determinant
+[tree] DT(each)
+[ud] "(each<root>/each)"
+[fourlang] "(each<root>/each)"
+
+//no
+DT -> no_Determinant
+[tree] DT(no)
+[ud] "(no<root>/no)"
+[fourlang] "(no<root>/no)"
+
+//this
+DT -> this_Determinant
+[tree] DT(this)
+[ud] "(this<root>/this)"
+[fourlang] "(this<root>/this)"
+
+
+//IQIQ
+IQIQ -> IQIQ
+[tree] IQIQ1(IQIQ)
+[ud] "(''<root>/'')"
+[fourlang] "(''<root>/'')"
+
+
+//Adjective
+//Basic
+
+//abortionHYPHENrelated
+JJ -> abortionHYPHENrelated_Adjective
+[tree] JJ(abortionHYPHENrelated)
+[ud] "(abortionHYPHENrelated<root>/abortionHYPHENrelated)"
+[fourlang] "(abortionHYPHENrelated<root>/abortionHYPHENrelated)"
+
+//common
+JJ -> common_Adjective
+[tree] JJ(common)
+[ud] "(common<root>/common)"
+[fourlang] "(common<root>/common)"
+
+//DIGITSHYPHENyearHYPHENold
+JJ -> DIGITSHYPHENyearHYPHENold_Adjective
+[tree] JJ(DIGITSHYPHENyearHYPHENold)
+[ud] "(DIGITSHYPHENyearHYPHENold<root>/DIGITSHYPHENyearHYPHENold)"
+[fourlang] "(DIGITSHYPHENyearHYPHENold<root>/DIGITSHYPHENyearHYPHENold)"
+
+//fiscal
+JJ -> fiscal_Adjective
+[tree] JJ(fiscal)
+[ud] "(fiscal<root>/fiscal)"
+[fourlang] "(fiscal<root>/fiscal)"
+
+//moderate
+JJ -> moderate_Adjective
+[tree] JJ(moderate)
+[ud] "(moderate<root>/moderate)"
+[fourlang] "(moderate<root>/moderate)"
+
+//much
+JJ -> much_Adjective
+[tree] JJ(much)
+[ud] "(much<root>/much)"
+[fourlang] "(much<root>/much)"
+
+//own
+JJ -> own_Adjective
+[tree] JJ(own)
+[ud] "(own<root>/own)"
+[fourlang] "(own<root>/own)"
+
+//right
+JJ -> right_Adjective
+[tree] JJ(right)
+[ud] "(right<root>/right)"
+[fourlang] "(right<root>/right)"
+
+
+//Nouns
+//Basic
+//acid
+NN -> acid_Noun
+[tree] NN(acid)
+[ud] "(acid<root>/acid)"
+[fourlang] "(acid<root>/acid)"
+
+//age
+NN -> age_Noun
+[tree] NN(age)
+[ud] "(age<root>/age)"
+[fourlang] "(age<root>/age)"
+
+//anybody
+NN -> anybody_Noun
+[tree] NN(anybody)
+[ud] "(anybody<root>/anybody)"
+[fourlang] "(anybody<root>/anybody)"
+
+//anyone
+NN -> anyone_Noun
+[tree] NN(anyone)
+[ud] "(anyone<root>/anyone)"
+[fourlang] "(anyone<root>/anyone)"
+
+//behalf
+NN -> behalf_Noun
+[tree] NN(behalf)
+[ud] "(behalf<root>/behalf)"
+[fourlang] "(behalf<root>/behalf)"
+
+//chairman
+NN -> chairman_Noun
+[tree] NN(chairman)
+[ud] "(chairman<root>/chairman)"
+[fourlang] "(chairman<root>/chairman)"
+
+//dollar
+NN -> dollar_Noun
+[tree] NN(dollar)
+[ud] "(dollar<root>/dollar)"
+[fourlang] "(dollar<root>/dollar)"
+
+//exposure
+NN -> exposure_Noun
+[tree] NN(exposure)
+[ud] "(exposure<root>/exposure)"
+[fourlang] "(exposure<root>/exposure)"
+
+//job
+NN -> job_Noun
+[tree] NN(job)
+[ud] "(job<root>/job)"
+[fourlang] "(job<root>/job)"
+
+//offering
+NN -> offering_Noun
+[tree] NN(offering)
+[ud] "(offering<root>/offering)"
+[fourlang] "(offering<root>/offering)"
+
+//option
+NN -> option_Noun
+[tree] NN(option)
+[ud] "(option<root>/option)"
+[fourlang] "(option<root>/option)"
+
+//point
+NN -> point_Noun
+[tree] NN(point)
+[ud] "(point<root>/point)"
+[fourlang] "(point<root>/point)"
+
+//propaganda
+NN -> propaganda_Noun
+[tree] NN(propaganda)
+[ud] "(propaganda<root>/propaganda)"
+[fourlang] "(propaganda<root>/propaganda)"
+
+//Plural
+NN -> adapter(NNS)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+//services
+NNS -> services_NounPlural
+[tree] NNS(services)
+[ud] "(services<root>/services)"
+[fourlang] "(services<root>/services)"
+
+//issues
+NNS -> issues_NounPlural
+[tree] NNS(issues)
+[ud] "(issues<root>/issues)"
+[fourlang] "(issues<root>/issues)"
+
+//Proper
+NN -> adapter(NNP)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+//Ark
+NNP -> Ark_NounProper
+[tree] NNP(Ark)
+[ud] "(Ark<root>/Ark)"
+[fourlang] "(Ark<root>/Ark)"
+
+//Heritage
+NNP -> Heritage_NounProper
+[tree] NNP(Heritage)
+[ud] "(Heritage<root>/Heritage)"
+[fourlang] "(Heritage<root>/Heritage)"
+
+
+//PERIOD
+//PERIOD
+NNS -> PERIOD
+[tree] PERIOD1(PERIOD)
+[ud] "(PERIOD<root>/PERIOD)"
+[fourlang] "(PERIOD<root>/PERIOD)"
+
+
+//Predeterminer
+//all
+PDT -> all_Predeterminer
+[tree] PDT(all)
+[ud] "(all<root>/all)"
+[fourlang] "(all<root>/all)"
+
+
+//Possessive Ending
+//SQs
+POS -> SQs_PossessiveEnding
+[tree] POS(SQs)
+[ud] "(SQs<root>/SQs)"
+[fourlang] "(SQs<root>/SQs)"
+
+
+//Personal Pronouns
+//one
+PRP -> one_PronounPersonal
+[tree] PRP(one)
+[ud] "(one<root>/one)"
+[fourlang] "(one<root>/one)"
+
+//her
+PRP -> her_PronounPersonal
+[tree] PRP(her)
+[ud] "(her<root>/her)"
+[fourlang] "(her<root>/her)"
+
+
+//PrologePossessive Pronoun
+//her
+PRP$ -> her_PronounPrologePossessive
+[tree] PRP$(her)
+[ud] "(her<root>/her)"
+[fourlang] "(her<root>/her)"
+
+//his
+PRP$ -> his_PronounPrologePossessive
+[tree] PRP$(his)
+[ud] "(his<root>/his)"
+[fourlang] "(his<root>/his)"
+
+
+//Adverbs
+//Basic
+//almost
+RB -> almost_Adverb
+[tree] RB(almost)
+[ud] "(almost<root>/almost)"
+[fourlang] "(almost<root>/almost)"
+
+//as
+RB -> as_Adverb
+[tree] RB(as)
+[ud] "(as<root>/as)"
+[fourlang] "(as<root>/as)"
+
+//currently
+RB -> currently_Adverb
+[tree] RB(currently)
+[ud] "(currently<root>/currently)"
+[fourlang] "(currently<root>/currently)"
+
+//else
+RB -> else_Adverb
+[tree] RB(else)
+[ud] "(else<root>/else)"
+[fourlang] "(else<root>/else)"
+
+//just
+RB -> just_Adverb
+[tree] RB(just)
+[ud] "(just<root>/just)"
+[fourlang] "(just<root>/just)"
+
+//little
+RB -> little_Adverb
+[tree] RB(little)
+[ud] "(little<root>/little)"
+[fourlang] "(little<root>/little)"
+
+//pPERIODm
+RB -> pPERIODm_Adverb
+[tree] RB(pPERIODm)
+[ud] "(pPERIODm<root>/pPERIODm)"
+[fourlang] "(pPERIODm<root>/pPERIODm)"
+
+//very
+RB -> very_Adverb
+[tree] RB(very)
+[ud] "(very<root>/very)"
+[fourlang] "(very<root>/very)"
+
+
+//Verb
+//Basic
+//Put
+VB -> Put_Verb
+[tree] VB(Put)
+[ud] "(Put<root>/Put)"
+[fourlang] "(Put<root>/Put)"
+
+//Gerund|PresentParticiple Verb
+VB -> adapter(VBG)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+//advancing
+VBG -> advancing_Verb_Gerund
+[tree] VBG(advancing)
+[ud] "(advancing<root>/advancing)"
+[fourlang] "(advancing<root>/advancing)"
+
+//buying
+VBG -> buying_Verb_Gerund
+[tree] VBG(buying)
+[ud] "(buying<root>/buying)"
+[fourlang] "(buying<root>/buying)"
+
+//trading
+VBG -> trading_Verb_Gerund
+[tree] VBG(trading)
+[ud] "(trading<root>/trading)"
+[fourlang] "(trading<root>/trading)"
+
+//WhDeterminer
+//What
+WDT -> What_WhDeterminer
+[tree] WDT(What)
+[ud] "(What<root>/What)"
+[fourlang] "(What<root>/What)"
+
