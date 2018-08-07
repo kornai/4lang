@@ -2,11 +2,26 @@ import sys
 
 from nltk.corpus import treebank
 
+from common import REPLACE_MAP
 from common import sanitize_word
 
+def sanitize_label(tree): #sanitize labels which contain hyphens (e.g.NP-SBJ)
+    tree.set_label(tree.label().replace("-", "_"))
+
+def sanitize_pos(tree): #replace punctuation pos-tags
+    tree_label = tree.label()
+    is_punct = True
+    for character in tree_label:
+        if character not in REPLACE_MAP:
+            is_punct = False
+    if is_punct == True:
+        tree.set_label("PUNCT") 
+
+
 def sanitize_tree(tree):
-    tree.set_label(sanitize_word(tree.label()))
+    sanitize_label(tree)
     if tree.height() == 2: #word, pos
+        sanitize_pos(tree)        
         tree[0] = sanitize_word(tree[0]) #tree[0] == word
     else:
         for subtree in tree:
