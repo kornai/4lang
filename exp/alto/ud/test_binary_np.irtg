@@ -1,0 +1,141 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+// a test IRTG for the most frequent unary and binary NPs
+
+// Root:
+
+S!-> root(NP)
+[tree] ?1
+[ud] ?1
+[fourlang] ?1
+
+// Nonterminals:
+// np1:
+
+// frequency:
+
+// 109 (NP (NNS ))
+// 102 (NP (NN ))
+// 78 (NP (NNP ))
+// 14 (NP (PRP ))
+// 13 (NP (CD ))
+// 11 (NP (DT ))
+
+NP -> _one_plural_noun(NNS)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+NP -> _one_singular_noun(NN)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+NP -> _one_proper_name(NNP)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+NP -> _one_personal_pronoun(PRP)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+NP -> _one_cardinal_number(CD)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+NP -> _one_determiner(DET)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+// np2:
+
+//frequency:
+
+// 305 (NP (DT ) (NN ))
+// 157 (NP (NNP ) (NNP ))
+// 72 (NP (DT ) (NNS ))
+// 55 (NP (JJ ) (NNS ))
+// 38 (NP (JJ ) (NN ))
+// 35 (NP (PRPDOLLAR ) (NN ))
+// 29 (NP (NN ) (NNS ))
+// 27 (NP (PRPDOLLAR ) (NNS ))
+// 25 (NP (NNP ) (POS ))
+// 18 (NP (NN ) (NN ))
+// 16 (NP (CD ) (NNS ))
+// 15 (NP (CD ) (NN ))
+// 10 (NP (DT ) (NNP ))
+
+
+NP -> _det_noun(DT,NN) // example: a cat
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))",r_dep(?1))),?2)
+[fourlang] ?2 // 4lang doesn't handle determiners
+
+NP -> _two_proper_names(NNP,NNP) // example: John Smith
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :flat (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0_flat_name (d<dep>))",r_dep(?1))),?2) 
+
+NP -> _det_plural_noun(DT,NNS) // example: the cats
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))",r_dep(?1))),?2)
+[fourlang] ?2 // 4lang doesn't handle determiners
+
+NP -> _adjective_plural_noun(JJ,NNS) // example: cute cats
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))",r_dep(?1))),?2) 
+
+NP -> _adjective_noun(JJ,NN) // example: cute cat
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))",r_dep(?1))),?2)
+
+NP -> _poss_pron_noun(PRPDOLLAR,NN) // example: my cat
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nmod:poss (d<dep>))",r_dep(?1))),?2)
+[fourlang] f_dep(merge(merge(?1, "(HAS / HAS :1 (d<dep>) :2 (r<root>))"), r_dep(?2))) // i HAS cat
+
+NP -> _two_nouns_one_plural(NN,NNS) // example: electricity charges
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound_nouns (d<dep>))",r_dep(?1))),?2)
+
+NP -> _poss_pron_noun(PRPDOLLAR,NNS) // example: my cats
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nmod:poss (d<dep>))",r_dep(?1))),?2)
+[fourlang] f_dep(merge(merge(?1, "(HAS / HAS :1 (d<dep>) :2 (r<root>))"), r_dep(?2))) // i HAS cat
+
+NP -> _name_poss(NNP,POS) // example: John's
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))",r_dep(?1))),?2)
+[fourlang] ?1 // I'm not sure about this
+
+NP -> _two_nouns(NN,NN) // example: car safety
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound_nouns (d<dep>))",r_dep(?1))),?2) 
+
+NP -> _number_noun_plural(CD,NNS) // example: three dogs
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))",r_dep(?1))),?2)
+
+NP -> _number_noun(CD,NN) // example: one dog
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))",r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))",r_dep(?1))),?2)
+
+NP -> _det_plural_noun(DT,NNP) // example: the Examiner
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))",r_dep(?1))),?2)
+[fourlang] ?2 // 4lang doesn't handle determiners
+
+// Terminals:
+// cat irtg terminals > test_file
