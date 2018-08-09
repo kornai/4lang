@@ -1,0 +1,127 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//NP2(NP(NN(trouble)),PP2(IN(for),NP2(NNS(years),S(VP2(TO(to),VP(VB(come)))))))
+
+//UPPER NODES
+//UPPER NODES
+
+//VP
+VP -> _obl_case(VP, PP) // causing us trouble for years
+[tree] VP2 (?1,?2)
+[graph] r_gov_root(f_dep(merge(merge(?1, "(g<root> :obl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(merge(merge(r_gov(?1), "(d<root> :1 (g<gov>))"), ?2))
+
+SVP -> lonlyVerbPhrase(VP)
+[tree] S(?1)
+[graph] ?1
+[fourlang] ?1
+
+/*
+SpNPNP -> _iobj(VP, PRON) // us trouble
+[tree] S2
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+*/
+
+//NP
+NP -> _nmod_case(NP, PP) // killing of a cleric || trouble for years
+[tree] NP2 (?1,?2)
+[graph] f_dep(merge(merge("(g<root> :nmod (d<dep>))",?1), r_dep(?2)))
+[fourlang] merge(f_gov(merge("(d<root> :1 (g<gov>))",r_gov(?1))), ?2)
+
+VP -> _aux(VP, AUX)
+[tree] VP2(?2,?1)
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<root> :aux (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<root> :_ (d<dep>))"), r_dep(?2))))
+
+VP -> _iobj(VP, PRON) // causing us
+[tree] S2
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :iobj (d<dep>))"), r_dep(?2))))
+
+//MIDDLE NODES
+//MIDDLE NODES
+
+//Basic VerbPhrases
+VP -> lonely_verb(VERB)
+[tree] VP (?1)
+[graph] ?1
+[fourlang] ?1
+
+VP -> _mark(VP, PART)
+[tree] VP2 (?2,?1)
+[graph] f_dep(merge(merge(?1, "(g<root> :mark (d<dep>))"), r_dep(?2)))
+[fourlang] f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2)))
+
+//Basic NounPhrases
+NP -> lonely_noun(NOUN)
+[tree] NP(?1)
+[graph] ?1
+[fourlang] ?1
+
+proNP -> lonely_pronoun(PRON)
+[tree] NP(?1)
+[graph] ?1
+[fourlang] ?1
+
+NP -> _acl(NOUN, SVP) // years to come
+[tree] NP2 (?1,?2)
+[graph] f_dep(merge(merge(?1, "(g<root> :acl (d<dep>))"), r_dep(?2)))
+[fourlang] f_dep(merge(merge(?1, "(g<root> :_ (d<dep>))"), r_dep(?2)))
+
+S! -> obl(N3P)
+[tree] ?1
+[graph] f_obl(f_obj(merge("g<root> :obj (oj<obj>) :obl (ol<obl>)",?1)))
+[fourlang] f_under(f_above(merge("a<above> :1 (<root>) :2 (<under>)",?1)))
+
+
+N3P -> n3p(NP, PP) // killing of a cleric
+[tree] NP2(?1,?2)
+[graph] merge(r_obj(?1),r_obl(?2))
+[fourlang] merge(r_under(?1),r_above(?2))
+
+//Basic PrepositionPhrase
+PP -> _case_PP(NP, ADP) // with his targets
+[tree] PP2(?2,?1)
+[graph] merge(f_dep(merge("(g<root> :case (d<dep>))", r_dep(?2))), ?1)
+//[fourlang] merge("(g<gov> :2 (d<dep>))", ?2)
+[fourlang] merge(f_dep(merge("(g<root> :2 (d<dep>))",  r_dep(?1))), ?2)
+
+//LEAFS
+//LEAFS
+
+//Verbs
+VERB -> come_VERB
+[tree] VB(come)
+[graph] "(come<root> / come)"
+[fourlang] "(come<root> / come)"
+
+//Nouns
+NOUN -> trouble_NOUN
+[tree] NN(trouble)
+[graph] "(trouble<root> / trouble)"
+[fourlang] "(trouble<root> / trouble)"
+
+NOUN -> years_NOUN
+[tree] NNS(years)
+[graph] "(years<root> / years)"
+[fourlang] "(years<root> / years)"
+
+PRON -> us_PRON
+[tree] PRP(us)
+[graph] "(us<root> / us)"
+[fourlang] "(us<root> / us)"
+
+//
+PART -> to_PART
+[tree] TO(to)
+[graph] "(to<root> / to)"
+[fourlang] "(to<root> / to)"
+
+//
+ADP -> for_ADP
+[tree] IN(for)
+[graph] "(for<root> / for)"
+[fourlang] "(for<root> / for)"

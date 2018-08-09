@@ -1,0 +1,28 @@
+wide-cfg.irtg
+tynitag.irtg
+mbot.irtg
+cohn-lapata.irtg
+
+det(one-3, a-1)
+amod(one-3, small-2)
+nsubj(going-8, one-3)
+nsubj:xsubj(get-10, one-3)
+det(situation-5, The-4)
+dep(one-3, situation-5)
+aux(going-8, is-6)
+advmod(going-8, only-7)
+root(ROOT-0, going-8)
+mark(get-10, to-9)
+xcomp(going-8, get-10)
+dobj(get-10, better-11)
+det(way-13, this-12)
+dep(better-11, way-13)
+
+evelin@shironeko:~/Letöltések/stanford-parser-full-2017-06-09$ ./lexparser.sh ~/Letöltések/small_item.txt > ~/Letöltések/smallitem-parse.txt
+(az input egy sima .txt fájl, ahol minden sorban 1 mondat/kifejezés van)
+
+The situation is only going to get better this way.
+(ROOT_0 / ROOT :root (going_7 / going :advmod (only_6 / only) :nsubj (situation_2 / situation :det (The_1 / The)) :xcomp (get_9 / get :xcomp (better_10 / better :obj (way_12 / way :det (this_11 / this))) :mark (to_8 / to)) :aux (is_5 / is) :punct (PERIOD_13 / PERIOD)))
+
+evelin@student:~/alto/exp/EN/en_train_nolarge.graphs
+

@@ -1,0 +1,306 @@
+x
+
+(ROOT_0 / ROOT 
+	:root (causing_10 / causing 
+		:aux (be_9 / be) 
+		:obj (trouble_12 / trouble) 
+		:punct (RSB_18 / RSB) 
+		:punct (PERIOD_17 / PERIOD) 
+		:iobj (us_11 / us) 
+		:nsubj (killing_3 / killing 
+			:det (This_2 / This) 
+			:nmod (cleric_7 / cleric 
+				:case (of_4 / of) 
+				:amod (respected_6 / respected) 
+				:det (a_5 / a)
+			)
+		) 
+		:aux (will_8 / will) 
+		:punct (LSB_1 / LSB) 
+		:obl (years_14 / years 
+			:acl (come_16 / come 
+				:mark (to_15 / to)
+			) 
+			:case (for_13 / for)
+		)
+	)
+)
+
+(killing_3 / killing :det (This_2 / This) :nmod (cleric_7 / cleric :case (of_4 / of) :amod (respected_6 / respected) :det (a_5 / a)))
+
+
+
+S! -> _root(VERB)
+[tree]
+[graph] merge("(ROOT / ROOT :root (d<dep>))", r_dep(?1))
+[fourlang] ?1
+
+VERB -> _punct(VERB, PUNCT)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+PROPN -> _punct(PROPN, PUNCT)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+NOUN -> _punct(NOUN, PUNCT)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+ADJ -> _punct(ADJ, PUNCT)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+DET -> _punct(DET, PUNCT)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+PART -> _punct(PART, PUNCT) // not:
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :punct (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+VERB -> _nsubj(VERB, PRON) // they busted
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+VERB -> _nsubj(VERB, NOUN)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+DET -> _nsubj(DET, VERB) // "They are targetting ambulances" is all you get to hear from him.
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+VERB -> _nsubj(VERB, PRON) // it reminds me
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+VERB -> _nsubj(VERB, PROPN)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+VERB -> _nsubj(VERB, X) // as far as George knew
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+ADV -> _nsubj(ADV, PROPN) // than Bush did then
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+NOUN -> _nsubj(NOUN, PRON) // this is not a post
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+PROPN -> _nsubj(PROPN, PROPN) // Kut is in Iraq
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+PROPN -> _nsubj(PROPN, NUM) // One of them was from the Jubur tribe
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+NOUN -> _nsubj(NOUN, NOUN) // this willingness is the main difference
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+ADJ -> _nsubj(ADJ, PROPN) // The MoI in Iraq is equivalent to the US FBI
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+ADJ -> _nsubj(ADJ, PRON) // it is significant
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :nsubj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :1 (d<dep> :0 g))"), r_dep(?2))))
+
+VERB -> _obj(VERB, PROPN)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+VERB -> _obj(VERB, PRON) // it reminds me
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+VERB -> _obj(VERB, NOUN)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+VERB -> _obj(VERB, NUM) // an attack that left 6 dead, including 4 Iraqi soldiers
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+VERB -> _obj(VERB, DET) // read some
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+ADJ -> _obj(ADJ, NOUN) // going to get better this way
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :obj (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :2 (d<dep>))"), r_dep(?2))))
+
+PROPN -> _acl(PROPN, VERB)
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :acl (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+NOUN -> _mark(NOUN, SCONJ) // while their way home
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+
+VERB -> _mark(VERB, SCONJ) // that they had busted up
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :mark (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :_ (d<dep>))"), r_dep(?2))))
+
+ADJ -> _det(ADJ, DET) // the third
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+
+PROPN -> _det(PROPN, DET) // the Ministry
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :det (d<dep>))"), r_dep(?2))))
+
+NOUN -> _amod(NOUN, VERB) // the following links
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+NOUN -> _amod(NOUN, ADJ) // respected cleric
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+PROPN -> _amod(PROPN, ADJ) // southeastern Iraq
+[tree]
+[graph] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :amod (d<dep>))"), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge(r_gov(?1), "(g<gov> :is_a (d<dep>))"), r_dep(?2))))
+
+AUX -> will_AUX
+[tree] MD(will)
+[graph] "(will<root> / will)"
+[fourlang] "(will<root> / will)"
+
+AUX -> be_AUX
+[tree] VB(be)
+[graph] "(be<root> / be)"
+[fourlang] "(be<root> / be)"
+
+VERB -> causing_VERB
+[tree]
+[graph] "(causing<root> / causing)"
+[fourlang] "(causing<root> / causing)"
+
+PRON -> us_PRON
+[tree] PRP(us)
+[graph] "(us<root> / us)"
+[fourlang] "(us<root> / us)"
+
+PUNCT -> PERIOD_PUNCT
+[tree] PT(.)
+[graph] "(PERIOD<root> / PERIOD)"
+[fourlang] "(PERIOD<root> / PERIOD)"
+
+PUNCT -> LRB_PUNCT
+[tree] PT([)
+[graph] "(LRB<root> / LRB)"
+[fourlang] "(LRB<root> / LRB)"
+
+PUNCT -> RRB_PUNCT
+[tree] PT(])
+[graph] "(RRB<root> / RRB)"
+[fourlang] "(RRB<root> / RRB)"
+
+(ROOT
+  (S
+    (NP
+      (NP (DT This) (NN killing))
+      (PP (IN of)
+        (NP (DT a) (JJ respected) (NN cleric))))
+    (VP (MD will)
+      (VP (VB be)
+        (VP (VBG causing)
+          (S
+            (NP (PRP us))
+            (NP
+              (NP (NN trouble))
+              (PP (IN for)
+                (NP (NNS years)
+                  (S
+                    (VP (TO to)
+                      (VP (VB come)))))))))))
+    (. .)))
+
+ROOT(
+	S3(
+		NP2(
+			NP2(
+				DT(This),
+				NN(killing)
+			),
+			PP(
+				IN(of),
+				NP3(
+					DT(a),
+					JJ(respected),
+					NN(cleric)
+				)
+			)
+		),
+		VP2(
+			MD(will),
+			VP2(
+				VB(be),
+				VP2(
+					VBG(cousing),
+					S2(
+						NP(PRP(us)),
+						NP2(
+							NP(NN(trouble)),
+							PP(
+								IN(for),
+								NP2(
+									NNS(years),
+									S(
+										VP(
+											TO(to),
+											VP(VB(come))
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		.(.)
+	)
+)
+
+_root(_iobj(_punct(_punct(_punct(_nsubj(_obj(_obl_case(_aux(_aux(causing_VERB,be_AUX),will_AUX),_case_PP(_acl(years_NOUN,_mark(come_VERB,to_PART)),for_ADP)),trouble_NOUN),_det(_nmod_case(killing_NOUN,_case_PP(_amod(_det(cleric_NOUN,a_DET),respected_ADJ),of_ADP)),This_DET)),LSB_PUNCT),RSB_PUNCT),PERIOD_PUNCT),us_PRON))

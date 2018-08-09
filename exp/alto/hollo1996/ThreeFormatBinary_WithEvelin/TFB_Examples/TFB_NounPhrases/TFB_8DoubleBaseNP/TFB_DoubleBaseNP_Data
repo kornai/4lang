@@ -1,0 +1,188 @@
+/*
+
+W -> bla_Word
+[syntacticTree] W(bla)
+[dependencyGraph] "(bla<root> / bla)"
+[fourlangGraph] "(bla<root> / bla)"
+
+//CardinalNumber with Noun
+(NP (CD DIGITSBSLPERDIGITS) (NN point))
+//CardinalNumber with CardinalNumber
+(NP (CD DIGITS) (CD DIGITSBSLPERDIGITS))
+//CardinalNumber with Adverb
+(NP (CD DIGITSCOLONDIGITS) (RB pPERIODm))
+//CardinalNumber with Possessive Ending
+(NP (CD DIGITS) (POS SQs))
+//CardinalNumber with Adjective
+(NP (CD one) (JJ right))
+
+//Determiner with CardinalNumber
+(NP (DT a) (CD DIGITSHYPHENyearHYPHENold))
+//Determiner with Adjective
+(NP (DT a) (JJ DIGITSHYPHENyearHYPHENold))
+//Determiner with Noun
+(NP (DT all) (NN propaganda))
+//Determiner with Adverb
+(NP (DT a) (RB little))
+//Determiner with Past Verb
+(NP (DT each) (VBD preferred))
+//Determiner with Past Verb
+(NP (DT no) (PRP one))
+
+//IQIQ with Noun
+(NP (IQIQ IQIQ) (NN exposure))
+
+//Adjective with Plural Noun
+(NP (JJ abortionHYPHENrelated) (NNS services))
+//Adjective with CardinalNumber
+(NP (JJ fiscal) (CD DIGITS))
+//Adjective with Gerund|PresentParticiple Verb
+(NP (JJ moderate) (VBG trading))
+
+//Noun with Noun
+(NP (NN acid) (NN rain))
+//Noun with CardinalNumber
+(NP (NN age) (CD DIGITS))
+//Noun with Possessive Ending
+(NP (NN anybody) (POS SQs))
+//Noun with Adverb
+(NP (NN anyone) (RB else))
+//Noun with Gerund|PresentParticiple Verb
+(NP (NN dollar) (VBG buying))
+//Proper Noun with PERIOD
+(NP (NNP Ark) (PERIOD PERIOD))
+//Proper Noun with Adjective
+(NP (NNP Heritage) (JJ common))
+
+(NP (PDT all) (DT this))
+(NP (PRP$ her) (NN behalf))
+(NP (PRP her) (NN job))
+(NP (PRP$ his) (JJ own))
+
+//Adverb with Determiner
+(NP (RB almost) (DT all))
+//Adverb with Adjective
+(NP (RB as) (JJ much))
+//Adverb with Noun
+(NP (RB currently) (NN chairman))
+//Adverb with CardinalNumber
+(NP (RB just) (CD DIGITSPERIODDIGITS))
+//Adverb with Adverb
+(NP (RB very) (RB little))
+
+//Past Verb with Noun
+(NP (VBD proposed) (NN offering))
+//Gerund|PresentParticiple Verb with Plural Noun
+(NP (VBG advancing) (NNS issues))
+//Verb with Noun
+(NP (VB Put) (NN option))
+//Noun with Noun
+(NP (WP what) (RB else))
+
+//CardinalNumber
+CD
+DIGITS
+DIGITSBSLPERDIGITS
+DIGITSCOLONDIGITS
+DIGITSHYPHENyearHYPHENold
+DIGITSPERIODDIGITS
+
+//Determiner
+DT
+all
+this
+no
+each
+a
+
+//IQIQ
+IQIQ
+
+//Adjective
+JJ
+right
+DIGITSHYPHENyearHYPHENold
+abortionHYPHENrelated
+fiscal
+moderate
+common
+own
+much
+
+//Noun
+NN
+point
+option
+offering
+chairman
+job
+behalf
+dollar
+anyone
+anybody
+age
+acid
+exposure
+propaganda
+
+//Proper Noun
+NNP
+Ark
+Heritage
+
+//Plural Noun
+NNS
+services
+issues
+
+//PERIOD
+PERIOD
+
+//Predeterminer
+PDT
+all
+
+//Possessive Ending
+POS
+SQs
+
+//Personal Pronoun
+PRP
+one
+her
+
+//Possessive Pronoun
+PRP$
+her
+his
+
+//Adverb
+RB
+pPERIODm
+little
+else
+almost
+as
+currently
+just
+very
+
+//Verb
+VB
+Put
+
+//Gerund|PresentParticiple Verb
+VBG
+trading
+buying
+advancing
+
+//Past Verb
+VBD
+preferred
+proposed
+
+//Wh-Pronoun
+WP What
+
+*/

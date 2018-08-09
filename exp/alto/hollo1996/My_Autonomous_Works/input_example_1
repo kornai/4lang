@@ -1,0 +1,7 @@
+# IRTG unannotated corpus file, v1.0
+# interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
+
+S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))
+
+S(NP2(DT(this),NN(item)),VP(VBZ(is)),UCP(NP3(DT(a),JJ(small),CD(one)),CC(and),VP2(ADVP(RB(easily)),VBN(missed))))

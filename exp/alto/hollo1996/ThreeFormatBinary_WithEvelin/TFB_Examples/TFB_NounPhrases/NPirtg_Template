@@ -1,0 +1,46 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+BASE -> base
+[syntacticTree] BASE(nope)
+[dependencyGraph] "(nope<root>/nope)"
+[fourlangGraph] "(nope<root>/nope)"
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S! -> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//MIDDLE NODES
+//MIDDLE NODES
+
+//NounPhrases
+
+//PrepositionalPhrases
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NounPhrases
+
+
+
+//LEAVES
+//LEAVES
+
+//Nouns
+
+//Determinants
+
+//Adjectives
+
+//Prepositions and subordinating conjunctions

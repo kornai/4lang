@@ -1,0 +1,15 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation graph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+S! -> S(N3P)
+[graph] f_np(f_pp(merge("(n3p<root>/n3p :_ <np> :_ <pp>)",?1)))
+
+N3P -> N3P(NP,PP)
+[graph] merge(r_np(?1),r_pp(?2))
+
+
+PP -> PP
+[graph] "(pp<root>/pp :_ PP)"
+
+NP -> NP
+[graph] "(np<root>/np :_ NP)"

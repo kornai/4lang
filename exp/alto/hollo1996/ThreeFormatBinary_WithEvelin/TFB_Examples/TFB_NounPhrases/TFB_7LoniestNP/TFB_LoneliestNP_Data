@@ -1,0 +1,26 @@
+possible inputs:
+NP(DT(some))
+NP(JJ(big))
+NP(NN(apple))
+NP(DT(some),JJ(big))
+NP(DT(some),NN(apple))
+NP(JJ(big),NN(apple))
+NP(DT(some),JJ(big),NN(apple))
+
+syntactic tree:
+NP(
+	DT(some),
+	JJ(big),
+	NN(apple)
+)
+
+dependency graph:
+(apple<root>/ apple 
+	:det (some / some) 
+	:amod (big / big)
+)
+
+four lang graph:
+(apple<root>/ apple 
+	:_ (big / big)
+)

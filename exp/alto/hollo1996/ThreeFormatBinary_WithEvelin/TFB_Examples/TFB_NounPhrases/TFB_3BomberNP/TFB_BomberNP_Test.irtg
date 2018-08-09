@@ -1,0 +1,126 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+//input:
+//NP2(NP3(DT(a),JJ(high),NN(level)),NP2(NP(NN(member)),PP2(IN(of),NP3(DT(the),NNP(Weathermen),NNS(bombers)))))
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S! -> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//MIDDLE NODES
+//MIDDLE NODES
+
+//NounPhrases
+//NounPhrase Out of a NounPhrase and a PrepositionalPhrase
+NP -> nounPhWithPrepositionalPh(NP,PP)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nmod (d<dependent>))",r_dependent(?2))),?1)
+[fourlangGraph] merge(f_dependent(merge("(d<dependent> :1 (r<root>))",r_dependent(?2))),?1)
+
+NP -> doubleNounPhrase(NP,NP)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :dep (d<dependent>))",r_dependent(?2))),?1)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?2))),?1)
+
+//PrepositionalPhrases
+//PrepositionalPhrases Out of a Preposition or subordinating conjunction and a NounPhrase
+PP -> inWithNoun(IN,NP)
+[syntacticTree] PP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :case (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :2 (d<dependent>))",r_dependent(?2))),?1)
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NounPhrases
+//NounPhrase Out of one Noun
+NP -> lonelyNoun(NN)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of a Determinant and a part
+
+//Connecting the Determinant to the NounPhrase
+NP -> compoundWithDeterminant(DT,NP_BAR)
+[syntacticTree] @(?2,?1)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+//Connecting the Adjective and the Noun
+NP_BAR -> nounWithAdjectivePart(JJ,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+//Connecting two nouns 
+NP_BAR -> compoundPart(NN,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :compound (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :comp (d<dependent>))",r_dependent(?1))),?2)
+
+
+
+//LEAVES
+//LEAVES
+
+//Nouns
+//level
+NN -> levelNoun
+[syntacticTree] NN(level)
+[dependencyGraph] "(level<root>/level)"
+[fourlangGraph] "(level<root>/level)"
+
+//member
+NN -> memberNoun
+[syntacticTree] NN(member)
+[dependencyGraph] "(member<root>/member)"
+[fourlangGraph] "(member<root>/member)"
+
+//bombers
+NN -> bombersNoun
+[syntacticTree] NNS(bombers)
+[dependencyGraph] "(bombers<root>/bombers)"
+[fourlangGraph] "(bombers<root>/bombers)"
+
+//Weathermen
+NN -> WeathermenNoun
+[syntacticTree] NNP(Weathermen)
+[dependencyGraph] "(Weathermen<root>/Weathermen)"
+[fourlangGraph] "(Weathermen<root>/Weathermen)"
+
+//Determinants
+//a
+DT -> aDeterminant
+[syntacticTree] DT(a)
+[dependencyGraph] "(a<root>/a)"
+[fourlangGraph] "(a<root>/a)"
+
+//the
+DT -> theDeterminant
+[syntacticTree] DT(the)
+[dependencyGraph] "(the<root>/the)"
+[fourlangGraph] "(the<root>/the)"
+
+//Prepositions and subordinating conjunctions
+//of
+IN -> ofPrepositions
+[syntacticTree] IN(of)
+[dependencyGraph] "(of<root>/of)"
+[fourlangGraph] "(of<root>/of)"
+
+//Adjectives
+//high
+JJ -> highAdjective
+[syntacticTree] JJ(high)
+[dependencyGraph] "(high<root>/high)"
+[fourlangGraph] "(high<root>/high)"

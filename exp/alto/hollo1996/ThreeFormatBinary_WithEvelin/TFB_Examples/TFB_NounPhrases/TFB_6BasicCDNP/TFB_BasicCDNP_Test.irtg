@@ -1,0 +1,104 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+/*
+possible inputs:
+NP(DT(the))
+NP(CD(nine))
+NP(NNS(cats))
+NP2(DT(the),CD(nine))
+NP3(DT(the),NNS(cats))
+NP3(CD(nine),NNS(cats))
+NP3(DT(the),CD(nine),NNS(cats))
+*/
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S!-> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NounPhrases
+//NounPhrase Out of one Determinant
+NP -> lonelyDeterminant(DT)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of one Cardinal number
+NP -> lonelyCardinalNumber(CD)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of one Noun
+NP -> lonelyNoun(NN)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of a Determinant and an Cardinal number 
+NP -> cardinalNumberWithDeterminant(DT,CD)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+
+//NounPhrase Out of a Determinant and a Noun 
+NP -> nounWithDeterminant(DT,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+
+//NounPhrase Out of a Cardinal number and a Noun 
+NP -> nounWithCardinalNumber(CD,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//NounPhrase Out of a Determinant, an Cardinal number, and a Noun
+
+//Connecting the Determinant to the NounPhrase
+NP -> partWithDeterminant(DT,NP_BAR)
+[syntacticTree] @(?2,?1)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+//Connecting the Cardinal number and the Noun
+NP_BAR -> nounWithCardinalNumberPart(CD,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :nummod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+
+//LEAFS
+//LEAFS
+
+//Nouns
+//cats
+NN -> catsNoun
+[syntacticTree] NNS(cats)
+[dependencyGraph] "(cats<root>/cats)"
+[fourlangGraph] "(cats<root>/cats)"
+
+//Determinants
+//the
+DT -> theDeterminant
+[syntacticTree] DT(the)
+[dependencyGraph] "(the<root>/the)"
+[fourlangGraph] "(the<root>/the)"
+
+//Cardinal numbers
+//nine
+CD -> nineCardinalNumber
+[syntacticTree] CD(nine)
+[dependencyGraph] "(nine<root> / nine)"
+[fourlangGraph] "(nine<root> / nine)"

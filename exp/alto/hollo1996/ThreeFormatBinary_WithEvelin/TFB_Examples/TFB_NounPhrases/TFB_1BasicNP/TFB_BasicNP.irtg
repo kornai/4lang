@@ -1,0 +1,95 @@
+interpretation syntacticTree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation dependencyGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlangGraph: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+
+
+//UPPER NODES
+//UPPER NODES
+
+//entry point
+S!-> sentence(NP)
+[syntacticTree] ?1
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+
+
+//LOWER NODES
+//LOWER NODES
+
+//Basic NounPhrases
+//NounPhrase Out of one Determinant
+NP -> lonelyDeterminant(DT)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of one Adjective
+NP -> lonelyAdjective(JJ)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of one Noun
+NP -> lonelyNoun(NN)
+[syntacticTree] NP(?1)
+[dependencyGraph] ?1
+[fourlangGraph] ?1
+
+//NounPhrase Out of a Determinant and an Adjective 
+NP -> adjectiveWithDeterminant(DT,JJ)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+
+//NounPhrase Out of a Determinant and a Noun 
+NP -> nounWithDeterminant(DT,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+
+//NounPhrase Out of a Determinant and a Noun 
+NP -> nounWithAdjective(JJ,NN)
+[syntacticTree] NP2(?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+//NounPhrase Out of a Determinant, an Adjective, and a Noun
+
+//Connecting the Determinant to the NounPhrase
+NP -> nounWithDeterminantAndAdjective(DT,NP_BAR)
+[syntacticTree] @(?2,?1)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :det (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] ?2
+//Connecting the Adjective and the Noun
+NP_BAR -> nounWithAdjectivePart(JJ,NN)
+[syntacticTree] NP3(*,?1,?2)
+[dependencyGraph] merge(f_dependent(merge("(r<root> :amod (d<dependent>))",r_dependent(?1))),?2)
+[fourlangGraph] merge(f_dependent(merge("(r<root> :_ (d<dependent>))",r_dependent(?1))),?2)
+
+
+
+//LEAFS
+//LEAFS
+
+//Nouns
+//apple
+NN -> appleNoun
+[syntacticTree] NN(apple)
+[dependencyGraph] "(apple<root>/apple)"
+[fourlangGraph] "(apple<root>/apple)"
+
+//Determinants
+//some
+DT -> someDeterminant
+[syntacticTree] DT(some)
+[dependencyGraph] "(some<root>/some)"
+[fourlangGraph] "(some<root>/some)"
+
+//Adjectives
+//big
+JJ -> bigAdjective
+[syntacticTree] JJ(big)
+[dependencyGraph] "(big<root>/big)"
+[fourlangGraph] "(big<root>/big)"
