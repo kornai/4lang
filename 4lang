@@ -108,6 +108,7 @@ Cuba	Kuba	#	#	2889		N	state/76, @Cuba
 December	december	December	grudzien1	454		N	month, FOLLOW november, january FOLLOW	
 Denmark	Da1nia	#	#	2840		N	country, @Denmark	
 Devon	Devon	#	#	3200		N	land, @Devon	
+Dr	Dr.	#	#	#		A	title, professional	Longman real DV
 EU	EU	#	#	3148		N	political(unit), @European_Union	
 Egypt	Egyiptom	#	#	2841		N	country, @Egypt	
 Einstein	Einstein	#	#	3185		N	@Albert_Einstein	
@@ -326,6 +327,7 @@ advice	tana1cs	consilium	rada	2299		N	=POSS[person] THINK should[other(person) D
 advise	tana1csol	suadeo	radzic1	2301		V		
 affair	eset	eventus	sprawa	694		N	activity[<public>,<political>]	
 affairs	u2gy	causa	sprawy	2487		N	affair	
+affect	e1rint	#	#	#		V	=AGT CAUSE =PAT[change]	Longman real DV
 affix	toldale1k	affixum	przypia1c1	2426		N		
 afford	megtehet	possum_facere	pozwalac1_sobie	1649		V	=AGT HAS resource[<money>,<time>], resource FOR/2782 =PAT, =AGT[can/1246]	
 afraid	fe1lo3	timens/timendus	przestraszony	735		A	fear	
@@ -352,6 +354,7 @@ alcohol	alkohol	alcohol	alkohol	158	u	N	liquid, <drink>, <CAUSE person[drunk]>
 alcoholic	szeszes	vinolentus	alkoholowy	2206	u	A	alcohol IN/2758	
 alike	egyforma	aequabilis	podobny	577		A	similar	
 alive	e1lo3	vivus	z1ywy	507		A	life	ND
+alkali	alka1li	#	#	#		A	substance, [WITH/3412 acid] CAUSE [MAKE salt] 	Longman real DV
 all	mind	omnis	wszyscy	1695	u	N		primitive
 all-male	fe1rfi-	#	#	3323		A	male	1
 all_right	rendben	ordine	w_porza1dku	2008		A		
@@ -440,6 +443,7 @@ aside	el	seorsum	na_bok	590		D	AT/2744 side, away
 ask	ke1rdez	quaero	pytac1	1253	u	V	communicate, =AGT SAY want	HUN ke1r
 asleep	alva	dormiens	s1pia1cy	164		A	sleep	
 association	egylet	societas	zwia1zek	581		N	group, people	
+asterisk	betu3	#	#	#		N	letter/278, star	Longman real DV
 at	-na1l	apud	u	2744	u	G	=PAT[place/1026]	
 at	-ra	apud	przy	39	u	G		English is primitive, Hungarian hadled in dep_to_4lang, Latin deferred 
 atmosphere	le1gko2r	#	#	3379		N	AT/2744 =POSS, lack(' SEE), air, place/2326 HAS, <feeling>, <gas>	
@@ -485,8 +489,8 @@ bake	su2l	coquor	piec_sie1	2128		U
 bake	su2t	coquo	piec	2130		V	cook/825, =PAT[<bread>, <cake>], =AGT CAUSE =PAT[hard]	
 balance	egyensu1ly	aequilibrium	ro1wnowaga	566		N	stable, weight ON side, weight ON other(side), state/77, lack(change)	
 balance	me1rleg	libra	waga	1607		N	device, weigh, HAS <two>(pan), after(level), motion[lack, after]	
-ball	labda	pila	pil1ka	2713	u	N	artefact, round, <sport INSTRUMENT>	labda, golyo1
 ball	ba1l	saltatio	bal	198	u	N		see 2713 „labda, golyo1”
+ball	labda	pila	pil1ka	2713	u	N	artefact, round, <sport INSTRUMENT>	labda, golyo1
 ball-shaped	go2mb_alaku1	#	#	3322		A	HAS ball(shape)	1
 banana	bana1n	bananus	banan	225		N	fruit, long, HAS skin[thick/2752,yellow]	naive_theo HAS pulp[white], HAS lack(seed)
 band	zenekar	symphonia	zespo1l1	2678		N	group, musician, <popular>	
@@ -502,8 +506,9 @@ barley	zab	avena	owies	2670		N
 barrel	hordo1	cupa	baryl1ka	1082		N	cylinder, contain, HAS top, HAS bottom	
 barren	meddo3	sterilis	bezpl1odny	1613		A	MAKE child, make[can/1246[lack]]	MAKE lack(chid)
 base	alap	fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	
-base	ba1zis	NA	baza	2755	u	N	artefact, IN/2758 @Baseball, four(corner), run TOUCH	
 base	aljas	abiectus	niski	153	u	A		see 146 and 2757
+base	ba1zis	NA	baza	2755	u	N	artefact, IN/2758 @Baseball, four(corner), run TOUCH	
+baseball	baseball	#	#	#		N	game, ball PART_OF, two(group) PART_OF	Longman real DV
 basic	alapveto3	#	#	3050		A	other NEED	
 basin	ta1l	lanx	misa	2274		N		
 basket	kosa1r	corbis	kosz	1437		N	container, net, carry	
@@ -564,6 +569,7 @@ big	nagy	magnus	duz1y	1744	u	A	ER'
 bill	cso3r	rostrum	dzio1b	421		N	beak	
 bill	sza1mla	ratio	rachunek	2140		N	list, price ON	
 bill	to2rve1nyjavaslat	#	#	2745		N		
+billiards	billiards	#	#	#		N	game, ball PART_OF, two(person) PART_OF, table PART_OF	Longman real DV
 bind	ko2t	ligo	wia1zac1	1393		U	tie	
 bird	mada1r	avis	ptak	1576	u	N	vertebrate, MAKE egg, HAS feather, HAS two(wing)	naive_theo: sit ON egg
 birth	szu2lete1s	ortus	narodziny	2263		N	born	
@@ -648,6 +654,7 @@ brownish	barna1s	#	#	2971		A	brown[slight]
 brownish-grey	barna1sszu2rke	#	#	3240		A	grey, brown	2
 brownish-yellow	barna1s-sa1rga	#	#	3315		A	yellow, brown	1
 brush	kefe	peniculus	szczotka	1277	u	N	device, HAS hair/3359, HAS handle, clean INSTRUMENT, polish INSTRUMENT, paint INSTRUMENT	
+bubble	bubore1k	#	#	#		N	air, IN liquid	Longman real DV
 bucket	vo2do2r	hama	wiadro	2656		N		
 build	e1pi1t	aedifico	budowac1	513		V	make, =PAT[<building>] HAS structure, before(material), thing PART_OF =PAT	
 building	e1pu2let	aedificium	budynek	3125	u	N	artefact, structure, lack(outdoor) IN/2758, HAS roof, HAS more(wall), <house>	
@@ -717,6 +724,7 @@ cell	elem	membrum/particula/pila_electrica	komo1rka	609	u	N	electric(energy) IN/
 cell	sejt	cella	komo1rka	2076	u	N	place/1026, HAS border, small, space/2327	
 cement	cement	lithocolla	cement	367		N	material, build INSTRUMENT	
 cent	cent	teruncius	cent	368	u	N	amount, <money>, small	
+centre	ko2ze1p	centrum	centrum	#		N	centre	Longman real DV
 centre	ko2ze1ppont	centrum	centrum	1412	u	N	middle	
 century	e1vsza1zad	saeculum	stulecie	547		N	period, hundred(year)	
 cereal	gabona	#	#	3340		N	food FROM/2742 grain, plant AT/2744 agriculture, wheat IS_A, rice IS_A	
@@ -750,6 +758,7 @@ cheese	sajt	caseus	ser	2060		N	food, solid, FROM/2742 milk, <yellow>, <white>
 chemical	vegyi	chemicus	chemiczny	2602		A	chemistry	
 chemistry	ke1mia	chemia	chemia	1239		N	science, ABOUT material, ABOUT atom	ABOUT molecule
 cheque	csekk	gyrus	czek	397		N	paper, write ON, amount ON, signature ON, pay/812 INSTRUMENT	
+chess	sakk	#	#	#		N	game, two(person) PART_OF, board PART_OF, king PART_OF	Longman real DV
 chest	mell	pectus	piers1	1657		N	front, PART_OF trunk/2759	
 chew	ra1g	rodo	z1uc1	1983		N	bite/1001, CAUSE[=PAT[fluid]]	
 chew_up	megra1g	arrodo	z1uc1	1638		V		no xml
@@ -849,6 +858,7 @@ condition	ko2ru2lme1ny	status	warunek	2699	u	N	situation	content: modify
 conditions	ko2ru2lme1nyek	status	warunki	3433	u	N		
 conduct	vezet	#	#	3353		V	=AGT CAUSE[=PAT AT/2744 goal], <energy[flow] IN/2758>	
 cone	ku1p	#	#	2703		N	object, HAS one(side), HAS flat(bottom), HAS peak	
+confidence	bizalom	#	#	#		N	trust	Longman real DV
 confident	magabiztos	#	#	3027		A	THINK good[self, after, sure]	sure
 confine	elza1r	claudo	zamkna1c1	657		V	keep/1646, bind	
 conflict	visza1ly	#	#	3364		N	lack(agree), fight, two AT/2744, <must[choose]>	
@@ -867,6 +877,7 @@ consonant	egybehangzo1	congruens	wspo1l1brzmia1cy	560		A	agree
 consonant	ma1ssalhangzo1	consonans	spo1l1gl1oska	1572		N	sound/993, PART_OF speech	
 constant	a1llando1	#	#	3365		A	lack(change)	
 consume	elfogyaszt	absumo	konsumowac1	618		V	=AGT USE[resource,<time>,<energy>,<food>,<drink>]	contradicting defaults
+consumer	fogyaszto1	#	#	#		N	person, buy, USE service	Longman real DV
 contact	e1rintkeze1s	#	#	3366		N	thing AT/2744 other(thing)	
 contain	tartalmaz	contineo	zawierac1	2313	u	V	=PAT IN/2758 =AGT	
 container	tarta1ly	vasculum	pojemnik	2801	u	N	artefact, contain	
@@ -1059,6 +1070,7 @@ disease	ko1r	morbus	choroba	1370	u	N	bad(situation), organ IN/2758	HAS symptom
 dish	e1tel	cibus	potrawa	541		N	food, PART_OF meal	
 dish	ta1l	lanx	naczynie	2275		N	open/1814, food IN/2758	
 dishonest	tisztesse1gtelen	fraudulentus	nieszczery	3445	u	N		
+disk	lemez	#	#	#		N	device, CONTAIN information	Longman real DV
 dismiss	elhesseget	absterreo	odprawic1	623		V	employ[lack, after]	HUN elbocsa1t
 dissolve	old	diluo	rozpuszczac1	1902		V		no xml
 distance	ta1v	distantia	odlegl1os1c1	2290	u	N	space/2327 HAS size, space/2327 BETWEEN	
@@ -1071,6 +1083,7 @@ ditch	a1rok	fossa	ro1w	91		N	hole, long, IN/2758 earth, artificial, <water[move]
 divide	oszt	divido	dzielic1	1919	u	V	split	
 division	re1sz	pars	dywizja	1996		N		no xml
 do	tesz	facio	robic1	2372	u	N	cause, =AGT[animal], =PAT[happen]	
+dock	dokk	#	#	#		N	place/1026, PART_OF port	Longman real DV
 doctor	orvos	medicus	lekarz	1914		N	person, heal	
 document	irat	litterae	dokument	1150		N	written, <paper>, official	
 dog	kutya	canis	pies	1465	u	N	animal, carnivorous, faithful	ND
@@ -1345,8 +1358,8 @@ flow	folyik	fluo	pl1yna1c1	847	u	V	move[smooth], <fluid>
 flower	vira1g	flos	kwiat	2637		N	plant HAS, <HAS colour>	
 fluid	folyade1k	#	#	3143		N	thing, HAS lack(shape)	
 fly	repu2l	volo	latac1	2018	u	U	move, =AGT IN/2758 air, control	
-fold	o2sszehajt	congregatio	owczarnia	2725	u	N	group, [religious (people)] IN/2758	ND Hun gyu2lekezet
 fold	fe1lbehajt	complico	zl1oz1yc1	733	u	V	bend/975, =AGT CAUSE[half ON other(half)]	
+fold	o2sszehajt	congregatio	owczarnia	2725	u	N	group, [religious (people)] IN/2758	ND Hun gyu2lekezet
 follow	ko2vet	sequor	poda1z1ac1	1400	u	V	=AGT HAS direction, =PAT HAS direction, after(=AGT), before(=PAT)	
 fond	kedvel	delector	lubic1	1271		A	like/3382	other sense
 food	e1tel	cibus	jedzenie	542		N	material, ' EAT	
@@ -1356,8 +1369,8 @@ foot	la1b	pes	stopa	1466	u	N	organ, leg HAS, AT/2744 ground
 football	foci	ludus_calcius	pil1ka_noz1na	826	u	N	game, [team[two]] PART_OF, INSTRUMENT ball	INSTRUMENT kick the ball, INSTRUMENT head the ball, INSTRUMENT carry the ball, INSTRUMENT goal % goal in the „kapu” sense
 footmark	labnyom	#	#	3199		N	mark, walk MAKE	
 for	-e1rt	pro	dla	2824	u	G		AT/2744 exchange, =REL[price]
-for	-ig	tenus	przez	27	u	G		English for is primitive, other languages deferred
 for	-ig	adhoc	do	2826	u	G		English for is primitive, other languages deferred
+for	-ig	tenus	przez	27	u	G		English for is primitive, other languages deferred
 for	-nak	NA	dla	2825	u	G		=REL[good[after] ER]
 for	miatt	propter	przez	2782	u	#		primitive
 forbid	megtilt	veto	zabraniac1	1650		V	=AGT CAUSE[=DAT HAS lack(permission)]	
@@ -1490,6 +1503,7 @@ grass	fu3	gramen	trawa	877		N	plant, HAS narrow(leaf), COVER ground
 grateful	ha1la1s	gratus	wdzie1czny	954		A	SAY[before(=DAT CAUSE good)]	
 gratify	kiele1gi1t	libidinor	wynagradzac1	1330		V	satisfy	
 grave	si1r	sepulcrum	gro1b	2094	u	N	place/1026, dead(body) AT/2744, <body UNDER ground>	naive_theo: burial AT/2744, tombstone AT/2744
+gray	szu2rke	canus	szary	#		N	grey	Longman real DV
 grease	zsi1r	#	#	2822		N	substance, fat/3337 IS_A, oil IS_A, smooth	non-LDV, added from swadesh
 great	nagy	magnus	wielki	1746	u	N	big	
 greedy	moho1	avidus	zachl1anny	1717		A		no xml
@@ -1610,8 +1624,8 @@ horizon	la1thata1r	horizon	horyzont	1477		N	border, earth AT/2744, sky AT/2744, 
 horizontal	vi1zszintes	#	#	3144		A	direction	
 horn	ku2rt	cornu	ro1g	1457	u	N	instrument, MAKE sound/993, HAS material[hard]	car horn
 horn	szarv	cornu	ro1g	2772	u	N	organ, hard, AT/2744 head, mammal HAS	
-horseriding	lovagla1s	#	#	3330		N	ride, INSTRUMENT horse	
 horse	lo1	equus	kon1	1547		N	animal, mammal, HAS[four (leg)], ride INSTRUMENT, pull	RG
+horseriding	lovagla1s	#	#	3330		N	ride, INSTRUMENT horse	
 hospital	ko1rha1z	valetudinarium	szpital	1371		N	institution, doctor IN/2758, sick IN/2758	
 host	sereg	caterva	tl1um	2085		N	army	ND
 host	vende1gla1to1	hospes	gospodarz	2605		N	AT/2744 place/1026, HAS place/1026, <before(INVITE =POSS[guest])>	
@@ -1763,6 +1777,7 @@ kitchen	konyha	culina	kuchnia	1426		N	room/2235, [MAKE food] IN/2758
 knee	te1rd	genu	kolano	2328		N	joint, AT/2744 lower(leg), PART_OF leg	
 kneel	te1rdel	genuflecto	kle1kac1	2329		V	rest ON knee	
 knife	ke1s	culter	no1z1	1256		N	cut, instrument, HAS blade, HAS handle	
+knight	lovag	#	#	#		N	man/744, HAS high(rank), fight, ON horse	Longman real DV
 knitting	ko2te1s	lanam	robienie_na_drutach	3480	u	N		
 knock	kiu2t	#	#	2724		V	hit, CAUSE[=PAT[stand[lack]]]	HUN lever
 knock	kopog	pulso	pukac1	1428		U	=AGT HIT door, MAKE sound/993, =AGT WANT enter	see 2724
@@ -1795,6 +1810,7 @@ law-making	to2rve1nyhozo1	#	#	3223		A	MAKE law	3
 lawful	jogos	iustus	sprawiedliwy	1201		A	CONFORM law	
 lawyer	u2gyve1d	advocatus	prawnik	2492		N		
 lay	laikus	laicus	s1wiecki	1484		A	person, practice[lack,official]	lack(profession), ND
+layer	re1teg	#	#	#		N	material, BETWEEN two(thing)	Longman real DV
 lazy	lusta	ignavus	leniwy	1556		A	lack(work), lack(effort)	
 lead	o1lom	plumbum	ol1o1w	1832	u	N	soft(metal)	
 lead	vezet	duco	prowadzic1	2617	u	V	=AGT CAUSE[=PAT[change]]	naive_theo: x LEAD/2617 y, y LEAD/2617 z implies x LEAD/2617 z
@@ -1918,6 +1934,7 @@ mammal	emlo3s	#	#	2729		N	animal, HAS fur, HAS milk	ND
 man	ember	homo	czl1owiek	659	u	N	mammal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285	opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	
 manage	sikeru2l	procuro	radzic1_sobie	2980	u	V	=AGT LEAD/2617 system, succeed/2718	kezel, sikeru2l
+mane	so2re1ny	#	#	#		N	hair/3359, ON back/473	Longman real DV
 manner	mo1d	modus	sposo1b	1706		N	property, do HAS	
 manner	modor	mos	maniera	1715		N		manner/1706
 manners	illem	pudor	maniery	1132		N	polite	RA
@@ -2018,6 +2035,7 @@ modest	szere1ny	modestus	skromny	2196		A	THINK ability[lack(important)], HAS abi
 moment	pillanat	momentum	chwila	1961		N	time, point	
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
 monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD/2617 country	
+monastery	monostor	#	#	#		N	institution, more(monk) HAS, apartment	Longman real DV
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR/2782 exchange, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N	profession, PART_OF religion, live IN/2758 group	
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
@@ -2134,6 +2152,7 @@ nut	magv	nucleus	ja1dro	1585		N	fruit, HAS lack(juice), <brown>, IN/2758 shell, 
 nylon	nylon	materia_plastica_nailonensis	nylon	1816		N	material, artefact	
 o'clock	o1rakor	hora	godzina	1836		D	AT/2744 hour	
 oar	evez	remus	wiosl1o	3515	u	N		
+oats	zab	#	#	#		N	cereal	Longman real DV
 obey	szo1tfogad	oboedio	byc1_posl1usznym	2229		V	=AGT DO order/1942, =PAT MAKE order/1942	
 object	ce1l	finis	cel	364	u	N		
 object	ta1rgy	corpus	przedmiot	2705	u	N	thing, <HAS colour>, HAS shape, HAS weight, <HAS surface>, HAS position, lack(life)	HAS orientation
@@ -2451,6 +2470,7 @@ protect	ve1d	tueor	chronic1	2593		V	=AGT CAUSE[=PAT[safe], lack(harm)]
 protection	oltalom	praesidium	ochrona	1906	u	N	protect	
 protective	ve1do3	defendens	ochronny	2595		A		
 protest	tiltakozik	adclamo	protesowac1	3007	u	V	=AGT SHOW[=AGT THINK[=OBL[wrong]]], public	=OBL maleficient
+proton	proton	#	#	#		N	particle, PART_OF atom 	Longman real DV
 proud	bu2szke	superbus	dumny	345		A	THINK[self[good]], =AGT RESPECT =AGT	
 prove	igazol	demonstro	udowadniac1	1127		V	after(other(people) KNOW =PAT[true]), INSTRUMENT real	
 provide	ad	praebeo	zapewnic1	114		V	supply	
@@ -2804,8 +2824,8 @@ size	me1ret	magnitudo	rozmiar	1605	u	N	dimension
 skilful	u2gyes	dexter	zdolny	2490		A	HAS skill	
 skill	ke1szse1g	facultas	umieje1tnos1c1	1262	u	N	property, =POSS[=TO[can/1246]], =POSS HAS practice	
 skin	bo3r	cutis	sko1ra	318	u	N	organ, PART_OF body, cover	
-sky	e1g	caelum	niebo	496		N	vertical(ER ground), atmosphere, animal SEE, cloud ON, sun ON, star ON	HAS shape[dome], high
 skirt	szoknya	tunica	spo1dnica	2240		N	garment, hang, AT/2744 waist, <woman> WEAR	
+sky	e1g	caelum	niebo	496		N	vertical(ER ground), atmosphere, animal SEE, cloud ON, sun ON, star ON	HAS shape[dome], high
 slacken	lazul	relaxor	rozluz1nic1_sie1	1497		V		no xml
 slanted	ferde	obliquus	krzywy	792		A	slope	
 slave	rabszolga	servus	niewolnik	1986		N	person, other(person) HAS	
@@ -2961,6 +2981,7 @@ stir	kever	agito	mieszac1	1310		V	[circular/1389(motion)] IN/2758 [=PAT[<liquid>
 stir_up	felizgat	commoveo	pobudzic1	773		V	=AGT CAUSE[=PAT[move]]	
 stirred_up	felkavart	commotus	pobudzony	775		A		no Longman use
 stitch	o2lt	suo	zaszywac1	1848		V	unit, thread IN/2758 needle[move], sew	
+stock	re1szve1ny	#	#	#		N	document, prove, ABOUT[=POSS HAS part]	Longman real DV
 stocking	harisnya	tibiale	pon1czocha	1004		N	garment, COVER foot, tight	
 stomach	gyomor	venter	z1ol1a1dek	939	u	N	organ, animal HAS, tube, food TO/2743	
 stone	ko3	lapis	kamien1	1419	u	N	material, hard, solid	
@@ -3266,6 +3287,7 @@ unity	egyse1g	unitas	jednos1c1	583		N	one, FROM/2742 many
 universe	univerzum	universitas	kosmos	2526		N	place/2326, thing[all] IN/2758	
 university	egyetem	universitas	uniwersytet	573	u	N	institution, educate, GIVE degree	
 unkind	undok	iniquus	niemil1y	3581	u	N		
+unless	hacsak_nem	#	#	#		G	=PAT CAUSE lack(unless)	Longman real DV
 unpleasant	kellemetlen	ingratus	niemil1y	3582	u	N		
 unsteady	bizonytalan	instabilis	niepewny	300		A	lack(control)	un+steady
 until	ami1g	quoad/dum	az1_do	166		D	after(=REL)	% ?
@@ -3309,6 +3331,7 @@ video	video1	taenia	video	2994	u	N	film
 view	la1tva1ny	aspectus	widok	1482		N	sight	
 view	ne1z	inspecto	ogla1dac1	1767		V	=AGT[think] SEE =PAT[part,<beautiful>]	
 village	falu	vicus	wies1	724		N	area/2366, many(house) IN/2758, IN/2758 country	
+vine	szo3lo3	#	#	#		N	plant, <grape>	Longman real DV
 violent	ero3szakos	violentus	gwal1towny	690		A	INSTRUMENT physical(force)	
 visible	la1thato1	#	#	3128		A	can/1246(animal SEE)	
 visit	la1togata1s	adventus	odwiedziny	1478		N	social, at/2744, =AGT[person], =PAT[<person>]	clear nomen actionis
@@ -3419,6 +3442,7 @@ woman	no3	mulier	kobieta	1795	u	N	female, person
 wonder	csoda	miraculum/prodigium	cud	422		N	event, surprise, supernatural, action	CAUSE fear
 wondrous	csoda1s	mirabilis	cudowny	425		A	wonder	
 wood	fa	lignum	drewno	710	u	N	material, hard, FROM/2742 tree	
+woods	erdo3	#	#	#		N	forest	Longman real DV
 wool	gyapju1	lana	wel1na	924	u	N	material, soft, sheep HAS	naive_theo cloth FROM/2742
 word	szo1	verbum	sl1owo	2224	u	N	sign, speech	
 work	munka	opera	praca	1740	u	N	useful	RA
@@ -3471,27 +3495,3 @@ yours	tied	tuus	two1j	2385		G	you HAS
 yourself	magad	#	#	2797		G	you, self	
 youth	ifjusa1g	iuventus	ml1odos1c1	1124		N	young(person), group	
 zero	nulla	zero	zero	1801		N	number, lack(one)	
-bubble	bubore1k	#	#	#		N	air, IN liquid	Longman real DV
-centre	ko2ze1p	centrum	centrum	#		N	centre	Longman real DV
-consumer	fogyaszto1	#	#	#		N	person, buy, USE service	Longman real DV
-disk	lemez	#	#	#		N	device, CONTAIN information	Longman real DV
-dock	dokk	#	#	#		N	place/1026, PART_OF port	Longman real DV
-gray	szu2rke	canus	szary	#		N	grey	Longman real DV
-knight	lovag	#	#	#		N	man/744, HAS high(rank), fight, ON horse	Longman real DV
-layer	re1teg	#	#	#		N	material, BETWEEN two(thing)	Longman real DV
-mane	so2re1ny	#	#	#		N	hair/3359, ON back/473	Longman real DV
-monastery	monostor	#	#	#		N	institution, more(monk) HAS, apartment	Longman real DV
-oats	zab	#	#	#		N	cereal	Longman real DV
-proton	proton	#	#	#		N	particle, PART_OF atom 	Longman real DV
-stock	re1szve1ny	#	#	#		N	document, prove, ABOUT[=POSS HAS part]	Longman real DV
-unless	hacsak_nem	#	#	#		G	=PAT CAUSE lack(unless)	Longman real DV
-woods	erdo3	#	#	#		N	forest	Longman real DV
-affect	e1rint	#	#	#		V	=AGT CAUSE =PAT[change]	Longman real DV
-alkali	alka1li	#	#	#		A	substance, [WITH/3412 acid] CAUSE [MAKE salt] 	Longman real DV
-asterisk	betu3	#	#	#		N	letter/278, star	Longman real DV
-baseball	baseball	#	#	#		N	game, ball PART_OF, two(group) PART_OF	Longman real DV
-billiards	billiards	#	#	#		N	game, ball PART_OF, two(person) PART_OF, table PART_OF	Longman real DV
-chess	sakk	#	#	#		N	game, two(person) PART_OF, board PART_OF, king PART_OF	Longman real DV
-confidence	bizalom	#	#	#		N	trust	Longman real DV
-Dr	Dr.	#	#	#		A	title, professional	Longman real DV
-vine	szo3lo3	#	#	#		N	plant, <grape>	Longman real DV
