@@ -884,6 +884,7 @@ container	tarta1ly	vasculum	pojemnik	2801	u	N	artefact, contain
 content	ele1gedett	contentus	zadowolony	600		A		see contents % in ele1gedett sense: feeling, lack(NEED improvement)
 contents	tartalom	argumentum	zawartos1c1	2314		N	IN/2758 '	
 continue	folytat	pergo	kontinuowac1	850	u	V	after(action), before(action)	lack(stop)
+continuous	folytonos	continuus	cia1gl1y	2172	u	A	lack(separate), lack (sudden)	
 contract	megkap	afficior	zarazic1_sie1	1632		V		see 2205
 contract	szerzo3dik	paciscor	zawierac1_umowe1	2205		V	agree, written, =AGT AT/2744 law	
 control	befolya1s	vis	kontrola	253	u	N		
@@ -959,6 +960,7 @@ curse	a1tok	exsecratio	przeklen1stwo	107		N	pray, FOR/2782[=PAT HAS harm]	conten
 curtain	fu2ggo2ny	velum	zasl1ona	867		N	hang, AT/2744 <window>, decorate, CAUSE shade	AT/2744 cavity
 curve	go2rbe	curvamen	krzywa	898	u	N	line, lack(straight/563), lack(plane/2090), bend/1112, HAS direction[lack(constant)]	
 custom	szoka1s	consuetudo	zwyczaj	2236		N	common (behaviour)	
+customer	vevo3	emptor	klient	2711	u	N	buy	agt of
 cut	va1g	seco	cia1c1	2542	u	V	separate, INSTRUMENT edge	RA
 cut_in_pieces	sze1tva1g	disseco	kroic1	2175		V		
 cut_off	leva1g	deseco	obcinac1	1538		V	cut, after(=PAT[lack] AT =FROM)	head, arm, skin, branch, hair
@@ -1413,6 +1415,7 @@ frequent	gyakori	frequens	cze1sty	919		A	often
 fresh	friss	viridis	s1wiez1y	863		N	new, replace	
 friend	bara1t	amicus	przyjaciel	228	u	N	person, =POSS KNOW, =POSS LIKE/3382, =POSS TRUST	
 fright	ijedelem	#	#	2812		N	sudden, intense, fear	
+frighten	ijeszt	terreo	straszyc1	2916	u	V	CAUSE fright	
 fro	vissza	retro	tam	2640		G		
 from	-bo1l	ab	z	2742	u	G	before(IN/2758 =REL), after(far)	
 from	o1ta	ex	z	1838	u	G	AT/2744 [period[begin AT/2744 =REL]]	x from y: x IS_A period
@@ -1743,6 +1746,7 @@ jeans	farmer	braca	dz2insy	3477	u	N
 jelly	zsele1	quilon	galareta	2687	u	N		
 jewel	e1kko3	gemma	klejnot	501		N	precious, stone, artefact	
 jewellery	e1kszer	ornamentum	biz1uteria	502		N	small, person WEAR, decorate, ring/402 IS_A	necklace IS_A
+jink	cselez	evado	wymjac1	3084	u	V	move, sudden	
 job	munka	negotium	zawo1d	1738		A	regular (activity), person GET/1223 pay/237	
 join	csatlakozik	comitor	dol1a1czyc1	392	u	V	after(together), after(=PAT MEMBER =TO), after(=PAT PART_OF =TO), before(separate)	de:beitreten DAT
 joint	izu2let	articulus	staw	1169		N	part, join AT/2744	
@@ -1814,6 +1818,7 @@ layer	re1teg	#	#	#		N	material, BETWEEN two(thing)	Longman real DV
 lazy	lusta	ignavus	leniwy	1556		A	lack(work), lack(effort)	
 lead	o1lom	plumbum	ol1o1w	1832	u	N	soft(metal)	
 lead	vezet	duco	prowadzic1	2617	u	V	=AGT CAUSE[=PAT[change]]	naive_theo: x LEAD/2617 y, y LEAD/2617 z implies x LEAD/2617 z
+leader	vezeto3	princeps	wo1dz	3106	u	N	lead/2617	agt of 
 leaf	faleve1l	folium	lis1c1	723		N	organ, green, flat, AT/2744 stem, PART_OF plant	
 lean	do3l	acclinor	opierac1	475		V	lack(vertical)	Longman Leaning Tower of Pisa
 lean	sova1ny	macer	szczupl1y	2123		A		
@@ -2179,6 +2184,7 @@ official	hivalatalos	publicus	oficjalny	1065	u	A	AT/2744 authority
 official	tisztviselo3	officialis	urze1dnik	2398	u	N		
 offspring	uto1d	#	#	3346		N	child	
 often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN	
+oh	o1	o	o	3170	u	G		??vocative
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid, <engine CONSUME>	
 old	o2reg	senex	stary	1854	u	A	long(time) FROM/1838 birth, old HAS birth	
 old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]	
@@ -2345,6 +2351,7 @@ plastic	alaki1thato1	formabilis/qui_formari_potest	elastyczny	144		A	material, H
 plastics	mu3anyag	plastica	plastik	1733		N		see 144
 plate	ta1nye1r	catinus	talerz	2279	u	N	artefact, flat, <round>, <food ON>	
 play	ja1tszik	ludo	bawic1_sie1	1175	u	V	game	game/1173
+player	ja1te1kos	ludens	zawodnik	3201	u	A	play, participant, PART_OF game	agt of play
 pleasant	kellemes	iucundus	przyjemny	1288	u	A	nice	
 pleasant-smelling	kellemes_illatu1	#	#	3208		A	HAS pleasant(smell)	6
 please	tetszik	place/1026	zadowalac1	2378		V	=AGT CAUSE[=DAT HAS joy]	RG
@@ -3442,6 +3449,7 @@ woman	no3	mulier	kobieta	1795	u	N	female, person
 wonder	csoda	miraculum/prodigium	cud	422		N	event, surprise, supernatural, action	CAUSE fear
 wondrous	csoda1s	mirabilis	cudowny	425		A	wonder	
 wood	fa	lignum	drewno	710	u	N	material, hard, FROM/2742 tree	
+wooden	fa	lignum	drewniany	3215	u	A	material, wood/719	
 woods	erdo3	#	#	#		N	forest	Longman real DV
 wool	gyapju1	lana	wel1na	924	u	N	material, soft, sheep HAS	naive_theo cloth FROM/2742
 word	szo1	verbum	sl1owo	2224	u	N	sign, speech	
