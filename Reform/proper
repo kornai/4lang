@@ -1,0 +1,42 @@
+Africa	Afrika	#	#	2832		N	land, @Africa	
+America	Amerika	#	#	2831		N	land, @America	
+Asia	A1zsia	#	#	3146		N	land, @Asia	
+Australia	Ausztra1lia	#	#	2835		N	country, @Australia	
+Britain	Britannia	#	#	2813		N	country, @United_Kingdom	
+Buddhist	buddhista	Buddhista	buddysta	351		N	person, @Buddhism	ADHERE teaching, @Buddha HAS teaching
+Cambridge	Cambridge	#	#	2838		N	city, @Cambridge	
+Canada	Kanada	#	#	2839		N	country, @Canada	
+Egypt	Egyiptom	#	#	2841		N	country, @Egypt	
+England	anglia	#	#	2761		N	country, @United_Kingdom	
+English	angol	Britannicus	angielski	169		A	@United_Kingdom	see 2763 and 2764
+Europe	Euro1pa	#	#	2842		N	land, @Europe	
+France	Franciaorsza1g	#	#	2843		N	country, @France	
+Germany	Ne1metorsza1g	#	#	2844		N	country, @Germany	
+Greece	Go2ro2gorsza1g	#	#	2845		N	country, @Greece	
+India	India	#	#	2847		N	country, @India	
+Ireland	I1rorsza1g	#	#	2849		N	country, @Ireland	
+Japan	Japa1n	#	#	2852		N	country, @Japan	
+Jesus	Je1zus	#	#	3048		N	man/744, @Jesus	
+Jewish	zsido1	Iudaicus	z1ydowski	2688		A	@Jew	
+Kenya	Kenya	#	#	3175		N	country, @Kenya	
+Korea	Korea	#	#	2853		N	country, @Korea	
+London	London	#	#	2855		N	city, @London	
+Mississippi	Mississippi	#	#	2909		N	river, @Mississippi	
+Muhammad	Mohamed	#	#	2877		N	man/744, @Muhammad	
+Muslim	iszla1m	Mohammedanicus	muzul1man1ski	1162		A	@Muslim	
+Pakistan	Pakiszta1n	#	#	2861		N	country, @Pakistan	
+Paris	Pa1rizs	#	#	2881		N	city, @Paris	
+Poland	Lengyelorsza1g	#	#	2862		N	country, @Poland	
+Portugal	Portuga1lia	#	#	2863		N	country, @Portugal	
+Rome	Ro1ma	#	#	2864		N	city, @Rome	
+Russia	Oroszorsza1g	#	#	2865		N	country, @Russia	
+Scotland	Sko1cia	#	#	2866		N	country, @Scotland	
+Somalia	Szoma1lia	#	#	2903		N	country, @Somalia	
+Sudan	Szuda1n	#	#	2901		N	country, @Sudan	
+Tanzania	Tanza1nia	#	#	2937		N	country, @Tanzania	
+UK	Egyesu2lt_Kira1lysa1g	#	#	2938		N	country, @United_Kingdom	
+Uganda	Uganda	#	#	2942		N	country, @Uganda	
+Ural	Ura1l	#	#	3162		N	mountain, @Ural	
+Wales	Wales	#	#	2870		N	country, @Wales	
+Washington	Washington	#	#	2871		N	place/1026, @Washington	
+base	ba1zis	NA	baza	2755	u	N	artefact, IN/2758 @Baseball, four(corner), run TOUCH	
