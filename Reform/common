@@ -308,7 +308,7 @@ crush	o2sszeroppant	infringo	miaz1dz1yc1	1866		N	press, break, INSTRUMENT[two(su
 cup	cse1sze	phiala	filiz1anka	395	u	N	container, small, open/1814, drink IN, HAS flat(bottom), HAS handle	
 cup	kupa	poculum	kubek	1463	u	N		
 curve	go2rbe	curvamen	krzywa	898	u	N	line, lack(straight/563), lack(plane/2090), bend/1112, HAS direction[lack(constant)]	
-customer	vevo3	emptor	klient	2711	u	N	buy	agt of
+customer	vevo3	emptor	klient	2711	u	N	buy '
 cut	va1g	seco	cia1c1	2542	u	V	separate, INSTRUMENT edge	RA
 damage	ka1r	damnum	zniszczenie	1209	u	N	bad(situation)	
 damage	se1ru2le1s	vulnus	zniszczenie	2066	u	N		see 1209
