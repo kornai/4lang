@@ -3,7 +3,7 @@ America	Amerika	#	#	2831		N	land, @America
 Asia	A1zsia	#	#	3146		N	land, @Asia	
 Australia	Ausztra1lia	#	#	2835		N	country, @Australia	
 Britain	Britannia	#	#	2813		N	country, @United_Kingdom	
-Buddhist	buddhista	Buddhista	buddysta	351	 N	person, @Buddhism, ADHERE teaching, @Buddha HAS teaching
+Buddhist	buddhista	Buddhista	buddysta	351		 N	person, @Buddhism, ADHERE teaching, @Buddha HAS teaching
 Cambridge	Cambridge	#	#	2838		N	city, @Cambridge	
 Canada	Kanada	#	#	2839		N	country, @Canada	
 Egypt	Egyiptom	#	#	2841		N	country, @Egypt	
