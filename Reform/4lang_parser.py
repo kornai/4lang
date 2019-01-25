@@ -79,9 +79,57 @@ def parse_def(definition, def_id):
         node_split = node.split()
         node_split[0] = node_split[0].strip("<")
         node_split[0] = node_split[0].strip(">")
-        if len(node_split) > 2:
+        if len(node_split) > 3:
             def_states[def_id] = 'err'
             return
+        if len(node_split) == 3:
+            if not node_split[1].isupper():
+                def_states[def_id] = 'err'
+                return
+            if node_split[0].isupper() or node_split[2].isupper():
+                def_states[def_id] = 'err'
+                return
+            node_split[1] = node_split[1].strip(">")
+            node_split[1] = node_split[1].strip("<")
+            node_split[2] = node_split[2].strip(">")
+            node_split[2] = node_split[2].strip("<")
+            
+            if "/" in node_split[0]:
+                splitted = node_split[0].split("/")
+                node_split[0] = splitted[0]
+            if "/" in node_split[2]:
+                splitted = node_split[2].split("/")
+                node_split[2] = splitted[0]
+            if "(" in node_split[0]:
+                binaries = node_split[0].split("(")
+                if binaries[0] == '':
+                    def_states[def_id] = 'err'
+                    return
+                if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
+                    def_states[def_id] = 'err'
+                    return
+                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                    def_states[def_id] = 'err'
+                    return
+                binaries[1] = binaries[1].strip(")")
+                node_split[0] = binaries[1]
+                G.add_edge(binaries[1] + "_", binaries[0] + "_", color = 0)
+            if "(" in node_split[2]:
+                binaries = node_split[2].split("(")
+                if binaries[0] == '':
+                    def_states[def_id] = 'err'
+                    return
+                if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
+                    def_states[def_id] = 'err'
+                    return
+                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                    def_states[def_id] = 'err'
+                    return
+                binaries[1] = binaries[1].strip(")")
+                node_split[2] = binaries[1]
+                G.add_edge(binaries[1] + "_", binaries[0] + "_", color = 0)
+            G.add_edge(node_split[1] + "_" + str(i), node_split[0] + "_" , color = 1) 
+            G.add_edge(node_split[1] + "_" + str(i), node_split[2] + "_" , color = 2)
         if len(node_split) == 2:
             node_split[1] = node_split[1].strip(">")
             node_split[1] = node_split[1].strip("<")
@@ -108,7 +156,7 @@ def parse_def(definition, def_id):
                     return
                 binaries[1] = binaries[1].strip(")")
                 node_split[0] = binaries[1]
-                G.add_edge(binaries[1] + "_" + str(i), binaries[0] + "_" + str(i), color = 0)
+                G.add_edge(binaries[1] + "_", binaries[0] + "_", color = 0)
             if "(" in node_split[1]:
                 binaries = node_split[1].split("(")
                 if binaries[0] == '':
@@ -122,7 +170,7 @@ def parse_def(definition, def_id):
                     return
                 binaries[1] = binaries[1].strip(")")
                 node_split[1] = binaries[1]
-                G.add_edge(binaries[1] + "_" + str(i), binaries[0] + "_" + str(i), color = 0)
+                G.add_edge(binaries[1] + "_", binaries[0] + "_" , color = 0)
             if node_split[0].isupper() and node_split[0] != "'":
                 if node_split[1] == "'":
                     G.add_edge(node_split[0] + "_" + str(i), definition[0] + "_", color = 1)
@@ -155,7 +203,7 @@ def parse_def(definition, def_id):
                     return
                 binaries[1] = binaries[1].strip(")")
                 node_split[0] = binaries[1]
-                G.add_edge(binaries[1] + "_" + str(i), binaries[0] + "_" + str(i), color = 0)
+                G.add_edge(binaries[1] + "_", binaries[0] + "_", color = 0)
             G.add_edge(definition[0] + "_", node_split[0] + "_", color = 0)
     return G
 
