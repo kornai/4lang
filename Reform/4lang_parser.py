@@ -295,15 +295,16 @@ def parse_def(definition, def_id):
 def filter_def(definition, def_id):
     pat = re.search(r".*=.*", definition[1])
     pat_dir = re.search(r"\[(.+)\]", definition[1])
-    pat_dir_err = re.search(r"\[([\w]+),[\w]\]", definition[1])
-    pat_dir_sp = re.search(r"\[([\w]+)\s([\w]+)\]", definition[1])
-    pat_sp = re.search(r"\(([\w]+)\s([\w]+)\)", definition[1])
+    pat_dir_err = re.search(r"\[([^\]]+),([^\]]+)\]", definition[1])
+    pat_dir_sp = re.search(r"\[([^\]]+)\s([^\]]+)\]", definition[1])
+    pat_sp = re.search(r"\(([^)]+)\s([^)]+)\)", definition[1])
+    pat_err = re.search(r"\(([^)]+),([^)]+)\)", definition[1])
         
     if not definition[1]:
         def_states[def_id] = 'err no definition'
     elif pat_dir_sp or pat_sp:
         def_states[def_id] = 'err found space between parentheses'
-    elif pat_dir_err:
+    elif pat_dir_err or pat_err:
         def_states[def_id] = 'err found enumeration between parentheses'
     elif pat:
         def_states[def_id] = 'err found deep case'
