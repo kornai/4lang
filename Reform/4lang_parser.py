@@ -295,9 +295,9 @@ def parse_def(definition, def_id):
 def filter_def(definition, def_id):
     pat = re.search(r".*=.*", definition[1])
     pat_dir = re.search(r"\[(.+)\]", definition[1])
-    pat_dir_err = re.search(r"\[(.+),(.+)\]", definition[1])
-    pat_dir_sp = re.search(r"\[(.+) (.+)\]", definition[1])
-    pat_sp = re.search(r"\((.+) (.+)\)", definition[1])
+    pat_dir_err = re.search(r"\[([\w]+),[\w]\]", definition[1])
+    pat_dir_sp = re.search(r"\[([\w]+)\s([\w]+)\]", definition[1])
+    pat_sp = re.search(r"\(([\w]+)\s([\w]+)\)", definition[1])
         
     if not definition[1]:
         def_states[def_id] = 'err no definition'
