@@ -134,7 +134,8 @@ In a formula {\tt A[B]} means that there is a 0-link from A to B. This is used
 only to make the notation more compact. 
 
 \begin{verbatim}
-tree fa arbor drzewo 709 N plant, HAS material[wood], HAS trunk/2759, HAS crown 
+tree fa arbor drzewo 709 N plant, HAS material[wood], HAS trunk/2759, 
+                           HAS crown 
 \end{verbatim}
 
 \subsection{Defaults}
@@ -144,25 +145,85 @@ exceptional circumstances) but time and again we find it expedient to collapse
 strongly related entries by means of defaults that appear in angled brackets. 
 
 \begin{verbatim}
-ride lovagol equito jez1dzic1_konno 1555 u U travel, =AGT ON <horse>, INSTRUMENT <horse>
+ride lovagol equito jez1dzic1_konno 1555 u U travel, =AGT ON <horse>, 
+                                             INSTRUMENT <horse>
 \end{verbatim}
 
 These days, a more generalized {\it ride} is common ({\it riding the bus,
   catching a ride, \ldots} so the definition {\tt travel} should be sufficient
-as is. The (historically) prevalant mode of traveling, on horesback, is kept
-as a default. Note that these two entries often get translated by different
-words: for example Hungarian distinguishes {\it utazik} and {\it lovagol}. 
+as is. The historically prevalant mode of traveling, on horesback, is kept as
+a default. Note that these two entries often get translated by different
+words: for example Hungarian distinguishes {\it utazik} `travel' and {\it
+  lovagol} `rides a horse', a verb that cannot appear with an object or
+instrument the same way as English `ride a bike' can.  
+
+\subsection{Agents, patients}
+
+The relationship between horseback riding (which is, as exemplified in 1.5
+above, just a form of travelling) and its defining element, the horse, is
+indirect. The horse is neither the subject, not the object of travel. 
+Rather, it is the rider who is the subject of the definiendum and the
+definiens alike, corresponding to a graph node that has a 1 arrow leading to
+it from both. This node is labelled by {\tt =AGT}, so when we wish to express 
+the semantic fact that Hungarian {\it lovagol} means travel on a horse we
+write 
+
+\begin{verbatim}
+lovagol travel, =AGT ON horse
+\end{verbatim} 
+
+\noindent
+Note that the horse is not optional for this verb in Hungarian: it is
+syntactically forbidden ({\it lovagol} is intransitive) and semantically
+obligatory. (Morphologically it is already expressed, as the verb is derived
+from the stem {\it l\'o} `horse' though this derivation is not by productive
+suffixation.) Remarkably, when the object is\_a horse (e.g. a colt is a young
+horse, or a specific horse like Kincsem) we can still use {\it lovagol} as in
+{\it J\'anos a csik\'ot lovagolta meg} or {\it Elijah Madden Kincsemet
+  lovagolta}.
+
+For the patient role, consider the word {\it know}, defined as `has
+information about'. For this to work, the expression {\tt x know y} has to be
+equivalent to {\tt x HAS information ABOUT y}. For this to work, we need to
+express the fact that the subject of HAS is the same as the subject of {\it
+  know} (this is done by the {\tt =AGT} placeholder) and that the object of
+ABOUT is the same as the object of knowing -- this will be done by the {\tt
+  =PAT} placeholder. 
+
+\subsection{Minor thematic roles}
+
+Of the 1,200 currently unreduced primitives, about 15\% refer to the major
+thematic roles {\tt =AGT,=PAT} discussed above. The treatment of the others
+(altogether less than 10\%) is work in progress, see Reform/notes
+
+\begin{tabular}{rr}
+name & freq\\
+\hline
+=AGT & 178\\
+=PAT & 174\\
+=REL & 34\\
+=POS & 26\\
+=TO & 19\\
+=DAT & 19\\
+=FROM & 7\\
+=OBL & 5\\
+=FOR & 1\\
+\end{tabular}
 
 \subsection{More complex notation}
 
-Several more complex notations are used now, in particular parentheses {\tt
-  ()} node-fillers like {\tt =AGT, =PAT}, but most of these will be
-eliminated. Therefore, it is reasonable to summarize what we have so far in a
-small grammar suitable for parsing. In the grammar, () stands for optional,
-$|$ stands for choice, and $^*$ for one or more.
+Some complex notations still remain, in particular parentheses {\tt
+  ()}.  [] now refers to subgraph (as a whole)
+
 
 \end{document}
 
+
+
+
+
+small grammar suitable for parsing. In the grammar, () stands for optional,
+$|$ stands for choice, and $^*$ for one or more.
 
 weight  physical(quantity), heavy
 water  liquid, HAS lack(colour), HAS lack(taste), HAS lack(smell), life NEED
@@ -365,3 +426,4 @@ name. `Bilbo never heard of Palantir' is true.
  We need to define a model stream (list of instances with increasing
  timestamps, largely invariant objects, and  causal continuity).
 
+  know =AGT HAS information, information ABOUT =PAT
