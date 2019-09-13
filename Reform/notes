@@ -2,7 +2,52 @@ Muslim: deleted believe (more consistent with other religions)
 Ural: added mountain, more consistent with Himalayas etc. 
 sign: head is information, not ' perceive
 
-
-
-
 "HAS lack" replaced by "lack"
+
+Now part of syntax:
+
+=AGT	178
+=PAT	174
+
+To be handled:
+
+=REL	34
+=POS	26
+=TO	19
+=DAT	19
+
+Removed
+
+=FROM	7
+
+accept	elfogad	accipio	akceptowac1	615	u	V	allow, =PAT[lack(good)], =AGT SAY[=PAT[right/1191]], receive, before(=FROM OFFER =PAT) right/1191 FOR/2782 self
+buy	vesz	emo	kupowac1	2609	u	V	exchange, =AGT CAUSE[=AGT HAS =PAT, =FROM HAS money], before(=AGT HAS money), before(=FROM HAS =PAT), =AGT[pay/812] 
+of	-to1l	a/ab	od		58	u	G	before(AT/2744 =FROM), after(far)   
+remove	elta1voli1t	aufero		usuna1c1	650	u	       V       =AGT CAUSE[lack(=PAT) AT =FROM]	
+rubber	gumi		gummis		guma		914	u	       N       material, flexible, CAUSE[lack(mark) AT =FROM[surface]] 
+separate		ku2lo2n		secretus	osobny	1450	       u       A	 =AGT CAUSE [lack(=PAT AT =FROM), different], MAKE distance 
+take			elvesz		adimo		wzia1c1	654	       u       V	 =AGT CAUSE[=PAT AT/2744 =AGT, =FROM HAS lack(=PAT)]	    
+
+accept allow, =AGT SAY[=PAT[right/1191]], receive, before(=FROM OFFER =PAT) right/1191 FOR/2782 self
+
+
+
+
+=OBL	5
+
+appear	tu3nik	pareo	wydawac1_sie1	2450	u	U	=DAT THINK [=PAT[=OBL]]	
+equal	egyenlo3	aequalis	ro1wny	565	u	A    HAS quantity, =OBL HAS quantity	German gleichen DAT
+full	teli	plenus	pel1ny	2344	u	A	=OBL[much] IN/2758, lack(space/2327) IN	German voll von
+protest	tiltakozik	adclamo	protesowac1	3007	u	   V	    =AGT SHOW[=AGT THINK[=OBL[wrong]]], public =OBL maleficient
+shoot	lo3	emitto	strzelac1	1551	u	V	=AGT CAUSE[bullet AT/2744 =OBL], cause INSTRUMENT gun	
+
+appear observer THINK [=AGT is_a =PAT], "dat" MARK =PAT
+equal HAS quantity, =PAT HAS quantity, "dat" MARK =PAT
+full lack(space/2327)
+protest show [=AGT think [=PAT[wrong]]]
+shoot =AGT cause[bullet AT/2744 =PAT], =AGT use gun
+
+=FOR	1
+
+use	haszna1l	utor	uz1ywac1	1008	u	V =FOR[purpose] INSTRUMENT =PAT, =AGT[=FOR] 
+use	haszna1l	utor	uz1ywac1	1008	u	V =AGT HAS purpose, =PAT help purpose,  "for/to" MARK purpose 
