@@ -9,14 +9,45 @@ Now part of syntax:
 =AGT	178
 =PAT	174
 
-To be handled:
+To be reanalyzed: 
 
 =REL	34
 =POS	26
-=TO	19
 =DAT	19
 
-Removed
+=TO	19
+
+able	ke1pes	idoneus	w_stanie	1245		A	can/1246[=AGT[=TO]]	=TO on the surface both in Hun, Eng, and French 'capable de'
+add	o2sszead	addo		dodawac1	1859	u			V   =AGT CAUSE[=PAT IN/2758 =TO]     HUN: (hozza1)ad
+addition		o2sszeada1s	additio		dodatek	1860			    N	 CAUSE[=TO[ER ' ]]  zusätzlich zu
+available		ele1rheto3	#		#	2800			    	 A	      can/1246[=TO USE] 
+belong			vkihez_tartozik	sum_alcis	nalez1ec1				 2654	      u		   U	=PAT[member], =TO HAS =PAT 
+gentle			gyenge1d	mollis		delikatny				 928	      		   A	nice, =TO NEED thing, THINK thing[important] 
+include			belevesz	comprehendo	wl1a1czyc1				 259			   	V     =PAT IN/2758 =TO	    HUN ENG arg struct mismatch
+invite			meghi1v		invito		zapraszac1				 1628				u     V	   =AGT SAY[=AGT WANT[=PAT AT/2744 =TO]] einladen zu
+join			csatlakozik	comitor		dol1a1czyc1				 392				u     V	   after(together), after(=PAT MEMBER =TO), after(=PAT PART_OF
+=TO), before(separate)	de:beitreten DAT
+law   jog		ius	     prawo	1200	u	N	rule, system, society/2285 HAS, official, norm, ABOUT person[=TO[can/1246]] to2rve1ny, right 
+listen			fu2lel	     ausculto	sl1uchac1	871	u     U	      =AGT CAUSE [=AGT HEAR =TO]  
+mix			kever	     misceo	mieszac1	1309	u     V	      =AGT CAUSE[=PAT IN/2758 =TO[<liquid>]], =PAT[material, before(separate)] 
+necessary		szu2kse1ges  necessarius		potrzebny     2260    	   A	      lack(=REL) CAUSE lack(=TO)	     
+need			szu2kse1g    necessitas			potrzeba      2259	   u	      N		 bad FOR/2782 =AGT, lack(=TO) AT =AGT, =AGT WANT lack(=TO) 
+occasion		alkalom	     occasio			okazja	      157	   u	      N		 time, =TO AT/2744  
+put			tesz	     pono			kl1as1c1      2374	   u	      V		 =AGT CAUSE[=PAT AT/2744 =TO], =AGT MOVE =PAT, =PAT[object] setzt etwas irgendwohin
+ready			ke1sz	     absolutus			gotowy	      1258	   u	      A		 =TO[can/1246, immediately]    
+similar			hasonlo1     #				#	      2794	   	      A		 HAS property, =TO HAS property 
+skill			ke1szse1g    facultas			umieje1tnos1c1			      1262	 u   N	       property, =POSS[=TO[can/1246]], =POSS HAS practice 
+
+
+able =AGT can/1246[=AGT[act]], "to" MARK act
+
+
+
+
+
+
+
+Reanalysis complete:
 
 =FROM	7
 
@@ -28,10 +59,16 @@ rubber	gumi		gummis		guma		914	u	       N       material, flexible, CAUSE[lack(m
 separate		ku2lo2n		secretus	osobny	1450	       u       A	 =AGT CAUSE [lack(=PAT AT =FROM), different], MAKE distance 
 take			elvesz		adimo		wzia1c1	654	       u       V	 =AGT CAUSE[=PAT AT/2744 =AGT, =FROM HAS lack(=PAT)]	    
 
-accept allow, =AGT SAY[=PAT[right/1191]], receive, before(=FROM OFFER =PAT) right/1191 FOR/2782 self
-
-
-
+accept receive, =AGT think[=PAT[right/1191] for =AGT]
+buy =AGT receive =PAT, =AGT pay seller, "from" MARK seller
+%of I think this is a bug, we need 
+from  -to1l a/ab od 58	   u  G	   "from" MARK after[far]
+remove =AGT CAUSE[=PAT FAR source], "from" MARK source
+rubber material, flexible
+eraser instrument, remove [mark ON paper]
+separate V =AGT CAUSE [=PAT FAR source], "from" MARK source %this is he definition of V not A
+separate A different
+take =AGT CAUSE[=PAT AT/2744 =AGT]
 
 =OBL	5
 
