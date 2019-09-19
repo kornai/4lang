@@ -39,8 +39,17 @@ similar			hasonlo1     #				#	      2794	   	      A		 HAS property, =TO HAS pro
 skill			ke1szse1g    facultas			umieje1tnos1c1			      1262	 u   N	       property, =POSS[=TO[can/1246]], =POSS HAS practice 
 
 
-able =AGT can/1246[=AGT[act]], "to" MARK act
-
+able =AGT can/1246[=AGT[act]], "to/inf" MARK act
+add =AGT CAUSE[=PAT IN/2758 dest], "to/2743" MARK dest
+addition change, add
+available =AGT can/1246[=AGT[use]]
+belong =PAT HAS =AGT, "to/2743" MARK =AGT
+gentle careful, kind
+include =AGT CAUSE[=PAT IN/2758 dest], "in/10" MARK dest
+invite =AGT say[=AGT want[=PAT AT/2744 dest]], "to/2743" MARK dest
+join after(together) %implies before(separate)
+law rule, system, society/2285 HAS, official, norm
+listen =AGT CAUSE [=AGT hear], "to/2743" MARK =PAT
 
 
 
