@@ -12,14 +12,73 @@ Now part of syntax:
 To be reanalyzed: 
 
 =REL	34
-=POS	26
 
 Reanalysis in progress:
+
+=POS	26
+
+attention  figyelem	animi_attentio	uwaga	801	u	N	listen, see, =POSS THINK =PAT[interesting, important] 
+base	   alap		fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	      
+bottom	   fene1k	fundus		dno		787		N	part, position, vertical(=POSS ER)	      
+duty	   ko2telesse1g	officium	obowia1zek	1398			N     must[ ' DO], <society/2285> WANT[=POSS DO] 
+fault	   hiba		delictum	wina		1050			      N	    =POSS CAUSE problem	  
+finish	   ve1g		finis		koniec		2597			      u	    N	  part, =POSS[lack, after] 
+friend	   bara1t	amicus		przyjaciel	228			      u	    N	  person, =POSS KNOW, =POSS LIKE/3382, =POSS TRUST 
+handle	   fogo1	manubrium	ra1czka		834			      	    N	  PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	   
+home	   otthon	domus		dom		1924				    u	  N	  place/1026, =POSS AT/2744	
+interest   e1rdek	commodum	interes		515				    u	  N	  =POSS WANT  
+interest   e1rdeklo3de1s		studium		zainteresowanie			    517	  u	  N	desire, =POSS WANT[=POSS KNOW] 
+key	   kulcs			clavis		klucz				    1461  u	  N	instrument, metal, key[turn] CAUSE =POSS[open/1814], key[turn] CAUSE =POSS[close] 
+meaning	   e1rtelem			significatio	znaczenie			    528	  	  N	information IN/2758 =POSS    
+member	   tag				membrum/socius	czl1onek			    2293	  	N	    person, =POSS[group], person IN/2758 group 
+opinion	   ne1zet			opinio		zdanie				    1768		u	    N	    =POSS THINK, =POSS[confident], =POSS HAS lack(proof) 
+order	   sorrend			ordo		porza1dek			    2739		u	    N	    relation, =POSS[more(item)], first PART_OF		 
+pay	   be1r				pretium		pensja				    237			u	    N	    money, =POSS[work[before]], after(=POSS HAS)	 
+period	   ido3tartam			tempestas	okres				    1123		u	    N	    time, =POSS IN/2758 time, =POSS FROM/1838 ' , =POSS TO/2743 ' 
+piece	   darab			pars		kawal1ek			    449			u	    N	    thing, small, IN/2758 =POSS[large]	      
+quality	   mino3se1g			qualitas	jakos1c1			    1699		u	    N	    good, =POSS[good], characteristic, inherent 
+reason	   ok				ratio		powo1d				    1892		u	    N	    CAUSE =POSS	       relational noun
+skill	   ke1szse1g			facultas	umieje1tnos1c1			    1262		u	    N	    property, =POSS[=TO[can/1246]], =POSS HAS practice 
+start	   kezdet			initium		pocza1tek			    1313		u	    N	    after(=POSS)		    
+stock	   re1szve1ny			#		#				    #				    N	    document, prove, ABOUT[=POSS HAS part] Longman real DV
+subject	   ta1rgy			materia		przedmiot			    2750			    u	    N	      =POSS[<learn>] ABOUT   
+tent	   sa1tor			tabernaculum	namiot				    2058			    	    N	      home, temporary, can/1246(=POSS MOVE), HAS wall[lack(rigid),<cloth>, tense], rope PART_OF		
+
+
+attention		  figyelem     animi_attentio	uwaga	801	u	N	listen, see, =POSS THINK =PAT[interesting, important] 
+base			  alap	       fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	      
+bottom			  fene1k       fundus		dno		787		N	part, position, vertical(=POSS ER)	      
+duty			  ko2telesse1g officium		obowia1zek	1398			N     must[ ' DO], <society/2285> WANT[=POSS DO] 
+fault			  hiba	       delictum		wina		1050			      N	    =POSS CAUSE problem	  
+finish			  ve1g	       finis		koniec		2597			      u	    N	  part, =POSS[lack, after] 
+friend			  bara1t       amicus		przyjaciel	228			      u	    N	  person, =POSS KNOW, =POSS LIKE/3382, =POSS TRUST 
+handle			  fogo1	       manubrium	ra1czka		834			      	    N	  PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	   
+home			  otthon       domus		dom		1924				    u	  N	  place/1026, =POSS AT/2744	
+interest		  e1rdek       commodum		interes		515				    u	  N	  =POSS WANT  
+interest		  e1rdeklo3de1s			studium		zainteresowanie			    517	  u	  N	desire, =POSS WANT[=POSS KNOW] 
+key			  kulcs				clavis		klucz				    1461  u	  N	instrument, metal, key[turn] CAUSE =POSS[open/1814], key[turn] CAUSE =POSS[close] 
+meaning	     e1rtelem	significatio	znaczenie	528		N	information IN/2758 =POSS	
+member	     tag	membrum/socius	czl1onek	2293			N	    person, =POSS[group], person IN/2758 group 
+opinion	     ne1zet	opinio		zdanie		1768			u	    N	    =POSS THINK, =POSS[confident], =POSS HAS lack(proof) 
+order	     sorrend	ordo		porza1dek	2739			u	    N	    relation, =POSS[more(item)], first PART_OF		 
+pay	     be1r	pretium		pensja		237			u	    N	    money, =POSS[work[before]], after(=POSS HAS)	 
+period	     ido3tartam	tempestas	okres		1123			u	    N	    time, =POSS IN/2758 time, =POSS FROM/1838 ' , =POSS TO/2743 ' 
+piece	     darab	pars		kawal1ek	449			u	    N	    thing, small, IN/2758 =POSS[large]	      
+quality	     mino3se1g	qualitas	jakos1c1	1699			u	    N	    good, =POSS[good], characteristic, inherent 
+reason	     ok		ratio		powo1d		1892			u	    N	    CAUSE =POSS	       relational noun
+skill ability, =AGT can/1246[=AGT[act]], =AGT HAS practice,  act[good]
+start
+stock	     re1szve1ny	#		#		#				    N	    document, prove, ABOUT[=POSS HAS part] Longman real DV
+subject	     ta1rgy	materia		przedmiot	2750				    u	    N	      =POSS[<learn>] ABOUT   
+tent	     sa1tor	tabernaculum	namiot		2058				    	    N	      home, temporary, can/1246(=POSS MOVE), HAS wall[lack(rigid),<cloth>, tense], rope PART_OF 
+
+
+Reanalysis complete:
 
 =DAT	19
 
 allow	enged	sino	pozwolic1	670	u	V	=AGT SAY =DAT[=PAT[can/1246]], say CAUSE =DAT[=PAT[can/1246]] modality probability vs permission
-appear	tu3nik	pareo	wydawac1_sie1	2450	u	U	=DAT THINK [=PAT[=OBL]]	       
+appear	tu3nik	pareo	wydawac1_sie1	2450	u	U	=DAT THINK [=PAT[=OBL]]	       %NEM HANEM "megjelenik pareo pojawiaja1 sie1"
 difficult	nehe1z	difficilis	trudny	1771	u	A    =DAT NEED large(effort), effort FOR/2782 difficult	effort OR skill
 explain		megmagyara1z		interpreto	tl1umaczyc1  1636      V	      =AGT CAUSE[=DAT UNDERSTAND =PAT] 
 express		kifejez			effor		wyrazic1     2757      u	      V	   =AGT CAUSE[=DAT KNOW =PAT]  
@@ -38,31 +97,28 @@ show		mutat			monstro		pokazywac1			      1742	u	     V =AGT CAUSE[=DAT LOOK =PA
 teach		tani1t			doceo		uczyc1				      2302		     V =AGT CAUSE[=DAT KNOW =PAT]  Chafe (1970)
 thank		megko2szo2n		gratias_ago	dzie1kowac1			      1633		     u V    =DAT CAUSE =AGT[pleased], =AGT EXPRESS[=AGT[grateful]], polite 
 
-allow
-appear	    tu3nik	pareo	wydawac1_sie1	2450	u	U	=DAT THINK [=PAT[=OBL]]	
-difficult   nehe1z	difficilis		trudny	1771	u	A    =DAT NEED large(effort), effort FOR/2782 difficult effort OR skill
+%let/971 no stop???
+allow =AGT[lack[=AGT stop =PAT]]
+appear =after[=AGT AT location], "locative" MARK location
+difficult act need large(effort), "to/inf" MARK act
 explain =AGT CAUSE[recipient understand =PAT], "dative" MARK recipient
-express	    kifejez				effor		wyrazic1     2757      u	      V	   =AGT CAUSE[=DAT KNOW =PAT]  
-give	    ad					do		dac1	     113       u	      V	   =AGT CAUSE[=DAT HAS =PAT]   
-have	    bi1r				habeo		miec1	     288       u	      V	   =DAT HAS =PAT   
-help	    segi1t				adiuvo		pomagac1     2072      u	      V	   =AGT CAUSE[=PAT[succeed]], =AGT WITH =DAT 
-let	    be1rbead				loco		wynaja1c1    239       u	      V	   give, =AGT CAUSE[=DAT USE =PAT], =DAT[pay/812], =DAT CAUSE[=AGT HAS money] 
-pass	    a1tenged				transmitto	przepus1cic1 102       u	      V	   =AGT LET/971[=DAT HAS =PAT]	    
-pay	    fizet				persolvo	pl1acic1     812       u	      V	   =AGT CAUSE[=DAT HAS money], buy, =AGT PART_OF exchange 
-please	    tetszik				place/1026	zadowalac1   2378      		      V	   =AGT CAUSE[=DAT HAS joy]    RG
-present	    bemutat				introduco	przedstawic1 263		      u	   V	=AGT CAUSE[=DAT SEE =PAT] 
-say	    mond				dico		mo1wic1	     1719		      u	   V	communicate, INSTRUMENT sound/993, =DAT HEAR sound/993 
-seem	    tu3nik				pareo		wydawac1_sie1			      2451 	V	     ' SEE, =DAT THINK [=AGT IS_A =PAT]	       
-sell	    elad				vendo		sprzedac1			      595	u	     V =AGT CAUSE[=DAT HAS =PAT], =DAT CAUSE[=AGT HAS <money>] 
-show	    mutat				monstro		pokazywac1			      1742	u	     V =AGT CAUSE[=DAT LOOK =PAT], communicate	  
-teach	    tani1t				doceo		uczyc1				      2302		     V =AGT CAUSE[=DAT KNOW =PAT]  Chafe (1970)
-thank	    megko2szo2n				gratias_ago	dzie1kowac1			      1633		     u V    =DAT CAUSE =AGT[pleased], =AGT EXPRESS[=AGT[grateful]], polite 
+express =AGT show[=AGT feel  =PAT]
+give =AGT CAUSE[recipient HAS =PAT], "dative" MARK recipient
+have HAS
+help =AGT CAUSE[=PAT[succeed]], =AGT WITH =PAT
+let give, =AGT CAUSE[lessee use =PAT], "dative" MARK lessee
+pass =AGT allow[=PAT AT place], "to/2743" MARK place
+pay =AGT CAUSE[money AT place], "to/2743" MARK place
+please =AGT make[=PAT HAS joy]
+present =AGT CAUSE[recipient SEE =PAT], "dative" MARK recipient
+say communicate, INSTRUMENT sound/993, recipient HEAR sound/993, "dative" MARK recipient
+seem ' think[=AGT IS_A =PAT], "dative" MARK =PAT
+sell =AGT CAUSE[buyer HAS =PAT], buyer CAUSE[=AGT HAS <money>], "dative" MARK buyer
+show =AGT CAUSE[' see =PAT]
+teach =AGT CAUSE[student know =PAT], "dative" MARK student
+thank =AGT EXPRESS[=AGT feel grateful], polite
 
 
-
-
-
-Reanalysis complete:
 
 =TO	19
 
