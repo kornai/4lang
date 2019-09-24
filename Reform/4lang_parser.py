@@ -78,7 +78,7 @@ def parse_direct_node(node):
         return "err / and [ in node"
     nodes = node.split("[")
     
-    if nodes[0].isupper():
+    if nodes[0].isupper() and nodes[0].isalpha():
         return "err upper root node"
     
     stripped_nodes = []
@@ -103,7 +103,7 @@ def parse_def(definition, def_id):
             if not node_split[1].isupper():
                 def_states[def_id] = 'err not well formatted'
                 return
-            if node_split[0].isupper() or node_split[2].isupper():
+            if (node_split[0].isupper() and node_split[0].isalpha()) or (node_split[2].isupper() and node_split[2].isalpha()):
                 def_states[def_id] = 'err not well formatted'
                 return
             node_split[1] = node_split[1].strip(">")
@@ -137,7 +137,7 @@ def parse_def(definition, def_id):
                 if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
                     def_states[def_id] = 'err multiple nodes between parentheses'
                     return
-                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                if len(binaries) > 2 or (binaries[0].isupper() and binaries[0].isalpha()) or (binaries[1].isupper() and binaries[1].isalpha()):
                     def_states[def_id] = 'err not well formatted'
                     return                
                 binaries[1] = binaries[1].strip(")")
@@ -163,7 +163,7 @@ def parse_def(definition, def_id):
                 if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
                     def_states[def_id] = 'err multiple nodes between parentheses'
                     return
-                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                if len(binaries) > 2 or (binaries[0].isupper() and binaries[0].isalpha()) or (binaries[1].isupper() and binaries[1].isalpha()):
                     def_states[def_id] = 'err not well formatted'
                     return
                 binaries[1] = binaries[1].strip(")")
@@ -177,7 +177,7 @@ def parse_def(definition, def_id):
         if len(node_split) == 2:
             node_split[1] = node_split[1].strip(">")
             node_split[1] = node_split[1].strip("<")
-            if (node_split[0].isupper() & node_split[1].isupper()) | (node_split[0].isupper() & node_split[1].isupper()):
+            if (node_split[0].isupper() and node_split[1].isupper() and node_split[0].isalpha() and node_split[1].isalpha()) or (node_split[0].isupper() and node_split[1].isupper() and node_split[0].isalpha() and node_split[1].isalpha()):
                 if node_split[0] != "'" and node_split[1] != "'":
                     def_states[def_id] = 'err not well formatted'
                     return
@@ -208,7 +208,7 @@ def parse_def(definition, def_id):
                 if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
                     def_states[def_id] = 'err not well formatted'
                     return
-                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                if len(binaries) > 2 or (binaries[0].isupper() and binaries[0].isalpha()) or (binaries[1].isupper() and binaries[1].isalpha()):
                     def_states[def_id] = 'err not well formatted'
                     return
                 binaries[1] = binaries[1].strip(")")
@@ -234,7 +234,7 @@ def parse_def(definition, def_id):
                 if len(binaries[1].split()) > 1 or len(binaries[0].split()) > 1:
                     def_states[def_id] = 'err not well formatted'
                     return
-                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                if len(binaries) > 2 or (binaries[0].isupper() and binaries[0].isalpha()) or (binaries[1].isupper() and binaries[1].isalpha()):
                     def_states[def_id] = 'err not well formatted'
                     return
                 binaries[1] = binaries[1].strip(")")
@@ -282,7 +282,7 @@ def parse_def(definition, def_id):
                 if binaries[0] == '':
                     def_states[def_id] = 'err not well formatted'
                     return
-                if len(binaries) > 2 or binaries[0].isupper() or binaries[1].isupper():
+                if len(binaries) > 2 or (binaries[0].isupper() and binaries[0].isalpha()) or (binaries[1].isupper() and binaries[1].isalpha()):
                     def_states[def_id] = 'err not well formatted'
                     return
                 binaries[1] = binaries[1].strip(")")
@@ -293,6 +293,7 @@ def parse_def(definition, def_id):
     return G
 
 def filter_def(definition, def_id):
+    pat_except = re.search(r"=AGT|=PAT", definition[1])
     pat = re.search(r".*=.*", definition[1])
     pat_dir = re.search(r"\[(.+)\]", definition[1])
     pat_dir_err = re.search(r"\[([^\]]+),([^\]]+)\]", definition[1])
@@ -306,7 +307,7 @@ def filter_def(definition, def_id):
         def_states[def_id] = 'err found space between parentheses'
     elif pat_dir_err or pat_err:
         def_states[def_id] = 'err found enumeration between parentheses'
-    elif pat:
+    elif pat and not pat_except:
         def_states[def_id] = 'err found deep case'
     else:
         print(definition)
