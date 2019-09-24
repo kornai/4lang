@@ -2,6 +2,16 @@ Muslim: deleted believe (more consistent with other religions)
 Ural: added mountain, more consistent with Himalayas etc. 
 sign: head is information, not ' perceive
 
+bad CAUSE hurt
+cup container, small, open/1814, drink IN, HAS flat(bottom), <HAS handle> %classic default case!
+
+
+
+
+
+
+
+
 "HAS lack" replaced by "lack"
 
 Now part of syntax:
@@ -45,18 +55,18 @@ subject	   ta1rgy			materia		przedmiot			    2750			    u	    N	      =POSS[<lea
 tent	   sa1tor			tabernaculum	namiot				    2058			    	    N	      home, temporary, can/1246(=POSS MOVE), HAS wall[lack(rigid),<cloth>, tense], rope PART_OF		
 
 
-attention		  figyelem     animi_attentio	uwaga	801	u	N	listen, see, =POSS THINK =PAT[interesting, important] 
-base			  alap	       fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	      
-bottom			  fene1k       fundus		dno		787		N	part, position, vertical(=POSS ER)	      
-duty			  ko2telesse1g officium		obowia1zek	1398			N     must[ ' DO], <society/2285> WANT[=POSS DO] 
-fault			  hiba	       delictum		wina		1050			      N	    =POSS CAUSE problem	  
-finish			  ve1g	       finis		koniec		2597			      u	    N	  part, =POSS[lack, after] 
-friend			  bara1t       amicus		przyjaciel	228			      u	    N	  person, =POSS KNOW, =POSS LIKE/3382, =POSS TRUST 
-handle			  fogo1	       manubrium	ra1czka		834			      	    N	  PART_OF =POSS, FOR/2782[=POSS IN/2758 hand]	   
-home			  otthon       domus		dom		1924				    u	  N	  place/1026, =POSS AT/2744	
-interest		  e1rdek       commodum		interes		515				    u	  N	  =POSS WANT  
-interest		  e1rdeklo3de1s			studium		zainteresowanie			    517	  u	  N	desire, =POSS WANT[=POSS KNOW] 
-key			  kulcs				clavis		klucz				    1461  u	  N	instrument, metal, key[turn] CAUSE =POSS[open/1814], key[turn] CAUSE =POSS[close] 
+attention V listen, see, =AGT think =PAT[interesting, important] %light verb, "pay attention"
+base PART_OF whole, AT/2744 bottom, whole HAS bottom, CAUSE whole[fix]
+bottom PART_OF whole, position, deep( ER whole)
+duty must[=AGT DO], <society/2285> want[=AGT DO] 
+fault CAUSE problem	  
+finish PART_OF event, event lack after
+friend person, =AGT has, =AGT know, =AGT LIKE/3382, =AGT TRUST %possessors are agents, possessed elements are patients
+handle PART_OF object, FOR/2782 hold(object IN/2758 hand)
+home place/1026, =AGT AT/2744, "poss" MARK =AGT
+interest =AGT want, "poss" MARK =AGT
+interest desire, =AGT want[=AGT know], "poss" MARK =AGT %note agentless forms: the discovery has/holds great interest for geographers
+key instrument, metal, lock HAS, key[turn] CAUSE[lock open/1814]
 meaning	     e1rtelem	significatio	znaczenie	528		N	information IN/2758 =POSS	
 member	     tag	membrum/socius	czl1onek	2293			N	    person, =POSS[group], person IN/2758 group 
 opinion	     ne1zet	opinio		zdanie		1768			u	    N	    =POSS THINK, =POSS[confident], =POSS HAS lack(proof) 
@@ -68,7 +78,7 @@ quality	     mino3se1g	qualitas	jakos1c1	1699			u	    N	    good, =POSS[good], c
 reason	     ok		ratio		powo1d		1892			u	    N	    CAUSE =POSS	       relational noun
 skill ability, =AGT can/1246[=AGT[act]], =AGT HAS practice,  act[good]
 start
-stock	     re1szve1ny	#		#		#				    N	    document, prove, ABOUT[=POSS HAS part] Longman real DV
+stock document, 
 subject	     ta1rgy	materia		przedmiot	2750				    u	    N	      =POSS[<learn>] ABOUT   
 tent	     sa1tor	tabernaculum	namiot		2058				    	    N	      home, temporary, can/1246(=POSS MOVE), HAS wall[lack(rigid),<cloth>, tense], rope PART_OF 
 
