@@ -131,7 +131,9 @@ is or can be shown) and has meaning.
 \subsection{Direct predication}
 
 In a formula {\tt A[B]} means that there is a 0-link from A to B. This is used
-only to make the notation more compact. 
+only to make the notation more compact. The notation B(A) means the same
+thing, it is also just syntactic sugar. Both brackets and parens can contain
+full subgraphs. 
 
 \begin{verbatim}
 tree fa arbor drzewo 709 N plant, HAS material[wood], HAS trunk/2759, 
@@ -210,11 +212,22 @@ name & freq\\
 =FOR & 1\\
 \end{tabular}
 
+Of these, only {\tt =AGT} and {\tt =PAT} are actually necessary, all other
+thematic role-like elements, be they deep cases, surface cases, or
+prepositions, have been redefined to rely only on these, see Reform/notes. 
+
 \subsection{More complex notation}
 
-Some complex notations still remain, in particular parentheses {\tt
-  ()}.  [] now refers to subgraph (as a whole)
+When using [] or (), both can contain not just single nodes but entire
+subgraphs. This will have to be rethought in terms of a consistent
+IRTG-friendly version of hypergraphs. Example:
 
+\begin{verbatim}
+stock document, company HAS, [person HAS stock] prove [person HAS PART_OF company]
+\end{verbatim}
+
+`stocks are documents that companies have, if a person has some stock it
+proves that a person owns a part of the company'
 
 \end{document}
 
