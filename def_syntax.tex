@@ -283,22 +283,60 @@ underspecified as to what property it refers to, as befits the definition of
   similar consequences} to {\it similar balloons}). {\tt HAS} again is
 primitive, the causative element in {\it -ize} is well known
 \citep{Lieber:1992,Plag:1998}, and the idea that we define certain verbs by
-their result state is standard. 
+their result state is standard. Temporal structure can refer to some state
+{\tt before} or {\tt after} the event, but this has to be explicitly
+stated. Comma-separated linear order, as in {\tt =PAT HAS property, stem HAS
+  property} simply means conjunction (see Section~\ref{comma}), and as such 
+it is independent of the order of the conjuncts. 
 
+In the fourth edition \citep{Bullon:2003} LDOCE defines {\it caramelize} as
+`if sugar caramelizes, it becomes brown and hard when it is heated'. To parse
+this definition would lead us nowhere, since the definiendum is part of the
+definiens, and we don't have a theory for finding a minimal fixed point in
+{\it if sugar if sugar if sugar \ldots X, X becomes brown and hard when it is
+  heated X becomes brown and hard when it is heated \ldots}. What happens when
+it's not heated? Is it brown? Will it become brown? Is it hard when it's
+caramelized? Or will it become hard only when heated? How about caramelizing
+something other than sugar, say onions? This definition says nothing about the
+`if not sugar' case, whereas the definition we derived above at least tells us
+that if onion is caramelized it will share some properties with caramel. 
 
 \section{Encyclopedic knowledge}
 
-In the fourth edition \citep{Bullen:2003} LDOCE defines {\it caramelize} as
-`if sugar caramelizes, it becomes brown and hard when it is heated'. 
+The first edition of LDOCE \citep{Procter:1978} defines {\it caramel} as
+`burnt sugar used for giving food a special taste and colour'. In 4lang this
+could be recast as 
 
-\citep{Procter:1978}
+\begin{verbatim}
+caramel sugar[burnt], CAUSE {food HAVE {taste[special], colour[specal], 
+<taste[sweet]>, <colour[brown]>}}
+\end{verbatim}
+
+\noindent
+where quite a bit of the syntax is implicit, such as the fact that {\tt
+  caramel} is the subject of {\tt CAUSE}, see Section~\ref{subjobj}, and we
+sneaked in some real world knowledge that the special taste is (in the default
+case) sweet, and the special color is brown.
+
+As the preceding make clear, we could track further {\it special} (defined in
+4lang as {\tt lack(common)}), or {\it food}, or {\it burnt}, or any term, but
+here we will concentrate on {\it sugar} `a sweet white or brown substance that
+is obtained from plants and used to make food and drinks sweet'. Remarkably,
+this definition would also cover xylitol $(CH_2OH(CHOH)_3CH_2OH)$ or stevia
+$(C_{20}H_{30}O_3)$ which are used increasingly as replacements for common
+husehold sugar $(C_6H_{12}O_6)$.
+
+This is not to say that the editors should have been aware in 1978 that a few
+decades later their definition will no longer be specific enough to
+distinguish sugar from other sweeteners. Yet the clause `obtained from
+plants' is indicateve of awareness about saccharine $(C_7H_5NO_3S)$ which is
+also sweet, but is not obtained from plants.  
 
 
-as `burnt sugar used for giving food a special
-taste and colour' 
 
-{\it sugar} `a sweet white or brown substance that is obtained from plants and
-used to make food and drinks sweet' 
+
+
+
 
 Theory of time, verbs, lexical categories, subcategorization
 
@@ -317,8 +355,8 @@ Theory of time, verbs, lexical categories, subcategorization
 
 
 
-such as the adverbial-forming {\it -ly}, the noun-forming {\it -ness}, or the
-superlative {\it -est}.
+% such as the adverbial-forming {\it -ly}, the noun-forming {\it -ness}, or
+% the superlative {\it -est}.
 
 
 
@@ -355,7 +393,7 @@ definitions, in this case adjectival {\it open} `nyilt, apertus' from verbal
 \subsection{External pointers}\label{atsign}
 
 Sometimes (here 42 cases in 1400) a concept doesn't fully belong in the
-lexicon, but rather in the encyclopedia. To quote \cite{Kornai:2019} p 190:
+lexicon, but rather in the encyclopedia. To quote \citep{Kornai:2019} p 190:
 
 \begin{quotation} 
 While our goal is to create a formal theory of lexical definitions, it must be
