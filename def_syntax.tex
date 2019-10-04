@@ -44,12 +44,213 @@
 \maketitle
 
 \begin{abstract}
-We describe how the last column of 4lang needs to be parsed
+We describe how the basic lexicographic principles of 4lang are reflected in
+the syntax of definitions
 \end{abstract}
 
-\section{Major cases}
+\section*{Background}
 
-\subsection{Coordination}
+4lang is a concept dictionary, intended to be universal in a sense made more
+precise below. The main motivation was spelled out in \citep{Kornai:2010}
+as follows:
+
+``In creating a formal model of the lexicon the key difficulty is the
+circularity of traditional dictionary definitions -- the first English
+dictionary, \cite{Cawdrey:1604} already defines {\it heathen}
+as {\tt gentile} and {\it gentile} as {\tt heathen.} The problem has already
+been noted by Leibniz (quoted in \cite{Wierzbicka:1985}):
+
+\begin{quote}
+Suppose I make you a gift of a large sum of money saying you can collect it
+from Titius; Titius sends you to Caius; and Caius, to Maevius; if you continue
+to be sent like this from one person to another you will never receive
+anything.
+\end{quote}
+
+\noindent
+One way out of this problem is to come up with a small list of primitives, and
+define everything else in terms of these.'' 
+
+To take the first tentative steps towards language-independence, the system
+was set up with bindings in four languages, representative samples of the
+major languge families spoken in Europe: Germanic (English), Slavic (Polish),
+Romance (Latin), and Finno-Ugric (Hungarian). Today, bindings exist in over 40
+languages \citep{Acs:2013}  but the user should keep in mind that these 
+bindings provide only rough semantic correspondence to the intended concept. 
+
+4lang can be used for a variety of purposes: for better understanding of
+deep cases \citep{Makrai:2014}; for producing state of the art results on
+analogy tasks \citep{Recski:2016c}; for studies of the importance of
+individual concepts \citep{Makrai:2013a}; for investigating spreading
+activation \citep{Nemeskey:2013}; and of course for investigating various
+issues of lexicography \citep{Kornai:2015a}.
+
+Unfortunately, these papers don't always reference the same version of the
+slowly evolving 4lang, and the principles undergirding the system are not
+available in a single, convenient source. The goal of this document is to
+provide a single entry point for both the linguistic and the computational
+aspects. 
+
+The main {\tt 4lang} file is divided into 9 tab-separated fields, of which the
+last is reserved for comments. The percent sign is also used to delimit
+comments, this is not (yet) consistent. A typical entry (written as one line
+in the file but here broken up in three for legibility) would be
+
+\begin{verbatim}
+attention	figyelem	animi_attentio	uwaga	801	u	V    
+listen, see, =AGT think =PAT[interesting, important] 
+%light verb, "pay attention"
+\end{verbatim}
+
+\noindent
+As can be seen, the first four columns are the 4 language bindings given in
+EHLP order, with provisions for keeping the entire file in 7-bit ASCII. The
+fifth is a unique number per concept, most important when the English bindings
+coincide: 
+
+\begin{verbatim}
+cook	fo3z	coquo	gotowac1	825	u	V	=AGT make <food>, INSTRUMENT heat	
+cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, make food		
+\end{verbatim}
+
+\noindent
+The sixth column is technical (representing current update status) and will be
+ignored here, as it is relevant only for the maintainers of the
+dictionary. The seventh column is a rough lexical category symbol, see
+Section~\ref{lexcat} for further discussion. The main subject of this note is
+the 8th column, which gives the 4lang definition, see Section~\ref{8thcol}, 
+but before turning to that, we discuss some of the lexicographic
+principles. 
+
+
+%ring	cseng	tinnit	dzwonic1	2735	u	U	bell make sound/993, FOR/2782 attention, <bell PART_OF telephone>	
+
+
+\section{Lexicographic principles}
+
+\subsection{Reductivity}
+
+In many ways, 4lang is a logical outgrowth of modern, computationally oriented
+lexicographic work beginning with Collins-COBUILD \citep{Sinclair:1987}, the
+Longman Dictionary of Contemporary English (LDOCE) \citep{Boguraev:1989},
+WordNet \citep{Miller:1995}, FrameNet \citep{Fillmore:1998}, and VerbNet
+\citep{Kipper:2000}. 
+
+The key step in minimizing circularity was taken in LDOCE, where a small
+(about 2,200 words) defining vocabulary (called LDV, Longman Defining
+Vocabulary) was created, and strictly adhered to in the definitions with one
+trivial exception: words that often appear in definitions (e.g. the word {\it
+  planet} is common to the definition of Mercury, Mars, Venus, \ldots) can be
+used as long as their definition is strictly in terms of the LDV.  Since {\it
+  planet} is defined `a large body in space that moves around a star' and
+{\it Jupiter} is defined as `the largest planet of the Sun' it is easy to
+substitute one definition in the other to obtain for Jupiter the definition
+`the largest body in space that moves around the Sun'. 
+
+4lang generalizes this process, starting with a core list of NNN primitives,
+defining a larger set in terms of these, a yet larger set in terms of these,
+and so on until the entire vocabulary is in scope. As a practical matter we
+started from the opposite direction, with a seed list of approximately 3,500
+entries composed of the LDV (2,200 entries), the most frequent 2,000 words
+according to the Google unigram count \citep{Brants:2006} and the BNC
+\citep{Burnard:1998}, as well as the most frequent 2,000 words from Polish
+\citep{Halacsy:2008} and Hungarian \citep{Kornai:2006}.  Since Latin is one of
+the four languages supported by 4lang, we added the classic
+\cite{Diederich:1939} list and \citep{Whitney:1885}. 
+
+Based on these 3,500 words, we reduced the defining vocabulary by means of a
+heuristic graph search algorithm \citep{Acs:2013} that eliminated all words
+that were definable in terms of the remaining ones. The end-stage is a
+vocabulary with the {\it uroboros property}, i.e. one that is minimal wrt this
+elimination process. This list (1,200 words, counting different senses with
+multiplicity) was published as Appendix~4.8 of \cite{Kornai:2019} and was used
+in several subsequent studies including \citep{Nemeskey:2018}. (The last
+remnant of the fact that we started with over 3k words is that numbers in the
+5th column are still in the 1-3,500 range, as we decided against renumbering
+the set.)
+
+Importantly, since the uroboros vocabulary was obtained by systematic
+reduction of a superset of the LDV, it is still guaranteed that every sense of
+every word listed in LDOCE (over 82k entries) are definable in terms of
+these. Since the defining vocabularies of even larger dictionaries such as
+Webster's 3rd \citep{Merriam:1961} are generally included in LDOCE, we have
+every reason to believe that the entire vocabulary of English, indeed the
+entire vocabulary of any language, is still definable in terms of these 1,200
+concepts. 
+
+Unfortunately, such redefinition generally requires more than string
+substitution: for example if you substitute `a large body in space that moves
+around a star' into `the largest \_\_ of the Sun' you would obtain `the
+largest a large body in space that moves around a star of the Sun' and it
+takes a great deal of sophistication for the substitution algorithm to realize
+that {\it a large} is subsumed by {\it the largest} or that {\it a star} is
+instantiated by {\it the Sun}. People perform these operations with ease,
+without conscious effort, but for now we lack parsers of the requisite
+syntactic and semantic sophistication to do this automatically. Part of our
+goal with the strict definition syntax that replaces English syntax on the
+right-hand side (rhs) of definitons is to study the mechanisms required by an
+automated parser for doing this. 
+
+\subsection{Morphological prerequisites}
+
+The LDV contains a few dozen bound morphemes, the prefixes {\it -able -al -an
+  -ance -ar -ate -ation -dom -ed -en -ence -er -ess -est -ful -hood -ible -ic
+  -ical -ing -ion -ish -ist -ity -ive -ization -ize -less -like -ly -ment
+  -ness -or -ous -ry -ship -th -ure -ward -wards -work -y} and the suffixes
+{\it counter- dis- en- fore- im- in- ir- mid- mis- non- re- un- vice- well-}.
+These are tremendously useful both in reducing the size of the defining
+vocabulary (since {\it eat} and {\it eating} no longer be listed both) and in
+making the definitions less complicated. 
+
+While we obviously cannot cover the entirety of English morphology as part of
+4lang, we do not consider the problems raised by bound forms to be
+qualitatively different from those raised by lexical semantics in
+general. Also, languages are not uniform in where they draw the bound/free
+boundary: many concepts that are expressed by affixation in one are expressed
+by free forms in another, and dictionary definitions often contain these.
+
+We will illustrate our methods on the suffix {\it -ize}, which means something
+like `to cause to become', so {\it Americanize} `cause to become American',
+{\it carbonize} `cause to become carbon' and so forth. There are cases that do
+not fit this analysis ({\it agonize} doesn't mean `cause to become agony' the
+same way {\it colonize} means `cause to become colony') and there are other
+subregularities one may wish to consider, but the majority of the 2-300
+English words ending in {\it -ize} fit this pattern well enough to consider it
+the leading candidate for a semantic definition. What we wish to state is a
+lexical rule roughly of the following form: for stem X, stem+ize means `cause
+to become (like) X'. Anticipating several notational conventions that will
+only be explained subsequently, we could write this as 
+
+\begin{verbatim}
+-ize CAUSE {become <like/1701> stem}, "-ize" MARK stem
+\end{verbatim}
+
+\noindent 
+(From here on we keep only the English binding for the definiendum, followed
+by the definiens.) 
+
+
+
+
+
+
+
+
+
+
+
+
+such as the adverbial-forming {\it -ly}, the noun-forming {\it -ness}, or the
+superlative {\it -est}.
+
+
+
+
+
+
+\section{The syntax of definitions}\label{8thcol}
+
+\subsection{Coordination}\label{comma}
 
 A 4lang definition always contains one or more (hypergraph) nodes, of which
 one is distinguished as the {\it head} (related to, but not exactly the same
@@ -74,7 +275,7 @@ The number following the '/', if present, serves to disambiguate among various
 definitions, in this case adjectival {\it open} `nyilt, apertus' from verbal
 {\it open} `nyit, aperio'. These numbers are in column 5 of the 4lang file. 
 
-\subsection{External pointers}
+\subsection{External pointers}\label{atsign}
 
 Sometimes (here 42 cases in 1400) a concept doesn't fully belong in the
 lexicon, but rather in the encyclopedia. To quote \cite{Kornai:2019} p 190:
@@ -99,7 +300,7 @@ London	city, @London
 Muhammad  man/744, @Muhammad	
 \end{verbatim}
 
-\subsection{Subjects and objects}
+\subsection{Subjects and objects}\label{subjobj}
 
 In addition to 0 links, definitions often explain the definiendum in terms of
 it being the subject or object of some binary relation. When not defined by
@@ -128,7 +329,7 @@ is the object of eating, subject unspecified), and {\it sign} is\_a
 information, is the object of perception, is\_a show (nominal, something that
 is or can be shown) and has meaning.
 
-\subsection{Direct predication}
+\subsection{Direct predication}\label{isa}
 
 In a formula {\tt A[B]} means that there is a 0-link from A to B. This is used
 only to make the notation more compact. The notation B(A) means the same
@@ -140,7 +341,7 @@ tree fa arbor drzewo 709 N plant, HAS material[wood], HAS trunk/2759,
                            HAS crown 
 \end{verbatim}
 
-\subsection{Defaults}
+\subsection{Defaults}\label{default}
 
 In principle, all definitional elements are strict (can be defeased only under
 exceptional circumstances) but time and again we find it expedient to collapse 
@@ -159,7 +360,7 @@ words: for example Hungarian distinguishes {\it utazik} `travel' and {\it
   lovagol} `rides a horse', a verb that cannot appear with an object or
 instrument the same way as English `ride a bike' can.  
 
-\subsection{Agents, patients}
+\subsection{Agents, patients}\label{agtpat}
 
 The relationship between horseback riding (which is, as exemplified in 1.5
 above, just a form of travelling) and its defining element, the horse, is
@@ -216,18 +417,21 @@ Of these, only {\tt =AGT} and {\tt =PAT} are actually necessary, all other
 thematic role-like elements, be they deep cases, surface cases, or
 prepositions, have been redefined to rely only on these, see Reform/notes. 
 
-\subsection{More complex notation}
+\subsection{More complex notation}\label{parens}
 
-When using [] or (), both can contain not just single nodes but entire
-subgraphs. This will have to be rethought in terms of a consistent
+When using [] or (),both can contain not just single nodes but entire
+subgraphs. For subgraphs we also use \{ \}. This will have to be rethought in terms of a consistent
 IRTG-friendly version of hypergraphs. Example:
 
 \begin{verbatim}
-stock document, company HAS, [person HAS stock] prove [person HAS PART_OF company]
+stock document, company HAS, {person HAS stock} prove {person HAS PART_OF company}
 \end{verbatim}
 
 `stocks are documents that companies have, if a person has some stock it
 proves that a person owns a part of the company'
+
+
+\printbibliography
 
 \end{document}
 
