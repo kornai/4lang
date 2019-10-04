@@ -227,7 +227,84 @@ only be explained subsequently, we could write this as
 
 \noindent 
 (From here on we keep only the English binding for the definiendum, followed
-by the definiens.) 
+by the definiens.) Here {\tt CAUSE} is a primitive (part of our eventual
+uroboros set) written in CAPS because it is one of the few binary relations we
+admit as primitives (primitive unaries and variadic predicates are written
+lowercase).  The curly braces (see Section~\ref{parens}) denote a single
+hypergraph node (pictorially, all formulas will correspond to hypergraphs) and
+the angled brackets signify optionality, enclosing the default option (see
+Section~\ref{default}). {\tt MARK} is another primitive, standing for the
+relation between signifier (a string, given in doublequotes) and the relevant
+element to be substituted, here the node {\tt stem} which is analogous to the
+variable X used above. 
+
+However, neither {\tt like/1701} nor {\tt become} are primitives (for the
+four-digit disambiguation number following the English binding see
+Section~\ref{comma}). {\tt like/1701} `sicut' is defined as {\tt similar} (as
+opposed to {\tt like/3382} `amo') and {\tt become} is defined as {\tt
+  =AGT[=PAT[after]]} which for now we will paraphrase as `afterwards, agent
+IS\_A patient' (thematic roles are discussed in Sections~\ref{agtpat} and
+\ref{deepcase}). For something like {\it John caramelized the sugar} this 
+would be `John caused the sugar to be <similar to> caramel afterwards'. 
+
+Here, For the sake of readability, we made some consessions to English syntax,
+by adding agreement morphology, an article, a copula, and a preposition, but
+eventully the reader will get familiar with the syntax of definitions that
+lacks all this niceties, and would read {\tt John CAUSE after {sugar <similar>
+    caramel}}. 
+
+
+Since {\tt similar} is not a primitive of the formal language of definitions,
+we can take this further by substituting its definition 
+
+\begin{verbatim}
+similar =AGT HAS property, =PAT HAS property, "to/2743" MARK =PAT
+\end{verbatim}
+
+\noindent
+Since named nodes are unique in definitions, what this means is that in the
+construction {\it X (is) similar to Y} the agent will have the {\it same}
+property as the patient. As expected, the {\tt MARK} relation is
+language-specific, for Hungarian we would want to say that the allative case
+{\it hoz/hez/h\"{o}z} marks the patient. (4lang currently gives the MARKs only
+for English.) 
+
+At this point we can omit the default (since it is a binary realtion, this
+means substituting {\tt IS\_A}) or we can expand it, to yield 
+
+\begin{verbatim}
+-ize CAUSE {after {=PAT HAS property, stem HAS property}}, "-ize" MARK stem
+\end{verbatim}
+
+\noindent At this point, all our notions are primitives, including the
+metalinguistic placeholder "stem" and the term {\tt property}, which is really
+underspecified as to what property it refers to, as befits the definition of
+{\it similar} which is underspecified exactly in this respect (compare {\it
+  similar consequences} to {\it similar balloons}). {\tt HAS} again is
+primitive, the causative element in {\it -ize} is well known
+\citep{Lieber:1992,Plag:1998}, and the idea that we define certain verbs by
+their result state is standard. 
+
+
+\section{Encyclopedic knowledge}
+
+In the fourth edition \citep{Bullen:2003} LDOCE defines {\it caramelize} as
+`if sugar caramelizes, it becomes brown and hard when it is heated'. 
+
+\citep{Procter:1978}
+
+
+as `burnt sugar used for giving food a special
+taste and colour' 
+
+{\it sugar} `a sweet white or brown substance that is obtained from plants and
+used to make food and drinks sweet' 
+
+Theory of time, verbs, lexical categories, subcategorization
+
+
+
+
 
 
 
@@ -393,11 +470,13 @@ express the fact that the subject of HAS is the same as the subject of {\it
 ABOUT is the same as the object of knowing -- this will be done by the {\tt
   =PAT} placeholder. 
 
-\subsection{Minor thematic roles}
+\subsection{Deep cases}\label{deepcase}
 
-Of the 1,200 currently unreduced primitives, about 15\% refer to the major
+Of the 1,200 initially unreduced primitives, about 15\% refer to the major
 thematic roles {\tt =AGT,=PAT} discussed above. The treatment of the others
-(altogether less than 10\%) is work in progress, see Reform/notes
+(altogether less than 10\%) is discussed here. \cite{Makrai:2014} used several 
+thematic role-like constructs (numbers in the table give their occurrence
+frequencies in the 1200 set):
 
 \begin{tabular}{rr}
 name & freq\\
@@ -413,9 +492,9 @@ name & freq\\
 =FOR & 1\\
 \end{tabular}
 
-Of these, only {\tt =AGT} and {\tt =PAT} are actually necessary, all other
-thematic role-like elements, be they deep cases, surface cases, or
-prepositions, have been redefined to rely only on these, see Reform/notes. 
+Of these, only {\tt =AGT} and {\tt =PAT} are still in use, all other thematic
+role-like elements, be they deep cases, surface cases, or prepositions, have
+been redefined to rely only on these, see Reform/notes.
 
 \subsection{More complex notation}\label{parens}
 
