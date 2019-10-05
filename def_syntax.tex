@@ -19,7 +19,7 @@
 % \usepackage{xypic}
 \usepackage[matrix,arrow]{xy}
 \usepackage[pdftex,colorlinks=true,urlcolor=blue,bookmarksdepth=subsection,plainpages=false]{hyperref}
-\usepackage[backend=biber,natbib,style=authoryear]{biblatex}
+\usepackage[backend=biber,natbib,style=authoryear,uniquename=false,uniquelist=false]{biblatex}
 \def\stackrel#1#2{\mathrel{\mathop{#2}\limits^{#1}}}
 \makeatletter
 \newcommand{\dashedrightarrow}[1][2pt]{%
@@ -247,11 +247,11 @@ IS\_A patient' (thematic roles are discussed in Sections~\ref{agtpat} and
 \ref{deepcase}). For something like {\it John caramelized the sugar} this 
 would be `John caused the sugar to be <similar to> caramel afterwards'. 
 
-Here, For the sake of readability, we made some consessions to English syntax,
+Here, for the sake of readability, we made some consessions to English syntax,
 by adding agreement morphology, an article, a copula, and a preposition, but
 eventully the reader will get familiar with the syntax of definitions that
-lacks all this niceties, and would read {\tt John CAUSE after {sugar <similar>
-    caramel}}. 
+lacks all this niceties, and would read {\tt John CAUSE after \{sugar $<$similar$>$
+    caramel\}}. 
 
 
 Since {\tt similar} is not a primitive of the formal language of definitions,
@@ -290,8 +290,12 @@ stated. Comma-separated linear order, as in {\tt =PAT HAS property, stem HAS
 it is independent of the order of the conjuncts. 
 
 In the fourth edition \citep{Bullon:2003} LDOCE defines {\it caramelize} as
-`if sugar caramelizes, it becomes brown and hard when it is heated'. To parse
-this definition would lead us nowhere, since the definiendum is part of the
+`if sugar caramelizes, it becomes brown and hard when it is heated'.  The
+first edition of LDOCE \citep{Procter:1978} does not define {\it caramelize}
+and has no self-recursion. The self-recursive definitions added to later
+editions may be a feature from the perspective of the human language learner,
+but they are definitely a bug from the computational perspective.  To parse this
+definition would lead us nowhere, since the definiendum is part of the
 definiens, and we don't have a theory for finding a minimal fixed point in
 {\it if sugar if sugar if sugar \ldots X, X becomes brown and hard when it is
   heated X becomes brown and hard when it is heated \ldots}. What happens when
@@ -299,7 +303,7 @@ it's not heated? Is it brown? Will it become brown? Is it hard when it's
 caramelized? Or will it become hard only when heated? How about caramelizing
 something other than sugar, say onions? This definition says nothing about the
 `if not sugar' case, whereas the definition we derived above at least tells us
-that if onion is caramelized it will share some properties with caramel. 
+that if onion is caramelized it will share some properties with caramel.
 
 \section{Encyclopedic knowledge}
 
@@ -331,6 +335,94 @@ decades later their definition will no longer be specific enough to
 distinguish sugar from other sweeteners. Yet the clause `obtained from
 plants' is indicateve of awareness about saccharine $(C_7H_5NO_3S)$ which is
 also sweet, but is not obtained from plants.  
+
+4lang takes the line that encyclopedic knowledge has no place in the
+lexicon. Instead of worrying about how to write clever definitions that will
+distinguish sugar not just from saccharine but also from xyletol, stevia, and
+whatever new sweeteners the future may bring, it embraces simplicity and
+provides definitions like the following:
+
+\begin{verbatim} 
+rottweiler dog
+greyhound dog
+\end{verbatim}
+
+\noindent
+This means that we fail to fully characterize the competent adult speaker's
+ability to use the word {\it rottweiler} or {\it greyhound}, but this does not
+seem to be a critical point of language use, especially as many adult speakers
+seem to get along just fine without a detailed knowledge of dog breeds. To
+quote \cite{Kornai:2010}:
+
+\begin{quote}
+So far we discussed the {\it lexicon}, the repository of linguistic knowledge
+about words. Here we must say a few words about the {\it encyclopedia}, the
+repository of world knowledge. While our goal is to create a formal theory of
+lexical definitions, it must be acknowledged that such definitions can often
+elude the grasp of the linguist and slide into a description of world
+knowledge of various sorts.  Lexicographic practice acknowledges this fact by
+providing, somewhat begrudgingly, little pictures of flora, fauna, or
+plumbers' tools. A well-known method of avoiding the shame of publishing a
+picture of the yak is to make reference to {\tt Bos grunniens} and thereby
+point the dictionary user explicitly to some encyclopedia where better
+information can be found. We will collect such pointers in a set {\bf E}
+\end{quote}
+
+\noindent
+Today, we use Wikipedia for our encyclopedia, and denote pointers to it by a
+prefixed @ sign, see Section~\ref{atsign}. Our definitions are 
+
+\begin{verbatim} 
+sugar	sweet, IN/2758 food, IN/2758 drink
+sweet	taste, good, pleasant, sugar HAS taste, honey HAS taste
+\end{verbatim}
+
+\noindent
+Instead of sophisticated scientific taxonomies 4lang supports a naive
+world-view \citep{Hayes:1979,Gordon:2017}. We learn that {\it sugar} is sweet,
+and {\it sweet} IS\_A taste -- the system actually makes no distinction
+between predicative (is) and attributive (is\_a) usage. We learn that sugar is
+to be found in food and drink, but not where exactly.
+
+One place where the naive view is very evident is the treatment of high-level
+abstractions. For example, the definition of {\it color} has nothing to do
+with photons, frequency ranges in the electromagnetic spectrum, or anything of
+the sort -- what we have instead is {\tt sensation, light/739, red IS\_A,
+  green IS\_A, blue IS\_A} and when we turn to e.g. {\it red} we find {\tt
+  colour, warm, fire HAS colour, blood HAS colour}. 
+
+As with {\it sugar} and {\it sweet}, we posit something approaching a mutual
+defining relation between {\it red} and {\it blood}, but this is not entirely
+like Titius and Caius sending you further on: actually {\it blood} gets
+eliminated early in the uroboros search as we iteratively narrow the defining
+set, while {\it red} stays on. Eventually, we have to have some primitives,
+and we consider {\it red}, a Stage II color in the \cite{Berlin:1969}
+hierarchy, a very reasonable candidate for a cross-linguistic primitive.
+
+\subsection{Lexical categories}\label{lexcat}
+
+Whether a universal system of lexical categories exists is still a widely
+debated question. \cite{Bloomfield:1933}, and more recently
+\cite{Kaufman:2009} argued that certain languages like Tagalog have only one
+category, but the notion that there are at least three major categories,
+nouns, verbs, and adjectives has been broadly defended
+\citep{Baker:2003,Chung:2012}. 4lang subdivided verbs into two categories:
+intransitive U and transitive V, retaining the standard N for noun and A for
+adjective, and also used D for aDverb (noun); and G for Grammatical formative.
+
+
+
+
+
+
+As argued in \citep{Kornai:2012}, ditransitives
+and higher arity predicates are unnecessary. As it is well known, maintaining
+a universal system of lexical categories 
+
+
+
+
+
 
 
 
@@ -392,22 +484,9 @@ definitions, in this case adjectival {\it open} `nyilt, apertus' from verbal
 
 \subsection{External pointers}\label{atsign}
 
-Sometimes (here 42 cases in 1400) a concept doesn't fully belong in the
-lexicon, but rather in the encyclopedia. To quote \citep{Kornai:2019} p 190:
-
-\begin{quotation} 
-While our goal is to create a formal theory of lexical definitions, it must be
-acknowledged that such definitions can often elude the grasp of the linguist
-and slide into a description of world knowledge of various sorts.
-Lexicographic practice acknowledges this fact by providing, somewhat
-begrudgingly, little pictures of flora, fauna, or plumbers’ tools. A
-well-known method of avoiding the shame of publishing a picture of a yak is to
-make reference to {\it Bos grunniens} and thereby point the dictionary user
-explicitly to some encyclopedia where better information can be found.
-\end{quotation}
-
-In the formal language defined here, such {\it external pointers} are marked
-by a prefixed @. Examples:
+Sometimes (here 42 cases in 12000) a concept doesn't fully belong in the
+lexicon, but rather in the encyclopedia. In the formal language defined here,
+such {\it external pointers} are marked by a prefixed @. Examples:
 
 \begin{verbatim}
 Africa	land, @Africa	
@@ -761,3 +840,21 @@ name. `Bilbo never heard of Palantir' is true.
  timestamps, largely invariant objects, and  causal continuity).
 
   know =AGT HAS information, information ABOUT =PAT
+And we learn a bit more: 
+
+\begin{verbatim} 
+cake food, sweet, [ ' make] INSTRUMENT bake, FROM/2742 flour, FROM/2742 butter, FROM/2742 sugar, FROM/2742 egg	
+\end{verbatim}
+
+
+\begin{quote}
+1a: potassium carbonate, esp. that obtained in colored impure form by leaching
+ wood ashes, evaporating the lye usu. in an iron pot, and calcinating the
+ residue -- compare pearl ash. b: potassium hydroxide. 2a : potassium oxide
+ K$_2$O in combined form as determined by analysis (as of fertilizers)
+ $\langle$ soluble $\sim$ $\rangle$ b: potassium -- not used systematically
+ $\langle$ $\sim$ salts $\rangle$ $\langle$ sulfate of $\sim$ $\rangle$ 3: any
+ of several potassium salts (as potassium chloride or potassium sulfate) often
+ occurring naturally and used esp. in agriculture and industry $\langle$
+ $\sim$ deposits $\rangle$ $\langle$ $\sim$ fertilizers $\rangle$
+\end{quote}
