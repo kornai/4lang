@@ -305,7 +305,7 @@ something other than sugar, say onions? This definition says nothing about the
 `if not sugar' case, whereas the definition we derived above at least tells us
 that if onion is caramelized it will share some properties with caramel.
 
-\section{Encyclopedic knowledge}
+\subsection{Encyclopedic knowledge}
 
 The first edition of LDOCE \citep{Procter:1978} defines {\it caramel} as
 `burnt sugar used for giving food a special taste and colour'. In 4lang this
@@ -378,7 +378,7 @@ sweet	taste, good, pleasant, sugar HAS taste, honey HAS taste
 \end{verbatim}
 
 \noindent
-Instead of sophisticated scientific taxonomies 4lang supports a naive
+Instead of sophisticated scientific taxonomies, 4lang supports a naive
 world-view \citep{Hayes:1979,Gordon:2017}. We learn that {\it sugar} is sweet,
 and {\it sweet} IS\_A taste -- the system actually makes no distinction
 between predicative (is) and attributive (is\_a) usage. We learn that sugar is
@@ -399,16 +399,128 @@ set, while {\it red} stays on. Eventually, we have to have some primitives,
 and we consider {\it red}, a Stage II color in the \cite{Berlin:1969}
 hierarchy, a very reasonable candidate for a cross-linguistic primitive.
 
-\subsection{Lexical categories}\label{lexcat}
+\subsection{Lexical categories and subcategories}\label{lexcat}
 
 Whether a universal system of lexical categories exists is still a widely
 debated question. \cite{Bloomfield:1933}, and more recently
 \cite{Kaufman:2009} argued that certain languages like Tagalog have only one
-category, but the notion that there are at least three major categories,
-nouns, verbs, and adjectives has been broadly defended
+category, but the notion that there are at least three major categories that
+are universal, nouns, verbs, and adjectives, has been broadly defended
 \citep{Baker:2003,Chung:2012}. 4lang subdivided verbs into two categories:
-intransitive U and transitive V, retaining the standard N for noun and A for
-adjective, and also used D for aDverb (noun); and G for Grammatical formative.
+intransitive U and transitive V; retaining the standard N for noun; A for
+adjective; and also used D for aDverb; and G for Grammatical formative.
+
+While this rough categorization has proven useful for seeking bindings in the
+original 4 and in other languages, there is no theoretical claim associated to
+these categories, neither the universal claim that all languages would
+manifest these categories (or at least, or at most, these), nor the
+(four)language-particular claim that these categories are somehow
+necessary/sufficient for capturing the data. In fact, 4lang is a semantic
+system, and it says remarkably little about the system of lexical categories
+and subcategories, be they defined by morphological or syntactic
+cooccurrences. If anything, our findings lend support to the thesis of
+\cite{Wierzbicka:2000} that cross-linguistic identification of lexical
+categories is to be achieved via prototypes rather than by abstract class
+meanings. 
+
+To the extent that none of the six lexical categories U,V,N,A,D,G is ever
+referred to by any definition or rule, 4lang holds fast to the autonomy of
+syntax thesis. In particular, we refrain from stating the categorial signature
+of elements even when it is obvious, e.g. that {\it -ize} is N$\rightarrow$V
+(see \cite{Lieber:1992} that in productive uses the resulting verb must be
+transitive), and we feel free to add in English paraphrases formatives such as
+{\it be, that, a/an, the, to \ldots} which serve only to make the English
+syntax come out right. For lexicographic completeness, we could add entries
+e.g. for infinitival {\it to}, but 4lang does not encode any difference
+between the meaning of {\it eat} and {\it to eat}. This is in sharp contrast
+to locative {\it to}, which we see as contentful and define as {\tt after(=AGT
+  AT/2744 =PAT)}. 
+
+The syntax of 4lang definitions countenances only two basic types (lexical
+categories in the metalanguage): unaries and binaries, and permits lexical
+entries to be ambiguous between these two.  The basic unary type is seen in
+most nouns, especially proper names, adjectives, and adverbials, and the basic
+binary type is seen in transitive verbs and adpositions.  As an example of the
+latter, consider the preposition {\it at}, defined in LDOCE as `used to say
+exactly where something or someone is, or where something happens'. Clearly,
+{\it at} is a binary relation (we write these in SVO order) x AT y, where y is
+strongly subtyped for location, be it spatial or temporal, so strongly that
+otherwise unspecified entities like {\it Jim's} have to be typcast to location
+if we are to make sense of expressions like {\it We meet at Jim's}. In
+contrast, x is left untyped: it could be a physical object, a person, or even
+an event. Either way, y provides the origin of the coordinate system where we
+anchor x. 4lang has the means to express the selectional restriction on the
+second argument (see Section~\ref{label}), but considers the use of {\it
+  where} inappropriate, given that {\it at} has no question component (and in
+fact {\it where} will be defined as {\tt AT wh}). Since other ideas about what
+{\it at} means, be they cast in terms of some geometric coordinate system oor
+in terms of figure/ground, are far too complex to serve as the basis of some
+reductive theory, we again bite the bullet and take AT to be a semantic
+primitive. This yields the definition
+
+\begin{verbatim}
+at AT, =PAT[place/1026], "at" MARK =PAT
+\end{verbatim}
+
+\noindent
+(In Hungarian, we would have {\tt "n\'al/n\'el" MARK =PAT} -- the MARK-clauses
+in column 8 are always specific to English.) Whereas adpositions are generally
+hard to decompose in terms of more primitive notions, transitive verbs are
+much easier: as a classic example (and to show our indebtedness to the
+generative semantic tradition) we provide
+
+\begin{verbatim}
+kill =AGT CAUSE {=PAT[die]} 
+\end{verbatim}
+
+\noindent
+In the metalanguage of the definition syntax there are only three binary
+relations: {\it subject}, depicted in graphs by an arrow labeled by `1' and
+pointing toward the subject; {\it object}, depicted in graphs by an arrow
+labeled by `2' and pointing toward the object (see Section~\ref{subjobj}; and
+{\it is/is\_a}, depicted in graphs by an arrow labeled `0' running from
+subclass to superclass (see Section~\ref{isa}). These are not to be confused
+with binary semantic relations such as {\tt AT, CAUSE} or {\tt kill}, of which
+there are a handful of primitives and thousands of derived ones.
+
+Two important semantic primitives worth mentioning here are {\tt gen} and {\tt
+  wh}.  {\tt gen} is a generic quantifier-like element that is neutral between
+{\it somebody/something} and {\it anybody/anything}. In a system of formal
+logic {\tt gen} would be just a variable-binding term operator, without
+universal or existential import.  {\tt wh}, also a VBTO, provides the
+semantics of the interrogative morpheme. Note that both {\tt gen} and {\tt wh}
+are unaries, and have no scope. 
+
+Unaries can serve both as predicates and as arguments.  Altogether, the
+metalanguage is rather loosely typed, in that anything can serve as an
+argument (when an argument slot is filled by something complex, this complex
+formula is surrounded by $\{ \}$ for the sake of clarity, see
+Section~\ref{parens}) and neither argument of a binary needs to be filled
+obligatorily. 
+
+Another pair of unaries, {\tt after} and {\tt before}, constitute all that
+4lang currently offers in way of temporal semantics. These refer to the state 
+after (resp. before) the event (verb) they characterize, think of these as
+three stills from a short movie depicting the event. So we have 
+
+\begin{verbatim}
+die after(dead)
+dead lack(live), before(live)
+\end{verbatim}
+
+\noindent
+These are not to be confused with {\tt AFTER} and {\tt BEFORE}, which are the
+usual temporal primitives (by duality, only one of them needs to be left
+undefined) with two arguments, e.g. {\tt Tuesday BEFORE Wednesday}. 
+
+
+\subsection{Arguments, adjuncts, linking}\label{linking}
+
+
+
+that 
+to
+for 
 
 
 
