@@ -429,7 +429,7 @@ syntax thesis. In particular, we refrain from stating the categorial signature
 of elements even when it is obvious, e.g. that {\it -ize} is N$\rightarrow$V
 (see \cite{Lieber:1992} that in productive uses the resulting verb must be
 transitive), and we feel free to add in English paraphrases formatives such as
-{\it be, that, a/an, the, to \ldots} which serve only to make the English
+{\it be, that, a/an, the, to, -ly \ldots} which serve only to make the English
 syntax come out right. For lexicographic completeness, we could add entries
 e.g. for infinitival {\it to}, but 4lang does not encode any difference
 between the meaning of {\it eat} and {\it to eat}. This is in sharp contrast
@@ -450,10 +450,10 @@ if we are to make sense of expressions like {\it We meet at Jim's}. In
 contrast, x is left untyped: it could be a physical object, a person, or even
 an event. Either way, y provides the origin of the coordinate system where we
 anchor x. 4lang has the means to express the selectional restriction on the
-second argument (see Section~\ref{label}), but considers the use of {\it
+second argument (see Section~\ref{linking}), but considers the use of {\it
   where} inappropriate, given that {\it at} has no question component (and in
 fact {\it where} will be defined as {\tt AT wh}). Since other ideas about what
-{\it at} means, be they cast in terms of some geometric coordinate system oor
+{\it at} means, be they cast in terms of some geometric coordinate system or
 in terms of figure/ground, are far too complex to serve as the basis of some
 reductive theory, we again bite the bullet and take AT to be a semantic
 primitive. This yields the definition
@@ -477,7 +477,7 @@ kill =AGT CAUSE {=PAT[die]}
 In the metalanguage of the definition syntax there are only three binary
 relations: {\it subject}, depicted in graphs by an arrow labeled by `1' and
 pointing toward the subject; {\it object}, depicted in graphs by an arrow
-labeled by `2' and pointing toward the object (see Section~\ref{subjobj}; and
+labeled by `2' and pointing toward the object (see Section~\ref{subjobj}); and
 {\it is/is\_a}, depicted in graphs by an arrow labeled `0' running from
 subclass to superclass (see Section~\ref{isa}). These are not to be confused
 with binary semantic relations such as {\tt AT, CAUSE} or {\tt kill}, of which
@@ -514,58 +514,238 @@ usual temporal primitives (by duality, only one of them needs to be left
 undefined) with two arguments, e.g. {\tt Tuesday BEFORE Wednesday}. 
 
 
-\subsection{Arguments, adjuncts, linking}\label{linking}
+\subsection{Linking}\label{linking}
+
+In terms of the amount of fully analyzed text available, Universal
+Dependencies (UD) is the single most influential cross-linguistic framework of
+grammatical description \citep{Nivre:2018s}. While many other schools of
+grammatical description offer a broader variety of analyses, these (with the
+possible exception of tagmemics) rarely extend to significant corpora, the
+dominant style of linguistic analysis being the in-depth study of a restricted
+range of syntactic phenomena (ideally across many typologically diverse
+languages, but quite often restricted to a single language) rather than the
+in-breadth analysis of an entire language. Here we assume the reader is
+familiar with UD, and compare 4lang to UD, pointing at other frameworks only
+in a few places. Generally, 4lang is on the sparse or `lumping' side of the
+comparison, not just in relation to UD, but also in relation to other
+well-developed theories like LFG, HPSG, or MP. 
+
+As far as {\bf grammatical functions} are concerned, we only assume two,
+subject and object. As argued in \citep{Kornai:2012}, ditransitives and higher
+arity predicates are unnecessary for semantic purposes. Since 4lang doesn't
+have an indirect object (UD {\tt iobj}) function, ditransitives are always
+modeled by decomposition:
+
+\begin{verbatim}
+give =AGT CAUSE[recipient HAS =PAT], "dative" MARK recipient
+buy =AGT receive =PAT, =AGT pay seller, "from" MARK seller
+sell =AGT CAUSE[buyer HAS =PAT], buyer CAUSE[=AGT HAS <money>], 
+     "dative" MARK buyer
+\end{verbatim}
+
+\noindent
+Since UD distinguishes dependency links by the category of the head and the
+dependent, it naturally keeps notions like {\tt nsubj} and {\tt csubj}
+(nominal and clausal subjects) separate, and similarly for {\tt obj} and {\tt
+  ccomp}. 4lang, with its roots in the theory of Knowledge Representation,
+where the proliferation of link types has emerged as a significant problem
+early on \citep{Woods:1975}, admits only one other link type, `0' (subject
+links are `1' and object links `2'), which subsumes most of the other link
+types used in UD, such as {\tt amod, appos, nummod} and {\tt advmod}.  In a
+strictly link-based system such as UD it is a practical necessity to have a
+separate link type for coordination: in 4lang we just use comma-separated
+concatenation (see Section~\ref{comma}). 
+
+Aside from attribution and predication, which are both denoted by a `0' link,
+two cardinal links, `1' and `2', are used for all binaries, incuding those
+marked in many grammatical systems by {\bf deep cases} such as {\tt
+  INSTRUMENT}. 
+
+\begin{verbatim}
+cheque paper, write ON, amount ON, signature ON, pay/812 INSTRUMENT
+say communicate, INSTRUMENT sound/993, recipient hear sound/993, "dative" MARK recipient
+\end{verbatim}
+
+What these definitions mean (by virtue of the convention spelled out in
+Section~\ref{subjobj}) is that checques are instruments in paying, and sounds
+are instruments of communicating. INSTRUMENT, as a binary relation has a
+subject (what has the instrument) and an object (what is the instrument). In
+effect, a single link type, which could be labeled `INS' is replaced by an
+INSTRUMENT node that has the same two arrows as are used for other binaries,
+subject and object. Whether other deep cases are called for is not clear from
+a lexical semantics perspective, but (broadly speaking) subjects are agents,
+objects are patients, AT, ON, IN, are locatives, FROM is ablative, and FOR is
+goal. 4lang compromises on dative, which is treated as a {\bf surface case}
+rather than as a deep case `recipient' or as an adposition (though in English
+it is one). 
+
+%\bigskip\noindent
+%\begin{tabular}{llll}
+%Agent & {\it kart\d{r}} & the independent one & (1.4.54)\\
+%Goal & {\it karman} & what is primarily desired by the agent & (1.4.49)\\
+%Recipient & {\it sa\d{m}prad\={a}na} & the one in view when giving &
+%(1.4.32)\\
+%Instrument & {\it kara\d{n}a} & the most effective means & (1.4.42)\\
+%Locative & {\it adhikara\d{n}a} & the locus & (1.4.45)\\
+%Source & {\it ap\={a}d\={a}na} & the fixed point that movement is away from
+%  & (1.4.24)\\
+%\end{tabular}
+
+
+\bigskip
+Finally, we consider {\bf thematic roles} of which we have exactly two, {\tt
+  =AGT} and {\tt =PAT}. These are constitutive elements in definitions of
+binaries where the subject or object needs to be named. 
+
+\begin{verbatim}
+
+=REL	34
+
+-ness  =AGT IS_A stem, "-ness" MARK stem
+about ABOUT
+across before(=AGT ON side), =PAT HAS side, after(=AGT ON other(side)) =PAT HAS side[other] 
+after =PAT BEFORE =AGT
+along AT/2744 =PAT[long]    
+around AT/2744 =PAT[round]
+because =PAT CAUSE =AGT
+before =AGT BEFORE =PAT
+between =AGT AT/2744 location, location separate =PAT
+by INSTRUMENT
+condition =AGT CAUSE[=PAT[possible]]
+fairly =AGT[=PAT ER average]
+follow =PAT BEFORE =AGT
+for AT/2744 exchange, "for" MARK price
+for =PAT get =AGT %many other meanings of "for"
+from before(=AGT IN/2758 =PAT)
+from period, "from" MARK period[begin]
+if =PAT before =AGT, lack(` know =PAT), "if" MARK =PAT
+in location, =AGT AT/2744 location, location contain =AGT, "in" mark location
+instead =AGT
+necessary lack(=AGT) CAUSE (=PAT fail), "for" MARK =PAT
+of =PAT HAS =AGT
+of location, before(=AGT IN/2744 location), "of" mark location
+of ABOUT %many other meanings of "of"
+on AT, AGT= touch =PAT, <over>
+over high(=AGT ER =PAT)
+rather good(=AGT 'ER =PAT), "than" MARK =PAT
+shall IN/2758 future
+soil ground, plant grow IN
+through before(=AGT ON side), =PAT HAS side, after(=AGT ON other(side)) =PAT HAS side[other]
+to after(=AGT AT/2744 =PAT)
+towards	after near(=AGT ER =PAT)
+under high(=PAT ER =AGT)
+until BEFORE end, "until" MARK end
+while AT/2744 time, "while" MARK time	
+with "with" MARK instrument
+within =AGT IN =PAT
 
 
 
-that 
-to
-for 
+=POS	26
+
+attention V listen, see, =AGT think =PAT[interesting, important] %light verb, "pay attention"
+base PART_OF whole, AT/2744 bottom, whole HAS bottom, CAUSE whole[fix]
+bottom PART_OF whole, position, deep( ER whole)
+duty must[=AGT DO], <society/2285> want[=AGT DO] 
+fault CAUSE problem	  
+finish PART_OF event, event lack after
+friend person, =AGT has, =AGT know, =AGT LIKE/3382, =AGT TRUST %possessors are agents, possessed elements are patients
+handle PART_OF object, FOR/2782 hold(object IN/2758 hand)
+home place/1026, =AGT AT/2744, "poss" MARK =AGT
+interest =AGT want, "poss" MARK =AGT
+interest desire, =AGT want[=AGT know], "poss" MARK =AGT %note agentless forms: the discovery has/holds great interest for geographers
+key instrument, metal, lock HAS, key[turn] CAUSE[lock open/1814]
+meaning information IN/2758 mind, sign represent
+member group HAS, IN/2758 group
+opinion thought, person HAS, person[confident], person lack proof
+order relation, more(item) HAS, first PART_OF
+pay money, =AGT give, =PAT receive, FOR work
+period time, HAS start, HAS end
+piece thing, small, PART_OF thing[large]
+quality property, characteristic, inherent, <good>
+reason CAUSE thing, ` understand thing
+skill ability, =AGT can/1246[=AGT[act]], =AGT HAS practice,  act[good]
+start act AFTER
+stock document, company HAS, [person HAS stock] prove [person HAS [PART_OF] company]
+subject conversation HAS, HAS more(part), more(part) connect more(part)
+tent home, temporary, can/1246(` move), HAS wall[lack(rigid),<cloth>, tense], rope PART_OF 
+
+
+=DAT	19
 
 
 
+allow =AGT[lack[=AGT stop =PAT]]
+appear =after[=AGT AT location], "locative" MARK location
+difficult act need large(effort), "to/inf" MARK act
+explain =AGT CAUSE[recipient understand =PAT], "dative" MARK recipient
+express =AGT show[=AGT feel  =PAT]
+give =AGT CAUSE[recipient HAS =PAT], "dative" MARK recipient
+have HAS
+help =AGT CAUSE[=PAT[succeed]], =AGT WITH =PAT
+let give, =AGT CAUSE[lessee use =PAT], "dative" MARK lessee
+pass =AGT allow[=PAT AT place], "to/2743" MARK place
+pay =AGT CAUSE[money AT place], "to/2743" MARK place
+please =AGT make[=PAT HAS joy]
+present =AGT CAUSE[recipient SEE =PAT], "dative" MARK recipient
+say communicate, INSTRUMENT sound/993, recipient HEAR sound/993, "dative" MARK recipient
+seem ' think[=AGT IS_A =PAT], "dative" MARK =PAT
+sell =AGT CAUSE[buyer HAS =PAT], buyer CAUSE[=AGT HAS <money>], "dative" MARK buyer
+show =AGT CAUSE[' see =PAT]
+teach =AGT CAUSE[student know =PAT], "dative" MARK student
+thank =AGT EXPRESS[=AGT feel grateful], polite
 
 
 
-As argued in \citep{Kornai:2012}, ditransitives
-and higher arity predicates are unnecessary. As it is well known, maintaining
-a universal system of lexical categories 
+=TO	19
 
 
+able =AGT can/1246[=AGT[act]], "to/inf" MARK act
+add =AGT CAUSE[=PAT IN/2758 place], "to/2743" MARK place
+addition change, add
+available =AGT can/1246[=AGT[use]]
+belong =PAT HAS =AGT, "to/2743" MARK =AGT
+gentle careful, kind
+include =AGT CAUSE[=PAT IN/2758 place], "in/10" MARK place
+invite =AGT say[=AGT want[=PAT AT/2744 place]], "to/2743" MARK place
+join after(together) %implies before(separate)
+law rule, system, society/2285 HAS, official, norm
+listen =AGT CAUSE [=AGT hear], "to/2743" MARK =PAT
+mix =AGT CAUSE[=PAT IN/2758 place]], place[material<liquid>], =PAT[material, before(separate)], "in/10" MARK place
+necessary ' need
+occasion N event
+put =AGT CAUSE[=PAT AT/2744 place], =AGT move =PAT, "to/2743" MARK place
+ready  =AGT can/1246[=AGT[act]], now, "to/inf" MARK act
+similar =AGT HAS property, =PAT HAS property, "to/2743" MARK =PAT
+skill ability, =AGT can/1246[=AGT[act]], =AGT HAS practice,  act[good]
+
+=FROM	7
 
 
+accept receive, =AGT think[=PAT[right/1191] for =AGT]
+buy =AGT receive =PAT, =AGT pay seller, "from" MARK seller
+%of I think this is a bug, we need instead 
+from  -to1l a/ab od 58	   u  G	   "from" MARK after[far]
+remove =AGT CAUSE[=PAT FAR source], "from" MARK source
+rubber material, flexible
+eraser instrument, remove [mark ON paper]
+separate V =AGT CAUSE [=PAT FAR source], "from" MARK source %this is he definition of V not A
+separate A different
+take =AGT CAUSE[=PAT AT/2744 =AGT]
 
+=OBL	5
 
+appear observer THINK [=AGT is_a =PAT], "dat" MARK =PAT
+equal HAS quantity, =PAT HAS quantity, "dat" MARK =PAT
+full lack(space/2327)
+protest show [=AGT think [=PAT[wrong]]]
+shoot =AGT cause[bullet AT/2744 =PAT], =AGT use gun
 
+=FOR	1
 
-
-
-
-
-Theory of time, verbs, lexical categories, subcategorization
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% such as the adverbial-forming {\it -ly}, the noun-forming {\it -ness}, or
-% the superlative {\it -est}.
-
-
-
-
-
+use	haszna1l	utor	uz1ywac1	1008	u	V =AGT HAS purpose, =PAT help purpose,  "for/to" MARK purpose 
+\end{verbatim}
+%-er, -est
 
 \section{The syntax of definitions}\label{8thcol}
 
@@ -668,14 +848,14 @@ instrument the same way as English `ride a bike' can.
 
 \subsection{Agents, patients}\label{agtpat}
 
-The relationship between horseback riding (which is, as exemplified in 1.5
-above, just a form of travelling) and its defining element, the horse, is
-indirect. The horse is neither the subject, not the object of travel. 
-Rather, it is the rider who is the subject of the definiendum and the
-definiens alike, corresponding to a graph node that has a 1 arrow leading to
-it from both. This node is labelled by {\tt =AGT}, so when we wish to express 
-the semantic fact that Hungarian {\it lovagol} means travel on a horse we
-write 
+The relationship between horseback riding (which is, as exemplified in
+Section~\ref{default} above, just a form of travelling) and its defining
+element, the horse, is indirect. The horse is neither the subject, not the
+object of travel.  Rather, it is the rider who is the subject of the
+definiendum and the definiens alike, corresponding to a graph node that has a
+1 arrow leading to it from both. This node is labelled by {\tt =AGT}, so when
+we wish to express the semantic fact that Hungarian {\it lovagol} means travel
+on a horse we write
 
 \begin{verbatim}
 lovagol travel, =AGT ON horse
@@ -970,3 +1150,26 @@ cake food, sweet, [ ' make] INSTRUMENT bake, FROM/2742 flour, FROM/2742 butter, 
  occurring naturally and used esp. in agriculture and industry $\langle$
  $\sim$ deposits $\rangle$ $\langle$ $\sim$ fertilizers $\rangle$
 \end{quote}
+
+
+Muslim: deleted believe (more consistent with other religions)
+Ural: added mountain, more consistent with Himalayas etc. 
+sign: head is information, not ' perceive
+
+bad CAUSE hurt
+cup container, small, open/1814, drink IN, HAS flat(bottom), <HAS handle> %classic default case!
+
+
+
+
+
+
+
+
+"HAS lack" replaced by "lack"
+
+Now part of syntax:
+
+=AGT	178
+=PAT	174
+
