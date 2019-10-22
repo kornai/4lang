@@ -12,6 +12,7 @@ tokens = (
     'ROUNDBR',
     'ROUNDBL',
     'EQUAL',
+    "CITE",
     'CURLYBR',
     'CURLYBL',
     'ANGLEBR',
@@ -20,8 +21,8 @@ tokens = (
 
 t_ignore = ' \t'
 
-t_RELATION = r'FOLLOW|AT|INTO|HAS|ABOUT|ON|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE'
-t_CLAUSE = r'([a-zA-Z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE)\b[a-zA-Z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
+t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK)\b[a-zA-Z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
 t_EQUAL = r'(=[A-Z]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
@@ -32,7 +33,7 @@ t_CURLYBR = r'\}'
 t_CURLYBL = r'\{'
 t_ANGLEBR = r'\>'
 t_ANGLEBL = r'\<'
-
+t_CITE = '"'
 
 def t_newline( t ):
   r'\n+'
@@ -58,7 +59,10 @@ def p_clause(p):
     p[0] = p[1]
 
 def p_clause_angle(p):
-    '''expr : ANGLEBL CLAUSE ANGLEBR'''
+    '''expr : ANGLEBL expr ANGLEBR'''
+
+def p_cite(p):
+  '''expr : CITE CLAUSE CITE'''
 
 def p_expr_curly(p):
     '''expr : CURLYBL start CURLYBR'''
@@ -84,7 +88,8 @@ def p_square(p):
 
 def p_round(p):
     '''expr : CLAUSE ROUNDBL expr ROUNDBR
-    | EQUAL ROUNDBL expr ROUNDBR'''
+    | EQUAL ROUNDBL expr ROUNDBR
+    | CITE CLAUSE CITE ROUNDBL expr ROUNDBR'''
 
 def p_error(p):
     raise TypeError("unknown text at %r" % (p,))
