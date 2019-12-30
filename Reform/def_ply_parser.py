@@ -22,7 +22,7 @@ tokens = (
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK)\b[a-zA-Z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK)\b[a-zA-Z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
 t_EQUAL = r'(=[A-Z]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
@@ -76,6 +76,9 @@ def p_relation_clause(p):
 def p_equal_clause(p):
     'expr : EQUAL expr'
 
+def p_equal_clause_equal(p):
+    'expr : EQUAL expr EQUAL'
+
 def p_relation_clause_binary(p):
     'expr : expr RELATION expr'
 
@@ -127,7 +130,6 @@ def process(outputdir):
             try:
                 res = parser.parse(d)
             except TypeError as e:
-                print(e)
                 def_states[element] = "err syntax error " + str(e)
 
 def main(argv):
