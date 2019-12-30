@@ -127,7 +127,6 @@ def process(outputdir):
             try:
                 res = parser.parse(d)
             except TypeError as e:
-                print(e)
                 def_states[element] = "err syntax error " + str(e)
 
 def main(argv):
