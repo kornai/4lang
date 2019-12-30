@@ -73,11 +73,18 @@ def p_equal(p):
 def p_relation_clause(p):
     'expr : RELATION expr'
 
+def p_equal_clause(p):
+    'expr : EQUAL expr'
+
 def p_relation_clause_binary(p):
     'expr : expr RELATION expr'
 
 def p_clause_relation(p):
     'expr : expr RELATION'
+    #print(p[1])
+
+def p_relation(p):
+    'expr : RELATION'
     #print(p[1])
 
 def p_square(p):
@@ -120,7 +127,8 @@ def process(outputdir):
             try:
                 res = parser.parse(d)
             except TypeError as e:
-                def_states[element] = "err syntax error"
+                print(e)
+                def_states[element] = "err syntax error " + str(e)
 
 def main(argv):
     inputfile = ''
