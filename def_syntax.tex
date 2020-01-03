@@ -435,7 +435,7 @@ transitive), and we feel free to add in English paraphrases formatives such as
 syntax come out right. For lexicographic completeness, we have entries
 e.g. for infinitival {\it to}, but 4lang does not encode any difference
 between the meaning of {\it eat} and {\it to eat} (see \ref{naivegrammar} for
-details). . This is in sharp contrast to locative {\it to}, which we see as
+details). This is in sharp contrast to locative {\it to}, which we see as
 contentful and define as {\tt after(=AGT AT/2744 =PAT)}.
 
 The syntax of 4lang definitions countenances only two basic types (lexical
@@ -622,14 +622,30 @@ thematic roles simply reify the protester (=AGT) and the thing protested
 
 \subsection{Naive grammar}\label{naivegrammar}
 
-By and large, 4lang holds fast to the autonomy of syntax thesis, and stays as
-much on the purely semantic side as possible. The semantic language has its
-own syntax, specified in \ref{8thcol}, but this is not intended as a proposal
-about natural language syntax, which we know to be far more complex in many
-ways. Yet time and again we see the need to make reference to a {\it naive}
-theory of grammar, just as we see the need to link to naive probability
-\citep{Gyenis:2019}, naive planning \citep{Gordon:2017}, etc. 
+The central subject of this paper, the {\it metalanguage} we use to describe
+the semantics, has its own syntax, which drives the parser {\tt
+  def\_ply\_parser.pl}. But before we can turn to this in \ref{8thcol}, we need
+to emphasize that 4lang is a formal system on its own right, not intended as a
+proposal about natural language syntax (the parser will parse the definitions,
+not natural language), and discuss some cases where considerations of syntax
+nevertheless creep in.
 
+Since the issue is central to the development of generative grammar, we should
+make clear here that our position is not intended as an argument for, or
+against, the autonomy of syntax thesis. As a research strategy, we prefer a
+semantic formalism that is as autonomous as feasible, since this promotes
+modularity not just in the sense of \cite{Fodor:1983}, but also in the sense
+of enabling independent experimentation and research for both syntacticians
+and semanticists. We do not feel qualified to take sides in the debate, but if
+those who believe only in a very limited autonomy of syntax (or none at all),
+are to mount arguments capable of convincing the opposing side, these
+arguments need to be cast in terms of the inadequacy of well-modularized
+systems, so even for them the first order of business is to look at modular
+architectures. 
+
+Our main contribution to this area is that we only make reference to a {\it
+  naive} theory of grammar, just as we see the need to link to naive
+probability \citep{Gyenis:2019}, naive planning \citep{Gordon:2017}, etc.
 The fundamental elements (primitives) of this naive theory are {\it words}. We
 don't go anywhere near the issues of how a word is, or should be, defined in
 phonology, morphology, orthography, syntex, semantics, or lexicography (though
@@ -647,7 +663,7 @@ As used in 4lang, {\tt MARK} is the relation connecting form and meaning. This
 corresponds well to the Saussurean notion of the sign, and will be sufficient
 for our purposes, even though a more sophisticated theory of signs
 \citep{Kracht:2011} is available for the non-naive theory of grammar. Our main
-use of MARK is with function words (including bound grammatical formatives) as
+use of {\tt MARK} is with function words (including bound grammatical formatives) as
 in
 
 \begin{verbatim}
@@ -674,8 +690,8 @@ them outside the bounds of the naive theory. In this regard, the system is
 full of promissory notes: we define {\it to/3600} by {\tt "to/3600 \_" MARK
   infinitive}, as in {\it John went to eat}, and {\it to/12} as {\tt
   after(=AGT AT/2744 =PAT)}, as in {\it John went to Chicago}. Here we must
-leave notions like {\it infinitive} or agent/patient undefined (see
-\ref{linking} for examples of their intended use).
+leave notions like {\it infinitive} or agent/patient undefined (we have seen
+in \ref{linking} some examples of their intended use).
 
 In this paper we do not take on board the issue of expanding this to a fuller
 theory of (naive) grammar, but as we shall see, a non-eliminable grammatical
