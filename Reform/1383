@@ -12,10 +12,12 @@
 %electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N	power, move, <FOR/2782 device>, <IN/2758 wire>	
 %experience	a1te1l	cognosco/video	dos1wiadczac1	101	u	V	
 %formal	formai	iustus	formalny	858	u	A		formal/143
+%living	kereset	victus	z2yja1cy	3492	u	N		
 %lot	juss	sors	los	1205	u	N		
 %lot	telek	fundus	dzial1ka	2342	u	N		
 %material	testi	corporeus	materialny	2371	u	A		%as opposed to spiritual?
 %movement	mozgalom	motus	ruch	3506	u	N	
+%object	ce1l	finis	cel	364	u	N		
 %plain	si1k	planus	ro1wny	2089		A		
 %plant	u2ltet	sero	sadzic1	2495	u	V		
 %practice	gyakorlat	exercitatio	c1wiczenie	2947	u	N	do, frequent	
@@ -469,7 +471,7 @@ explain	megmagyara1z	interpreto	tl1umaczyc1	1636		V	=AGT CAUSE[recipient underst
 explode	robban	displodor	wybuchac1	2031		V	sudden, move, violent, pressure CAUSE, pressure IN/2758 =AGT	
 express	kifejez	effor	wyrazic1	2757	u	V	=AGT show[=AGT feel  =PAT]	%
 express	kimondott	enuntiatus	wyraz1ony	1344	u	A	=AGT show[=AGT feel  =PAT]	%
-expression	a1bra1zat	facies	mina	64	u	N		
+expression	a1bra1zat	facies	mina	64	u	N	shape, face HAS, express/2757 emotion
 expression	kifejeze1s	significatio	wyraz1enie	1332	u	N	word[<more>], <idea> IN/2758
 extreme	rendki2vu2li	#	#	2786		A	ER gen	
 eye	szem	oculus	oko	2182	u	N	organ, see INSTRUMENT, animal HAS, ON face, <two>	
@@ -712,7 +714,6 @@ list	lista	tabulae	lista	1544	u	N	series, item member, written
 listen	fu2lel	ausculto	sl1uchac1	871	u	U	=AGT CAUSE [=AGT hear], "to/2743 _" MARK =PAT	%
 literature	irodalom	litterae	literatura	1153		N	every(text) IN/2758	
 live	e1l	vivo	z1yc1	504	u	U	exist, breathe, grow, reproduce, eat, action, adapt	
-living	kereset	victus	z2yja1cy	3492	u	N		
 long	hosszu1	longus	dl1ugi	1086	u	A	gen ER size[horizontal], HAS axis
 look	ne1z	specto	patrzec1	1766	u	V	=AGT want[=AGT see =PAT]	
 lose	elveszi1t	amitto	gubic1	656	u	V	after(LACK)	
@@ -792,7 +793,7 @@ newspaper	u1jsa1g	diurna	gazeta	2473	u	N	artefact, public, HAS more(page), AT/27
 next	ko2vetkezo3	posterus	naste1pny	1406		D	at/2744, FOLLOW gen	
 night	e1j	nox	noc	500		N	period, FOLLOW sunset, sunrise FOLLOW, dark, LACK sun, <sleep AT/2744>	
 no	nem	non	nie	1778	u	G	LACK exist    
-nobility	nemesse1g	nobilitas	szlachta	3512	u	N		
+nobility	nemesse1g	nobilitas	szlachta	3512	u	N	noble
 noise	zaj	fremitus	hal1as	2671	u	N	sound/993, <bad>, loud, frighten gen	
 nor	sem	neque	ani	2078		G	not	
 north	e1szak	septemtriones	po1l1noc	538		N	direction, ON earth, top, map HAS top	
@@ -806,7 +807,6 @@ now	most	nunc	teraz	1726	u	A	AT/2744 this(time)
 number	sza1m	numerus	numer	2138	u	N	quantity	
 nun	apa1ca	ancilla	zakonnica	3514	u	N	woman, member organization(religious<Christian>)	
 oats	zab	avena	#	#		N	cereal	Longman real DV
-object	ce1l	finis	cel	364	u	N		
 object	ta1rgy	corpus	przedmiot	2705	u	N	thing, <HAS colour>, HAS shape, HAS weight, <HAS surface>, HAS position, <LACK life>	HAS orientation
 occasion	alkalom	occasio	okazja	157	u	N	event	%
 octopus	polip	polypus	os1miornica	3517	u	N	animal, IN sea, HAS arm(eight)
@@ -817,9 +817,9 @@ off	el	dis-	wy-	592	u	D	LACK AT/2744
 offend	ba1nt	offendo	obrazic1	201		V	=AGT CAUSE[harm AT/2744 =PAT]	
 offensive	se1rto2	odiosus	obraz1liwy	2723	u	A	LACK polite
 office	iroda	cancellaria	biuro	1152	u	N	place/1026, professional(activity) IN/2758	
-officer	tiszt	praefectus	oficer	2388		N		
+officer	tiszt	praefectus	oficer	2388		N	person, HAS authority, member organization(military<army>)
 official	hivalatalos	publicus	oficjalny	1065	u	A	AT/2744 authority	
-official	tisztviselo3	officialis	urze1dnik	2398	u	N		
+official	tisztviselo3	officialis	urze1dnik	2398	u	N	person, HAS authority	
 often	gyakran	saepe	cze1sto	921		D	many IN/2758 time, little(distance) BETWEEN	
 ogenclock	o1rakor	hora	godzina	1836		D	AT/2744 hour	
 oh	o1	o	o	3170	u	G	"oh" MARK emotion 	??vocative
@@ -834,7 +834,7 @@ open	nyit	aperio	otwierac1	1815	u	V	=PAT[open/1814[after]]
 opinion	ne1zet	opinio	zdanie	1768	u	N	thought, person HAS, person[confident], person LACK proof	%
 opponent	ellenfe1l	adversarius	przeciwnik	631		N	person, oppose, <compete>, <AT/2744 battle>	contradicting defaults
 oppose	ellenez	adversor	sprzeciwic1_sie1	630	u	V	fight
-or	vagy	vel	albo	2568	u	G	or	%primitive, choice? 	
+or	vagy	vel	albo	2568	u	G	"_ or _" MARK choose	%primitive
 order	parancs	iussum	rozkaz	1942	u	N	communicate, authority give, [other(person)] do	
 order	sorrend	ordo	porza1dek	2739	u	N	relation, more(item) HAS, first PART_OF	%
 ordinary	he1tko2znapi	quotidianus	zwyczajny	1023		A	common	
@@ -856,10 +856,10 @@ parent	szu2lo3	parens	rodzic	2266	u	N	make child
 park	park	horti	park	1943		N	area/2366, land, public, LACK building, rest IN/2758, beautiful, natural, grass IN/2758, tree PART_OF, IN/2758 <town>, walk IN/2758, play IN/2758	
 parliament	parlament	senatus	sejm	1944		N	state/76 HAS, FOR/2782 nation, make law, HAS power	
 part	re1sz	pars	cze1s1c1	1997	u	N	PART_OF
-particular	egyes	singularis	pewien	568	u	A		
+particular	egy_bizonyos	quidam	pewien	568	u	A	LACK choose
 party	buli	orgia	zabawa	354	u	N	event, people AT/2744, FOR/2782 pleasure, eat AT/2744, drink AT/2744, dance AT/2744	
 pass	a1tenged	transmitto	przepus1cic1	102	u	V	=AGT allow[=PAT AT/2744 place], "to/2743 _" MARK place	%
-passage	u1t	iter	przejs1cie	2480		N		
+passage	u1t	iter	przejs1cie	2480		N	way, narrow
 past	mu1lt	praeterita	przeszl1os1c1	1732	u	N	period, PART_OF time, present FOLLOW	
 pastry	su2teme1ny	panificium	wypiek	2132	u	N	cake, small
 pattern	minta	exemplum	wzo1r	1704	u	N	structure, gen resemble, repeat	part?
@@ -869,7 +869,7 @@ penny	fille1r	nummulus	pens	805	u	N	cent
 people	ne1p	populus	ludzie	1762	u	N	human(group)	
 perceive	e1rze1kel	percipio	dostrzegac1	531		V	know, INSTRUMENT sense, hear IS_A, smell IS_A, see IS_A, touch IS_A 
 perform	elo3ad	ago	grac1	642	u	V	action, gen see, public, play, =AGT HAS role
-perhaps	ta1n	forsitan	moz1e	2277		D		
+perhaps	ta1n	forsitan	moz1e	2277		D	"perhaps" MARK doubt
 period	ido3tartam	tempestas	okres	1123	u	N	time, HAS start, HAS end	%
 permanent	a1llando1	#	#	3015		A	LACK change	
 person	szeme1ly	persona	osoba	2185		N	man/659	
@@ -1313,7 +1313,7 @@ watch	o1ra	horologium	zegarek	1835	u	N	clock, AT/2744 person, <ON wrist>
 water	vi1z	aqua	woda	2622	u	N	liquid, LACK colour, LACK taste, LACK smell, life need	
 wave	hulla1m	unda	fala	1104	u	N	IN/2758 sequence, move, ON surface, liquid[move[vertical]] HAS surface	
 wax	no3	cresco	rosna1c1	1797		V	substance	
-way	u1t	via	droga	2484	u	N	artefact, move AT/2744, HAS direction	
+way	u1t	via	droga	2484	u	N	artefact, gen move AT/2744, HAS direction	
 weak	gyenge	infirmus	sl1aby	927	u	A	power(gen ER)
 weapon	fegyver	arma	bron1	754	u	N	instrument, fight INSTRUMENT	
 wear	hord	gesto	nosic1	1081	u	V	[=PAT[garment]] ON [=AGT[human]]	
