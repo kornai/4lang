@@ -9,12 +9,15 @@
 %detail	re1sz	pars	szczego1l1	1995		N		
 %develop	kifejleszt	excolo	rozwijac1	1333	u	V		
 %draw	von	delineo	rysowac1	2660	u	V		
+%electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N	power, move, <FOR/2782 device>, <IN/2758 wire>	
 %experience	a1te1l	cognosco/video	dos1wiadczac1	101	u	V	
 %formal	formai	iustus	formalny	858	u	A		formal/143
 %lot	juss	sors	los	1205	u	N		
 %lot	telek	fundus	dzial1ka	2342	u	N		
 %material	testi	corporeus	materialny	2371	u	A		%as opposed to spiritual?
+%movement	mozgalom	motus	ruch	3506	u	N	
 %plain	si1k	planus	ro1wny	2089		A		
+%plant	u2ltet	sero	sadzic1	2495	u	V		
 %practice	gyakorlat	exercitatio	c1wiczenie	2947	u	N	do, frequent	
 %rude	durva	asper	nieuprzejmy	493	u	A	<speak>, LACK(polite), offend, annoy	LACK(manner)
 %separate	ku2lo2n	secretus	osobny	1450	u	A	different	%do we need this?
@@ -433,8 +436,7 @@ effect	okoz	efficio	powodowac1	1896	u	V	cause
 effort	ero3feszi1te1s	labor	wysil1ek	687		N	use energy, attempt	
 egg	toja1s	ovum	jajo	2422	u	N	food, round, animal[<hen>] make, HAS thin/2598(shell)	
 electrical	villamos	electricus	elektryczny	2633		A	electric	
-electricity	a1ram	fluidum_electricum	elektrycznos1c1	88	u	N	power, move, <FOR/2782 device>, <IN/2758 wire>	
-electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N	power, move, <FOR/2782 device>, <IN/2758 wire>	
+electricity	a1ram	fluidum_electricum	elektrycznos1c1	88	u	N	fluid, HAS power, move, <FOR/2782 device>, <IN/2758 wire>	
 electronic	elektromos	electronicus	elektronyczny	3451	u	N	machine, use electricity	
 element	elem	elementum	pierwiastek	3452	u	N	material, HAS atom(same)
 elephant	elefa1nt	elephantus	sl1on1	605	u	N	mammal, large, herbivore, LACK hair/3359, HAS trunk/1910, HAS large(ear), HAS tusks[ivory]
@@ -455,7 +457,7 @@ especially	fo3leg	praesertim	gl1o1wnie	2816	u	A	example
 even	egyenletes	aequus	ro1wnomierny	564	u	A	flat/1493
 even	si1k	planus	ro1wny	2087	u	A	flat/1493
 event	eseme1ny	eventum	wydarzenie	692	u	N	activity, AT/2744 place/1026, <important>	
-exact	exakt	exactus	dokl1adny	705	u	A	correct	Longman use precise information
+exact	exakt	exactus	dokl1adny	705	u	A	correct, LACK different
 example	pe1lda	exemplum	przykl1ad	1950		N	pattern HAS, representative, typical, illustrate gen
 exchange	csere	mutatio	wymiana	405	u	N	before(=PAT AT/2744 person), after(=PAT AT/2744 other(person)) 
 excite	izgat	excito	podniecac1	1167		V	=PAT[person], =AGT CAUSE[=PAT HAS strong (feeling)]	
@@ -542,7 +544,7 @@ from	o1ta	ex	z	1838	u	G	AT/2744 [period[begin AT/2744 =PAT]]	x from y: x IS_A pe
 front	elej	pars_prior	przo1d	608	u	N	part	?
 fruit	gyu2mo2lcs	fructus	owoc	945		N	PART_OF plant, seed PART_OF, food, sweet, HAS flesh	
 full	teli	plenus	pel1ny	2344	u	A	LACK space/2327	%
-funeral	temete1s	funus	pogrzeb	2348	u	N		
+funeral	temete1s	funus	pogrzeb	2348	u	N	event, religious, after(gen bury/2347 =PAT), "poss" MARK =PAT
 fungus	gombafe1le	fungus	grzyb	3469	u	N	plant, LACK leaves, LACK flower, small, ON surface, mold IS_A, mushroom IS_A
 funny	vicces	salsus	s1mieszny	2624		A	fun	
 fur	pre1m	pellis	futro	1974	u	N	hair/3359, cover skin, mammal HAS	
@@ -629,8 +631,8 @@ include	belevesz	comprehendo	wl1a1czyc1	259		V	=AGT CAUSE[=PAT IN/2758 place], "
 increase	fokoz	augeo	zwie1krzac1	838		V	after(=PAT ER gen)	
 industry	ipar	industria	przemysl1	1146	u	N	produce	
 influence	befolya1s	auctoritas	wpl1yw	254	u	V	control	
-information	hi1r	nuntius	informacja	1040	u	N		
-information	informa1cio1	nuntiatio	informacja	1141	u	N	study give, experience give, gen know	TODO
+information	hi1r	nuntius	informacja	1040	u	N	report	
+information	informa1cio1	nuntiatio	informacja	1141	u	N	fluid, study give, experience give, gen know
 injure	megsebesi1t	vulnero	ranic1	1642		V	harm	
 insect	rovar	insectum	owad	2048	u	N	small(animal), HAS [pair[three],leg], HAS head, <HAS wing[pair[two]]>	HAS thorax, HAS abdomen
 inside	-ban	intra	w	13	u	G	in/2758	
@@ -703,7 +705,7 @@ lime	lime	tilia	limonka	2773	u	N	fruit, green, sour
 lime	me1szko3	calx	wapien1	1609	u	N	mineral, stone, white	
 limit	hata1rol	termino	ograniczac1	1012		V	bounds
 line	sor	versus	rza1d	2118	u	N	shape, long, HAS position, HAS direction, <straight/563>	mark, next to each other
-linen	va1szon	linteamen	pos1ciel	3490	u	N		
+linen	va1szon	linteamen	pos1ciel	3490	u	N	cloth/2232, tablecloth IS_A, sheets IS_A
 lion	oroszla1n	leo	lew	1911	u	N	large(mammal), resemble cat, eat meat, brave, strong, HAS mane
 liquid	folye1kony	fluidus	pl1ynny	846	u	A	substance, flow, HAS shape[change]	
 list	lista	tabulae	lista	1544	u	N	series, item member, written	
@@ -731,7 +733,7 @@ many	sok	multus	wiele	2113		A	quantity, ER gen
 mark	jel	nota	znak	1182	u	N	visible(sign)	
 marry	ha1zasodik	coniungo	pobierac1_sie1	965		V	after(=AGT IN/2758 marriage)	
 mass	mise	missa	#	2726		N	[group, people] AT/2744, prayer, priest lead/2617	ND
-mass	to2meg	massa	masa	2410		N		
+mass	to2meg	massa	masa	2410		N	amount. object HAS	
 material	anyag	materialis	material1	2798	u	N	object, real, build use
 mathematics	matematika	mathematica	matematyka	3066	u	N	science, ABOUT calculate, ABOUT number, ABOUT shape	
 may	lehet	potest	mo1c1	1523	u	G	allow CAUSE, permission	
@@ -748,7 +750,7 @@ meet	tala1lkozik	convenio	spotykac1	2296	u	V	=AGT AT/2744 =PAT	make direct(conta
 member	tag	membrum/socius	czl1onek	2293		N	group HAS, IN/2758 group	%
 mental	szellemi	spiritualis	mentalny	3039	u	A	IN/2758 mind	
 mention	emli1t	memoro	wspomniec1	669		V	say	incidental?
-message	u2zen	nuntio	wiadomos1c1	2508		V	information, <written>, send	
+message	u2zen	nuntio	wiadomos1c1	2508		V	send information
 metal	fe1m	metallum	metal	738	u	N	material, solid, shine, conduct	
 middle	ko2ze1p	media_pars	s1rodek	1410	u	N	part, place/1026, near centre
 might	hatalom	vis	moc	1015	u	N	influence	
@@ -767,14 +769,13 @@ mother	anya	mater	matka	170		N	parent, female
 mountain	hegy	mons	go1ra	1024	u	N	object, ON earth, natural, high, HAS <steep/1673>(side), high(ER hill)	
 mouth	sza1j	os	usta	2137	u	N	organ, ON face, food IN/2758, speak INSTRUMENT, can/1246(open/1814)	
 move	mozog	moveor	ruszac1_sie1	1731	u	U	before(=AGT AT/2744 place/1026), after(=AGT AT/2744 other(place/1026))	
-movement	mozgalom	motus	ruch	3506	u	N		
 much	sok	multus	wiele	2114	u	A	many	
 muscle	izom	musculus	mie1sien1	1168		N	tissue, move	
-music	zene	musica	muzyka	2676	u	N	art, entertainment, sound/993, HAS rhythm, HAS melody, HAS harmony 
-musical	musical	musicus	muzykal	3507	u	N		
+music	zene	musica	muzyka	2676	u	N	sound/993, art, entertainment, HAS rhythm, HAS melody, HAS harmony 
+musical	musical	musicus	muzykal	3507	u	N	music
 must	kell	debet	musiec1	1286		G	LACK choice	hungarian and english cases differ
 nail	ko2ro2m	#	#	3065		N	PART_OF finger, AT/2744 end, finger HAS end, hard, smooth	
-nail	szeg	clavus	gwo1z1dz1	2176		N		HUN szo2g
+nail	szo2g	clavus	gwo1z1dz1	2176		N	metal, HAS poit, HAS top(flat), fasten INSTRUMENT
 name	ne1v	nomen	imie1	1765	u	N	word, mean/1186 thing, thing[<one>] HAS	
 narrow	szu3k	angustus	wa1ski	2269	u	A	LACK wide	
 natural	terme1szetes	naturalis	naturalny	2972	u	A	normal
@@ -803,7 +804,7 @@ notice	e1szrevesz	animadverto	zauwaz1ac1	540		V	know, see
 noun	fo3ne1v	vocabulum	rzeczownik	824	u	N	word, mean/1186 [<person>,<place/1026>,<thing>]	
 now	most	nunc	teraz	1726	u	A	AT/2744 this(time)	
 number	sza1m	numerus	numer	2138	u	N	quantity	
-nun	no3ve1r	ancilla	zakonnica	3514	u	N		
+nun	apa1ca	ancilla	zakonnica	3514	u	N	woman, member organization(religious<Christian>)	
 oats	zab	avena	#	#		N	cereal	Longman real DV
 object	ce1l	finis	cel	364	u	N		
 object	ta1rgy	corpus	przedmiot	2705	u	N	thing, <HAS colour>, HAS shape, HAS weight, <HAS surface>, HAS position, <LACK life>	HAS orientation
@@ -889,7 +890,6 @@ plan	terv	propositum	plan	2369	u	N	after(structure)
 plane	repu2lo3	aeroplanum	samolot	2807	u	N	vehicle, fly, HAS two(wing), <HAS engine>	
 planet	e1gitest	#	#	#		N	object, IN/2758 space/2509	
 plant	no2ve1ny	planta	ros1lina	2792	u	N	live, LACK move, HAS leaf[many], HAS root, AT/2744 earth	
-plant	u2ltet	sero	sadzic1	2495	u	V		
 plastic	alaki1thato1	formabilis/qui_formari_potest	elastyczny	144		A	material, HAS shape, shape[can/1246(change)], <artificial>	mu2anyag
 plate	ta1nye1r	catinus	talerz	2279	u	N	artefact, flat, <round>, <food ON>	
 play	ja1tszik	ludo	bawic1_sie1	1175	u	V	game	game/1173
@@ -914,8 +914,8 @@ post	po1zna	asser	sl1up	2740	u	N	artefact, solid, upright, AT/2744 ground, <wood
 post	posta	cursorium	poczta	2741	u	N	mail	
 pound	font	libra	funt	852	u	N	<weight>, measure, 16(ounce) IN/2758
 powder	por	pulvis	puder	1971	u	N	substance, more(particle)	
-power	ero3	vis	moc	684	u	N	CAUSE physical(change)	
-power	hajt	propello	nape1dzac1	979	u	V		no verbal use
+power	ero3	vis	moc	684	u	N	CAUSE change
+power	hajt	propello	nape1dzac1	979	u	V	CAUSE change<move>
 powerful	ero3s	potens	mocny	3531	u	N	HAS power(ER gen)
 practice	u3z	exerceo	praktykowac1	2512	u	V	do, frequent
 prepare	ke1szi1t	apparo	przygotowywac1	1260		V	=AGT[ready[after]]	
