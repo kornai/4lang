@@ -22,7 +22,7 @@ tokens = (
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-zA-Z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
 t_EQUAL = r'(=[A-Z]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
@@ -41,6 +41,7 @@ def t_newline( t ):
 
 def t_error( t ):
   print("Invalid Token:",t.value[0])
+  raise TypeError("Invalid token %r" % (t.value[0],))
   t.lexer.skip( 1 )
 
 lexer = lex.lex()
@@ -48,7 +49,6 @@ lexer = lex.lex()
 
 def p_start(p):
     '''start : expr rec'''
-    print(p[1])
 
 def p_rec(p):
     '''rec : PUNCT expr rec
@@ -85,6 +85,16 @@ def p_relation_clause_binary(p):
 def p_clause_relation(p):
     'expr : expr RELATION'
     #print(p[1])
+
+def p_clause_binary(p):
+    'expr : expr CLAUSE expr'
+
+def p_expr_clause(p):
+    'expr : expr CLAUSE'
+    #print(p[1])
+
+def p_clause_expr(p):
+    'expr : CLAUSE expr'
 
 def p_relation(p):
     'expr : RELATION'
@@ -150,7 +160,6 @@ def main(argv):
         elif opt in ("-o", "--odir"):
             outputdir = arg
     f = inputfile
-    print(inputfile)
     readfile(f)
     o = outputdir
     process(o)
@@ -167,10 +176,12 @@ def main(argv):
         os.makedirs(outputdir)
     with open(os.path.join(outputdir, "4lang_def_errors"), 'w', encoding="utf-8") as f:
         for item in errors:
-            f.write("%s" % item)
+            if not item.startswith("%"):
+                f.write("%s" % item)
     with open(os.path.join(outputdir, "4lang_def_correct"), 'w', encoding="utf-8") as f:
         for item in correct:
-            f.write("%s" % item)
+            if not item.startswith("%"):
+                f.write("%s" % item)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
