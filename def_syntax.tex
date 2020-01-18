@@ -236,8 +236,8 @@ The curly braces (see Section~\ref{parens}) denote a single hypergraph node
 brackets signify optionality, enclosing the default option (see
 Section~\ref{default}). {\tt MARK} is another primitive, standing for the
 relation between signifier (a string, given in doublequotes) and the relevant
-element to be substituted, here the node {\tt stem} which is analogous to the
-variable X used above.
+element to be substituted (see \ref{naivegrammar}), here the node {\tt stem}
+which is analogous to the variable X used above.
 
 However, neither {\tt like/1701} nor {\tt become} are primitives (for the
 four-digit disambiguation number following the English binding see
@@ -270,7 +270,7 @@ language-specific, for Hungarian we would want to say that the allative case
 {\it hoz/hez/h\"{o}z} marks the patient. (4lang currently gives the MARKs only
 for English.) 
 
-At this point we can omit the default (since it is a binary realtion, this
+At this point we can omit the default (since it is a binary relation, this
 means substituting {\tt IS\_A}) or we can expand it, to yield 
 
 \begin{verbatim}
@@ -484,7 +484,7 @@ labeled by `2' and pointing toward the object (see Section~\ref{subjobj}); and
 {\it is/is\_a}, depicted in graphs by an arrow labeled `0' running from
 subclass to superclass (see Section~\ref{isa}). These are not to be confused
 with binary semantic relations such as {\tt AT, CAUSE}, or {\tt kill}, of which
-there are a handful of primitives and thousands of derived ones.
+there are a handful of primitives and thousands of derived ones, see \ref{rel}.
 
 Two important semantic primitives worth mentioning here are {\tt gen} and {\tt
   wh}.  {\tt gen} is a generic quantifier-like element that is neutral between
@@ -514,7 +514,118 @@ dead LACK live, before(live)
 \noindent
 These are not to be confused with {\tt AFTER} and {\tt BEFORE}, which are the
 usual temporal primitives (by duality, only one of them needs to be left
-undefined) with two arguments, e.g. {\tt Tuesday BEFORE Wednesday}. 
+undefined) with two arguments, e.g. {\tt Tuesday BEFORE Wednesday}.
+
+
+\subsection{Relations}\label{rel}
+
+In most systems of semantic representation there is something of a squish
+between categories of the language and categories of the metalanguage. Our
+goal is to avoid this entirely, but of course there exist important metalangue
+categories that are modeled on linguistic concepts, often bearing the same
+name, so a great deal of caution is called for. In \ref{lexcat} we discussed
+the lexical categories of the language (N,V,A,...) and mentioned that the
+metalanguage has only two, unaries and binaries, with most elements belonging
+to both of these. We could stretch the analogy, and consider the comma and the
+various parentheses used in the metalanguage as G (grammatical formatives) but
+the central ideas of natural language syntax are not very helpful in
+describing the metalanguage, so we will not pursue this here.
+
+Here we discuss those elements that are always binary, and to avoid confusing
+these with the contentful (linguistic) elements, we call them {\it relations}
+(in the ordinay mathematical sense `subset of direct product'). We have argued
+elsewhere \citep{Kornai:2012} that linguistic analysis doesn't require ternary
+or higher arity relations, and here we will see that the metalanguage uses
+binaries only. The central binaries we rely on are `0', `1', and `2'. Of
+these, `1' and `2' are the familiar grammatical functions {\it subject} and
+{\it object} respectively, while 0 `being' is used indiscriminately for {\it
+  is} and IS\_A. For legibility of formulas, a 0 arrow (binary relation) from
+{\tt b} to {\tt a} can be written as {\tt b[a]} or as {\tt a(b)}. Both
+correspond to Plato's notion of the subject `partaking' or `participating in'
+the predicate. We maintain the Aristotelian distinction between accidental and
+essential participation, using only essential properties in definitions (but
+not in the semantic representation of more complex expressions).
+
+There are no type restrictions on what can be connected with what by means of
+0, 1, and 2 relations, except that relations cannot appear as subjects or
+objects (grammatical functions are discussed further in \ref{linking}). They
+can, however, appear connected by IS\_A, since IS\_A is not conceptualized as
+a relation in the metalanguage, only `0', a supercategory of `participation'
+and `inherence' is. In fact, IS\_A is treated as epiphenomenal, {\tt x IS\_A
+  y} being equivalent to `x has all the essential properties of y and perhaps
+some others as well'. In other words, the subsumption hierarchy can be deduced
+from a model, but it is rarely overtly marked, except for abbreviatory
+purposes.
+
+Besides IS\_A, there are some other link types conspiciously missing from
+4lang. Systems of Knowledge Representation (KR) such as Cyc \citep{Lenat:1990}
+often insist on finer distinctions than 4lang e.g. by distinguishing an
+individual poet from the class Poet. This makes an individual such as Allen
+Ginsberg an {\sc InstanceOf} the Poet class, and Cyc actually demands that a
+distinction be made betwen this and {\sc SubsetOf}, as between {\sc Stuff} and
+{\sc StuffType}, and so on. In 4lang, ``we make purposely very little
+distinction between an individual fox, the species Vulpes vulpes, the set of
+foxes in the world, or the class of potential foxes in all possible worlds''
+\citep{Kornai:2018}, and treat {\it gold} as a unary. (Such unaries often have
+binary sense as well, English is lucky to have {\it gilt} as a separate verbal
+base, but the unary-binary conversion is very general, cf. {\it Babe Ruth
+  homered his way into the hearts of America} \citep{Jackendoff:1990}.)
+
+Other link types commonly seen include prepositions with clear spatial meaning
+such as IN; FROM; OUT; BETWEEN; AT; FOLLOW; ON; ABOUT, etc. Many of these
+govern cases in certain languages, and many become case markers themselves in
+others, and we see this as sufficient reason to treat them in the metalanguage
+as ordinary binaries with their own 1st and 2nd arguments (denoted by `1' and
+`2' as with transitive verbs). The capitalization is an admission of the fact
+that currently 4lang is not endowed with a sufficiently general theory of
+spatiotemporal relations to settle on these as true primitives -- it is
+getting close, but it is not there yet. In many cases, such as {\tt under}, we
+felt comfortable that the 4lang analysis captured the semantics sufficiently
+well that capitalization has been dropped.
+
+In those relations where the printname is not indicative of argument order, we
+settled on one variant. For example we use {\tt x PART\_OF y} in preference to
+{\tt y HAS\_PART x}, but in fact {\tt part} would work just as well -- the
+fact that it governs {\it of} in this sense is again indicative of some
+near-adposition near-case status. The system could be more consistent: the
+other major near-case, INSTRUMENT, is used in order {\tt x HAS\_INSTRUMENT y}
+rather than {\tt y INSTRUMENT\_OF x}. It is not clear what sort of facts could
+be could be used in favor of one argument order over the other.
+
+Remarkably, only one of these relations lacks an easily expressible obverse:
+for {\tt x IS\_ABOUT y} there is no relation REL expressing {\tt y REL x} in
+approximately the same situations -- this may point at some irreducibly
+nonspatial sense. The remaining relations that we currently leave unanalyzed
+include purposive FOR (no obvious obverse, but no obvious spatial meaning
+either); possessive HAS; and causative CAUSE; these appear frequently in
+definitions, and for the last two the passive works reasonably well the
+express the obverse. This is not logically strict, {\it metal fatigue can
+  cause deadly accidents} is not strictly equivalent to {\it deadly accidents
+  are caused by metal fatigue}, but the reversal of the cause/effect relation
+is clear (for scope effects, and for the dyadic negation relation LACK see
+\cite{Kornai:2020a}). We also keep as primitive the abstract comparative ER
+`>', which also governs a case/adposition in many languages.
+
+With this, our list of relations is complete, except for one element, MARK,
+which we defer to \ref{naivegrammar}. Completeness, we should emphasize here,
+is not the same as finality: it may well be possible to reduce the list
+further, but this will require a better cross-linguistic understanding of
+relational elements than the author can lay claim to. 
+
+One important issue we cannot pursue here concerns collective subjects
+\citep{Scha:1981}. In general, we find verbs where the subject and the object
+are well differentiated: {\it water quenches fire} but not {\it *water and
+  fire quench}. Cases of free alternation and rare ({\it John marries Sandra,
+  Sandra and John marry}), and cases where the subject must be the collective
+are even more so {\it John and Peter are brothers, *John brothers Peter,
+  Marseille is between Nice and Montpellier, *Marseille betweens Nice and
+  Montpellier}. Remarkably, in the defining vocabulary we see a
+disproportionate number of predicates that make only, or the most, sense when
+one of the arguments is collective: {\it close, between, through, \ldots}. 
+
+
+
+
 
 
 \subsection{Linking}\label{linking}
@@ -667,7 +778,7 @@ use of {\tt MARK} is with function words (including bound grammatical formatives
 in
 
 \begin{verbatim}
--ing    stem-ing IS_A event, "_-ing" MARK stem
+-ing    stem-ing IS\_A event, "_-ing" MARK stem
 \end{verbatim}
 
 Operationally, whatever precedes the formative {\tt ing} is considered a stem,
@@ -1190,7 +1301,7 @@ Now part of syntax:
 
 =REL	34
 
--ness  =AGT IS_A stem, "-ness" MARK stem
+-ness  =AGT IS\_A stem, "-ness" MARK stem
 about ABOUT
 across before(=AGT ON side), =PAT HAS side, after(=AGT ON other(side)) =PAT HAS side[other] 
 after =PAT BEFORE =AGT
@@ -1278,7 +1389,7 @@ pay =AGT CAUSE[money AT place], "to/2743" MARK place
 please =AGT make[=PAT HAS joy]
 present =AGT CAUSE[recipient SEE =PAT], "dative" MARK recipient
 say communicate, INSTRUMENT sound/993, recipient HEAR sound/993, "dative" MARK recipient
-seem gen think[=AGT IS_A =PAT], "dative" MARK =PAT
+seem gen think[=AGT IS\_A =PAT], "dative" MARK =PAT
 sell =AGT CAUSE[buyer HAS =PAT], buyer CAUSE[=AGT HAS <money>], "dative" MARK buyer
 show =AGT CAUSE[gen see =PAT]
 teach =AGT CAUSE[student know =PAT], "dative" MARK student
@@ -1352,75 +1463,8 @@ youth	the quality or state of being young
 
 ``is or about''
 
-\section{Relations}
-
-The only relations countenanced in 4lang are binaries (see
-\citet{Kornai:2012} for how ditransitive and higher arity verbs can be
-treated). A typical example would be AT, which means `=AGT is located
-where =PAT is'. Since temporal locations (at 3PM), and abstract state
-(at ease) are commonly understood, we treat all of these as
-manifestations of one and the same abstract AT. 
-
-
-
-
-
-
-Systems of Knowledge Representation (KR) such as Cyc
-\citep{Lenat:1990} often add `glue ret is common to distinguish individuals, e.g. some
-particular poet, say Allan Ginsberg, from the class Poet, of which
-Ginsberg is an {\sc InstanceOf}. In 4lang, typing is kept to the
-absolute minimum, and no glue relations are used. That said, there
-remain a few irreducible relations,
-
-
-Another example we cannot pursue here concerns collective subjects
-\citep{Scha:1981}. In general, we find verbs where the subject and the object
-are well differentiated: {\it water quenches fire} but not {\it *water and
-  fire quench}. Cases of free alternation and rare ({\it John marries Sandra,
-  Sandra and John marry}), and cases where the subject must be the collective
-are even more so {\it John and Peter are brothers, *John brothers Peter,
-  Marseille is between Nice and Montpellier, *Marseille betweens Nice and
-  Montpellier}. Remarkably, in the defining vocabulary we see a
-disproportionate number of predicates that make only, or the most, sense when
-the subject is collective: %{\it close, between, through, 
-
-
-
-
-
-x PART_OF y = y HAS_PART x 67
-
-x INSRUMENT_OF y = y HAS_INSTRUMENT x
-
-x ABOVE y = y BELOW x
-
-x BEFORE y = y AFTER x  4 (can be eliminated!!) (AFTER 0) 
-
-x IS_ABOUT  y has no obverse? 12
-
-x AT y =? y AT x 139
-
-x IS_A 26  y antisymmetric, definable; LACK 88 partially negates it 
-
-string_in_context MARK thought, emotion, grammar 65
-
-=AGT 235
-=PAT 208
-
-x BETWEEN coll 10
-
-CAUSE 127 metal fatigue can cause deadly accidents \neg\rightarrow deadly accidents are caused by metal fatigue
-ER > 50
-FOLLOW 27
-FOR 28
-FROM 13
-HAS 287
-IN 154
-
 
 ON 44 
 
 wh 7
 gen 90
-
