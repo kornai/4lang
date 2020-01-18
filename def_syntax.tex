@@ -119,9 +119,8 @@ ignored here, as it is relevant only for the maintainers of the
 dictionary. The seventh column is a rough lexical category symbol, see
 Section~\ref{lexcat} for further discussion. The main subject of this note is
 the 8th column, which gives the 4lang definition, see Section~\ref{8thcol}, 
-but before turning to that, we discuss some of the lexicographic
-principles. 
-
+but before turning to this, we discuss some of the lexicographic principles,
+and take the opportunity to introduce some of the machinery informally first. 
 
 %ring	cseng	tinnit	dzwonic1	2735	u	U	bell make sound/993, FOR/2782 attention, <bell PART_OF telephone>	
 
@@ -572,7 +571,7 @@ base, but the unary-binary conversion is very general, cf. {\it Babe Ruth
   homered his way into the hearts of America} \citep{Jackendoff:1990}.)
 
 Other link types commonly seen include prepositions with clear spatial meaning
-such as IN; FROM; OUT; BETWEEN; AT; FOLLOW; ON; ABOUT, etc. Many of these
+such as IN; FROM; OUT; BETWEEN; AT; FOLLOW; ON; and ABOUT. Many of these
 govern cases in certain languages, and many become case markers themselves in
 others, and we see this as sufficient reason to treat them in the metalanguage
 as ordinary binaries with their own 1st and 2nd arguments (denoted by `1' and
@@ -590,21 +589,21 @@ fact that it governs {\it of} in this sense is again indicative of some
 near-adposition near-case status. The system could be more consistent: the
 other major near-case, INSTRUMENT, is used in order {\tt x HAS\_INSTRUMENT y}
 rather than {\tt y INSTRUMENT\_OF x}. It is not clear what sort of facts could
-be could be used in favor of one argument order over the other.
+be used to demonstrate that one argument order is better than the other.
 
 Remarkably, only one of these relations lacks an easily expressible obverse:
 for {\tt x IS\_ABOUT y} there is no relation REL expressing {\tt y REL x} in
 approximately the same situations -- this may point at some irreducibly
 nonspatial sense. The remaining relations that we currently leave unanalyzed
 include purposive FOR (no obvious obverse, but no obvious spatial meaning
-either); possessive HAS; and causative CAUSE; these appear frequently in
+either); possessive HAS; and causative CAUSE; these three appear frequently in
 definitions, and for the last two the passive works reasonably well the
-express the obverse. This is not logically strict, {\it metal fatigue can
-  cause deadly accidents} is not strictly equivalent to {\it deadly accidents
-  are caused by metal fatigue}, but the reversal of the cause/effect relation
-is clear (for scope effects, and for the dyadic negation relation LACK see
+express the obverse. This is not logically strict, {\it metal fatigue causes
+  deadly accidents} is not strictly equivalent to {\it deadly accidents are
+  caused by metal fatigue}, but the cause/effect relation is still clear from
+the passive. (For scope effects, and for the dyadic negation relation LACK see
 \cite{Kornai:2020a}). We also keep as primitive the abstract comparative ER
-`>', which also governs a case/adposition in many languages.
+`>', which also governs some case/adposition in many languages.
 
 With this, our list of relations is complete, except for one element, MARK,
 which we defer to \ref{naivegrammar}. Completeness, we should emphasize here,
@@ -729,7 +728,7 @@ protest show [=AGT think [=PAT[wrong]]]
 \noindent
 {\it x protests y} means that x shows that x thinks that y is wrong. The
 thematic roles simply reify the protester (=AGT) and the thing protested
-(=PAT). Agent and patients of definiendum and definiens are automatically
+(=PAT). Agents and patients of definiendum and definiens are automatically
 shared, so it is really {\tt =AGT protest =PAT} that is being defined by {\tt
   =AGT show [=AGT think [=PAT[wrong]]]}. For ease of human reading,
 redundancies like this are suppressed, but the parser supplies =AGT and =PAT
@@ -811,8 +810,8 @@ leave notions like {\it infinitive} or agent/patient undefined (we have seen
 in \ref{linking} some examples of their intended use).
 
 In this paper we do not take on board the issue of expanding this to a fuller
-theory of (naive) grammar, but as we shall see, a non-eliminable grammatical
-core emerges from such definitions, and these offer a rich interface for
+theory of (naive) grammar, but as we see, a non-eliminable grammatical
+core emerges from semantic definitions, and these offer a rich interface for
 connecting 4lang to issues that modern grammar (in this case, starting with
 \cite{Fillmore:1968}) has much to say on. For example, we will need a theory
 that connects intransitives to transitives, as in {\it The fire spread} and
@@ -832,7 +831,9 @@ that would have very different semantics, and 4lang is simply not equipped to
 deal with these. Also, experience shows that naive theories are superseded by
 more sophisticated ones for a reason, as the sophisticated theories are simply
 better. But they often rely on key components, such as arithmetic, or the
-analytic theory of continuous variables, that 4lang is not equipped to handle. 
+analytic theory of continuous variables, that are out of scope for 4lang,
+expressly designed to deal with ordinary (as opposed to technical or
+scientific) language.
 
 \section{The syntax of definitions}\label{8thcol}
 
