@@ -729,7 +729,11 @@ protest show [=AGT think [=PAT[wrong]]]
 \noindent
 {\it x protests y} means that x shows that x thinks that y is wrong. The
 thematic roles simply reify the protester (=AGT) and the thing protested
-(=PAT). 
+(=PAT). Agent and patients of definiendum and definiens are automatically
+shared, so it is really {\tt =AGT protest =PAT} that is being defined by {\tt
+  =AGT show [=AGT think [=PAT[wrong]]]}. For ease of human reading,
+redundancies like this are suppressed, but the parser supplies =AGT and =PAT
+automatically, 
 
 \subsection{Naive grammar}\label{naivegrammar}
 
@@ -756,8 +760,10 @@ architectures.
 
 Our main contribution to this area is that we only make reference to a {\it
   naive} theory of grammar, just as we see the need to link to naive
-probability \citep{Gyenis:2019}, naive planning \citep{Gordon:2017}, etc.
-The fundamental elements (primitives) of this naive theory are {\it words}. We
+probability \citep{Gyenis:2019}, naive planning \citep{Gordon:2017}, and
+believe that many of the issues discussed in \ref{rel} would be considerably
+simplified by reference to the appropriate naive theory of space and time.
+The fundamental elements (primitives) of naive grammar are {\it words}. We
 don't go anywhere near the issues of how a word is, or should be, defined in
 phonology, morphology, orthography, syntex, semantics, or lexicography (though
 we assume that the reader is somewhat familiar with the main proposals). For
@@ -778,7 +784,7 @@ use of {\tt MARK} is with function words (including bound grammatical formatives
 in
 
 \begin{verbatim}
--ing    stem-ing IS\_A event, "_-ing" MARK stem
+-ing    stem-ing IS_A event, "_-ing" MARK stem
 \end{verbatim}
 
 Operationally, whatever precedes the formative {\tt ing} is considered a stem,
@@ -817,6 +823,16 @@ from the same root by productive suffixation, so we have {\it ter-\"ul} and
 {\it ter-\'{\i}t}. 4lang brings out the similarity by taking the intransitive
 form as basic {\tt after(=AGT AT/2744 wide)} and derives the transitive effect
 as one of causation: {\tt =AGT CAUSE {=PAT spread}}.
+
+We expressly disavow any idea of the naive grammar being the ultimate grammar,
+or even the metalanguage being the ultimate metalanguage. The system is
+designed to support one thing, and one thing only, natural language
+semantics. There are many other semiotic systems from music to mathematics
+that would have very different semantics, and 4lang is simply not equipped to
+deal with these. Also, experience shows that naive theories are superseded by
+more sophisticated ones for a reason, as the sophisticated theories are simply
+better. But they often rely on key components, such as arithmetic, or the
+analytic theory of continuous variables, that 4lang is not equipped to handle. 
 
 \section{The syntax of definitions}\label{8thcol}
 
