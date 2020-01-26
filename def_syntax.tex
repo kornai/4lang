@@ -190,7 +190,7 @@ goal with the strict definition syntax that replaces English syntax on the
 right-hand side (rhs) of definitons is to study the mechanisms required by an
 automated parser for doing this. 
 
-\subsection{Morphological prerequisites}
+\subsection{Morphological prerequisites}\label{morphology}
 
 The LDV contains a few dozen bound morphemes, the prefixes {\it -able -al -an
   -ance -ar -ate -ation -dom -ed -en -ence -er -ess -est -ful -hood -ible -ic
@@ -400,6 +400,32 @@ set, while {\it red} stays on. Eventually, we have to have some primitives,
 and we consider {\it red}, a Stage II color in the \cite{Berlin:1969}
 hierarchy, a very reasonable candidate for a cross-linguistic primitive.
 
+So far, we have discussed the fact that separating the encyclopedia from the
+lexicon leaves us with a clear class of lexical entries, exemplified so far by
+colors and flavors, where the commonly understood meaning is anchored entirely
+outside the lexicon.  There are also cases where this anchoring is partial,
+such as the suffix {\it -shaped}. The meaning of {\it guitar-shaped, C-shaped,
+  U-shaped, \ldots} is clearly compositional, and relies, on the hand, on
+cultural primitives such as {\it guitar, C, U, \ldots} that will remain at
+least partially outside the lexicon. According to \citet{Rosch:1975}, lexical
+entries may contain pointers to non-verbal material, not just primary
+perceptions like color or taste, but also prototypical images.  We can say
+that {\it guitar} is a stringed musical instrument, or that $C$ and $U$ are
+letters of the alphabet, and this is certainly part of the meaning of these
+words, but it is precisely in the image aspect highlighted by {\it -shaped}
+that words fail us. Again anticipating notation that we will fully define only
+in subsequent sections, we can define {\it guitar-shaped} as {\tt HAS shape,
+  guitar HAS shape} and in general 
+
+\begin{verbatim}
+-shaped  stem HAS shape, =AGT HAS shape, "_-shaped" MARK stem
+\end{verbatim}
+
+\noindent
+and leave it to the general unification mechanism we discussed in
+\ref{morphology} to guarantee that it is the same shape that the stem and the
+subject of the compound adjective will share. 
+
 \subsection{Lexical categories and subcategories}\label{lexcat}
 
 Whether a universal system of lexical categories exists is still a widely
@@ -602,7 +628,7 @@ express the obverse. This is not logically strict, {\it metal fatigue causes
   deadly accidents} is not strictly equivalent to {\it deadly accidents are
   caused by metal fatigue}, but the cause/effect relation is still clear from
 the passive. (For scope effects, and for the dyadic negation relation LACK see
-\cite{Kornai:2020a}). We also keep as primitive the abstract comparative ER
+\cite{Kornai:2020a}.) We also keep as primitive the abstract comparative ER
 `>', which also governs some case/adposition in many languages.
 
 With this, our list of relations is complete, except for one element, MARK,
@@ -688,10 +714,10 @@ effect, a single link type, which could be labeled `INS' is replaced by an
 INSTRUMENT node that has the same two arrows as are used for other binaries,
 subject and object. Whether other deep cases are called for is not clear from
 a lexical semantics perspective, but (broadly speaking) subjects are agents,
-objects are patients, AT, ON, IN, are locatives, FROM is ablative, and FOR is
-goal. 4lang compromises on dative, which is treated as a {\bf surface case}
-rather than as a deep case `recipient' or as an adposition (though in English
-it is one). 
+objects are patients, AT, ON, IN, are locatives, FROM is source (rather than
+ablative), and FOR is goal (purposives, rather than end of motion). 4lang
+compromises on dative, which is treated as a {\bf surface case} rather than as
+a deep case `recipient' or as an adposition (though in English it is one).
 
 %\bigskip\noindent
 %\begin{tabular}{llll}
