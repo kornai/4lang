@@ -13,7 +13,7 @@ This repository provides
 Our tools require an installation of the [pymachine](http://github.com/kornai/pymachine) implementation of Eilenberg-machines.
 
 #### hunmorph
-For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). If they don't work on your system, you may have to download and recompile `hunmorph` and/or the model it uses following the instructions [here](http://mokk.bme.hu/en/resources/hunmorph/). This process is quite error-prone, but please [reach out](#contact) to us and we'll be happy to help you!
+For lemmatization, `4lang` uses the `hunmorph` tool, on most UNIX-based systems you can use [these pre-compiled executables and models](http://people.mokk.bme.hu/~recski/4lang/huntools_binaries.tgz) (just extract them in your `4lang` directory). On 64-bit systems you may have to install the `libc6-i386` package for the `hundisambig` binary to work.
 
 __NOTE__: All remaining dependencies are required only for building 4lang graphs, so in case you only want to use the graphs we provide (e.g. for the machine similarity component of our [Semeval STS system](https://github.com/juditacs/semeval/)), you can skip the rest of this section and continue to [download pre-compiled graphs](#downloading-pre-compiled-graphs).
 
