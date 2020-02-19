@@ -339,6 +339,7 @@ come	jo2n	venio	przychodzic1	1195	u	U	move, =AGT[near[after]]
 comfort	ke1nyelem	commoditas	wygoda	1240		N	pleasure, rest	
 comfort	vigasz	solacium	osl1oda	2626		V	make {=PAT feel ER good}
 common	ko2zo2s	communis	wspo1lny	1415	u	A	AT many, more HAS, public	BELONG[ more(<people>)] % BELONG_TO % HUN alternative gen ko2zo2nse1ges, a1tlagos gen 
+communicate	kommunika1l	communicare	komunikowac1	3145	u	U	GIVE information
 company	csapat	manus	towarzystwo	385	u	N	group, human	
 company	va1llalat	negotiatio	firma	2549	u	N	organization, FOR business	
 competition	verseny	certamen	konkurs	3430	u	N	event, gen try win
@@ -626,6 +627,7 @@ holy	szent	sanctus	s1wie1ty	2190		A	god, religion
 home	otthon	domus	dom	1924	u	N	place/1026, =AGT AT, "poss" MARK =AGT	%
 honest	becsu2letes	rectus	szczery	250	u	A	conform moral	
 hope	reme1l	spero	miec1_nadzieje1	2006	u	U	desire, want, =AGT think =PAT[possible]	
+horizontal	vi1zszintes	horizontalis	horizontalny	3144	u	A	direction, flat(ground) HAS, still(water) HAS
 horn	ku2rt	cornu	ro1g	1457	u	N	instrument, make sound/993, HAS material[hard]	car horn
 horn	szarv	cornu	ro1g	2772	u	N	organ, hard, AT head, animal HAS	
 horse	lo1	equus	kon1	1547		N	animal, animal, HAS[four (leg)], ride INSTRUMENT, pull	RG
