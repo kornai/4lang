@@ -246,7 +246,7 @@ branch	a1g	ramus	gal1a1z1	66	u	N	part, long, <tree HAS>, depend
 brass	bronz	aes	bra1z	340	u	N	metal, yellowish	alloy
 brass	re1zfu1vos	aerisonus	de1te	2715	u	N	instrument, HAS [metal(tube)], air[move] IN, make music, @trumpet IS_A, @trombone IS_A, @french_horn IS_A
 brave	ba1tor	fortis	odwaz1ny	213	u	A	will ER fear
-bread	kenye1r	panis	chleb	1292	u	N	food, FROM flour, bake make	
+bread	kenye1r	panis	chleb	1292	u	N	food, FROM flour, INSTRUMENT bake
 break	to2r	frango	l1amac1	2411	u	V	=PAT[object], =PAT[rigid], after(separate), after(=PAT HAS more(piece)), sudden, violent	
 breathe	le1legzik	spiro	oddechac1	1501	u	U	breath	
 breed	tenye1szt	educo	hodowac1	2352		V	CAUSE{=PAT HAS baby}
@@ -363,7 +363,7 @@ cook	fo3z	coquo	gotowac1	825	u	V	=AGT make <food>, INSTRUMENT heat
 cook	szaka1cs	coquus	kucharz	2152	u	N	person, <profession>, make food		
 cool	hu3l	frigesco	chl1odzic1_sie1	1101	u	V	after(cold)
 cool	hu3vo2s	frigidus	chl1odny	1103		A	temperature, normal ER, ER cold	
-copper	re1z	cyprium	miedz1	2000		N	red, brown, metal, conduct	
+copper	re1z	cyprium	miedz1	2000		N	red, brown, metal, conduct electricity	
 copy	ma1sol	transcribo	kopiowac1	1571	u	V	make object, object similar =PAT
 corn	kukorica	zea	kukurydza	1460	u	N	cereal, AT agriculture, cereal, grain[yellow], food	
 correct	helyes	rectus	poprawny	1029	u	A	conform norm	
@@ -773,7 +773,7 @@ member	tag	membrum/socius	czl1onek	2293		N	group HAS, IN group	%
 mental	szellemi	spiritualis	mentalny	3039	u	A	IN mind	
 mention	emli1t	memoro	wspomniec1	669		V	say	incidental?
 message	u2zen	nuntio	wiadomos1c1	2508		V	send information
-metal	fe1m	metallum	metal	738	u	N	material, solid, shine, conduct	
+metal	fe1m	metallum	metal	738	u	N	material, solid, shine, conduct electricity	
 middle	ko2ze1p	media_pars	s1rodek	1410	u	N	part, place/1026, near centre
 might	hatalom	vis	moc	1015	u	N	influence	
 milk	tej	lac	mleko	2337	u	N	white(liquid), FROM <cow>, fat/3337 IN	protein IN, lactose IN
@@ -1341,7 +1341,7 @@ want	akar	volo	chciec1	131	u	V	=AGT[feel[=AGT need]]
 war	ha1boru1	bellum	wojna	953	u	N	conflict[violent, long], BETWEEN <more(nation)>, gun AT	
 warm	fu3t	calefacio	grzac1	878	u	V		after(warm/1655)
 warm	meleg	calidus	ciepl1y	1655	u	A	temperature(ER gen)	
-warn	figyelmeztet	adverto	oztrzegac1	803		V	CAUSE[=PAT KNOW danger]
+warn	figyelmeztet	adverto	oztrzegac1	803		V	CAUSE[=PAT know danger]
 wash	mos	lavo	myc1	1724	u	V	=AGT CAUSE[=PAT[clean]], INSTRUMENT liquid, INSTRUMENT <soap>, INSTRUMENT rub	
 waste	szeme1t	quisquiliae	odpady	2188	u	N	useful( ER gen)
 watch	o1ra	horologium	zegarek	1835	u	N	clock, AT person, <ON wrist>	
