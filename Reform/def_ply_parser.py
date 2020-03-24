@@ -13,6 +13,7 @@ tokens = (
     'ROUNDBL',
     'EQUAL',
     "CITE",
+    "UNDER",
     'CURLYBR',
     'CURLYBL',
     'ANGLEBR',
@@ -22,7 +23,7 @@ tokens = (
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z]+\/[0-9]+)|(@[a-zA-Z]+)|(\b(?!FOLLOW|AT|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-z]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_CLAUSE = r'([a-z-]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-z0-9-]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
 t_EQUAL = r'(=[A-Z]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
@@ -34,6 +35,7 @@ t_CURLYBL = r'\{'
 t_ANGLEBR = r'\>'
 t_ANGLEBL = r'\<'
 t_CITE = '"'
+t_UNDER = "_"
 
 def t_newline( t ):
   r'\n+'
@@ -59,10 +61,45 @@ def p_clause(p):
     p[0] = p[1]
 
 def p_clause_angle(p):
-    '''expr : ANGLEBL expr ANGLEBR'''
+    '''expr : ANGLEBL start ANGLEBR'''
 
 def p_cite(p):
   '''expr : CITE CLAUSE CITE'''
+
+"""
+def p_cite_dash(p):
+  '''expr : CITE DASH CITE'''
+
+def p_under_cite_dash(p):
+  '''expr : CITE UNDER DASH CITE'''
+
+def p_under_slash_dash(p):
+  '''expr : CITE DASH UNDER CITE'''
+"""
+
+def p_under_cite(p):
+  '''expr : CITE UNDER CLAUSE CITE'''
+
+def p_under_slash(p):
+  '''expr : CITE CLAUSE UNDER CITE'''
+
+def p_under_slash_relation(p):
+  '''expr : CITE RELATION UNDER CITE'''
+
+def p_under_cite_relation(p):
+  '''expr : CITE UNDER RELATION CITE'''
+
+def p_under_cite_relation_under(p):
+  '''expr : CITE UNDER RELATION UNDER CITE'''
+
+def p_cite_relation(p):
+  '''expr : CITE RELATION CITE'''
+
+def p_under_cite_clause_under(p):
+  '''expr : CITE UNDER CLAUSE UNDER CITE'''
+
+def p_clause_under_cite_clause_under(p):
+  '''expr : CITE CLAUSE UNDER CLAUSE CITE'''
 
 def p_expr_curly(p):
     '''expr : CURLYBL start CURLYBR'''
@@ -74,10 +111,10 @@ def p_relation_clause(p):
     'expr : RELATION expr'
 
 def p_equal_clause(p):
-    'expr : EQUAL expr'
+    'expr : EQUAL start'
 
 def p_equal_clause_equal(p):
-    'expr : EQUAL expr EQUAL'
+    'expr : EQUAL start EQUAL'
 
 def p_relation_clause_binary(p):
     'expr : expr RELATION expr'
@@ -101,16 +138,17 @@ def p_relation(p):
     #print(p[1])
 
 def p_square(p):
-    '''expr : CLAUSE SQUAREBL start SQUAREBR
+    '''expr : expr SQUAREBL start SQUAREBR
     | EQUAL SQUAREBL start SQUAREBR
     | RELATION  SQUAREBL start SQUAREBR'''
     #print(p[1])
     #print(p[3])
 
 def p_round(p):
-    '''expr : CLAUSE ROUNDBL expr ROUNDBR
-    | EQUAL ROUNDBL expr ROUNDBR
-    | CITE CLAUSE CITE ROUNDBL expr ROUNDBR'''
+    '''expr : expr ROUNDBL start ROUNDBR
+    | EQUAL ROUNDBL start ROUNDBR
+    | CITE CLAUSE CITE ROUNDBL start ROUNDBR
+    | RELATION ROUNDBL start ROUNDBR'''
 
 def p_error(p):
     raise TypeError("unknown text at %r" % (p,))
