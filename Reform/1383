@@ -634,7 +634,7 @@ game	ja1te1k	ludus	gra	1173	u	N	activity, HAS rule, people[compete]
 garden	kert	hortus	ogro1d	1305		N	place/1026, outdoor, useful(plant) IN	
 garment	ruha	vestis	ubio1r	2053	u	N	artefact, cover human
 gas	ga1z	gasium	gaz	885	u	N	substance, thin/1038, air IS_A
-gen	aka1r-	ubicumque	dowolny	3601	p	G	gen	   %primitive
+gen	aka1r-	ubicumque	dowolny	3635	p	G	gen	   %primitive
 general	fo3-	maximus/summus	gl1o1wny	821	u	A	every IN	
 gentle	gyenge1d	mollis	delikatny	928		A	careful, kind	%
 get	jut	nanciscor	dostawac1	1206	u	V	after(HAS)
@@ -1042,7 +1042,7 @@ place	hely	locus	miejsce	1026	u	N	point, gen AT
 plain	egyszeru3	#	#	3052		A	simple
 plan	terv	propositum	plan	2369	u	N	after(structure)	
 plane	repu2lo3	aeroplanum	samolot	2807	u	N	vehicle, fly, HAS two(wing), <HAS engine>	
-planet	e1gitest	planeta	planeta	3625	u	N	object, IN space/2509, size(ER gen)  
+planet	e1gitest	planeta	planeta	3599	u	N	object, IN space/2509, size(ER gen)  
 plant	no2ve1ny	planta	ros1lina	2792	u	N	live, LACK move, HAS leaf[many], HAS root, AT earth	
 plastic	alaki1thato1	formabilis/qui_formari_potest	elastyczny	144		A	material, HAS shape, shape[can/1246(change)], <artificial>	mu2anyag
 plate	ta1nye1r	catinus	talerz	2279	u	N	artefact, flat, <round>, <food ON>	
@@ -1327,7 +1327,7 @@ speech	besze1d	oratio	przemo1wienie	268	u	N	=PAT say
 speed	sebesse1g	celeritas	pre1dkos1c1	2070	u	N	quick HAS	
 spell	vara1zslat	incantatio	#	2727		N	magic, {make magic} INSTRUMENT {<spoken(word)>}	
 spend	ko2lt	expendo	wydawac1	1376		V	use, =AGT HAS =PAT[after, less]	
-spiral	spira1lis	spralis	spirala	3604	u	N	  curve, round centre, move out
+spiral	spira1lis	spralis	spirala	3598	u	N	  curve, round centre, move out
 spirit	kedv	affectio	nastro1j	1270	u	N	emotion	
 spirit	szellem	animus	duch	2181	u	N	soul	
 split	hasi1t	findo	dzielic1	1007	u	V	after(separate), <break>
