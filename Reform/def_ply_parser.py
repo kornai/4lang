@@ -23,7 +23,7 @@ tokens = (
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z-]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-z0-9-]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_CLAUSE = r'([a-z-]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-zA-Z0-9-]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
 t_EQUAL = r'(=[A-Z]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'

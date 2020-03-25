@@ -717,7 +717,7 @@ hurt	ba1nt	laedo	ranic1	200	u	V	CAUSE {=PAT HAS pain}, offend
 husband	fe1rj	vir/maritus	ma1z1	745	u	N	male, HAS wife, "dative" MARK wife
 ice	je1g	glacies	lo1d	1178	u	N	water, cold, hard	
 idea	eszme	opinio	idea	703	u	N	IN mind, think make	TODO
-identity	identita1s	identitas	toz1samos1c1	3606	   s	   N   characteristic, <name>, person HAS	
+identity	identita1s	identitas	toz1samos1c1	3606	s	N	characteristic, <name>, person HAS	
 if	ha	si	jez1eli	952	u	G	=AGT possible, =AGT CAUSE =PAT, "if _" MARK =AGT
 ill	beteg	aeger	chory	273		A	HAS disease, LACK healthy
 illegal	illega1lis	contrajuris	nielegalny	2789	u	A	bad FOR law	
