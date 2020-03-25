@@ -1,5 +1,5 @@
 -er	-bb	-ior/-ius	-szy	14	u	G	ER, HAS quality, "_-er" MARK quality	
--er	-o1	-tor/-trix	-ac1/ic1	3627		G	stem-er IS_A =AGT, "_ -er" MARK stem	%nomen agentis
+-er	-o1	-tor/-trix	-ac1/ic1	3627	q	G	stem-er IS_A =AGT, "_ -er" MARK stem	%nomen agentis
 -ing	-a1s	-endi	-anie	2	u	G	IS_A event, "_-ing" MARK stem	
 -ness	-sa1g	-itas	-os1c1	47	u	G	IS_A thing, "_-ness" MARK stem	%
 -th	-ad	-ias	-ta	4	u	G	part, IN whole, before(divide)	
@@ -100,7 +100,7 @@ all	mind	omnis	wszyscy	1695	u	N	gen, whole
 allow	enged	sino	pozwolic1	670	u	V	=AGT[LACK[=AGT stop =PAT]]	%
 alone	csak	solus/modo	sam	380	u	D	only	
 along	mente1n	per	wzdl1uz1	1669	u	D	AT =PAT[long]    	%
-already	ma1r	iam	juz1	1561	u	D	before()
+already	ma1r	iam	juz1	1561	q	D	before()
 also	is	et	tez1	1154		D	together
 although	ba1r	quamquam	pomimo	203	u	G	though	
 always	mindig	semper	zawsze	1696		D	AT time[all]	
@@ -717,7 +717,7 @@ hurt	ba1nt	laedo	ranic1	200	u	V	CAUSE {=PAT HAS pain}, offend
 husband	fe1rj	vir/maritus	ma1z1	745	u	N	male, HAS wife, "dative" MARK wife
 ice	je1g	glacies	lo1d	1178	u	N	water, cold, hard	
 idea	eszme	opinio	idea	703	u	N	IN mind, think make	TODO
-identity	identita1s	identitas	toz1samos1c1	3606	   u	   N   characteristic, <name>, person HAS	
+identity	identita1s	identitas	toz1samos1c1	3606	   s	   N   characteristic, <name>, person HAS	
 if	ha	si	jez1eli	952	u	G	=AGT possible, =AGT CAUSE =PAT, "if _" MARK =AGT
 ill	beteg	aeger	chory	273		A	HAS disease, LACK healthy
 illegal	illega1lis	contrajuris	nielegalny	2789	u	A	bad FOR law	
@@ -1169,7 +1169,7 @@ result	eredme1ny	eventus	wynik	679	u	N	action CAUSE, <good>
 return	visszaad	reddo	zwracac1	2641		V	=AGT CAUSE back/2639	
 return	visszate1r	revertor	wracac1	2643		U	back/2639	
 rhythm	ritmus	rhythmus	rytm	3349	u	N	pattern, AT/2744 time, regular, repeat	  
-rice	rizs	oryza	ryz1	2021	u	N	plant, food, grain, IN Asia	
+rice	rizs	oryza	ryz1	2021	s	N	plant, food, grain, IN Asia	
 ride	lovagol	equito	jez1dzic1_konno	1555	u	U	travel, =AGT ON <horse>, INSTRUMENT <horse>	
 right	jo1	bonus	wl1as1ciwy	1191	u	N	gen want, conform justice
 right	jobb	dextra	prawy	1199	u	N	side, LACK heart
