@@ -133,10 +133,10 @@ arrangement	beoszta1s	dispositio	uklad	266	u	N	plan, <IN time,space>
 arrive	mege1rkezik	advenio	przyjechac1	1622	u	V	after {=AGT AT place, =AGT LACK move}
 arrow	nyi1l	sagitta	strzal1a	1813		N	artefact, long, straight/563, HAS pointed(head), move	
 art	mu3ve1szet	ars	sztuka	1735	u	N	make beautiful	
-artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human MAKE	
+artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human make	
 article	cikk	scriptum	artykul1	373	u	N	text, public, ABOUT real	
 as	mint	ut	jak	1700	u	D	=AGT HAS quality, =PAT HAS quality, "as _ as " MARK quality	
-ash	hamu	cinis	popio1l1	991	u	N	powder[<grey>,<white>,<black>], {<wood> burn} MAKE
+ash	hamu	cinis	popio1l1	991	u	N	powder[<grey>,<white>,<black>], {<wood> burn} make
 ask	ke1rdez	quaero	pytac1	1253	u	V	communicate, =AGT say want	HUN ke1r
 at	-na1l	apud	u	2744	u	G	AT, =PAT[place], "at _" MARK =PAT
 at	-ra	apud	przy	39	u	G	AT
@@ -167,7 +167,7 @@ band	zenekar	symphonia	zespo1l1	2678		N	group, musician, <popular>
 bank	bank	argentaria	bank	227	u	N	institution, money IN	
 bar	kiza1r	excludo	wyl1a1czac1	1367	u	V	block across	%there seem to be no verbal use on rhs
 bar	kocsma	caupona	bar	1421	u	N	shop, sell drink, drink HAS alcohol
-bark	ugat	latro	szczekac1	2517	u	U	<dog> MAKE sound/993[short,loud]
+bark	ugat	latro	szczekac1	2517	u	U	<dog> make sound/993[short,loud]
 base	alap	fundamentum	podstawa	146	u	N	PART_OF whole, AT bottom, whole HAS bottom, CAUSE whole[fix]	%
 base	ba1zis	NA	baza	2755	u	N	artefact, IN @Baseball, four(corner), gen run TO
 baseball	baseball	#	baseball	3615	u	N	game, ball PART_OF, two(group) PART_OF	Longman real DV
@@ -209,7 +209,7 @@ bite	harap	mordeo	gryz1c1	1001	u	V	cut, INSTRUMENT <tooth>
 bitter	keseru3	amarus	goz1ki	1306	u	A	taste, sharp, coffee IS_A, poison IS_A	
 black	fekete	niger	czarny	761	u	A	colour, dark, night HAS colour, coal HAS colour
 blade	penge	lamina	ostrze	1954		N	cut, HAS edge, flat, <sword> HAS	
-blame	hiba1ztat	incuso	winic1	1052		V	think[=AGT[ responsible ]]	
+blame	hiba1ztat	incuso	winic1	1052		V	think =PAT[responsible]	
 block	akada1lyoz	obstruo	blokowac1	129		V	=AGT CAUSE =PAT stop
 block	to2mb	moles	blok	2408		N	<stone>, HAS side[flat]
 blood	ve1r	sanguis	krew	2599	u	N	liquid, IN body, red	
@@ -701,7 +701,7 @@ hollow	u2reges	cavus	pusty	2500		A	hole IN
 holy	szent	sanctus	s1wie1ty	2190		A	god, religion	
 home	otthon	domus	dom	1924	u	N	place, =AGT AT, "poss" MARK =AGT	%
 honest	becsu2letes	rectus	szczery	250	u	A	conform moral	
-honey	me1z	mel	mio1d	3342	u	N	food, sweet, sticky, bee MAKE
+honey	me1z	mel	mio1d	3342	u	N	food, sweet, sticky, bee make
 hope	reme1l	spero	miec1_nadzieje1	2006	u	U	desire, want, =AGT think =PAT[possible]	
 horizontal	vi1zszintes	horizontalis	horizontalny	3144	u	A	direction, flat(ground) HAS, still(water) HAS
 horn	ku2rt	cornu	ro1g	1457	u	N	instrument, make sound/993, HAS material[hard]	car horn
@@ -722,7 +722,7 @@ if	ha	si	jez1eli	952	u	G	=AGT possible, =AGT CAUSE =PAT, "if _" MARK =AGT
 ill	beteg	aeger	chory	273		A	HAS disease, LACK healthy
 illegal	illega1lis	contrajuris	nielegalny	2789	u	A	bad FOR law	
 image	ke1p	imago	obraz	1242	u	N	HAS form, resemble object, gen see, represent object, "of_" MARK object
-imagination	fanta1zia	imaginatio	wyobraz1nia	725	u	N	MAKE mental(image), LACK see, <picture>
+imagination	fanta1zia	imaginatio	wyobraz1nia	725	u	N	make mental(image), LACK see, <picture>
 imagine	ke1pzel	cogito	wyobraz1ac1_sobie	1249		V	image IN mind, =AGT HAS mind	
 important	fontos	gravis	waz1ny	853		A	cause, HAS value	
 impressive	lenyu3go2zo3	admirabilis	#	2808		A	good	
@@ -1266,7 +1266,7 @@ sick	beteg	aeger	chory	274		A	ill, <vomit>
 side	oldal	latus	strona	1903	u	N	part, <two>, centre far, oppose, object HAS	
 sign	jel	signum	znak	1183	u	N	gen perceive, information, show, HAS meaning	
 signal	jel	signum	signal	1184		N	communicate, people see	
-signature	ala1i1ra1s	subscriptio	podpis	138	u	N	name, person HAS, person MAKE, ON document, FOR identity	
+signature	ala1i1ra1s	subscriptio	podpis	138	u	N	name, person HAS, person make, ON document, FOR identity	
 silk	selyem	bombyx	jedwab	2077		N	cloth, thin/2598, smooth, soft	
 silly	buta	stultus	gl1upi	358	u	A	stupid	
 similar	hasonlo1	similis	podobny	2794		A	=AGT HAS quality, =PAT HAS quality, "TO _" MARK =PAT	%

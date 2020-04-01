@@ -21,7 +21,7 @@ angry	haragos	iratus	zl1y	999	u	A	anger
 animal	a1llat	animal	zwierze1	78	u	N	live, move	
 arm	kar	bracchium	ramie1	1231		N	long, human HAS body, body HAS, limb, hand AT, wrist AT, shoulder AT	
 around	ko2re1	circum	dokol1a	1388	u	D	AT =PAT[round]	%
-artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human MAKE	
+artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human make	
 atmosphere	le1gko2r	caelum	atmosfera	3379	u	N	air, earth HAS
 attack	roham	impetus	atak	2034	u	V	violent, <INSTRUMENT weapon>, want hurt, want damage	
 authority	hato1sa1g	jurisdictio	wl1adza	2811	u	N	power, command, determine, judge	
@@ -30,7 +30,7 @@ awake	e1ber	vigilans	czujny	494	u	A	conscious
 axis	tengely	axis	os1	3377	u	N	line, round AROUND, turn AROUND, AT/2744 middle, shape HAS	
 bad	rossz	malus	zl1y	2043	u	A	CAUSE hurt	%
 bake	su2t	coquo	piec	2130	u	V	cook/825, =PAT[<bread>, <cake>], =AGT CAUSE =PAT[hard]
-bark	ugat	latro	szczekac1	2517	u	U	<dog> MAKE sound/993[short,loud]
+bark	ugat	latro	szczekac1	2517	u	U	<dog> make sound/993[short,loud]
 base	alap	fundamentum	podstawa	146	u	N	PART_OF whole, AT bottom, whole HAS bottom, CAUSE whole[fix]	%
 base	ba1zis	NA	baza	2755	u	N	artefact, IN @Baseball, four(corner), gen run TO
 beam	suga1r	radius	promien1	2722	u	N	line, light/739, FROM <sun>	
@@ -50,7 +50,7 @@ bird	mada1r	avis	ptak	1576	u	N	animal, make egg, HAS feather, HAS two(wing)
 bite	harap	mordeo	gryz1c1	1001	u	V	cut, INSTRUMENT <tooth>	
 black	fekete	niger	czarny	761	u	A	colour, dark, night HAS colour, coal HAS colour
 blade	penge	lamina	ostrze	1954		N	cut, HAS edge, flat, <sword> HAS	
-blame	hiba1ztat	incuso	winic1	1052		V	think[=AGT[ responsible ]]	
+blame	hiba1ztat	incuso	winic1	1052		V	think =PAT[responsible]		
 blood	ve1r	sanguis	krew	2599	u	N	liquid, IN body, red	
 blue	ke1k	caeruleus	niebieski	1237	u	A	colour, sky HAS colour, cold
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
@@ -269,7 +269,7 @@ hold	tart	teneo	trzymac1	2309	u	V	=PAT IN hand, =AGT HAS hand
 hole	lyuk	foramen	dziura	1557	u	N	empty(place/2326), IN solid	
 hollow	u2reges	cavus	pusty	2500		A	hole IN	
 home	otthon	domus	dom	1924	u	N	place/1026, =AGT AT, "poss" MARK =AGT	%
-honey	me1z	mel	mio1d	3342	u	N	food, sweet, sticky, bee MAKE
+honey	me1z	mel	mio1d	3342	u	N	food, sweet, sticky, bee make
 horizontal	vi1zszintes	horizontalis	horizontalny	3144	u	A	direction, flat(ground) HAS, still(water) HAS
 horse	lo1	equus	kon1	1547		N	animal, animal, HAS[four (leg)], ride INSTRUMENT, pull	RG
 hot	forro1	fervens	gora1cy	862	u	A	temperature, high	
@@ -282,7 +282,7 @@ ice	je1g	glacies	lo1d	1178	u	N	water, cold, hard
 idea	eszme	opinio	idea	703	u	N	IN mind, think make	TODO
 ill	beteg	aeger	chory	273		A	HAS disease, LACK healthy
 image	ke1p	imago	obraz	1242	u	N	HAS form, resemble object, gen see, represent object, "of_" MARK object
-imagination	fanta1zia	imaginatio	wyobraz1nia	725	u	N	MAKE mental(image), LACK see, <picture>
+imagination	fanta1zia	imaginatio	wyobraz1nia	725	u	N	make mental(image), LACK see, <picture>
 important	fontos	gravis	waz1ny	853		A	cause, HAS value	
 in	-ba	in	do	10	u	G	place, after(=AGT AT place), place contain =AGT, "in _" MARK place	%
 information	hi1r	nuntius	informacja	1040	u	N	report	
