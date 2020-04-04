@@ -48,7 +48,7 @@ def main(argv):
             if not line.startswith("%"):
                 concept = line.split("\t")[0].strip() + "_" + line.split("\t")[4]
                 concepts.append(line.split("\t")[0].strip())
-                if len(line.split("\t")) > 8:
+                if len(line.split("\t")) >= 8:
                     line = line.split("\t")[7].split("%")[0]
                     line = re.sub("@", "", line)
                     line = re.sub('"', "", line)
@@ -60,13 +60,12 @@ def main(argv):
                     line = re.sub("\[", " ", line)
                     line = re.sub("\]", " ", line)
                     line = re.sub("[0-9]*", "", line)
-                    line = re.sub("/", "", line)
+                    line = re.sub("/.*", "", line)
                     words = line.split()
                     for wo in words:
                         wo = wo.strip()
                         if wo not in dlist and wo not in klist and not ">" in wo and not "<" in wo:
                             concept_to_words[concept].append(wo)
-
                         if wo and not wo.startswith("=") and not wo.startswith('"') and not wo.isupper() and not ">" in wo and not "<" in wo:
                             w[wo.strip()] += 1
 
