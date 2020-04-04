@@ -60,7 +60,7 @@ def main(argv):
                     line = re.sub("\[", " ", line)
                     line = re.sub("\]", " ", line)
                     line = re.sub("[0-9]*", "", line)
-                    line = re.sub("/.*", "", line)
+                    line = re.sub("/", "", line)
                     words = line.split()
                     for wo in words:
                         wo = wo.strip()
