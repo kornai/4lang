@@ -160,7 +160,7 @@ door	ajto1	foris	drzwi	128	u	N	artefact, AT entrance, open/1814, close/3381
 down	le	deorsum	w_do1l1	1498	u	D	vertical(gen ER)	
 drink	iszik	bibo	pic1	1161	u	V	=PAT[liquid,<alcoholic>] IN mouth, =AGT HAS mouth, =AGT swallow 
 drink	ital	potio	napo1j	1164	u	N	liquid, IN mouth, swallow, <alcoholic>  
-drop	ejt	demitto	upus1cic1	588	u	V	=PAT[fall/2694]	
+drop	ejt	demitto	upus1cic1	588	u	V	fall/2694
 drunk	ittas	potus	pijany	1165	u	A	quality, person HAS, alcohol CAUSE, LACK control
 dry	sza1raz	siccus	suchy	2145		A	LACK wet	anto
 dust	por	pulvis	kurz	1970	u	N	substance, fine, dry, particle, powder, <dirt>	
@@ -195,7 +195,7 @@ fact	te1ny	factum	fakt	2323	u	N	HAS proof[exist]
 faith	hit	fides	wiara	1064	u	N	belief, religious	
 faithful	hu3	fidus	wierny	1099	u	A	HAS faith	
 fall	o3sz	autumnus	jesien1	1883	u	N	autumn	ND
-fall	zuhan	cado	spadac1	2694	u	U	=PAT[move], =PAT[down[after]]	
+fall	zuhan	cado	spadac1	2694	u	U	move, after(down)
 family	csala1d	familia	rodzina	383	u	N	group, <two>(parent) PART_OF, <more>(child) PART_OF	
 far	messze	procul	daleko	1678	u	A	AT great(distance)	
 fear	fe1lelem	timor	strach	734	u	N	sensation, danger CAUSE, <anxiety>

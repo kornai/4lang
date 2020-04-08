@@ -471,7 +471,7 @@ drink	iszik	bibo	pic1	1161	u	V	=PAT[liquid,<alcoholic>] IN mouth, =AGT HAS mouth
 drink	ital	potio	napo1j	1164	u	N	liquid, IN mouth, swallow, <alcoholic>  
 drive	vezet	rego	prowadzic1	2614	u	V	=AGT CAUSE[=PAT[<car>,move]], control	
 driver	vezeto3	auriga	kierowca	3448	u	N	person, drive gen
-drop	ejt	demitto	upus1cic1	588	u	V	=PAT[fall/2694]	
+drop	ejt	demitto	upus1cic1	588	u	V	fall/2694     
 drug	drog	medicamentum_stupefactivum	narkotyk	486	u	N	substance, medical	
 drug	k1bi1to1szer	venenum	narkotyk	2954	u	N	substance, illegal, CAUSE[happy]	
 drunk	ittas	potus	pijany	1165	u	A	quality, person HAS, alcohol CAUSE, LACK control
@@ -553,7 +553,7 @@ fair	va1sa1r	mercatus	jarmark	2561	u	N	event, people sell AT, people buy AT
 faith	hit	fides	wiara	1064	u	N	belief, religious	
 faithful	hu3	fidus	wierny	1099	u	A	HAS faith	
 fall	o3sz	autumnus	jesien1	1883	u	N	autumn	ND
-fall	zuhan	cado	spadac1	2694	u	U	=PAT[move], =PAT[down[after]]	
+fall	zuhan	cado	spadac1	2694	u	U	move, after(down)	
 false	hamis	falsus	fal1szywy	990	u	A	LACK(fact), LACK(truth)	
 family	csala1d	familia	rodzina	383	u	N	group, <two>(parent) PART_OF, <more>(child) PART_OF	
 far	messze	procul	daleko	1678	u	A	AT great(distance)	
