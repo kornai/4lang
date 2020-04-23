@@ -9,6 +9,7 @@ from utils import get_tsv_sens
 def main():
     counter = Counter()
     examples = defaultdict(list)
+    cutoff = int(sys.argv[1])
     n = 0
     for sen in tqdm(get_tsv_sens(sys.stdin)):
         n += 1
@@ -18,12 +19,12 @@ def main():
 
         patt = tuple(patt)
         counter[patt] += 1
-        if counter[patt] % 100 == 0:
+        if counter[patt] % cutoff == 0:
             examples[patt].append(sen)
 
     sys.stderr.write(f"processed {n} sentences\n")
     for patt, count in counter.most_common():
-        if count < 100:
+        if count < cutoff:
             break
         ex = "\t".join(
             " ".join(tok[0] for tok in sen) for sen in examples[patt])
