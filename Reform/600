@@ -8,7 +8,7 @@ act	tett	factum	akt	2379	u	N	act/2373 % empty definition
 action	cselekve1s	actio	dzial1anie	399	u	N	person do	
 activity	teve1kenyse1g	industria	czynnos1c1	2383	u	N	act	
 after	uta1n	post	po	2533	u	G	follow, IN order/2739	
-aggressive	agresszi1v	pugnax	agresywny	3338	u	A	angry, threaten, WANT [fight,attack,defeat]
+aggressive	agresszi1v	pugnax	agresywny	3338	u	A	angry, threaten, want [fight,attack,defeat]
 agriculture	mezo3gazdasa1g	agricultura	rolnictwo	3603	u	N	 practice, raise/1788 crop, raise/1788 animal
 aim	ce1l	finis	cel	363		N	purpose	
 air	levego3	aer	powietrze	1540	u	N	gas, life need, @Earth HAS
@@ -19,7 +19,7 @@ amount	mennyise1g	numerus	ilos1c1	1666	u	N	quantity	TODO
 anger	du2h	furor	gniew	488	u	N	feeling, bad, strong, aggressive	
 angry	haragos	iratus	zl1y	999	u	A	anger	
 animal	a1llat	animal	zwierze1	78	u	N	live, move	
-arm	kar	bracchium	ramie1	1231		N	long, human HAS body, body HAS, limb, hand AT, wrist AT, shoulder AT	
+arm	kar	bracchium	ramie1	1231		N	organ, long, human HAS body, body HAS, limb, hand AT, wrist AT, shoulder AT	
 around	ko2re1	circum	dokol1a	1388	u	D	AT =PAT[round]	%
 artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human make	
 atmosphere	le1gko2r	caelum	atmosfera	3379	u	N	air, earth HAS
@@ -56,7 +56,7 @@ blue	ke1k	caeruleus	niebieski	1237	u	A	colour, sky HAS colour, cold
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
 bone	csont	os	kos1c1	431		N	material, rigid, frame, PART_OF body	
 book	ko2nyv	liber	ksia1z1ka	1384	u	N	artefact, text IN, HAS more(page), HAS cover, gen read	
-border	hata1r	confinium	granica	1011	u	N	line, official, SEPARATE <two(country)>	
+border	hata1r	confinium	granica	1011	u	N	line, official, separate <two(country)>	
 bottom	fene1k	fundus	dno	787		N	PART_OF whole, position, deep( ER whole)	
 bowl	kupa	scyphus	miska	1462		N	round, wide, food IN	
 box	doboz	capsa	pudel1ko	478	u	N	container, HAS lid, cube	
@@ -105,15 +105,17 @@ cold	hideg	frigidus	zimno	1053	u	N	temperature, low
 colour	szi1n	colour	kolor	2207	u	N	sensation, light/739, red IS_A, green IS_A, blue IS_A	
 colour	szinez	colouro	kolorowac1	2219	u	V	add colour
 command	parancs	iussum	rozkaz	1941	u	N	speak, HAS authority, CAUSE {person do =PAT}, "dative" MARK person
-common	ko2zo2s	communis	wspo1lny	1415	u	A	AT many, more HAS, public	BELONG[ more(<people>)] % BELONG_TO % HUN alternative gen ko2zo2nse1ges, a1tlagos gen 
-communicate	kommunika1l	communicare	komunikowac1	3145	u	U	GIVE information
+common	ko2zo2s	communis	wspo1lny	1415	u	A	AT many, more HAS, public	% HUN alternative gen ko2zo2nse1ges, a1tlagos gen 
+communicate	kommunika1l	communicare	komunikowac1	3145	u	U	give information
 company	csapat	manus	towarzystwo	385	u	N	group, human	
 company	va1llalat	negotiatio	firma	2549	u	N	organization, FOR business	
 compete	versenyez	contendo	rywalizowac1	2608	u	U	want victory, =AGT HAS opponent, opponent want victory
 complex	o2sszetett	complex	zl1oz1ony	3341	u	A	HAS many(part), difficult(understand)
 conduct	vezet	transmitto	przewodzic1	3353	u	V	=AGT CAUSE[=PAT AT place], "to" MARK place, <energy[flow] IN>	
-confident	magabiztos	confidens	pewny	3027	u	A	THINK after(self[good])
+confident	magabiztos	confidens	pewny	3027	u	A	think after(self[good])
 conform	megfelel	aptus	sl1oda	3375	u	N	=AGT similar {gen expect =PAT}, "to _" MARK =PAT	%dative MARK =PAT? 
+connect	kapcsol	coniungo	l1a1czyc1	1227	u	V	after(connected)
+connected	kapcsolt	coniunctus	pol1a1czony	3637	u	A	move(together)
 conscious	tudatos	conscius	s1wiadomy	2459	u	A	notice, realize, awake, understand, deliberate, think, know	
 contact	e1rintkeze1s	contactus	kontakt	3366	u	N	touch, =AGT AT =PAT 
 contain	tartalmaz	contineo	zawierac1	2313	u	V	=PAT IN =AGT	
@@ -264,7 +266,7 @@ heavy	nehe1z	gravis	ciez1ki	1772	u	A	weight(ER gen)
 height	magassa1g	altitudo	wysokos1c1	1583	u	N	distance, vertical	%between {base/146,top}	?
 help	segi1t	adiuvo	pomagac1	2072	u	V	=AGT CAUSE[=PAT[succeed]], =AGT together =PAT	%
 high	magas	altus	wysoki	1582	u	A	top ER gen, HAS top 	
-hill	domb	collis	wzgo1rze	482	u	N	PART_OF land, high, mountain ER	
+hill	domb	collis	wzgo1rze	482	u	N	ON land, high, mountain ER	
 hold	tart	teneo	trzymac1	2309	u	V	=PAT IN hand, =AGT HAS hand	
 hole	lyuk	foramen	dziura	1557	u	N	empty(place/2326), IN solid	
 hollow	u2reges	cavus	pusty	2500		A	hole IN	
@@ -288,7 +290,7 @@ in	-ba	in	do	10	u	G	place, after(=AGT AT place), place contain =AGT, "in _" MARK
 information	hi1r	nuntius	informacja	1040	u	N	report	
 information	informa1cio1	nuntiatio	informacja	1141	u	N	liquid, study give, experience give, gen know
 injury	se1ru2le1s	vulnus	rana	3360	u	N	damage, body HAS	
-institution	inte1zme1ny	institutio	instytucja	3372		N	organize AT, work AT, HAS purpose, system, society/2285 HAS, HAS long(past), building, people IN, CONFORM norm
+institution	inte1zme1ny	institutio	instytucja	3372		N	organize AT, work AT, HAS purpose, system, society/2285 HAS, HAS long(past), building, people IN, conform norm
 instrument	eszko2z	instrumentum	narze1dzie	701	u	N	object, work INSTRUMENT, gen use, HAS purpose, AT hand	
 intense	nagyfoku1	vehemens	intensywny	3369	u	A	ER gen, extreme
 item	te1tel	item	pozycja	3343	u	N	one, IN list, IN group, IN set/2746	%single
@@ -297,10 +299,10 @@ jaw	a1lkapocs	maxilla	szcze1ka	72	u	N	organ, animal HAS, AT mouth, tooth AT, PAR
 join	csatlakozik	comitor	dol1a1czyc1	392	u	V	after(together)	   %implies before(separate)
 joint	izu2let	articulus	staw	1169	u	N	part, join AT/2744	
 joy	o2ro2m	gaudium	rados1c1	1856	u	N	sensation, good	      
-judge	bi1ro1	iudex	se1dzia	289	u	N	human, PART_OF court/3124, decide, make official(opinion), opinion ABOUT value	
+judge	bi1ro1	iudex	se1dzia	289	u	N	human, PART_OF court/3124, decide, make official(opinion)	
 king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, lead/2617[country], PART_OF [royal(family)]	
 knife	ke1s	culter	no1z1	1256	u	N	instrument, FOR cut, HAS blade<metal>, HAS handle	
-know	tud	scio	wiedziec1	2455	u	V	=AGT HAS information, information ABOUT =PAT	
+know	tud	scio	wiedziec1	2455	u	V	=AGT HAS information, information connect =PAT	
 land	fo2ld	ager	ziemia	816	u	N	solid, ground, area/2366     
 large	nagy	grandis	duz1y	1745		A	big	
 law	jog	ius	prawo	1200	u	N	rule, system, society/2285 HAS, official, norm	%
@@ -338,7 +340,7 @@ material	anyag	materialis	material1	2798	u	N	object, real, <build> use
 meaning	e1rtelem	significatio	znaczenie	528		N	information IN mind, sign represent	%
 measure	me1rte1k	mensura	miara	1608	u	N	CAUSE[person know quantity]	
 member	tag	membrum/socius	czl1onek	2293		N	group HAS, IN group	%
-memory	emle1kezet	memoria	pamie1c1	666	u	N	information, human HAS, ABOUT past	
+memory	emle1kezet	memoria	pamie1c1	666	u	N	information, human HAS, connect past	
 mental	szellemi	spiritualis	mentalny	3039	u	A	IN mind	
 metal	fe1m	metallum	metal	738	u	N	material, solid, shine, conduct electricity	
 middle	ko2ze1p	media_pars	s1rodek	1410	u	N	part, place/1026, near centre
@@ -393,7 +395,7 @@ paint	fest	pingo	malowac1	795		V	=AGT CAUSE[=PAT[liquid] cover surface, =PAT[pic
 palm	tenye1r	palma	dl1on1	3630	u	N	surface, hand HAS, hold	
 paper	papi1r	charta	papier	1940	u	N	material, FROM wood, flexible, sheet, HAS two(side)	
 parent	szu2lo3	parens	rodzic	2266	u	N	make child	
-part	re1sz	pars	cze1s1c1	1997	u	N	PART_OF
+part	re1sz	pars	cze1s1c1	1997	u	N	IN, connected
 particle	darabka	particula	cza1stka	3373	u	N	piece, separate, small	
 passenger	utas	viator/vector	pasaz1er	2534	u	N	person, person travel IN vehicle, other(person) drive vehicle
 past	mu1lt	praeterita	przeszl1os1c1	1732	u	N	period, PART_OF time, now FOLLOW	
@@ -454,7 +456,7 @@ regular	szaba1lyos	ordinatus	zwykl1y	2147	u	A	conform rule
 relation	viszony	ratio	zwia1zek	2646		N	one AT, other AT
 religion	valla1s	religio	religia	2580	u	N	system, faith HAS	ND
 religious	valla1sos	religiosus	religijny	2581		A	HAS religion, HAS faith	ND
-report	hi1r	nuntius	raport	1042	u	N	information, ABOUT recent(event), detail IN	HUN jelente1s
+report	hi1r	nuntius	raport	1042	u	N	information, connect recent(event), detail IN	HUN jelente1s
 represent	mutat	monstro	pokazywac1	1741	u	V	sign HAS meaning, =AGT[sign], =PAT[meaning]	
 reproduce	szaporodik	propago	reprodukowac1	3138	u	U	=AGT make other[similar]
 resemble	hasonli1t	similis	przypominac1	3397	u	V	=AGT HAS quality, =PAT HAS quality
@@ -473,7 +475,7 @@ royal	kira1lyi	regius	kro1lewski	1352	u	A	monarch
 rule	szaba1ly	regula	regul1a	2530	u	N	govern	   
 safe	biztos	tutus	bezpieczny	303		A	LACK danger
 scale	ska1la	modulus	skala	2107		N	range, level AT, measure INSTRUMENT, regular	
-screen	ke1perny2	album	ekran	2977	u	N	artefact, <PART_OF electric(machine)>, picture ON	
+screen	ke1pernyo2	album	ekran	2977	u	N	artefact, <PART_OF electric(machine)>, picture ON	
 season	e1vad	tempus	sezon	546	u	N	period[<four>], PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather	
 season	e1vszak	tempus_anni	pora_roku	548	u	N	period, time, PART_OF year, activity IN	
 second	ma1sodik	alter	drugi	1569	u	A	-th/5, FOLLOW first	
@@ -497,7 +499,7 @@ shape	alak	figura	ksztal1t	142	u	N	form	geometrical
 sharp	eles	acutus	ostry	611	u	A	HAS [<edge>,<point>]
 sheep	juh	ovis	owca	1204	u	N	mammal, <AT/2744 farm>, HAS wool
 sheet	lap	charta	kartka	1492		N	rectangular, flat	
-shelf	polc	loculus	po1l1ka	1962		N	surface, verical, hold, store, <rectangular>, rigid
+shelf	polc	loculus	po1l1ka	1962		N	surface, vertical, hold, store, <rectangular>, rigid
 shell	kagylo1	concha	muszla	1216	u	N	cover[hard, outer], <animal> IN	
 shine	fe1nylik	splendeo	s1wiecic1	742		V	light/739 FROM	RA
 shop	bolt	taberna	sklep	329	u	N	institution, sell IN	
@@ -537,7 +539,7 @@ spoon	kana1l	cochlear	l1yz1ka	1222	u	N	cutlery, {eat soup} INSTRUMENT, HAS bowl,
 spring	tavasz	ver	wiosna	2318	u	N	first(season/548), warm, plant[live], love IN, summer FOLLOW, FOLLOW winter	ND
 stable	stabil	stabilis	stabilny	3130	u	A	LACK move
 start	kezdet	initium	pocza1tek	1313	u	N	act after   
-state	a1llam	res_publica	pan1stwo	76	u	N	land, political(unit), HAS government, decide ABOUT self
+state	a1llam	res_publica	pan1stwo	76	u	N	land, political(unit), HAS government, control self
 state	a1llapot	condicio	stan	77	u	N	situation	
 steel	ace1l	chalybs	stal	112	u	N	metal, hard, strong, contain iron, contain carbon
 stem	to3	stirps	l1odyga	2421		N	PART_OF plant, long, leaf FROM, flower FROM, fruit FROM	HUN sza1r
@@ -572,7 +574,7 @@ thin	hi1g	liquidus	rzadki	1038	u	A	flow( ER gen)
 thin	ve1kony	tenuis	chudy	2598	u	A	gen ER {distance BETWEEN surface} 	
 thing	dolog	res	rzecz	481	u	N	exist, <object>	 
 think	gondol	cogito	mys1lec1	907	u	U	=PAT IN mind, =AGT HAS mind	
-this	ez	hic/haec/hoc	ten/to/ta	706	u	N	now, near, before(speak ABOUT)	indexical
+this	ez	hic/haec/hoc	ten/to/ta	706	u	N	now, near, before(speak)	indexical
 thought	gondolat	cogitatum	mys1l	908	u	N	idea, IN mind	
 thread	sza1l	filum	nic1	366	u	N	fine(cord), <sew INSTRUMENT>, <IN cloth>	
 three	ha1rom	tres	trzy	2970	u	A	number, FOLLOW two	
