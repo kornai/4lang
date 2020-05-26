@@ -1,0 +1,13 @@
+CFG1
+
+1. S -> NP[nom] VP
+2. VP -> V NP[acc]
+3. NP[nom] -> N[nom]
+4. NP[acc] -> N[acc]
+
+CFG2
+
+1. S -> NP[nom] VP
+2. VP -> NP[acc] V
+3. NP[nom] -> N[nom]
+4. NP[acc] -> N[acc]
