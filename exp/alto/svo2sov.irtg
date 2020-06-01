@@ -22,13 +22,13 @@ NP_ACC -> rule4(N_ACC)
 [sov] ?1
 
 N_NOM -> n_nom_1
-[svo] "balazs"
-[sov] "balazs"
+[svo] balazs
+[sov] balazs
 
 N_ACC -> n_acc_1
-[svo] "kutyat"
-[sov] "kutyat"
+[svo] kutyat
+[sov] kutyat
 
 V -> v_1
-[svo] "latja"
-[sov] "latja"
+[svo] latja
+[sov] latja
