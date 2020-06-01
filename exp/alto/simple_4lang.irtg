@@ -1,0 +1,26 @@
+interpretation fourlang: de.up.ling.irtg.algebra.StringAlgebra
+interpretation equation: de.up.ling.irtg.algebra.StringAlgebra
+
+S! -> start_def(DEF)
+[fourlang] ?1
+[equation] ?1
+
+DEF -> def_to_prim(PRIM, SEPARATE, PRIM, SEPARATE, PRIM)
+[fourlang] *(*(*(*(?1,?2),?3),?4),?5)
+[equation] *(*(*(*(?1,?2),?3),?4),?5)
+
+PRIM -> prim_1
+[fourlang] "big"
+[equation] "w1 vec(big)"
+
+PRIM -> prim_2
+[fourlang] "brown"
+[equation] "w2 vec(brown)"
+
+PRIM -> prim_3
+[fourlang] "dog"
+[equation] "w3 vec(dog)"
+
+SEPARATE -> separate_1
+[fourlang] "comma"
+[equation] "plus"
