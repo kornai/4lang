@@ -437,7 +437,7 @@ artist	mu3ve1sz	artifex	artysta	1734		N	profession, MAKE art, HAS imagination, H
 as	mint	ut	jak	1700	u	D		empty definition
 ascend	felha1g	ascendo	wznosic1_sie1	769		V		=AGT[up[after]]
 ash	hamu	cinis	popio1l1	991		N	powder[<grey>,<white>,<black>], burn MAKE	
-ashamed	sze1gyenkezve	cum_pudore	zawstydzony	2162	u	A	FEEL shame	
+ashamed	sze1gyenkezve	cum_pudore	zawstydzony	2162	u	A	feel shame	
 ashes	hamvak	cineres	popiol1y	992		N		no Longman, see 991
 aside	el	seorsum	na_bok	590		D	AT/2744 side, away	
 ask	ke1rdez	quaero	pytac1	1253	u	V	communicate, =AGT SAY want	HUN ke1r
@@ -507,7 +507,7 @@ barrel	hordo1	cupa	baryl1ka	1082		N	cylinder, contain, HAS top, HAS bottom
 barren	meddo3	sterilis	bezpl1odny	1613		A	MAKE child, make[can/1246[lack]]	MAKE lack(chid)
 base	alap	fundamentum	podstawa	146	u	N	part, AT/2744 bottom, CAUSE =POSS[fix]	
 base	aljas	abiectus	niski	153	u	A		see 146 and 2757
-base	ba1zis	NA	baza	2755	u	N	artefact, IN/2758 @Baseball, four(corner), run TOUCH	
+base	ba1zis	NA	baza	2755	u	N	artefact, IN/2758 @Baseball, four(corner), run touch	
 baseball	baseball	#	#	#		N	game, ball PART_OF, two(group) PART_OF	Longman real DV
 basic	alapveto3	#	#	3050		A	other NEED	
 basin	ta1l	lanx	misa	2274		N		
@@ -636,7 +636,7 @@ bread-like	kenye1r-szeru3	#	#	3316		A	food, FROM/2742 flour, bake MAKE	1
 breadth	sze1lesse1g	latitudo	szerokos1c1	2167		N		
 break	to2r	frango	l1amac1	2411	u	V	=PAT[object], =PAT[rigid], after(separate), after(=PAT HAS more(piece)), sudden, violent	
 breakfast	reggeli	ientaculum	s1niadanie	2003		N	first(meal), IN/2758 morning	
-breast	mell	mamma	piers1	1656		N	two, organ, ON chest, woman HAS	
+breast	mell	mamma	piers1	1656		N	organ, two, ON chest, woman HAS	
 breath	le1legzet	spiritus	oddech	1500		N	=AGT[animal] MOVE =PAT[air], air IN/2758 lung, air[out]	% [animal INHALE] OR [animal EXHALE]
 breathe	le1legzik	spiro	oddechac1	1501	u	U	breath	
 breed	tenye1szt	educo	hodowac1	2352		V		
@@ -1168,7 +1168,7 @@ element	elem	elementum	pierwiastek	3452	u	N
 elephant	elefa1nt	elephantus	sl1on1	605	u	N	mammal[large,herbivore], lack(hair/3359), HAS trunk/1910, HAS large(ear)	HAS tusks[ivory], ear HAS shape[fan]
 eleven	tizenegy	#	#	3069		A	number, FOLLOW ten	
 else	vagy	aut	albo	2567	u	G	other	HUN: ma1s
-embarrass	zavarba_hoz	#	#	2973		V	=AGT CAUSE[=PAT FEEL shame], =PAT AT/2744 other(people)	
+embarrass	zavarba_hoz	#	#	2973		V	=AGT CAUSE[=PAT feel shame], =PAT AT/2744 other(people)	
 emotion	e1rzelem	affectus	emocja	3010	u	N	state/77, IN/2758 mind, feeling	
 emphasize	hagsu1lyoz	#	#	2818		V	CAUSE[=DAT KNOW[=PAT[important]]]	
 empire	birodalom	imperium	imperium	294		N	group, more(country) IN/2758, political, unit, one(person) CONTROL	
@@ -1446,7 +1446,7 @@ garment	ruha	vestis	ubio1r	2053		N	artefact, COVER body
 gas	ga1z	gasium	gaz	885	u	N	substance, HAS shape[change], full(IN/2758 container)	lack(dense)
 gate	kapu	porta	brama	1229		N	door, HAS side[out]	
 gather	gyu3jt	colligo	zbierac1	947		V	collect	
-gay	buzi	catamites	gej	361		N	man/744 FEEL attract, other(man/744) CAUSE attract	
+gay	buzi	catamites	gej	361		N	man/744 feel attract, other(man/744) CAUSE attract	
 general	fo3-	maximus/summus	gl1o1wny	821	u	A	every IN/2758	
 generate	nemz	gigno	pocza1c1	1785		V		no xml
 generation	genera1cio1	#	#	2778		N	group, people, AT/2744 age	
@@ -1533,7 +1533,7 @@ guard	o3r	custos	straz1nik	1876		N	protect
 guess	tala1lgat	conicio	zgadywac1	2294		V	try[know], lack(sure)	
 guest	vende1g	hospes	gos1c1	2604		N	AT/2744 home, =POSS[host/2605] HAS home, <before(=POSS INVITE)>	
 guide	vezet	rego	prowadzic1	2616		V	=AGT CAUSE[=PAT HAS information], information ABOUT place/1026, after(=PAT AT/2744 place/1026)	
-guilt	bu3ntudat	conscientia	wina	348		N	FEEL [before(=POSS DO crime)]	
+guilt	bu3ntudat	conscientia	wina	348		N	feel [before(=POSS DO crime)]	
 guilty	bu3no2s	reus	winny	3472	u	N		
 guitar	gita1r	cithara	gitara	3473	u	N		
 gun	puska	sclopetum	bron1	1980	u	N	weapon, HAS[metal(tube)], CAUSE bullet[move]	
@@ -1582,7 +1582,7 @@ healthy	ege1szse1ges	sanus	zdrowy	555		A	HAS body, body IN/2758 good(situation)
 heap	kupac	acervus	kupa	1464		N	group, things	
 heap	rak	pono	zwalac1	1991		V		no xml
 hear	hall	audio	sl1yszec1	987	u	U	=AGT PERCEIVE =PAT[sound/993], INSTRUMENT ear	
-heart	szi1v	cor	serce	2210	u	N	organ, CAUSE[blood[move]], love IN/2758	
+heart	szi1v	cor	serce	2210	u	N	organ, CAUSE[blood[move]], love IN/2758, centre
 heat	ho3	calor	gora1co	1070	u	N	energy, warm	
 heated	heves	vehemens	gora1cy	1036		A	angry	
 heaven	menny	caelum	niebo	1665		N	place/1026, FOLLOW life, god IN/2758, before(die), good(people)	ND % holiest
@@ -1776,7 +1776,7 @@ kindle	gerjeszt	inflammo	zapalic1	897		V	after(fire)
 king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, LEAD/2617[country], PART_OF [royal(family)]	
 kingdom	kira1lysa1g	regnum	kro1lewstwo	1354		N	country, monarch LEAD/2617	
 kingly	kira1lyi	regius	kro1lewski	1351		A	king	% no Longman
-kiss	cso1k	osculum	pocal1unek	414		N	EXPRESS [emotion, =PAT[good] FOR/2782 =AGT], lip TOUCH =PAT, =AGT HAS lip	
+kiss	cso1k	osculum	pocal1unek	414		N	EXPRESS [emotion, =PAT[good] FOR/2782 =AGT], lip touch =PAT, =AGT HAS lip	
 kitchen	konyha	culina	kuchnia	1426		N	room/2235, [MAKE food] IN/2758	
 knee	te1rd	genu	kolano	2328		N	joint, AT/2744 lower(leg), PART_OF leg	
 kneel	te1rdel	genuflecto	kle1kac1	2329		V	rest ON knee	
@@ -2188,7 +2188,7 @@ oh	o1	o	o	3170	u	G		??vocative
 oil	olaj	oleum	olej	1900		N	slip, can/1246[burn], liquid, <engine CONSUME>	
 old	o2reg	senex	stary	1854	u	A	long(time) FROM/1838 birth, old HAS birth	
 old-fashioned	re1gimo1di	#	#	3008		A	HAS style[old]	
-on	-n	super	na	33	u	G	at, TOUCH =REL, vertical(ER =REL)	
+on	-n	super	na	33	u	G	at, touch =PAT, vertical(ER =PAT)	
 once	egykor	olim	dawno	580		D	IN/2758 past	
 once	egyszer	#	#	2766		#	AT/2744 one(time)	
 one	egy	unus	jeden	559	u	N	number, lack(more), lack(divide CAUSE)	
@@ -2730,7 +2730,7 @@ sensation	e1rzet	affectus	uczucie	534		N	sense INSTRUMENT, <touch>
 sense	tudat	sensus	rozum	2458	u	N	animal HAS, hear IS_A, see IS_A, smell IS_A, touch IS_A, taste IS_A	HUN e1rze1k % content: bodily position, temperature, pain, balance
 senseless	esztelen	absurdus	bezsensowny	704		A	lack(understand)	
 sensible	okos	prudens	rozsa1dny	1895	u	A	HAS sense, HAS good(mind), know, understand	
-sensitive	e1rzo3	misericors	wraz1liwy	535		A	=TO CAUSE[=AGT FEEL <bad>]	
+sensitive	e1rzo3	misericors	wraz1liwy	535		A	=TO CAUSE[=AGT feel <bad>]	
 sentence	mondat	sententia	zdanie	1722		N	AT/2744 text, HAS phrase	
 separate	ku2lo2n	secretus	osobny	1450	u	A	=AGT CAUSE [lack(=PAT AT =FROM), different], MAKE distance	
 sequence	sorozat	#	#	3137		N	many PART_OF, thing FOLLOW other, HAS order/2739	
@@ -2893,7 +2893,7 @@ song	dal	cantus	pies1n1	446	u	N	music, HAS text
 soon	hamar	cito	niedl1ugo	989		A	IN/2758 future, near	
 sore	e1rze1keny	irritabilis	podraz1nione	532		A	CAUSE pain	
 sorrow	bu1	dolor	smutek	341		N	CAUSE suffer, emotion	
-sorry	bu1s	tristis	smutny	342	u	A	FEEL pity	
+sorry	bu1s	tristis	smutny	342	u	A	feel pity	
 sort	rendez	ordino	porza1dkowac1	2012		V		
 sort_of	fajta	#	#	3075		A	quality	
 soul	le1lek	anima/animus	dusza	1502		N	animal HAS, thought, action, emotion, HAS lack(material), person, <lack(die)>	
@@ -3042,7 +3042,7 @@ such_as	u1gymint	#	#	2966		#	=REL IS_A
 suck	szopik	sugo	ssac1	2250		V	=AGT CAUSE[=PAT[fluid] IN/2758 mouth], =AGT HAS mouth, mouth AROUND thing, pull	vacuum
 suck_in	beszi1v	sugo	wessac1	271		V	suck	
 sudden	hirtelen	subitus	nagl1y	1061		A	lack(warn), before(lack(' KNOW))	
-suffer	szenved	patior	cierpiec1	2192		U	=AGT FEEL pain	
+suffer	szenved	patior	cierpiec1	2192		U	=AGT feel pain	
 sugar	cukor	saccharum	cukier	440		N	sweet, IN/2758 food, IN/2758 drink	naive_theo stick
 suggest	aja1nl	propono	sugerowac1	126	u	V	offer, =AGT SAY[=PAT[good]]	
 suit	o2lto2zet	amiculum	stro1j	2751	u	N	garment, set/2746, match/1134	
@@ -3077,7 +3077,7 @@ swing	leng	oscillo	bujac1_sie1	1533		U	move, =AGT HAS direction[change], hang
 switch	kapcsol	#	#	3061		V	=AGT CHANGE activity	electric(machine)
 sword	kard	gladius	miecz	1233		N	weapon, HAS blade[<long>,pointed], HAS edge	
 symbol	jel	#	#	2976		N	mean/1186, represent	
-sympathetic	egyu2tt_e1rzo3	#	#	3060		A	FEEL [other HAS problem], approve, support	
+sympathetic	egyu2tt_e1rzo3	#	#	3060		A	feel [other HAS problem], approve, support	
 sympathy	egyu2tte1rze1s	misericordia	wspo1l1czucie	587		N	pity	
 system	mo1dszer	ratio	system	1709	u	N		see 2015
 system	rendszer	ratio	system	2015	u	N	group, complex, relation BETWEEN part	
@@ -3090,7 +3090,7 @@ take_hold	fog	arripio	l1apac1	831		V	catch/828
 talk	besze1l	loquor	rozmawiac	269	u	U	communicate, INSTRUMENT sentence	
 tall	magas	procerus	wysoki	1581	u	A	height(ER')	ZsA
 tape	szalag	taenia	wsta1z2ka	3051	u	N	artefact, information ON, narrow, plastic	
-taste	i1z	sapor	smak	1113		N	<food> HAS, person FEEL, INSTRUMENT tongue	RA
+taste	i1z	sapor	smak	1113		N	<food> HAS, person feel, INSTRUMENT tongue	RA
 tax	ado1	tributum	podatek	116		N	money, government GET/1223, person GIVE, business GIVE	
 taxi	taxi	taximetrum	takso1wka	2319		N	car, service, person[drive,professional] PART_OF, pay/812 AT/2744	
 tea	tea	thea	herbata	2331		N	drink, leaf[dry[before]], hot(water)	
@@ -3151,7 +3151,7 @@ think	gondol	cogito	mys1lec1	907	u	U	=PAT IN/2758 mind, =AGT HAS mind
 third	harmad	tertia_pars	trzecia	1005		N	part, [three(part)] IN/2758 [whole], before(divide)	
 third	harmadik	tertius	trzeci	1006		A	-th/5, FOLLOW second/1569	fourth FOLLOW
 thirst	szomj	sitis	pragnienie	2246		N	NEED drink	
-thirsty	szomjas	sitiens	spragniony	2247		A	FEEL[thirst]	
+thirsty	szomjas	sitiens	spragniony	2247		A	feel[thirst]	
 this	ez	hic/haec/hoc	ten/to/ta	706	u	N	now, near, before(speak ABOUT)	indexical
 this	ilyen	hic	ten	1137	u	A		indexical
 thorough	alapos	subtilis	dokl1adny	149		A	[every(detail)] IN/2758	
@@ -3213,7 +3213,7 @@ total	ege1sz	totus	cal1y	552		A	whole
 total	teljes	totus	cal1kowity	2346		A	whole	
 total	ve1go2sszeg	#	#	2764		N	sum	
 totter	inog	vacillo	chwiac1_sie1	1143		U	shake	
-touch	e1rint	attingo	dotkna1c1	522	u	V	<hand> AT/2744 =PAT[surface], <=AGT HAS hand>, contact, FEEL surface	
+touch	e1rint	attingo	dotkna1c1	522	u	V	<hand> AT/2744 =PAT[surface], <=AGT HAS hand>, contact, feel surface	
 tour	tu1ra	iter	wycieczka	2439		N	journey, FOR/2782 pleasure, person AT/2744 place/1026	
 tourist	turista	viator	turysta	2465		N		
 towards	fele1	ad	do	764	u	G	after(AT/2744 =REL)	

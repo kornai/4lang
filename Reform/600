@@ -27,7 +27,7 @@ attack	roham	impetus	atak	2034	u	V	violent, <INSTRUMENT weapon>, want hurt, want
 authority	hato1sa1g	jurisdictio	wl1adza	2811	u	N	power, command, determine, judge	
 autumn	o3sz	autumnus	jesien1	1882	u	N	season/548, FOLLOW summer, winter FOLLOW, rain IN, cool/1103, leaf change colour	 
 awake	e1ber	vigilans	czujny	494	u	A	conscious	
-axis	tengely	axis	os1	3377	u	N	line, round AROUND, turn AROUND, AT/2744 middle, shape HAS	
+axis	tengely	axis	os1	3377	u	N	line, round AROUND, turn AROUND, AT middle, shape HAS	
 bad	rossz	malus	zl1y	2043	u	A	CAUSE hurt	%
 bake	su2t	coquo	piec	2130	u	V	cook/825, =PAT[<bread>, <cake>], =AGT CAUSE =PAT[hard]
 bark	ugat	latro	szczekac1	2517	u	U	<dog> make sound/993[short,loud]
@@ -91,7 +91,7 @@ characteristic	tulajdonsa1g	proprium	charakterystyka	3352	u	N	IS_A
 chew	ra1g	rodo	z1uc1	1983	u	N	bite, CAUSE [=PAT[liquid]]	
 chicken	csirke	pullus	kurcze1	412		N	bird, make meat, make egg  
 child	gyerek	puer/puella	dziecko	931	u	N	person, young, parent make
-chin	a1ll	mentum	broda	73	u	N	PART_OF face, AT/2744 centre, under mouth
+chin	a1ll	mentum	broda	73	u	N	PART_OF face, AT centre, under mouth
 circle	ko2r	circulus	kol1o	1386		N	shape, round, close/3381, curve	
 circular	kerek	rotundus	okra1gl1y	1294	u	A	shape, resemble circle, curve	
 clean	tiszta	mundus	czysty	2389	u	A	LACK dirt
@@ -201,7 +201,7 @@ fall	zuhan	cado	spadac1	2694	u	U	move, after(down)
 family	csala1d	familia	rodzina	383	u	N	group, <two>(parent) PART_OF, <more>(child) PART_OF	
 far	messze	procul	daleko	1678	u	A	AT great(distance)	
 fear	fe1lelem	timor	strach	734	u	N	sensation, danger CAUSE, <anxiety>
-feather	toll	penna	pio1ro	2427		N	organ, soft, AT/2744 bird	
+feather	toll	penna	pio1ro	2427		N	organ, soft, AT bird	
 feel	e1rez	sentio	czuc1	521	u	V	=PAT IN mind, =PAT AT body, =AGT HAS body, =AGT HAS mind	
 feeling	e1rze1s	sensus	uczcia	533	u	N	mental, other CAUSE, joy IS_A, sorrow IS_A, fear IS_A, anger IS_A	spontaneous TODO
 female	no3	femina	samica	1794	u	N	sex	
@@ -297,7 +297,7 @@ item	te1tel	item	pozycja	3343	u	N	one, IN list, IN group, IN set/2746	%single
 ivory	elefa1ntcsont	ebur	kos1c1_sl1oniowa		N	3606	bone, elephant HAS	
 jaw	a1lkapocs	maxilla	szcze1ka	72	u	N	organ, animal HAS, AT mouth, tooth AT, PART_OF face	
 join	csatlakozik	comitor	dol1a1czyc1	392	u	V	after(together)	   %implies before(separate)
-joint	izu2let	articulus	staw	1169	u	N	part, join AT/2744	
+joint	izu2let	articulus	staw	1169	u	N	part, join AT	
 joy	o2ro2m	gaudium	rados1c1	1856	u	N	sensation, good	      
 judge	bi1ro1	iudex	se1dzia	289	u	N	human, PART_OF court/3124, decide, make official(opinion)	
 king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, lead/2617[country], PART_OF [royal(family)]	
@@ -469,7 +469,7 @@ road	u1t	via	droga	2481	u	N	way, HAS hard (surface), vehicle ON
 roof	teto3	tectum	dach	2376	u	N	top, PART_OF house	
 room	hely	locus	miejsce	1028	u	N	space	     
 room	szoba	conclave	poko1j	2235	u	N	place/1026, HAS more(wall), PART_OF building, HAS floor, HAS top<ceiling>
-root	gyo2ke1r	radix	korzen1	936	u	N	UNDER ground, PART_OF plant, support, AT/2744 base/146	
+root	gyo2ke1r	radix	korzen1	936	u	N	under ground, PART_OF plant, support, AT base/146	
 round	kerek	rotundus	okra1gl1y	1295	u	A	circular/1294	
 royal	kira1lyi	regius	kro1lewski	1352	u	A	monarch
 rule	szaba1ly	regula	regul1a	2530	u	N	govern	   
@@ -497,7 +497,7 @@ sew	varr	suo	szyc1	2588		V	INSTRUMENT needle, INSTRUMENT thread, =AGT CAUSE[clot
 sex	nem	sexus	pl1ec1	1780		N	male IS_A, female IS_A	
 shape	alak	figura	ksztal1t	142	u	N	form	geometrical
 sharp	eles	acutus	ostry	611	u	A	HAS [<edge>,<point>]
-sheep	juh	ovis	owca	1204	u	N	mammal, <AT/2744 farm>, HAS wool
+sheep	juh	ovis	owca	1204	u	N	mammal, <AT farm>, HAS wool
 sheet	lap	charta	kartka	1492		N	rectangular, flat	
 shelf	polc	loculus	po1l1ka	1962		N	surface, vertical, hold, store, <rectangular>, rigid
 shell	kagylo1	concha	muszla	1216	u	N	cover[hard, outer], <animal> IN	
@@ -583,7 +583,7 @@ through	a1t	per	przez	100	u	G	before(=AGT ON side), =PAT HAS side, after(=AGT ON
 thumb	hu2velykujj	pollex	kciuk	1098	u	N	PART_OF hand, human HAS hand, short, thick/2752
 time	ido3	tempus	czas	1120	u	N	event IN, HAS direction, past PART_OF, now PART_OF, future PART_OF	
 together	egyu2tt	una	razem	586	u	D	similar <place, intent>
-tongue	nyelv	lingua	je1zyk	1808	u	N	PART_OF body, AT/2744 mouth, taste INSTRUMENT, speak INSTRUMENT	
+tongue	nyelv	lingua	je1zyk	1808	u	N	PART_OF body, AT mouth, taste INSTRUMENT, speak INSTRUMENT	
 tool	szersza1m	instrumentum	narze1dzie	2202	u	N	object, work INSTRUMENT	
 tooth	fog	dens	za1b	827	u	N	organ, animal HAS, hard, IN jaw, bite/1001 INSTRUMENT, chew INSTRUMENT, attack INSTRUMENT, defend INSTRUMENT	
 top	teto3	culmen	dach	2377	u	N	part, AT position, vertical(position ER part[other])	

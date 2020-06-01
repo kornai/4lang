@@ -20,7 +20,7 @@ Dr	Dr.	doctor	lekarz	3614	u	A	title, doctor HAS
 Egypt	Egyiptom	#	#	2841		N	country, @Egypt	
 England	anglia	#	#	2761		N	country, @United_Kingdom	
 Europe	Euro1pa	#	#	2842		N	land, @Europe	
-FOR	-ra	propter	przez	2782	u	G	HAS purpose, "for _" MARK purpuse  %purposives
+FOR	-ra	propter	przez	2782	u	G	HAS purpose, "for _" MARK purpose  %purposives
 FROM	-to1l	ab	od	3604	u	G	before(AT)	 
 February	februa1r	mensis_Februarius	luty	748		N	month, FOLLOW january, march/1563 FOLLOW	
 France	Franciaorsza1g	#	#	2843		N	country, @France	
@@ -66,7 +66,7 @@ Ural	Ura1l	#	#	3162		N	@Ural
 Wales	Wales	#	#	2870		N	country, @Wales	
 Washington	Washington	#	#	2871		N	place, @Washington	
 able	ke1pes	idoneus	w_stanie	1245		A	=AGT can/1246[=AGT[act]], "to/3600 _" MARK act	%
-about	miatt	propter	o	1686	u	D	ABOUT	%
+about	miatt	propter	o	1686	u	D	near, connect	%
 accept	elfogad	accipio	akceptowac1	615	u	V	receive, =AGT think[=PAT[right/1191] for =AGT]	%
 accident	baleset	casus_adversus	wypadek	223	u	N	event, LACK {gen plan}, bad, CAUSE damage	
 acid	sav	acidum	kwas	2064	u	N	substance, <burn>, HAS taste[sharp,sour], LACK kind
@@ -796,7 +796,7 @@ leaf	faleve1l	folium	lis1c1	723	u	N	organ, green, flat, AT stem, PART_OF plant
 learn	tanul	disco	uczyc1_sie1	2304	u	V	after(=AGT HAS knowledge)	
 leather	bo3r	tergus	sko1ra	317		N	material, artefact, FROM skin	
 leave	hagy	sino	pozwalac1	970	u	V	after(=AGT away)
-left	bal	laevus	lewy	222		N	side	
+left	bal	laevus	lewy	222		N	side, HAS heart
 leg	la1b	pes	noga	1467	u	N	limb, animal HAS, move INSTRUMENT, support, low	
 legal	jogi	#	#	2806	u	A	law
 length	hossz	longitudo	dl1ugos1c1	1085	u	N	size, distance BETWEEN two(end)	
@@ -1247,7 +1247,7 @@ sharp	eles	acutus	ostry	611	u	A	HAS [<edge>,<point>]
 she	o3	ea	ona	1873		G	female	%indexical
 sheep	juh	ovis	owca	1204	u	N	mammal, <AT farm>, HAS wool
 sheet	lap	charta	kartka	1492		N	rectangular, flat	
-shelf	polc	loculus	po1l1ka	1962		N	surface, verical, hold, store, <rectangular>, rigid
+shelf	polc	loculus	po1l1ka	1962		N	surface, vertical, hold, store, <rectangular>, rigid
 shell	kagylo1	concha	muszla	1216	u	N	cover[hard, outer], <animal> IN	
 shine	fe1nylik	splendeo	s1wiecic1	742		V	light/739 FROM	RA
 ship	hajo1	navis	statek	977	u	N	vehicle, ON water	
