@@ -1,0 +1,34 @@
+interpretation svo: de.up.ling.irtg.algebra.StringAlgebra
+interpretation sov: de.up.ling.irtg.algebra.StringAlgebra
+
+S! -> start_def(DEF)
+[svo] ?1
+[sov] ?1
+
+DEF -> rule1(NP_NOM, VP)
+[svo] *(?1, ?2)
+[sov] *(?1, ?2)
+
+VP -> rule2(V, NP_ACC)
+[svo] *(?1, ?2)
+[sov] *(?2, ?1)
+
+NP_NOM -> rule3(N_NOM)
+[svo] ?1
+[sov] ?1
+
+NP_ACC -> rule4(N_ACC)
+[svo] ?1
+[sov] ?1
+
+N_NOM -> n_nom_1
+[svo] balazs
+[sov] balazs
+
+N_ACC -> n_acc_1
+[svo] kutyat
+[sov] kutyat
+
+V -> v_1
+[svo] latja
+[sov] latja
