@@ -101,7 +101,7 @@ good	jo1	bonus	dobry	1189	u	A	gen want
 govern	vezet	gero	rza1dzic1	2615	u	V	control[system <country>], =AGT HAS power
 government	korma1ny	gubernium	rza1d	1433	u	N	authority, country HAS, people IN	
 grain	szem	granum	ziarno	2183	u	N	seed, small, dry, cereal HAS	
-graphite	grafit	#	grafit	3601	u	N	material, black, soft, IS_A carbon	
+graphite	grafit	graphium	grafit	3601	u	N	material, black, soft, IS_A carbon	
 great	nagy	magnus	wielki	1746	u	N	big	
 grey	szu2rke	canus	szary	2268	u	A	colour, dark(cloud) HAS	
 grow	no3	cresco	rosna1c1	1796	u	U	after(size(ER gen))	
@@ -143,7 +143,7 @@ land	fo2ld	ager	ziemia	816	u	N	solid, ground, area/2366
 large	nagy	grandis	duz1y	1745		A	big	
 leaf	faleve1l	folium	lis1c1	723	u	N	organ, green, flat, AT stem, PART_OF plant	
 leg	la1b	pes	noga	1467	u	N	limb, animal HAS, move INSTRUMENT, support, low	
-legal	jogi	#	#	2806	u	A	law
+legal	jogi	iuris	prawo	2806	u	A	law
 lens	lencse	lenticula	soczewica	3344	u	N	shape, PART_OF camera, light/739 through, FOR clear(image), <glass>[curve], image HAS different(size), <look INSTRUMENT>	
 letter	betu3	littera	litera	278	u	N	symbol, small, MARK sound, gen write
 letter	leve1l	litterae	list	1539	u	N	message, gen write
@@ -162,7 +162,7 @@ love	szeret	amo	kochac1	2200	u	V	emotion, good, =PAT[person], care/82
 low	alacsony	demissus	niski	139	u	A	height(gen ER)	
 main	fo3	primus	gl1o1wny	818		A	ER all, rank, lead/2617	
 make	csina1l	facio	robic1	409	u	V	=AGT CAUSE[=PAT[exist]]	RA
-mammal	emlo3s	#	#	2729		N	animal, HAS fur, HAS milk	ND
+mammal	emlo3s	mammalia	ssak	2729		N	animal, HAS fur, HAS milk	ND
 man	ember	homo	czl1owiek	659	u	N	animal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285	opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	
 many	sok	multus	wiele	2113		A	quantity, ER gen	
@@ -281,7 +281,7 @@ sequence	sorozat	sequentia	sekwencja	3137	u	N	many(thing) PART_OF, thing FOLLOW 
 series	sorozat	series	seria	2951	u	N	structure, HAS item, item FOLLOW other(item)	
 set	kollekcio1	classis	kolekcja	2746	u	N	group, HAS many(item), together, unit, item HAS common(characteristic)	
 set	tesz	pono	kl1as1c1	2375	u	V	=AGT CAUSE[=PAT AT position[<stable>,<proper>]]	
-seven	he1t	#	#	2996		A	number, FOLLOW six	
+seven	he1t	septem	siedem	2996		A	number, FOLLOW six	
 sew	varr	suo	szyc1	2588		V	INSTRUMENT needle, INSTRUMENT thread, =AGT CAUSE[cloth[fix]]	make or repair or fasten
 sex	nem	sexus	pl1ec1	1780		N	male IS_A, female IS_A	
 shape	alak	figura	ksztal1t	142	u	N	form	geometrical
@@ -337,8 +337,8 @@ structure	szerkezet	structura	struktura	2944	u	N	HAS more(part), connected
 student	dia1k	discipulus/discipula	student	462	u	N	person, study, IN <school>	
 study	tanulma1ny	studium	nauka	2305	u	N	work, want know =PAT   =PAT PART_OF discipline
 substance	anyag	materia	materia	172		N	HAS mass, IN space/2327, physical	
-succeed	ko2vet	succedo	odnies1c1_sukces	1401	u	V	=PAT before =AGT      %after
-succeed	sikerrel_ja1r	bene_cedit	#	2718		V	after(aim[real]), =AGT HAS aim	
+succeed	ko2vet	succedo	poda1z1ac1	1401	u	V	=PAT before =AGT      %after
+succeed	sikerrel_ja1r	bene_cedit	odnies1c1_sukces	2718		V	after(aim[real]), =AGT HAS aim	
 success	siker	eventum	sukces	2969		N	real, good, before(desire) 
 sudden	hirtelen	subitus	nagl1y	1061		A	LACK warn, before(LACK (gen know))	
 sugar	cukor	saccharum	cukier	440	u	N	material, sweet, <white>, IN food, IN drink	
