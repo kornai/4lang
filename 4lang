@@ -1162,7 +1162,6 @@ electrical	villamos	electricus	elektryczny	2633		A	electric
 electrician	villanyszerelo3	instructor_electricus	elektryk	2636		N		
 electricity	a1ram	fluidum_electricum	elektrycznos1c1	88	u	N	power, move, <FOR device>, <IN/2758 wire>	
 electricity	villamossa1g	vis_electrica	elektrycznos1c1	2634	u	N		
-electro-convulsive_therapy	elektrosokk-tera1pia	#	#	3306		N	@Electroconvulsive_therapy	1
 electronic	elektromos	electronicus	elektronyczny	3451	u	N		
 element	elem	elementum	pierwiastek	3452	u	N		
 elephant	elefa1nt	elephantus	sl1on1	605	u	N	mammal[large,herbivore], lack(hair/3359), HAS trunk/1910, HAS large(ear)	HAS tusks[ivory], ear HAS shape[fan]
@@ -3098,7 +3097,7 @@ teach	tani1t	doceo	uczyc1	2302		V	=AGT CAUSE[=DAT KNOW =PAT]	Chafe (1970)
 team	csapat	manus	druz1yna	386		N	group	
 tear	te1p	scindo	rozrywac1	2325	u	V	pull, after(=PAT HAS more(piece)), INSTRUMENT force	
 tears	ko2nny	lacrima	l1zy	1379		N	liquid, FROM/2742 eye, many(drop), salt IN/2758, ON cheek, <emotion> CAUSE	
-technical	mu3szaki	#	#	3041		A	knowledge, machines	
+technical	mu3szaki	#	#	3041		A	knowledge, machine	
 technology	technolo1gia	#	#	3033		N	machine MEMBER, equipment, method, INSTRUMENT knowledge	
 telegram	ta1virat	telegramma	telegram	2292		N		
 telegraph	ta1vi1ro1	telegraphium	telegraf	2291		N		
