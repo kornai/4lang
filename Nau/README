@@ -1,0 +1,37 @@
+The goal of nautilus is to tighten the uroboros vocabulary. We start
+from the 400 file and add in material as long as we need to, creating
+the outward spiral 401 402 \ldots 406. This wan is closed definitionally,
+and has 747 elements. As such, it is taking the place of the previous ../Reform/600
+
+We worked with four files of decreasing size: ../4lang, ../Reform/1383,
+../Reform/600, and 400 (the first three have local copies here). The smaller a
+file the better maintained it is, so the idea is that the end-result of 400
+extension will take the role of 600, and bugfixes are carried outward.
+
+Since this is done, we ran
+
+python3 ../Reform/remove_defined.py -i 406 >../Reform/400
+
+400 is a tighter uroboros set, with 423 elements. remove_defind can no longer reduce it,
+but maybe uroboros.py can
+
+
+
+
+
+
+
+base.$i is created by
+
+cut -f1,8 $i >base.$i
+
+and miss.$i by
+
+python3 ../Reform/get_undefined.py -i $i > miss.$i
+
+
+
+
+To run uroboros.py, use bash and start with uro/bin/activate
+
+ssh -L 8899:localhost:8899 kornai@nessie.ilab.sztaki.hu -N
