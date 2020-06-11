@@ -78,14 +78,14 @@ def main(argv):
                         break
 
         if to_del_index:
-            print(lines[to_del_index])
+            #print(lines[to_del_index])
             lines = lines[:to_del_index] + lines[to_del_index+1:]
         else:
             found = False
 
-    # if not found:
-    #     for line in lines:
-    #         print(line)
+    if not found:
+        for line in lines:
+            print(line)
 
 
 if __name__ == "__main__":
