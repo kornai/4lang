@@ -1,5 +1,8 @@
+-able	-hato1	-bilis	-alny	3624	u	G	gen allow {gen stem =PAT}, "_-able" MARK stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	u	G	ER, HAS quality, "_-er" MARK quality	
 -er	-o1	-tor/-trix	-ac1/ic1	3627	q	G	stem-er IS_A =AGT, "_ -er" MARK stem	%nomen agentis
+-ist	-ista	  #    -ista	3623	u	G	person<profession>, think {stem[important]}, "_-ist" MARK stem
+-ize	-iza1l	#	#	3625	u	G	CAUSE {after({=PAT HAS property, stem HAS property})}, "_-ize" MARK stem
 -th	-ad	-ias	-ta	4	u	G	part, IN whole, before(divide)	
 -th	-adik	-imus	-ty	5	u	G	position, IN sequence	
 Asia	A1zsia	#	#	3146		N	land, @Asia	
@@ -157,11 +160,11 @@ dark	so2te1t	obscurus	ciemny	2110	u	A	LACK light/739
 day	nap	dies	dzien1	1754	u	N	period, week HAS, month HAS, HAS more(hour), sun ON sky, work AT	
 death	hala1l	mors	s1mierc1	981	u	N	end,  life HAS
 decide	do2nt	decerno	decydowac1	471	u	U	want, before(=AGT HAS more(possibility)), after(=PAT)	ZsA
-decorate	di1szi1t	#	#	2736		V	=AGT CAUSE[=PAT[beautiful]]	
+decorate	di1szi1t	decoro	udekorowac1	2736	u	V	=AGT CAUSE[=PAT[beautiful]]	
 deep	me1ly	altus	gl1e1boki	1602		N	HAS[bottom[far]]	
 defeat	legyo3z	vinco	pokonac1	1520	u	V	before(compete), =AGT HAS success, =PAT[lose]	=AGT CAUSE[=PAT[lose]], after(=AGT control =PAT)
 defend	ve1d	defendo	bronic1	2592	u	V	=AGT CAUSE [safe(=PAT)]
-deliberate	sza1nde1kos	#	#	2814		A	conscious do, man/659 want effect/1014	
+deliberate	sza1nde1kos	consulto	celowy	2814	u	A	do, conscious, =AGT want effect/1014	
 desire	va1gyik	desidero	pragna1c1	2544		V	feeling, want	
 detail	re1szlet	pars	szczego1l1	1999		N	PART_OF information, exact	
 determine	meghata1roz	determino	ustalac1	1627		V	decide	HUN elhata1roz
@@ -209,7 +212,7 @@ energy	energia	energia	energia	2804	u	N	work[physical]
 engine	ge1p	machina	silnik	893		N	machine, CAUSE[move]	HUN motor % CONSUME fuel
 enter	bele1p	intro	wejs1c1	258	u	V	go, after(=AGT IN =PAT)	
 entrance	beja1rat	porta	wejs1cie	256	u	N	place/1026, {<person>[enter]} THROUGH, <door>	
-equipment	berendeze1s	#	#	2788		N	tool, gen HAS	
+equipment	berendeze1s	apparatus	urza1dzenie	2788		N	tool, gen HAS	
 event	eseme1ny	eventum	wydarzenie	692	u	N	activity, AT place/1026, <important>	
 exact	exakt	exactus	dokl1adny	705	u	A	correct, LACK different
 exchange	csere	mutatio	wymiana	405	u	N	before(=PAT AT person), after(=PAT AT other(person)) 
@@ -217,7 +220,7 @@ exist	van	exsto	byc1	2587	u	V	real
 expect	va1r	exspecto	spodziewac1_sie1	2557	u	V	=AGT think[=PAT[real] AT future]	
 experience	tapasztal	experior	dos1wiadczac1	2308	u	V	after(=AGT remember =PAT), =PAT real
 express	kifejez	effor	wyrazic1	2757	u	V	=AGT CAUSE[gen KNOW =PAT]	
-extreme	rendki2vu2li	#	#	2786		A	ER gen	
+extreme	rendki2vu2li	nimius	skrajny	2786	u	A	ER gen	
 eye	szem	oculus	oko	2182	u	N	organ, see INSTRUMENT, animal HAS, ON face, <two>	
 face	arc	vultus	twarz	177	u	N	organ, surface, front, PART_OF head, forehead PART_OF, chin PART_OF, ear PART_OF, jaw PART_OF	
 fact	te1ny	factum	fakt	2323	u	N	HAS proof[exist]	
@@ -242,7 +245,7 @@ fire	tu3z	ignis	ogien1	2454	u	N	substance, CAUSE heat, CAUSE light/739, HAS flam
 firm	ce1g	domus	firma	362	u	N	company/2549[<small>]	
 firm	szila1rd	firmus	firma	2215	u	A	rigid, LACK soft  
 first	elso3	primus	pierwszy	649	u	A	-th/5[one], LACK before, second/1569 FOLLOW	
-five	o2t	quinque	#	2989		A	number, FOLLOW four	
+five	o2t	quinque	pie1c1		2989	u	A	number, FOLLOW four	
 fix	ro2gzi1t	firmo	przymocowywac1	2026	u	V	=AGT CAUSE[=PAT[stable]]	
 flame	la1ng	flamma	pl1omien1	1473	u	N	air, hot, light/739 FROM, fire HAS	
 flat	lapos	planus	pl1aski	1493	u	A	HAS surface, horizontal, LACK slope, LACK curve	
@@ -261,7 +264,7 @@ force	ero3	vis	sil1a	683	u	N	power
 forehead	homlok	frons	czol1o	1077	u	N	PART_OF face, front, eye under, hair AT, AT temple/982	
 fork	villa	furca	widelec	2630	u	N	cutlery, <metal>, HAS {<four>(branch)}, HAS handle, {move food} INSTRUMENT	
 form	alak	forma	forma	141	u	N	object HAS	
-four	ne1gy	quattuor	#	2988		A	number, FOLLOW three	
+four	ne1gy	quattuor	cztery	2988		A	number, FOLLOW three	
 frame	keret	forma	rama	1303	u	N	artefact, HAS part[more, together], structure, give shape, fix, border	
 frequent	gyakori	frequens	cze1sty	919		A	often	
 fright	ijedelem	terror	terror	2812		N	sudden, intense, fear	
@@ -283,7 +286,7 @@ good	jo1	bonus	dobry	1189	u	A	gen want
 govern	vezet	gero	rza1dzic1	2615	u	V	control[system <country>], =AGT HAS power
 government	korma1ny	gubernium	rza1d	1433	u	N	authority, country HAS, people IN	
 grain	szem	granum	ziarno	2183	u	N	seed, small, dry, cereal HAS	
-graphite	grafit	#	grafit	3601	u	N	material, black, soft, IS_A carbon	
+graphite	grafit	graphium	grafit	3601	u	N	material, black, soft, IS_A carbon	
 great	nagy	magnus	wielki	1746	u	N	big	
 green	zo2ld	viridis	zielony	2679		A	colour, plant HAS colour	
 grey	szu2rke	canus	szary	2268	u	A	colour, dark(cloud) HAS	
@@ -353,7 +356,7 @@ lead	o1lom	plumbum	ol1o1w	1832	u	N	soft(metal)
 lead	vezet	duco	prowadzic1	2617	u	V	=AGT CAUSE[=PAT[change]]	naive_theo: x lead/2617 y, y lead/2617 z implies x lead/2617 z
 leaf	faleve1l	folium	lis1c1	723	u	N	organ, green, flat, AT stem, PART_OF plant	
 leg	la1b	pes	noga	1467	u	N	limb, animal HAS, move INSTRUMENT, support, low	
-legal	jogi	#	#	2806	u	A	law
+legal	jogi	iuris	prawo	2806	u	A	law
 lens	lencse	lenticula	soczewica	3344	u	N	shape, PART_OF camera, light/739 through, FOR clear(image), <glass>[curve], image HAS different(size), <look INSTRUMENT>	
 letter	betu3	littera	litera	278	u	N	symbol, small, MARK sound, gen write
 letter	leve1l	litterae	list	1539	u	N	message, gen write
@@ -381,7 +384,7 @@ machine	ge1p	machina	maszyna	894	u	N	object, work
 main	fo3	primus	gl1o1wny	818		A	ER all, rank, lead/2617	
 make	csina1l	facio	robic1	409	u	V	=AGT CAUSE[=PAT[exist]]	RA
 male	hi1m	mas	samiec	1039	u	N	sex	
-mammal	emlo3s	#	#	2729		N	animal, HAS fur, HAS milk	ND
+mammal	emlo3s	mammalia	ssak	2729		N	animal, HAS fur, HAS milk	ND
 man	ember	homo	czl1owiek	659	u	N	animal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285	opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	
 many	sok	multus	wiele	2113		A	quantity, ER gen	
@@ -573,7 +576,7 @@ sequence	sorozat	sequentia	sekwencja	3137	u	N	many(thing) PART_OF, thing FOLLOW 
 series	sorozat	series	seria	2951	u	N	structure, HAS item, item FOLLOW other(item)	
 set	kollekcio1	classis	kolekcja	2746	u	N	group, HAS many(item), together, unit, item HAS common(characteristic)	
 set	tesz	pono	kl1as1c1	2375	u	V	=AGT CAUSE[=PAT AT position[<stable>,<proper>]]	
-seven	he1t	#	#	2996		A	number, FOLLOW six	
+seven	he1t	septem	siedem	2996		A	number, FOLLOW six	
 several	sok	multus	kilka	2116		A	many	
 sew	varr	suo	szyc1	2588		V	INSTRUMENT needle, INSTRUMENT thread, =AGT CAUSE[cloth[fix]]	make or repair or fasten
 sex	nem	sexus	pl1ec1	1780		N	male IS_A, female IS_A	
@@ -643,8 +646,8 @@ structure	szerkezet	structura	struktura	2944	u	N	HAS more(part), connected
 student	dia1k	discipulus/discipula	student	462	u	N	person, study, IN <school>	
 study	tanulma1ny	studium	nauka	2305	u	N	work, want know =PAT   =PAT PART_OF discipline
 substance	anyag	materia	materia	172		N	HAS mass, IN space/2327, physical	
-succeed	ko2vet	succedo	odnies1c1_sukces	1401	u	V	=PAT before =AGT      %after
-succeed	sikerrel_ja1r	bene_cedit	#	2718		V	after(aim[real]), =AGT HAS aim	
+succeed	ko2vet	succedo	poda1z1ac1	1401	u	V	=PAT before =AGT      %after
+succeed	sikerrel_ja1r	bene_cedit	odnies1c1_sukces	2718		V	after(aim[real]), =AGT HAS aim	
 success	siker	eventum	sukces	2969		N	real, good, before(desire) 
 sudden	hirtelen	subitus	nagl1y	1061		A	LACK warn, before(LACK (gen know))	
 sugar	cukor	saccharum	cukier	440	u	N	material, sweet, <white>, IN food, IN drink	
