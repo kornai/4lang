@@ -182,7 +182,7 @@ divide	oszt	divido	dzielic1	1919	u	V	split
 do	tesz	facio	robic1	2372	u	N	cause, =AGT[animal], =PAT[happen]	
 dog	kutya	canis	pies	1465	u	N	animal, HAS leg(four), bark, bite, faithful	
 door	ajto1	foris	drzwi	128	u	N	artefact, AT entrance, open/1814, close/3381	
-dot	pont	punctum	kropka	1968		N	small, round, mark	no xml
+dot	pont	punctum	kropka	1968	u	N	mark, small, round     
 down	le	deorsum	w_do1l1	1498	u	D	vertical(gen ER)	
 drink	iszik	bibo	pic1	1161	u	V	=PAT[liquid,<alcoholic>] IN mouth, =AGT HAS mouth, =AGT swallow 
 drink	ital	potio	napo1j	1164	u	N	liquid, IN mouth, swallow, <alcoholic>  
@@ -192,7 +192,7 @@ drunk	ittas	potus	pijany	1165	u	A	quality, person HAS, alcohol CAUSE, LACK contr
 dry	sza1raz	siccus	suchy	2145		A	LACK wet	anto
 dust	por	pulvis	kurz	1970	u	N	substance, fine, dry, particle, powder, <dirt>	
 ear	fu2l	auris	ucho	870	u	N	organ, hear INSTRUMENT	
-early	korai	maturus	wczesny	1431		A	AT time, ER time	
+early	korai	maturus	wczesny	1431	u	A	AT time, normal ER time
 earth	fo2ld	terra	ziemia	815	u	N	planet, IN space/2509, life ON, ocean ON, land ON, HAS atmosphere	
 easy	ko2nnyu3	facilis	l1atwy	1380	u	A	LACK difficult	antonym
 eat	eszik	edo	jes1c1	700	u	V	=AGT CAUSE[=PAT IN mouth], swallow, =PAT[<food>], <bite/1001>, <chew>, =AGT HAS mouth	
@@ -366,7 +366,7 @@ life	e1let	vita	z1ycie	505	u	N	live
 light	fe1ny	lux	s1wiatl1o	739	u	N	material, wave, CAUSE[animal see thing], beam/2722	
 light	gyu1jt	accendo	zapalac1	944	u	V	=PAT[burn[after]]	
 light	ko2nnyu3	levis	lekki	1381	u	A	weight(gen ER)
-like	kedvel	amo	lubic1	3382	u	V	=PAT[good], good FOR =AGT	
+like	kedvel	amo	lubic1	3382	u	V	feel {=PAT[good], good FOR =AGT}	
 limb	ve1gtag	membrum	kon1czyna	3345	u	N	PART_OF body, leg IS_A, arm IS_A
 limit	hata1r	terminus	ograniczenie1	1012	u	N	LACK further	
 line	sor	versus	rza1d	2118	u	N	shape, long, HAS position, HAS direction, <straight/563>	mark, next to each other
@@ -571,7 +571,7 @@ seller	elado1	venditor	sprzedaja1cy	3629	u	N	=AGT sell, -er/3627
 sensation	e1rzet	affectus	uczucie	534	u	N	sense INSTRUMENT, <touch>	
 sense	e1rze1k	sensus	rozum	2458	u	N	animal HAS, hear IS_A, see IS_A, smell IS_A, touch IS_A, taste IS_A	HUN e1rze1k % content: bodily position, temperature, pain, balance
 sentence	mondat	sententia	zdanie	1722		N	AT text, HAS phrase	
-separate	ku2lo2n	segrego	osobny	1450	u	V	=AGT CAUSE [=PAT other(place/1026)], "from _" MARK place/1026
+separate	ku2lo2n	segrego	osobny	1450	u	V	=AGT CAUSE [=PAT AT other(place/1026)], "from _" MARK place/1026
 sequence	sorozat	sequentia	sekwencja	3137	u	N	many(thing) PART_OF, thing FOLLOW other, HAS order/2739	
 series	sorozat	series	seria	2951	u	N	structure, HAS item, item FOLLOW other(item)	
 set	kollekcio1	classis	kolekcja	2746	u	N	group, HAS many(item), together, unit, item HAS common(characteristic)	
