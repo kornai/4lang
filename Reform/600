@@ -33,7 +33,7 @@ ash	hamu	cinis	popio1l1	991	u	N	powder[<grey>,<white>,<black>], {<wood> burn} ma
 atmosphere	le1gko2r	caelum	atmosfera	3379	u	N	air, earth HAS
 atom	atom	atomus	atom	181	u	N	particle, LACK part, small	naive_theo:HAS nuclear(energy)
 attack	roham	impetus	atak	2034	u	V	violent, <INSTRUMENT weapon>, want hurt, want damage	
-attract	vonz	attracho	przycia1gac1	2664		V	=AGT CAUSE[=PAT want [=PAT near =AGT]]]	
+attract	vonz	attracho	przycia1gac1	2664		V	=AGT CAUSE {=PAT want {=PAT near =AGT}}
 authority	hato1sa1g	jurisdictio	wl1adza	2811	u	N	power, command, determine, judge	
 autumn	o3sz	autumnus	jesien1	1882	u	N	season/548, FOLLOW summer, winter FOLLOW, rain IN, cool/1103, leaf change colour	 
 awake	e1ber	vigilans	czujny	494	u	A	conscious	

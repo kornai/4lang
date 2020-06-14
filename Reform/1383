@@ -327,7 +327,6 @@ steal	lop	furor	kras1c1	1553	u	V	=AGT CAUSE[=PAT AT =AGT], =AGT LACK right/3122
 ride	lovagol	equito	jez1dzic1_konno	1555	u	U	travel, =AGT ON <horse>, INSTRUMENT <horse>	
 hole	lyuk	foramen	dziura	1557	u	N	empty(place/2326), IN solid	
 magic	ma1gia	ars_magica	magia	1559	u	N	control natural(force), INSTRUMENT supernatural	
-already	ma1r	iam	juz1	1561	q	D	before()
 yet	ma1r	etiam	jeszcze	1562		D	already	
 March	ma1rcius	mensis_Martius	marzec	1563		N	month, FOLLOW february, april FOLLOW	
 another	ma1s	alius	inny	1565		A	other	
@@ -925,7 +924,7 @@ valley	vo2lgy	vallis	dolina	2657	u	N	land, low, BETWEEN <mountain>, BETWEEN <hil
 red	vo2ro2s	ruber	czerwony	2658	u	N	colour, warm, fire HAS colour, blood HAS colour, resemble anger	ND
 arrangement	beoszta1s	dispositio	uklad	266	u	N	plan, <IN time,space>
 train	vonat	tramen	pocia1g	2661	u	N	vehicle, car FOLLOW car, ON rail, more(car), locomotive PART_OF
-attract	vonz	attracho	przycia1gac1	2664		V	=AGT CAUSE[=PAT want [=PAT near =AGT]]]	
+attract	vonz	attracho	przycia1gac1	2664		V	=AGT CAUSE {=PAT want {=PAT near =AGT}}
 attractive	vonzo1	suavis	atrakcyjny	2665		A	beautiful, person like/3382	
 lock	za1r	claustrum	zamek	2667	u	N	device, door HAS, CAUSE door LACK open/1814
 shut	za1rt	clausus	zamykac1	2668	u	A	gen LACK [move THROUGH]
