@@ -18,13 +18,14 @@ tokens = (
     'CURLYBL',
     'ANGLEBR',
     'ANGLEBL',
+    'DASH'
 )
 
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z-]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN)\b[a-zA-Z0-9-]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
-t_EQUAL = r'(=[A-Z]+)'
+t_CLAUSE = r'([a-z-_]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN|_)\b[a-zA-Z0-9-_]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_EQUAL = r'(=[A-Z-_]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
 t_SQUAREBL = r'\['
@@ -36,6 +37,7 @@ t_ANGLEBR = r'\>'
 t_ANGLEBL = r'\<'
 t_CITE = '"'
 t_UNDER = "_"
+t_DASH = "-"
 
 def t_newline( t ):
   r'\n+'
@@ -66,16 +68,8 @@ def p_clause_angle(p):
 def p_cite(p):
   '''expr : CITE CLAUSE CITE'''
 
-"""
-def p_cite_dash(p):
-  '''expr : CITE DASH CITE'''
-
-def p_under_cite_dash(p):
-  '''expr : CITE UNDER DASH CITE'''
-
-def p_under_slash_dash(p):
-  '''expr : CITE DASH UNDER CITE'''
-"""
+def p_dash_cite(p):
+  '''expr : CITE UNDER DASH CLAUSE CITE'''
 
 def p_under_cite(p):
   '''expr : CITE UNDER CLAUSE CITE'''
@@ -163,6 +157,8 @@ def readfile(filename):
     with open(filename, encoding='utf-8') as f:
         for line in f:
             l = line.strip().split("\t")
+            if l[4] in defs:
+                print(l[4])
             defs[l[4]] = line
             if len(l) >= 8:
                 if "%" in l[7]:
