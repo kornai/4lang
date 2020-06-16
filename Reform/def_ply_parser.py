@@ -2,6 +2,7 @@ from ply import lex
 import ply.yacc as yacc
 import sys, getopt
 import os
+import re
 
 tokens = (
     'CLAUSE',
@@ -153,20 +154,62 @@ defs_to_parse = {}
 def_states = {}
 defs = {}
 
-def readfile(filename):
+def filter_line(line, mode="4lang"):
+    l = line.strip().split("\t")
+    if mode == "4lang":
+        definition = l[7]
+        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        found = False
+        filtered_definition = []
+        for phrase in def_phrases:
+            if "HAS" in phrase:
+                filtered_definition.append(phrase.strip())
+                found = True
+        if found:
+            filtered_line = "\t".join(l[:7]) + "\t" + ", ".join(filtered_definition)
+            return filtered_line.strip("\n") + "\n"
+        else:
+            return line
+    else:
+        definition = l[1]
+        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        found = False
+        filtered_definition = []
+        for phrase in def_phrases:
+            if "HAS" in phrase:
+                filtered_definition.append(phrase.strip())
+                found = True
+        if found:
+            filtered_line = l[0] + "\t" + ", ".join(filtered_definition)
+            return filtered_line.strip("\n") + "\n"
+        else:
+            return line
+
+def readfile(filename, mode="4lang"):
     with open(filename, encoding='utf-8') as f:
-        for line in f:
-            l = line.strip().split("\t")
-            if l[4] in defs:
-                print(l[4])
-            defs[l[4]] = line
-            if len(l) >= 8:
-                if "%" in l[7]:
-                    l[7] = l[7].split("%")[0].strip()
-                defs_to_parse[l[4]] = (l[0], l[7])
-                def_states[l[4]] = None
+        for i, line in enumerate(f):
+            if mode == "4lang":
+                l = line.strip().split("\t")
+                if l[4] in defs:
+                    print(l[4])
+                defs[l[4]] = line
+                if len(l) >= 8:
+                    if "%" in l[7]:
+                        l[7] = l[7].split("%")[0].strip()
+                    defs_to_parse[l[4]] = (l[0], l[7])
+                    def_states[l[4]] = None
+                else:
+                    def_states[l[4]] = 'err bad columns (maybe spaces instead of TABS?)'
             else:
-                def_states[l[4]] = 'err bad columns (maybe spaces instead of TABS?)'
+                l = line.strip().split("\t")
+                defs[i] = line
+                if len(l) >= 2:
+                    if "%" in l[1]:
+                        l[1] = l[1].split("%")[0].strip()
+                    defs_to_parse[i] = (l[0], l[1])
+                    def_states[i] = None
+                else:
+                    def_states[i] = "err bad columns (maybe spaces instead of TABS?)"
 
 def process(outputdir):
     for element in defs_to_parse:
@@ -180,21 +223,25 @@ def process(outputdir):
 def main(argv):
     inputfile = ''
     outputdir = ''
+    mode = "4lang"
     try:
-        opts, args = getopt.getopt(argv,"hi:o:",["ifile=","odir="])
+        opts, args = getopt.getopt(argv,"hi:o:f:",["ifile=","odir=", "format="])
     except getopt.GetoptError:
-        print('def_ply_parser.py -i <inputfile> -o <outputdir>')
+        print('def_ply_parser.py -i <inputfile> -o <outputdir> -f <format>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('4lang_parser.py -i <inputfile> -o <outputdir>')
+            print('4lang_parser.py -i <inputfile> -o <outputdir> -f <4lang|cut>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
         elif opt in ("-o", "--odir"):
             outputdir = arg
+        elif opt in ("-f", "--format"):
+            mode = arg
+
     f = inputfile
-    readfile(f)
+    readfile(f, mode)
     o = outputdir
     process(o)
     errors = []
@@ -213,9 +260,11 @@ def main(argv):
             if not item.startswith("%"):
                 f.write("%s" % item)
     with open(os.path.join(outputdir, "4lang_def_correct"), 'w', encoding="utf-8") as f:
-        for item in correct:
-            if not item.startswith("%"):
-                f.write("%s" % item)
+        with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
+            for item in correct:
+                if not item.startswith("%"):
+                    filtered.write("%s" % filter_line(item, mode))
+                    f.write("%s" % item)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

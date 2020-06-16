@@ -594,8 +594,7 @@ firm	szila1rd	firmus	firma	2215	u	A	rigid, LACK soft
 first	elso3	primus	pierwszy	649	u	A	-th/5[one], LACK before, second/1569 FOLLOW	
 fish	hal	piscis	ryba	980	u	N	animal, live IN water, HAS cold(blood)	
 fit	illo3	decens	odpowiedni	1135		A	good, AT gen , together, HAS proper(size), HAS proper(shape)
-five	o2t	quinque	pie1c1		2989	u	A	number, FOLLOW four	
-five	o2t	quinque	pie1c1	2989		A	number, FOLLOW four	
+five	o2t	quinque	pie1c1	2989	u	A	number, FOLLOW four	
 fix	ro2gzi1t	firmo	przymocowywac1	2026	u	V	=AGT CAUSE[=PAT[stable]]	
 flame	la1ng	flamma	pl1omien1	1473	u	N	air, hot, light/739 FROM, fire HAS	
 flash	villan	mico	bl1yskac1	2635	u	V	light/739, sudden, short, intense
