@@ -154,7 +154,7 @@ defs_to_parse = {}
 def_states = {}
 defs = {}
 
-def filter_line(line, mode="4lang"):
+def filter_line(line, clause, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
         definition = l[7]
@@ -162,7 +162,7 @@ def filter_line(line, mode="4lang"):
         found = False
         filtered_definition = []
         for phrase in def_phrases:
-            if "HAS" in phrase:
+            if clause in phrase:
                 filtered_definition.append(phrase.strip())
                 found = True
         if found:
@@ -176,7 +176,7 @@ def filter_line(line, mode="4lang"):
         found = False
         filtered_definition = []
         for phrase in def_phrases:
-            if "HAS" in phrase:
+            if clause in phrase:
                 filtered_definition.append(phrase.strip())
                 found = True
         if found:
@@ -224,14 +224,15 @@ def main(argv):
     inputfile = ''
     outputdir = ''
     mode = "4lang"
+    clause = None
     try:
-        opts, args = getopt.getopt(argv,"hi:o:f:",["ifile=","odir=", "format="])
+        opts, args = getopt.getopt(argv,"hi:o:f:c:",["ifile=","odir=", "format=", "clause="])
     except getopt.GetoptError:
-        print('def_ply_parser.py -i <inputfile> -o <outputdir> -f <format>')
+        print('def_ply_parser.py -i <inputfile> -o <outputdir> -f <format> -c <clause>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('4lang_parser.py -i <inputfile> -o <outputdir> -f <4lang|cut>')
+            print('4lang_parser.py -i <inputfile> -o <outputdir> -f <4lang|cut> -c <clause to filter by>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -239,6 +240,8 @@ def main(argv):
             outputdir = arg
         elif opt in ("-f", "--format"):
             mode = arg
+        elif opt in ("-c", "--clause"):
+            clause = arg
 
     f = inputfile
     readfile(f, mode)
@@ -263,7 +266,8 @@ def main(argv):
         with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
             for item in correct:
                 if not item.startswith("%"):
-                    filtered.write("%s" % filter_line(item, mode))
+                    if clause:
+                        filtered.write("%s" % filter_line(item, clause, mode))
                     f.write("%s" % item)
 
 if __name__ == "__main__":
