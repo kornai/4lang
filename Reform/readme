@@ -1,7 +1,31 @@
-06/09/20 Recent changes: considering yet another list that claims to be the LDV. this is checked in as ./ldv
-./missing lists the words from this LDV that we don't have at all. Some of these are spelling  variants:
-new notation
+The goal of Reform is to reformat and reformulate 4lang until it is
+(a) fully machine parseable
+(b) covers the entire LDV
+(c) has a minimal uroboros core
 
+The work now focuses on the 1383 file which already meets (a) but not (b) and
+has a core 1383.uro with 777 elements.
+
+Morph is the directory for creating a fully (a-c)-compliant affix and suffix
+listing. (b) is done, in fact the LDV seems to have completely unnecessary
+(improductive) affixes but this will be coonsidered on a case by case basis
+
+../Nau is a working directory aiming at (c)
+
+LDVrel is a working directory aiming at (b). Affixes are dealt with in Morph,
+proper nouns are listed in proper and are done.
+
+1383 has an errorlist collected at 1383.err Many other 1383 errors result from
+not carrying out the earlier Reform steps on the entire 1383 -- these steps are
+noted below.
+
+
+
+06/09/20 Recent changes: considering yet another list that claims to be the
+LDV. this is checked in as ./ldv ./missing lists the words from this LDV that
+we don't have at all. Some of these are spelling variants: new notation
+
+Maybe add a new link SV for spelling variant? 
 God SV god
 tyre   SV tire and so on. 
 
@@ -13,7 +37,10 @@ CAUSE/cause/make
 
 systematic handling of agents (verbs don't need them!) cook 
 
-Fixed
+
+
+
+Fixed proper name issues
 
 Muslim: deleted believe (more consistent with other religions)
 Ural: added mountain, more consistent with Himalayas etc. 
