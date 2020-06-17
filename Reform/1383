@@ -903,7 +903,7 @@ mix	kever	misceo	mieszac1	1309	u	V	=AGT CAUSE[=PAT IN place], place[material<liq
 mixture	elegy	mixtio	mieszanka	607		N	compound	
 modern	modern	novus	nowoczesny	1714	u	A	AT time[near]	
 monarch	uralkodo1	rex	monarcha	3370	u	N	king IS_A, queen IS_A, lead/2617 country	
-monastery	monostor	coenobium	monaster	3623	u	N	institution, monk member 
+monastery	monostor	coenobium	monaster	3522	u	N	institution, monk member 
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR exchange, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N	profession, PART_OF religion, live IN group, male
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, <twelve>, PART_OF year	

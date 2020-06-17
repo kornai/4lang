@@ -1,8 +1,8 @@
--able	-hato1	-bilis	-alny	3624	u	G	gen allow {gen stem =PAT}, "_-able" MARK stem	%detestable
+-able	-hato1	-bilis	-alny	21	u	G	gen allow {gen stem =PAT}, "_-able" MARK stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	u	G	ER, HAS quality, "_-er" MARK quality	
 -er	-o1	-tor/-trix	-ac1/ic1	3627	q	G	stem-er IS_A =AGT, "_ -er" MARK stem	%nomen agentis
--ist	-ista	#	-ista	3623	u	G	person<profession>, think {stem[important]}, "_-ist" MARK stem
--ize	-iza1l	#	#	3625	u	G	CAUSE {after({=PAT HAS property, stem HAS property})}, "_-ize" MARK stem
+-ist	-ista	#	-ista	29	u	G	person<profession>, think {stem[important]}, "_-ist" MARK stem
+-ize	-iza1l	#	#	17	u	G	CAUSE {after({=PAT HAS property, stem HAS property})}, "_-ize" MARK stem
 -th	-ad	-ias	-ta	4	u	G	part, IN whole, before(divide)	
 -th	-adik	-imus	-ty	5	u	G	position, IN sequence	
 Asia	A1zsia	#	#	3146		N	land, @Asia	
