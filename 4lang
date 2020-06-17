@@ -2039,7 +2039,7 @@ modest	szere1ny	modestus	skromny	2196		A	THINK ability[lack(important)], HAS abi
 moment	pillanat	momentum	chwila	1961		N	time, point	
 momentary	hirtelen	subitus	nagl1y	1060		A	AT/2744 moment	HUN pillanatnyi
 monarch	uralkodo1	#	#	3370		N	king IS_A, queen IS_A, LEAD/2617 country	
-monastery	monostor	#	#	#		N	institution, more(monk) HAS, apartment	Longman real DV
+monastery	monostor	#	#	3522		N	institution, more(monk) HAS, apartment	Longman real DV
 money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR/2782 exchange, HAS value, official	
 monk	szerzetes	monachus	mnich	3505	u	N	profession, PART_OF religion, live IN/2758 group	
 monkey	majom	simia	mal1pa	1590		N	animal, hairy, HAS[leg[two]], HAS[hand[two]], HAS tail, active, climb, play	clever? strupid?, friendly? % naive_theo: monkey IMITATE
