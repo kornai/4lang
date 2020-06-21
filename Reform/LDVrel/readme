@@ -8,6 +8,32 @@ Morph directory) only 2081 appear on the right hand side of ldoce4, and 58 of th
 see ldv.weight. The file usedindef lists all words used on the rhs of ldoce4. There are 14464
 of these, which clearly shows the dilution of lexicographic principles from Procter to Bullon.
 
+There are two versions of the ldv. The one called ldv is taken from
+https://www.pu-kumamoto.ac.jp/~rlavin/resources/wordlists/LDV.html, this is
+the original.  British spellings have been Americanized (not quite
+consistently), whitespace in multi-word expressions is replaced by _, and
+everything is downcased.  The other version, amldv, is based on the
+vocab_definitions.pdf file from Longman which was dumped by gs
+-sDEVICE=txtwrite -o output.txt vocab_definitions.pdf and edited a lot, see
+Attic.
+
+There are 1910 words common to the am and gb versions, but there are plenty of
+differences: 187 amonly, 280 gbonly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 We are working with four layers of 4lang, which are, in terms of decreasing size: 
 
 4lang -- 3504 lines, but not nearly machine parseable.
