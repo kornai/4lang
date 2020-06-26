@@ -1,0 +1,114 @@
+interpretation definition: de.up.ling.irtg.algebra.StringAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+S! -> start_b_DASH(LEFTWORD, DASH, PHRASE)
+[definition] *(*(?1,?2),?3)
+[fourlang] f_root(f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3))))
+
+PHRASE -> start_phrase_with_comma(PHRASE, COMMA, PHRASE)
+[definition] *(*(?1, ?2), ?3)
+[fourlang] merge(?1, ?3)
+
+PHRASE -> start_phrase_alone(PHRASE)
+[definition] ?1
+[fourlang] ?1
+
+PHRASE -> start_phrase_alone(DEFINITION)
+[definition] ?1
+[fourlang] ?1
+
+DEFINITION -> rule_4(RIGHTWORD)
+[definition] ?1
+[fourlang] ?1
+
+DEFINITION -> rule_5(DIRECTPREDICATION)
+[definition] ?1
+[fourlang] ?1
+
+DEFINITION -> rule_6(BINARY)
+[definition] ?1
+[fourlang] ?1
+
+DIRECTPREDICATION -> rule_7(RIGHTWORD, LEFTSQUAREDBRACKET, DEFINITION, RIGHTSQUAREDBRACKET)
+[definition] *(*(*(?1, ?2), ?3), ?4)
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3)))
+
+DIRECTREVERSEPREDICATION -> rule_8(RIGHTWORD, LEFTBRACKET, DEFINITION, RIGHTBRACKET)
+[definition] *(*(*(?1, ?2), ?3), ?4)
+[fourlang] f_dep1(merge(merge(?3,"(r<root> :0 (d1<dep1>))"), r_dep1(?1)))
+
+BINARY -> rule_9(DEFINITION, PRIMITIVE, DEFINITION)
+[definition] *(*(?1, ?2), ?3)
+[fourlang] f_dep2(f_dep1(merge(merge(merge(?2,"(r<root> :1 (d1<dep1>) :2 (d2<dep2>))"), r_dep1(?1)), r_dep2(?3))))
+
+LEFTBINARY -> rule_10(DEFINITION, PRIMITIVE)
+[definition] *(?1, ?2)
+[fourlang] f_dep1(merge(merge(?2,"(r<root> :1 (d1<dep1>))"), r_dep1(?1)))
+
+RIGHTBINARY -> rule_11(PRIMITIVE, DEFINITION)
+[definition] *(?1, ?2)
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :2 (d1<dep1>))"), r_dep1(?2)))
+
+DEFINITION -> rule_12(LEFTBINARY)
+[definition] ?1
+[fourlang] ?1
+
+DEFINITION -> rule_12(RIGHTBINARY)
+[definition] ?1
+[fourlang] ?1
+
+DEFINITION -> rule_13(LEFTCURLYBRACKET, DEFINITION, RIGHTCURLYBRACKET)
+[definition] *(*(?1, ?2), ?3)
+[fourlang] ?2
+
+LEFTWORD -> prim_1
+[definition] "dog"
+[fourlang] "(dog<root> / dog)"
+
+DASH -> prim_2
+[definition] "-"
+[fourlang] "(dash<root> / dash)"
+
+RIGHTWORD -> prim_3
+[definition] "brown"
+[fourlang] "(brown<root> / brown)"
+
+COMMA -> prim_4
+[definition] ","
+[fourlang] "(comma<root> / comm)"
+
+RIGHTWORD -> prim_5
+[definition] "big"
+[fourlang] "(big<root> / big)"
+
+LEFTSQUAREDBRACKET -> prim_6
+[definition] "["
+[fourlang] "(leftsquaredbracket<root> / leftsquaredbracket)"
+
+RIGHTSQUAREDBRACKET -> prim_7
+[definition] "]"
+[fourlang] "(rightsquaredbracket<root> / rightsquaredbracket)"
+
+LEFTBRACKET -> prim_8
+[definition] "("
+[fourlang] "(leftbracket<root> / leftbracket)"
+
+RIGHTBRACKET -> prim_9
+[definition] ")"
+[fourlang] "(rightbracket<root> / rightbracket)"
+
+RIGHTWORD -> prim_10
+[definition] "mammal"
+[fourlang] "(mammal<root> / mammal)"
+
+PRIMITIVE -> prim_11
+[definition] "HAS"
+[fourlang] "(HAS<root> / HAS)"
+
+LEFTCURLYBRACKET -> prim_12
+[definition] "{"
+[fourlang] "(leftcurlybracket<root> / leftcurlybracket)"
+
+RIGHTCURLYBRACKET -> prim_13
+[definition] "}"
+[fourlang] "(rightcurlybracket<root> / rightcurlybracket)"
