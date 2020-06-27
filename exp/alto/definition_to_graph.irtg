@@ -1,6 +1,31 @@
 interpretation definition: de.up.ling.irtg.algebra.StringAlgebra
 interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
+S! -> start_b_1(LEFTWORD, DASH, DEFINITION)
+[definition] *(*(?1,?2),?3)
+[fourlang] f_root(f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3))))
+
+S! -> start_b_2(LEFTWORD, DASH, DEFINITION, COMMA, DEFINITION)
+[definition] *(*(*(*(?1,?2),?3),?4),?5)
+[fourlang] f_root(f_dep2(f_dep1(merge(merge(merge(?1,"(r<root> :0 (d1<dep1>) :0 (d2<dep2>))"), r_dep1(?3)), r_dep2(?5)))))
+
+S! -> start_b_3(LEFTWORD, DASH, DEFINITION, COMMA, DEFINITION, COMMA, DEFINITION)
+[definition] *(*(*(*(*(*(?1,?2),?3),?4),?5),?6),?7)
+[fourlang] f_dep3(f_dep2(f_dep1(merge(merge(merge(merge(?1,"(r<root> :0 (d1<dep1>) :0 (d2<dep2>) :0 (d3<dep3>))"), r_dep1(?3)), r_dep2(?5)), r_dep3(?7)))))
+
+S! -> start_b_4(LEFTWORD, DASH, LEFTBINARY, COMMA, LEFTBINARY)
+[definition] *(*(*(*(?1,?2),?3),?4),?5)
+[fourlang] f_root(f_dep1(merge(merge(?5,"(r<root> :2 (d1<dep1>))"), merge(merge(?3,"(r<root> :2 (d1<dep1>))"), r_dep1(?1)))))
+
+S! -> start_b_5(LEFTWORD, DASH, LEFTBINARY, COMMA, RIGHTBINARY)
+[definition] *(*(*(*(?1,?2),?3),?4),?5)
+[fourlang] f_root(f_dep1(merge(merge(?5,"(r<root> :1 (d1<dep1>))"), merge(merge(?3,"(r<root> :2 (d1<dep1>))"), r_dep1(?1)))))
+
+S! -> start_b_6(LEFTWORD, DASH, DEFINITION, COMMA, RIGHTBINARY)
+[definition] *(*(*(*(?1,?2),?3),?4),?5)
+[fourlang] f_root(f_dep2(f_dep1(merge(merge(?5,"(r<root> :1 (d1<dep2>))"), r_dep2(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3)))))))
+
+/*
 S! -> start_b_DASH(LEFTWORD, DASH, PHRASE)
 [definition] *(*(?1,?2),?3)
 [fourlang] f_root(f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3))))
@@ -16,6 +41,7 @@ PHRASE -> start_phrase_alone(PHRASE)
 PHRASE -> start_phrase_alone(DEFINITION)
 [definition] ?1
 [fourlang] ?1
+*/
 
 DEFINITION -> rule_4(RIGHTWORD)
 [definition] ?1
