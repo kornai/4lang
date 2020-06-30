@@ -5,6 +5,8 @@ interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 The start rules that handle the comma separated definitions
 TODO: implement it recursively, so the depth doesn't need to be known
 */
+
+/*
 S! -> start_b_1(LEFTWORD, DASH, DEFINITION)
 [definition] *(*(?1,?2),?3)
 [fourlang] f_root(f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3))))
@@ -32,29 +34,22 @@ S! -> start_b_6(LEFTWORD, DASH, LEFTBINARY, COMMA, RIGHTBINARY) [0.6]
 S! -> start_b_7(LEFTWORD, DASH, DEFINITION, COMMA, RIGHTBINARY) [0.4]
 [definition] *(*(*(*(?1,?2),?3),?4),?5)
 [fourlang] f_root(f_dep2(f_dep1(merge(merge(?5,"(r<root> :1 (d1<dep2>))"), r_dep2(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3)))))))
+*/
 
 
-
-
-/*
-Recursive comma handling init
 
 S! -> start_b_DASH(LEFTWORD, DASH, PHRASE)
 [definition] *(*(?1,?2),?3)
-[fourlang] f_root(f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?3))))
+[fourlang] f_leftword(merge(?1,?3))
 
 PHRASE -> start_phrase_with_comma(PHRASE, COMMA, PHRASE)
 [definition] *(*(?1, ?2), ?3)
 [fourlang] merge(?1, ?3)
 
-PHRASE -> start_phrase_alone(PHRASE)
-[definition] ?1
-[fourlang] ?1
-
 PHRASE -> start_phrase_alone(DEFINITION)
 [definition] ?1
-[fourlang] ?1
-*/
+[fourlang] f_dep1(merge("(r<leftword> :0 (d1<dep1>))", r_dep1(?1)))
+
 
 /*
 The main rules
@@ -146,7 +141,7 @@ Dynamic terminals, extendable
 */
 LEFTWORD -> prim_9
 [definition] "vizsla"
-[fourlang] "(vizsla<root> / vizsla)"
+[fourlang] "(vizsla<leftword> / vizsla)"
 
 RIGHTWORD -> prim_10
 [definition] "mammal"
