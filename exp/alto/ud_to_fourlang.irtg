@@ -1,0 +1,121 @@
+interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+/* Words: an organization that gives money , goods , help */
+/* Lemmas: a organization that give money , goods , help */
+/* POS: DET NOUN PRON VERB NOUN PUNCT NOUN PUNCT NOUN */
+S! -> ROOT(NOUN)
+[ud] ?1
+[fourlang] f_root(f_relation(?1))
+
+/* organization_NOUN -DET-> a_DET */
+
+/* handle subgraphs */
+NOUN -> handle_acl_relcl(NOUN, VERB, PRON) [1.0]
+[ud] f_dep2(merge(merge(?1,"(r<root> :ACL_RELCL (d2<dep2>))"), r_dep2(f_dep1(merge(merge(?2,"(r<root> :NSUBJ (d1<dep1>))"), r_dep1(?3))))))
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?2)))
+
+VERB -> coordination(SUBGRAPHNODE, COORD)
+[ud] f_dep1(merge(merge(?1,"(r<root> :OBJ (d1<dep1>))"), r_dep1(?2)))
+[fourlang] r_coord_root(merge(?1, ?2))
+
+COORD -> handle_coord(COORD, NOUN)
+[ud] f_dep1(merge(merge(?1,"(r<root> :CONJ (d1<dep1>))"), r_dep1(?2)))
+[fourlang] f_dep1(merge(merge(?1,"(r<coord> :2 (d1<dep1>))"), r_dep1(?2)))
+
+
+COORD -> coord_to_noun(NOUN)
+[ud] ?1
+[fourlang] f_dep1(merge("(r<coord> :2 (d1<dep1>))", r_dep1(?1)))
+
+SUBGRAPHNODE -> subgraph_to_node2(VERB)
+[ud] ?1
+[fourlang] r_coord(?1)
+
+
+
+NOUN -> NOUN_DET_DET_2(NOUN, DET) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :DET (d1<dep1>))"), r_dep1(?2)))
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?2)))
+/* organization_NOUN -ACL_RELCL-> give_VERB */
+
+
+NOUN -> NOUN_VERB_ACL_RELCL_2(NOUN, VERB) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :ACL_RELCL (d1<dep1>))"), r_dep1(?2)))
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?2)))
+/* give_VERB -NSUBJ-> that_PRON */
+
+
+VERB -> VERB_PRON_NSUBJ_4(VERB, PRON) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :NSUBJ (d1<dep1>))"), r_dep1(?2)))
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1> :1 (r<root>)))"), r_dep1(?2)))
+/* give_VERB -OBJ-> money_NOUN */
+
+
+VERB -> VERB_NOUN_OBJ_4(VERB, NOUN) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :OBJ (d1<dep1>))"), r_dep1(?2)))
+[fourlang] f_dep1(merge(merge(?1,"(r<root> :2 (d1<dep1>))"), r_dep1(?2)))
+/* money_NOUN -CONJ-> goods_NOUN */
+
+
+NOUN -> NOUN_PUNCT_PUNCT_7(NOUN, PUNCT) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :PUNCT (d1<dep1>))"), r_dep1(?2)))
+[fourlang] ?1
+/* money_NOUN -CONJ-> help_NOUN */
+
+
+NOUN -> NOUN_PUNCT_PUNCT_9(NOUN, PUNCT) [0.2222222222222222]
+[ud] f_dep1(merge(merge(?1,"(r<root> :PUNCT (d1<dep1>))"), r_dep1(?2)))
+[fourlang] ?1
+/* terminal rules */
+
+
+NOUN -> organization_NOUN_2
+[ud] "(organization<root> / organization)"
+[fourlang] "(organization<root> / organization)"
+
+DET -> a_DET_1
+[ud] "(a<root> / a)"
+[fourlang] "(a<root> / a)"
+
+VERB -> give_VERB_4
+[ud] "(give<root> / give)"
+[fourlang] "(give<root> / give)"
+
+PRON -> that_PRON_3
+[ud] "(that<root> / that)"
+[fourlang] "(that<root> / that)"
+
+NOUN -> money_NOUN_5
+[ud] "(money<root> / money)"
+[fourlang] "(money<root> / money)"
+
+NOUN -> goods_NOUN_7
+[ud] "(goods<root> / goods)"
+[fourlang] "(goods<root> / goods)"
+
+PUNCT -> COMMA_PUNCT_6
+[ud] "(COMMA<root> / COMMA)"
+[fourlang] "(COMMA<root> / COMMA)"
+
+NOUN -> help_NOUN_9
+[ud] "(help<root> / help)"
+[fourlang] "(help<root> / help)"
+
+PUNCT -> COMMA_PUNCT_8
+[ud] "(COMMA<root> / COMMA)"
+[fourlang] "(COMMA<root> / COMMA)"
+/* relation terminal rules */
+
+
+HAS -> HAS_0
+[ud] "(HAS<relation> / HAS)"
+[fourlang] "(HAS<relation> / HAS)"
+
+NPMOD -> NPMOD_1
+[ud] "(NPMOD<relation> / NPMOD)"
+[fourlang] "(NPMOD<relation> / NPMOD)"
+
+AT -> AT_2
+[ud] "(AT<relation> / AT)"
+[fourlang] "(AT<relation> / AT)"
