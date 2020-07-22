@@ -15,9 +15,15 @@ NOUN -> handle_acl_relcl(NOUN, VERB, PRON) [1.0]
 [ud] f_dep2(merge(merge(?1,"(r<root> :ACL_RELCL (d2<dep2>))"), r_dep2(f_dep1(merge(merge(?2,"(r<root> :NSUBJ (d1<dep1>))"), r_dep1(?3))))))
 [fourlang] f_dep1(merge(merge(?1,"(r<root> :0 (d1<dep1>))"), r_dep1(?2)))
 
+VERB -> handle_obl_case(VERB, NOUN, ADP) [1.0]
+[ud] f_dep2(merge(merge(?1,"(r<root> :OBL (d2<dep2>))"), r_dep2(f_dep1(merge(merge(?2,"(r<root> :CASE (d1<dep1>))"), r_dep1(?3))))))
+[fourlang] f_dep2(f_dep1(merge(merge(merge(?1,"(d1<dep1> :1 (r<root>) :2 (d2<dep2>))"), r_dep1(?3)), r_dep2(?2))))
+
+
 VERB -> coordination(SUBGRAPHNODE, COORD)
 [ud] f_dep1(merge(merge(?1,"(r<root> :OBJ (d1<dep1>))"), r_dep1(?2)))
 [fourlang] r_coord_root(merge(?1, ?2))
+
 
 COORD -> handle_coord(COORD, NOUN)
 [ud] f_dep1(merge(merge(?1,"(r<root> :CONJ (d1<dep1>))"), r_dep1(?2)))
@@ -101,6 +107,14 @@ PUNCT -> COMMA_PUNCT_6
 NOUN -> help_NOUN_9
 [ud] "(help<root> / help)"
 [fourlang] "(help<root> / help)"
+
+NOUN -> people_NOUN_12
+[ud] "(people<root> / people)"
+[fourlang] "(people<root> / people)"
+
+ADP -> to_ADP_11
+[ud] "(to<root> / to)"
+[fourlang] "(to<root> / to)"
 
 PUNCT -> COMMA_PUNCT_8
 [ud] "(COMMA<root> / COMMA)"
