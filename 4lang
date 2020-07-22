@@ -596,7 +596,7 @@ blue-grey	ke1k-szu2rke	#	#	3320		A	blue, grey	1
 blue-white	ke1kesfehe1r	#	#	3104		A	blue, white	
 bluish-green	ke1keszo2ld	#	#	3319		A	green, blue	1
 bluish-purple	ke1keslila	#	#	3318		A	purple, blue	1
-board	deszka	axis	deska	456	u	N	artefact, long, flat	
+board	lap	tabula	tablica	456	u	N	artefact, long, flat	
 boast	ke1rked	glorior	chwalic1_sie1	1255		V	speak, proud	
 boat	hajo1	navis	l1o1dz1	976	u	N	ship, small, open/1814	
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
@@ -1595,7 +1595,7 @@ hen	tyu1k	gallina	kura	2466		N	female, chicken, PRODUCE egg	ND
 her	o3t	eam	ja1	1885		G	she	
 herb	no2ve1ny	#	#	3054		N	plant, small, ' USE, CAUSE[food HAS taste], medicine	HUN -no2ve1ny?, fu3?
 herbivore	no2ve1nyevo3	#	#	2730		N	animal, EAT plant	ND
-here	ide	huc	tu	1114		A	AT/2744 ' , near	indexical
+here	ide	huc	tu	1114		A	AT/2744 I, near	indexical
 hers	o2ve1	sua	jej	1869		G		no xml
 hide	rejt	occulto	kryc1	2004		V	=AGT CAUSE[animal SEE =PAT], see[can/1246[lack]]	
 high	magas	altus	wysoki	1582	u	A	top ER average, HAS top 	
@@ -3195,7 +3195,7 @@ title	ci1m	appellatio	tytul1	371		N	name, <book> HAS
 to	-ba	in	do	12	u	G		
 to	-hoz	ad	do	2743	u	G	after(AT/2744 =REL)	
 tobacco	doha1ny	tabacum	tyton1	479		N	plant, leaf, burn, FOR/2782 pleasure	
-today	ma	hodie	dzisiej	1558		D	this (day)	day, now % ND
+today	ma	hodie	dzisiej	1558		D	day, now     indexical
 toe	la1bujj	digitus_pedis	palec	1469		N	five, PART_OF foot	
 together	egyu2tt	una	razem	586	u	D	MEMBER group, lack(separate)	
 toilet	WC	sella	toaleta	2963	u	N	artefact, material[useful[lack]] TO, material FROM person, bowl, sit ON	
