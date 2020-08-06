@@ -622,7 +622,7 @@ sugar	cukor	saccharum	cukier	440	u	N	material, sweet, <white>, IN food, IN drink
 summer	nya1r	aestas	lato	1802	u	N	season/548, FOLLOW spring/2318, autumn FOLLOW, warm, fruit AT, much(life) AT, long(day) AT	ND + 
 sun	nap	sol	sl1on1ce	1755	u	N	planet, give light/739, give heat, bright, yellow, AT sky, AT day	RG, SRC removed
 sunrise	napkelte	solis_ortus	wscho1d_sl1on1ca	3136		N	after(sun AT sky)	
-sunset	napnyugta	solis_occasus	zacho1d_sl1on1ca	3135		N	after(LACK {sun AT sky})
+sunset	napnyugta	solis_occasus	zacho1d_sl1on1ca	3135		N	after(sky LACK sun)
 support	tart	asservo	utrzymywac1	2310	u	V	=AGT CAUSE =PAT[stable], =AGT[below]	
 surface	felszin	superficies	powierzchnia	781	u	N	outer(part), separate, object HAS	
 swallow	nyel	voro	pol1ykac1	1805	u	V	=AGT CAUSE[=PAT[move]], after(=PAT IN stomach), =PAT IN mouth, =PAT IN throat, =AGT HAS stomach, =AGT HAS mouth, =AGT HAS throat	
