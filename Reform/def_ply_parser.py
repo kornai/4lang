@@ -154,6 +154,22 @@ defs_to_parse = {}
 def_states = {}
 defs = {}
 
+
+def get_top_level_clauses(line, mode="4lang"):
+    l = line.strip().split("\t")
+    if mode == "4lang":
+        definition = l[7]
+        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        filtered_definition = []
+        for phrase in def_phrases:
+            yield phrase.strip()
+    else:
+        definition = l[1]
+        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        for phrase in def_phrases:
+            yield phrase.strip()
+
+
 def filter_line(line, clause, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
@@ -264,11 +280,14 @@ def main(argv):
                 f.write("%s" % item)
     with open(os.path.join(outputdir, "4lang_def_correct"), 'w', encoding="utf-8") as f:
         with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
-            for item in correct:
-                if not item.startswith("%"):
-                    if clause:
-                        filtered.write("%s" % filter_line(item, clause, mode))
-                    f.write("%s" % item)
+            with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level: 
+                for item in correct:
+                    if not item.startswith("%"):
+                        for top in get_top_level_clauses(item, mode):
+                            top_level.write("%s\n" % top)
+                        if clause:
+                            filtered.write("%s" % filter_line(item, clause, mode))
+                        f.write("%s" % item)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
