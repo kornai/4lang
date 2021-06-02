@@ -13,7 +13,7 @@ activity	teve1kenyse1g	industria	czynnos1c1	2383	u	N	act
 add	o2sszead	addo	dodawac1	1859	u	V	=AGT CAUSE[=PAT IN place], "TO _" MARK place	%
 after	uta1n	post	po	2533	u	G	follow, IN order/2739	
 aggressive	agresszi1v	pugnax	agresywny	3338	u	A	angry, threaten, want [fight,attack,defeat]
-agriculture	mezo3gazdasa1g	agricultura	rolnictwo	3603	u	N	 practice, raise/1788 crop, raise/1788 animal
+agriculture	mezo3gazdasa1g	agricultura	rolnictwo	3603	u	N      practice, raise/1788 crop, raise/1788 animal
 aim	ce1l	finis	cel	363		N	purpose	
 air	levego3	aer	powietrze	1540	u	N	gas, life need, @Earth HAS
 alcohol	alkohol	alcohol	alkohol	158	u	N	liquid, <drink>, <CAUSE person[drunk]>	
@@ -328,7 +328,7 @@ joint	izu2let	articulus	staw	1169	u	N	part, join AT
 joy	o2ro2m	gaudium	rados1c1	1856	u	N	sensation, good	      
 judge	bi1ro1	iudex	se1dzia	289	u	N	human, PART_OF court/3124, decide, make official(opinion)	
 kind	kedves	benignus	mil1y	1274	u	A	like/3382, help
-king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, lead/2617[country], PART_OF [royal(family)]	
+king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, lead/2617 country, PART_OF royal(family)
 knife	ke1s	culter	no1z1	1256	u	N	instrument, FOR cut, HAS blade<metal>, HAS handle	
 know	tud	scio	wiedziec1	2455	u	V	=AGT HAS information, information connect =PAT	
 land	fo2ld	ager	ziemia	816	u	N	solid, ground, area/2366     
@@ -346,7 +346,7 @@ level	szint	tabulatum	poziom	2781	u	N	position, AT scale
 lid	fede1l	operculum	pokrywka	751		N	cover, hollow HAS	
 life	e1let	vita	z1ycie	505	u	N	live	
 light	fe1ny	lux	s1wiatl1o	739	u	N	material, wave, CAUSE[animal see thing], beam/2722	
-light	gyu1jt	accendo	zapalac1	944	u	V	=PAT[burn[after]]	
+light	gyu1jt	accendo	zapalac1	944	u	V	after(=PAT burn)
 light	ko2nnyu3	levis	lekki	1381	u	A	weight(gen ER)
 like	kedvel	amo	lubic1	3382	u	V	feel {=PAT[good], good FOR =AGT}	
 limb	ve1gtag	membrum	kon1czyna	3345	u	N	PART_OF body, leg IS_A, arm IS_A
@@ -423,7 +423,7 @@ official	tisztviselo3	officialis	urze1dnik	2398	u	N	person, HAS authority
 often	gyakran	saepe	cze1sto	921		D	many IN time, little(distance) BETWEEN	
 one	egy	unus	jeden	559	u	N	number, LACK more    
 open	nyi1lt	apertus	otwarty	1814	u	A	move[can/1246], move through, LACK shut/2668	
-open	nyit	aperio	otwierac1	1815	u	V	=PAT[open/1814[after]]	
+open	nyit	aperio	otwierac1	1815	u	V	after(=PAT open/1814)
 opinion	ne1zet	opinio	zdanie	1768	u	N	thought, person HAS, person[confident], person LACK proof	%
 opponent	ellenfe1l	adversarius	przeciwnik	631		N	person, oppose, <compete>, <AT battle>	contradicting defaults
 oppose	ellenez	adversor	sprzeciwic1_sie1	630	u	V	fight
@@ -692,7 +692,7 @@ weapon	fegyver	arma	bron1	754	u	N	instrument, fight INSTRUMENT
 weather	ido3ja1ra1s	tempestas	pogoda	1121		N	state/77, atmosphere HAS, AT time, AT place/1026, temperature, water IN air, wind, air HAS pressure	
 week	he1t	hebdomas	tydzien1	1021	u	N	period, time, seven(day) IN
 weight	su1ly	pondus	waga	2127	u	N	physical(quantity), heavy	
-wet	nedves	humidus	mokry	1769	u	A	liquid cover	
+wet	nedves	humidus	mokry	1769	u	A	liquid cover 
 wh	ki/mi/hogy	quo	kto/co/jak	3636	p	G	wh	%primitive
 wheat	bu1za	triticum	pszenica	344	u	N	plant, HAS grain, flour FROM	
 wheel	kere1k	rota	kol1o	1293	u	N	artefact, PART_OF <vehicle>, circular/1294, turn, <HAS spoke>, <HAS hub>
@@ -702,7 +702,7 @@ wide	sze1les	latus	szeroki	2166		A	distance[great, horizontal] BETWEEN side, HAS
 wife	felese1g	uxor	z1ona	767		N	IN marriage, female	
 will	akar	volo	chciec1	132	u	V	want	
 win	gyo3z	vinco	wygrywac1	937	u	U	best, succeed/2718, before(compete), before(effort), get/1223 <prize>	=AGT defeat enemy
-wind	sze1l	ventus	wiatr	2164	u	N	air[move[horizontal]]	
+wind	sze1l	ventus	wiatr	2164	u	N	air, move[horizontal]
 wing	sza1rny	ala	skrzydl1o	2146	u	N	object, fly INSTRUMENT, PART_OF body
 winter	te1l	hiems	zima	2322	u	N	season/548, FOLLOW autumn, spring/2318 FOLLOW, cold, snow IN, death IN	ND
 woman	no3	mulier	kobieta	1795	u	N	female, person	
