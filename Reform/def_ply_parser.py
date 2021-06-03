@@ -169,7 +169,42 @@ def get_top_level_clauses(line, mode="4lang"):
         for phrase in def_phrases:
             yield phrase.strip()
 
+def substitute_root(line, mode="4lang"):
+    l = line.strip().split("\t")
+    binary_atom = {"AT","BETWEEN","CAUSE","ER","FOLLOW","FOR","FROM","HAS","IN","INSTRUMENT","IS_A","LACK","MARK","ON","PART_OF","UNDER"}
 
+    if mode == "4lang":
+        definition = l[7]
+    else:
+        definition = l[1]
+    def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+    for i, phrase in enumerate(def_phrases):
+        tokens = re.split('''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', phrase.strip())
+        new_tokens = None
+        print(tokens)
+        if len(tokens) == 1:
+            new_tokens = "%s ISA %s" % (l[0], tokens[0])
+        elif len(tokens) == 2:
+            if tokens[0] in binary_atom:
+                new_tokens = "%s %s %s" % (l[0], tokens[0], tokens[1])
+            elif tokens[1] in binary_atom:
+                new_tokens = "%s %s %s" % (tokens[0], tokens[1], l[0])
+        else:
+            new_tokens = " ".join(tokens)
+
+        if new_tokens:
+            def_phrases[i] = new_tokens
+    
+    defin = ", ".join(def_phrases)
+
+    if mode == "4lang":
+        substituted_line = "\t".join(l[:7]) + "\t" + defin + "\n"
+    else:
+        substituted_line = l[0] + "\t" + defin + "\n"
+
+    return substituted_line
+        
+            
 def filter_line(line, clause, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
@@ -280,14 +315,16 @@ def main(argv):
                 f.write("%s" % item)
     with open(os.path.join(outputdir, "4lang_def_correct"), 'w', encoding="utf-8") as f:
         with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
-            with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level: 
-                for item in correct:
-                    if not item.startswith("%"):
-                        for top in get_top_level_clauses(item, mode):
-                            top_level.write("%s\n" % top)
-                        if clause:
-                            filtered.write("%s" % filter_line(item, clause, mode))
-                        f.write("%s" % item)
+            with open(os.path.join(outputdir, "4lang_def_correct_substituted"), "w", encoding="utf-8") as substituted:
+                with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level: 
+                    for item in correct:
+                        if not item.startswith("%"):
+                            substituted.write("%s" % substitute_root(item, mode))
+                            for top in get_top_level_clauses(item, mode):
+                                top_level.write("%s\n" % top)
+                            if clause:
+                                filtered.write("%s" % filter_line(item, clause, mode))
+                            f.write("%s" % item)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
