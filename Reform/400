@@ -10,7 +10,7 @@ act	tesz	ago	dzial1ac1	2373	u	V	do
 act	tett	factum	akt	2379	u	N	act/2373 % empty definition
 action	cselekve1s	actio	dzial1anie	399	u	N	person do	
 activity	teve1kenyse1g	industria	czynnos1c1	2383	u	N	act	
-add	o2sszead	addo	dodawac1	1859	u	V	=AGT CAUSE[=PAT IN place], "TO _" MARK place	%
+add	hozza1ad	addo	dodawac1	1859	u	V	=AGT CAUSE[=PAT IN place], "TO _" MARK place	%
 after	uta1n	post	po	2533	u	G	follow, IN order/2739	
 aggressive	agresszi1v	pugnax	agresywny	3338	u	A	angry, threaten, want [fight,attack,defeat]
 agriculture	mezo3gazdasa1g	agricultura	rolnictwo	3603	u	N      practice, raise/1788 crop, raise/1788 animal
@@ -60,7 +60,7 @@ blood	ve1r	sanguis	krew	2599	u	N	liquid, IN body, red
 blue	ke1k	caeruleus	niebieski	1237	u	A	colour, sky HAS colour, cold
 body	test	corpus	cial1o	2370	u	N	object, animal HAS	
 bone	csont	os	kos1c1	431		N	material, rigid, frame, PART_OF body	
-border	hata1r	confinium	granica	1011	u	N	line, official, separate <two(country)>	
+border	hata1r	confinium	granica	1011	u	N	line, official/1065, separate <two(country)>	
 bottom	fene1k	fundus	dno	787		N	PART_OF whole, position, deep( ER whole)	
 bowl	kupa	scyphus	miska	1462		N	round, wide, food IN	
 box	doboz	capsa	pudel1ko	478	u	N	container, HAS lid, cube	
@@ -108,7 +108,6 @@ cloud	felho3	nubes	chmura	770	u	N	object, visible, water, drop, IN sky, <white>,
 coal	sze1n	carbo	we1giel	2169	u	N	mineral, hard, black, burn, make heat
 cold	hideg	frigidus	zimno	1053	u	N	temperature, low	
 colour	szi1n	colour	kolor	2207	u	N	sensation, light/739, red IS_A, green IS_A, blue IS_A	
-colour	szinez	colouro	kolorowac1	2219	u	V	add colour
 column	oszlop	columna	kolumna	3633	u	N	shape, tall, vertical, solid	      
 command	parancs	iussum	rozkaz	1941	u	N	speak, HAS authority, CAUSE {person do =PAT}, "dative" MARK person
 common	ko2zo2s	communis	wspo1lny	1415	u	A	AT many, more HAS, public	% HUN alternative gen ko2zo2nse1ges, a1tlagos gen 
@@ -134,7 +133,7 @@ corner	sarok	angulus	ro1g	2062		N	point, turn AT, sharp, two(side) AT
 cotton	pamut	linum_xylinum	bawel1na	1936		N	plant, soft, white, fibre	
 count	sza1mol	numero	liczyc1	2142	u	V	calculate, other(number) FOLLOW number	
 country	orsza1g	terra	pan1stwo	1913	u	N	state/76	
-court	bi1ro2sa1g	curia	sa1d	3124	u	N	place/1026, INSTRUMENT law, judge AT	related to 2515
+court	bi1ro2sa1g	curia	sa1d	3124	u	N	place/1026, law INSTRUMENT, judge AT	related to 2515
 cover	fed	tego	okryc1	750	u	V	=AGT ON =PAT, protect, CAUSE[LACK(gen see =PAT)]	
 crop	terme1s	messis	zbio1r	2361	u	N	plant, AT agriculture, product	
 cube	kocka	alea	kos1c1	2701	u	N	shape, HAS four(side), HAS flat(top), HAS flat(bottom)	
@@ -333,8 +332,8 @@ knife	ke1s	culter	no1z1	1256	u	N	instrument, FOR cut, HAS blade<metal>, HAS hand
 know	tud	scio	wiedziec1	2455	u	V	=AGT HAS information, information connect =PAT	
 land	fo2ld	ager	ziemia	816	u	N	solid, ground, area/2366     
 large	nagy	grandis	duz1y	1745		A	big	
-law	jog	ius	prawo	1200	u	N	rule, system, society/2285 HAS, official, norm	%
-lead	o1lom	plumbum	ol1o1w	1832	u	N	soft(metal)	
+law	jog	ius	prawo	1200	u	N	rule, system, society/2285 HAS, official/1065, norm	%
+lead	o1lom	plumbum	ol1o1w	1832	u	N	metal, soft   
 lead	vezet	duco	prowadzic1	2617	u	V	=AGT CAUSE[=PAT[change]]	naive_theo: x lead/2617 y, y lead/2617 z implies x lead/2617 z
 leaf	faleve1l	folium	lis1c1	723	u	N	organ, green, flat, AT stem, PART_OF plant	
 leg	la1b	pes	noga	1467	u	N	limb, animal HAS, move INSTRUMENT, support, low	
@@ -389,7 +388,7 @@ mind	tudat	conscientia	umysl1	2457	u	N	human HAS, IN brain, human HAS brain, thi
 mineral	a1sva1ny	metallum	mineral1	97	u	N	substance, solid, natural, IN earth	
 minute	perc	minutum	minuta	1956	u	N	time, unit, HAS second/1570, hour HAS	
 monarch	uralkodo1	rex	monarcha	3370	u	N	king IS_A, queen IS_A, lead/2617 country	
-money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR exchange, HAS value, official	
+money	pe1nz	pecunia	pienia1dze	1952	u	N	artefact, FOR exchange, HAS value, official/1065	
 month	ho1nap	mensis	miesia1c	1068		N	unit, time, <twelve>, PART_OF year	
 more	to2bb	plus	wie1cej	2404	u	A	quantity, ER gen	
 most	legto2bb	plurimus	najwie1cej	1518		A	all ER	
@@ -421,7 +420,7 @@ offend	ba1nt	offendo	obrazic1	201		V	=AGT CAUSE[harm AT =PAT]
 official	hivalatalos	publicus	oficjalny	1065	u	A	AT authority	
 official	tisztviselo3	officialis	urze1dnik	2398	u	N	person, HAS authority	
 often	gyakran	saepe	cze1sto	921		D	many IN time, little(distance) BETWEEN	
-one	egy	unus	jeden	559	u	N	number, LACK more    
+one	egy	unus	jeden	559	u	N	number, LACK other    
 open	nyi1lt	apertus	otwarty	1814	u	A	move[can/1246], move through, LACK shut/2668	
 open	nyit	aperio	otwierac1	1815	u	V	after(=PAT open/1814)
 opinion	ne1zet	opinio	zdanie	1768	u	N	thought, person HAS, person[confident], person LACK proof	%
@@ -497,7 +496,7 @@ rain	eso3	pluvia	deszcz	698		N	water, FROM atmosphere, fall/2694, many(drop), we
 raise	emel	elevo	unies1c1	661		V	after(=PAT high)
 raise	nevel	educo	wychowywac1	1788		V	help [=PAT grow]
 range	teru2let	spatium	zasie1g	2367	u	N	many, BETWEEN gen , different	
-rank	rang	dignitas	ranga	1992	u	N	position, IN organization, official, IN <army>, IN <police>, IN <navy>	IN society
+rank	rang	dignitas	ranga	1992	u	N	position, IN organization, official/2398, IN <army>, IN <police>, IN <navy>	IN society
 real	igazi	verus	prawdziwy	1126	u	A	exist	
 realize	e1szre_vesz	intelligo	zauwaz2yc1	2956	u	V	after(know)	
 reason	ok	ratio	powo1d	1892	u	N	CAUSE thing, gen understand thing	%
@@ -531,8 +530,8 @@ same	azonos	idem	taki_sam/ten_sam	192	u	A	LACK different
 say	mond	dico	mo1wic1	1719	u	V	communicate, INSTRUMENT sound/993, person hear sound/993, "dative" MARK person	%
 scale	ska1la	modulus	skala	2107		N	range, level AT, measure INSTRUMENT, regular	
 screen	ke1pernyo2	album	ekran	2977	u	N	artefact, <PART_OF electric(machine)>, picture ON	
-season	e1vad	tempus	sezon	546	u	N	period[<four>], PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather	
-season	e1vszak	tempus_anni	pora_roku	548	u	N	period, time, PART_OF year, activity IN	
+season	e1vad	tempus	sezon	546	u	N	period, time, PART_OF year, activity IN	
+season	e1vszak	tempus_anni	pora_roku	548	u	N	period[<four>], PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather	
 seat	u2le1s	sedes	siedzenie	2494	u	N	sit IN	
 second	ma1sodik	alter	drugi	1569	u	A	-th/5[two], FOLLOW first	
 see	la1t	video	widziec1	1476	u	U	perceive, INSTRUMENT eye	
@@ -581,7 +580,7 @@ smell	szag	odor	zapach	2151		N	feel INSTRUMENT nose, =PAT IN air
 smooth	sima	levis	gl1adki	2092	u	A	surface, easy(slide ON)
 snow	ho1	nix	s1nieg	1066		N	ice, fall/2694, soft, white	
 society	ta1rsadalom	societas	towarzystwo	2285	u	N	group, <people> member, HAS rule	
-soft	puha	mollis	mie1kki	1979	u	A	hard(ER gen)	
+soft	puha	mollis	mie1kki	1979	u	A	hard(gen ER)	
 solid	szila1rd	solidus	solidny	2216	u	A	firm/2215	
 solve	fejt	solvo	rozwia1zac1	760	u	V	work, =PAT problem, =AGT want [gen LACK problem]	
 sorrow	bu1	dolor	smutek	341	u	N	emotion, ER sad
@@ -592,14 +591,14 @@ sour	erjedt	fermentatus	kwas1ny	680	u	A	taste, resemble acid, <bad>
 space	te1r	spatium	przestrzen1	2327	u	N	thing IN, empty, three(dimension) IN
 space	u3r	vacuum	przestrzen1	2509	u	N	sun IN, star IN, atmosphere under %galaxy IN
 speak	besze1l	loquor	mo1wic1	270	u	V	talk	
-speech	besze1d	oratio	przemo1wienie	268	u	N	=PAT say     
+speech	besze1d	oratio	przemo1wienie	268	u	N	=AGT say     
 split	hasi1t	findo	dzielic1	1007	u	V	after(separate), <break>
 spoon	kana1l	cochlear	l1yz1ka	1222	u	N	cutlery, {eat soup} INSTRUMENT, HAS bowl, HAS handle	
 spring	tavasz	ver	wiosna	2318	u	N	first(season/548), warm, plant[live], love IN, summer FOLLOW, FOLLOW winter	ND
 stable	stabil	stabilis	stabilny	3130	u	A	LACK move
 stand	a1ll	sto	stac1	74	u	U	=AGT[vertical], =AGT ON two(foot)	
 star	csillag	stella	gwiazda	408	u	N	planet, shine, dot, AT sky, AT night	
-start	kezdet	initium	pocza1tek	1313	u	N	act after   
+start	kezdet	initium	pocza1tek	1313	u	N	after(act)   
 state	a1llam	res_publica	pan1stwo	76	u	N	land, political(unit), HAS government, control self
 stem	to3	stirps	l1odyga	2421		N	PART_OF plant, long, leaf FROM, flower FROM, fruit FROM	HUN sza1r
 stick	bot	baculum	kij	338	u	N	object, long, <wood>, <gen use>	
