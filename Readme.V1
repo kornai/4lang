@@ -1,0 +1,69 @@
+The V1 release captures the state of 4lang circa 2017. The raw list was
+published as Appendix 4.8 of
+
+@Book{		  Kornai:2019,
+  title		= {Semantics},
+  author	= {Kornai, Andr\'as},
+  url		= {http://kornai.com/Drafts/sem.pdf},
+  publisher	= {Springer Verlag},
+  year		= {2019},
+  isbn		= {978-3-319-65644-1}
+}
+
+and the (partial) implementation of the formal semantics that was at that time
+associated to the model, based on Eilenberg machines, is still available in the 
+https://github.com/kornai/pymachine repository.
+
+Release 2.5 of Concepticon links to this release by means of the conc_4lang.tsv
+file. The format of this file is CNUM CC 4NUM where CNUM is the Concepticon
+concept number, CC is some correspondence code, and 4NUM is the 4lang concept number.
+An easy example is
+
+1292 p 2043
+
+where 1992 is the numerical code for "BAD" in Concepticon, 2043 is the 4lang
+number for "bad" in 4lang, and p means Perfect match. Case differences and
+minor spelling differences are considered irrelevant, as would be dialectal
+differences as between British "colour" and American "color" or even between
+B. "lorry" and A. "truck" which we consider a perfect conceptual match.
+
+Other correspondence codes are as follows.
+
+m (category Mismatch) is used wherever the concepts match up well, except for
+lexical category. Some typical examples:
+
+2004 m 1112 BEND/bend. Concepticon takes the verbal sense as basic `Movement
+that causes the formation of a curve' whereas 4lang uses the nominal sense
+`line, LACK straight/563'.
+
+1786 m 2145 DRY UP/dry `To lose moisture, usually through evaporation or
+absorption' verbal, versus dry `LACK wet' adjectival.
+
+s (Subset) is used when the Concepticon entry is a subset of the 4lang entry:
+
+2106 s 1039 (MALE PERSON is a subset of male)
+
+2261 s 1039 MALE (OF PERSON) is also a subset of 4lang male, which is neutral
+between adjectival and nominal meanings, but see
+
+1553 p 1039. In general, the conc_4lang file provides s links only where no p
+link has been found.
+
+u (sUperset) is reserved for when the Concepticon entry is a superset of the
+4lang entry. This is rare, no example so far.
+
+n (No entry) is used when a 4lang entry simply lacks an equivalent, or near
+equivalent Concepticon entry. some examples are
+
+- n 1407 public `LACK owner' (as in public garden)
+
+- n 172 substance (also no entry for material or stuff).
+
+These are best treated as extension requests for Concepticon. The converse
+situation, which also occurs, will be resolved gradually: for example 1931
+BEESWAX has no 4lang equivalent (where 1797 "wax" refers to growth, as in the
+waxing moon). This means that to obtain the 4lang definition, we need to (a)
+match up the desired sense in LDOCE and (b) follow the method of Recski:2016.
+This is left for later releases.
+
+
