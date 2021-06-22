@@ -1,0 +1,940 @@
+n	-	1014	-	effect	-	<event> CAUSE
+n	-	1061	-	sudden	-	LACK warn, before(LACK (gen know))
+n	-	1127	-	prove	-	after(other(people) know =PAT[true]), real INSTRUMENT
+n	-	1141	-	information	-	liquid, study give, experience give, gen know
+n	-	1186	-	mean	-	represent, =AGT[sign]
+n	-	1275	-	nice	-	CAUSE joy
+n	-	1288	-	pleasant	-	nice
+n	-	1388	-	around	-	AT =PAT[round]
+n	-	1407	-	public	-	LACK owner
+n	-	1456	-	outer	-	AT out
+n	-	1492	-	sheet	-	rectangular, flat
+n	-	1515	-	best	-	good(ER all)
+n	-	1524	-	possibility	-	possible
+n	-	1525	-	possible	-	gen allow, can/1246
+n	-	1544	-	list	-	series, item member, written
+n	-	1645	-	interrupt	-	=AGT CAUSE[pause IN =PAT]
+n	-	1667	-	quantity	-	much, <large>
+n	-	1699	-	quality	-	gen HAS, characteristic, <good>
+n	-	172	-	substance	-	HAS mass, IN space/2327, physical
+n	-	1721	-	phrase	-	sign, AT text, HAS word
+n	-	1722	-	sentence	-	AT text, HAS phrase
+n	-	1729	-	motion	-	move
+n	-	1732	-	past	-	period, PART_OF time, now FOLLOW
+n	-	1741	-	represent	-	sign HAS meaning, =AGT[sign], =PAT[meaning]
+n	-	1768	-	opinion	-	thought, person HAS, person[confident], person LACK proof
+n	-	181	-	atom	-	particle, LACK part, small
+n	-	1931	-	parallel	-	constant(distance) BETWEEN, LACK contact
+n	-	1956	-	minute	-	time, unit, HAS second/1570, hour HAS
+n	-	1964	-	politics	-	activity, get power
+n	-	1965	-	political	-	politics
+n	-	1968	-	dot	-	mark, small, round     
+n	-	1992	-	rank	-	position, IN organization, official, IN <army>, IN <police>, IN <navy>
+n	-	2015	-	system	-	group, complex, relation BETWEEN part
+n	-	2064	-	acid	-	substance, <burn>, HAS taste[sharp,sour], LACK kind
+n	-	2067	-	harm	-	bad
+n	-	2147	-	regular	-	conform rule
+n	-	2203	-	organ	-	object, PART_OF body, HAS purpose
+n	-	2204	-	organization	-	group, person member, HAS purpose, structure
+n	-	2215	-	firm	-	rigid, LACK soft  
+n	-	2266	-	parent	-	make child
+n	-	2267	-	pause	-	LACK action, before(action), after(action)
+n	-	2285	-	society	-	group, <people> member, HAS rule
+n	-	2308	-	experience	-	after(=AGT remember =PAT), =PAT real
+n	-	2310	-	support	-	=AGT CAUSE =PAT[stable], =AGT[below]
+n	-	2315	-	quantity	-	gen count, gen measure
+n	-	2323	-	fact	-	HAS proof[exist]
+n	-	2359	-	product	-	artefact, FOR sell
+n	-	2361	-	crop	-	plant, AT agriculture, product
+n	-	2367	-	range	-	many, BETWEEN gen , different
+n	-	2373	-	act	-	do
+n	-	2379	-	act	-	act/2373 % empty definition
+n	-	2383	-	activity	-	act
+n	-	2410	-	mass	-	amount, object HAS
+n	-	2435	-	further	-	more
+n	-	2459	-	conscious	-	notice, realize, awake, understand, deliberate, think, know
+n	-	2494	-	seat	-	sit IN
+n	-	2512	-	practice	-	do, frequent
+n	-	2525	-	union	-	together, public
+n	-	253	-	control	-	=AGT want {=PAT do}, =PAT must do   
+n	-	2534	-	passenger	-	person, person travel IN vehicle, other(person) drive vehicle
+n	-	2557	-	expect	-	=AGT think[=PAT[real] AT future]
+n	-	256	-	entrance	-	place/1026, {<person>[enter]} through, <door>
+n	-	2581	-	religious	-	HAS religion, HAS faith
+n	-	2587	-	exist	-	real
+n	-	2608	-	compete	-	want win, =AGT HAS opponent, opponent want win
+n	-	2633	-	electric	-	HAS electricity
+n	-	2646	-	relation	-	one AT, other AT
+n	-	2664	-	attract	-	=AGT CAUSE {=PAT want {=PAT near =AGT}}
+n	-	2701	-	cube	-	shape, HAS four(side), HAS flat(top), HAS flat(bottom)
+n	-	2704	-	cylinder	-	shape, round(column), HAS flat(bottom), HAS flat(top)
+n	-	2705	-	object	-	thing, <HAS colour>, HAS shape, HAS weight, <HAS surface>, HAS position, <LACK life>
+n	-	2721	-	nervous	-	feel fright
+n	-	2729	-	mammal	-	animal, HAS fur, HAS milk
+n	-	2757	-	express	-	=AGT CAUSE[gen KNOW =PAT]
+n	-	2784	-	situation	-	around
+n	-	2786	-	extreme	-	ER gen
+n	-	2788	-	equipment	-	tool, gen HAS
+n	-	2798	-	material	-	object, real, <build> use
+n	-	2799	-	normal	-	resemble other
+n	-	2801	-	container	-	artefact, contain
+n	-	2804	-	energy	-	work[physical]
+n	-	2806	-	legal	-	law
+n	-	2809	-	physical	-	body HAS
+n	-	2812	-	fright	-	sudden, intense, fear
+n	-	2814	-	deliberate	-	do, conscious, =AGT want effect/1014
+n	-	2824	-	for	-	AT exchange, "for _" MARK price
+n	-	285	-	enclose	-	around, =AGT CAUSE[=PAT[shut/2668]]
+n	-	2944	-	structure	-	HAS more(part), connected
+n	-	2948	-	programme	-	plan, action, IN television
+n	-	2949	-	organize	-	=AGT CAUSE[=PAT HAS structure]
+n	-	2951	-	series	-	structure, HAS item, item FOLLOW other(item)
+n	-	2956	-	realize	-	after(know)
+n	-	2969	-	success	-	real, good, before(desire) 
+n	-	2972	-	natural	-	normal
+n	-	2976	-	symbol	-	mean/1186, represent
+n	-	2977	-	screen	-	artefact, <PART_OF electric(machine)>, picture ON
+n	-	298	-	proof	-	prove
+n	-	3013	-	truck	-	large(vehicle), ON road, carry
+n	-	3027	-	confident	-	think after(self[good])
+n	-	3038	-	unit	-	amount, measure
+n	-	3039	-	mental	-	IN mind
+n	-	3126	-	written	-	letter/278 ON surface[<paper>]
+n	-	3127	-	text	-	information IN, sentence PART_OF, <written> 
+n	-	3131	-	rigid	-	HAS shape, shape LACK change
+n	-	3132	-	pressure	-	force, gas HAS
+n	-	3133	-	rectangular	-	HAS side[four, parallel], HAS four(corner)
+n	-	3134	-	useful	-	FOR gen
+n	-	3137	-	sequence	-	many(thing) PART_OF, thing FOLLOW other, HAS order/2739
+n	-	3138	-	reproduce	-	=AGT make other[similar]
+n	-	3141	-	artefact	-	object, human make
+n	-	3142	-	device	-	artefact, machine
+n	-	3145	-	communicate	-	give information
+n	-	3146	-	Asia	-	land, @Asia
+n	-	3338	-	aggressive	-	angry, threaten, want [fight,attack,defeat]
+n	-	3340	-	cereal	-	food, FROM grain, plant AT agriculture, wheat IS_A, rice IS_A
+n	-	3341	-	complex	-	HAS many(part), difficult(understand)
+n	-	3344	-	lens	-	shape, PART_OF camera, light/739 through, FOR clear(image), <glass>[curve], image HAS different(size), <look INSTRUMENT>
+n	-	3352	-	characteristic	-	IS_A
+n	-	3354	-	cutlery	-	knife IS_A, fork IS_A, spoon IS_A, FOR eat
+n	-	3355	-	dimension	-	quantity, size, place/2326 HAS
+n	-	3357	-	fibre	-	IN food, CAUSE health, thread, IN rope, IN cloth, thin/2598, natural, IN wood
+n	-	3361	-	norm	-	good FOR society
+n	-	3365	-	constant	-	LACK change 
+n	-	3366	-	contact	-	touch, =AGT AT =PAT 
+n	-	3369	-	intense	-	ER gen, extreme
+n	-	3370	-	monarch	-	king IS_A, queen IS_A, lead/2617 country
+n	-	3372	-	institution	-	organize AT, work AT, HAS purpose, system, society/2285 HAS, HAS long(past), building, people IN, conform norm
+n	-	3373	-	particle	-	piece, separate, small
+n	-	3375	-	conform	-	=AGT similar {gen expect =PAT}, "to _" MARK =PAT
+n	-	3377	-	axis	-	line, round AROUND, turn AROUND, AT middle, shape HAS
+n	-	3379	-	atmosphere	-	air, earth HAS
+n	-	3426	-	carbon	-	material, element, coal IS_A, diamond IS_A, graphite IS_A
+n	-	343	-	furniture	-	object, IN room/2235, chair IS_A, table IS_A, bed IS_A, cupboard IS_A
+n	-	3452	-	element	-	material, HAS atom(same)
+n	-	3599	-	planet	-	object, IN space/2509, size(ER gen)  
+n	-	3601	-	graphite	-	material, black, soft, IS_A carbon
+n	-	3603	-	agriculture	-	 practice, raise/1788 crop, raise/1788 animal
+n	-	362	-	firm	-	company/2549[<small>]
+n	-	3623	-	-ist	-	person<profession>, think {stem[important]}, "_-ist" MARK stem
+n	-	3627	-	-er	-	stem-er IS_A =AGT, "_ -er" MARK stem
+n	-	3628	-	buyer	-	=AGT, buy, -er/3627
+n	-	3629	-	seller	-	=AGT sell, -er/3627
+n	-	363	-	aim	-	purpose
+n	-	3635	-	gen	-	gen
+n	-	3636	-	wh	-	wh
+n	-	3637	-	connected	-	move(together)
+n	-	365	-	purpose	-	gen want
+n	-	399	-	action	-	person do
+n	-	4	-	-th	-	part, IN whole, before(divide)
+n	-	432	-	group	-	several member, together
+n	-	434	-	slide	-	move, ON surface, HAS constant(contact)
+n	-	5	-	-th	-	position, IN sequence
+n	-	526	-	value	-	amount, < gen pay/812>
+n	-	531	-	perceive	-	know, INSTRUMENT sense, hear IS_A, smell IS_A, see IS_A, touch IS_A 
+n	-	534	-	sensation	-	sense INSTRUMENT, <touch>
+n	-	630	-	oppose	-	fight
+n	-	631	-	opponent	-	person, oppose, <compete>, <AT battle>
+n	-	683	-	force	-	power
+n	-	687	-	effort	-	use energy, try
+n	-	690	-	violent	-	INSTRUMENT physical(force)
+n	-	692	-	event	-	activity, AT place/1026, <important>
+n	-	725	-	imagination	-	make mental(image), LACK see, <picture>
+n	-	760	-	solve	-	work, =PAT problem, =AGT want [gen LACK problem]
+n	-	766	-	responsible	-	HAS control, HAS authority, HAS blame
+n	-	82	-	care	-	help, =PAT[sick], =AGT want [=PAT feel good], =AGT think [=PAT[important]]
+n	-	885	-	gas	-	substance, thin/1038, air IS_A
+n	-	898	-	curve	-	line, LACK straight/563, LACK plane/2090, bend/1112, direction LACK constant
+n	-	919	-	frequent	-	often
+n	-	925	-	diamond	-	hard, mineral, LACK colour, <jewellery>
+n	-	97	-	mineral	-	substance, solid, natural, IN earth
+p	1003	670	PERMIT	allow	To give permission to an action.	=AGT[LACK[=AGT stop =PAT]]
+p	1004	1168	MUSCLE	muscle	An organ formed by contractile tissue that moves other organs.	material, animal HAS, move
+p	1018	666	MEMORY	memory	The ability of an organism to record information combined with the facility of recall.	information, human HAS, connect past
+e	102	1053	COMMON COLD (DISEASE)	cold	A contagious, viral infectious disease of the upper respiratory system; common symptoms include cough, sore throat, runny nose, nasal congestion and sneezing.	temperature, low
+e	102	1415	COMMON COLD (DISEASE)	common	A contagious, viral infectious disease of the upper respiratory system; common symptoms include cough, sore throat, runny nose, nasal congestion and sneezing.	AT many, more HAS, public
+p	1035	1189	GOOD	good	Having desired or positive qualities.	gen want
+p	1036	3610	OWNER	owner	One who owns.	=AGT, =AGT HAS
+p	1039	1742	SHOW	show	To have somebody see something.	=AGT CAUSE[gen see =PAT]
+s	1040	3359	HAIR	hair	The hair on humans, usually on the head but also including the hair on the body.	organ, fine, thread, grow, long, ON body, animal HAS body
+m	1046	2668	SHUT	shut	To move (a door, a window, etc.) so that it closes its opening.	gen LACK [move through]
+p	1046	3381	SHUT	close	To move (a door, a window, etc.) so that it closes its opening.	move, after(part AT other(part)), after(gen LACK through)
+p	1048	2118	LINE	line	An infinitely long, infinitely thin, not bent line in geometry.	shape, long, HAS position, HAS direction, <straight/563>
+e	1051	1246	CAN	can	A small, round-shaped metal container, used for different purposes like storing food or liquids, or collecting money.	<do>
+p	1051	1427	CAN	can	A small, round-shaped metal container, used for different purposes like storing food or liquids, or collecting money.	cylinder, metal, contain [<food>,<drink>]
+p	1052	1381	LIGHT (WEIGHT)	light	With a small mass, little weight or density; the opposite of heavy.	weight(gen ER)
+e	1052	739	LIGHT (WEIGHT)	light	With a small mass, little weight or density; the opposite of heavy.	material, wave, CAUSE[animal see thing], beam/2722
+e	1052	944	LIGHT (WEIGHT)	light	With a small mass, little weight or density; the opposite of heavy.	=PAT[burn[after]]
+p	1062	1200	LAW	law	A body of rules of action or conduct prescribed by a legislative authority, and having binding legal force.	rule, system, society/2285 HAS, official, norm
+p	1068	3124	COURT	court	An organ of the government, belonging to the judicial department, whose function is the application of the laws to controversies brought before it and the public administration of justice.	place/1026, INSTRUMENT law, judge AT
+p	1070	356	BUS	bus	A large, long-bodied motor vehicle equipped with seating for passengers, usually operating as part of a scheduled service.	vehicle, more(passenger) IN, HAS engine, HAS regular(way)
+p	1077	344	WHEAT	wheat	Plant belonging to genus Triticum and to family Poaceae (also known as Gramineae).	plant, HAS grain, flour FROM
+p	1078	818	MAIN	main	The most important element.	ER all, rank, lead/2617
+p	1079	521	FEEL	feel	To be in some emotional state.	=PAT IN mind, =PAT AT body, =AGT HAS body, =AGT HAS mind
+p	1085	1400	FOLLOW	follow	To go or come after (in physical space) someone or something.	=AGT HAS direction, =PAT HAS direction, after(=AGT), before(=PAT)
+p	1086	1740	WORK (ACTIVITY)	work	To do a specific task by employing physical or mental powers.	useful
+p	1093	1410	MIDDLE	middle	What is equally far away from two ends or being in that position.	part, place/1026, near centre
+e	1107	1316	GO OUT	out	To move out of or depart from.	LACK in, LACK limit
+p	1111	184	CAR	car	A four-wheeled motor vehicle used for land transport, usually propelled by a gasoline or diesel internal combustion engine.	vehicle, HAS four(wheel), <HAS engine>
+e	1112	1401	SUCCEED	succeed	To attain a desired goal.	=PAT before =AGT      %after
+p	1112	2718	SUCCEED	succeed	To attain a desired goal.	after(aim[real]), =AGT HAS aim
+p	1114	901	BULLET	bullet	A projectile, usually of metal, shot from a gun at high speed.	artefact, metal, FROM gun
+s	1115	268	SPEECH	speech	An address or form of oral communication in which a speaker makes his thoughts and emotions known before an audience, often for a given purpose. (Source: RHW)	=AGT say	
+e	1115	268	SPEECH	speech	An address or form of oral communication in which a speaker makes his thoughts and emotions known before an audience, often for a given purpose. (Source: RHW)	=PAT say     
+e	1116	1209	DAMAGE	damage	To put a thing in bad condition by causing damage to it.	bad(situation)
+p	1117	3382	LIKE	like	To enjoy, be in favor/favour of.	feel {=PAT[good], good FOR =AGT}
+p	1119	1919	DIVIDE	divide	To split or separate something into two or more parts.	split
+e	1124	418	PIPE	pipe	A device consisting of a mouthpiece, a long pipe stem and a pipe bowl, that is used to smoke tobacco.	artefact, space/2327 IN, cylinder, liquid[move] IN
+e	1128	2739	ORDER	order	To order someone or several persons by a superior authority to do something, or to arrange something in a tidy manner.	relation, more(item) HAS, first PART_OF
+e	1129	200	PAINFUL	hurt	Full of pain; causing uneasiness or distress, either physical or mental.	CAUSE {=PAT HAS pain}, offend
+e	1132	2722	BEAM	beam	A structural member loaded on its narrow face, and typically used in a horizontal or sloping position to span between bearing points.	line, light/739, FROM <sun>
+m	1156	1814	OPEN	open	To make the inside something accessible by moving an obstacle aside (e.g. a door or covering), or to move said obstacle.	move[can/1246], move through, LACK shut/2668
+p	1156	1815	OPEN	open	To make the inside something accessible by moving an obstacle aside (e.g. a door or covering), or to move said obstacle.	=PAT[open/1814[after]]
+p	1161	366	THREAD	thread	A long, thin and flexible form of material, generally with a round cross-section, used in sewing, weaving or in the construction of string.	fine(cord), <sew INSTRUMENT>, <IN cloth>
+m	1172	1550	SHOOT	shot	To fire a shot from a firearm, bow or other weapon	shoot
+p	1172	1551	SHOOT	shoot	To fire a shot from a firearm, bow or other weapon.	after(bullet fly[fast]), INSTRUMENT gun
+e	1181	3630	PALM TREE	palm	Any of various evergreen trees from the family Palmae or Arecaceae, which are mainly found in the tropics.	surface, hand HAS, hold
+p	1182	2671	NOISE	noise	Sound which is unwanted, either because of its effects on humans, its effect on fatigue or malfunction of physical equipment, or its interference with the perception or detection of other sounds.	sound/993, <bad>, loud, frighten gen
+p	1183	3630	PALM OF HAND	palm	The inner and somewhat concave part of the human hand that extends from the wrist to the bases of the fingers.	surface, hand HAS, hold
+p	1192	789	THREATEN	threaten	To make a threat of injury or punishment against someone.	=AGT express {after(=AGT CAUSE harm)}
+p	1198	1518	MANY	most	An indefinite large number of.	all ER
+p	1198	2113	MANY	many	An indefinite large number of.	quantity, ER gen
+p	1198	2114	MANY	much	An indefinite large number of.	many
+p	1199	767	WIFE	wife	The female partner in a marriage.	IN marriage, female
+p	1200	745	HUSBAND	husband	The male partner in a marriage.	male, HAS wife, "dative" MARK wife
+p	1201	2427	FEATHER	feather	A branching, hair-like structure that grows on the skin of birds and protects them against coldness and water and allows their wings to create lift.	organ, soft, AT bird
+p	1202	1744	BIG	big	Of a great size.	ER gen
+p	1202	1745	BIG	large	Of a great size.	big
+p	1202	1746	BIG	great	Of a great size.	big
+p	1203	1086	LONG	long	Having much distance from one terminating point on an object or an area to another terminating point.	gen ER size[horizontal], HAS axis
+p	1205	1808	TONGUE	tongue	The flexible muscular organ in the mouth that is used to move food around, for tasting and that is moved into various positions to modify the flow of air from the lungs in order to produce different sounds.	PART_OF body, AT mouth, taste INSTRUMENT, speak INSTRUMENT
+p	1207	799	YOUNG	young	In the early part of growth or life.	early, IN life
+p	1210	1772	HEAVY	heavy	Of a physical object, having great weight.	weight(ER gen)
+p	1214	706	THIS	this	The indicated object, item, etc. close to the speaker.	now, near, before(speak)
+p	1218	1395	ROPE	cord	Thick, strong string made of several strands that have been twisted together.	rope, thin/2598
+p	1218	1396	ROPE	rope	Thick, strong string made of several strands that have been twisted together.	artefact, long, flexible
+p	1221	1912	NOSE	nose	The organ of the face used to breath and smell.	organ, PART_OF face, animal HAS face, front, AT centre, smell, air[move] IN
+p	1225	1754	DAY (NOT NIGHT)	day	The period between sunrise and sunset where one enjoys daylight.	period, week HAS, month HAS, HAS more(hour), sun ON sky, work AT
+p	1226	545	YEAR	year	The time it takes the Earth to complete one revolution of the Sun (between 365.24 and 365.26 days depending on the point of reference).	period, time, month PART_OF
+p	1228	2297	EARTH (SOIL)	ground	The soft and loose material forming a great part of the Earth surface.	surface, solid, AT earth
+e	1228	815	EARTH (SOIL)	earth	The soft and loose material forming a great part of the Earth surface.	planet, IN space/2509, life ON, ocean ON, land ON, HAS atmosphere
+p	123	1077	FOREHEAD	forehead	The part of the face between the hairline and the eyebrows.	PART_OF face, front, eye under, hair AT, AT temple/982
+e	123	608	FOREHEAD	front	The part of the face between the hairline and the eyebrows.	part, first
+p	1232	1655	WARM	warm	Having a temperature slightly higher than usual, still pleasant.	temperature(ER gen)
+e	1232	878	WARM	warm	Having a temperature slightly higher than usual, still pleasant.	after(warm/1655)
+p	1233	500	NIGHT	night	The period between sunset and sunrise, when a location faces far away from the sun, thus when the sky is dark.	period, FOLLOW sunset, sunrise FOLLOW, dark, LACK sun, <sleep AT>
+p	1234	2092	SMOOTH	smooth	Not rough; having a surface texture that lacks friction.	surface, easy(slide ON)
+p	1241	2116	SOME	several	An unspecified quantity or number of.	many
+p	1243	2166	WIDE	wide	Having a long distance or area between two points, especially horizontally.	distance[great, horizontal] BETWEEN side, HAS more(side)
+e	1244	2134	THICK	thick	Relatively large distance from one surface to the opposite in its smallest solid dimension.	LACK thin/1038
+p	1244	2166	THICK	wide	Relatively large distance from one surface to the opposite in its smallest solid dimension.	distance[great, horizontal] BETWEEN side, HAS more(side)
+p	1244	2752	THICK	thick	Relatively large distance from one surface to the opposite in its smallest solid dimension.	{distance BETWEEN surface} ER gen, HAS more(surface) 
+p	1246	1355	SMALL	little	Not large or big; small in size.	small
+p	1246	1356	SMALL	small	Not large or big; small in size.	size(gen ER)
+p	1247	870	EAR	ear	The organ of hearing, consisting of the pinna, auditory canal, eardrum, malleus, incus, stapes and cochlea.	organ, hear INSTRUMENT
+e	1247	987	EAR	hear	The organ of hearing, consisting of the pinna, auditory canal, eardrum, malleus, incus, stapes and cochlea.	=AGT perceive =PAT[sound/993], INSTRUMENT ear
+p	1248	2182	EYE	eye	The organ that is sensitive to light, which it converts to electrical signals passed to the brain, by which means animals and humans see.	organ, see INSTRUMENT, animal HAS, ON face, <two>
+p	1251	939	BELLY	stomach	The lower part of the front of the torso (or a comparable part of an animal), confined by the upper side by the midriff and the lowerside by the pelvis. Contains the intestines.	organ, animal HAS, tube, food IN
+p	1252	963	HOUSE	house	The abode of a human being, their place of residence.	building, home
+p	1253	698	RAIN (RAINING)	rain	To fall from the clouds in drops of water.	water, FROM atmosphere, fall/2694, many(drop), weather
+p	1254	834	HANDLE	handle	A part of an object meant to hold that object with (e.g. the handle of a mug, pan or bag).	PART_OF object, FOR hold(object IN hand)
+e	1255	1066	SNOWING	snow	To fall from the clouds in the form of ice crystals.	ice, fall/2694, soft, white
+p	1256	756	HEAD	head	The part of the body of an animal or human which contains the brain, mouth and main sense organs.	organ, brain IN, face ON, top
+p	1257	2146	WING	wing	The appendage of an animal's (bird, bat, insect) body that enables it to fly in the air.	object, fly INSTRUMENT, PART_OF body
+e	1260	1754	DAY (24 HOURS)	day	A period of time lasting 24 hours.	period, week HAS, month HAS, HAS more(hour), sun ON sky, work AT
+p	1264	2554	CHANGE	change	To make different or to become different.	after(=PAT[different])
+p	1265	1581	HIGH	tall	Being in a position comparatively far above to the ground.	height(ER gen)
+p	1265	1582	HIGH	high	Being in a position comparatively far above to the ground.	top ER gen, HAS top 
+p	1274	2108	SALT	salt	A condiment (NaCl - Sodium Chloride) used to add to or enhance the flavour of food (commonly with pepper).	mineral, white, HAS taste, powder
+p	1276	1882	AUTUMN	autumn	The season after summer and before winter, traditionally from September 21 to December 20 in the northern hemisphere and from March 21 to June 20 in the southern hemisphere.	season/548, FOLLOW summer, winter FOLLOW, rain IN, cool/1103, leaf change colour
+p	1277	1264	HAND	hand	That part of the fore limb below the forearm or wrist in primates (including humans).	organ, PART_OF arm, human HAS arm, FOR [move gen], wrist PART_OF, palm PART_OF, five(finger) PART_OF, thumb PART_OF
+e	1279	3337	FAT (OBESE)	fat	Carrying a larger-than-normal amount of fat or weight.	substance, resemble oil, <IN food>, <UNDER skin>
+e	1280	1883	FALL	fall	To descend in free fall due to the effect of gravity.	autumn
+p	1280	2694	FALL	fall	To descend in free fall due to the effect of gravity.	move, after(down)
+p	1282	3337	FAT (FROM ANIMALS)	fat	The semisolid substance from animals which is used for cooking and as food.	substance, resemble oil, <IN food>, <UNDER skin>
+p	1285	853	IMPORTANT	important	Having relevant and crucial value.	cause, HAS value
+p	1286	862	HOT	hot	Having a very high temperature.	temperature, high
+p	1287	1053	COLD	cold	Having a low temperature.	temperature, low
+p	1290	605	ELEPHANT	elephant	A mammal of the order Proboscidea, having a trunk, and two large ivory tusks jutting from the upper jaw. Elephants are the largest land animals now existing.	animal, large, eat <grass>, LACK hair/3359, HAS long(nose<trunk/1910>), HAS large(ear), HAS tusk[ivory]
+p	1292	2043	BAD	bad	Not good; unfavorable; negative.	CAUSE hurt
+p	1295	338	STICK	stick	A long, thin piece of wood, mainly left in the shape in which it grew, that does not bend.	object, long, <wood>, <gen use>
+p	1297	1467	LEG	leg	The limb of an animal (including humans) that extends from the groin to the ankle.	limb, animal HAS, move INSTRUMENT, support, low
+p	1300	1913	COUNTRY	country	A political entity asserting authority over a geographical area, or the area itself. Can be same as or part of a state.	state/76
+p	1301	1466	FOOT	foot	The part of a human’s body below the ankle that is used in order to stand and walk.	organ, leg HAS, AT ground
+p	1302	2630	FORK	fork	A utensil with spikes used to put solid food into the mouth.	cutlery, <metal>, HAS {<four>(branch)}, HAS handle, {move food} INSTRUMENT
+p	1303	2522	FINGER	finger	One of the long extremities of the hand that is used for gripping objects.	PART_OF hand, long, thin/2598
+e	1304	931	CHILD (YOUNG HUMAN)	child	A person below the age of puberty.	person, young, parent make
+s	1306	1352	QUEEN	royal	A female monarch monarch
+p	1306	1353	QUEEN	queen	A female monarch.	woman, monarch
+p	1314	986	QUIET	quiet	With little or no sound; denoting absence of disturbing noise.	LACK noise
+p	1318	412	CHICKEN	chicken	A type of domesticated bird from the order of Galliformes which is often raised as a type of poultry (Gallus gallus domesticus).	bird, make meat, make egg  
+m	1326	1498	DOWN	down	Moving to a lower position.	vertical(gen ER)
+p	1330	2592	DEFEND	defend	To keep something or someone safe or prevent harm coming to someone or something.	=AGT CAUSE [safe(=PAT)]
+p	1331	1204	SHEEP	sheep	A common, four-legged animal (Ovis) that is commonly kept by humans for its wool.	mammal, <AT farm>, HAS wool
+p	1333	1803	NECK	neck	The part of the body (found in some animals, including humans) that connects the head and the trunk.	PART_OF body, CAUSE[head AT]
+p	1335	755	WHITE	white	Bright and colourless; reflecting equal quantities of all frequencies of visible light.	colour, light/739, snow HAS colour, empty, clear
+p	1336	700	EAT	eat	To consume something solid or semi-solid (usually food) by putting it into the mouth and eventually swallowing it.	=AGT CAUSE[=PAT IN mouth], swallow, =PAT[<food>], <bite/1001>, <chew>, =AGT HAS mouth
+e	1341	1070	HEAT UP	heat	To cause an increase in temperature of an object or space; to cause something to become hot.	energy, warm
+p	1342	1802	SUMMER	summer	Traditionally the second of the four seasons regarded as being from June 21 to September 20 (or just June, July and August) in the Northern Hemisphere and from December 21 to March 20 (or just December, January and February) in the Southern Hemisphere.	season/548, FOLLOW spring/2318, autumn FOLLOW, warm, fruit AT, much(life) AT, long(day) AT
+p	1343	1755	SUN	sun	The particular star at the centre of our solar system, from which the Earth gets light and heat.	planet, give light/739, give heat, bright, yellow, AT sky, AT day
+p	1346	2432	THROAT	throat	The front part of the neck.	organ, pipe, IN neck, FROM mouth
+p	1352	1256	KNIFE	knife	A utensil consisting of a sharpened piece of hard material such as steel or other metal, ceramic, glass or stone, usually attached to a handle, that is formed in a manner that allows for cutting softer materials, especially meat or other food.	instrument, FOR cut, HAS blade<metal>, HAS handle
+p	1353	1834	HOUR	hour	A time period of sixty minutes; one twenty-fourth of a day.	time, unit, day HAS <24>, HAS <60>(minute)
+p	1356	2138	NUMBER	number	An abstract entity used to describe quantity.	quantity
+p	1359	1450	SEPARATE	separate	To cause something or someone to move away from something or someone else.	=AGT CAUSE [=PAT AT other(place/1026)], "from _" MARK place/1026
+p	1359	1919	SEPARATE	divide	To cause something or someone to move away from something or someone else.	split
+p	1361	2202	TOOL	tool	A mechanical device intended to make a task easier.	object, work INSTRUMENT
+p	1361	701	TOOL	instrument	A mechanical device intended to make a task easier.	object, work INSTRUMENT, gen use, HAS purpose, AT hand
+m	1364	554	HEALTHY	health	In good physical and mental condition; free from disease.	healthy
+p	1364	555	HEALTHY	healthy	In good physical and mental condition; free from disease.	HAS body, body IN good(situation)
+p	1370	1068	MONTH	month	A period into which a year is divided, historically based on the phases of the moon. In the Gregorian calendar there are twelve months.	unit, time, <twelve>, PART_OF year
+p	1376	1726	NOW	now	At present; at this time.	AT this(time)
+p	1378	1222	SPOON	spoon	An implement for eating or serving, a small bowl with a long straight handle.	cutlery, {eat soup} INSTRUMENT, HAS bowl, HAS handle
+p	1380	827	TOOTH	tooth	A hard, calcareous structure present in the mouth of many vertebrate animals (including humans), generally used for eating.	organ, animal HAS, hard, IN jaw, bite/1001 INSTRUMENT, chew INSTRUMENT, attack INSTRUMENT, defend INSTRUMENT
+p	1384	1569	SECOND	second	That which comes after the first.	-th/5[two], FOLLOW first
+e	1384	2967	SECOND	two	That which comes after the first.	number, one IN, other IN, FOLLOW one
+p	1394	431	BONE	bone	Any of the components of an endoskeleton, consisting mainly of calcium phosphate, collagen and cells.	material, rigid, frame, PART_OF body
+p	1395	1294	ROUND	circular	Circular or having a circular cross-section in at least one direction.	shape, resemble circle, curve
+p	1395	1295	ROUND	round	Circular or having a circular cross-section in at least one direction.	circular/1294
+p	1396	611	SHARP	sharp	Having the ability to cut easily.	HAS [<edge>,<point>]
+p	1398	2145	DRY	dry	(Almost) free from liquid or moisture.	LACK wet
+e	1400	1038	THIN (SLIM)	thin	Carrying little fat (of people).	flow( ER gen)
+e	1400	2598	THIN (SLIM)	thin	Carrying little fat (of people).	gen ER {distance BETWEEN surface} 
+p	1401	1161	DRINK	drink	To consume a liquid through the mouth.	=PAT[liquid,<alcoholic>] IN mouth, =AGT HAS mouth, =AGT swallow 
+m	1401	1164	DRINK	drink	To consume a liquid through the mouth.	liquid, IN mouth, swallow, <alcoholic>  
+p	1403	1001	BITE	bite	Clamping the teeth hard on something.	cut, INSTRUMENT <tooth>
+p	1404	563	STRAIGHT	straight	Not crooked or bent; having a constant direction throughout its length.	HAS constant(direction)
+p	1406	1678	FAR	far	Having a large intervening distance with regard to something.	AT great(distance)
+m	1407	1501	BREATHE	breathe	To repeatedly draw air into, and expel it from, the lungs, in order to extract oxygen from it and excrete waste products.	breath
+p	1408	987	HEAR	hear	To perceive sound with the ear, without necessarily paying attention to it.	=AGT perceive =PAT[sound/993], INSTRUMENT ear
+p	1409	1476	SEE	see	To perceive [images] with the eye, without necessarily paying attention to them.	perceive, INSTRUMENT eye
+e	141	497	BURN (SOMETHING)	burn	To cause to undergo fire combustion.	fire, <=AGT wood, after(ash)>
+p	1410	2455	KNOW (SOMETHING)	know	To be sure about something or be acquainted with something.	=AGT HAS information, information connect =PAT
+p	1415	907	THINK (REFLECT)	think	To actively and consciously use one's mental powers, usually to form ideas.	=PAT IN mind, =AGT HAS mind
+p	1416	2493	SIT	sit	To be in a position with the upper body upright and the legs resting.	=AGT AT surface[<seat>], HAS buttocks, buttocks AT surface, =AGT HAS trunk/2759[vertical]
+p	1419	734	FEAR (BE AFRAID)	fear	To be scared of; to have an uncontrollable emotion of anxiety about something that causes a scared reaction or frightening impression.	sensation, danger CAUSE, <anxiety>
+p	1420	2142	COUNT	count	To determine the amount of something or to enumerate the digits of one's numeral system.	calculate, other(number) FOLLOW number
+m	1422	504	BE ALIVE	live	To be alive; to have a life.	exist, breathe, grow, reproduce, eat, act, change
+p	1423	1002	FIGHT	fight	To be involved in a physical confrontation.	person want[harm AT other(person)], INSTRUMENT weapon
+p	1424	2057	YELLOW	yellow	Having the colour of a yolk, a lemon or gold.	colour, sun HAS colour
+p	1425	2679	GREEN	green	Having green as its colour; having the hue of that portion of the visible spectrum lying between yellow and blue, evoked in the human observer by radiant energy with wavelengths of approximately 490 to 570 nanometers.	colour, plant HAS colour
+p	1427	2170	BEAUTIFUL	beautiful	Having nice or positive properties (specifically with regard to the senses, and most commonly, that of sight).	attract gen
+p	1428	497	BURNING	burn	To be consumed by fire.	fire, <=AGT wood, after(ash)>
+p	1430	408	STAR	star	A luminous celestial body that is made from gases (particularly hydrogen and helium) and forms the shape of a sphere.	planet, shine, dot, AT sky, AT night
+p	1432	2542	CUT	cut	To perform an incision (for example, with a knife).	separate, INSTRUMENT edge
+p	1437	1007	SPLIT	split	To divide fully or partly along a more or less straight line.	after(separate), <break>
+p	144	894	MACHINE	machine	A device able to perform a particular, more or less complex, job.	object, work
+p	1441	2018	FLY (MOVE THROUGH AIR)	fly	To move autonomously through the air, without any part of the object or object's enclosure touching anything attached to the ground.	move, =AGT IN air, control
+p	1442	74	STAND	stand	To be upright in an erect position, supported by the feet.	=AGT[vertical], =AGT ON two(foot)
+p	1444	860	TURN AROUND	turn	Change the direction in which one is moving or facing.	move, =PAT[object, HAS axis, change(direction)]
+p	1447	113	GIVE	give	To transfer the possession or holding (of an object) to another person.	=AGT CAUSE[person HAS =PAT], "dative" MARK person
+p	1448	2309	HOLD	hold	To grasp or grip (particularly with the hand) so that the object does not end up at the surface below.	=PAT IN hand, =AGT HAS hand
+p	1450	2235	ROOM	room	A separate part of a building, enclosed by walls, a floor and a ceiling.	place/1026, HAS more(wall), PART_OF building, HAS floor, HAS top<ceiling>
+p	1455	1096	PULL	pull	To apply a force to (an object), in order that it moves towards the origin of the force that was applied.	=AGT CAUSE[=PAT AT =AGT]
+p	1458	1719	SAY	say	To utter specific words or notions.	communicate, INSTRUMENT sound/993, person hear sound/993, "dative" MARK person
+p	1460	10	IN	in	Contained or encased by something.	place, after(=AGT AT place), place contain =AGT, "in _" MARK place
+p	1460	2758	IN	IN	Contained or encased by something.	place, =AGT AT place, place contain =AGT, "in _" MARK place
+p	1463	1165	DRUNK	drunk	Being in a temporary state in which one's physical and mental faculties are impaired due to excessive consumption of alcohol.	quality, person HAS, alcohol CAUSE, LACK control
+p	1465	478	BOX	box	A generic man-made object with space in it (commonly made of cardboard or wood) that is used to keep and store many various different objects.	container, HAS lid, cube
+p	1467	1386	CIRCLE	circle	A two-dimensional, geometric shape that is made up of every point on a plane which is equidistant from the centre. May be drawn with a pair of compasses.	shape, round, close/3381, curve
+p	1469	1021	WEEK	week	A period of seven days.	period, time, seven(day) IN
+p	1471	2322	WINTER	winter	Traditionally, the fourth of the seasons, marked by the applicable hemisphere of the planet being at its minimum angle of exposure to the Sun, resulting in short days, long nights and typically in low temperatures.	season/548, FOLLOW autumn, spring/2318 FOLLOW, cold, snow IN, death IN
+p	1476	2163	CHAIR	chair	An item of furniture comprising a seat, legs, back, and sometimes arm rests, on which or in which one people can sit.	furniture, sit INSTRUMENT, HAS seat, HAS leg(four), HAS <back>, support person
+p	1480	2370	BODY	body	The physical structure of a human or animal.	object, animal HAS
+p	1482	2548	SHOULDER	shoulder	One side of the top of the torso, where an arm attaches or joins.	organ, PART_OF body, neck AT, arm AT
+p	1485	136	BELOW OR UNDER	under	Situated in a lower place than something else.	high(=PAT ER =AGT)
+p	1485	1534	BELOW OR UNDER	below	Situated in a lower place than something else.	under
+e	1486	2792	PLANT (SOMETHING)	plant	To put a plant in the ground so that it strikes root and grows.	live, LACK move, HAS leaf[many], HAS root, AT earth
+p	1489	770	CLOUD	cloud	Suspensions of minute water droplets or ice crystals produced by the condensation of water vapour.	object, visible, water, drop, IN sky, <white>, <grey>
+p	1493	559	ONE	one	The natural number one (1).	number, LACK more    
+p	1498	2967	TWO	two	The natural number two (2).	number, one IN, other IN, FOLLOW one
+p	1500	2988	FOUR	four	The natural number four (4).	number, FOLLOW three
+e	1504	2018	FLY (INSECT)	fly	A common insect; any species of insect of the order Diptera.	move, =AGT IN air, control
+p	1506	1608	MEASURE	measure	To ascertain the quantity of a unit of material via calculated comparison with respect to a standard.	CAUSE[person know quantity]
+p	1507	945	FRUIT	fruit	A botanical fruit that can be eaten raw used as food.	PART_OF plant, seed PART_OF, food, sweet, HAS flesh
+p	1508	1350	KING	king	A male member of a Royal Family and supreme ruler of his nation.	monarch, man/744, lead/2617[country], PART_OF [royal(family)]
+s	1508	1352	KING	royal	A male member of a Royal Family and supreme ruler of his nation	monarch
+p	1510	73	CHIN	chin	The bottom of the face, below the mouth.	PART_OF face, AT centre, under mouth
+p	1530	1462	BOWL	bowl	A roughly hemispherical container used to hold, mix or present food, such as salad, fruit or soup, or other items.	round, wide, food IN
+e	1531	3345	BRANCH	limb	A woody part of a tree arising from the trunk and usually dividing.	PART_OF body, leg IS_A, arm IS_A
+p	1531	66	BRANCH	branch	A woody part of a tree arising from the trunk and usually dividing.	part, long, <tree HAS>
+p	1536	525	UNDERSTAND	understand	To be aware of the meaning of.	meaning IN mind, =PAT HAS meaning, =AGT HAS mind
+p	1537	2318	SPRINGTIME	spring	Traditionally the first of the four seasons, the season of growth with an ever increasing amount of daytime.	first(season/548), warm, plant[live], love IN, summer FOLLOW, FOLLOW winter
+p	1547	1541	SOUP	soup	A cooked, liquid dish (made from meat or vegetables that are mixed with broth in a pot) that is often sold in tins.	food, liquid
+p	1551	1794	FEMALE	female	Of, relating to, or denoting the sex which is generally characterized as the one associated with the larger gametes (for species which have two sexes and for which this distinction can be made).	sex
+p	1553	1039	MALE	male	Of, relating to, or denoting a member of the sex that begets young by fertilizing ova.	sex
+e	1554	659	MAN	man	An adult human member of the sex that begets young by fertilizing ova.	animal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285
+p	1554	744	MAN	man	An adult human member of the sex that begets young by fertilizing ova.	person, male
+p	1558	2794	SIMILAR	similar	Having some particular qualities or characteristics in common, but not all of them.	=AGT HAS quality, =PAT HAS quality, "TO _" MARK =PAT
+p	1559	1952	MONEY	money	An unspecified amount in a currency.	artefact, FOR exchange, HAS value, official
+p	156	2658	RED	red	Having red as its colour.	colour, warm, fire HAS colour, blood HAS colour, resemble anger
+p	1560	177	FACE	face	The front part of the head, featuring the eyes, nose, and mouth and the surrounding area.	organ, surface, front, PART_OF head, forehead PART_OF, chin PART_OF, ear PART_OF, jaw PART_OF
+p	1562	2457	MIND	mind	The ability for rational thought.	human HAS, IN brain, human HAS brain, think INSTRUMENT, perceive INSTRUMENT, emotion INSTRUMENT, will INSTRUMENT, memory INSTRUMENT, imagination INSTRUMENT
+p	1566	1980	GUN	gun	A bullet firing weapon to be held in the hands or arms.	weapon, HAS[metal(tube)], CAUSE bullet[move], shot INSTRUMENT
+p	1567	128	DOOR	door	An opening, or passage in a fence or wall; the entrance through which you enter or leave a room or building.	artefact, AT entrance, open/1814, close/3381
+p	1571	595	SELL	sell	To provide goods or services in exchange for money.	=AGT CAUSE[buyer HAS =PAT], buyer CAUSE[=AGT HAS <money>], "dative" MARK buyer
+e	1579	132	BE	will	To have existence.	want
+p	1583	122	BRAIN	brain	The organ of the central nervous system of an animal or human located in the skull that controls the actions and thoughts of the animal or human.	organ, control body, feel, conscious, thought IN, memory IN, emotion IN
+p	1586	2151	SMELL (PERCEIVE)	smell	To perceive the presence of molecules in the air by inhaling them through the nose.	feel INSTRUMENT nose, =PAT IN air
+p	1588	860	TURN	turn	To change the direction of movement or the direction in which something is facing.	move, =PAT[object, HAS axis, change(direction)]
+p	1593	1602	DEEP	deep	Having a bottom or base that is far away from the top.	HAS[bottom[far]]
+p	1594	1545	FLOUR	flour	Ground or milled grain or cereal.	food, from/2742 grain
+p	1597	2807	AIRPLANE	plane	A powered heavier-than-air aircraft with fixed wings that obtains lift by the Bernoulli effect and is used for transportation.	vehicle, fly, HAS two(wing), <HAS engine>
+p	1599	2224	WORD	word	A distinct unit of language (sounds in speech or written letters) with a particular meaning, composed of one or more morphemes, and also of one or more phonemes that determine its sound pattern.	sign, speech
+e	160	2375	SET (HEAVENLY BODIES)	set	[Of a heavenly body, essentially the Sun and the Moon] To disappear below the horizon of a planet or another heavenly body (most often the Earth).	=AGT CAUSE[=PAT AT position[<stable>,<proper>]]
+e	160	2746	SET (HEAVENLY BODIES)	set	[Of a heavenly body, essentially the Sun and the Moon] To disappear below the horizon of a planet or another heavenly body (most often the Earth).	group, HAS many(item), together, unit, item HAS common(characteristic)
+p	1604	982	TEMPLES	temple	The region of the skull on either side of the forehead.	flat, side, PART_OF head
+p	1609	703	IDEA	idea	A plan or notion that is formed and exists in the mind as a result of mental activity.	IN mind, think make
+p	1612	1539	LETTER	letter	A text that is written to and for a specific person or set of people (and is most commonly sent to them by post).	message, gen write
+e	1612	278	LETTER	letter	A text that is written to and for a specific person or set of people (and is most commonly sent to them by post).	symbol, small, MARK sound, gen write
+p	1613	2207	COLOR	colour	An attribute of things that results from the light they reflect, transmit, or emit in so far as this light causes a visual sensation that depends on its wavelengths.	sensation, light/739, red IS_A, green IS_A, blue IS_A
+e	1613	2219	COLOR	colour	An attribute of things that results from the light they reflect, transmit, or emit in so far as this light causes a visual sensation that depends on its wavelengths.	add colour
+e	1614	2377	SUMMIT	top	The highest point of a mountain.	part, AT position, vertical(position ER part[other])
+p	1616	2232	CLOTH	cloth	A woven fabric such as used in dressing, decorating, cleaning or other practical use.	material, sheet, HAS thread, cotton IS_A
+p	1623	270	SPEAK	speak	To communicate by the use of words.	talk
+p	1624	2501	EMPTY	empty	Without content.	LACK {gen IN}
+p	163	761	BLACK	black	Dark and colourless; not reflecting visible light.	colour, dark, night HAS colour, coal HAS colour
+p	1631	940	FAST	fast	Occurring or happening within a short time.	quick
+p	1631	941	FAST	quick	Occurring or happening within a short time.	act IN short(time)
+p	1632	1932	FLOOR	floor	The bottom or lower part of any room; the supporting surface of a room.	surface, room/2235 HAS, stand ON
+p	1633	1493	FLAT	flat	Having no variations in altitude.	HAS surface, horizontal, LACK slope, LACK curve
+p	1637	2811	AUTHORITY	authority	The power to enforce rules or give orders.	power, command, determine, judge
+p	1645	2029	SHORT	short	Small in length by comparison.	size[horizontal] ER gen
+p	1649	2493	SIT DOWN	sit	To move into a position where the upper body is upright and the bottom is resting  on a surface or the floor.	=AGT AT surface[<seat>], HAS buttocks, buttocks AT surface, =AGT HAS trunk/2759[vertical]
+p	1657	1125	TRUE	true	Concurring with a given set of facts.	fact
+p	1657	1126	TRUE	real	Concurring with a given set of facts.	exist
+e	166	816	MAINLAND	land	A large and continuous mass of land representing most of a region or a country but excluding outlying islands.	solid, ground, area/2366     
+e	1660	656	LOSE	lose	To be beaten or to fail to win in a fight, game, or similar, or to place something in a place where one cannot find it again or in a wrong place; to lose something.	after(LACK)
+p	1663	68	BED	bed	A piece of furniture, made for a person to sleep on.	furniture, rest IN
+p	1667	1557	HOLE	hole	A, often round, piece of nothingness in some solid.	empty(place/2326), IN solid
+p	1668	341	GRIEF	sorrow	Mental suffering or pain caused by injury, loss, or despair.	emotion, ER sad
+p	1672	1109	WRITE	write	To form (letters, words or symbols) on a surface in order to communicate.	put {<letter/278>,<more(word)>} ON surface<paper>, INSTRUMENT {<pen>,<pencil>}
+p	1673	1231	ARM	arm	The upper limb, extending from the shoulder to the wrist and sometimes including the hand.	organ, long, human HAS body, body HAS, limb, hand AT, wrist AT, shoulder AT
+p	168	1959	REST	rest	To cease working, moving or thinking for some time in order to relieve fatigue.	quiet, calm, before(tired), after(HAS energy)
+e	1684	1551	BUD	shoot	A bud is an undeveloped or embryonic shoot and normally occurs in the axil of a leaf or at the tip of the stem.	after(bullet fly[fast]), INSTRUMENT gun
+p	1685	2533	AFTER	after	Subsequent, following, in time or space.	follow, IN order/2739
+p	1691	3371	FLEXIBLE	flexible	Capable of being flexed or bent without breaking; able to be turned, bowed, or twisted, without breaking; pliable; not stiff or brittle.	can/1246(change), can/1246(bend/975)
+p	1704	2996	SEVEN	seven	The natural number seven (7).	number, FOLLOW six
+p	1720	1182	SIGN	mark	Feature element which permits to refer to anything or any person.	visible(sign)
+p	1720	1183	SIGN	sign	Feature element which permits to refer to anything or any person.	gen perceive, information, show, HAS meaning
+p	1726	1769	WET	wet	Covered with or impregnated with liquid.	liquid cover
+p	1732	496	SKY	sky	The part of the earth's atmosphere and space outside it that is visible from earth's surface. During the day it is perceived as blue, and at night as black.	high(ER air), animal see, cloud ON, sun ON, star ON
+p	1739	2736	DECORATE	decorate	To make more attractive by adding ornament, colour, etc.	=AGT CAUSE[=PAT[beautiful]]
+p	1743	392	JOIN	join	To join or unite, as one thing to another, or as several particulars, so as to increase the number, augment the quantity, enlarge the magnitude, or so as to form into one aggregate; to sum up; to put together mentally, as, to add numbers; to add up a column.	after(together)
+p	1750	2546	CHOOSE	choose	To make a choice from a number of alternatives.	=AGT CAUSE[=PAT FOR =AGT]
+p	1753	2377	TOP	top	Highest and most elevated point.	part, AT position, vertical(position ER part[other])
+p	1757	3634	TIRED	tired	In need of some rest or sleep, due to lack of sleep or as a result of hard work or physical activity.	want rest    
+p	1775	180	TABLE	table	A piece of furniture that generally consists of a hard, flat, horizontal surface, which is elevated and stabilised by 3 or more legs (usually 4).	furniture, HAS leg[<more>], HAS surface[flat,horizontal]
+p	1777	3397	RESEMBLE	resemble	To be like or similar to something else.	=AGT HAS quality, =PAT HAS quality
+p	1781	1098	THUMB	thumb	The shortest and thickest of the fingers that can be placed against the others in order to create a firm grip.	PART_OF hand, human HAS hand, short, thick/2752
+p	1783	1318	PAIN	pain	An unpleasant, usually localised physical sensation that is often the result of an injury, disease or other ailment.	bad, sensation, injury CAUSE
+e	1783	200	PAIN	hurt	An unpleasant, usually localised physical sensation that is often the result of an injury, disease or other ailment.	CAUSE {=PAT HAS pain}, offend
+p	1784	131	WANT	want	To want to do something or to wish for something to happen.	=AGT[feel[=AGT need]]
+e	1786	2145	DRY UP	dry	To lose moisture, usually through evaporation or absorption.	LACK wet
+p	1788	2343	TELEVISION	television	A device for receiving television signals and displaying them in visual form.	electric(equipment), box, HAS screen, programme ON screen, man/659 see programme
+e	1801	931	CHILD (DESCENDANT)	child	Biological offspring.	person, young, parent make
+p	1803	710	WOOD	wood	The substance making up the central part of the trunk and branches of a tree. Used as a material for construction, to manufacture various items, etc. or as fuel.	material, hard, FROM tree
+e	1806	1313	BEGIN	start	To begin an activity.	act after   
+p	1806	1313	BEGIN	start	To begin an activity.	after(act)   
+p	1810	2610	DANGER	danger	A situation that constitutes an immediate risk for injury on a person or property.	can/1246(harm)
+e	1811	512	SOUND OR NOISE	sound	Any audible noise which is not necessarily unwanted or unpleasant to the hearer and of short or long duration.	whole, firm/2215
+p	1811	993	SOUND OR NOISE	sound	Any audible noise which is not necessarily unwanted or unpleasant to the hearer and of short or long duration.	wave, human hear, IN air
+p	1812	1976	TRY	try	To attempt to do something.	=AGT want =AGT[=PAT]
+e	1818	289	ADJUDICATE	judge	To act as a judge.	human, PART_OF court/3124, decide, make official(opinion)
+p	1821	1277	BRUSH	brush	An implement with a handle, and a head with multiple more or less flexible bristles, used for arranging hair.	device, HAS hair/3359, HAS handle, clean INSTRUMENT, polish INSTRUMENT, paint INSTRUMENT
+p	1826	999	ANGRY	angry	Irritated, in a temper, feeling or displaying anger.	anger
+e	1846	2530	RULE	rule	To exercise power or authority over a person, a group of persons, animals, territories or an organization.	govern
+p	1847	273	SICK	ill	Whose health is altered.	HAS disease, LACK healthy
+p	1847	274	SICK	sick	Whose health is altered.	ill, <vomit>
+p	1850	1936	COTTON	cotton	Fiber obtained from plants of the genus Gossypium, used in making fabrics, cordage, and padding and for producing artificial fibers and cellulose.	plant, soft, white, fibre
+p	1852	921	OFTEN	often	Many times, with short intervals between occasions.	many IN time, little(distance) BETWEEN
+e	1856	1979	SOFT	soft	A state of consistency allowing alterations of form with ease, no big force required, to bring things into something of this state (such as e.g. soaked loam or clay soil).	hard(ER gen)
+p	1856	1979	SOFT	soft	A state of consistency allowing alterations of form with ease, no big force required, to bring things into something of this state (such as e.g. soaked loam or clay soil).	hard(gen ER)
+e	1868	1742	VISIBLE	show	That one can see.	=AGT CAUSE[gen see =PAT]
+p	1868	3128	VISIBLE	visible	That one can see.	can/1246(gen see)
+p	1869	2609	BUY	buy	To obtain in exchange for money or goods.	=AGT receive =PAT, =AGT pay seller, "from _" MARK seller
+p	1882	2768	BEFORE	before	At a time before that.	before
+e	1882	598	BEFORE	before	At a time before that.	before
+e	1882	649	BEFORE	first	At a time before that.	-th/5[one], LACK before, second/1569 FOLLOW
+e	1883	608	IN FRONT OF	front	In front of in space	part, first
+p	1884	1291	HARD	hard	Resistant to pressure.	gen LACK bend/975, gen LACK soft
+p	1890	1062	BELIEVE	believe	To be confident about something.	=AGT think[=PAT[true,real]]
+e	1890	1064	BELIEVE	faith	To be confident about something.	belief, religious
+p	1892	522	TOUCH	touch	To be in physical contact with.	<hand> AT =PAT[surface], <=AGT HAS hand>, contact, feel surface
+p	1897	2072	HELP	help	To give assistance or aid to.	=AGT CAUSE[=PAT[succeed]], =AGT together =PAT
+p	1906	680	SOUR	sour	Having an acid, sharp or tangy taste.	taste, resemble acid, <bad>
+p	192	2062	CORNER	corner	The area around the point where two converging walls meet.	point, turn AT, sharp, two(side) AT
+p	1928	2596	CEASE	end	To have an end, in a temporal, spatial, or quantitative sense; either spatial or metaphorical.	part, after(LACK exist)
+p	1929	2305	STUDY	study	To follow a course of study; to be enrolled at an institute of learning.	work, want know =PAT, 
+p	194	383	FAMILY	family	A group comprising parents, offsprings and others closely related or associated with them.	group, <two>(parent) PART_OF, <more>(child) PART_OF
+p	1942	1414	NEAR	near	Not far distant in time or space or degree or circumstances.	distance, gen ER distance
+p	196	113	DONATE	give	To give [a gift or award] in a formal manner.	=AGT CAUSE[person HAS =PAT], "dative" MARK person
+p	197	1567	OTHER	other	The rest of a group of.	other
+p	1986	1370	DISEASE	disease	A definite pathological process having a characteristic set of signs and symptoms which are detrimental to the well-being of the individual.	bad(situation), organ IN
+p	1992	14	MORE	-er	-	ER, HAS quality, "_-er" MARK quality
+p	1992	2404	MORE	more	[Used in forming the comparative form of many adjectives and almost all comparable adverbs.]	quantity, ER gen
+e	1993	1851	SELF	self	The essential qualities that make a person or a thing distinct from all others.	=PAT[=AGT], =AGT[=PAT]
+p	1998	1941	COMMAND	command	To order someone or several persons by a superior authority to do something.	speak, HAS authority, CAUSE {person do =PAT}, "dative" MARK person
+p	2	1970	DUST	dust	Any kind of solid material divided in particles of very small size.	substance, fine, dry, particle, powder, <dirt>
+p	200	192	SAME	same	Bearing full likeness by having precisely the same set of characteristics.	LACK different
+e	2001	795	PAINTING	paint	To make a painting or drawing.	=AGT CAUSE {=PAT[liquid] cover surface, =PAT[picture] ON surface}, liquid HAS colour, decorate, INSTRUMENT brush
+p	2003	847	FLOW	flow	To move as a fluid from one position to another (e.g. of water or of people).	<liquid> move[smooth]
+e	2004	1112	BEND	bend	Movement that causes the formation of a curve.	line, LACK straight/563
+p	2004	975	BEND	bend	Movement that causes the formation of a curve.	HAS form[change], after(LACK straight/563)
+p	2045	3633	COLUMN	column	An upright supporting beam.	shape, tall, vertical, solid
+e	2063	2668	CLOSE (EYES)	shut	Move ones eyelids in such a way that the eyes are no longer visible.	gen LACK [move through]
+e	2071	2374	LAY (VERB)	put	To place down in a position of rest, or in a horizontal position.	=AGT CAUSE[=PAT AT place], =AGT move =PAT, "TO _" MARK place
+p	2072	1008	USE (VERB)	use	To employ an object, often to reach a certain goal; to put into service.	=AGT HAS purpose, =PAT help purpose,  "for _" MARK purpose, "to _" MARK purpose 
+e	2087	588	DROP (CLASSIFIER)	drop	Classifier for small units of liquid, like water.	fall/2694
+p	2098	1466	FOOT OR LEG	foot	Lower part of the human body which is used for walking.	organ, leg HAS, AT ground
+p	2099	931	CHILD	child	A young human or the descendant of a human.	person, young, parent make
+e	21	1113	TASTE (SOMETHING)	taste	To try the flavor of something.	<food> HAS, person feel, INSTRUMENT tongue
+p	210	505	LIFE	life	The time between birth or conception and death.	live
+p	2102	497	BURN	burn	To put fire on something or to be on fire.	fire, <=AGT wood, after(ash)>
+e	2105	1794	FEMALE PERSON	female	A human belonging to the female sex.	sex
+e	2106	1039	MALE PERSON	male	A human belonging to the male sex.	sex
+e	2106	659	MALE PERSON	man	A human belonging to the male sex.	animal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285
+p	2106	744	MALE PERSON	man	A human belonging to the male sex.	person, male
+m	2108	698	RAINING OR RAIN	rain	The process by which water falls from the clouds or the water that falls from the clouds.	water, FROM atmosphere, fall/2694, many(drop), weather
+p	2115	1615	CEASE OR FINISH	stop	To stop doing something, voluntarily or involuntarily.	after(=AGT LACK move)
+p	2117	2544	DESIRE	desire	To want to do something, to wish for something to happen, or to have affection for someone.	feeling, want
+e	2124	2151	SMELL	smell	Perceive or emit odour.	feel INSTRUMENT nose, =PAT IN air
+p	2134	1788	RAISE (BRING UP)	raise	To take care of an infant or some other living creature, usually until it can live independently.	help [=PAT grow]
+e	2134	661	RAISE (BRING UP)	raise	To take care of an infant or some other living creature, usually until it can live independently.	after(=PAT high)
+p	2151	2134	COARSE	thick	Unrefined with reference to material.	LACK thin/1038
+e	2151	2752	COARSE	thick	Unrefined with reference to material.	{distance BETWEEN surface} ER gen, HAS more(surface) 
+p	2156	2542	CUT (WITH KNIFE)	cut	To slice or to divide into pieces with help of a knife or a knifelike object.	separate, INSTRUMENT edge
+e	2157	1038	FINE OR THIN	thin	Of a substance: divided into or consisting of very small pieces.	flow( ER gen)
+e	2157	2598	FINE OR THIN	thin	Of a substance: divided into or consisting of very small pieces.	gen ER {distance BETWEEN surface} 
+p	2159	2297	GROUND	ground	The top layer of the earth.	surface, solid, AT earth
+e	2159	815	GROUND	earth	The top layer of the earth.	planet, IN space/2509, life ON, ocean ON, land ON, HAS atmosphere
+e	218	809	FINE (PENALTY)	fine	A pecuniary punishment or penalty imposed by lawful tribunal upon person convicted of crime or misdemeanor.	small, light/1381, thin/2598
+p	2190	1113	TASTE	taste	The sensory impression of food or other substances on the tongue.	<food> HAS, person feel, INSTRUMENT tongue
+p	2191	139	LOW (HEIGHT)	low	Having little relative height; not high or tall.	height(gen ER)
+e	2194	608	FRONT (PART)	front	The forward part or surface, as of a building.	part, first
+p	221	2454	FIRE	fire	The state of combustion in which inflammable material burns, producing heat, flames and often smoke.	substance, CAUSE heat, CAUSE light/739, HAS flame, burn, <CAUSE smoke>
+e	2219	1038	LEAN (MEAT)	thin	Carry little fat (of meat).	flow( ER gen)
+e	2219	2598	LEAN (MEAT)	thin	Carry little fat (of meat).	gen ER {distance BETWEEN surface} 
+p	2223	999	BE ANGRY	angry	Be in an angry state.	anger
+e	2224	1112	BEND (SOMETHING)	bend	To carry out a movement to turn something into a curved shape.	line, LACK straight/563
+p	2224	975	BEND (SOMETHING)	bend	To carry out a movement to turn something into a curved shape.	HAS form[change], after(LACK straight/563)
+e	2235	2389	CLEAN (SOMETHING)	clean	To cause something to be no longer dirty.	LACK dirt
+p	2239	2134	DENSE	thick	To be thick, of liquids.	LACK thin/1038
+e	2239	2752	DENSE	thick	To be thick, of liquids.	{distance BETWEEN surface} ER gen, HAS more(surface) 
+p	2244	738	METAL	metal	A material (an element, compound, or alloy) that is typically hard, opaque, shiny, and has good electrical and thermal conductivity.	material, solid, shine, conduct electricity
+e	2248	2455	KNOW (SOMEBODY)	know	To have met and recognize somebody.	=AGT HAS information, information connect =PAT
+e	2249	1038	THIN (OF SHAPE OF OBJECT)	thin	Being narrow (of flat or long objects).	flow( ER gen)
+p	2249	2598	THIN (OF SHAPE OF OBJECT)	thin	Being narrow (of flat or long objects).	gen ER {distance BETWEEN surface} 
+e	2250	723	LEAF (LEAFLIKE OBJECT)	leaf	An object that is similar in shape to the leaves of a tree, such as a sheet of paper.	organ, green, flat, AT stem, PART_OF plant
+p	2259	1093	FLESH	flesh	The soft substance in the body of living things.	material, soft, muscle
+e	2260	1794	FEMALE (OF PERSON)	female	Relating to the female sex of humans.	sex
+e	2261	1039	MALE (OF PERSON)	male	Relating to the male sex of humans.	sex
+e	2262	1794	FEMALE (OF ANIMAL)	female	Relating to the female sex of animals.	sex
+p	2271	907	THINK	think	Use ones mental power to form ideas or having used ones mental power to form ideas of conviction or belief.	=PAT IN mind, =AGT HAS mind
+p	2272	1655	HOT OR WARM	warm	Having a higher temperature than normal.	temperature(ER gen)
+p	2272	862	HOT OR WARM	hot	Having a higher temperature than normal.	temperature, high
+e	2272	878	HOT OR WARM	warm	Having a higher temperature than normal.	after(warm/1655)
+p	2277	553	WHOLE	whole	In its entirety.	all member
+p	2281	1740	WORKING OR WORK	work	The process by which one produces something (sometimes also in exchange for money).	useful
+p	2295	3135	SUNSET	sunset	The daily disappearance of the Sun below the western horizon as a result of Earth's rotation.	after(sky LACK sun)
+p	2296	3136	SUNRISE	sunrise	The instant at which the upper edge of the Sun appears over the eastern horizon in the morning.	after(sun AT sky)
+p	2302	1294	CIRCULAR (ROUND IN TWO DIMENSIONS)	circular	Having a circular shape.	shape, resemble circle, curve
+e	2303	1295	SPHERICAL (ROUND IN THREE DIMENSIONS)	round	Having a spherical shape.	circular/1294
+e	2305	1038	THIN (OF HAIR AND THREAD)	thin	Being very narrow (of long objects, like hairs or wires).	flow( ER gen)
+p	2305	2598	THIN (OF HAIR AND THREAD)	thin	Being very narrow (of long objects, like hairs or wires).	gen ER {distance BETWEEN surface} 
+e	2306	1038	THIN (OF LEAF AND CLOTH)	thin	Being very narrow (of flat objects, like leaves or cloth).	flow( ER gen)
+p	2306	2598	THIN (OF LEAF AND CLOTH)	thin	Being very narrow (of flat objects, like leaves or cloth).	gen ER {distance BETWEEN surface} 
+e	2308	1038	THIN	thin	Being narrow or carrying a small amount of fat.	flow( ER gen)
+e	2308	2598	THIN	thin	Being narrow or carrying a small amount of fat.	gen ER {distance BETWEEN surface} 
+e	2319	750	LID (COVER, CAP)	cover	The cap of a container.	=AGT ON =PAT, protect, CAUSE[LACK(gen see =PAT)]
+p	2319	751	LID (COVER, CAP)	lid	The cap of a container.	cover, hollow HAS
+s	2327	274	BECOME SICK	sick	To catch a disease.	ill, <vomit>
+p	2339	2259	NEED (SOMETHING)	need	Feeling the desire or the urge for something.	=AGT want
+p	2375	869	VERTICAL	vertical	Direction passing by a given point is said to be vertical if it is locally aligned with the gradient of the gravity field.	direction, HAS top, HAS middle, HAS bottom, earth pull IN direction
+p	2376	3144	HORIZONTAL	horizontal	Plane is said to be horizontal at a given point if it is perpendicular to the gradient of the gravity field at that point— in other words, if apparent gravity makes a plumb bob hang perpendicular to the plane at that point.	direction, flat(ground) HAS, still(water) HAS
+e	2381	3359	FEATHER OR FUR OR HAIR	hair	The cover of a mammal or a bird.	organ, fine, thread, grow, long, ON body, animal HAS body
+p	239	2637	FLOWER	flower	The reproductive structure of angiosperm plants, consisting of stamens and carpels surrounded by petals and sepals all borne on the receptacle.	plant HAS, <HAS colour>
+p	2401	1242	PICTURE	image	A photograph or a painting	HAS form, resemble object, gen see, represent object, "of_" MARK object
+p	2401	1244	PICTURE	picture	A photograph or a painting.	image
+p	2406	1924	HOME	home	The place where one lives.	place/1026, =AGT AT, "poss" MARK =AGT
+p	2411	200	HURT (SOMEBODY)	hurt	Imposing pain on somebody else.	CAUSE {=PAT HAS pain}, offend
+p	2424	2293	MEMBER	member	A person who belongs to any organized or non-organized group of people.	group HAS, IN group
+p	2425	2785	PROBLEM	problem	Something that poses difficulties and requires to be solved in someway.	situation, difficult, after(solve)
+p	2427	1197	FUTURE	future	The future is what will happen in the time after the present.	time, FOLLOW now
+p	2432	1487	MARRIAGE	marriage	Marriage, also called matrimony or wedlock, is a socially or ritually recognized union or legal contract between spouses that establishes rights and obligations between them, between them and their children, and between them and their in-laws.	legal(union), husband PART_OF, wife PART_OF
+e	2449	3337	FAT (OF MEAT AND FOOD)	fat	The property of food, especially meat, to contain a large proportion of fat.	substance, resemble oil, <IN food>, <UNDER skin>
+p	2457	2481	PATH OR ROAD	road	A piece of ground that people can walk or drive along.	way, HAS hard (surface), vehicle ON
+p	2457	2484	PATH OR ROAD	way	A piece of ground that people can walk or drive along.	artefact, gen move AT, HAS direction
+p	2466	2127	WEIGHT	weight	The amount a thing weighs.	physical(quantity), heavy
+p	248	2418	HAPPEN	happen	To come to pass.	change
+p	2482	586	TOGETHER	together	In proximity to each other (of two things).	similar <place, intent>
+s	2483	1053	COLD (OF WEATHER)	cold	Having a low temperature (of the weather).	temperature, low
+e	2483	1101	COLD (OF WEATHER)	cool	Having a low temperature (of the weather).	after(cold)
+s	2483	1103	COLD (OF WEATHER)	cool	Having a low temperature (of the weather).	temperature, normal ER, ER cold
+p	25	1438	DIRT	dirt	Any unclean substance, such as mud, dust, dung etc.	earth IS_A, mud IS_A, dust IS_A
+e	250	1381	LIGHT (COLOR)	light	(Of color) having a relatively small amount of color components.	weight(gen ER)
+e	250	739	LIGHT (COLOR)	light	(Of color) having a relatively small amount of color components.	material, wave, CAUSE[animal see thing], beam/2722
+e	250	944	LIGHT (COLOR)	light	(Of color) having a relatively small amount of color components.	=PAT[burn[after]]
+p	2504	1566	DIFFERENT	different	To be not the same as something else.	=PAT HAS quality, =AGT LACK quality, "from _" MARK =PAT
+p	2509	405	EXCHANGE	exchange	To hand out one thing while receiving another thing or to replace one thing with another.	before(=PAT AT person), after(=PAT AT other(person)) 
+e	2512	412	CHICK	chicken	A young bird that has not yet reached adulthood.	bird, make meat, make egg  
+e	2516	2622	WATER BUFFALO	water	A large bovid originating in South Asia, Southeast Asia, and China.	liquid, LACK colour, LACK taste, LACK smell, life need
+p	252	2916	FRIGHTEN	frighten	To make someone afraid or anxious.	CAUSE fear     
+e	2521	521	FEELING (HAPTIC SENSE)	feel	The sense that enables to perceive surfaces of things.	=PAT IN mind, =PAT AT body, =AGT HAS body, =AGT HAS mind
+p	2521	522	FEELING (HAPTIC SENSE)	touch	The sense that enables to perceive surfaces of things.	<hand> AT =PAT[surface], <=AGT HAS hand>, contact, feel surface
+e	2521	533	FEELING (HAPTIC SENSE)	feeling	The sense that enables to perceive surfaces of things.	mental, other CAUSE, joy IS_A, sorrow IS_A, fear IS_A, anger IS_A
+p	2524	1856	JOY	joy	Mental happiness.	sensation, good
+p	2526	684	POWER	power	The ability to act or force others to act.	CAUSE change
+p	2526	979	POWER	power	The ability to act or force others to act.	CAUSE change<move>
+p	2531	2166	BROAD	wide	Having a large width.	distance[great, horizontal] BETWEEN side, HAS more(side)
+e	254	338	STICKING	stick	To stick or hold together and resist separation.	object, long, <wood>, <gen use>
+p	2546	1011	BORDER	border	The non-natural boundary of a region.	line, official, separate <two(country)>
+p	2549	1172	VEHICLE	vehicle	Any larger device that can be used to move persons and things.	machine, HAS wheel(many),  move {people,object} INSTRUMENT, car IS_A, truck IS_A, bus IS_A
+e	2555	3337	OIL (FROM PLANTS)	fat	Liquid hydrophobic substance from plants which is used for cooking.	substance, resemble oil, <IN food>, <UNDER skin>
+e	2559	521	FEEL (TACTUALLY)	feel	To sense something by touching its surface.	=PAT IN mind, =PAT AT body, =AGT HAS body, =AGT HAS mind
+p	256	542	FOOD	food	A substance that can be ingested and utilized by the organism as a source of nutrition and energy.	material, gen eat
+p	2561	1318	HURT (SENSE PAIN)	pain	To feel pain.	bad, sensation, injury CAUSE
+e	2561	200	HURT (SENSE PAIN)	hurt	To feel pain.	CAUSE {=PAT HAS pain}, offend
+p	2562	1780	SEX (GENDER)	sex	The gender of a person, like female, or male.	male IS_A, female IS_A
+m	2572	2458	SENSE (PERCEIVE BY SENSES)	sense	To perceive by means of senses.	animal HAS, hear IS_A, see IS_A, smell IS_A, touch IS_A, taste IS_A
+p	2573	3010	FEELING (EMOTION)	emotion	To sense things mentally (pain, joy, etc.).	state/77, IN mind, feeling
+p	2573	533	FEELING (EMOTION)	feeling	To sense things mentally (pain, joy, etc.).	mental, other CAUSE, joy IS_A, sorrow IS_A, fear IS_A, anger IS_A
+e	2575	409	DO OR MAKE	make	To do something or to make something.	=AGT CAUSE[=PAT[exist]]
+e	258	1827	CALM	calm	Describing a quiet body of water free from disturbance and without wind or waves.	quiet, LACK motion, LACK angry, LACK nervous, LACK upset
+s	2613	318	SKIN (HUMAN)	skin	The outer tissue of human beings.	organ, PART_OF body, cover
+s	2614	318	SKIN (ANIMAL)	skin	The outer tissue covering animals.	organ, PART_OF body, cover
+p	2615	1093	FLESH OR MEAT	flesh	Either referring to the soft substance of the body of living things (flesh), or to the soft substance in animals as an important source of food for humans.	material, soft, muscle
+p	2615	1094	FLESH OR MEAT	meat	Either referring to the soft substance of the body of living things (flesh), or to the soft substance in animals as an important source of food for humans.	flesh, food, animal<mammal> HAS 
+p	2618	1221	CAMERA	camera	Optical instrument for storing images.	machine, make photograph, HAS lens
+p	2622	893	ENGINE	engine	Machine that converts energy into mechanical energy.	machine, CAUSE[move]
+p	2624	1303	FRAME	frame	A structural system of support.	artefact, HAS part[more, together], structure, give shape, fix, border
+p	2628	2421	PLANT STEM	stem	One of two main structural axes of a vascular plant, the other being the root.	PART_OF plant, long, leaf FROM, flower FROM, fruit FROM
+s	2648	3359	HAIR (HEAD)	hair	The hair on the head of humans (rather than the hair in general or the hair on the body).	organ, fine, thread, grow, long, ON body, animal HAS body
+p	2658	2169	COAL	coal	A combustible black or brownish-black sedimentary rock usually occurring in rock strata in layers or veins.	mineral, hard, black, burn, make heat
+e	266	2107	SCALE	scale	One of the small flat pieces of skin that cover the bodies of fish.	range, level AT, measure INSTRUMENT, regular
+p	2667	2759	TORSO	trunk	The central part of the human body, from which neck and limbs extend.	main(part), long, stable
+e	2669	1969	POINT (WITH FINGER)	point	To use the finger to show something to somebody.	place, LACK PART_OF
+p	27	1540	AIR	air	A predominantly mechanical mixture of a variety of individual gases forming the earth's enveloping atmosphere.	gas, life need, @Earth HAS
+p	2708	269	TALK	talk	To converse with one or more persons.	communicate, INSTRUMENT sentence
+p	2711	3057	TRANSPORT	transport	To carry larger objects, usually with help of a vehicle.	move
+e	2783	2107	SCALES (MEASURE INSTRUMENT)	scale	Instrument to measure the weight of objects.	range, level AT, measure INSTRUMENT, regular
+p	2790	1582	HIGH OR TALL	high	Being in a position comparatively far above to the ground or be of great height (of objects and persons).	top ER gen, HAS top 
+p	2845	1605	SIZE (OF OBJECT)	size	The height of objects.	dimension
+p	2857	2554	CHANGE (BECOME DIFFERENT)	change	To be modified.	after(=PAT[different])
+p	2862	1227	CONNECT	connect	To link two objects with each other.	after(connected)
+p	2866	588	DROP (SOMETHING)	drop	To let something fall down.	fall/2694
+p	2867	2141	CALCULATE	calculate	To determine by mathematical processes.	=AGT CAUSE[=AGT know number], FROM information
+e	2868	2614	DRIVE (CATTLE)	drive	Cause animals to move while following them.	=AGT CAUSE[=PAT[<car>,move]], control
+s	2873	1731	MOVE (AFFECT EMOTIONALLY)	move	To affect somebody emotionally.	before(=AGT AT place/1026), after(=AGT AT other(place/1026))
+e	2874	1731	MOVE (ONESELF)	move	To get oneself in motion in order to arrive at some other place.	before(=AGT AT place/1026), after(=AGT AT other(place/1026))
+e	2879	512	SOUND (OF INSTRUMENT OR VOICE)	sound	The noise emitted by musical instruments or humans speaking.	whole, firm/2215
+p	2879	993	SOUND (OF INSTRUMENT OR VOICE)	sound	The noise emitted by musical instruments or humans speaking.	wave, human hear, IN air
+p	2880	1615	HALT (STOP)	stop	To halt one’s movement.	after(=AGT LACK move)
+p	2882	1859	ADD	add	Join or unite so as to bring about an increase.	=AGT CAUSE[=PAT IN place], "TO _" MARK place
+s	2883	1166	DISTURB	upset	Interfere with somebody	disturb
+p	2883	2673	DISTURB	disturb	Interfere with somebody.	interrupt, =AGT CAUSE[=PAT LACK calm]
+p	2893	540	NOTICE (SOMETHING)	notice	To become aware of something.	know, see
+e	2894	1883	TUMBLE (FALL DOWN)	fall	To fall down accidentally.	autumn
+e	2894	2694	TUMBLE (FALL DOWN)	fall	To fall down accidentally.	move, after(down)
+p	2900	2593	PROTECT	protect	To prevent something or somebody from being harmed.	=AGT CAUSE[=PAT[safe]]
+e	2902	1002	BRAWL (FIGHT)	fight	To be involved in a normally unarmed and ruleless scuffle.	person want[harm AT other(person)], INSTRUMENT weapon
+e	291	318	PULL OFF (SKIN)	skin	To strip or pull off the skin or hide of.	organ, PART_OF body, cover
+e	2919	1828	STILL (CONTINUING)	still	Continuance of motion or state.	LACK move
+p	2924	1355	A LITTLE	little	More than one, but not as many as usual or as expected. (for mass nouns)	small
+p	2931	2974	BUSINESS	business	A business is an organizational entity involved in the provision of goods and services to consumers.	organization, make money
+p	2932	1053	COLD (CHILL)	cold	Cold is the presence of low temperature, especially in the atmosphere.	temperature, low
+p	2933	269	CONVERSATION	talk	Conversation is interactive, communication between two or more people.	communicate, INSTRUMENT sentence
+e	2945	2142	COUNT (QUANTITY)	count	The total number of individual things in a given unit or sample obtained by counting all or a subsample of them.	calculate, other(number) FOLLOW number
+p	2947	1209	DAMAGE (INJURY)	damage	Loss or harm resulting from injury to person or objects.	bad(situation)
+p	2947	3360	DAMAGE (INJURY)	injury	Loss or harm resulting from injury to person or objects.	damage, body HAS
+p	2950	528	MEANING	meaning	The thing one intends to convey especially by language.	information IN mind, sign represent
+p	2955	76	STATE (POLITICS)	state	A politically organized body of people usually occupying a definite territory.	land, political(unit), HAS government, control self
+p	2956	418	TUBE	pipe	Cylindrical structure or device.	artefact, space/2327 IN, cylinder, liquid[move] IN
+p	2956	419	TUBE	tube	Cylindrical structure or device.	pipe
+p	2960	2544	LONGING (WISH)	desire	The strong desire for something.	feeling, want
+p	2961	2508	MESSAGE	message	A message is a discrete unit of communication intended by the source for consumption by some recipient or group of recipients.	information, <written>
+e	2968	1892	REASON	reason	Reason is the capacity for consciously making sense of things, applying logic, establishing and verifying facts, and changing or justifying practices, institutions, and beliefs based on new or existing information.	CAUSE thing, gen understand thing
+p	2975	908	THOUGHT	thought	Thought refers to ideas or arrangements of ideas that are the result of the process of thinking.	idea, IN mind
+p	2978	2290	DISTANCE	distance	Distance is a numerical description of how far apart objects are.	space/2327 HAS size, space/2327 BETWEEN
+e	2980	2366	AREA	area	Area is the quantity that expresses the extent of a two-dimensional figure or shape, or planar lamina, in the plane.	place/2326, IN country, <HAS border>
+e	2981	3343	ITEM	item	Any object that can be grasped.	one, IN list, IN group, IN set/2746
+e	2983	2549	COMPANIONSHIP	company	An interpersonal relationship is a strong, deep, or close association or acquaintance between two or more people that may range in duration from brief to enduring.	organization, FOR business
+p	2985	1583	HEIGHT	height	Height is the measure of vertical distance, either how "tall" something is, or how "high up" it is.	distance, vertical
+p	2987	1666	AMOUNT	amount	Quantity is a property that can exist as a magnitude or multitude.	quantity
+p	3003	2216	SOLID	solid	Firm to the touch.	firm/2215
+p	3006	2327	SPACE (AVAILABLE)	space	Available space to place things.	thing IN, empty, three(dimension) IN
+e	3006	2509	SPACE (AVAILABLE)	space	Available space to place things.	sun IN, star IN, atmosphere under %galaxy IN
+e	303	940	ABSTAIN FROM FOOD	fast	To refrain from eating.	quick
+p	3068	1101	COOL DOWN	cool	To cause a decrease in temperature of an object or space; to cause something to become cold.	after(cold)
+e	3068	1103	COOL DOWN	cool	To cause a decrease in temperature of an object or space; to cause something to become cold.	temperature, normal ER, ER cold
+p	3072	656	MISPLACE	lose	To place something in a place where one cannot find it again or in a wrong place; to lose something.	after(LACK)
+e	3074	2026	FIX	fix	To restore something by replacing a broken part or putting together what is broken, or to repair a hole in a cloth or wheel.	=AGT CAUSE[=PAT[stable]]
+p	3076	1529	SLOPE	slope	A stretch of ground forming a geological incline, e.g. a hillside.	=AGT HAS direction, HAS end[high], =AGT HAS end[other,low]
+e	3077	1805	SWALLOW (BIRD)	swallow	Any of the various passerine birds of the family Hirundinidae; martin.	=AGT CAUSE[=PAT[move]], after(=PAT IN stomach), =PAT IN mouth, =PAT IN throat, =AGT HAS stomach, =AGT HAS mouth, =AGT HAS throat
+e	3078	2622	IRRIGATE	water	To supply with water; to water.	liquid, LACK colour, LACK taste, LACK smell, life need
+e	3108	478	BOX (SOMEBODY OR SOMETHING)	box	The act of using fists to fight or hit.	container, HAS lid, cube
+e	3109	1277	BRUSH (TEETH)	brush	Clean one's teeth by repeatedly grating over them with an object.	device, HAS hair/3359, HAS handle, clean INSTRUMENT, polish INSTRUMENT, paint INSTRUMENT
+e	3111	3353	CONDUCT	conduct	To lead some kind of musical performance.	=AGT CAUSE[=PAT AT place], "to" MARK place, <energy[flow] IN>
+p	3122	795	PAINT (SOMETHING)	paint	The act of spreading coloured pigments on a surface.	=AGT CAUSE {=PAT[liquid] cover surface, =PAT[picture] ON surface}, liquid HAS colour, decorate, INSTRUMENT brush
+e	3123	1243	PHOTOGRAPH (SOMETHING)	photograph	Use a light-sensitive device to take an image of something.	image, camera make
+p	321	1983	CHEW	chew	To crush with the teeth by repeated closing and opening of the jaws; done to food to soften it and break it down by the action of saliva before it is swallowed.	bite, CAUSE [=PAT[liquid]]
+p	3223	66	BRANCH OR TWIG	branch	A woody part of a tree arising from the trunk or from another branch.	part, long, <tree HAS>
+p	323	3337	FAT (ORGANIC SUBSTANCE)	fat	Esters of three fatty acid chains and the alcohol glycerol which form a semi-solid substance in room temperature and occur in animals and plants.	substance, resemble oil, <IN food>, <UNDER skin>
+p	3235	1814	OPEN (STATE)	open	To be accessible and/or not closed.	move[can/1246], move through, LACK shut/2668
+e	3235	1815	OPEN (STATE)	open	To be accessible and/or not closed.	=PAT[open/1814[after]]
+p	3238	670	ALLOW	allow	To not try to stop someone from doing something.	=AGT[LACK[=AGT stop =PAT]]
+e	325	1974	FELT	fur	A cloth or stuff made of matted fibres of wool, or wool and fur, fulled or wrought into a compact substance by rolling and pressure, with lees or size, without spinning or weaving.	hair/3359, cover skin, mammal HAS
+e	3290	2614	IMPEL	drive	Cause objects, people or animals to move (typically by following them).	=AGT CAUSE[=PAT[<car>,move]], control
+p	3299	1274	KIND	kind	Being nice and giving off the impression of benevolence.	like/3382, help
+p	3303	1244	PICTURE (PAINTING)	picture	A painted image.	image
+e	3331	940	FASTING	fast	To consume little or no food for a specific period of time, usually done for religious reasons.	quick
+e	3333	1063	BELIEF (RELIGIOUS)	belief	A school of thought rooted in religious beliefs and traditions and used for guiding actions.	believe
+p	3347	1582	HIGH OR UP	high	Being in a position comparatively far above to the ground or moving in that direction.	top ER gen, HAS top 
+p	3348	139	LOW (POSITION OR HEIGHT)	low	Being in a position comparatively close to the ground or having little relative height.	height(gen ER)
+p	3351	1615	STOP DOING	stop	To stop doing the action one was doing.	after(=AGT LACK move)
+p	3357	2180	CUPBOARD	cupboard	Storing space with a door that can be closed.	furniture, HAS door, HAS shelf, store
+e	3358	1551	SPROUT (SHOOT)	shoot	The early growth of a plant.	after(bullet fly[fast]), INSTRUMENT gun
+e	3361	1065	OFFICIAL	official	A person who acts on behalf of a governmental or non-governmental organization within the scope of their prescribed authority.	AT authority
+p	3361	2398	OFFICIAL	official	A person who acts on behalf of a governmental or non-governmental organization within the scope of their prescribed authority.	person, HAS authority
+p	3368	1971	POWDER	powder	The granular state of solid matter that was crushed or ground into finest particles.	substance, more(particle)
+e	337	2630	PITCHFORK	fork	An agricultural tool comprising a fork attached to a long handle used for pitching hay or bales of hay high up onto a haystack.	cutlery, <metal>, HAS {<four>(branch)}, HAS handle, {move food} INSTRUMENT
+p	3396	3125	BUILDING	building	A solid construction comprised of walls and a roof.	artefact, structure, HAS roof, HAS more(wall), <house>
+e	3403	3130	HORSE BARN	stable	A barn for horses.	LACK move
+e	3408	2807	PLANE (TOOL)	plane	A hand tool that is designed to flatten or shape wood.	vehicle, fly, HAS two(wing), <HAS engine>
+p	3427	1148	DIRECTION	direction	A determined trajectory of movement.	relation, HAS end, IN space/2327
+s	344	2759	TREE TRUNK	trunk	The main structural member of a tree.	main(part), long, stable
+e	3447	1313	BEGIN OR START	start	To begin doing an activity, of (of an activity) to begin.	act after   
+p	3447	1313	BEGIN OR START	start	To begin doing an activity, of (of an activity) to begin.	after(act)   
+e	3449	1313	START	start	(Of an activity) to begin.	act after   
+p	3449	1313	START	start	(Of an activity) to begin.	after(act)   
+p	3452	2114	MUCH	much	An indefinite large number of. (for mass nouns)	many
+e	3453	2113	MANY PIECES	many	An indefinite large number of. (for countable nouns)	quantity, ER gen
+e	3458	1827	SILENCE	calm	Absence of sound, especially of noise.	quiet, LACK motion, LACK angry, LACK nervous, LACK upset
+p	3467	2072	HELP (ASSISTANCE)	help	The act of helping someone.	=AGT CAUSE[=PAT[succeed]], =AGT together =PAT
+p	3469	2781	LEVEL	level	The amount or degree of something; the height of the surface of something liquid with respect to its bottom.	position, AT scale
+e	3544	1104	WAVE (VERB)	wave	To move one's hand or arm in a waving motion, with or without holding something like a flag.	IN sequence, move, ON surface, liquid[move[vertical]] HAS surface
+e	3622	497	BURN (INJURY)	burn	An injury caused by exposure to heat, fire or chemical agents.	fire, <=AGT wood, after(ash)>
+p	3626	2455	KNOW	know	To have met and recognize somebody or to be certain or sure about something.	=AGT HAS information, information connect =PAT
+e	363	504	DWELL (LIVE, RESIDE)	live	To live; to reside; to remain or continue.	exist, breathe, grow, reproduce, eat, act, change
+p	3630	2369	PLAN	plan	A method or a set of arrangements, needed to achieve a specific goal.	after(structure)
+p	3659	740	POLISH (SOMETHING)	polish	To make something smooth and shiny by rubbing it with a cloth.	=AGT CAUSE surface[smooth, shine], =PAT HAS surface
+p	3665	2537	TRAVEL	travel	To make a journey, especially over a long distance.	after(=AGT AT place/1026[other,<city>])
+e	3678	2759	ELEPHANT TRUNK	trunk	A long, tube-shaped nose of an elephant.	main(part), long, stable
+p	3701	2500	HOLLOW	hollow	Having an empty space inside.	hole IN
+e	3703	1987	STICKY	sticky	Covered with some substance so that it sticks to anything that touches it.	stick
+e	3704	2151	ODOR (SMELL)	smell	The property of something that can be perceived and recognized through the nose.	feel INSTRUMENT nose, =PAT IN air
+p	3710	2390	CLEAR (TO SEE)	clear	If something is visible without obstacles (e.g., clouds, spots).	can/1246(see through)
+e	3735	3381	NEAR (IN SPACE)	close	Not far distant in space.	move, after(part AT other(part)), after(gen LACK through)
+p	3747	141	SHAPE	form	The form of an object or person which refers to its outline.	object HAS
+p	3747	142	SHAPE	shape	The form of an object or person which refers to its outline.	form
+e	3748	588	DROP (OF A LIQUID)	drop	A small amount of a liquid that falls in a round shape.	fall/2694
+p	3762	303	SAFE	safe	Having a feeling of security or protection from harm.	LACK danger
+p	377	995	LOUD	loud	(Of a sound) to have a high volume.	sound/993, intense
+e	3798	2257	STINGER	sting	The pointed stinging organ of an animal, usually an insect, which is able to penetrate skin. Sometimes used to inject poison.	pierce, <insect>
+p	3800		IVORY	ivory	The hard, white substance which forms the tusks of animals like elephants, narwhals, or walruses and is often considered a valuable material.	bone, elephant HAS
+p	381	1052	BLAME	blame	Accusation for something negative or undesirable.	think =PAT[responsible]
+p	382	2615	GOVERN	govern	To make and administer the public policy and affairs of; to exercise sovereign authority in.	control[system <country>], =AGT HAS power
+p	3830	721	WALL	wall	A supporting structure for different types of constructions, e.g. houses and huts, or a construction to enclose and separate areas.	object, vertical, enclose, divide, protect, building HAS, long, high
+e	3832	2374	PUT (IN A SITTING POSITION)	put	To put someone or oneself in a sitting position.	=AGT CAUSE[=PAT AT place], =AGT move =PAT, "TO _" MARK place
+e	3833	2374	PUT (IN A STANDING POSITION)	put	To put someone or oneself in a standing position.	=AGT CAUSE[=PAT AT place], =AGT move =PAT, "TO _" MARK place
+p	3834	2200	LOVE (AFFECTION)	love	A feeling of affection and fondness for someone.	emotion, good, =PAT[person], care/82
+e	388	2658	FISHNET	red	A net used to catch fish.	colour, warm, fire HAS colour, blood HAS colour, resemble anger
+p	388	955	FISHNET	net	A net used to catch fish.	structure, cord PART_OF, knot PART_OF, catch/828 fish
+p	398	2256	PIERCE	pierce	To tab something through something else.	=AGT CAUSE[hole IN =PAT], INSTRUMENT sharp
+p	404	158	ALCOHOL (FERMENTED DRINK)	alcohol	A fermented drink is a beverage containing alcohol because of a metabolic process that converts sugar to acids, gases and/or alcohol (e.g. beer or wine).	liquid, <drink>, <CAUSE person[drunk]>
+e	415	136	CARRY UNDER ARM	under	To hold or to take something from one place to another under the arm.	high(=PAT ER =AGT)
+e	418	1086	FOR A LONG TIME	long	(Of an action or state) to last a long period of time.	gen ER size[horizontal], HAS axis
+e	43	1832	LEAD (GUIDE)	lead	To guide by moving in front.	soft(metal)
+s	43	2617	LEAD (GUIDE)	lead	To guide by moving in front.	=AGT CAUSE[=PAT[change]]
+e	448	770	STORM CLOUDS	cloud	Darkish clouds attending a windstorm.	object, visible, water, drop, IN sky, <white>, <grey>
+e	465	1080	CARRY ON BACK	carry	To hold or to take something from one place to another on the back.	hold, transport
+p	479	1796	GROW	grow	(For a living being) To become bigger.	after(size(ER gen))
+p	491	1412	CENTER	centre	What's in the mid of a plane or sphere, i.e. in 2- or 3-dimensional space.	middle
+p	492	2970	THREE	three	The natural number three (3).	number, FOLLOW two
+p	493	2989	FIVE	five	The natural number five (5).	number, FOLLOW four
+p	504	2305	LEARN	study	To acquire, or attempt to acquire knowledge or an ability to do something.	work, want know =PAT, 
+p	508	1123	PERIOD	period	A length of time.	time, HAS start, HAS end
+p	547	781	SURFACE	surface	The overside or up-side of a flat object such as a table, or of a liquid; the outside hull of a tangible object.	outer(part), separate, object HAS
+p	557	201	OFFEND	offend	To hurt the feelings of; to displease; to make angry; to insult.	=AGT CAUSE[harm AT =PAT]
+e	564	799	YOUNG (OF MAN)	young	Young of a man as opposed to young of a woman.	early, IN life
+e	570	74	STAND UP	stand	To rise from a lying or sitting position.	=AGT[vertical], =AGT ON two(foot)
+p	571	2257	STING	sting	To hurt, usually by introducing poison or a sharp point, or both.	pierce, <insect>
+p	58	846	LIQUID	liquid	Existing as or having characteristics of a liquid.	substance, flow, HAS shape[change]
+p	580	1974	FUR	fur	The body-hair of an animal (excluding humans) or a piece of clothing made thereof.	hair/3359, cover skin, mammal HAS
+p	583	1274	KIND OR POLITE	kind	Being nice and giving off the impression of benevolence or keeping to a given society's standards of social manners in order to show respect.	like/3382, help
+p	584	1771	DIFFICULT	difficult	Not easy, which needs hard work, patience and effort of either the physical or mental kind.	act need large(effort), "to/3600 _" MARK act
+p	59	88	ELECTRICITY	electricity	A general term used for all phenomena caused by electric charge whether static or in motion.	liquid, HAS power, move<device>, <IN wire>
+p	594	449	PIECE	piece	One object of a set, undivided part of something broken.	thing, small, PART_OF thing[large]
+p	598	1216	SHELL	shell	A hard outer covering of an animal, as the hard case of a mollusk.	cover[hard, outer], <animal> IN
+p	605	2183	GRAIN	grain	Edible, starchy seeds of the grass family (Graminae) usable as food by man and his livestock.	seed, small, dry, cereal HAS
+p	612	1070	HEAT	heat	A form of energy that is transferred by a difference in temperature: it is equal to the total kinetic energy of the atoms or molecules of a system.	energy, warm
+s	612	1071	HEAT	temperature	A form of energy that is transferred by a difference in temperature: it is equal to the total kinetic energy of the atoms or molecules of a system	physical, quality, hot
+p	614	482	HILL	hill	A natural elevation of the land surface, usually rounded.	ON land, high, mountain ER
+p	617	1178	ICE	ice	The dense substance formed by the freezing of water to the solid state; it commonly occurs in the form of hexagonal crystals.	water, cold, hard
+p	619	78	ANIMAL	animal	Any living organism characterized by voluntary movement, the possession of cells with noncellulose cell walls and specialized sense organs enabling rapid response to stimuli, and the ingestion of complex organic substances such as plants and other animals.	live, move
+p	620	2048	INSECT	insect	A class of the Arthropoda typically having a segmented body with an external chitinous covering, a pair of compound eyes, a pair of antennae, three pairs of mouthparts, and two pairs of wings.	small(animal), HAS leg[six], HAS head, <HAS wing>
+e	626	815	LAND	earth	A specified geographical tract of the Earth's surface including all its attributes, comprising its geology, superficial deposits, topography, hydrology, soils, flora and fauna, together with the results of past and present human activity, to the extent that these attributes exert a significant influence on the present and future land utilization. (Source: WHIT)	planet, IN space/2509, life ON, ocean ON, land ON, HAS atmosphere
+p	626	816	LAND	land	A specified geographical tract of the Earth's surface including all its attributes, comprising its geology, superficial deposits, topography, hydrology, soils, flora and fauna, together with the results of past and present human activity, to the extent that these attributes exert a significant influence on the present and future land utilization. (Source: WHIT)	solid, ground, area/2366     
+p	627	1832	LEAD (CHEMICAL ELEMENT)	lead	A heavy toxic bluish-white metallic element with symbol Pb and atomic number 82 that is highly malleable; occurs principally as galena and is used in alloys, accumulators, cable sheaths, paints, and as a radiation shield.	metal, soft
+e	627	1832	LEAD (CHEMICAL ELEMENT)	lead	A heavy toxic bluish-white metallic element with symbol Pb and atomic number 82 that is highly malleable; occurs principally as galena and is used in alloys, accumulators, cable sheaths, paints, and as a radiation shield.	soft(metal)
+e	627	2617	LEAD (CHEMICAL ELEMENT)	lead	A heavy toxic bluish-white metallic element with symbol Pb and atomic number 82 that is highly malleable; occurs principally as galena and is used in alloys, accumulators, cable sheaths, paints, and as a radiation shield.	=AGT CAUSE[=PAT[change]]
+p	628	723	LEAF	leaf	The main organ of photosynthesis and transpiration in higher plants, usually consisting of a flat green blade attached to the stem directly or by a stalk.	organ, green, flat, AT stem, PART_OF plant
+e	630	1381	LIGHT (RADIATION)	light	Electromagnetic radiation that is capable of causing a visual sensation. (Source: CED)	weight(gen ER)
+p	630	739	LIGHT (RADIATION)	light	Electromagnetic radiation that is capable of causing a visual sensation. (Source: CED)	material, wave, CAUSE[animal see thing], beam/2722
+e	630	944	LIGHT (RADIATION)	light	Electromagnetic radiation that is capable of causing a visual sensation. (Source: CED)	=PAT[burn[after]]
+p	634	1094	MEAT	meat	The edible flesh of animals, especially that of mammals.	flesh, food, animal<mammal> HAS 
+p	635	2337	MILK	milk	The whitish fluid secreted by the mammary gland for the nourishment of the young; composed of carbohydrates, proteins, fats, mineral salts, vitamins, and antibodies.	white(liquid), FROM <cow>, fat/3337 IN
+p	639	1024	MOUNTAIN	mountain	A feature of the earth's surface that rises high above the base and has generally steep slopes and a relatively small summit area.	object, ON earth, natural, high, HAS <steep/1673>(side), high(ER hill)
+p	640	2056	MUD	mud	A mixture of clay and/or silt with water to form a plastic mass with a particle size preponderantly below 0.06 mm diameter. It is deposited in low-energy environments in lakes, estuaries and lagoons. It may also be deposited in deep-sea environments. (Source: WHIT)	wet, earth, soft, sticky, water IN
+p	645	1829	OCEAN	ocean	The mass of water occupying all of the Earth's surface not occupied by land, but excluding all lakes and inland seas.	water, salt IN, cover most(earth)
+p	646	991	ASH	ash	The incombustible matter remaining after a substance has been incinerated.	powder[<grey>,<white>,<black>], {<wood> burn} make
+e	647	795	PAINT (PIGMENTS)	paint	A mixture of pigment and a vehicle, such as oil or water, that together form a liquid or paste that can be applied to a surface to provide an adherent coating that imparts colour, protects the surface and/or gives the surface different features.	=AGT CAUSE {=PAT[liquid] cover surface, =PAT[picture] ON surface}, liquid HAS colour, decorate, INSTRUMENT brush
+p	653	2792	PLANT (VEGETATION)	plant	Any living organism that synthesizes its food from inorganic substances, possesses cellulose cell walls, responds slowly and often permanently to a stimulus, lacks specialized sense organs and nervous system, and has no powers of locomotion.	live, LACK move, HAS leaf[many], HAS root, AT earth
+p	657	86	PRICE	price	The amount of money paid per unit for a good or service.	amount, gen pay/812, AT exchange
+p	658	698	RAIN (PRECIPITATION)	rain	Precipitation in the form of liquid water drops with diameters greater than 0.5 millimeters.	water, FROM atmosphere, fall/2694, many(drop), weather
+p	661	2580	RELIGION	religion	The expression of man's belief in and reverence for a superhuman power recognized as the creator and governor of the universe.	system, faith HAS
+p	665	1601	BEE	bee	Any of the membranous-winged insects which compose the superfamily Apoidea in the order Hymenoptera characterized by a hairy body and by sucking and chewing mouthparts.	insect, HAS wing, sting, make honey
+p	667	2481	ROAD	road	A long piece of hard ground that people can drive along from one place to another.	way, HAS hard (surface), vehicle ON
+p	667	2484	ROAD	way	A long piece of hard ground that people can drive along from one place to another.	artefact, gen move AT, HAS direction
+p	670	936	ROOT	root	The absorbing and anchoring organ of a vascular plant; it bears neither leaves nor flowers and is usually subterranean.	under ground, PART_OF plant, support, AT base/146
+p	672	1431	EARLY	early	Before the expected time or towards the beginning of a time period.	AT time, normal ER time
+p	674	2137	MOUTH	mouth	Opening in the lower half of a human face which is used for food ingestion and articulation.	organ, ON face, food IN, speak INSTRUMENT, can/1246(open/1814)
+p	679	2629	BRIGHT	bright	Emitting or reflecting light readily or in large amounts. [WN:679]	shine
+p	682	1903	SIDE	side	The side of an object or person.	part, <two>, centre far, oppose, object HAS
+p	683	2185	PERSON	person	A human being.	man/659
+p	683	658	PERSON	human	A human being.	man/659
+p	685	1627	DECIDE	determine	To reach, make, or come to a decision about something	decide
+p	685	471	DECIDE	decide	To reach, make, or come to a decision about something.	want, before(=AGT HAS more(possibility)), after(=PAT)
+p	686	1380	EASY	easy	Requiring little skill or effort; posing no difficulty.	LACK difficult
+p	688	2441	LUNG	lung	A biological organ that extracts oxygen from the air.	organ, breathe INSTRUMENT
+p	690	787	BOTTOM	bottom	The part furthest in the direction toward which an unsupported object would fall.	PART_OF whole, position, deep( ER whole)
+e	691	546	SEASON	season	One of the four equal periods into which the year is divided by the equinoxes and solstices, resulting from the apparent movement of the sun north and south of the equator during the course of the earth's orbit around it. These periods (spring, summer, autumn and winter) have their characteristic weather conditions in different regions, and occur at opposite times of the year in the N and S hemispheres.	period[<four>], PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather
+e	691	548	SEASON	season	One of the four equal periods into which the year is divided by the equinoxes and solstices, resulting from the apparent movement of the sun north and south of the equator during the course of the earth's orbit around it. These periods (spring, summer, autumn and winter) have their characteristic weather conditions in different regions, and occur at opposite times of the year in the N and S hemispheres.	period, time, PART_OF year, activity IN
+p	691	548	SEASON	season	One of the four equal periods into which the year is divided by the equinoxes and solstices, resulting from the apparent movement of the sun north and south of the equator during the course of the earth's orbit around it. These periods (spring, summer, autumn and winter) have their characteristic weather conditions in different regions, and occur at opposite times of the year in the N and S hemispheres.	period[<four>], PART_OF year, spring/2318 IS_A, summer IS_A, fall/1883 IS_A, winter IS_A, HAS weather
+p	693	2742	FROM	from	Starting at a given point in space or time.	before(IN =PAT), after(far)
+p	694	1206	GET	get	To get or obtain an item; to come into the possession of something.	after(HAS)
+p	694	1223	GET	get	To get or obtain an item; to come into the possession of something.	after(=AGT HAS =PAT), after(HAS)
+p	694	1225	GET	receive	To get or obtain an item; to come into the possession of something.	get/1223
+u	695	1654	GO	go	To get from one place to another by any means.	move, INSTRUMENT leg, =AGT HAS leg
+p	697	2313	CONTAIN	contain	To contain or hold; have within.	=PAT IN =AGT
+p	699	2248	SAD	sad	Feeling mentally uncomfortable because something is missing or wrong.	emotion, bad
+e	7	1225	GATHER	receive	To collect or gather (e.g. work, magazines, etc.).	get/1223
+p	700	1080	CARRY	carry	To lift and bring to somewhere else; to transport by lifting.	hold, transport
+p	704	2389	CLEAN	clean	Not dirty.	LACK dirt
+p	706	2110	DARK	dark	Having an absolute or (more often) relative lack of light.	LACK light/739
+p	707	667	REMEMBER	remember	To recall from memory.	=PAT IN mind, =AGT HAS mind
+p	708	742	SHINE	shine	To emit light.	light/739 FROM
+p	710	1293	WHEEL	wheel	A circular object that spins around a central axe thereby allowing relatively low-friction movement.	artefact, PART_OF <vehicle>, circular/1294, turn, <HAS spoke>, <HAS hub>
+p	711	1581	TALL	tall	Having a vertical extent greater than the average.	height(ER gen)
+p	714	1577	SEED	seed	A mature fertilized plant ovule, consisting of an embryo and its food store surrounded by a protective seed coat (testa).	organ, PART_OF plant, make other(plant)
+p	717	495	SWEET	sweet	Having the taste characteristic of sugar or honey.	taste, good, pleasant, sugar HAS taste, honey HAS taste
+e	718	237	PAY	pay	To give money in exchange for goods or services.	=AGT CAUSE[money AT place], "TO _" MARK place
+p	718	812	PAY	pay	To give money in exchange for goods or services.	=AGT CAUSE[money AT place], "TO _" MARK place
+p	721	139	LOW	low	Being in a position comparatively close to the ground.	height(gen ER)
+e	721	1534	LOW	below	Being in a position comparatively close to the ground.	under
+p	722	2034	ATTACK	attack	The application of violent force to someone or something.	violent, <INSTRUMENT weapon>, want hurt, want damage
+p	723	1026	PLACE (POSITION)	place	A position or area in a space.	point, gen AT
+p	723	1027	PLACE (POSITION)	position	A position or area in a space	place/1026
+p	728	649	FIRST	first	Having no predecessor. The ordinal number corresponding to one.	-th/5[one], LACK before, second/1569 FOLLOW
+e	731	1161	BEVERAGE	drink	Any one of various liquids for drinking.	=PAT[liquid,<alcoholic>] IN mouth, =AGT HAS mouth, =AGT swallow 
+m	731	1164	BEVERAGE	drink	Any one of various liquids for drinking.	liquid, IN mouth, swallow, <alcoholic>  
+p	734	409	MAKE	make	To create something by combining or assembling materials or parts or by changing it.	=AGT CAUSE[=PAT[exist]]
+e	737	1381	LIGHT (IGNITE)	light	To start a fire or light a flame.	weight(gen ER)
+e	737	739	LIGHT (IGNITE)	light	To start a fire or light a flame.	material, wave, CAUSE[animal see thing], beam/2722
+p	737	944	LIGHT (IGNITE)	light	To start a fire or light a flame.	=PAT[burn[after]]
+p	738	481	THING	thing	That which is considered to exist as a separate entity, quality or concept.	exist, <object>
+p	741	2614	DRIVE	drive	To operate a vehicle.	=AGT CAUSE[=PAT[<car>,move]], control
+s	742	1012	END (OF SPACE)	limit	Extreme part	LACK further
+s	742	2596	END (OF SPACE)	end	Extreme part.	part, after(LACK exist)
+s	743	1012	END (OF TIME)	limit	The last or final part	LACK further
+s	743	2596	END (OF TIME)	end	The last or final part.	part, after(LACK exist)
+p	744	2422	EGG	egg	Egg (either fertilized or not) from domesticated birds, most commonly hens, seen as food.	food, round, animal[<female(chicken)>] make, HAS thin/2598(shell)
+p	745	1962	SHELF	shelf	A flat, rigid, rectangular structure, fixed at right angles to a wall, and used to support, store or display objects.	surface, vertical, hold, store, <rectangular>, rigid
+p	746	329	SHOP	shop	A place, especially a small building, for the retail sale of goods and services.	institution, sell IN
+p	749	258	ENTER	enter	To go into.	go, after(=AGT IN =PAT)
+p	750	588	DROP	drop	The event of moving to a lower position due to the effect of gravity.	fall/2694
+p	752	330	STORE	store	An establishment, either physical or virtual, that sells goods or services to the public.	shop
+p	761	750	COVER	cover	To place something over or upon to conceal or protect.	=AGT ON =PAT, protect, CAUSE[LACK(gen see =PAT)]
+p	762	1316	OUTSIDE	out	In the open, not within a building, or outside of something in general.	LACK in, LACK limit
+p	763	318	SKIN	skin	The tissue forming the outer covering of the vertebrate body: it consists of two layers, the outermost of which may be covered with hair, scales, feathers, etc. It is mainly protective and sensory in function.	organ, PART_OF body, cover
+p	765	1731	MOVE	move	To change the location of an object.	before(=AGT AT place/1026), after(=AGT AT other(place/1026))
+p	769	2376	ROOF	roof	The structure covering a building.	top, PART_OF house
+p	779	1997	PART	part	A seperate unit of a larger whole.	IN, connected
+p	781	734	FEAR (FRIGHT)	fear	An emotion experienced in anticipation of some specific pain or danger.	sensation, danger CAUSE, <anxiety>
+p	782	1520	DEFEAT	defeat	An end to a struggle or contest that did not end in success.	before(compete), =AGT HAS success, =PAT[lose]
+p	784	1066	SNOW	snow	The most common form of frozen precipitation, usually flakes or starlike crystals, matted ice needles, or combinations, and often rime-coated.	ice, fall/2694, soft, white
+p	785	688	STRONG	strong	Capable of producing great physical force.	HAS force[great]
+p	789	1762	PEOPLE	people	A group of persons forming or belonging to a particular nation, class, ethnic group, country, family, etc.	human(group)
+p	798	72	JAW	jaw	Either of the two opposable structures forming, or near the entrance to, the mouth.	organ, animal HAS, AT mouth, tooth AT, PART_OF face
+p	799	438	WRIST	wrist	The flexible and narrower connection between the forearm and the hand.	organ, joint, AT hand, AT end, arm HAS end
+p	813	2372	DO	do	To perform an action.	cause, =AGT[animal], =PAT[happen]
+p	815	1433	GOVERNMENT	government	A body that has the authority to make and the power to enforce laws within a civil, corporate, religious, academic, or other organization or group.	authority, country HAS, people IN
+p	819	939	STOMACH	stomach	An organ in the body, involved in digestion of food.	organ, animal HAS, tube, food IN
+p	82	488	ANGER	anger	Belligerence aroused by a real or supposed wrong (personified as one of the deadly sins).	feeling, bad, strong, aggressive
+p	825	494	AWAKE	awake	Not sleeping.	conscious
+p	831	146	BASE	base	The bottom or lowest part.	PART_OF whole, AT bottom, whole HAS bottom, CAUSE whole[fix]
+p	834	3363	BUTTOCKS	buttocks	The fleshy part of the human body that one sits on.	organ, sit ON
+e	834	787	BUTTOCKS	bottom	The fleshy part of the human body that one sits on.	PART_OF whole, position, deep( ER whole)
+p	837	1237	BLUE	blue	Having the pure color of a clear sky; the primary color between green and violet in the visible spectrum, an effect of light with a wavelength between 450 and 500 nm.	colour, sky HAS colour, cold
+e	844	1274	KIND (THING)	kind	A category of things distinguished by a common characteristic or quality.	like/3382, help
+e	849	2318	SPRING (OF WATER)	spring	A place where ground water flows naturally from a rock or the soil onto the land surface or into a body of surface water.	first(season/548), warm, plant[live], love IN, summer FOLLOW, FOLLOW winter
+e	850	1026	SQUARE	place	A geometrical figure with four sides that meet each other on right angles, or something resembling its shape.	point, gen AT
+e	851	3130	STABLE	stable	A building or structure usually with stalls that is used to house and feed horses, cattle or other animals.	LACK move
+p	860	1891	CAUSE	cause	That which brings about any condition or produces any effect.	reason
+p	861	289	JUDGE	judge	A person who decides the fate of someone or something that has been called into question.	human, PART_OF court/3124, decide, make official(opinion)
+p	862	440	SUGAR	sugar	A sweet crystalline or powdered substance, white when pure, consisting of sucrose obtained mainly from sugar cane and sugar beets and used in many foods, drinks, and medicines to improve their taste.	material, sweet, <white>, IN food, IN drink
+p	863	503	EDGE	edge	The boundary of a surface.	part, thin/2598, sharp, blade HAS, cut, instrument HAS
+p	866	937	WIN	win	To achieve a victory.	best, succeed/2718, before(compete), before(effort), get/1223 <prize>
+p	869	1954	BLADE	blade	The flat, sharp-edged part of a tool.	cut, HAS edge, flat, <sword> HAS
+p	870	1500	BREATH	breath	The air inhaled and exhaled through the lungs.	air, IN lung, FROM lung
+p	889	1473	FLAME	flame	A bright yellow, red or bluish light which emerges during combustion processes.	air, hot, light/739 FROM, fire HAS
+p	892	1120	TIME	time	The dimension of the physical universe which, at a given place, orders the sequence of events.	event IN, HAS direction, past PART_OF, now PART_OF, future PART_OF
+p	897	1805	SWALLOW	swallow	The reflex in the human body that makes something pass from the mouth to the pharynx and into the esophagus, with the shutting of the epiglottis.	=AGT CAUSE[=PAT[move]], after(=PAT IN stomach), =PAT IN mouth, =PAT IN throat, =AGT HAS stomach, =AGT HAS mouth, =AGT HAS throat
+p	906	709	TREE	tree	Any large woody perennial plant with a distinct trunk giving rise to branches or leaves at some distance from the ground.	plant, HAS material[wood], HAS trunk/2759, HAS many(branch)
+p	910	981	DEATH	death	The end of life.	end,  life HAS
+e	911	982	TEMPLE	temple	A house of worship and spiritual activities.	flat, side, PART_OF head
+m	923	2200	LOVE	love	To have an intense feeling of affection and care towards another person.	emotion, good, =PAT[person], care/82
+p	926	2021	RICE	rice	Seeds of the rice plant (Oryza sativa) used as food.	plant, food, grain, IN Asia
+e	93	2337	DRAW MILK	milk	To draw milk from (a mammal, especially a cow).	white(liquid), FROM <cow>, fat/3337 IN
+p	933	721	WALL (OF HOUSE)	wall	The outer structure which encloses a building.	object, vertical, enclose, divide, protect, building HAS, long, high
+p	937	1576	BIRD	bird	Any of the bipedal, warm-blooded vertebrates that lay eggs having wings which, for most species, enables them to fly.	animal, make egg, HAS feather, HAS two(wing)
+p	942	3342	HONEY	honey	A viscous, sweet substance produced from nectar or honeydew by bees.	food, sweet, sticky, bee make
+p	946	2599	BLOOD	blood	A fluid connective tissue consisting of the plasma and cells that circulate in the blood vessels.	liquid, IN body, red
+p	948	2622	WATER	water	Common liquid (H₂O) which forms rain, rivers, the sea, etc., and which makes up a large part of the bodies of organisms.	liquid, LACK colour, LACK taste, LACK smell, life need
+p	951	754	WEAPONS	weapon	An instrument of attack or defense in combat, as a gun, missile, or sword.	instrument, fight INSTRUMENT
+p	952	1121	WEATHER	weather	The day-to-day meteorological conditions, especially temperature, cloudiness, and rainfall, affecting a specific place.	state/77, atmosphere HAS, AT time, AT place/1026, temperature, water IN air, wind, air HAS pressure
+p	960	2164	WIND	wind	The motion of air relative to the earth's surface; usually means horizontal air motion, as distinguished from vertical motion.	air[move[horizontal]]
+e	962	1794	WOMAN	female	An adult human member of the sex that produces ova and bears young.	sex
+p	962	1795	WOMAN	woman	An adult human member of the sex that produces ova and bears young.	female, person
+p	964	924	WOOL	wool	The soft, curly hair that forms the fleece of sheep, lamas and other animals and which is used to produce clothing.	material, soft, sheep HAS
+p	965	815	WORLD	earth	The Earth with all its inhabitants and all things upon it.	planet, IN space/2509, life ON, ocean ON, land ON, HAS atmosphere
+p	97	100	THROUGH	through	From one side of an opening to the other.	before(=AGT ON side), =PAT HAS side, IN =PAT, after(=AGT ON other(side)), =PAT HAS side[other]
+p	971	1286	MUST	must	To be required to do something.	LACK choose
+p	972	1246	BE ABLE	can	To have the ability to do something.	<do>
+e	972	1427	BE ABLE	can	To have the ability to do something.	cylinder, metal, contain [<food>,<drink>]
+p	978	1104	WAVE	wave	A disturbance in an fluid medium.	IN sequence, move, ON surface, liquid[move[vertical]] HAS surface
+p	98	1695	ALL	all	The totality of.	gen, whole
+p	984	1740	WORK (LABOUR)	work	Productive activity, service, trade, or craft for which one is regularly paid.	useful
+e	989	2390	CLEAR	clear	Free of ambiguity or doubt.	can/1246(see through)
+p	998	2374	PUT	put	To set or place an object somewhere.	=AGT CAUSE[=PAT AT place], =AGT move =PAT, "TO _" MARK place
+p	999	1169	JOINT	joint	Any part of the body where two bones join.	part, join AT

@@ -58,7 +58,10 @@ maximally reusable conceptual units, for which lumping the two senses together
 makes more sense.
 
 u (sUperset) is reserved for when the Concepticon entry is a superset of the
-4lang entry. This is rare, no example so far.
+4lang entry. This is rare, so far only one example: 
+
+695 u 1654 GO/go Concepticon has `get from one place to another by any means'
+and 4lang has `move, INSTRUMENT leg, =AGT HAS leg' 
 
 n (No entry) is used when a 4lang entry simply lacks an equivalent, or near
 equivalent Concepticon entry. some examples are
@@ -74,4 +77,11 @@ waxing moon). This means that to obtain the 4lang definition, we need to (a)
 match up the desired sense in LDOCE and (b) follow the method of Recski:2016.
 This is left for later releases.
 
+e error (machine aligned senses don't pass human verification). These will not
+appear in published mappings, they are just for internal maintenance.
+Example:
+
+1132 e 2722 BEAM beam `A structural member loaded on its narrow face, and
+typically used in a horizontal or sloping position to span between bearing
+points.' versus beam line, light/739, FROM <sun>
 
