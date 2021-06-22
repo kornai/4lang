@@ -41,13 +41,21 @@ absorption' verbal, versus dry `LACK wet' adjectival.
 
 s (Subset) is used when the Concepticon entry is a subset of the 4lang entry:
 
-2106 s 1039 (MALE PERSON is a subset of male)
+2106 s 1039 ("MALE PERSON" is a subset of "male")
 
-2261 s 1039 MALE (OF PERSON) is also a subset of 4lang male, which is neutral
-between adjectival and nominal meanings, but see
+2261 s 1039 "MALE (OF PERSON)" is also a subset of 4lang "male", which is neutral
+between adjectival and nominal meanings, but see 1553 p 1039.
 
-1553 p 1039. In general, the conc_4lang file provides s links only where no p
-link has been found.
+In general, the conc_4lang file provides s links only where no p link has been
+found. While on many occasions the s correspondence code could be easily fixed
+by generalizing the Concepticon definition (e.g. 1040 s 3359 the "The hair on
+humans, usually on the head but also including the hair on the body" could be
+amended "The hair on humans or animals") we do not advocate for this, since
+the choice reflects different goals: Concepticon aims at directly facilitating
+cross-linguistic comparisons, so it makes a great deal of sense to distinguish
+'capillus' (human hair) from 'saeta' (animal hair), whereas 4lang aims at
+maximally reusable conceptual units, for which lumping the two senses together
+makes more sense.
 
 u (sUperset) is reserved for when the Concepticon entry is a superset of the
 4lang entry. This is rare, no example so far.
@@ -57,7 +65,7 @@ equivalent Concepticon entry. some examples are
 
 - n 1407 public `LACK owner' (as in public garden)
 
-- n 172 substance (also no entry for material or stuff).
+- n 172 substance (also no Concepticon entry for "material" or "stuff").
 
 These are best treated as extension requests for Concepticon. The converse
 situation, which also occurs, will be resolved gradually: for example 1931
