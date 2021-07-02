@@ -154,6 +154,38 @@ defs_to_parse = {}
 def_states = {}
 defs = {}
 
+def get_tokens(line, mode="4lang"):
+    l = line.strip().split("\t")
+
+    if mode == "4lang":
+        definition = l[7]
+    else:
+        definition = l[1]
+
+    tokens = []
+    definition = re.sub("@", "", definition)
+    definition = re.sub('"', "", definition)
+    definition = re.sub(",", " ", definition)
+    definition = re.sub("\{", " ", definition)
+    definition = re.sub("\}", " ", definition)
+    definition = re.sub("\(", " ", definition)
+    definition = re.sub("\)", " ", definition)
+    definition = re.sub("\[", " ", definition)
+    definition = re.sub("\]", " ", definition)
+    definition = re.sub("[0-9]*", "", definition)
+    definition = re.sub("/", "", definition)
+    words = definition.split()
+    for wo in words:
+        wo = wo.strip()
+        if not ">" in wo and not "<" in wo:
+            tokens.append(wo)
+    
+    defin = " ".join(tokens)
+
+    substituted_line = l[0] + "\t" + defin + "\n"
+
+    return substituted_line
+
 
 def get_top_level_clauses(line, mode="4lang"):
     l = line.strip().split("\t")
@@ -317,14 +349,16 @@ def main(argv):
         with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
             with open(os.path.join(outputdir, "4lang_def_correct_substituted"), "w", encoding="utf-8") as substituted:
                 with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level: 
-                    for item in correct:
-                        if not item.startswith("%"):
-                            substituted.write("%s" % substitute_root(item, mode))
-                            for top in get_top_level_clauses(item, mode):
-                                top_level.write("%s\n" % top)
-                            if clause:
-                                filtered.write("%s" % filter_line(item, clause, mode))
-                            f.write("%s" % item)
+                    with open(os.path.join(outputdir, "tokens"), "w", encoding="utf-8") as tokens: 
+                        for item in correct:
+                            if not item.startswith("%"):
+                                substituted.write("%s" % substitute_root(item, mode))
+                                for top in get_top_level_clauses(item, mode):
+                                    top_level.write("%s\n" % top)
+                                if clause:
+                                    filtered.write("%s" % filter_line(item, clause, mode))
+                                tokens.write("%s" % get_tokens(item, mode))
+                                f.write("%s" % item)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
