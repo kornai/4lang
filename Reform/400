@@ -4,16 +4,16 @@
 -ist	-ista	#	-ista	3623	u	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
 -th	-ad	-ias	-ta	4	u	G	part, in whole, before(divide)	%
 -th	-adik	-imus	-ty	5	u	G	position, in sequence	%
-=AGT	"nom"	"nom"	"nom"	3225	u	G	=AGT	  %primitive
-=PAT	"acc"	"acc"	"acc"	3272	u	G	=PAT	  %primitive
+=AGT	"nom"	"nom"	"nom"	3225	p	G	=AGT	  %
+=PAT	"acc"	"acc"	"acc"	3376	p	G	=PAT	  %
 Asia	A1zsia	#	#	3146	u	N	land, @Asia	%
-ER	-bb	-ior/-ius	-szy	3272	u	G	ER	%primitive
+ER	-bb	-ior/-ius	-szy	3272	p	G	=AGT ER =PAT	%
 Earth	fo2ld	terra	ziemia	815	u	N	planet, in space/2509, life on, ocean on, land on, HAS atmosphere	%
-FOR	-e1rt	pro	dla	2782	u	G	FOR	%primitive
-HAS	bi1r	habeo	miec1	288	u	V	=AGT control =PAT, HAS	%primitive
-IS_A	"copula"	sum	byc1	2585	u	V	=AGT IS_A =PAT	%primitive
-LACK	hia1nyzik	desum	brak	3306	u	G	=AGT LACK =PAT	%primitive
-PART_OF	re1sz	pars	cze1s1c1	1997	u	G	=AGT PART_OF =PAT	     %primitive but can be replaced by in, connected
+FOR	-e1rt	pro	dla	2782	p	G	=AGT FOR =PAT	%used as instrument, for purpose
+HAS	bi1r	habeo	miec1	288	u	V	=AGT control =PAT, =AGT HAS =PAT	%
+IS_A	"copula"	sum	byc1	2585	p	V	=AGT IS_A =PAT	%
+LACK	hia1nyzik	desum	brak	3306	p	V	=AGT LACK =PAT	%
+PART_OF	re1sz	pars	cze1s1c1	3368	p	G	=AGT PART_OF =PAT	     %primitive but can be replaced by part, in, connected
 acid	sav	acidum	kwas	2064	u	N	substance, <burn>, HAS taste[sharp,sour], LACK kind	%
 act	tesz	ago	dzial1ac1	2373	u	V	do	%
 act	tett	factum	akt	2379	u	N	act/2373	%
@@ -255,7 +255,7 @@ fly	repu2l	volo	latac1	2018	u	U	move, =AGT in air, control	%
 follow	ko2vet	sequor	poda1z1ac1	1400	u	V	=AGT HAS direction, =PAT HAS direction, after(=AGT), before(=PAT)	%
 food	e1tel	cibus	jedzenie	542	u	N	material, gen eat	%
 foot	la1b	pes	stopa	1466	u	N	organ, leg HAS, at ground	%
-for	-e1rt	pro	dla	2824	u	G	exchange_, "for _" mark_ money_	%hidden primitive: "thing of value"
+for	-e1rt	pro	dla	2824	p	G	exchange_, "for _" mark_ money_	%hidden primitive: "thing of value"
 force	ero3	vis	sil1a	683	u	N	power	%
 forehead	homlok	frons	czol1o	1077	u	N	PART_OF face, front, eye under, hair at, at temple/982	%
 fork	villa	furca	widelec	2630	u	N	cutlery, <metal>, HAS {<four>(branch)}, HAS handle, {move food} ins_	%
@@ -266,7 +266,6 @@ frequent	gyakori	frequens	cze1sty	919	u	A	often	%
 fright	ijedelem	terror	terror	2812	u	N	sudden, intense, fear	%
 frighten	ijeszt	terreo	straszyc1	2916	u	V	cause_ fear     	%
 from	-bo1l	ab	z	2742	u	G	before(in =PAT), after(far)	%
-from	-bo1l	ab	z	2742	u	G	before(in =PAT), after(far)	%
 front	elej	pars_prior	przo1d	608	u	N	part, first	%?
 fruit	gyu2mo2lcs	fructus	owoc	945	u	N	PART_OF plant, seed PART_OF, food, sweet, HAS flesh	%
 fur	pre1m	pellis	futro	1974	u	N	hair/3359, cover skin, mammal HAS	%
@@ -274,7 +273,7 @@ furniture	bu1tor	supellex	meble	343	u	N	object, in room/2235, chair IS_A, table 
 further	tova1bbi	reliquus	dalszy	2435	u	A	more	%
 future	jo2vo3	futura	przyszl1os1c1	1197	u	N	time, follow now	%
 gas	ga1z	gasium	gaz	885	u	N	substance, thin/1038, air IS_A	%
-gen	aka1r-	ubicumque	dowolny	3635	p	G	gen	   %primitive
+gen	aka1r-	ubicumque	dowolny	3635	p	N	gen	   %
 get	jut	nanciscor	dostawac1	1206	u	V	after(HAS)	%
 get	kap	accipio	dostawac1	1223	u	V	after(=AGT HAS =PAT), after(HAS)	%
 give	ad	do	dac1	113	u	V	=AGT cause_[person HAS =PAT], "dative" mark_ person	%
@@ -384,8 +383,8 @@ mammal	emlo3s	mammalia	ssak	2729	u	N	animal, HAS fur, HAS milk	%ND
 man	ember	homo	czl1owiek	659	u	N	animal, HAS two(leg), HAS two(hand), think, can/1246(speak), can/1246(work), HAS society/2285	%opposed to animal, divine person, or machine
 man	fe1rfi	vir	me1z1czyzna	744	u	N	person, male	%
 many	sok	multus	wiele	2113	u	A	quantity, ER gen	%
-mark	jel	nota	znak	1182	u	N	visible(sign)	%
-mark_	jelo2l	nota	znak	1182	u	V	=AGT[sign], =PAT[meaning], represent	%
+mark	jel	nota	znak	1182	u	N	sign, visible	%
+mark_	jelo2l	nota	znak	3331	u	V	=AGT[sign], =PAT[meaning], represent	%
 marriage	ha1zassa1g	nuptiae	wesele	1487	u	N	legal(union), husband PART_OF, wife PART_OF	%
 mass	to2meg	massa	masa	2410	u	N	amount, object HAS	%
 material	anyag	materialis	material1	2798	u	N	object, real, <build> use	%
@@ -447,7 +446,7 @@ order	sorrend	ordo	porza1dek	2739	u	N	relation, more(item) HAS, first PART_OF	%
 organ	szerv	membrum	narza1d	2203	u	N	object, PART_OF body, HAS purpose	%
 organization	szervezet	societas	organizacja	2204	u	N	group, person member, HAS purpose, structure	%
 organize	szervez	compono	organizowac1	2949	u	V	=AGT cause_[=PAT HAS structure]	%
-other	ma1s	alius	inny	1567	u	N	other	%primitive
+other	ma1s	alius	inny	1567	p	N	other	%
 out	ki	foras	wy-	1316	u	D	LACK in	%
 outer	ku2lso3	exterior	zewne1trzny	1456	u	A	part, other(part) in	%
 owner	tulajdonos	possessor	posiadacz	3610	u	N	=AGT, =AGT HAS	%
@@ -717,7 +716,7 @@ weather	ido3ja1ra1s	tempestas	pogoda	1121	u	N	state/77, atmosphere HAS, at time,
 week	he1t	hebdomas	tydzien1	1021	u	N	period, time, seven(day) in	%
 weight	su1ly	pondus	waga	2127	u	N	physical(quantity), heavy	%
 wet	nedves	humidus	mokry	1769	u	A	liquid cover 	%
-wh	ki/mi/hogy	quo	kto/co/jak	3636	p	G	wh	%primitive
+wh	ki/mi/hogy	quo	kto/co/jak	3636	p	G	wh	%
 wheat	bu1za	triticum	pszenica	344	u	N	plant, HAS grain, make flour	%
 wheel	kere1k	rota	kol1o	1293	u	N	artefact, PART_OF <vehicle>, circular/1294, turn, <HAS spoke>, <HAS hub>	%
 white	fehe1r	albus	bial1y	755	u	N	colour, light/739, snow HAS colour, empty, clear	%
