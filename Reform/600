@@ -202,7 +202,7 @@ drink	iszik	bibo	pic1	1161	e	V	=pat[liquid,<alcoholic>] in mouth, =agt has mouth
 drink	ital	potio	napo1j	1164	e	N	liquid, in mouth, swallow, <alcoholic>  	%
 drive	vezet	rego	prowadzic1	2614	e	V	=agt cause_[=pat[<car>,move]], control	%
 drop	ejt	demitto	upus1cic1	588	u	V	fall/2694	%
-drunk	ittas	potus	pijany	1165	c	A	quality, person has, alcohol cause_, lack control	%
+drunk	ittas	potus	pijany	1165	c	A	quality, person has quality, alcohol cause_, lack control	%
 dry	sza1raz	siccus	suchy	2145	e	A	lack wet	%anto
 dust	por	pulvis	kurz	1970	u	N	substance, fine, dry, particle, powder, <dirt>	%
 ear	fu2l	auris	ucho	870	e	N	organ, hear ins_	%
