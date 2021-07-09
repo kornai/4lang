@@ -591,7 +591,7 @@ separate	ku2lo2n	segrego	osobny	1450	u	V	=agt cause_ [=pat at other(place/1026)]
 sequence	sorozat	sequentia	sekwencja	3137	u	N	many(thing) part_of, thing follow other, has order/2739	%
 series	sorozat	series	seria	2951	u	N	structure, has item, item follow other(item)	%
 set	kollekcio1	classis	kolekcja	2746	e	N	group, has many(item), together, unit, item has common(characteristic)	%
-set	tesz	pono	kl1as1c1	2375	e	V	=agt cause_[=pat at position[<stable>,<proper>]]	%
+set	tesz	pono	kl1as1c1	2375	e	V	=agt cause_ {=pat at position[<stable>,<proper>]}	%
 seven	he1t	septem	siedem	2996	e	A	number, follow six	%
 several	sok	multus	kilka	2116	e	A	many	%
 sew	varr	suo	szyc1	2588	e	V	ins_ needle, ins_ thread, =agt cause_[cloth[fix]]	make or repair or fasten
