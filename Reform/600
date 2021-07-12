@@ -289,7 +289,7 @@ gas	ga1z	gasium	gaz	885	u	N	substance, thin/1038, air is_a	%
 gen	aka1r-	ubicumque	dowolny	3635	p	N	gen	%   %
 get	jut	nanciscor	dostawac1	1206	e	V	after(has)	%
 get	kap	accipio	dostawac1	1223	e	V	after(=agt has =pat), after(has)	%
-give	ad	do	dac1	113	e	V	=agt cause_[person has =pat], "dative" mark_ person	%
+give	ad	do	dac1	113	e	V	=agt cause_ {person has =pat}, dative_ mark_ person	%
 go	megy	eo	is1c1	1654	u	U	move, ins_ leg, =agt has leg	%
 good	jo1	bonus	dobry	1189	u	A	gen want	%
 govern	vezet	gero	rza1dzic1	2615	e	V	control[system <country>], =agt has power	%
@@ -309,7 +309,7 @@ handle	fogo1	manubrium	ra1czka	834	u	N	part_of object, for_ hold(object in hand)
 happen	to2rte1nik	fio	stac1_sie1	2418	e	V	change	%
 hard	keme1ny	durus	cie1z1ki	1291	u	A	gen lack bend/975, gen lack soft	%
 harm	se1ru2le1s	vulnus	szkoda	2067	u	N	bad	%
-has	bi1r	habeo	miec1	288	c	V	=agt control =pat, =agt has =pat	%
+has	bi1r	habeo	miec1	288	p	V	=agt control =pat, =agt has =pat	%
 head	fej	caput	gl1owa	756	u	N	organ, brain in, face on, top	%
 health	ege1szse1g	sanitas	zdrowie	554	e	N	healthy	%
 healthy	ege1szse1ges	sanus	zdrowy	555	u	A	has body, body in good(situation)	%
@@ -582,7 +582,7 @@ second	ma1sodik	alter	drugi	1569	u	A	-th/5[two], follow first	%
 see	la1t	video	widziec1	1476	c	V	perceive, ins_ eye	%
 seed	mag	semen	nasienie	1577	u	N	organ, part_of plant, make other(plant)	%
 self	o2nmaga	ipse	sam	1851	e	N	=pat[=agt], =agt[=pat]	%
-sell	elad	vendo	sprzedac1	595	c	V	=agt cause_[buyer has =pat], buyer cause_[=agt has <money>], "dative" mark_ buyer	%
+sell	elad	vendo	sprzedac1	595	c	V	=agt cause_ {buyer has =pat}, buyer cause_ {=agt has money_}, dative_ mark_ buyer	%
 seller	elado1	venditor	sprzedaja1cy	3629	u	N	=agt sell, -er/3627	%
 sensation	e1rzet	affectus	uczucie	534	u	N	sense ins_, <touch>	%
 sense	e1rze1k	sensus	rozum	2458	e	N	animal has, hear is_a, see is_a, smell is_a, touch is_a, taste is_a	%HUN e1rze1k content: bodily position, temperature, pain, balance
