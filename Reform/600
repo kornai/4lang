@@ -45,7 +45,7 @@ awake	e1ber	vigilans	czujny	494	e	A	conscious	%
 axis	tengely	axis	os1	3377	e	N	line, round around, turn around, at middle, shape has	%
 bad	rossz	malus	zl1y	2043	c	A	cause_ hurt	%
 bake	su2t	coquo	piec	2130	e	V	cook/825, =pat[<bread>, <cake>], =agt cause_ =pat[hard]	%
-bark	ugat	latro	szczekac1	2517	e	U	<dog> make sound/993[short,loud]	%
+bark	ugat	latro	szczekac1	2517	e	U	sound/993[short,loud], <dog> make	%
 base	alap	fundamentum	podstawa	146	e	N	part_of whole, at bottom, whole has bottom, cause_ whole[fix]	%
 beam	suga1r	radius	promien1	2722	e	N	line, light/739, from <sun>	%
 beautiful	sze1p	pulcher	pie1kny	2170	u	A	attract gen	%
