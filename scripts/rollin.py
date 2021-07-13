@@ -7,7 +7,7 @@ new_fn = sys.argv[3]
 
 old_lines = []
 with open(old_fn) as old_file:
-    csv_reader = csv.reader(old_file, delimiter='\t')
+    csv_reader = csv.reader(old_file, delimiter='\t', quoting=csv.QUOTE_NONE)
     for row in csv_reader:
         if len(row) != 9:
             print(row)
@@ -16,7 +16,7 @@ with open(old_fn) as old_file:
 
 fixed_lines = []
 with open(fixed_fn) as fixed_file:
-    csv_reader = csv.reader(fixed_file, delimiter='\t')
+    csv_reader = csv.reader(fixed_file, delimiter='\t', quoting=csv.QUOTE_NONE)
     for row in csv_reader:
         if len(row) != 9:
             print(row)
@@ -39,6 +39,7 @@ for line in old_lines:
 print(f'Merged dictionary has a size of {len(ids)}.')
 
 with open(new_fn, 'w') as outfile:
-    csv_writer = csv.writer(outfile, delimiter='\t')
+    #csv_writer = csv.writer(outfile, delimiter='\t', quoting=csv.QUOTE_NONE)
     for line_num, line in ids.items(): # ids.keys(), ids.values(), ids.items()
-        csv_writer.writerow(line)
+        #csv_writer.writerow(line)
+        outfile.write("\t".join(line) + "\n")
