@@ -26,7 +26,7 @@ t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
 t_CLAUSE = r'([a-z-_]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN|_)\b[a-zA-Z0-9-_]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
-t_EQUAL = r'(=[A-Z-_]+)'
+t_EQUAL = r'(=[a-zA-Z-_]+)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
 t_SQUAREBL = r'\['
@@ -201,9 +201,13 @@ def get_top_level_clauses(line, mode="4lang"):
         for phrase in def_phrases:
             yield phrase.strip()
 
+
 def substitute_root(line, mode="4lang"):
     l = line.strip().split("\t")
-    binary_atom = {"AT","BETWEEN","CAUSE","ER","FOLLOW","FOR","FROM","HAS","IN","INSTRUMENT","IS_A","LACK","MARK","ON","PART_OF","UNDER"}
+    binary_atom = set()
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), "binaries"), 'r', encoding="utf-8") as f:
+        for line in f:
+            binary_atom.add(line.strip())
 
     if mode == "4lang":
         definition = l[7]
@@ -213,9 +217,19 @@ def substitute_root(line, mode="4lang"):
     for i, phrase in enumerate(def_phrases):
         tokens = re.split('''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', phrase.strip())
         new_tokens = None
-        print(tokens)
         if len(tokens) == 1:
-            new_tokens = "%s ISA %s" % (l[0], tokens[0])
+            if tokens[0].startswith("<"):
+                default_tokens = tokens[0].strip("<>")
+                default_tokens_split = re.split('''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', default_tokens.strip())
+                if len(default_tokens_split) == 2:
+                    if default_tokens_split[0] in binary_atom:
+                        new_tokens = "<%s %s %s>" % (l[0], default_tokens_split[0], default_tokens_split[1])
+                    elif default_tokens_split[1] in binary_atom:
+                        new_tokens = "<%s %s %s>" % (default_tokens_split[0], default_tokens_split[1], l[0])
+                else:
+                    new_tokens = "%s ISA %s" % (l[0], tokens[0])
+            else:
+                new_tokens = "%s ISA %s" % (l[0], tokens[0])
         elif len(tokens) == 2:
             if tokens[0] in binary_atom:
                 new_tokens = "%s %s %s" % (l[0], tokens[0], tokens[1])
@@ -271,6 +285,7 @@ def filter_line(line, clause, mode="4lang"):
 def readfile(filename, mode="4lang"):
     with open(filename, encoding='utf-8') as f:
         for i, line in enumerate(f):
+            line = re.sub('"[^"]+"', "", line)
             if mode == "4lang":
                 l = line.strip().split("\t")
                 if l[4] in defs:
