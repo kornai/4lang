@@ -1,4 +1,4 @@
--able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem =pat}, "_-able" mark_ stem	%detestable
+-able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem =agt}, "_-able" mark_ stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
@@ -31,7 +31,7 @@ angry	haragos	iratus	zl1y	999	u	A	anger	%
 animal	a1llat	animal	zwierze1	78	u	N	live, move	%
 area	teru2let	regio	teren	2366	e	N	place/2326, in country, <has border>	%
 arm	kar	bracchium	ramie1	1231	c	N	organ, long, human has body, body has, limb, hand at, wrist at, shoulder at	%
-around	ko2re1	circum	dokol1a	1388	u	D	at, =agt[round]	%
+around	ko2re1	circum	dokol1a	1388	u	D	at, =agt[round], "around _" mark_ =pat	%
 artefact	keszi1tme1ny	arte_factum	artefakt	3141	u	N	object, human make	%
 ash	hamu	cinis	popio1l1	991	e	N	powder[<grey>,<white>,<black>], {<wood> burn} make	%
 at	-na1l	apud	u	2744	u	G	=agt has place, =pat[place], "at _" mark_ =pat	%
@@ -142,7 +142,7 @@ contain	tartalmaz	contineo	zawierac1	2313	e	V	=pat in =agt	%
 container	tarta1ly	vasculum	pojemnik	2801	u	N	artefact, contain	%
 control	befolya1s	vis	kontrola	253	u	N	=agt want {=pat do}, =pat must do   	%
 cook	fo3l	coquitur	gotowac1_sie1	822	e	U	get heat	%
-cook	fo3z	coquo	gotowac1	825	e	V	=agt make <food>, ins_ heat	%
+cook	fo3z	coquo	gotowac1	825	e	V	=agt make <=pat[food]>, ins_ heat	%
 cook	szaka1cs	coquus	kucharz	2152	e	N	person, <profession>, make food	%
 cool	hu3l	frigesco	chl1odzic1_sie1	1101	e	V	after(cold)	%
 cool	hu3vo2s	frigidus	chl1odny	1103	e	A	temperature, normal er_, er_ cold	%
@@ -339,8 +339,8 @@ ill	beteg	aeger	chory	273	u	A	has disease, lack healthy	%
 image	ke1p	imago	obraz	1242	u	N	has form, resemble object, gen see, represent object, "of _" mark_ object	%
 imagination	fanta1zia	imaginatio	wyobraz1nia	725	e	N	make mental(image), lack see, <picture>	%
 important	fontos	gravis	waz1ny	853	u	A	cause, has value	%
-in	-ba	in	do	10	c	G	place, after(=agt at place), place contain =agt, "in _" mark_ place	%
-in	-ban	in	w	2758	c	G	place, =agt at place, place contain =agt, "in _" mark_ place	%could be primitive
+in	-ba	in	do	10	c	G	place, after(=agt at =pat[place]), place contain =agt, "in _" mark_ place	%
+in	-ban	in	w	2758	c	G	place, =agt at place, =pat[place] contain =agt, "in _" mark_ place	%could be primitive
 information	informa1cio1	nuntiatio	informacja	1141	c	N	liquid, study give, experience give, gen know	%
 injury	se1ru2le1s	vulnus	rana	3360	e	N	damage, body has	%
 ins_	-val	per	-em	702	u	G	=pat make =agt[easy]	%    %instrumental case
@@ -357,7 +357,7 @@ jaw	a1lkapocs	maxilla	szcze1ka	72	e	N	organ, animal has, at mouth, tooth at, par
 join	csatlakozik	comitor	dol1a1czyc1	392	e	V	after(together)	%   %implies before(separate)
 joint	izu2let	articulus	staw	1169	u	N	part, join at	%
 joy	o2ro2m	gaudium	rados1c1	1856	u	N	sensation, good	%
-judge	bi1ro1	iudex	se1dzia	289	c	N	human, part_of court/3124, decide, make official(opinion)	%
+judge	bi1ro1	iudex	se1dzia	289	c	N	human, part_of court/3124, decide,m ake official(opinion)	%
 kind	kedves	benignus	mil1y	1274	u	A	like/3382, help	%
 king	kira1ly	rex	kro1l	1350	u	N	monarch, man/744, lead/2617 country, part_of royal(family)	%
 knife	ke1s	culter	no1z1	1256	e	N	instrument, for_ cut, has blade<metal>, has handle	%
@@ -407,7 +407,7 @@ mark_	jelo2l	nota	znak	3331	u	V	=agt[sign], =pat[meaning], represent	%
 marriage	ha1zassa1g	nuptiae	wesele	1487	c	N	legal(union), husband part_of, wife part_of	%
 mass	to2meg	massa	masa	2410	e	N	amount, object has	%
 material	anyag	materialis	material1	2798	u	N	object, real, <build> use	%
-mean	jelent	sibi_vult	znaczyc1	1186	e	V	represent, =agt[sign]	%
+mean	jelent	sibi_vult	znaczyc1	1186	e	V	=agt represent =pat, =agt[sign]	%
 meaning	e1rtelem	significatio	znaczenie	528	e	N	information in mind, sign represent	%
 measure	me1rte1k	mensura	miara	1608	e	N	cause_[person know quantity]	%
 meat	hu1s	caro	mie1so	1094	u	N	flesh, food, animal<mammal> has 	%
@@ -437,7 +437,7 @@ must	kell	debet	musiec1	1286	u	G	lack choose	%hungarian and english cases differ
 natural	terme1szetes	naturalis	naturalny	2972	e	A	normal	%
 near	ko2zeli	propinquus	bliski	1414	u	A	distance, gen er_ distance	%
 neck	nyak	cervices	szyja	1803	u	N	part_of body, cause_[head at]	%
-need	szu2kse1g	necessitas	potrzeba	2259	e	N	=agt want	%
+need	szu2kse1g	necessitas	potrzeba	2259	e	N	=agt want =pat	%
 needle	tu3	acus	igl1a	2448	e	N	artefact, long, thin/2598, steel, pierce, has hole, <sew ins_>	%
 nervous	ideges	trepidus	zdenerwowany	2721	u	A	feel fright	%
 nice	kedves	dulcis	mil1y	1275	e	A	cause_ joy	%
@@ -594,7 +594,7 @@ set	kollekcio1	classis	kolekcja	2746	e	N	group, has many(item), together, unit, 
 set	tesz	pono	kl1as1c1	2375	e	V	=agt cause_ {=pat at position[<stable>,<proper>]}	%
 seven	he1t	septem	siedem	2996	e	A	number, follow six	%
 several	sok	multus	kilka	2116	e	A	many	%
-sew	varr	suo	szyc1	2588	e	V	ins_ needle, ins_ thread, =agt cause_[cloth[fix]]	%make or repair or fasten
+sew	varr	suo	szyc1	2588	e	V	=agt cause_[cloth[fix]], ins_ needle, ins_ thread	%make or repair or fasten
 sex	nem	sexus	pl1ec1	1780	c	N	male is_a, female is_a	%
 shape	alak	figura	ksztal1t	142	u	N	form	%geometrical
 sharp	eles	acutus	ostry	611	u	A	has [<edge>,<point>]	%
@@ -615,7 +615,7 @@ side	oldal	latus	strona	1903	u	N	part, <two>, centre far, oppose, object has	%
 sign	jel	signum	znak	1183	c	N	gen perceive, information, show, has meaning	%
 signal	jel	signum	signal	1184	e	N	communicate, people see	%
 similar	hasonlo1	similis	podobny	2794	u	A	=agt has quality, =pat has quality, "to _" mark_ =pat	%
-sit	u2l	sedeo	siedziec1	2493	c	U	=agt at surface[<seat>], has buttocks, buttocks at surface, =agt has trunk/2759[vertical]	%
+sit	u2l	sedeo	siedziec1	2493	c	U	=agt at surface[<seat>], =agt has buttocks, buttocks at surface, =agt has trunk/2759[vertical]	%
 situation	helyzet	status	sytuacja	2784	u	N	around	%
 six	hat	sex	szes1c1	2990	u	A	number, follow five	%
 size	me1ret	magnitudo	rozmiar	1605	c	N	dimension	%
@@ -640,7 +640,7 @@ sour	erjedt	fermentatus	kwas1ny	680	c	A	taste, resemble acid, <bad>	%
 space	te1r	spatium	przestrzen1	2327	c	N	thing in, empty, three(dimension) in	%
 space	u3r	vacuum	przestrzen1	2509	c	N	sun in, star in, atmosphere under 	%
 speak	besze1l	loquor	mo1wic1	270	u	V	talk	%
-speech	besze1d	oratio	przemo1wienie	268	u	N	=agt say     	%
+speech	besze1d	oratio	przemo1wienie	268	u	N	sound, =agt say     	%
 split	hasi1t	findo	dzielic1	1007	e	V	after(separate), <break>	%
 spoon	kana1l	cochlear	l1yz1ka	1222	u	N	cutlery, {eat soup} ins_, has bowl, has handle	%
 spring	tavasz	ver	wiosna	2318	e	N	first(season/548), warm, plant[live], love in, summer follow, follow winter	%ND
@@ -737,7 +737,7 @@ vertical	fu2ggo3leges	verticalis	pionowy	869	c	N	direction, has top, has middle,
 violent	ero3szakos	violentus	gwal1towny	690	e	A	ins_ physical(force)	%
 visible	la1thato1	visibilis	widoczny	3128	e	A	can/1246(gen see)	%
 wall	fal	murus	s1ciana	721	u	N	object, vertical, enclose, divide, protect, building has, long, high	%
-want	akar	volo	chciec1	131	c	V	=agt[feel[=agt need]]	%
+want	akar	volo	chciec1	131	c	V	=agt[feel[=agt need =pat]]	%
 warm	fu3t	calefacio	grzac1	878	e	V	after(warm/1655)	%
 warm	meleg	calidus	ciepl1y	1655	e	A	temperature(er_ gen)	%
 warn	figyelmeztet	adverto	oztrzegac1	803	e	V	cause_[=pat know danger]	%
