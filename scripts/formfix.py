@@ -13,9 +13,9 @@ class DicLine:
         self.la = la
         self.pl = pl
         self.key = key
-        self.status = status
-        self.pos = pos
-        self.definition = definition
+        self.status = status if status else "u"
+        self.pos = pos if pos else "N"
+        self.definition = definition if definition else "TODO"
         if comment == "" or not re.match(r'%', comment):
             self.comment = "%" + comment
         else:
@@ -37,10 +37,10 @@ with open(old_fn) as old_file:
 
 def syntax_error(entry):
     return (
-        not re.match(r'^(\w|[#-])*$', entry.en) or
-        not re.match(r'^(\w|[#-])*$', entry.pl) or
-        not re.match(r'^(\w|[#-])*$', entry.la) or
-        not re.match(r'^(\w|[#-])*$', entry.hu) or
+        not re.match(r'^(\w|[#-_])*$', entry.en) or
+        not re.match(r'^(\w|[#-_])*$', entry.pl) or
+        not re.match(r'^(\w|[#-_])*$', entry.la) or
+        not re.match(r'^(\w|[#-_])*$', entry.hu) or
         not entry.key.isnumeric() or
         not entry.status in {"u", "c", "p", "e"} or
         not entry.pos in {"N", "A", "G", "U", "V", "D"} or
