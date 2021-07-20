@@ -51,8 +51,7 @@ beam	suga1r	radius	promien1	2722	e	N	line, light/739, from <sun>	%
 beautiful	sze1p	pulcher	pie1kny	2170	u	A	attract gen	%
 bed	a1gy	lectus	l1o1z1ko	68	e	N	furniture, rest in	%
 bee	me1h	apis	pszczol1a	1601	e	N	insect, has wing, sting, make honey	%
-before	ele1	ad	przed	598	u	D	before	%
-before	elo3tt	ante	przed	2768	u	G	before	%
+before	elo3tt	ante	przed	2768	p	G	before	%
 begin	kezd	incipio	zaczynac1	1312	e	V	after(=pat)	%
 belief	hit	opinio	wiara	1063	e	N	believe	%
 believe	hisz	credo	wierzyc1	1062	u	V	=agt think[=pat[true,real]]	%
@@ -246,7 +245,7 @@ feel	e1rez	sentio	czuc1	521	u	V	=pat in mind, =pat at body, =agt has body, =agt 
 feeling	e1rze1s	sensus	uczcia	533	u	N	liquid, in mind, joy is_a, sorrow is_a, fear is_a, anger is_a	%spontaneous? other cause_ ? 
 female	no3	femina	samica	1794	u	N	sex	%
 fibre	rost	fibra	bl1onnik	3357	c	N	in food, cause_ health, thread, in rope, in cloth, thin/2598, natural, in wood	%
-fight	harc	pugna	bo1jka	1002	c	N	person want[harm at other(person)], ins_ weapon	%
+fight	harc	pugna	bo1jka	1002	c	N	person want \{harm at other(person)\}, ins_ weapon	%
 fine	finom	elegans	dobry	809	e	A	small, light/1381, thin/2598	%
 finger	ujj	digitus	palec	2522	e	N	part_of hand, long, thin/2598	%"has four fingers", de "has o2t ujj"
 fire	tu3z	ignis	ogien1	2454	c	N	substance, cause_ heat, cause_ light/739, has flame, burn, <cause_ smoke>	%
