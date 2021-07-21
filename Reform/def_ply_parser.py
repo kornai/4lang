@@ -1,8 +1,12 @@
 from ply import lex
 import ply.yacc as yacc
-import sys, getopt
+import sys
+import getopt
+import argparse
 import os
 import re
+
+binaries = set()
 
 tokens = (
     'CLAUSE',
@@ -25,8 +29,9 @@ tokens = (
 t_ignore = ' \t'
 
 t_RELATION = r'([A-Z]+\/[0-9]+)|([A-Z]+_[A-Z]+)|([A-Z]+)'
-t_CLAUSE = r'([a-z-_]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN|_)\b[a-zA-Z0-9-_]+)'#r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
-t_EQUAL = r'(=[a-zA-Z-_]+)'
+# r'(\b(?!FOLLOW|AT|INTO|HAS|ABOUT)\b[a-zA-Z]+)|(^[a-zA-Z]+\/[0-9]+)|(^@[a-zA-Z]+)|(^"[a-zA-Z]+"$)|(^/=[A-Z]+)'
+t_CLAUSE = r'([a-z-_]+\/[0-9]+)|(@[a-zA-Z-_]+)|(\b(?!FOLLOW|AT|TO|INTO|HAS|ABOUT|ON|IN|IS|PART\_OF|IS\_A|NEXT\_TO|INSTRUMENT|CAUSE|MARK|LACK|ER|FROM|BETWEEN|_)\b[a-zA-Z0-9-_]+)'
+t_EQUAL = r'(=pat|=agt)'
 t_PUNCT = r','
 t_SQUAREBR = r'\]'
 t_SQUAREBL = r'\['
@@ -40,14 +45,17 @@ t_CITE = '"'
 t_UNDER = "_"
 t_DASH = "-"
 
-def t_newline( t ):
-  r'\n+'
-  t.lexer.lineno += len( t.value )
 
-def t_error( t ):
-  print("Invalid Token:",t.value[0])
-  raise TypeError("Invalid token %r" % (t.value[0],))
-  t.lexer.skip( 1 )
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+
+def t_error(t):
+    print("Invalid Token:", t.value[0])
+    raise TypeError("Invalid token %r" % (t.value[0],))
+    t.lexer.skip(1)
+
 
 lexer = lex.lex()
 
@@ -55,89 +63,115 @@ lexer = lex.lex()
 def p_start(p):
     '''start : expr rec'''
 
+
 def p_rec(p):
     '''rec : PUNCT expr rec
     |'''
+
 
 def p_clause(p):
     '''expr : CLAUSE '''
     p[0] = p[1]
 
+
 def p_clause_angle(p):
     '''expr : ANGLEBL start ANGLEBR'''
 
+
 def p_cite(p):
-  '''expr : CITE CLAUSE CITE'''
+    '''expr : CITE CLAUSE CITE'''
+
 
 def p_dash_cite(p):
-  '''expr : CITE UNDER DASH CLAUSE CITE'''
+    '''expr : CITE UNDER DASH CLAUSE CITE'''
+
 
 def p_under_cite(p):
-  '''expr : CITE UNDER CLAUSE CITE'''
+    '''expr : CITE UNDER CLAUSE CITE'''
+
 
 def p_under_slash(p):
-  '''expr : CITE CLAUSE UNDER CITE'''
+    '''expr : CITE CLAUSE UNDER CITE'''
+
 
 def p_under_slash_relation(p):
-  '''expr : CITE RELATION UNDER CITE'''
+    '''expr : CITE RELATION UNDER CITE'''
+
 
 def p_under_cite_relation(p):
-  '''expr : CITE UNDER RELATION CITE'''
+    '''expr : CITE UNDER RELATION CITE'''
+
 
 def p_under_cite_relation_under(p):
-  '''expr : CITE UNDER RELATION UNDER CITE'''
+    '''expr : CITE UNDER RELATION UNDER CITE'''
+
 
 def p_cite_relation(p):
-  '''expr : CITE RELATION CITE'''
+    '''expr : CITE RELATION CITE'''
+
 
 def p_under_cite_clause_under(p):
-  '''expr : CITE UNDER CLAUSE UNDER CITE'''
+    '''expr : CITE UNDER CLAUSE UNDER CITE'''
+
 
 def p_clause_under_cite_clause_under(p):
-  '''expr : CITE CLAUSE UNDER CLAUSE CITE'''
+    '''expr : CITE CLAUSE UNDER CLAUSE CITE'''
+
 
 def p_expr_curly(p):
     '''expr : CURLYBL start CURLYBR'''
 
+
 def p_equal(p):
     'expr : EQUAL'
+
 
 def p_relation_clause(p):
     'expr : RELATION expr'
 
+
 def p_equal_clause(p):
     'expr : EQUAL start'
+
 
 def p_equal_clause_equal(p):
     'expr : EQUAL start EQUAL'
 
+
 def p_relation_clause_binary(p):
     'expr : expr RELATION expr'
 
+
 def p_clause_relation(p):
     'expr : expr RELATION'
-    #print(p[1])
+    # print(p[1])
+
 
 def p_clause_binary(p):
     'expr : expr CLAUSE expr'
 
+
 def p_expr_clause(p):
     'expr : expr CLAUSE'
-    #print(p[1])
+    # print(p[1])
+
 
 def p_clause_expr(p):
     'expr : CLAUSE expr'
 
+
 def p_relation(p):
     'expr : RELATION'
-    #print(p[1])
+    # print(p[1])
+
 
 def p_square(p):
     '''expr : expr SQUAREBL start SQUAREBR
     | EQUAL SQUAREBL start SQUAREBR
     | RELATION  SQUAREBL start SQUAREBR'''
-    #print(p[1])
-    #print(p[3])
+    # print(p[1])
+    # print(p[3])
+
 
 def p_round(p):
     '''expr : expr ROUNDBL start ROUNDBR
@@ -145,14 +179,17 @@ def p_round(p):
     | CITE CLAUSE CITE ROUNDBL start ROUNDBR
     | RELATION ROUNDBL start ROUNDBR'''
 
+
 def p_error(p):
     raise TypeError("unknown text at %r" % (p,))
+
 
 parser = yacc.yacc()
 
 defs_to_parse = {}
 def_states = {}
 defs = {}
+
 
 def get_tokens(line, mode="4lang"):
     l = line.strip().split("\t")
@@ -179,7 +216,7 @@ def get_tokens(line, mode="4lang"):
         wo = wo.strip()
         if not ">" in wo and not "<" in wo:
             tokens.append(wo)
-    
+
     defin = " ".join(tokens)
 
     substituted_line = l[0] + "\t" + defin + "\n"
@@ -191,56 +228,64 @@ def get_top_level_clauses(line, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
         definition = l[7]
-        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        def_phrases = re.split(
+            ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         filtered_definition = []
         for phrase in def_phrases:
             yield phrase.strip()
     else:
         definition = l[1]
-        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        def_phrases = re.split(
+            ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         for phrase in def_phrases:
             yield phrase.strip()
 
 
+def get_binaries(path):
+    with open(path, 'r', encoding="utf-8") as f:
+        for line in f:
+            binaries.add(line.strip())
+
+
 def substitute_root(line, mode="4lang"):
     l = line.strip().split("\t")
-    binary_atom = set()
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), "binaries"), 'r', encoding="utf-8") as f:
-        for line in f:
-            binary_atom.add(line.strip())
-
     if mode == "4lang":
         definition = l[7]
     else:
         definition = l[1]
-    def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+    def_phrases = re.split(
+        ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
     for i, phrase in enumerate(def_phrases):
-        tokens = re.split('''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', phrase.strip())
+        tokens = re.split(
+            '''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', phrase.strip())
         new_tokens = None
         if len(tokens) == 1:
             if tokens[0].startswith("<"):
                 default_tokens = tokens[0].strip("<>")
-                default_tokens_split = re.split('''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', default_tokens.strip())
+                default_tokens_split = re.split(
+                    '''\s(?=(?:[^\[\]{}<>"]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', default_tokens.strip())
                 if len(default_tokens_split) == 2:
-                    if default_tokens_split[0] in binary_atom:
-                        new_tokens = "<%s %s %s>" % (l[0], default_tokens_split[0], default_tokens_split[1])
-                    elif default_tokens_split[1] in binary_atom:
-                        new_tokens = "<%s %s %s>" % (default_tokens_split[0], default_tokens_split[1], l[0])
+                    if default_tokens_split[0] in binaries:
+                        new_tokens = "<%s %s %s>" % (
+                            l[0], default_tokens_split[0], default_tokens_split[1])
+                    elif default_tokens_split[1] in binaries:
+                        new_tokens = "<%s %s %s>" % (
+                            default_tokens_split[0], default_tokens_split[1], l[0])
                 else:
                     new_tokens = "%s ISA %s" % (l[0], tokens[0])
             else:
                 new_tokens = "%s ISA %s" % (l[0], tokens[0])
         elif len(tokens) == 2:
-            if tokens[0] in binary_atom:
+            if tokens[0] in binaries:
                 new_tokens = "%s %s %s" % (l[0], tokens[0], tokens[1])
-            elif tokens[1] in binary_atom:
+            elif tokens[1] in binaries:
                 new_tokens = "%s %s %s" % (tokens[0], tokens[1], l[0])
         else:
             new_tokens = " ".join(tokens)
 
         if new_tokens:
             def_phrases[i] = new_tokens
-    
+
     defin = ", ".join(def_phrases)
 
     if mode == "4lang":
@@ -249,13 +294,14 @@ def substitute_root(line, mode="4lang"):
         substituted_line = l[0] + "\t" + defin + "\n"
 
     return substituted_line
-        
-            
+
+
 def filter_line(line, clause, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
         definition = l[7]
-        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        def_phrases = re.split(
+            ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         found = False
         filtered_definition = []
         for phrase in def_phrases:
@@ -263,13 +309,15 @@ def filter_line(line, clause, mode="4lang"):
                 filtered_definition.append(phrase.strip())
                 found = True
         if found:
-            filtered_line = "\t".join(l[:7]) + "\t" + ", ".join(filtered_definition)
+            filtered_line = "\t".join(
+                l[:7]) + "\t" + ", ".join(filtered_definition)
             return filtered_line.strip("\n") + "\n"
         else:
             return line
     else:
         definition = l[1]
-        def_phrases = re.split(''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
+        def_phrases = re.split(
+            ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         found = False
         filtered_definition = []
         for phrase in def_phrases:
@@ -281,6 +329,7 @@ def filter_line(line, clause, mode="4lang"):
             return filtered_line.strip("\n") + "\n"
         else:
             return line
+
 
 def readfile(filename, mode="4lang"):
     with open(filename, encoding='utf-8') as f:
@@ -297,7 +346,8 @@ def readfile(filename, mode="4lang"):
                     defs_to_parse[l[4]] = (l[0], l[7])
                     def_states[l[4]] = None
                 else:
-                    def_states[l[4]] = 'err bad columns (maybe spaces instead of TABS?)'
+                    def_states[l[4]
+                               ] = 'err bad columns (maybe spaces instead of TABS?)'
             else:
                 l = line.strip().split("\t")
                 defs[i] = line
@@ -309,6 +359,7 @@ def readfile(filename, mode="4lang"):
                 else:
                     def_states[i] = "err bad columns (maybe spaces instead of TABS?)"
 
+
 def process(outputdir):
     for element in defs_to_parse:
         d = defs_to_parse[element][1]
@@ -318,38 +369,34 @@ def process(outputdir):
             except TypeError as e:
                 def_states[element] = "err syntax error " + str(e)
 
-def main(argv):
-    inputfile = ''
-    outputdir = ''
-    mode = "4lang"
-    clause = None
-    try:
-        opts, args = getopt.getopt(argv,"hi:o:f:c:",["ifile=","odir=", "format=", "clause="])
-    except getopt.GetoptError:
-        print('def_ply_parser.py -i <inputfile> -o <outputdir> -f <format> -c <clause>')
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt == '-h':
-            print('4lang_parser.py -i <inputfile> -o <outputdir> -f <4lang|cut> -c <clause to filter by>')
-            sys.exit()
-        elif opt in ("-i", "--ifile"):
-            inputfile = arg
-        elif opt in ("-o", "--odir"):
-            outputdir = arg
-        elif opt in ("-f", "--format"):
-            mode = arg
-        elif opt in ("-c", "--clause"):
-            clause = arg
 
-    f = inputfile
-    readfile(f, mode)
-    o = outputdir
-    process(o)
+def get_args():
+    parser = argparse.ArgumentParser(
+        description="def_ply_parser.py -i <inputfile> -o <outputdir> -f <format> -c <clause> -b <binaries>")
+    parser.add_argument("-i", "--input-file", type=str, required=True)
+    parser.add_argument("-o", "--output-dir", type=str, required=True)
+    parser.add_argument("-f", "--format", type=str, default="4lang")
+    parser.add_argument("-c", "--clause", type=str, default=None)
+    parser.add_argument("-b", "--binaries", type=str, required=True)
+    return parser.parse_args()
+
+
+def main(argv):
+    args = get_args()
+    inputf = args.input_file
+    outputdir = args.output_dir
+    mode = args.format
+    clause = args.clause
+    binaries = args.binaries
+
+    readfile(inputf, mode)
+    process(outputdir)
     errors = []
     correct = []
     for state in def_states:
         if def_states[state] and 'err' in def_states[state]:
-            errors.append(defs[state].strip() + "\t" + def_states[state] + "\n")
+            errors.append(defs[state].strip() + "\t" +
+                          def_states[state] + "\n")
         else:
             correct.append(defs[state])
     errors.sort()
@@ -363,17 +410,20 @@ def main(argv):
     with open(os.path.join(outputdir, "4lang_def_correct"), 'w', encoding="utf-8") as f:
         with open(os.path.join(outputdir, "4lang_def_correct_filtered"), "w", encoding="utf-8") as filtered:
             with open(os.path.join(outputdir, "4lang_def_correct_substituted"), "w", encoding="utf-8") as substituted:
-                with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level: 
-                    with open(os.path.join(outputdir, "tokens"), "w", encoding="utf-8") as tokens: 
+                with open(os.path.join(outputdir, "top_level_clauses"), "w", encoding="utf-8") as top_level:
+                    with open(os.path.join(outputdir, "tokens"), "w", encoding="utf-8") as tokens:
                         for item in correct:
                             if not item.startswith("%"):
-                                substituted.write("%s" % substitute_root(item, mode))
+                                substituted.write(
+                                    "%s" % substitute_root(item, mode))
                                 for top in get_top_level_clauses(item, mode):
                                     top_level.write("%s\n" % top)
                                 if clause:
-                                    filtered.write("%s" % filter_line(item, clause, mode))
+                                    filtered.write(
+                                        "%s" % filter_line(item, clause, mode))
                                 tokens.write("%s" % get_tokens(item, mode))
                                 f.write("%s" % item)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
