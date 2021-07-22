@@ -1,10 +1,9 @@
--able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem =agt}, "_-able" mark_ stem	%detestable
+-able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
--ist	-ista	#	-ista	29	e	G	person<profession>, think {stem[important]}, "_-ist" mark_ stem	%
--ist	-ista	#	-ista	3623	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
--ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem has property}), "_-ize" mark_ stem	%
+-ist	-ista	-tor	-ista	29	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
+-ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
 -th	-ad	-ias	-ta	4	e	G	part, in whole, before(divide)	%
 -th	-adik	-imus	-ty	5	e	G	position, in sequence	%
 =agt	nominative_	nominative_	nominative_	3225	p	G	=agt	%  %
