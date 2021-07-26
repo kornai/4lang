@@ -495,8 +495,8 @@ picture	ke1p	pictura	obraz	1244	u	N	image	%
 piece	darab	pars	kawal1ek	449	e	N	thing, small, part_of thing[large]	%
 pierce	szu1r	figo	przekl1uwac1	2256	e	V	=agt cause_[hole in =pat], ins_ sharp	%
 pipe	cso3	fistula	rura	418	u	N	artefact, space/2327 in, cylinder, liquid[move] in	%
-place	hely	locus	miejsce	1026	c	N	point, gen at	     %place_
-place	te1r	spatium	przestrzen1	2326	c	N	thing in/2758	     %bound_
+place	hely	locus	miejsce	1026	c	N	point, gen at	%place_
+place	te1r	spatium	przestrzen1	2326	c	N	thing in/2758	%bound_
 plan	terv	propositum	plan	2369	e	N	after(structure)	%
 plane	repu2lo3	aeroplanum	samolot	2807	e	N	vehicle, fly, has two(wing), <has engine>	%
 planet	e1gitest	planeta	planeta	3599	e	N	object, in space/2509, size(er_ gen)  	%
