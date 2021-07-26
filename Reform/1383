@@ -2,6 +2,7 @@
 -ence	-sa1g	-monia	-stwo	44	u	G	action, stem, "_-ence" mark_ stem	%
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
+-est	leg-bb	-issimus	naj-szyo	1513	e	G	r_ all	%
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
 -ist	-ista	-tor	-ista	29	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
 -ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
@@ -949,7 +950,7 @@ newspaper	u1jsa1g	diurna	gazeta	2473	u	N	artefact, public, has more(page), at ev
 next	ko2vetkezo3	posterus	naste1pny	1406	u	D	at/2744, follow gen	%
 nice	kedves	dulcis	mil1y	1275	e	A	cause_ joy	%
 night	e1j	nox	noc	500	u	N	period, follow sunset, sunrise follow, dark, lack sun, <sleep at>	%
-no	nem	non	nie	1778	u	G	lack exist    	%
+no	nem	non	nie	1778	u	G	gen lack    	%
 nobility	nemesse1g	nobilitas	szlachta	3512	u	N	noble	%
 noise	zaj	fremitus	hal1as	2671	u	N	sound/993, <bad>, loud, frighten gen	%
 nor	sem	neque	ani	2078	u	G	not	%
@@ -996,7 +997,7 @@ opponent	ellenfe1l	adversarius	przeciwnik	631	e	N	person, oppose, <compete>, <in
 oppose	ellenez	adversor	sprzeciwic1_sie1	630	u	V	fight	%
 opposite	szemben	contra	przeciwny	2184	u	D	extreme(different)	%
 opposition	ellente1t	oppositio	przeciwien1stwo	634	u	N	oppose	%
-or	vagy	vel	albo	2568	u	G	_ or _ mark_ choose	%primitive
+or	vagy	vel	albo	2568	p	G	"_ or _" mark_ choose	%primitive
 order	parancs	iussum	rozkaz	1942	u	N	communicate, authority give, other(person) do	%
 order	sorrend	ordo	porza1dek	2739	e	N	relation, more(item) has, first part_of	%
 ordinary	he1tko2znapi	quotidianus	zwyczajny	1023	u	A	common	%
@@ -1312,7 +1313,7 @@ slip	csu1szik	labor	pos1lizgna1c1_sie1	435	u	U	move, =agt at surface, quiet(move
 slippery	si1kos	lubricus	s1lizgi	2091	u	A	gen slip[easy]	%
 slope	lejt	declivis_est	opadac1	1529	e	U	=agt has direction, has end[high], =agt has end[other,low]	%lack(perpendicular), lack(horizontal), diagonal
 slow	lassu1	tardus	powolny	1494	u	A	speed(gen er_)	%
-small	kis	parvus	mal1y	1356	u	A	size(gen er_)	%
+small	kis	parvus	mal1y	1356	u	A	gen er_	%
 smell	szag	odor	zapach	2151	c	N	feel ins_ nose, =pat in air	%
 smoke	fu2st	fumus	dym	876	u	N	substance, in air, burn cause_, after(gen lack see)	%
 smooth	sima	levis	gl1adki	2092	u	A	surface, easy(slide on)	%
@@ -1642,6 +1643,6 @@ year	e1v	annus	rok	545	c	N	period, time, month part_of	%
 yellow	sa1rga	flavus	z1o1l1ty	2057	e	N	colour, sun has colour	%
 yet	ma1r	etiam	jeszcze	1562	u	D	already	%
 yet	me1g	etiam	jeszcze	1600	u	D	<after>	%
-you	te	tu	ty	2320	u	G	person, <=agt or =pat>	%
+you	te	tu	ty	2320	u	G	person, hear+er/3627	%
 young	fiatal	iuvenis	ml1ody	799	u	N	early, in life	%
 your	tie1d	tuus	two1j	2384	u	G	you has	%

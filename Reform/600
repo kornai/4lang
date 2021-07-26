@@ -1,6 +1,7 @@
 -able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
+-est	leg-bb	-issimus	naj-szyo	1513	e	G	r_ all	%
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
 -ist	-ista	-tor	-ista	29	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
 -ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
@@ -460,6 +461,7 @@ open	nyit	aperio	otwierac1	1815	e	V	after(=pat open/1814)	%
 opinion	ne1zet	opinio	zdanie	1768	u	N	thought, person has, person[confident], person lack proof	%
 opponent	ellenfe1l	adversarius	przeciwnik	631	e	N	person, oppose, <compete>, <in battle>	%contradicting defaults?
 oppose	ellenez	adversor	sprzeciwic1_sie1	630	u	V	fight	%
+or	vagy	vel	albo	2568	p	G	"_ or _" mark_ choose	%primitive
 order	sorrend	ordo	porza1dek	2739	e	N	relation, more(item) has, first part_of	%
 organ	szerv	membrum	narza1d	2203	u	N	object, part_of body, has purpose	%
 organization	szervezet	societas	organizacja	2204	u	N	group, person member, has purpose, structure	%
@@ -622,7 +624,7 @@ skin	bo3r	cutis	sko1ra	318	u	N	organ, part_of body, cover	%
 sky	e1g	caelum	niebo	496	c	N	high(er_ air), animal see, cloud on, sun on, star on	%has shape[dome]
 slide	csu1szik	labor	s1lizgac1_sie1	434	e	N	move, on surface, has constant(contact)	%
 slope	lejt	declivis_est	opadac1	1529	e	U	=agt has direction, has end[high], =agt has end[other,low]	%lack(perpendicular), lack(horizontal), diagonal
-small	kis	parvus	mal1y	1356	u	A	size(gen er_)	%
+small	kis	parvus	mal1y	1356	u	A	gen er_	%
 smell	szag	odor	zapach	2151	c	N	feel ins_ nose, =pat in air	%
 smooth	sima	levis	gl1adki	2092	u	A	surface, easy(slide on)	%
 snow	ho1	nix	s1nieg	1066	u	N	ice, fall/2694, soft, white	%
