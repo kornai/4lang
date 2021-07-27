@@ -500,7 +500,7 @@ ball-shaped	go2mb_alaku1	#	#	3322	u	A	has ball(shape)	%1
 banana	bana1n	bananus	banan	225	u	N	fruit, long, has skin[thick/2752,yellow]	%naive_theo has pulp[white], has lack(seed)
 band	zenekar	symphonia	zespo1l1	2678	u	N	group, musician, <popular>	%
 bank	bank	argentaria	bank	227	u	N	institution, money in	%
-bank	part	ripa	brzeg	1945	u	N	TODO	%see 227
+bank	part	ripa	brzeg	1945	u	N	land, slope, at river	   %
 bar	kiza1r	excludo	wyl1a1czac1	1367	u	V	block across	%there seem to be no verbal use on rhs
 bar	kocsma	caupona	bar	1421	u	N	shop, sell drink, drink has alcohol	%
 bare	csupasz	nudus	nagi	439	u	A	has lack(garment)	%RA
