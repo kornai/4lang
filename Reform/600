@@ -1,7 +1,7 @@
 -able	-hato1	-bilis	-alny	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
--er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
--est	leg-bb	-issimus	naj-szyo	1513	e	G	r_ all	%
+-er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	    %nomen agentis
+-est	leg-bb	-issimus	naj-szyo	1513	e	G	er_ other     %
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
 -ist	-ista	-tor	-ista	29	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
 -ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
@@ -466,7 +466,7 @@ order	sorrend	ordo	porza1dek	2739	e	N	relation, more(item) has, first part_of	%
 organ	szerv	membrum	narza1d	2203	u	N	object, part_of body, has purpose	%
 organization	szervezet	societas	organizacja	2204	u	N	group, person member, has purpose, structure	%
 organize	szervez	compono	organizowac1	2949	u	V	=agt cause_ {=pat has structure}	%
-other	ma1s	alius	inny	1567	p	N	other	%
+other	ma1s	alius	inny	1567	p	N	different	%
 out	ki	foras	wy-	1316	e	D	lack in	%
 outdoor	ku2lso3	externus	na_zewna1trz	1455	e	A	place lack {in building}	%
 outer	ku2lso3	exterior	zewne1trzny	1456	e	A	part, other(part) in	%
