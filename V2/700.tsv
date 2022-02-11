@@ -85,7 +85,7 @@ broadcast	sugároz	emitto	emitować	hōsō 放送	guang3bo1 广播	2135	e	V	sign
 brush	kefe	peniculus	szczotka	burashi ブラシ	shua1zi 刷子	1277	e	N	device, has hair/3359, has handle, clean ins_, polish ins_, paint ins_	%
 building	épület	aedificium	budynek	tatemono 建物	jian4zhu4 建筑	3125	c	N	artefact, structure, has roof, has more(wall), <house>	%
 bullet	golyó	glans	pocisk	dangan 弾丸	zi3dan4 子弹	901	e	N	artefact, metal, from gun	%
-burn	ég	ardeo	palić	moeru (intranz) 燃える	shao1hui3 烧毁	497	c	U	fire, <=agt wood>, <after(ash)>	%
+burn	ég	ardeo	palić	moeru (intranz) 燃える	shao1hui3 烧毁	497	c	U	fire, <=agt[wood]>, <after(ash)>	%
 bus	busz	autocarrus	autobus	basu バス	gong1gong4qi4che1 公共汽车	356	e	N	vehicle, more(passenger) in, has engine, has regular(way)	%
 business	üzlet	negotium	biznes	kigyō 企業	qi3ye4 企业	2974	e	N	organization, make money	%
 buttocks	fenék	puga	tyłek	shiri 尻	pi4gu 屁股	3363	e	N	organ, sit on	%
@@ -207,7 +207,7 @@ eat	eszik	edo	jeść	taberu 食べる	chi1 吃	700	e	V	=agt cause_ {=pat in mout
 edge	él	acies	kant	fuchi 縁	bian1yan2 边沿	503	c	N	part, thin/2598, sharp, blade has, cut, instrument has	%
 effect	hatás	effectus	rezultat	eikyō 影響	ying3xiang3 影响	1014	u	N	<event> cause_	%
 effort	erőfeszítés	labor	wysiłek	doryoku 努力	nu3li4 努力	687	u	N	use energy, try	%
-egg	tojás	ovum	jajo	tamago 卵	dan4 蛋	2422	c	N	food, round, animal<[female,chicken]> make, has thin/2598(shell)	%
+egg	tojás	ovum	jajo	tamago 卵	dan4 蛋	2422	c	N	food, round, animal make, animal[female], <animal[chicken]>, has thin/2598(shell)	%
 electric	villamos	electricus	elektryczny	denki 電気	dian4qi4 电气	2633	u	A	has electricity	%
 electricity	áram	fluidum_electricum	elektryczność	denki 電気	dian4li4 电力	88	e	N	liquid, has power, move<device>, <in wire>	%
 element	elem	elementum	pierwiastek	genso 元素	yuan2su4 元素	3452	u	N	material, has atom(same)	%
@@ -484,7 +484,7 @@ parent	szülő	parens	rodzic	oya 親	fu4mu3 父母	2266	c	N	make child	%
 part	rész	pars	część	bubun 部分	bu4fen 部分	1997	u	N	in, connected	%
 part_of	rész	pars	część	no ichibu の一部	... de yi1bu4fen 的一部分	3368	p	G	part_of	%   %primitive but can be replaced by part, in, connected
 particle	darabka	particula	cząstka	ryúshi 粒子	li4zi3 粒子	3373	u	N	piece, separate, small	%
-passenger	utas	viator/vector	pasaźer	jōkyaku 乗客	cheng2ke4 乘客	2534	u	N	person, person travel, person in vehicle, other(person) drive vehicle	%
+passenger	utas	viator/vector	pasaźer	jōkyaku 乗客	cheng2ke4 乘客	2534	u	N	person, person[travel], person in vehicle, other(person) drive vehicle	%
 past	múlt	praeterita	przeszłość	kako 過去	guo4qu4 过去	1732	u	N	period, part_of time, now follow	%
 pause	szünet	intermissio	przerwa	kyúkei 休憩	ting1dun4 停顿	2267	e	N	lack action, before(action), after(action)	%
 pay	bér	pretium	pensja	kyúryō 給料	gong1zi1 工资	237	e	N	money, before(=pat work), after(=pat has)	%
