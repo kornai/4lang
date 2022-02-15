@@ -183,7 +183,7 @@ def get_tokens(line, mode="4lang"):
     l = line.strip().split("\t")
 
     if mode == "4lang":
-        definition = l[7]
+        definition = l[9]
     else:
         definition = l[1]
 
@@ -215,7 +215,7 @@ def get_tokens(line, mode="4lang"):
 def get_top_level_clauses(line, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
-        definition = l[7]
+        definition = l[9]
         def_phrases = re.split(
             ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         filtered_definition = []
@@ -233,7 +233,7 @@ def substitute_root(line, mode="4lang"):
     global BINARIES
     l = line.strip().split("\t")
     if mode == "4lang":
-        definition = l[7]
+        definition = l[9]
     else:
         definition = l[1]
     def_phrases = re.split(
@@ -272,7 +272,7 @@ def substitute_root(line, mode="4lang"):
     defin = ", ".join(def_phrases)
 
     if mode == "4lang":
-        substituted_line = "\t".join(l[:7]) + "\t" + defin + "\n"
+        substituted_line = "\t".join(l[:9]) + "\t" + defin + "\n"
     else:
         substituted_line = l[0] + "\t" + defin + "\n"
 
@@ -282,7 +282,7 @@ def substitute_root(line, mode="4lang"):
 def filter_line(line, clause, mode="4lang"):
     l = line.strip().split("\t")
     if mode == "4lang":
-        definition = l[7]
+        definition = l[9]
         def_phrases = re.split(
             ''',(?=(?:[^\[\]{}<>]|\[[^\]]*\]|{[^}]*}|<[^>]*>|\([^\)]*\))*$)''', definition)
         found = False
@@ -293,7 +293,7 @@ def filter_line(line, clause, mode="4lang"):
                 found = True
         if found:
             filtered_line = "\t".join(
-                l[:7]) + "\t" + ", ".join(filtered_definition)
+                l[:9]) + "\t" + ", ".join(filtered_definition)
             return filtered_line.strip("\n") + "\n"
         else:
             return line
@@ -316,20 +316,21 @@ def filter_line(line, clause, mode="4lang"):
 
 def readfile(filename, mode="4lang"):
     with open(filename, encoding='utf-8') as f:
+        next(f)
         for i, line in enumerate(f):
             line = re.sub('"[^"]+"', "", line)
             if mode == "4lang":
                 l = line.strip().split("\t")
-                if l[4] in defs:
-                    print(l[4])
-                defs[l[4]] = line
-                if len(l) >= 8:
-                    if "%" in l[7]:
-                        l[7] = l[7].split("%")[0].strip()
-                    defs_to_parse[l[4]] = (l[0], l[7])
-                    def_states[l[4]] = None
+                if l[6] in defs:
+                    print(l[6])
+                defs[l[6]] = line
+                if len(l) >= 10:
+                    if "%" in l[9]:
+                        l[9] = l[9].split("%")[0].strip()
+                    defs_to_parse[l[6]] = (l[0], l[9])
+                    def_states[l[6]] = None
                 else:
-                    def_states[l[4]
+                    def_states[l[6]
                                ] = 'err bad columns (maybe spaces instead of TABS?)'
             else:
                 l = line.strip().split("\t")
