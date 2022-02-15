@@ -255,9 +255,9 @@ def substitute_root(line, mode="4lang"):
                         new_tokens = "<%s %s %s>" % (
                             default_tokens_split[0], default_tokens_split[1], l[0])
                 else:
-                    new_tokens = "%s ISA %s" % (l[0], tokens[0])
+                    new_tokens = "%s is_a %s" % (l[0], tokens[0])
             else:
-                new_tokens = "%s ISA %s" % (l[0], tokens[0])
+                new_tokens = "%s is_a %s" % (l[0], tokens[0])
         elif len(tokens) == 2:
             if tokens[0] in BINARIES:
                 new_tokens = "%s %s %s" % (l[0], tokens[0], tokens[1])
