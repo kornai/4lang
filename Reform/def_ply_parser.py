@@ -170,6 +170,15 @@ class FourlangParser():
         print(p[1])
         print("p_round")
 
+    def p_default(self, p):
+        '''expr : expr ANGLEBL start ANGLEBR
+        | EQUAL ANGLEBL start ANGLEBR
+        | RELATION ANGLEBL start ANGLEBR
+        | CLAUSE ANGLEBL start ANGLEBR'''
+        print(p[0])
+        print(p[1])
+        print("p_default")
+
     def p_error(self, p):
         raise TypeError("unknown text at %r" % (p,))
 
