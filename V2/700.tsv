@@ -1,11 +1,11 @@
 en	hu	la	pl	ja	zh	num	s	l	def	%comment
 /-able	/-ható	/-bilis	/-alni	_ -e-_	ke3- 可	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
 /-er	/-bb	/-ior//-ius	/-szy	_ yori _ _-i	bi3jiao4 比较	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
-/-er	/-ó	/-tor//-trix	/-ać//-ić	/-sha 者	/// -zhe3 者	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	  %nomen agentis
-/-est	leg-bb	/-issimus	naj-szyo	ichiban 一番 	zui4- 最	3625	e	G	er_ all   %
-/-est	leg...bb	/-issimus	naj...szyo	ichiban _ 一番	zui4- 最	1513	e	G	er_ other   %
+/-er	/-ó	/-tor//-trix	/-arz	/-sha 者	/// -zhe3 者	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	  %nomen agentis
+/-est	leg-bb	/-issimus	naj...szy	ichiban 一番 	zui4- 最	3625	e	G	er_ all   %
+/-est	leg...bb	/-issimus	naj...szy	ichiban _ 一番	zui4- 最	1513	e	G	er_ other   %
 /-ing	/-ás	/-endi	/-anie	_ koto		2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_ 	%
-/-ist	/-ista	/-tor//-trix	/-ista	/-ka 家	/// -zhu3yi4zhe3 主意者	29	e	G	person[<profession>], think {stem_[important]}, "_-ist" mark_ stem_	%
+/-ist	/-ista	/-tor//-trix	/-owiec	/-ka 家	/// -zhu3yi4zhe3 主意者	29	e	G	person[<profession>], think {stem_[important]}, "_-ist" mark_ stem_	%
 /-ize	/-izál				/// -hua4 化	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
 /-th	/-ad	/-ias	/-ta	_ bun no _	/// -fen1zhi1 分之	4	e	G	part, in whole, before(divide)	%
 /-th	/-adik	/-imus	/-ty	_ban (me) 番目	di4- 第	5	e	G	position, in sequence	%
@@ -50,18 +50,18 @@ bark	ugat	latro	szczekać	hoeru 吠える	fei4jiao4 吠叫	2517	e	U	sound/993[sh
 base	alap	fundamentum	podstawa	kiso 基礎	ji1chu3 基础	146	e	N	part_of whole, at bottom, whole has bottom, cause_ whole[fix]	%
 beam	sugár	radius	promień	hikari 光	guang1 光	2722	e	N	line, light/739, from <sun>	%
 beautiful	szép	pulcher	piękny	kirei 綺麗	mei3 美	2170	u	A	attract gen	%
-bed	ágy	lectus	łóźko	beddo ベッド	chuang2 床	68	e	N	furniture, rest in	%
+bed	ágy	lectus	łóżko	beddo ベッド	chuang2 床	68	e	N	furniture, rest in	%
 bee	méh	apis	pszczoła	hachi 蜂	mi4feng1 蜜蜂	1601	e	N	insect, has wing, sting, make honey	%
 before	előtt	ante	przed	mae 前	yi3qian2 以前	2768	p	G	before	%
 begin	kezd	incipio	zaczynać	hajimeru 始める	kai1shi3 开始	1312	e	V	after(=pat)	%
 belief	hit	opinio	wiara	shinnen 信念	xin4yang3 信仰	1063	e	N	believe	%
 believe	hisz	credo	wierzyć	shinjiru 信じる	xiang1xin4 相信	1062	u	V	=agt think =pat[true,real]	%
-below	lent	infra	poniźej	shita 下	zai4…zhi1xia4 在...之下	1534	e	A	under	%
+below	lent	infra	poniżej	shita 下	zai4…zhi1xia4 在...之下	1534	e	A	under	%
 bend	ív	curvatura	łuk	wankyoku 湾曲	qu3xian4曲线	1112	e	N	line, lack straight/563	%
 bend	hajlik	flecto	zginać_się	mageru 曲げる	wan1qu1 弯曲	975	e	V	has form[change], after(lack straight/563)	%
 best	legjobb	optimus	najlepszy	sairyō 最良、ichiban yoi 一番良い	zui4hao3 最好	1515	e	A	good, -est	%
 between	közé	in/inter	między	no aida ...の間	zai ... zhong1jian1 在 ... 中间	1409	e	G	=agt at =pat[place/2326], =agt separate =pat, "between _" mark_ =pat	%
-big	nagy	magnus	duźy	ōkii 大きい	da4 大	1744	e	A	er_ gen	%
+big	nagy	magnus	duży	ōkii 大きい	da4 大	1744	e	A	er_ gen	%
 bird	madár	avis	ptak	tori 鳥	niao3 鸟	1576	c	N	animal, make egg, has feather, has two(wing)	%
 bite	harap	mordeo	gryźć	kamu かむ	yao3 咬	1001	u	V	cut, ins_ <tooth>	%
 black	fekete	niger	czarny	kuroi 黒い	hei1 黑	761	e	A	colour, dark, night has colour, coal has colour	%
@@ -71,7 +71,7 @@ blood	vér	sanguis	krew	chi 血	xue4 血	2599	e	N	liquid, in body, red	%
 blue	kék	caeruleus	niebieski	aoi 青い	qing1 青	1237	e	A	colour, sky has colour, cold	%
 body	test	corpus	ciało	karada 体	shen1ti3 身体	2370	u	N	object, animal has	%
 bone	csont	os	kość	hone 骨	gu3ge2 骨骼	431	e	N	material, rigid, frame, part_of body	%
-book	könyv	liber	ksiąźka	hon 本	shu1 书	1384	e	N	artefact, text in, has more(page), has cover, gen read	%
+book	könyv	liber	książka	hon 本	shu1 书	1384	e	N	artefact, text in, has more(page), has cover, gen read	%
 border	határ	confinium	granica	sakai 境	bian1jie4 边界	1011	e	N	line, official/1065, separate <two(country)>	%
 bottom	fenék	fundus	dno	soko 底	di3bu4 底部	787	c	N	part_of whole, position, deep( er_ whole)	%
 bowl	kupa	scyphus	miska	utsuwa 器	wan3 碗	1462	e	N	round, wide, food in	%
@@ -88,9 +88,9 @@ bullet	golyó	glans	pocisk	dangan 弾丸	zi3dan4 子弹	901	e	N	artefact, metal,
 burn	ég	ardeo	palić	moeru (intranz) 燃える	shao1hui3 烧毁	497	c	U	fire, <=agt[wood]>, <after(ash)>	%
 bus	busz	autocarrus	autobus	basu バス	gong1gong4qi4che1 公共汽车	356	e	N	vehicle, more(passenger) in, has engine, has regular(way)	%
 business	üzlet	negotium	biznes	kigyō 企業	qi3ye4 企业	2974	e	N	organization, make money	%
-buttocks	fenék	puga	tyłek	shiri 尻	pi4gu 屁股	3363	e	N	organ, sit on	%
+buttocks	fenék	puga	pośladki	shiri 尻	pi4gu 屁股	3363	e	N	organ, sit on	%
 buy	vesz	emo	kupować	kau 買う	mai3 买	2609	e	V	=agt receive =pat, =agt pay seller, "from _" mark_ seller	%
-buyer	vevő	emptor	kupujaćy	kōnyúsha 購入者	mai3fang1 买方	3628	u	N	=agt, buy, -er/3627	%
+buyer	vevő	emptor	kupujący	kōnyúsha 購入者	mai3fang1 买方	3628	u	N	=agt, buy, -er/3627	%
 calculate	számol	calculo	obliczać	keisan-suru 計算する	ji4suan4 计算	2141	e	V	=agt cause_ {=agt know =pat[number]}	%
 calm	nyugodt	tranquillus	spokojny	shizuka-na 静かな	zhen4jing4 镇静	1827	c	A	quiet, lack motion, lack angry, lack nervous, lack upset	%
 camera	kamera	cinematographica_machinula	kamera	kamera カメラ	zhao4xiang4ji1 照相机	1221	c	N	machine, make photograph, has lens	%
@@ -103,12 +103,12 @@ carry	hord	fero	nosić	hakobu 運ぶ	yun4song4 运送	1080	e	V	hold, transport	%
 cause	ok	causa	powód	gen'in 原因	yuan2yin1 原因	1891	u	N	reason	%
 cause_	okoz	efficio	spowodować	hikiokosu 引き起こす	shi3 使	3290	u	V	before(=agt), after(=pat)	%naive
 centre	középpont	centrum	centrum	chúshin 中心	zhong1xin1 中心	1412	c	N	middle	%
-cereal	gabona	frumentum	zboźe	kokumotsu 穀物	gu3lei4 谷类	3340	e	N	plant, <at farm>, make food, wheat is_a, rice is_a	%
+cereal	gabona	frumentum	zboże	kokumotsu 穀物	gu3lei4 谷类	3340	e	N	plant, <at farm>, make food, wheat is_a, rice is_a	%
 chair	szék	sella	krzesło	isu 椅子	yi3zi 椅子	2163	e	N	furniture, sit ins_, has seat, has leg(four), has <back>, support person	%
 change	változtat	muto	zmieniać	kaeru 変える	gai3bian4 改变	2554	u	V	after(=pat[different])	%
 characteristic	tulajdonság	proprium	charakterystyka	tokuchō 特徴	te4xing4 特性	3352	e	N	is_a	%
 chew	rág	rodo	źuć	kamu 噛む	ju3jue2	1983	e	N	bite, cause_ {=pat[liquid]}	%
-chicken	csirke	pullus	kurczę	niwatori 鶏	ji1 鸡	412	e	N	bird, make meat, make egg 	%
+chicken	csirke	pullus	kurczak	niwatori 鶏	ji1 鸡	412	e	N	bird, make meat, make egg 	%
 child	gyerek	puer/puella	dziecko	kodomo 子供	er2zi 儿子	931	u	N	person, young, parent make	%
 chin	áll	mentum	broda	ago 顎	xia4ba 下巴	73	e	N	part_of face, at centre, under mouth	%
 choose	választ	eligo	wybierać	erabu 選ぶ	xuan3ze2 选择	2546	e	V	=agt cause_ {=pat for_ =agt}	%
@@ -129,10 +129,10 @@ common	közös	communis	wspólny	futsú 普通 NEM JO	gong4tong2 共同	1415	e	A
 communicate	kommunikál	communicare	komunikować	hasshin 発信	gou1tong1 沟通	3145	u	U	give information	%
 company	vállalat	negotiatio	firma	kaisha 会社	gong1si 公司	2549	u	N	organization, for_ business	%
 compete	versenyez	contendo	rywalizować	kyōsō 競争	jing4zheng1 竞争	2608	c	U	want win, =agt has opponent, opponent want win	%
-complex	összetett	complex	złoźony	fukuzatsu 複雑	fu4za2 复杂	3341	e	A	has many(part), difficult(understand)	%
+complex	összetett	complex	złożony	fukuzatsu 複雑	fu4za2 复杂	3341	e	A	has many(part), difficult(understand)	%
 conduct	vezet	transmitto	przewodzić	annai-suru 案内する	dao3 导	3353	e	V	=agt cause_ {=pat move}, "to/2743 _" mark_ place, <energy[flow] in>	%
 confident	magabiztos	confidens	pewny	jishin-ga-aru 自信がある	zi4xin4 自信	3027	e	A	think after(self[good])	%
-conform	megfelel	aptus	słoda	shitagau 従う	shi4he2 适合	3375	u	N	similar, <gen expect =pat>, "to _" mark_ =pat	%
+conform	megfelel	aptus	zgodny	shitagau 従う	shi4he2 适合	3375	u	N	similar, <gen expect =pat>, "to _" mark_ =pat	%
 connect	kapcsol	coniungo	łączyć	tsunagu 繫ぐ	lian2jie1 连接	1227	e	V	after(connected)	%
 connected	kapcsolt	coniunctus	połączony	setsuzoku-shita 接続した	lian2jie1 de 连接的	3637	e	A	move(together)	%
 conscious	tudatos	conscius	świadomy	ishiki-ga-aru 意識がある	you3yi4shi2 有意识	2459	c	A	notice, realize, awake, understand, deliberate, think, know	%
@@ -156,13 +156,13 @@ court	bíróság	curia	sąd	saibansho 裁判所	fa3yuan4 法院	3124	e	N	place/1
 cover	fed	tego	okryć	oo-u 覆う	fu4gai4 覆盖	750	u	V	=agt on =pat, protect, cause_[lack{gen see =pat}]	%
 cow	tehén	vacca	krowa	ushi 牛	mu3niu2 母牛	2335	e	N	cattle, female, make milk, <at farm>	%
 crop	termés	messis	zbiór	sakumotsu 作物	zhuang1jia4 庄稼	2361	c	N	plant, at agriculture, product	%
-cube	kocka	alea	kość	rippōtai 立方体	li4fang1ti3 立方体	2701	u	N	shape, has four(side), has flat(top), has flat(bottom)	%
+cube	kocka	alea	kostka	rippōtai 立方体	li4fang1ti3 立方体	2701	u	N	shape, has four(side), has flat(top), has flat(bottom)	%
 cupboard	szekrény	armarium	szafa	wádorōbu ワードローブ	gui4zi 柜子	2180	e	N	furniture, has door, has shelf, store	%
 curve	görbe	curvamen	krzywa	kyokusen 曲線	qu1xian4 曲线	898	u	N	line, lack straight/563, lack plane/2090, bend/1112, direction lack constant	%
 cut	vág	seco	ciąć	kiru 切る	qie4 切	2542	u	V	separate, ins_ edge	%RA
 cutlery	evőeszköz	ferramentum	sztućce	katorarí カトラリー	dao1ju4 刀具	3354	c	N	knife is_a, fork is_a, spoon is_a, for_ eat	%
 cylinder	henger	cylindrus	cylinder	tsutsu 筒	yuan2tong3 圆筒	2704	u	N	shape, round(column), has flat(bottom), has flat(top)	%
-damage	kár	damnum	zniszczenie	songai 損害	sun3hai4 损害	1209	u	N	bad(situation)	%
+damage	kár	damnum	szkoda	songai 損害	sun3hai4 损害	1209	u	N	bad(situation)	%
 danger	veszély	periculum	niebezpieczeństwo	kiken 危険	wei1xian3 危险	2610	u	N	can/1246(harm)	%
 dark	sötét	obscurus	ciemny	kurai 暗い	hei1an4 de 黑暗的	2110	u	A	lack light/739	%
 day	nap	dies	dzień	hi 日	tian1 天	1754	c	N	period, week has, month has, has more(hour), sun on sky, work at	%
@@ -204,7 +204,7 @@ early	korai	maturus	wczesny	hayai 早い	zao3 早	1431	e	A	time, gen er_ time	%
 earth	föld	terra	ziemia	chikyú 地球	di4qiu2 地球	815	c	N	planet, in space/2509, life on, ocean on, land on, has atmosphere	%
 easy	könnyű	facilis	łatwy	kantan 簡単	rong2yi4 容易	1380	e	A	lack difficult	%antonym
 eat	eszik	edo	jeść	taberu 食べる	chi1 吃	700	e	V	=agt cause_ {=pat in mouth}, swallow, <=pat[food]>, <bite/1001>, <chew>, =agt has mouth	%
-edge	él	acies	kant	fuchi 縁	bian1yan2 边沿	503	c	N	part, thin/2598, sharp, blade has, cut, instrument has	%
+edge	él	acies	ostrze	fuchi 縁	bian1yan2 边沿	503	c	N	part, thin/2598, sharp, blade has, cut, instrument has	%
 effect	hatás	effectus	rezultat	eikyō 影響	ying3xiang3 影响	1014	u	N	<event> cause_	%
 effort	erőfeszítés	labor	wysiłek	doryoku 努力	nu3li4 努力	687	u	N	use energy, try	%
 egg	tojás	ovum	jajo	tamago 卵	dan4 蛋	2422	c	N	food, round, animal make, animal[female], <animal[chicken]>, has thin/2598(shell)	%
@@ -244,14 +244,14 @@ fat	zsír	adeps	tłuszcz	shibō 脂肪	zhi1fang2 脂肪	3337	e	N	substance, soft
 fear	félelem	timor	strach	kyōfu 恐怖	kong3bu4 恐怖	734	u	N	sensation, danger cause_, <anxiety>	%
 feather	toll	penna	pióro	hane 羽	yu3mao2 羽毛	2427	e	N	organ, soft, at bird	%
 feel	érez	sentio	czuć	kanjiru 感じる	jue2de 觉得	521	u	V	=pat in mind, =pat at body, =agt has body, =agt has mind	%
-feeling	érzés	sensus	uczcia	kimochi 気持ち	gan3jue2 感觉	533	u	N	liquid, in mind, joy is_a, sorrow is_a, fear is_a, anger is_a	%spontaneous? other cause_ ?
+feeling	érzés	sensus	uczucie	kimochi 気持ち	gan3jue2 感觉	533	u	N	liquid, in mind, joy is_a, sorrow is_a, fear is_a, anger is_a	%spontaneous? other cause_ ?
 female	nő	femina	samica	josei 女性	nü3 女	1794	u	N	sex	%
 fibre	rost	fibra	błonnik	sen'i 繊維	xian1wei2 纤维	3357	c	N	in food, cause_ health, thread, in rope, in cloth, thin/2598, natural, in wood	%
-fight	harc	pugna	bójka	tatakai 闘い	zhan4dou4 战斗	1002	c	N	person want {harm at other(person)}, ins_ weapon	%
+fight	harc	pugna	walka	tatakai 闘い	zhan4dou4 战斗	1002	c	N	person want {harm at other(person)}, ins_ weapon	%
 fine	finom	elegans	dobry	sensai 繊細	xi4wei1 细微	809	e	A	small, light/1381, thin/2598	%
 finger	ujj	digitus	palec	yubi 指	zhi3 指	2522	e	N	part_of hand, long, thin/2598	"%""has four fingers"", de ""has o2t ujj"""
 fire	tűz	ignis	ogień	hi 火	huo3 火	2454	c	N	substance, cause_ heat, cause_ light/739, has flame, burn, <cause_ smoke>	%
-firm	szilárd	firmus	firma	antei 安定	wen3gu4 稳固	2215	e	A	rigid, lack soft 	%
+firm	szilárd	firmus	stały	antei 安定	wen3gu4 稳固	2215	e	A	rigid, lack soft 	%
 firm	cég	domus	firma	kaisha 会社	gong1si 公司	362	e	N	company/2549[<small>]	%
 first	első	primus	pierwszy	ichiban 一番	di4yi1 第一	649	c	A	-th/5[one], lack before, second/1569 follow	%
 five	öt	quinque	pięć	go 五	wu3 五	2989	e	A	number, follow four	%
@@ -259,16 +259,16 @@ fix	rögzít	firmo	przymocowywać	kotei-suru 固定する	ding4 定	2026	u	V	=ag
 flame	láng	flamma	płomień	honoo 炎	huo3yan4 火焰	1473	e	N	air, hot, light/739 from, fire has	%
 flat	lapos	planus	płaski	taira 平	ping2mian4 平面	1493	c	A	has surface, horizontal, lack slope, lack curve	%
 flesh	hús	caro	mięso	niku 肉	rou4 肉	1093	u	N	material, soft, muscle	%
-flexible	hajlékony	flexibile	elastyczne	júnan 柔軟	tan2xing4 弹性	3371	e	A	can/1246(change), can/1246(bend/975)	%
+flexible	hajlékony	flexibile	elastyczny	júnan 柔軟	tan2xing4 弹性	3371	e	A	can/1246(change), can/1246(bend/975)	%
 floor	padló	coaxatio	podłoga	yuka 床	di4ban3 地板	1932	e	N	surface, room/2235 has, stand on	%
 flour	liszt	farina	mąka	komugiko 小麦粉	mian4fen3 面粉	1545	e	N	food, from/2742 grain	%
 flow	folyik	fluo	płynąć	nagareru 流れる	liu2 流	847	u	V	<liquid> move[smooth]	%
 flower	virág	flos	kwiat	hana 花	huar1 花儿	2637	e	N	plant has, <has colour>	%
 fly	repül	volo	latać	tobu 飛ぶ	fei1 飞	2018	u	U	move, =agt in air, control	%
-follow	követ	sequor	podąźać	tsuzuku 続く	gen1sui2 跟随	1400	u	V	=agt has direction, =pat has direction, after(=agt), before(=pat)	%
+follow	követ	sequor	podążać	tsuzuku 続く	gen1sui2 跟随	1400	u	V	=agt has direction, =pat has direction, after(=agt), before(=pat)	%
 food	étel	cibus	jedzenie	tabemono 食べ物	fan4 饭	542	u	N	material, gen eat	%
 foot	láb	pes	stopa	ashi 足	jiao3 脚	1466	e	N	organ, leg has, at ground	%
-for	-ért	pro	dla	de で	wei4 为	2824	p	G	exchange_, "for _" mark_ money	%hidden primitive: thing of value
+for	-ért	pro	za	de で	wei4 为	2824	p	G	exchange_, "for _" mark_ money	%hidden primitive: thing of value
 for_	-ért	pro	dla	tame ni 為に	wei4 为	2782	p	G	for_	%used as instrument, dative of purpose
 force	erő	vis	siła	chikara 力	li4 力	683	u	N	power	%
 forehead	homlok	frons	czoło	hitai 額	qian2e2 前额	1077	e	N	part_of face, front, eye under, hair at, at temple/982	%
@@ -277,9 +277,9 @@ form	alak	forma	forma	katachi 形	yang4zi 样子	141	e	N	object has	%
 four	négy	quattuor	cztery	yon 四	si4 四	2988	u	A	number, follow three	%
 frame	keret	forma	rama	waku 枠	kuang4jia4 框架	1303	u	N	artefact, has part[more, together], structure, give shape, fix, border	%
 frequent	gyakori	frequens	częsty	hinpan 頻繁	pin2fan2 频繁	919	e	A	often	%
-fright	ijedelem	terror	terror	kyōfu 恐怖	jing1xia4 惊吓	2812	e	N	sudden, intense, fear	%
+fright	ijedelem	terror	przestrach	kyōfu 恐怖	jing1xia4 惊吓	2812	e	N	sudden, intense, fear	%
 frighten	ijeszt	terreo	straszyć	odokasu 脅かす	xia4 吓	2916	e	V	cause_ fear  	%
-from	/ból	ab	z	kara から	cong2 从	2742	u	G	before(in =pat), after(far)	%
+from	/-ból	ab	z	kara から	cong2 从	2742	u	G	before(in =pat), after(far)	%
 front	elej	pars_prior	przód	mae 前	qian2 前	608	u	N	part, first	%?
 fruit	gyümölcs	fructus	owoc	kudamono 果物	shui3guo3 水果	945	e	N	part_of plant, seed part_of, food, sweet, has flesh	%
 fur	prém	pellis	futro	kegawa 毛皮	mao2pi2 毛皮	1974	e	N	hair/3359, cover skin, mammal has	%
@@ -287,10 +287,10 @@ furniture	bútor	supellex	meble	kagu 家具	jia1ju4 家具	343	c	N	object, in ro
 further	további	reliquus	dalszy	sore-ijō-no それ以上の	jin4yi1bu4 进一步	2435	u	A	more	%
 future	jövő	futura	przyszłość	mirai 未来	jiang1lai2 将来	1197	u	N	time, follow now	%
 gas	gáz	gasium	gaz	gasu ガス	qi4 气	885	u	N	substance, thin/1038, air is_a	%
-gen	akár-	ubicumque	dowolny	/demo でも	ren4he2 任何	3635	p	N	gen	%  %
+gen	akár-	ubicumque	-kolwiek	/demo でも	ren4he2 任何	3635	p	N	gen	%  %
 get	jut	nanciscor	dostawać	eru 得る	dao4 到	1206	e	V	after(has)	%
 get	kap	accipio	dostawać	morau もらう	de2dao4 得到	1223	e	V	after(=agt has =pat), after(has)	%
-give	ad	do	dać	ageru あげる	gei3 给	113	e	V	=agt cause_ {person has =pat}, dative_ mark_ person	%
+give	ad	do	dawać	ageru あげる	gei3 给	113	e	V	=agt cause_ {person has =pat}, dative_ mark_ person	%
 go	megy	eo	iść	iku 行く	qu4 去	1654	u	U	move, ins_ leg, =agt has leg	%
 good	jó	bonus	dobry	ii 良い	hao3 好	1189	u	A	gen want	%
 govern	vezet	gero	rządzić	tsukasadoru 司る	zhi4li3 治理	2615	e	V	control system[<country>], =agt has power	%
@@ -303,12 +303,12 @@ grey	szürke	canus	szary	hai-iro 灰色	hui1se4 灰色	2268	e	A	colour, dark(clo
 ground	talaj	solum	ziemia	jimen 地面	di4mian4 地面	2297	e	N	surface, solid, at Earth	%
 group	csoport	caterva	grupa	grúpu グループ	qun2 群	432	c	N	member[several], together	%
 grow	nő	cresco	rosnąć	nobiru 伸びる	zeng1zhang3 增长	1796	e	U	after(size(er_ gen))	%
-gun	puska	sclopetum	broń	jú 銃	qiang1 枪	1980	c	N	weapon, has[metal(tube)], cause_ bullet[move], shot ins_	%
+gun	puska	sclopetum	strzelba	jú 銃	qiang1 枪	1980	c	N	weapon, has[metal(tube)], cause_ bullet[move], shot ins_	%
 hair	szőr	coma	włosy	ke 毛	mao2 毛	3359	u	N	organ, fine, thread, grow, long, on body, animal has body	%
 hand	kéz	manus	ręka	te 手	shou3 手	1264	c	N	organ, part_of arm, human has arm, for_ [move gen], wrist part_of, palm part_of, five(finger) part_of, thumb part_of	%four(finger), de o2t(ujj)
 handle	fogó	manubrium	rączka	totte 取っ手	ba3shou3 把手	834	u	N	part_of object, for_ hold(object in hand)	%
 happen	történik	fio	stać_się	okoru 起こる	fa1sheng1 发生	2418	e	V	change	%
-hard	kemény	durus	cięźki	katai 硬い	ying4 硬	1291	u	A	gen lack bend/975, gen lack soft	%
+hard	kemény	durus	ciężki	katai 硬い	ying4 硬	1291	u	A	gen lack bend/975, gen lack soft	%
 harm	sérülés	vulnus	szkoda	higai 被害	shang1hai4 伤害	2067	u	N	bad	%
 has	bír	habeo	mieć	motte iru 持っている	you3 有	288	p	V	=agt control =pat, =agt has =pat	%
 head	fej	caput	głowa	atama 頭	tou2 头	756	u	N	organ, brain in, face on, top	%
@@ -316,7 +316,7 @@ health	egészség	sanitas	zdrowie	kenkō 健康	jian4kang1 健康	554	e	N	health
 healthy	egészséges	sanus	zdrowy	genki 元気	jian4kang1 健康	555	u	A	has body, body in good(situation)	%
 hear	hall	audio	słyszeć	kiku 聞く	ting1jian4 听见	987	c	V	=agt perceive =pat[sound/993], ins_ ear	%
 heat	hő	calor	gorąco	netsu 熱	re4 热	1070	u	N	energy, warm	%
-heavy	nehéz	gravis	cieźki	omoi 重い	zhong4 重	1772	e	A	weight(er_ gen)	%
+heavy	nehéz	gravis	cieżki	omoi 重い	zhong4 重	1772	e	A	weight(er_ gen)	%
 height	magasság	altitudo	wysokość	takasa 高さ	gao1du4 高度	1583	e	N	distance, vertical	%between {base/146,top}
 help	segít	adiuvo	pomagać	tetsudau 手伝う	bang1zhu4 帮助	2072	u	V	=agt cause_ {=pat succeed/2718}, =agt together =pat	%
 high	magas	altus	wysoki	takai 高い	gao1 高	1582	u	A	top er_ gen, has top	%
@@ -334,13 +334,13 @@ hour	óra	hora	godzina	jikan 時間	xiao3shi2 小时	1834	c	N	time, unit, day ha
 house	ház	domus	dom	ie 家	fang2zi 房子	963	e	N	building, home	%
 human	ember	homo	człowiek	ningen 人間	ren2 人	658	e	N	man/659	%
 hurt	bánt	laedo	ranić	itai 痛い	shang1hai4 伤害	200	u	V	cause_ {=pat has pain}, offend	%
-husband	férj	vir/maritus	mąź	otto 夫	zhang4fu 丈夫	745	e	N	male, has wife, "to/of _" mark_ wife	%
+husband	férj	vir/maritus	mąż	otto 夫	zhang4fu 丈夫	745	e	N	male, has wife, "to/of _" mark_ wife	%
 ice	jég	glacies	lód	kōri 氷	bing1 冰	1178	e	N	water, cold, hard	%
 idea	eszme	opinio	idea	kangae 考え	si1xiang3 思想	703	e	N	in mind, think make	%
 ill	beteg	aeger	chory	byōki 病気	sheng1bing4 生病	273	u	A	has disease, lack healthy	%
 image	kép	imago	obraz	gazō 画像	tu2hua4 图画	1242	u	N	has form, resemble object, gen see, represent object, "of _" mark_ object	%
 imagination	fantázia	imaginatio	wyobraźnia	sōzōryoku 想像力	xiang3xiang4li4 想像力	725	e	N	make mental(image), lack see, <picture>	%
-important	fontos	gravis	waźny	júyō 重要	zhong4yao4 重要	853	u	A	cause, has value	%
+important	fontos	gravis	ważny	júyō 重要	zhong4yao4 重要	853	u	A	cause, has value	%
 in	/-ba	In	do	nakae 中へ	li3	10	c	G	place, =agt at place, =pat[place] contain =agt, "in _" mark_ place	%
 in	/-ban	in	w	nai 内	nèi 内	2758	c	G	place, =agt at place, =pat[place] contain =agt, "in _" mark_ place	%could be primitive
 information	információ	nuntiatio	informacja	jōhō 情報	xin4xi1 信息	1141	c	N	liquid, study give, experience give, gen know	%
@@ -351,7 +351,7 @@ institution	intézmény	institutio	instytucja	kikan 機関	ji1gou4 机构	3372	e
 instrument	eszköz	instrumentum	narzędzie	kigu 器具	gong1ju4 工具	701	u	N	object, work ins_, gen use, has purpose, at hand	%
 intense	nagyfokú	vehemens	intensywny	hageshii 激しい	qiang2lie4 强烈	3369	e	A	er_ gen, extreme	%
 interrupt	megszakít	interrumpo	przeszkadzać	chúdan-suru 中断する	da3duan4 打断	1645	u	V	=agt cause_[pause in =pat]	%
-iron	vas	ferrum	źelazo	tetsu 鉄	tie3 铁	2589	e	N	hard(metal)	%
+iron	vas	ferrum	żelazo	tetsu 鉄	tie3 铁	2589	e	N	hard(metal)	%
 is_a	van	sum	być	aru ある	shi4 是	2585	p	V	is_a	%copula_
 item	tétel	item	pozycja	kōmoku 項目	xiang4mu4 项目	3343	c	N	one, in list, in group, in set/2746	%single
 ivory	elefántcsont	ebur	kość_słoniowa	zōge 象牙	xiang4ya2 象牙	3606	u	N	bone, elephant has	%
@@ -362,11 +362,11 @@ joy	öröm	gaudium	radość	yorokobi 喜び	huan1le4 欢乐	1856	u	N	sensation, 
 judge	bíró	iudex	sędzia	saibankan 裁判官	fa3guan1 法官	289	c	N	human, part_of court/3124, decide, make official(opinion)	%
 kind	kedves	benignus	miły	suki-na 好きな	hao3xin1 好心	1274	u	A	like/3382, help	%
 king	király	rex	król	ōja 王者	guo2wang2 国王	1350	u	N	monarch, man/744, lead/2617 country, part_of royal(family)	%
-knife	kés	culter	nóź	naifu ナイフ	dao1 刀	1256	e	N	instrument, for_ cut, has blade[<metal>], has handle	%
+knife	kés	culter	nóż	naifu ナイフ	dao1 刀	1256	e	N	instrument, for_ cut, has blade[<metal>], has handle	%
 know	tud	scio	wiedzieć	shiru 知る	zhi1dao4 知道	2455	u	V	=agt has information, information connect =pat	%
 lack	hiányzik	desum	brak	kaku  欠く	que1shao3 缺少	3306	p	V	lack	%
 land	föld	ager	ziemia	tochi 土地	tu3di4 土地	816	u	N	solid, ground, area/2366	%
-large	nagy	grandis	duźy	ōkii 大きい	da4 大	1745	e	A	big	%
+large	nagy	grandis	duży	ōkii 大きい	da4 大	1745	e	A	big	%
 law	jog	ius	prawo	hōritsu 法律	fa3lü4 法律	1200	u	N	rule, system, society/2285 has, official/1065, norm	%
 lead	ólom	plumbum	ołów	namari 鉛	qian1 铅	1832	e	N	metal, soft 	%
 lead	vezet	duco	prowadzić	michibiku 導く	dai4ling3 带领	2617	e	V	=agt cause_ {=pat[change]}	%naive_theo: x lead/2617 y, y lead/2617 z implies x lead/2617 z
@@ -389,7 +389,7 @@ line	sor	versus	rząd	gyō 行	hang2lie4 行列	2118	u	N	shape, long, has positi
 liquid	folyékony	fluidus	płynny	ekitai 液体	ye4ti3 液体	846	u	A	substance, flow, has shape[change]	%
 list	lista	tabulae	lista	ichiranhyō 一覧表	lie4biao3 列表	1544	e	N	series, item member, written	%
 little	kis	parvus	mały	chiisai 小さい	xiao3 小	1355	e	A	small	%
-live	él	vivo	źyć	ikiru 生きる	sheng1huo2 生活	504	u	U	exist, breathe, grow, reproduce, eat, act, change	%
+live	él	vivo	żyć	ikiru 生きる	sheng1huo2 生活	504	u	U	exist, breathe, grow, reproduce, eat, act, change	%
 long	hosszú	longus	długi	nagai 長い	chang2 长	1086	c	A	gen er_ size[horizontal], has axis	%
 lose	elveszít	amitto	gubić	nakusu 無くす	diu1 丢	656	e	V	after(lack)	%
 loud	hangos	clarud	głośny	urusai うるさい	xiang3liang4 响亮	995	e	A	sound/993, intense	%
@@ -402,7 +402,7 @@ make	csinál	facio	robić	suru する	zuo4 做	409	u	V	=agt cause_ {=pat[exist]}
 male	hím	mas	samiec	osu 雄	nan2 男	1039	e	N	sex	%
 mammal	emlős	mammalia	ssak	honyúrui 哺乳類	bu3ru3_dong4wu4 哺乳动物	2729	c	N	animal, has fur, has milk	%ND
 man	ember	homo	człowiek	hito 人	ren2 人	659	e	N	animal, has two(leg), has two(hand), think, can/1246(speak), can/1246(work), has society/2285	%opposed to animal, divine person, or machine
-man	férfi	vir	męźczyzna	otoko 男	nan2 男	744	e	N	person, male	%
+man	férfi	vir	mężczyzna	otoko 男	nan2 男	744	e	N	person, male	%
 many	sok	multus	wiele	takusan たくさん	duo1 多	2113	u	A	quantity, er_ gen	%
 mark	jel	nota	znak	shirushi 印	biao1ji4 标记	1182	u	N	sign, visible	%
 mark_	jelöl	nota	znak	shirusu 標す	biao1zhi4 标志	3331	u	V	=agt[sign], =pat[meaning], represent	%
@@ -448,7 +448,7 @@ noise	zaj	fremitus	hałas	sōon 騒音	zao4yin1 噪音	2671	u	N	sound/993, <bad>
 norm	szabály	regula	norma	kijun 基準	gui1fan4 规范	3361	u	N	good for_ society	%
 normal	rendes	naturalis	normalny	futsú 普通	zheng4chang2 正常	2799	u	A	resemble other	%
 nose	orr	nasus	nos	hana 鼻	bi2zi 鼻子	1912	e	N	organ, part_of face, animal has face, front, at centre, smell, air[move] in	%
-notice	észrevesz	animadverto	zauwaźać	kizuku 気づく	zhu1yi4dao4 注意到	540	e	V	know, see	%
+notice	észrevesz	animadverto	zauważać	kizuku 気づく	zhu1yi4dao4 注意到	540	e	V	know, see	%
 now	most	nunc	teraz	ima 今	xian4zai4 现在	1726	c	A	time, this	%
 number	szám	numerus	numer	bangō 番号	hao4 号	2138	u	N	quantity	%
 object	tárgy	corpus	przedmiot	mono 物	shi4wu4 事物	2705	c	N	thing, <has colour>, has shape, has weight, <has surface>, has position, <lack life>	%has orientation
@@ -484,7 +484,7 @@ parent	szülő	parens	rodzic	oya 親	fu4mu3 父母	2266	c	N	make child	%
 part	rész	pars	część	bubun 部分	bu4fen 部分	1997	u	N	in, connected	%
 part_of	rész	pars	część	no ichibu の一部	... de yi1bu4fen 的一部分	3368	p	G	part_of	%   %primitive but can be replaced by part, in, connected
 particle	darabka	particula	cząstka	ryúshi 粒子	li4zi3 粒子	3373	u	N	piece, separate, small	%
-passenger	utas	viator/vector	pasaźer	jōkyaku 乗客	cheng2ke4 乘客	2534	u	N	person, person[travel], person in vehicle, other(person) drive vehicle	%
+passenger	utas	viator/vector	pasażer	jōkyaku 乗客	cheng2ke4 乘客	2534	u	N	person, person[travel], person in vehicle, other(person) drive vehicle	%
 past	múlt	praeterita	przeszłość	kako 過去	guo4qu4 过去	1732	u	N	period, part_of time, now follow	%
 pause	szünet	intermissio	przerwa	kyúkei 休憩	ting1dun4 停顿	2267	e	N	lack action, before(action), after(action)	%
 pay	bér	pretium	pensja	kyúryō 給料	gong1zi1 工资	237	e	N	money, before(=pat work), after(=pat has)	%
@@ -512,8 +512,8 @@ polish	fényez	polio	polerować	migaku 磨く	mo2guang1 磨光	740	u	V	=agt caus
 political	politikai	civilis	polityczny	seijiteki 政治的	zheng4zhi4 de 政治的	1965	e	A	politics	%
 politics	politika	consilium	polityka	seiji 政治	zheng4zhi4 政治	1964	u	N	activity, get power	%
 position	hely	locus	miejsce	basho 場所	wei4zhi4 位置	1027	u	N	place/1026	%
-possibility	lehetőség	potestas	moźliwość	kanōsei 可能性	ke3neng2xing4 可能性	1524	e	N	possible	%
-possible	lehetséges	possibilis	moźliwy	kanō 可能	ke3neng2 可能	1525	u	A	gen allow, can/1246	%
+possibility	lehetőség	potestas	możliwość	kanōsei 可能性	ke3neng2xing4 可能性	1524	e	N	possible	%
+possible	lehetséges	possibilis	możliwy	kanō 可能	ke3neng2 可能	1525	u	A	gen allow, can/1246	%
 powder	por	pulvis	puder	kona 粉	fen3 粉	1971	u	N	substance, more(particle)	%
 power	erő	vis	moc	chikara 力	li4liang4 力量	684	e	N	cause_ change	%
 power	hajt	propello	napędzać	ugokasu 動かす	fa1dong4 发动	979	e	V	cause_ change<move>	%
@@ -560,7 +560,7 @@ reproduce	szaporodik	propago	reprodukować	hanshoku-suru 繁殖する	fu4zhi4 �
 resemble	hasonlít	similis	przypominać	niru 似る	xiang4 像	3397	e	V	=agt has quality, =pat has quality	%
 responsible	felelős	cui_ratio_reddenda_est	odpowiedzialny	tantōsha 担当者	fu4 ze2ren4 de 负责任的	766	c	A	has control, has authority, has blame	%
 rest	pihen	quiesco	odpoczywać	yasumu 休む	xiu1xi 休息	1959	c	U	quiet, calm, before(tired), after(has energy)	%
-rice	rizs	oryza	ryź	kome 米	mi3 米	2021	e	N	plant, food, grain, in Asia	%
+rice	rizs	oryza	ryż	kome 米	mi3 米	2021	e	N	plant, food, grain, in Asia	%
 ride	lovagol	equito	jeździć_konno	uma ni noru 馬に乗る	qi2 骑	1555	e	U	travel, =agt on <horse>, ins_ <horse>	%
 rigid	merev	rigidus	sztywny	katai 硬い	ying4xing4 硬性	3131	u	A	has shape, shape lack change	%
 road	út	via	droga	michi 道	lu4 路	2481	e	N	way, has hard (surface), vehicle on	%
@@ -646,7 +646,7 @@ space	űr	vacuum	przestrzeń	uchú 宇宙	yu3zhou4 宇宙	2509	c	N	sun in, star 
 speak	beszél	loquor	mówić	hanasu 話す	shuo1hua4 说话	270	u	V	talk	%
 speech	beszéd	oratio	przemówienie	hanashi 話	hua4 话	268	u	N	sound, =agt say  	%
 split	hasít	findo	dzielić	wareru 割れる	fen1lie4 分裂	1007	e	V	after(separate), <break>	%
-spoon	kanál	cochlear	łyźka	supún スプーン	shao2 勺	1222	u	N	cutlery, {eat soup} ins_, has bowl, has handle	%
+spoon	kanál	cochlear	łyżka	supún スプーン	shao2 勺	1222	u	N	cutlery, {eat soup} ins_, has bowl, has handle	%
 spring	tavasz	ver	wiosna	haru 春	chun1tian1 春天	2318	e	N	first(season/548), warm, plant[live], love in, summer follow, follow winter	%ND
 stable	stabil	stabilis	stabilny	antei 安定	wen3ding4 稳定	3130	e	A	lack move	%
 stand	áll	sto	stać	tatsu 立つ	zhan4 站	74	u	U	=agt[vertical], <=agt on foot[two]>	%
@@ -659,8 +659,8 @@ stem_	szótő	radix	źródło	gokan 語幹	ci2gen1 词根	3280	u	N	part_of word,
 stick	bot	baculum	kij	bō 棒	bang4 棒	338	e	N	object, long, <wood>, <gen use>	%
 sticky	ragadós	glutinosus	klejący	nebaneba ねばねば	nian2 黏	1987	u	A	stick	%
 still	nyugodt	quietus	cichy	shizuka 静か	an1jing4 安静	1828	e	A	lack move	%
-sting	szúr	pungo	źądlić	sasu 刺す	ci4 刺	2257	u	V	pierce, <insect>	%
-stomach	gyomor	venter	źołądek	o-naka お腹	wei4 胃	939	e	N	organ, animal has, tube, food in	%
+sting	szúr	pungo	żądlić	sasu 刺す	ci4 刺	2257	u	V	pierce, <insect>	%
+stomach	gyomor	venter	żołądek	o-naka お腹	wei4 胃	939	e	N	organ, animal has, tube, food in	%
 stop	megáll	consisto	zatrzymać_się	tomaru 留まる	ting2zhi3 停止	1615	e	V	after(=agt lack move)	%
 store	bolt	taberna	sklep	mise 店	shang1dian4 商店	330	u	N	shop	%
 straight	egyenes	directus	prosty	massugu 真っ直ぐ	zhi2 直	563	e	A	has constant(direction)	%
@@ -669,7 +669,7 @@ structure	szerkezet	structura	struktura	kōzō 構造	jie2gou4 结构	2944	u	N	h
 student	diák	discipulus/discipula	student	gakusei 学生	xue2sheng1 学生	462	e	N	person, study, in <school>	%
 study	tanulmány	studium	nauka	benkyō 勉強	xue2xi2 学习	2305	e	N	work, want know =pat	%=pat part_of discipline
 substance	anyag	materia	materia	busshitsu 物質	wu4zhi4 物质	172	u	N	has mass, in space/2327, physical	%
-succeed	követ	succedo	podąźać	tadoru 辿る	hou4ji4 后继	1401	e	V	=pat before =agt     %after
+succeed	követ	succedo	podążać	tadoru 辿る	hou4ji4 后继	1401	e	V	=pat before =agt     %after
 succeed	sikerrel_jár	bene_cedit	odnieść_sukces	seikō-suru 成功する	cheng2gong1 成功	2718	e	V	after(aim[real]), =agt has aim	%
 success	siker	eventum	sukces	seikō 成功	cheng2gong1 成功	2969	u	N	real, good, before(desire)	%
 sudden	hirtelen	subitus	nagły	totsuzen 突然	tu1ran2 突然	1061	u	A	lack warn, before(lack (gen know))	%
@@ -732,7 +732,7 @@ understand	ért	intellego	rozumieć	wakaru わかる	dong3 懂	525	u	V	meaning i
 union	unió	coniunctio	unia	rengō 連合	lian2he2 联合	2525	e	N	together, public	%
 unit	egység	omne	jednostka	tan'i 単位	dan1yuan2 单元	3038	u	N	amount, measure	%
 upset	izgalom	commotio	poruszenie	fuan 不安	fan2nao3 烦恼	1166	u	N	disturb	%
-use	használ	utor	uźywać	tsukau 使う	yong4 用	1008	u	V	=agt has purpose, =pat help purpose, "for _" mark_ purpose, "to/3600 _" mark_ purpose	%
+use	használ	utor	używać	tsukau 使う	yong4 用	1008	u	V	=agt has purpose, =pat help purpose, "for _" mark_ purpose, "to/3600 _" mark_ purpose	%
 useful	hasznos	utilis	przydatny	benri 便利	you3li4 有利	3134	e	A	for_ gen	%
 value	érték	pretium	wartość	kachi 価値	jia4zhi2 价值	526	e	N	amount, < gen pay/812>	%
 vehicle	jármű	vehiculum	pojazd	norimono 乗り物	che1liang4 车辆	1172	c	N	machine, has wheel(many), {move people} ins_, {move object} ins_, car is_a, truck is_a, bus is_a	%
@@ -758,7 +758,7 @@ wheel	kerék	rota	koło	sharin 車輪	轮 lun2	1293	u	N	artefact, part_of <vehic
 white	fehér	albus	biały	shiroi 白い	bai2 白	755	c	N	colour, light/739, snow has colour, empty, clear	%
 whole	egész	totus	cały	subete 全て	quan2 全	553	c	A	all member	%quantifier
 wide	széles	latus	szeroki	hiroi 広い	kuan1guang3 宽广	2166	u	A	distance[great, horizontal] between side, has more(side)	%
-wife	feleség	uxor	źona	tsuma 妻	qi1zi 妻子	767	e	N	in marriage, female	%
+wife	feleség	uxor	żona	tsuma 妻	qi1zi 妻子	767	e	N	in marriage, female	%
 will	akar	volo	chcieć	hoshii 欲し	yao4 要	132	e	V	want	%
 win	győz	vinco	wygrywać	katsu 勝つ	ying2 赢	937	u	U	best, succeed/2718, before(compete), before(effort), get/1223 <prize>	%=agt defeat enemy
 wind	szél	ventus	wiatr	kaze 風	feng1 风	2164	e	N	air, move[horizontal]	%
@@ -773,5 +773,5 @@ wrist	csukló	articulus	nadgarstek	tekubi 手首	shou3wan4zi 手腕子	438	e	N	o
 write	ír	scribo	pisać	kaku 書く	xie3 写	1109	u	V	put {<letter/278>,<more(word)>} on surface<paper>, ins_ {<pen>,<pencil>}	%
 written	írott	scritus	napisany	kakareta 書かれた	shu1mian4 书面	3126	u	A	letter/278 on surface[<paper>]	%
 year	év	annus	rok	toshi 年	nian2 年	545	c	N	period, time, month part_of	%
-yellow	sárga	flavus	źółty	kiiroi 黄色い	huang2 黄	2057	e	N	colour, sun has colour	%
+yellow	sárga	flavus	żółty	kiiroi 黄色い	huang2 黄	2057	e	N	colour, sun has colour	%
 young	fiatal	iuvenis	młody	wakai 若い	nian2qing1 年轻	799	u	N	early, in life	%
