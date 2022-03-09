@@ -406,7 +406,7 @@ man	férfi	vir	mężczyzna	otoko 男	nan2 男	744	e	N	person, male	%
 many	sok	multus	wiele	takusan たくさん	duo1 多	2113	u	A	quantity, er_ gen	%
 mark	jel	nota	znak	shirushi 印	biao1ji4 标记	1182	u	N	sign, visible	%
 mark_	jelöl	nota	znak	shirusu 標す	biao1zhi4 标志	3331	u	V	=agt[sign], =pat[meaning], represent	%
-marriage	házasság	nuptiae	wesele	kekkon 結婚	hun1yin1 婚姻	1487	c	N	legal(union), husband part_of, wife part_of	%
+marriage	házasság	nuptiae	małżeństwo	kekkon 結婚	hun1yin1 婚姻	1487	c	N	legal(union), husband part_of, wife part_of	%
 mass	tömeg	massa	masa	shitsuryō 質量	zhi4liang4 质量	2410	e	N	amount, object has	%
 material	anyag	materialis	materiał	genryō 原料	cai2liao4 材料	2798	u	N	object, real, <build> use	%
 mean	jelent	sibi_vult	znaczyć	imi-suru 意味する	yi4wei4zhe 意味着	1186	e	V	=agt represent =pat, =agt[sign]	%
@@ -589,7 +589,7 @@ self	önmaga	ipse	sam	jibun 自分	zi4- 自; zi4ji3 自己	1851	e	N	=pat[=agt], 
 sell	elad	vendo	sprzedać	uru 売る	mai4 卖	595	c	V	=agt cause_ {buyer has =pat}, buyer cause_ {=agt has money_}, dative_ mark_ buyer	%
 seller	eladó	venditor	sprzedający	urite 売り手	mai4fang1 卖方	3629	u	N	=agt sell, -er/3627	%
 sensation	érzet	affectus	uczucie	kankaku 感覚	gan3jue2 感觉	534	u	N	sense ins_, <touch>	%
-sense	érzék	sensus	rozum	kankaku 感覚	gan3jue2 感觉	2458	e	N	animal has, hear is_a, see is_a, smell is_a, touch is_a, taste is_a	%HUN e1rze1k content: bodily position, temperature, pain, balance
+sense	érzék	sensus	zmysł	kankaku 感覚	gan3jue2 感觉	2458	e	N	animal has, hear is_a, see is_a, smell is_a, touch is_a, taste is_a	%HUN e1rze1k content: bodily position, temperature, pain, balance
 sentence	mondat	sententia	zdanie	bun 文	ju4 句	1722	c	N	in text, has phrase	%
 separate	külön	segrego	osobny	bekko 別個	fen1li2 分离	1450	u	V	=agt cause_ {=pat at other(place/1026)}, "from _" mark_ place/1026	%
 sequence	sorozat	sequentia	sekwencja	junjo 順序	shun4xu4 顺序	3137	u	N	many(thing) part_of, thing follow other, has order/2739	%
@@ -617,7 +617,7 @@ shut	zárt	clausus	zamykać	shimatta 閉まった	guan1bi4 关闭	2668	u	A	gen l
 sick	beteg	aeger	chory	byōki 病気	bing4 病	274	u	A	ill, <vomit>	%
 side	oldal	latus	strona	men 面	bian1 边	1903	u	N	part, <two>, centre[far], oppose, object has	%
 sign	jel	signum	znak	kigō 記号	fu2hao4 符号	1183	c	N	gen perceive, information, show, has meaning	%
-signal	jel	signum	signal	aizu 合図	xin4hao4 信号	1184	e	N	communicate, people see	%
+signal	jel	signum	signał	aizu 合図	xin4hao4 信号	1184	e	N	communicate, people see	%
 similar	hasonló	similis	podobny	nite iru 似ている	xiang1si4 相似	2794	u	A	=agt has quality, =pat has quality, "to _" mark_ =pat	%
 sit	ül	sedeo	siedzieć	suwaru 座る	zuo4 坐	2493	c	U	=agt at surface[<seat>], =agt has buttocks, buttocks at surface, =agt has trunk/2759[vertical]	%
 situation	helyzet	status	sytuacja	jōkyō 状況	qing2kuang4 情况	2784	u	N	around	%
@@ -638,7 +638,7 @@ solid	szilárd	solidus	solidny	kotai 個体	gu4ti3 固体	2216	u	A	firm/2215	%
 solve	fejt	solvo	rozwiązać	toku 解く	jie3jue2 解决	760	c	V	work, =pat problem, =agt want {gen lack problem}	%
 sorrow	bú	dolor	smutek	kanashii 悲しい	bei1ai1 悲哀	341	u	N	emotion, er_ sad	%
 sound	ép	salvus	cały	kenkōteki 健康的	jian4quan2 健全	512	e	A	whole, firm/2215	%ND
-sound	hang	sonus	odgłos	oto 音	sheng1yin1 声音	993	e	N	wave, human hear, in air	%
+sound	hang	sonus	dźwięk	oto 音	sheng1yin1 声音	993	e	N	wave, human hear, in air	%
 soup	leves	ius	zupa	súpu スープ	tang1 汤	1541	e	N	food, liquid	%
 sour	erjedt	fermentatus	kwaśny	suppai 酸っぱい	suan1 酸	680	c	A	taste, resemble acid, <bad>	%
 space	tér	spatium	przestrzeń	kúkan 空間	kong1jian1 空间	2327	c	N	thing in, empty, three(dimension) in	%
@@ -678,7 +678,7 @@ summer	nyár	aestas	lato	natsu 夏	xia4tian1 夏天	1802	c	N	season/548, follow 
 sun	nap	sol	słońce	taiyō 太陽	tai4yang2 太阳	1755	c	N	planet, give light/739, give heat, bright, yellow, at sky, at day	%RG
 sunrise	napkelte	solis_ortus	wschód_słońca	hinode 日の出	ri4chu1 日出	3136	e	N	after(sun at sky)	%
 sunset	napnyugta	solis_occasus	zachód_słońca	higure 日暮れ	ri4luo4 日落	3135	e	N	after(sky lack sun)	%
-support	tart	asservo	utrzymywać	sasaeru 支える	zhi1cheng1 支撑	2310	u	V	=agt cause_ =pat[stable], =agt[below]	%
+support	tart	asservo	podtrzymywać	sasaeru 支える	zhi1cheng1 支撑	2310	u	V	=agt cause_ =pat[stable], =agt[below]	%
 surface	felszin	superficies	powierzchnia	hyōmen 表面	biao3mian4 表面	781	u	N	part, separate, object has part, object in	%
 swallow	nyel	voro	połykać	nomikomu 飲み込む	tun1 吞	1805	c	V	=agt cause_ {=pat[move]}, after(=pat in stomach), =pat in mouth, =pat in throat, =agt has stomach, =agt has mouth, =agt has throat	%
 sweet	édes	dulcis	słodki	amai 甘い	tian2 甜	495	c	A	taste, good, pleasant, sugar has taste, honey has taste	% %saccharin has taste
@@ -710,7 +710,7 @@ time	idő	tempus	czas	jikan 時間	shi2jian1 时间	1120	c	N	event in, has direc
 tired	fáradt	lassus	zmęczony	tsukarete-iru 疲れている	lei4 累	3634	e	A	want rest  	%
 to	-ba	in	do	ni に	jin4 进	12	u	G	after(=agt in =pat) 	%
 to	-hoz	ad	do	ni に	dao4 到	2743	u	G	after(=agt at/2744 =pat)	%
-to	-ni	-are		(-C)u	(n/a)	3600	u	G	is_a thing, "to/3600 _" mark_ thing	%infinitive
+to	-ni	-are		-ć/-c	(n/a)	3600	u	G	is_a thing, "to/3600 _" mark_ thing	%infinitive
 together	együtt	una	razem	issho 一緒	yi4qi3 一起	586	u	D	similar <place, intent>	%
 tongue	nyelv	lingua	język	shita 舌	she2tou 舌头	1808	e	N	part_of body, at mouth, taste ins_, speak ins_	%
 tool	szerszám	instrumentum	narzędzie	dōgu 道具	gong1ju4 工具	2202	u	N	object, work ins_	%
@@ -724,7 +724,7 @@ true	igaz	verus	prawdziwy	hontō 本当	zhen1 真	1125	c	A	fact	%
 trunk	törzs	truncus	tołów	miki 幹	zhu3gan4 主干	2759	u	N	main(part), long, stable	%
 try	próbál	tempto	próbować	tamesu 試す	shi4 试	1976	e	V	=agt want =agt[=pat]	%
 tube	cső	fistula	rura	tsutsu 筒	guan3zi 管子	419	u	N	pipe	%
-turn	forog	versor	przekręcać	mawaru 回る	zhuan3dong4 转动	860	u	V	move, change(direction), <has axis>	%
+turn	forog	versor	kręcić	mawaru 回る	zhuan3dong4 转动	860	u	V	move, change(direction), <has axis>	%
 tusk	agyar	dente	kieł	kiba 牙	chang2ya2 长牙	3605	e	N	tooth, long, elephant has	%
 two	két	duo	dwa	ni 二	er4 二	2967	u	A	number, one in, other in, follow one	%
 under	alá	sub	pod	shita 下	xia4 下	136	u	D	high(=pat er_ =agt)	%
