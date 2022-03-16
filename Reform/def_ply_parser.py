@@ -450,20 +450,32 @@ def main(argv):
                     with open(
                         os.path.join(outputdir, "tokens"), "w", encoding="utf-8"
                     ) as tokens:
-                        for item in correct:
-                            if not item.startswith("%"):
-                                if mode != "def":
-                                    substituted.write(
-                                        "%s" % substitute_root(item, mode)
-                                    )
-                                    for top in get_top_level_clauses(item, mode):
-                                        top_level.write("%s\n" % top)
-                                    if clause:
-                                        filtered.write(
-                                            "%s" % filter_line(item, clause, mode)
+                        with open(
+                            os.path.join(
+                                outputdir, "4lang_def_correct_substituted_top_level"
+                            ),
+                            "w",
+                            encoding="utf-8",
+                        ) as substituted_top_level:
+                            for item in correct:
+                                if not item.startswith("%"):
+                                    if mode != "def":
+                                        substituted.write(
+                                            "%s" % substitute_root(item, mode)
                                         )
-                                tokens.write("%s" % get_tokens(item, mode))
-                                f.write("%s" % item)
+
+                                        for top in get_top_level_clauses(item, mode):
+                                            top_level.write("%s\n" % top)
+                                        for top in get_top_level_clauses(
+                                            substitute_root(item), mode
+                                        ):
+                                            substituted_top_level.write("%s\n" % top)
+                                        if clause:
+                                            filtered.write(
+                                                "%s" % filter_line(item, clause, mode)
+                                            )
+                                    tokens.write("%s" % get_tokens(item, mode))
+                                    f.write("%s" % item)
 
 
 if __name__ == "__main__":
