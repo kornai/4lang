@@ -398,11 +398,35 @@ def get_args():
     parser = argparse.ArgumentParser(
         description="def_ply_parser.py -i <inputfile> -o <outputdir> -f <format> -c <clause>"
     )
-    parser.add_argument("-i", "--input-file", type=str, required=True)
-    parser.add_argument("-o", "--output-dir", type=str, required=True)
-    parser.add_argument("-f", "--format", type=str, default="4lang")
-    parser.add_argument("-c", "--clause", type=str, default=None)
-    # parser.add_argument("-b", "--binaries", type=str, required=True)
+    parser.add_argument(
+        "-i",
+        "--input-file",
+        type=str,
+        required=True,
+        help="The input file, should be a tsv",
+    )
+    parser.add_argument(
+        "-o",
+        "--output-dir",
+        type=str,
+        required=True,
+        help="The output directory, where the processed files will be stored",
+    )
+    parser.add_argument(
+        "-f",
+        "--format",
+        type=str,
+        default="4lang",
+        choices=["4lang", "def", "column"],
+        help="Choose the process mode. 4lang expects the full column list, def only excpets a single column with the definitions, column expects 2 columns: the words itself and the definitions",
+    )
+    parser.add_argument(
+        "-c",
+        "--clause",
+        type=str,
+        default=None,
+        help="The clause you want to filter the definitions with",
+    )
     return parser.parse_args()
 
 
