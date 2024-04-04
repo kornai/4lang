@@ -2234,7 +2234,7 @@ organize	szervez	compono	organizowac1	2949	u	V	=agt cause_ {=pat has structure}	
 origin	eredet	origo	pocza1tek	678	u	N	point, =POSS[exist[after]]	%relational
 original	eredeti	#	#	3347	u	A	first, other follow, new, ' RESEMBLE, <famous make>	%lack(RESEMBLE '), lack(follow ') % RESEMBLE is asymmetric, figure and ground
 ornament	di1sz	ornamentum	ornament	459	u	N	object, adorn	%
-other	ma1s	alius	inny	1567	p	N	other	%
+other	ma1s	alius	inny	1567	p	N	different	%
 otherwise	ma1ske1pp	aliter	w_przeciwnym_razie	1568	u	D	lack cause_	%logic. ?
 ought	kell	debet	powinien	1287	u	G	best(option)	%
 our	-nk	noster	nasz	36	u	G	we has	%
