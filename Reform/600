@@ -2,6 +2,7 @@
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	    %nomen agentis
 -est	leg-bb	-issimus	naj-szyo	1513	e	G	er_ other     %
+-est	leg-bb	-issimus	naj-szyo	3625	e	G	er_ all     %
 -ing	-a1s	-endi	-anie	2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_   	%
 -ist	-ista	-tor	-ista	29	e	G	person<profession>, think {stem_[important]}, "_-ist" mark_ stem_	%
 -ize	-iza1l	#	#	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
@@ -58,7 +59,7 @@ believe	hisz	credo	wierzyc1	1062	u	V	=agt think =pat[true,real]	%
 below	lent	infra	poniz1ej	1534	e	A	under	%
 bend	hajlik	flecto	zginac1_sie1	975	e	V	has form[change], after(lack straight/563)	%
 bend	i1v	curvatura	l1uk	1112	e	N	line, lack straight/563	%
-best	legjobb	optimus	najlepszy	1515	e	A	good(er_ all)	%
+best	legjobb	optimus	najlepszy	1515	e	A	good, -est	%
 between	ko2ze1	in/inter	mie1dzy	1409	e	G	=agt at =pat[place/2326], =agt separate =pat, "between _" mark_ =pat	%
 big	nagy	magnus	duz1y	1744	e	A	er_ gen	%
 bird	mada1r	avis	ptak	1576	c	N	animal, make egg, has feather, has two(wing)	%
@@ -394,7 +395,7 @@ love	szeret	amo	kochac1	2200	u	V	emotion, good, =pat[person], care/82	%
 low	alacsony	demissus	niski	139	u	A	height(gen er_)	%
 lung	tu2do3	pulmo	pl1uco	2441	u	N	organ, breathe ins_	%
 machine	ge1p	machina	maszyna	894	u	N	object, work	%
-main	fo3	primus	gl1o1wny	818	e	A	er_ all, rank, lead/2617	%
+main	fo3	primus	gl1o1wny	818	e	A	er_ other, rank, lead/2617	%
 make	csina1l	facio	robic1	409	u	V	=agt cause_ {=pat[exist]}	%RA%
 male	hi1m	mas	samiec	1039	e	N	sex	%
 mammal	emlo3s	mammalia	ssak	2729	c	N	animal, has fur, has milk	%ND
