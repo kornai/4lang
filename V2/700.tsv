@@ -1,16 +1,16 @@
 en	hu	la	pl	ja	zh	num	s	l	def	%comment
--able	-ható	-bilis	-alni	_ -e-_	ke3- 可	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
--er	-bb	-ior/-ius	-szy	_ yori _ _-i	bi3jiao4 比较	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
+-able	-ható	-bilis	-alni	dekiru できる	ke3- 可	21	e	G	gen allow {gen stem_ =agt}, "_-able" mark_ stem	%detestable
+-er	-bb	-ior/-ius	-szy	yori より    bi3jiao4 比较	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-ó	-tor/-trix	-arz	-sha 者	 -zhe3 者	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	  %nomen agentis
 -est	leg...bb	-issimus	naj...szy	ichiban 一番 	zui4- 最	3625	e	G	er_ all   %
 -est	leg...bb	-issimus	naj...szy	ichiban _ 一番	zui4- 最	1513	e	G	er_ other   %
 -ing	-ás	-endi	-anie	_ koto		2	e	G	stem_-ing is_a event, "_-ing" mark_ stem_ 	%
 -ist	-ista	-tor/-trix	-owiec	-ka 家	 -zhu3yi4zhe3 主意者	29	e	G	person[<profession>], think {stem_[important]}, "_-ist" mark_ stem_	%
 -ize	-izál			-ka-suru 化する 	 -hua4 化	17	e	G	cause_ after({=pat has property, stem_ has property}), "_-ize" mark_ stem	%
--th	-ad	-ias	-ta	_ bun no _	 -fen1zhi1 分之	4	e	G	part, in whole, before(divide)	%
--th	-adik	-imus	-ty	_ban (me) 番目	di4- 第	5	e	G	position, in sequence	%
-/=agt				ga が		3225	p	G	/=agt	% %
-/=pat				o を		3376	p	G	/=pat	% %
+-th	-ad	-ias	-ta	bun 分の -fen1zhi1 分之	4	e	G	part, in whole, before(divide)	%
+-th	-adik	-imus	-ty	ban me 番目	di4- 第	5	e	G	position, in sequence	%
+=agt	nom	nom	nom	ga が		3225	p	G	/=agt	% %
+=pat	acc	acc	acc	o を		3376	p	G	/=pat	% %
 acid	sav	acidum	kwas	san 酸	suān 酸	2064	e	N	substance, <burn>, has taste[sharp,sour], lack kind	%
 act	tesz	ago	działać	suru する	zuo4 做	2373	e	V	do	%
 act	tett	factum	akt	kōi 行為	xing2wei2 行为	2379	e	N	act/2373	%
@@ -221,7 +221,7 @@ engine	gép	machina	silnik	kikai 機械	fa1dong4ji1 发动机	893	u	N	machine, c
 enter	belép	intro	wejść	hairu 入る	jin4 进	258	e	V	go, after(=agt in =pat)	%
 entrance	bejárat	porta	wejście	iriguchi 入口	ru4kou3 入口	256	u	N	place/1026, {<person>[enter]} through, <door>	%
 equipment	berendezés	apparatus	urządzenie	kigu 器具	she4bei4 设备	2788	e	N	tool, gen has	%
-er_	-bb	-ior/-ius	-szy	yori より	geng4 更 __	3272	p	G	er_	%
+er_	-bb	-ior/-ius	-szy	yori より	geng4 更 _	3272	p	G	er_	%
 event	esemény	eventum	wydarzenie	dekigoto 出来事	shi4jian4 事件	692	u	N	activity, at place/1026, <important>	%
 exact	exakt	exactus	dokładny	seikaku 正確	zhun3que4 准确	705	e	A	correct, lack different	%
 exchange	csere	mutatio	wymiana	kōkan 交換	jiao1huan4 交换	405	u	N	before(=pat at person), after(=pat at other(person))	%
