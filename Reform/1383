@@ -1004,7 +1004,7 @@ ordinary	he1tko2znapi	quotidianus	zwyczajny	1023	u	A	common	%
 organ	szerv	membrum	narza1d	2203	u	N	object, part_of body, has purpose	%
 organization	szervezet	societas	organizacja	2204	u	N	group, person member, has purpose, structure	%
 organize	szervez	compono	organizowac1	2949	u	V	=agt cause_ {=pat has structure}	%
-other	ma1s	alius	inny	1567	p	N	other	%
+other	ma1s	alius	inny	1567	p	N	different	%
 out	ki	foras	wy-	1316	e	D	lack in	%
 outdoor	ku2lso3	externus	na_zewna1trz	1455	e	A	place lack {in building}	%
 outer	ku2lso3	exterior	zewne1trzny	1456	e	A	part, other(part) in	%
