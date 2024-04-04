@@ -625,7 +625,6 @@ end
 enemy
 engine
 engineer N
-English
 enjoy
 enjoyment
 enough
@@ -831,7 +830,6 @@ glue
 go V
 goat
 god
-God
 gold
 golden
 good
@@ -958,7 +956,7 @@ hurry
 hurt V
 husband N
 hut
-I
+i
 ice N
 icy
 idea
@@ -1077,8 +1075,7 @@ law
 lawyer
 lay V
 lazy
-lead N
-lead V
+lead NV
 leaf N
 lean V
 learn
@@ -1275,7 +1272,7 @@ night
 nine
 ninth
 no AvD
-no one
+no_one
 noble A
 nobleman
 noise N
@@ -1351,7 +1348,7 @@ outer
 outside
 over AvP
 owe
-owing to
+owing_to
 own DPnV
 oxygen
 pack V
@@ -1915,8 +1912,7 @@ taxi N
 tea
 teach
 team N
-tear V
-tear N
+tear NV
 telephone
 television
 tell
@@ -1979,8 +1975,7 @@ tight A
 time N
 timetable N
 tin
-tire [tyre] N
-tire V
+tire VN
 title N
 to
 tobacco
@@ -2049,7 +2044,7 @@ up AAvP
 upper A
 upright AAv
 upset V
-upside down
+upside_down
 upstairs AAv
 urge
 urgent
@@ -2142,8 +2137,7 @@ wild AAv
 will
 willing
 win V
-wind V
-wind N
+wind NV
 window
 wine N
 wing N
@@ -2171,7 +2165,6 @@ worse
 worship
 worst
 worth
-worthy
 worthy of
 would
 wound
