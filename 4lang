@@ -11,7 +11,7 @@
 -ence	-sa1g	-monia	-stwo	44	u	G	action, stem, "_-ence" mark_ stem	%
 -er	-bb	-ior/-ius	-szy	14	e	G	er_, =agt has quality, "_-er" mark_ stem_[quality], "than _" mark_ =pat, =pat has quality	%
 -er	-o1	#	#	2815	u	G	=REL '	%entertain+er % =agt of stem_
--er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_%nomen agentis	%
+-er	-o1	-tor/-trix	-ac1/ic1	3627	e	G	stem_-er is_a =agt, "_ -er" mark_ stem_	%nomen agentis
 -ess	-no3	-a/-trix	-ka	37	u	G	female	%
 -est	leg-bb	-issimus	naj-szyo	1513	e	G	r_ all	%
 -ful	-teli	-osus	-ny	56	u	G	has =REL	%success- % full
@@ -462,7 +462,7 @@ attempt	kise1rlet	conatus	pro1ba	1359	u	N	try	%
 attend	figyel	animum_adverto	uwaz1ac1	800	u	U	TODO	%see 2773
 attend	re1szt_vesz	#	#	2771	u	V	=agt at =pat	%
 attend_upon	szolga1l	famulor	sl1uz1yc1	2242	u	V	TODO	%
-attention	figyelem	animi_attentio	uwaga	801	u	V	listen, see, =agt think =pat[interesting, important] %light verb, "pay attention"	%
+attention	figyelem	animi_attentio	uwaga	801	u	V	listen, see, =agt think =pat[interesting, important]	%light verb, "pay attention"
 attentive	figyelmes	attentus	uwaz1ny	802	u	A	watch	%
 attitude	attitu3d	positio	nastawienie	3409	u	N	feeling	%
 attract	vonz	attracho	przycia1gac1	2664	e	V	=agt cause_ {=pat want {=pat near =agt}}	%
@@ -500,7 +500,7 @@ ball-shaped	go2mb_alaku1	#	#	3322	u	A	has ball(shape)	%1
 banana	bana1n	bananus	banan	225	u	N	fruit, long, has skin[thick/2752,yellow]	%naive_theo has pulp[white], has lack(seed)
 band	zenekar	symphonia	zespo1l1	2678	u	N	group, musician, <popular>	%
 bank	bank	argentaria	bank	227	u	N	institution, money in	%
-bank	part	ripa	brzeg	1945	u	N	land, slope, at river	   %
+bank	part	ripa	brzeg	1945	u	N	land, slope, at river	%
 bar	kiza1r	excludo	wyl1a1czac1	1367	u	V	block across	%there seem to be no verbal use on rhs
 bar	kocsma	caupona	bar	1421	u	N	shop, sell drink, drink has alcohol	%
 bare	csupasz	nudus	nagi	439	u	A	has lack(garment)	%RA
@@ -954,8 +954,8 @@ cry_out	felkia1lt	exclamo	wykrzykna1c1	778	u	U	say, loud	%which sense?
 cube	kocka	alea	kos1c1	2701	u	N	shape, has four(side), has flat(top), has flat(bottom)	%
 cultivate	kimu3vel	excolo	kultywowac1	1345	u	V	=agt[work] on =pat[land], crop[raise[after]] at =pat	%
 cultivate	termeszt	aro	uprawiac1	2364	u	V	TODO	%
-cup	cse1sze	phiala	filiz1anka	395	u	N	container, small, open/1814, drink in, has flat(bottom), <has handle> %classic default case!	%
-cup	kupa	poculum	kubek	1463	u	N	container, small, open/1814, drink in, has round(bottom), has base    %	%
+cup	cse1sze	phiala	filiz1anka	395	u	N	container, small, open/1814, drink in, has flat(bottom), <has handle>	%classic default case!
+cup	kupa	poculum	kubek	1463	u	N	container, small, open/1814, drink in, has round(bottom), has base	%
 cupboard	szekre1ny	armarium	szafa	2180	e	N	furniture, has door, has shelf, store	%
 cure	gyo1gyi1t	sano	uzdrawiac1	934	u	V	heal	%
 cure	ku1ra	cura	leczenie	1444	u	N	at disease, cause_ health	%
@@ -1726,7 +1726,7 @@ intense	nagyfoku1	vehemens	intensywny	3369	e	A	er_ gen, extreme	%
 intention	sza1nde1k	consilium	zamiar	2144	u	N	TODO	%
 intercourse	e1rintkeze1s	commercium	stosunek	523	u	N	physical, activity, two(people), <after(child in/2758 woman)>, cause_ pleasure	%sex % Longman uses ko2zo2su2le1s
 interest	e1rdek	commodum	interes	515	u	N	=agt want, "poss" mark_ =agt	%
-interest	e1rdeklo3de1s	studium	zainteresowanie	517	u	N	desire, =agt want[=agt know], "poss" mark_ =agt %note agentless forms: the discovery has/holds great interest for geographers	%
+interest	e1rdeklo3de1s	studium	zainteresowanie	517	u	N	desire, =agt want[=agt know], "poss" mark_ =agt	%note agentless forms: the discovery has/holds great interest for geographers
 interest	kamat	usura	oprocentowanie	1220	u	N	price, borrow has	%
 interesting	e1rdekes	aptus_ad_delectandos_homines	interesuja1cy	516	u	A	GET/1223 attention	%
 international	nemzetko2zi	internationalis	mie1dzynarodowy	1787	u	A	at more(nation)	%
@@ -2125,7 +2125,7 @@ neuter	semleges	castro	kastrowac1	3511	u	N	TODO	%
 never	soha	nunquam	nigdy	2112	u	D	at time[lack]	%
 new	u1j	novus	nowy	2469	u	A	exist at past[short]	%
 news	hi1r	novum	wiadomos1c1	1041	u	N	information, ABOUT recent(event), in/2758 <newspaper>	%
-newspaper	u1jsa1g	diurna	gazeta	2473	u	N	artefact, public, has more(page), at every(day), news in, article in, advertisement in % <editorial in>	%
+newspaper	u1jsa1g	diurna	gazeta	2473	u	N	artefact, public, has more(page), at every(day), news in, article in, advertisement in	% <editorial in>
 next	ko2vetkezo3	posterus	naste1pny	1406	u	D	at/2744, follow gen	%
 nice	kedves	dulcis	mil1y	1275	e	A	cause_ joy	%
 nice-smelling	kedves_illatu1	#	#	3283	u	A	has nice(smell)	%1
@@ -2181,7 +2181,7 @@ octopus	polip	polypus	os1miornica	3517	u	N	animal, in sea, has arm(eight)	%
 odd	ku2lo2no2s	mirus	dziwny	1453	u	A	common[lack], strange	%
 odd	pa1ratlan	impar	nieparzysty	1930	u	A	number	%
 of	-bo1l	ex	-any	16	u	G	place, before(=agt in place), "of" mark place	%
-of	-ro1l	de	o	41	u	G	about %many other meanings of "of"	%
+of	-ro1l	de	o	41	u	G	about	%many other meanings of "of"
 of	-to1l	a/ab	od	58	u	G	place, before(=agt in place), "of" mark place	%
 off	el	dis-	wy-	592	u	D	lack at	%
 offence	ve1tek	delictum	wykroczenie	2601	u	N	TODO	%
@@ -2384,7 +2384,7 @@ point	pont	punctum	punkt	1969	u	N	place, lack part_of	%
 pointed	hegyes	acutus	szpiczasty	1025	u	A	sharp	%
 poison	me1reg	venenum	trucizna	1604	u	N	substance, cause_ injury	%
 pole	bot	pertica	pal	336	u	N	artefact, long, vertical, cylinder, <wood>	%
-police	rendo3rse1g	disciplinae_publicae_praefectura	policja	2014	u	N	control, government has, for_ law, fight crime, investigate gen, protect gen  %	%
+police	rendo3rse1g	disciplinae_publicae_praefectura	policja	2014	u	N	control, government has, for_ law, fight crime, investigate gen, protect gen	%
 policeman	rendo3r	custos_publicus	policjant	2013	u	N	profession, person, member police	%
 polish	fe1nyez	polio	polerowac1	740	u	V	=agt cause_ surface[smooth, shine], =pat has surface	%
 polite	udvarias	comis	uprzejmy	2516	u	A	conform society	%
